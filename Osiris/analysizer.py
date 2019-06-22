@@ -9,7 +9,7 @@ class Analysizer():
         self._nb = nbformat.read(notebook_file, as_version=4)
 
         # ep is abbr for execute_preprocessor, which will be set later corresponding to different analyses
-        self._ep = None 
+        self._ep = None
         self._py_version = None
         self._is_py_2 = None
         self._is_executable = None
@@ -17,17 +17,14 @@ class Analysizer():
         self._preceding_preapre()
 
         # copy.deepcopy() must be executed at the end of __init__
-        # since we would like to store the deep_copy version of the given notebook after parsing and clearning 
+        # since we would like to store the deep_copy version of the given notebook after parsing and clearning
         self._deep_copy_nb = copy.deepcopy(self._nb)
 
-        # DEBUG 
-        print(self._py_version)
-
     def _preceding_preapre(self):
-        # extract python version (DONE)
+        # extract python version & whether the version is python 2 or not 
         self._py_version, self._is_py_2 = self._extract_py_version()
 
-        # clean redundant (unexecuted/markdown/raw) cells (DONE)
+        # clean redundant (unexecuted/markdown/raw) cells
         self._clean_redundant_cells()
 
     def _extract_py_version(self):
@@ -36,8 +33,8 @@ class Analysizer():
         py_version = py_version_lst[0]+'.'+py_version_lst[1]
 
         # this assert may be replaced by some error-handling
-        assert py_version in ['2.7', '3.4', '3.5', '3.6', '3.7'] 
-        
+        assert py_version in ['2.7', '3.4', '3.5', '3.6', '3.7']
+
         is_py_2 = False
         if py_version[0] == '2':
             is_py_2 = True
@@ -64,7 +61,8 @@ class Analysizer():
         self._ep = OECPreprocessor()
 
     def _set_ep_check_idempotent_mode(self, check_cell_idx, is_duplicate):
-        self._ep = IdempotentCheckPreprocessor(check_cell_idx, is_duplicate, self._py_version)
+        self._ep = IdempotentCheckPreprocessor(
+            check_cell_idx, is_duplicate, self._py_version)
 
     def _execute_nb(self):
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
@@ -116,19 +114,21 @@ class Analysizer():
 
         return is_executable
 
-    def check_reproductibity_of_cells(self):
+    def check_reproductivity(self):
         if not self._is_executable:
             raise RuntimeError('This notebook is NOT executable')
 
         self._nb = copy.deepcopy(self._deep_copy_nb)
 
         # Extract original outputs (should NOT be re-executed)
-        original_outputs = self._extract_outputs_based_on_OEC_order(self._nb.cells)
+        original_outputs = self._extract_outputs_based_on_OEC_order(
+            self._nb.cells)
 
         # Extract executed outputs (should be re-executed)
         self._set_ep_as_OEC_mode()
         self._execute_nb()
-        executed_outputs = self._extract_outputs_based_on_OEC_order(self._nb.cells)
+        executed_outputs = self._extract_outputs_based_on_OEC_order(
+            self._nb.cells)
 
         assert len(original_outputs) == len(executed_outputs)
 
@@ -146,12 +146,14 @@ class Analysizer():
             reproductivity_ratio = 1
         else:
             reproductivity_ratio = num_of_reproductive_cells/num_of_cells
-        print('Reproductivity'.ljust(40), ':', "number of reproductive cells: {num_of_reproductive_cells} ; number of cells: {num_of_cells}".format(num_of_reproductive_cells=num_of_reproductive_cells, num_of_cells=num_of_cells))
-        print('Reproductivity'.ljust(40), ':', "reproductive ratio: {reproductivity_ratio} ; index of reproductive cells: {reproductive_cell_idx}".format(reproductivity_ratio=round(reproductivity_ratio, 3), reproductive_cell_idx=reproductive_cell_idx))
+        print('Reproductivity'.ljust(40), ':', "number of reproductive cells: {num_of_reproductive_cells} ; number of cells: {num_of_cells}".format(
+            num_of_reproductive_cells=num_of_reproductive_cells, num_of_cells=num_of_cells))
+        print('Reproductivity'.ljust(40), ':', "reproductive ratio: {reproductivity_ratio} ; index of reproductive cells: {reproductive_cell_idx}".format(
+            reproductivity_ratio=round(reproductivity_ratio, 3), reproductive_cell_idx=reproductive_cell_idx))
 
         return num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx
 
-    def check_idempotent_of_cells(self):
+    def check_idempotent(self):
         if not self._is_executable:
             raise RuntimeError('This notebook is NOT executable')
 
@@ -202,21 +204,17 @@ class Analysizer():
 
             # Store results for further return
             if idemp_result:
-                idempotent_cell_idx.append(i)    
+                idempotent_cell_idx.append(i)
 
         # Return
         num_of_idempotent_cells = len(idempotent_cell_idx)
         idempotent_ratio = len(idempotent_cell_idx) / num_of_cells
-        print('Idempotent'.ljust(40), ':', "number of idempotent cells: {num_of_idempotent_cells} ; number of cells: {num_of_cells}".format(num_of_idempotent_cells=num_of_idempotent_cells, num_of_cells=num_of_cells))
-        print('Idempotent'.ljust(40), ':', "idempoent ratio: {Idemp_ratio} ; index of Idempotent cells: {idempotent_cell_idx}".format(Idemp_ratio=round(idempotent_ratio, 3), idempotent_cell_idx=idempotent_cell_idx))
+        print('Idempotent'.ljust(40), ':', "number of idempotent cells: {num_of_idempotent_cells} ; number of cells: {num_of_cells}".format(
+            num_of_idempotent_cells=num_of_idempotent_cells, num_of_cells=num_of_cells))
+        print('Idempotent'.ljust(40), ':', "idempoent ratio: {Idemp_ratio} ; index of Idempotent cells: {idempotent_cell_idx}".format(
+            Idemp_ratio=round(idempotent_ratio, 3), idempotent_cell_idx=idempotent_cell_idx))
 
         return num_of_idempotent_cells, num_of_cells, idempotent_ratio, idempotent_cell_idx
 
-
-# For a single nb, implement the whole workflow 
-'''
-1. detect required env (DONE)
-2. switch to certain conda env (PENDING)
-3. analyze (DONE)
-4. exit conda env (PENDING)
-'''
+    def return_py_version(self):
+        return self._py_version
