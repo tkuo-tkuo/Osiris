@@ -24,6 +24,11 @@ class Analysizer():
         # extract python version & whether the version is python 2 or not 
         self._py_version, self._is_py_2 = self._extract_py_version()
 
+        # evaluate the name of kernel -> avoid the usage of inappropriate kernels like 'Python [Root]' or 'conda-root-py'
+        kernal_name = self._nb['metadata']['kernelspec']['name']
+        if kernal_name not in ['python2', 'python3']:
+            self._nb['metadata']['kernelspec']['name'] = 'python3'
+
         # clean redundant (unexecuted/markdown/raw) cells
         self._clean_redundant_cells()
 
@@ -75,8 +80,7 @@ class Analysizer():
             cells = cells.copy()
 
         execution_count_lst = [cell.execution_count for cell in cells]
-        OEC = sorted(range(len(execution_count_lst)),
-                     key=lambda k: execution_count_lst[k])
+        OEC = sorted(range(len(execution_count_lst)), key=lambda k: execution_count_lst[k])
         parsed_nb_cells = [cells[idx] for idx in OEC]
         for cell in parsed_nb_cells:
             if len(cell.outputs) > 0:
@@ -127,18 +131,24 @@ class Analysizer():
         # Extract executed outputs (should be re-executed)
         self._set_ep_as_OEC_mode()
         self._execute_nb()
-        executed_outputs = self._extract_outputs_based_on_OEC_order(
-            self._nb.cells)
+        executed_outputs = self._extract_outputs_based_on_OEC_order(self._nb.cells)
 
         assert len(original_outputs) == len(executed_outputs)
 
         # Compare two outputs
         reproductive_cell_idx = []
+        non_reproductive_cell_idx = []
+        non_reproductive_original_outputs = []
+        non_reproductive_executed_outputs = []
         num_of_reproductive_cells, num_of_cells = 0, len(original_outputs)
         for i in range(num_of_cells):
             if original_outputs[i] == executed_outputs[i]:
                 num_of_reproductive_cells += 1
                 reproductive_cell_idx.append(i)
+            else: 
+                non_reproductive_cell_idx.append(i)
+                non_reproductive_original_outputs.append(original_outputs[i])
+                non_reproductive_executed_outputs.append(executed_outputs[i])
 
         # Return (print) the results
         reproductivity_ratio = 0
@@ -151,7 +161,46 @@ class Analysizer():
         print('Reproductivity'.ljust(40), ':', "reproductive ratio: {reproductivity_ratio} ; index of reproductive cells: {reproductive_cell_idx}".format(
             reproductivity_ratio=round(reproductivity_ratio, 3), reproductive_cell_idx=reproductive_cell_idx))
 
+        # Print cells which are non reproductive 
+        self._nb = copy.deepcopy(self._deep_copy_nb)
+        self.print_source_code_of_non_reproductive_cells(non_reproductive_cell_idx, non_reproductive_original_outputs, non_reproductive_executed_outputs)
+
         return num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx
+
+    def print_source_code_of_non_reproductive_cells(self, index_lst, non_reproductive_original_outputs, non_reproductive_executed_outputs):
+        if self._is_py_2:
+            cells = self._nb.cells[:]
+        else:
+            cells = self._nb.cells.copy()
+
+        execution_count_lst = [cell.execution_count for cell in cells]
+        OEC = sorted(range(len(execution_count_lst)), key=lambda k: execution_count_lst[k])
+        parsed_nb_cells = [cells[idx] for idx in OEC]
+        
+        non_reproductive_cells = [cell for (idx, cell) in enumerate(parsed_nb_cells) if idx in index_lst]
+        non_reproductive_cells = non_reproductive_cells.copy() # in case we would modify any content
+
+        for (cell_idx, cell, original_output, executed_output) in zip(index_lst, non_reproductive_cells, non_reproductive_original_outputs, non_reproductive_executed_outputs):
+            if 'source' in cell.keys():
+                print('-------------------------------------------')
+                print('Source Code of Non reproductive Cell', cell_idx)
+                print('-------------------------------------------')
+                try:
+                    print(cell['source'])
+                except Exception as e:
+                    # print(e)
+                    pass 
+
+                print()
+                print('-----------------')
+                print('Original output:')
+                print(original_output)
+                print('Executed output:')
+
+                try:
+                    print(executed_output)
+                except Exception as e:
+                    print(e)
 
     def check_idempotent(self):
         if not self._is_executable:

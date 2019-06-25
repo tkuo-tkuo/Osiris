@@ -1,4 +1,9 @@
 import argparse
+import sys
+
+# Adjust the file in this sys.path 
+# sys.path.append('C:\\Users\\User\\Desktop\\Osiris')
+
 from Osiris.analysizer import Analysizer
 
 parser = argparse.ArgumentParser()

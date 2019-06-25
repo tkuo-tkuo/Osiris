@@ -19,6 +19,9 @@ class UserInterface():
 
         conda_env = None
         if self._py_version == '2.7':
+            print('We skip python 2 cases at this stage')
+            return 
+
             conda_env = 'python2'
         elif self._py_version == '3.4':
             conda_env = 'python34'
@@ -30,7 +33,26 @@ class UserInterface():
             conda_env = 'python37'
 
         CMD = ''
-        CMD = combine_two_commands(CMD, 'conda activate '+conda_env)
-        CMD = combine_two_commands(CMD, 'python auto_analysize_script.py -n '+self.nb_path)
-        CMD = combine_two_commands(CMD, 'conda deactivate')
+
+        path_split_lst = self.nb_path.split('/')
+        cd_path = ''
+        if len(path_split_lst) > 1:
+            cd_path_lst, notebook_path = path_split_lst[:-1], path_split_lst[-1]
+            cd_path = '/'.join(cd_path_lst)
+            copy_script_path = cd_path+'/'+'auto_analysize_script.py'
+
+            CMD = combine_two_commands(
+                CMD, 'copy auto_analysize_script.py "'+copy_script_path+'"')
+            CMD = combine_two_commands(CMD, 'cd '+cd_path)
+            CMD = combine_two_commands(CMD, 'conda activate '+conda_env)
+            CMD = combine_two_commands(
+                CMD, 'python auto_analysize_script.py -n "'+notebook_path+'"')
+            CMD = combine_two_commands(CMD, 'conda deactivate')
+
+        else:
+            CMD = combine_two_commands(CMD, 'conda activate '+conda_env)
+            CMD = combine_two_commands(CMD, 'python auto_analysize_script.py -n '+self.nb_path)
+            CMD = combine_two_commands(CMD, 'conda deactivate')
+
+        # print(CMD)
         subprocess.call(CMD, shell=True)
