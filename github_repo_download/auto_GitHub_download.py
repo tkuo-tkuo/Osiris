@@ -32,8 +32,8 @@ def downloaded_GitHub_repos(num_of_crawled_notebooks=None):
         print('User name:'.ljust(15), user_name)
         print('Project name:'.ljust(15), project_name)
         CMD1 = 'git init'
-        CMD2 = 'git clone ' + 'https://github.com/' + repo_name 
-        CMD3 = 'mv ' + project_name + ' ' + folder_name
+        CMD2 = 'git clone ' + 'https://github.com/' + repo_name
+        CMD3 = 'rename ' + project_name + ' ' + folder_name
         CMDs = []
         CMDs.append(CMD1)
         CMDs.append(CMD2)
@@ -54,7 +54,7 @@ def downloaded_GitHub_repos(num_of_crawled_notebooks=None):
 
     f.close()
 
-    with open('downloaded_notebooks.csv', 'w') as writeFile:
+    with open('downloaded_notebooks.csv', 'w', newline='') as writeFile:
         writer = csv.writer(writeFile)
         for i in range(num_of_crawled_notebooks):
             row = []
