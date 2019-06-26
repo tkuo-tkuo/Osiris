@@ -7,6 +7,7 @@ sys.path.append('/home/dabao/Osiris')
 
 import Osiris
 from Osiris.analysizer import Analysizer
+from Osiris.utils import store_nb
 
 naive_notebook_path = 'test_case_1.ipynb'
 image_IPythonDisplay_notebook_path = 'test_case_2.ipynb'
@@ -25,7 +26,7 @@ class TestOsiris(unittest.TestCase):
         f = open(naive_notebook_path, 'r', encoding='utf-8')
         analysizer = Analysizer(f)
         self.assertTrue(analysizer.check_executability(verbose=False))
-
+    
     def test_naive_notebook_reproductivity(self):
         f = open(naive_notebook_path, 'r', encoding='utf-8')
         analysizer = Analysizer(f)
@@ -49,15 +50,13 @@ class TestOsiris(unittest.TestCase):
     def test_check_reproductivity_for_image_IPythonDisplay(self):
         f = open(image_IPythonDisplay_notebook_path, 'r', encoding='utf-8')
         analysizer = Analysizer(f)
-        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx = analysizer.check_reproductivity(
-            verbose=False)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx = analysizer.check_reproductivity(verbose=False)
         self.assertEqual(num_of_reproductive_cells, 1)
 
     def test_check_reproductivity_for_image_Matplotlib(self):
         f = open(image_Matplotlib_notebook_path,'r', encoding='utf-8')
         analysizer = Analysizer(f)
-        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx = analysizer.check_reproductivity(
-            verbose=False)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx = analysizer.check_reproductivity(verbose=False)
         self.assertEqual(num_of_reproductive_cells, 2)        
 
     # Conda environment required
