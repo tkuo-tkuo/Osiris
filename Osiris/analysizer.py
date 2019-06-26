@@ -102,7 +102,7 @@ class Analysizer():
 
         return outputs
 
-    def check_executability(self):
+    def check_executability(self, verbose=True):
         self._nb = copy.deepcopy(self._deep_copy_nb)
         is_executable = False
         try:
@@ -113,12 +113,14 @@ class Analysizer():
             print(e)
             pass
 
-        print('Executability'.ljust(40), ':', is_executable)
+        if verbose:
+            print('Executability'.ljust(40), ':', is_executable)
         self._is_executable = is_executable
 
         return is_executable
 
-    def check_reproductivity(self):
+    def check_reproductivity(self, verbose=True):
+        self.check_executability(verbose=False)
         if not self._is_executable:
             raise RuntimeError('This notebook is NOT executable')
 
@@ -156,14 +158,16 @@ class Analysizer():
             reproductivity_ratio = 1
         else:
             reproductivity_ratio = num_of_reproductive_cells/num_of_cells
-        print('Reproductivity'.ljust(40), ':', "number of reproductive cells: {num_of_reproductive_cells} ; number of cells: {num_of_cells}".format(
-            num_of_reproductive_cells=num_of_reproductive_cells, num_of_cells=num_of_cells))
-        print('Reproductivity'.ljust(40), ':', "reproductive ratio: {reproductivity_ratio} ; index of reproductive cells: {reproductive_cell_idx}".format(
-            reproductivity_ratio=round(reproductivity_ratio, 3), reproductive_cell_idx=reproductive_cell_idx))
+        
+        if verbose:
+            print('Reproductivity'.ljust(40), ':', "number of reproductive cells: {num_of_reproductive_cells} ; number of cells: {num_of_cells}".format(
+                num_of_reproductive_cells=num_of_reproductive_cells, num_of_cells=num_of_cells))
+            print('Reproductivity'.ljust(40), ':', "reproductive ratio: {reproductivity_ratio} ; index of reproductive cells: {reproductive_cell_idx}".format(
+                reproductivity_ratio=round(reproductivity_ratio, 3), reproductive_cell_idx=reproductive_cell_idx))
 
-        # Print cells which are non reproductive 
-        self._nb = copy.deepcopy(self._deep_copy_nb)
-        self.print_source_code_of_non_reproductive_cells(non_reproductive_cell_idx, non_reproductive_original_outputs, non_reproductive_executed_outputs)
+            # Print cells which are non reproductive 
+            self._nb = copy.deepcopy(self._deep_copy_nb)
+            self.print_source_code_of_non_reproductive_cells(non_reproductive_cell_idx, non_reproductive_original_outputs, non_reproductive_executed_outputs)   
 
         return num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx
 
@@ -185,24 +189,17 @@ class Analysizer():
                 print('-------------------------------------------')
                 print('Source Code of Non reproductive Cell', cell_idx)
                 print('-------------------------------------------')
-                try:
-                    print(cell['source'])
-                except Exception as e:
-                    # print(e)
-                    pass 
+                print(cell['source'])
 
                 print()
                 print('-----------------')
                 print('Original output:')
                 print(original_output)
                 print('Executed output:')
+                print(executed_output)
 
-                try:
-                    print(executed_output)
-                except Exception as e:
-                    print(e)
-
-    def check_idempotent(self):
+    def check_idempotent(self, verbose=True):
+        self.check_executability(verbose=False)
         if not self._is_executable:
             raise RuntimeError('This notebook is NOT executable')
 
@@ -248,8 +245,9 @@ class Analysizer():
 
             # Check whether a cell is idempotent & Print
             idemp_result = (var_status_exe_once == var_status_exe_twice)
-            print("Check the {cell_idx} th cell among {num_of_cells} cells. Idempotent result: {Idemp_result}".format(
-                cell_idx=check_cell_idx, num_of_cells=num_of_cells, Idemp_result=idemp_result))
+            if verbose:
+                print("Check the {cell_idx} th cell among {num_of_cells} cells. Idempotent result: {Idemp_result}".format(
+                    cell_idx=check_cell_idx, num_of_cells=num_of_cells, Idemp_result=idemp_result))
 
             # Store results for further return
             if idemp_result:
@@ -258,10 +256,11 @@ class Analysizer():
         # Return
         num_of_idempotent_cells = len(idempotent_cell_idx)
         idempotent_ratio = len(idempotent_cell_idx) / num_of_cells
-        print('Idempotent'.ljust(40), ':', "number of idempotent cells: {num_of_idempotent_cells} ; number of cells: {num_of_cells}".format(
-            num_of_idempotent_cells=num_of_idempotent_cells, num_of_cells=num_of_cells))
-        print('Idempotent'.ljust(40), ':', "idempoent ratio: {Idemp_ratio} ; index of Idempotent cells: {idempotent_cell_idx}".format(
-            Idemp_ratio=round(idempotent_ratio, 3), idempotent_cell_idx=idempotent_cell_idx))
+        if verbose:
+            print('Idempotent'.ljust(40), ':', "number of idempotent cells: {num_of_idempotent_cells} ; number of cells: {num_of_cells}".format(
+                num_of_idempotent_cells=num_of_idempotent_cells, num_of_cells=num_of_cells))
+            print('Idempotent'.ljust(40), ':', "idempoent ratio: {Idemp_ratio} ; index of Idempotent cells: {idempotent_cell_idx}".format(
+                Idemp_ratio=round(idempotent_ratio, 3), idempotent_cell_idx=idempotent_cell_idx))
 
         return num_of_idempotent_cells, num_of_cells, idempotent_ratio, idempotent_cell_idx
 

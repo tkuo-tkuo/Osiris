@@ -14,7 +14,7 @@ class UserInterface():
             analysizer = Analysizer(f)
             self._py_version = analysizer.return_py_version()
 
-    def analyse(self):
+    def analyse(self, verbose=True):
         assert self._py_version in ['2.7', '3.4', '3.5', '3.6', '3.7']
 
         conda_env = None
@@ -45,8 +45,10 @@ class UserInterface():
                 CMD, 'copy auto_analysize_script.py "'+copy_script_path+'"')
             CMD = combine_two_commands(CMD, 'cd '+cd_path)
             CMD = combine_two_commands(CMD, 'conda activate '+conda_env)
-            CMD = combine_two_commands(
-                CMD, 'python auto_analysize_script.py -n "'+notebook_path+'"')
+            if verbose:
+                CMD = combine_two_commands(CMD, 'python auto_analysize_script.py -n "'+notebook_path+'"')
+            else:
+                CMD = combine_two_commands(CMD, 'python auto_analysize_script.py -v -n "'+notebook_path+'"')
             CMD = combine_two_commands(CMD, 'conda deactivate')
 
         else:
@@ -55,4 +57,4 @@ class UserInterface():
             CMD = combine_two_commands(CMD, 'conda deactivate')
 
         # print(CMD)
-        subprocess.call(CMD, shell=True)
+        return subprocess.call(CMD, shell=True)
