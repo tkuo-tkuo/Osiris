@@ -1,8 +1,7 @@
 import argparse
 import sys
 
-# Adjust the file in this sys.path 
-sys.path.append('C:\\Users\\User\\Desktop\\Osiris')
+sys.path.append('/home/dabao/Osiris')
 
 from Osiris.analysizer import Analysizer
 

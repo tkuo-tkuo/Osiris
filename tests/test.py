@@ -3,7 +3,7 @@ import warnings
 
 # These two lines should be replaced in the Linux environment 
 import sys
-sys.path.append('C:\\Users\\User\\Desktop\\Osiris')
+sys.path.append('/home/dabao/Osiris')
 
 import Osiris
 from Osiris.analysizer import Analysizer
@@ -57,7 +57,7 @@ class TestOsiris(unittest.TestCase):
         f = open(image_Matplotlib_notebook_path,'r', encoding='utf-8')
         analysizer = Analysizer(f)
         num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx = analysizer.check_reproductivity(
-            verbose=True)
+            verbose=False)
         self.assertEqual(num_of_reproductive_cells, 2)        
 
     # Conda environment required
