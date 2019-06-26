@@ -31,13 +31,15 @@ def downloaded_GitHub_repos(num_of_crawled_notebooks=None):
         folder_name = user_name+'@'+project_name
         print('User name:'.ljust(15), user_name)
         print('Project name:'.ljust(15), project_name)
+        
         CMD1 = 'git init'
         CMD2 = 'git clone ' + 'https://github.com/' + repo_name
-        CMD3 = 'rename ' + project_name + ' ' + folder_name
+        CMD3 = 'mv ' + project_name + ' ' + folder_name
         CMDs = []
         CMDs.append(CMD1)
         CMDs.append(CMD2)
         CMDs.append(CMD3)
+
         CMD = ''
         for idx, command in enumerate(CMDs):
             if idx is not 0:
@@ -46,8 +48,8 @@ def downloaded_GitHub_repos(num_of_crawled_notebooks=None):
                 CMD += command
 
         if not (folder_name in downloaded_GitHub_repos):
-            print(CMD)
-            subprocess.call(CMD, shell=True)
+            # print(CMD)
+            # subprocess.call(CMD, shell=True)
             downloaded_GitHub_repos.append(folder_name)
         else:
             print('This repository has been installed.')

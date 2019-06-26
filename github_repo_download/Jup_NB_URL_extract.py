@@ -20,24 +20,23 @@ with open('executed_notebooks.csv', 'r') as f:
             file_URL = 'https://github.com/' + repo + '/blob/' + commit + '/' + notebook_path
             repo_URLs.append(repo_URL)
             file_URLs.append(file_URL)
-            # repos.append(repo)
+            repos.append(repo)
             notebook_paths.append(notebook_path)
-            print(repo_URL, file_URL)
+            # print(repo_URL, file_URL)
         try:
             row = next(reader, None)
         except:
             pass 
-
 f.close()
 
-# with open('all_urls.csv', 'w', newline='') as writeFile:
-#     writer = csv.writer(writeFile)
-#     for i in range(len(repo_URLs)):
-#         row = []
-#         row.append(repo_URLs[i])
-#         row.append(file_URLs[i])
-#         row.append(repos[i])
-#         row.append(notebook_paths[i])
-#         writer.writerow(row)
 
-# writeFile.close()
+with open('all_urls.csv', 'w', newline='') as writeFile:
+    writer = csv.writer(writeFile)
+    for i in range(len(repo_URLs)):
+        row = []
+        row.append(repo_URLs[i])
+        row.append(file_URLs[i])
+        row.append(repos[i])
+        row.append(notebook_paths[i])
+        writer.writerow(row)
+writeFile.close()
