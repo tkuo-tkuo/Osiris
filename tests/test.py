@@ -1,7 +1,7 @@
 import unittest
 import warnings
+import csv 
 
-# These two lines should be replaced in the Linux environment 
 import sys
 sys.path.append('/home/dabao/Osiris')
 
@@ -14,6 +14,29 @@ image_IPythonDisplay_notebook_path = 'test_case_2.ipynb'
 image_Matplotlib_notebook_path = 'test_case_3.ipynb'
 relative_notebook_path = 'folder/test_case_4.ipynb'
 
+def massive_notebooks_analyze(start_idx, end_idx):
+    csv_file = open('downloaded_notebooks.csv', 'r', encoding='utf-8')
+    reader = csv.reader(csv_file)
+
+    analyse_results = []
+
+    for row_idx, row in enumerate(reader):
+        nb_idx = row_idx + 1
+        if nb_idx >= start_idx and nb_idx <= end_idx:
+            original_repo_path, notebook_path = row[0], row[1]
+            original_repo_path_lst = original_repo_path.split('/')
+            folder_path = original_repo_path_lst[0]+'@'+original_repo_path_lst[1]
+
+            path = '/mnt/fit-Knowledgezoo/jupyternotebooks/'+folder_path+'/'+notebook_path
+
+            try:
+                interface = Osiris.UserInterface(path)
+                analyse_results.append(interface.analyse(verbose=False, store=False))
+            except Exception as e:
+                print(e)
+
+    return analyse_results
+                                
 
 class TestOsiris(unittest.TestCase):
 
@@ -70,14 +93,14 @@ class TestOsiris(unittest.TestCase):
         self.assertEqual(analyse_result, 0)
 
     # Conda environment required
+    # Downloading massive notebooks required (This unit test should be removed when Osiris is officially released) 
     def test_multiple_notebook_analyses(self):
-        # Test 3 notebooks in 3 corresponding repositories with multiple paths relative to this test.py 
-        # A all_urls.csv will be used for traversing through the file system 
         
-        # 3 repos (PENDING)
-        # A all_urlscsv file for testing (PENDING)
-
-        pass
+        # Test 3 notebooks in 3 corresponding repositories with multiple paths relative to this test.py 
+        # A 'downloaded_notebooks.csv' will be used for traversing through the file system 
+        # Currently, all downloaded GitHub repos are stored in /mnt/fit-Knowledgezoo 
+        analyse_results = massive_notebooks_analyze(3, 3) 
+        self.assertEqual(analyse_results, [0]) 
 
 
 if __name__ == '__main__':
