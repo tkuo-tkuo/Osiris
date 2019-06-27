@@ -1,4 +1,4 @@
-import subprocess
+import subprocess, os
 from .analysizer import Analysizer
 from .utils import combine_two_commands
 
@@ -14,7 +14,7 @@ class UserInterface():
             analysizer = Analysizer(f)
             self._py_version = analysizer.return_py_version()
 
-    def analyse(self, verbose=True):
+    def analyse(self, verbose=True, store=False):
         assert self._py_version in ['2.7', '3.4', '3.5', '3.6', '3.7']
 
         conda_env = None
@@ -37,14 +37,18 @@ class UserInterface():
             cd_path = '/'.join(cd_path_lst)
             copy_script_path = cd_path+'/'+'auto_analysize_script.py'
            
-            CMD = combine_two_commands(CMD, 'cp auto_analysize_script.py "'+copy_script_path+'"')
+            CMD = combine_two_commands(CMD, 'sudo cp auto_analysize_script.py "'+copy_script_path+'"')
             CMD = combine_two_commands(CMD, 'cd '+cd_path)
             CMD = combine_two_commands(CMD, 'activate '+conda_env)
         
-            if verbose:
-                CMD = combine_two_commands(CMD, 'python auto_analysize_script.py -n "'+notebook_path+'"')
+            if verbose and store:
+                CMD = combine_two_commands(CMD, 'python3 auto_analysize_script.py -s -n "'+notebook_path+'"')
+            elif (not verbose) and store: 
+                CMD = combine_two_commands(CMD, 'python3 auto_analysize_script.py -v -s -n "'+notebook_path+'"')
+            elif verbose and (not store):  
+                CMD = combine_two_commands(CMD, 'python3 auto_analysize_script.py -n "'+notebook_path+'"')
             else:
-                CMD = combine_two_commands(CMD, 'python auto_analysize_script.py -v -n "'+notebook_path+'"')
+                CMD = combine_two_commands(CMD, 'python3 auto_analysize_script.py -v -n "'+notebook_path+'"')
            
             CMD = combine_two_commands(CMD, 'deactivate')
         else:
@@ -53,4 +57,5 @@ class UserInterface():
             CMD = combine_two_commands(CMD, 'deactivate')
 
         # print(CMD)
-        return subprocess.call(CMD, shell=True)
+        DEVNULL = open(os.devnull, 'wb')
+        return subprocess.call(CMD, shell=True, stderr=DEVNULL)
