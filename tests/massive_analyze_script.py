@@ -4,11 +4,9 @@ from threading import Thread
 sys.path.append('/home/dabao/Osiris')
 import Osiris
 
-def massive_notebooks_analyze(start_idx, end_idx):
+def massive_notebooks_analyze(start_idx, end_idx, analyze_mode):
     csv_file = open('downloaded_notebooks.csv', 'r', encoding='utf-8')
-    reader = csv.reader(csv_file)
-
-    analyse_results = []
+    reader = csv.reader(csv_file) 
 
     for row_idx, row in enumerate(reader):
         nb_idx = row_idx + 1
@@ -18,10 +16,11 @@ def massive_notebooks_analyze(start_idx, end_idx):
             folder_path = original_repo_path_lst[0]+'@'+original_repo_path_lst[1]
 
             path = '/mnt/fit-Knowledgezoo/jupyternotebooks/'+folder_path+'/'+notebook_path
-
+            
+            print(nb_idx, path)
             try:
                 interface = Osiris.UserInterface(path)
-                analyse_results.append(interface.analyse(verbose=True, store=False))
+                interface.analyse(verbose=True, store=True, analyze_mode=analyze_mode)
             except Exception as e:
                 print(e)
 
@@ -29,9 +28,10 @@ parser = argparse.ArgumentParser(
     description='analysize Jupyter Notebook files')
 parser.add_argument('--start-index', type=int, required=True)
 parser.add_argument('--end-index', type=int, required=True)
+parser.add_argument('-m', '--analyze-mode', type=str, default='OEC')
 args = parser.parse_args()
 
-massive_notebooks_analyze(args.start_index, args.end_index)
+massive_notebooks_analyze(args.start_index, args.end_index, args.analyze_mode)
 
 
 # Multithread

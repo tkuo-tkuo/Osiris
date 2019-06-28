@@ -62,6 +62,9 @@ class Analysizer():
 
         self._nb.cells = parsed_nb_cells
 
+    def _set_ep_as_normal_mode(self):
+        self._ep = ExecutePreprocessor()
+
     def _set_ep_as_OEC_mode(self):
         self._ep = OECPreprocessor()
 
@@ -102,11 +105,14 @@ class Analysizer():
 
         return outputs
 
-    def check_executability(self, verbose=True):
+    def check_executability(self, verbose=True, mode='OEC'):
         self._nb = copy.deepcopy(self._deep_copy_nb)
         is_executable = False
         try:
-            self._set_ep_as_OEC_mode()
+            if mode == 'normal':
+                self._set_ep_as_normal_mode()
+            else:
+                self._set_ep_as_OEC_mode()
             self._execute_nb()
             is_executable = True
         except Exception as e:
@@ -119,7 +125,7 @@ class Analysizer():
 
         return is_executable
 
-    def check_reproductivity(self, verbose=True):
+    def check_reproductivity(self, verbose=True, mode='OEC'):
         self.check_executability(verbose=False)
         if not self._is_executable:
             raise RuntimeError('This notebook is NOT executable')
@@ -131,7 +137,10 @@ class Analysizer():
             self._nb.cells)
 
         # Extract executed outputs (should be re-executed)
-        self._set_ep_as_OEC_mode()
+        if mode == 'normal':
+            self._set_ep_as_normal_mode()
+        else:
+            self._set_ep_as_OEC_mode()
         self._execute_nb()
         executed_outputs = self._extract_outputs_based_on_OEC_order(self._nb.cells)
 
@@ -158,7 +167,8 @@ class Analysizer():
             reproductivity_ratio = 1
         else:
             reproductivity_ratio = num_of_reproductive_cells/num_of_cells
-        
+        source_code_of_non_reproductive_cells = self.extract_source_code_from_non_reproductive_cells(non_reproductive_cell_idx)
+
         if verbose:
             print('Reproductivity'.ljust(40), ':', "number of reproductive cells: {num_of_reproductive_cells} ; number of cells: {num_of_cells}".format(
                 num_of_reproductive_cells=num_of_reproductive_cells, num_of_cells=num_of_cells))
@@ -167,9 +177,9 @@ class Analysizer():
 
             # Print cells which are non reproductive 
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            self.print_source_code_of_non_reproductive_cells(non_reproductive_cell_idx, non_reproductive_original_outputs, non_reproductive_executed_outputs)   
-
-        return num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx
+            # self.print_source_code_of_non_reproductive_cells(non_reproductive_cell_idx, non_reproductive_original_outputs, non_reproductive_executed_outputs)   
+        
+        return num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_of_non_reproductive_cells       
 
     def print_source_code_of_non_reproductive_cells(self, index_lst, non_reproductive_original_outputs, non_reproductive_executed_outputs):
         if self._is_py_2:
@@ -194,9 +204,27 @@ class Analysizer():
                 print()
                 print('-----------------')
                 print('Original output:')
-                print(original_output)
+                print(len(original_output))
+                # print(original_output)
                 print('Executed output:')
-                print(executed_output)
+                # print(executed_output)
+                print(len(executed_output))
+
+    def extract_source_code_from_non_reproductive_cells(self, index_lst):
+        if self._is_py_2:
+            cells = self._nb.cells[:]
+        else:
+            cells = self._nb.cells.copy()
+
+        execution_count_lst = [cell.execution_count for cell in cells]
+        OEC = sorted(range(len(execution_count_lst)), key=lambda k: execution_count_lst[k])
+        parsed_nb_cells = [cells[idx] for idx in OEC]
+        
+        non_reproductive_cells = [cell for (idx, cell) in enumerate(parsed_nb_cells) if idx in index_lst]
+        non_reproductive_cells = non_reproductive_cells.copy() # in case we would modify any content
+        source_code_of_non_reproductive_cells = [cell['source'] for cell in non_reproductive_cells]
+        
+        return source_code_of_non_reproductive_cells       
 
     def check_idempotent(self, verbose=True):
         self.check_executability(verbose=False)
