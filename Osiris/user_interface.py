@@ -14,7 +14,17 @@ class UserInterface():
             analysizer = Analysizer(f)
             self._py_version = analysizer.return_py_version()
 
-    def analyse(self, verbose=True, store=False, analyze_mode='OEC'):
+    '''
+    verbose: Whether the terminal will print out analyzing process on the terminal    
+    store: Whether analysized results will be stored for a given notebook 
+    analyze_strategy: Top-down (normal) / OEC (original execution count) / dependency
+        - top-down (normal): execute Eells from the top one to the bottom one in a notebook 
+        - OEC: Execute cells in increasing execution_count order 
+        - dependency: Execute cells by depth-first order in cell-dependency graph
+    strong_match: If True, we check whether individual cell is strongly matched. 
+                  Otherwise, we check whether individual cell is weakly matched.  
+    '''
+    def analyse(self, verbose=True, store=False, analyze_strategy='OEC', strong_match=True):
         assert self._py_version in ['2.7', '3.4', '3.5', '3.6', '3.7']
 
         conda_env = None
@@ -37,7 +47,7 @@ class UserInterface():
             cd_path = '/'.join(cd_path_lst)
             copy_script_path = cd_path+'/'+'auto_analysize_script.py'
            
-            CMD = combine_two_commands(CMD, 'sudo cp auto_analysize_script.py "'+copy_script_path+'"')
+            CMD = combine_two_commands(CMD, 'cp auto_analysize_script.py "'+copy_script_path+'"')
             CMD = combine_two_commands(CMD, 'cd '+cd_path)
             CMD = combine_two_commands(CMD, 'activate '+conda_env)
         
@@ -51,7 +61,7 @@ class UserInterface():
             else:
                 execute_CMD = 'python3 auto_analysize_script.py -v -n "'+notebook_path+'"'
 
-            if analyze_mode == 'normal':
+            if analyze_strategy == 'normal':
                 execute_CMD = execute_CMD + ' -t'                  
 
             CMD = combine_two_commands(CMD, execute_CMD)
@@ -62,6 +72,8 @@ class UserInterface():
             CMD = combine_two_commands(CMD, 'python auto_analysize_script.py -n '+self.nb_path)
             CMD = combine_two_commands(CMD, 'deactivate')
 
-        # print(CMD)
+        # print(CMD) # For DEBUG purpose 
+
+        # DEVNULL is used to filter out all potential warning messages in Osiris' automatic execution
         DEVNULL = open(os.devnull, 'wb')
         return subprocess.call(CMD, shell=True, stderr=DEVNULL)

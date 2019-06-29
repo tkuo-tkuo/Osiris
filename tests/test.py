@@ -13,6 +13,7 @@ naive_notebook_path = 'test_case_1.ipynb'
 image_IPythonDisplay_notebook_path = 'test_case_2.ipynb'
 image_Matplotlib_notebook_path = 'test_case_3.ipynb'
 relative_notebook_path = 'folder/test_case_4.ipynb'
+analyze_strategy_notebook_path = 'test_case_5.ipynb'
 
 def massive_notebooks_analyze(start_idx, end_idx):
     csv_file = open('downloaded_notebooks.csv', 'r', encoding='utf-8')
@@ -53,7 +54,7 @@ class TestOsiris(unittest.TestCase):
     def test_naive_notebook_reproductivity(self):
         f = open(naive_notebook_path, 'r', encoding='utf-8')
         analysizer = Analysizer(f)
-        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx = analysizer.check_reproductivity(
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, _ = analysizer.check_reproductivity(
             verbose=False)
         self.assertEqual(num_of_reproductive_cells, 1)
         self.assertEqual(num_of_cells, 3)
@@ -73,13 +74,13 @@ class TestOsiris(unittest.TestCase):
     def test_check_reproductivity_for_image_IPythonDisplay(self):
         f = open(image_IPythonDisplay_notebook_path, 'r', encoding='utf-8')
         analysizer = Analysizer(f)
-        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx = analysizer.check_reproductivity(verbose=False)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, _ = analysizer.check_reproductivity(verbose=False)
         self.assertEqual(num_of_reproductive_cells, 1)
 
     def test_check_reproductivity_for_image_Matplotlib(self):
         f = open(image_Matplotlib_notebook_path,'r', encoding='utf-8')
         analysizer = Analysizer(f)
-        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx = analysizer.check_reproductivity(verbose=False)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, _ = analysizer.check_reproductivity(verbose=False)
         self.assertEqual(num_of_reproductive_cells, 2)        
 
     # Conda environment required
@@ -94,6 +95,7 @@ class TestOsiris(unittest.TestCase):
 
     # Conda environment required
     # Downloading massive notebooks required (This unit test should be removed when Osiris is officially released) 
+    @unittest.skip('Currently, we do not need to test for massive analyses. Leave it after all tests on individual notebook are completed.')
     def test_multiple_notebook_analyses(self):
         
         # Test 3 notebooks in 3 corresponding repositories with multiple paths relative to this test.py 
@@ -101,6 +103,16 @@ class TestOsiris(unittest.TestCase):
         # Currently, all downloaded GitHub repos are stored in /mnt/fit-Knowledgezoo 
         analyse_results = massive_notebooks_analyze(3, 3) 
         self.assertEqual(analyse_results, [0]) 
+
+    def test_top_down_analyze_strategy(self):
+        pass 
+
+    def test_OEC_analyze_strategy(self):
+        pass 
+    
+    def test_dependency_analyze_strategy(self):
+        pass 
+    
 
 
 if __name__ == '__main__':
