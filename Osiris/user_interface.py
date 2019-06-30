@@ -55,65 +55,29 @@ class UserInterface():
     strong_match: If True, we check whether individual cell is strongly matched. 
                   Otherwise, we check whether individual cell is weakly matched.  
     '''
-    def analyse(self, verbose=True, store=False, analyze_strategy='OEC', strong_match=True):
+    def analyse_executability(self, verbose=True, store=False, analyze_strategy='OEC'):
         assert self._py_version in ['3.5', '3.6', '3.7']
 
-        CMD = ''
-
         path_split_lst = self._nb_path.split('/')
-        cd_path, notebook_name, execute_CMD = '', '', ''
-        
         # We need to cd to the same directory as the notebook
         if len(path_split_lst) > 1:
-            cd_path_lst, notebook_name = path_split_lst[:-1], path_split_lst[-1]
+            cd_path_lst = path_split_lst[:-1]
             cd_path = '/'.join(cd_path_lst)
-            
-            # Below two lines should removed # PENDING FOR BEING REMOVED
-            # copy_script_path = cd_path+'/'+'auto_analysize_script.py'
-            # CMD = combine_two_commands(CMD, 'cp auto_analysize_script.py "'+copy_script_path+'"')
-
-            # CMD = combine_two_commands(CMD, 'cd '+cd_path) # PENDING FOR REPLACE 
-            # print(os.getcwd())
             os.chdir(cd_path)
-            # print(os.getcwd())
-            
-            # CMD = combine_two_commands(CMD, 'activate '+self._conda_env) # PENDING FOR REPLACE
-            '''
-            if verbose and store:
-                execute_CMD = 'python3 auto_analysize_script.py -s -n "'+notebook_name+'"'
-            elif (not verbose) and store: 
-                execute_CMD = 'python3 auto_analysize_script.py -v -s -n "'+notebook_name+'"'
-            elif verbose and (not store):  
-                execute_CMD = 'python3 auto_analysize_script.py -n "'+notebook_name+'"'
-            else:
-                execute_CMD = 'python3 auto_analysize_script.py -v -n "'+notebook_name+'"'
-            '''
-        # no cd required  
-        else:
-            '''
-            notebook_name = self._nb_path
-            CMD = combine_two_commands(CMD, 'activate '+self._conda_env)
-            execute_CMD = 'python3 auto_analysize_script.py -n "'+notebook_name+'"'
-            '''
-        '''    
-        if analyze_strategy == 'normal':
-            execute_CMD = execute_CMD + ' --strategy normal'
-        else:
-            execute_CMD = execute_CMD + ' --strategy OEC'
-        '''
-
-        # CMD = combine_two_commands(CMD, execute_CMD)
-        
-        # CMD = combine_two_commands(CMD, 'deactivate')
-           
-        # print(CMD) # For DEBUG purpose 
-
-        # DEVNULL is used to filter out all potential warning messages in Osiris' automatic execution
-        # DEVNULL = open(os.devnull, 'wb')
-        # return subprocess.call(CMD, shell=True, stderr=DEVNULL)
-
+       
         is_executable = self.analysizer.check_executability(verbose, analyze_strategy)
+        if store:
+            # OPEN CSV FILE FOR STORAGE
+            csv_name_for_storage = 'Saved_analyse_executability_results_'+analyze_strategy+'.csv'
+            csv_file = open(csv_name_for_storage, 'a')
+            writer = csv.writer(csv_file)
+
+            # RUN SOMETHING IN CSV FILE
+            pass 
+
         
+
+        '''
         num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = self.analysizer.check_reproductivity(verbose, analyze_strategy)
 
         if store:
@@ -143,9 +107,10 @@ class UserInterface():
             if analyze_strategy == 'OEC':
                 for source_code in source_code_from_non_reproductive_cells:
                     writer_for_storing_source_code_of_non_reproductive_cells.writerow([source_code])   
+        '''
 
-
-
+    def analyse_outputs(self, verbose=True, store=False, analyze_strategy='OEC', strong_match=True):
+        pass
 
 
 

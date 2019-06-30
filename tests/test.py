@@ -92,8 +92,10 @@ class TestOsiris(unittest.TestCase):
         # 'interface.analyse' use 'return subprocess.call' at the code of the function
         # Subprocess.call returns 'actual process return code'
         # 1 for false process execution; 0 for successful process execution
-        analyse_result = interface.analyse(verbose=True)
-        pass 
+        analyse_result = interface.analyse_executability(verbose=True)
+        
+        # modify this notebook to check for the case that another directory opens another file (PENDING)
+        # add assert at the end (PENDING)
 
     # Conda environment required
     # Downloading massive notebooks required (This unit test should be removed when Osiris is officially released) 
@@ -105,14 +107,19 @@ class TestOsiris(unittest.TestCase):
         # Currently, all downloaded GitHub repos are stored in /mnt/fit-Knowledgezoo 
         analyse_results = massive_notebooks_analyze(3, 3) 
         self.assertEqual(analyse_results, [0]) 
-
+    
+    # should be renamed
+    @unittest.skip 
     def test_top_down_analyze_strategy(self):
         interface = Osiris.UserInterface(analyze_strategy_notebook_path)
-        interface.analyse(verbose=True, store=False, analyze_strategy='normal', strong_match=True)
+        interface.analyse_executability(verbose=True, store=False, analyze_strategy='normal', strong_match=True)
 
-    def test_OEC_analyze_strategy(self):
-        interface = Osiris.UserInterface(analyze_strategy_notebook_path) 
+    def test_OEC_analyse_for_executability(self):
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
+        interface.analyse_executability(verbose=True, store=False, analyze_strategy='OEC')
     
+    # should be renamed 
+    @unittest.skip
     def test_dependency_analyze_strategy(self):
         interface = Osiris.UserInterface(analyze_strategy_notebook_path) 
     
