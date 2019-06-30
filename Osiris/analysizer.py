@@ -3,6 +3,8 @@ import copy
 from nbconvert.preprocessors import ExecutePreprocessor
 from .ExecutePreprocessors import OECPreprocessor, IdempotentCheckPreprocessor
 
+from .utils import *
+
 class Analysizer():
 
     def __init__(self, notebook_file):
@@ -69,50 +71,32 @@ class Analysizer():
         self._ep = OECPreprocessor()
 
     def _set_ep_check_idempotent_mode(self, check_cell_idx, is_duplicate):
-        self._ep = IdempotentCheckPreprocessor(
-            check_cell_idx, is_duplicate, self._py_version)
+        self._ep = IdempotentCheckPreprocessor(check_cell_idx, is_duplicate, self._py_version)
 
     def _execute_nb(self):
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
 
-    def _extract_outputs_based_on_OEC_order(self, cells):
-        outputs = []
-        if self._is_py_2:
-            cells = cells[:]
-        else:
-            cells = cells.copy()
+    def _extract_dependency_graph(self):
+        pass 
 
-        execution_count_lst = [cell.execution_count for cell in cells]
-        OEC = sorted(range(len(execution_count_lst)), key=lambda k: execution_count_lst[k])
-        parsed_nb_cells = [cells[idx] for idx in OEC]
-        for cell in parsed_nb_cells:
-            if len(cell.outputs) > 0:
-                thorough_output_for_the_cell = ''
-                for output in cell.outputs:
-                    if 'text' in output.keys():
-                        thorough_output_for_the_cell += output.text
-                    elif 'data' in output.keys():
-                        image_data = output.data
-                        if 'image/png' in image_data.keys():
-                            thorough_output_for_the_cell += image_data['image/png']
-                        elif 'text/plain' in image_data.keys():
-                            thorough_output_for_the_cell += image_data['text/plain']
-                        else:
-                            pass
-                outputs.append(thorough_output_for_the_cell)
-            else:
-                outputs.append('')
+    def _extract_potential_execution_path_from_dependency_graph(self):
+        pass 
 
-        return outputs
+    def return_py_version(self):
+        return self._py_version
 
-    def check_executability(self, verbose=True, mode='OEC'):
+    def check_executability(self, verbose=True, analyze_strategy='OEC'):
         self._nb = copy.deepcopy(self._deep_copy_nb)
         is_executable = False
         try:
-            if mode == 'normal':
+            if analyze_strategy == 'normal':
                 self._set_ep_as_normal_mode()
+            elif analyze_strategy == 'dependency':
+                # PENDING
+                pass 
             else:
                 self._set_ep_as_OEC_mode()
+
             self._execute_nb()
             is_executable = True
         except Exception as e:
@@ -121,29 +105,59 @@ class Analysizer():
 
         if verbose:
             print('Executability'.ljust(40), ':', is_executable)
-        self._is_executable = is_executable
 
+        self._is_executable = is_executable
         return is_executable
 
-    def check_reproductivity(self, verbose=True, mode='OEC'):
-        self.check_executability(verbose=False)
-        if not self._is_executable:
-            raise RuntimeError('This notebook is NOT executable')
+    def check_reproductivity(self, verbose, analyse_strategy, strong_match):
+        original_outputs, executed_outputs = None, None
+        if analyse_strategy == 'OEC':
+            self.check_executability(verbose=False, analyze_strategy='OEC')
+            if not self._is_executable:
+                raise RuntimeError('This notebook is NOT executable')
 
-        self._nb = copy.deepcopy(self._deep_copy_nb)
+            # Extract the original outputs 
+            self._nb = copy.deepcopy(self._deep_copy_nb)
+            if strong_match:
+                original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
+            else: 
+                self._set_ep_as_OEC_mode()
+                self._execute_nb()
+                original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
 
-        # Extract original outputs (should NOT be re-executed)
-        original_outputs = self._extract_outputs_based_on_OEC_order(
-            self._nb.cells)
 
-        # Extract executed outputs (should be re-executed)
-        if mode == 'normal':
-            self._set_ep_as_normal_mode()
-        else:
+            # Extract the executed outputs 
+            self._nb = copy.deepcopy(self._deep_copy_nb)
             self._set_ep_as_OEC_mode()
-        self._execute_nb()
-        executed_outputs = self._extract_outputs_based_on_OEC_order(self._nb.cells)
+            self._execute_nb()
+            executed_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
+        elif analyse_strategy == 'normal':
+            self.check_executability(verbose=False, analyze_strategy='normal')
+            if not self._is_executable:
+                raise RuntimeError('This notebook is NOT executable')
 
+            # Extract the original outputs
+            self._nb = copy.deepcopy(self._deep_copy_nb)
+            if strong_match:
+                # extract outputs based on normal order -> implement this in utils (PENDING)
+                original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
+            else:
+                self._set_ep_as_normal_mode()
+                self._execute_nb()
+                original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
+
+            # Extract the executed outputs
+            self._nb = copy.deepcopy(self._deep_copy_nb)
+            self._set_ep_as_normal_mode()
+            self._execute_nb()
+            executed_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
+        elif analyse_strategy == 'dependency':
+            pass 
+        else:
+            pass
+
+        assert not (original_outputs is None)
+        assert not (executed_outputs is None)
         assert len(original_outputs) == len(executed_outputs)
 
         # Compare two outputs
@@ -167,7 +181,7 @@ class Analysizer():
             reproductivity_ratio = 1
         else:
             reproductivity_ratio = num_of_reproductive_cells/num_of_cells
-        source_code_of_non_reproductive_cells = self.extract_source_code_from_non_reproductive_cells(non_reproductive_cell_idx)
+        source_code_of_non_reproductive_cells = extract_source_code_from_non_reproductive_cells(self._nb.cells, non_reproductive_cell_idx)
 
         if verbose:
             print('Reproductivity'.ljust(40), ':', "number of reproductive cells: {num_of_reproductive_cells} ; number of cells: {num_of_cells}".format(
@@ -175,56 +189,17 @@ class Analysizer():
             print('Reproductivity'.ljust(40), ':', "reproductive ratio: {reproductivity_ratio} ; index of reproductive cells: {reproductive_cell_idx}".format(
                 reproductivity_ratio=round(reproductivity_ratio, 3), reproductive_cell_idx=reproductive_cell_idx))
 
+            # Debug & Experiment purpose 
             # Print cells which are non reproductive 
+            
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            # self.print_source_code_of_non_reproductive_cells(non_reproductive_cell_idx, non_reproductive_original_outputs, non_reproductive_executed_outputs)   
-        
-        return num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_of_non_reproductive_cells       
+            print_source_code_of_non_reproductive_cells(self._nb.cells, non_reproductive_cell_idx, non_reproductive_original_outputs, non_reproductive_executed_outputs)   
+             
 
-    def print_source_code_of_non_reproductive_cells(self, index_lst, non_reproductive_original_outputs, non_reproductive_executed_outputs):
-        if self._is_py_2:
-            cells = self._nb.cells[:]
-        else:
-            cells = self._nb.cells.copy()
+        return num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_of_non_reproductive_cells          
 
-        execution_count_lst = [cell.execution_count for cell in cells]
-        OEC = sorted(range(len(execution_count_lst)), key=lambda k: execution_count_lst[k])
-        parsed_nb_cells = [cells[idx] for idx in OEC]
-        
-        non_reproductive_cells = [cell for (idx, cell) in enumerate(parsed_nb_cells) if idx in index_lst]
-        non_reproductive_cells = non_reproductive_cells.copy() # in case we would modify any content
-
-        for (cell_idx, cell, original_output, executed_output) in zip(index_lst, non_reproductive_cells, non_reproductive_original_outputs, non_reproductive_executed_outputs):
-            if 'source' in cell.keys():
-                print('-------------------------------------------')
-                print('Source Code of Non reproductive Cell', cell_idx)
-                print('-------------------------------------------')
-                print(cell['source'])
-
-                print()
-                print('-----------------')
-                print('Original output:')
-                print(len(original_output))
-                # print(original_output)
-                print('Executed output:')
-                # print(executed_output)
-                print(len(executed_output))
-
-    def extract_source_code_from_non_reproductive_cells(self, index_lst):
-        if self._is_py_2:
-            cells = self._nb.cells[:]
-        else:
-            cells = self._nb.cells.copy()
-
-        execution_count_lst = [cell.execution_count for cell in cells]
-        OEC = sorted(range(len(execution_count_lst)), key=lambda k: execution_count_lst[k])
-        parsed_nb_cells = [cells[idx] for idx in OEC]
-        
-        non_reproductive_cells = [cell for (idx, cell) in enumerate(parsed_nb_cells) if idx in index_lst]
-        non_reproductive_cells = non_reproductive_cells.copy() # in case we would modify any content
-        source_code_of_non_reproductive_cells = [cell['source'] for cell in non_reproductive_cells]
-        
-        return source_code_of_non_reproductive_cells       
+    def check_idempotent_line_by_line(self):
+        pass 
 
     def check_idempotent(self, verbose=True):
         self.check_executability(verbose=False)
@@ -234,10 +209,7 @@ class Analysizer():
         self._nb = copy.deepcopy(self._deep_copy_nb)
         num_of_cells = len(self._nb.cells)
 
-        if self._is_py_2:
-            copy_nb_lst = self._nb.cells[:]
-        else:
-            copy_nb_lst = self._nb.cells.copy()
+        copy_nb_lst = self._nb.cells.copy()
 
         idempotent_cell_idx = []
         for i in range(num_of_cells):
@@ -292,5 +264,4 @@ class Analysizer():
 
         return num_of_idempotent_cells, num_of_cells, idempotent_ratio, idempotent_cell_idx
 
-    def return_py_version(self):
-        return self._py_version
+
