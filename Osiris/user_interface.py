@@ -12,8 +12,8 @@ class UserInterface():
         # Extract python version
         self._py_version = None
         f = open(self._nb_path, 'r', encoding='utf-8')
-        analysizer = Analysizer(f)
-        self._py_version = analysizer.return_py_version()
+        self.analysizer = Analysizer(f)
+        self._py_version = self.analysizer.return_py_version()
 
         # Set conda env indication for corresponding python version
         self._conda_env = None
@@ -26,7 +26,6 @@ class UserInterface():
         if py_version is None:
             return None
         
-        print(py_version, '!!!!!!!!')
         if py_version == '3.5':
             return 'py35'
         elif py_version == '3.6':
@@ -79,7 +78,7 @@ class UserInterface():
             # print(os.getcwd())
             
             # CMD = combine_two_commands(CMD, 'activate '+self._conda_env) # PENDING FOR REPLACE
-            
+            '''
             if verbose and store:
                 execute_CMD = 'python3 auto_analysize_script.py -s -n "'+notebook_name+'"'
             elif (not verbose) and store: 
@@ -88,22 +87,78 @@ class UserInterface():
                 execute_CMD = 'python3 auto_analysize_script.py -n "'+notebook_name+'"'
             else:
                 execute_CMD = 'python3 auto_analysize_script.py -v -n "'+notebook_name+'"'
+            '''
         # no cd required  
         else:
+            '''
             notebook_name = self._nb_path
             CMD = combine_two_commands(CMD, 'activate '+self._conda_env)
             execute_CMD = 'python3 auto_analysize_script.py -n "'+notebook_name+'"'
-
+            '''
+        '''    
         if analyze_strategy == 'normal':
             execute_CMD = execute_CMD + ' --strategy normal'
         else:
             execute_CMD = execute_CMD + ' --strategy OEC'
-        CMD = combine_two_commands(CMD, execute_CMD)
+        '''
+
+        # CMD = combine_two_commands(CMD, execute_CMD)
         
-        CMD = combine_two_commands(CMD, 'deactivate')
+        # CMD = combine_two_commands(CMD, 'deactivate')
            
-        print(CMD) # For DEBUG purpose 
+        # print(CMD) # For DEBUG purpose 
 
         # DEVNULL is used to filter out all potential warning messages in Osiris' automatic execution
-        DEVNULL = open(os.devnull, 'wb')
-        return subprocess.call(CMD, shell=True, stderr=DEVNULL)
+        # DEVNULL = open(os.devnull, 'wb')
+        # return subprocess.call(CMD, shell=True, stderr=DEVNULL)
+
+        is_executable = self.analysizer.check_executability(verbose, analyze_strategy)
+        
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = self.analysizer.check_reproductivity(verbose, analyze_strategy)
+
+        if store:
+            if analyze_strategy == 'OEC':
+                csv_path_for_storing_analyzed_results = 'analyzed_results_OEC.csv'
+            else:
+                csv_path_for_storing_analyzed_results = 'analyzed_results_normal.csv'
+            
+            csv_file_for_storing_analyzed_results = open(csv_path_for_storing_analyzed_results, 'a')
+            writer_for_storing_analyzed_results = csv.writer(csv_file_for_storing_analyzed_results)
+        
+            if analyze_strategy == 'OEC':
+                csv_path_for_storing_source_code_of_non_reproductive_cells = 'source_code_of_non_reproductive_cells_OEC.csv'
+                csv_file_for_storing_source_code_of_non_reproductive_cells = open(csv_path_for_storing_source_code_of_non_reproductive_cells, 'a') 
+                writer_for_storing_source_code_of_non_reproductive_cells = csv.writer(csv_file_for_storing_source_code_of_non_reproductive_cells)
+
+            row = []
+            row.append(is_executable)
+            row.append(num_of_reproductive_cells)
+            row.append(num_of_cells)
+            row.append(reproductivity_ratio)
+            row.append(reproductive_cell_idx)
+            # print('Results:', row)
+            
+            writer_for_storing_analyzed_results.writerow(row) 
+
+            if analyze_strategy == 'OEC':
+                for source_code in source_code_from_non_reproductive_cells:
+                    writer_for_storing_source_code_of_non_reproductive_cells.writerow([source_code])   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
