@@ -1,43 +1,20 @@
+import sys
+import os
+# sys.path.append('/home/dabao/Osiris')
+sys.path.append('C://Users//User//Desktop//Osiris')
+ROOT_FOR_TESTS = 'C://Users//User//Desktop//Osiris//tests//'
+
+from Osiris.utils import * 
+from Osiris.analysizer import Analysizer
+import Osiris
 import unittest
 import warnings
-import csv 
+import csv
 
-import sys
-sys.path.append('/home/dabao/Osiris')
-
-import Osiris
-from Osiris.analysizer import Analysizer
-from Osiris.utils import store_nb
-
-naive_notebook_path = 'test_case_1.ipynb'
 image_IPythonDisplay_notebook_path = 'test_case_2.ipynb'
 image_Matplotlib_notebook_path = 'test_case_3.ipynb'
 relative_notebook_path = 'folder/test_case_4.ipynb'
 analyze_strategy_notebook_path = 'test_case_5.ipynb'
-
-def massive_notebooks_analyze(start_idx, end_idx):
-    csv_file = open('downloaded_notebooks.csv', 'r', encoding='utf-8')
-    reader = csv.reader(csv_file)
-
-    analyse_results = []
-
-    for row_idx, row in enumerate(reader):
-        nb_idx = row_idx + 1
-        if nb_idx >= start_idx and nb_idx <= end_idx:
-            original_repo_path, notebook_path = row[0], row[1]
-            original_repo_path_lst = original_repo_path.split('/')
-            folder_path = original_repo_path_lst[0]+'@'+original_repo_path_lst[1]
-
-            path = '/mnt/fit-Knowledgezoo/jupyternotebooks/'+folder_path+'/'+notebook_path
-
-            try:
-                interface = Osiris.UserInterface(path)
-                analyse_results.append(interface.analyse(verbose=False, store=False))
-            except Exception as e:
-                print(e)
-
-    return analyse_results
-                                
 
 class TestOsiris(unittest.TestCase):
 
@@ -46,84 +23,94 @@ class TestOsiris(unittest.TestCase):
         warnings.simplefilter('ignore', category=DeprecationWarning)
         warnings.simplefilter('ignore', category=ResourceWarning)
 
-    def test_naive_notebook_executability(self):
-        f = open(naive_notebook_path, 'r', encoding='utf-8')
-        analysizer = Analysizer(f)
-        self.assertTrue(analysizer.check_executability(verbose=False))
-    
-    def test_naive_notebook_reproductivity(self):
-        f = open(naive_notebook_path, 'r', encoding='utf-8')
-        analysizer = Analysizer(f)
-        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, _ = analysizer.check_reproductivity(
-            verbose=False)
-        self.assertEqual(num_of_reproductive_cells, 1)
-        self.assertEqual(num_of_cells, 3)
-        self.assertAlmostEqual(reproductivity_ratio, 1/3)
-        self.assertEqual(reproductive_cell_idx, [0])
-
-    def test_naive_notebook_idempotent(self):
-        f = open(naive_notebook_path, 'r', encoding='utf-8')
-        analysizer = Analysizer(f)
-        num_of_idempotent_cells, num_of_cells, idempotent_ratio, idempotent_cell_idx = analysizer.check_idempotent(
-            verbose=False)
-        self.assertEqual(num_of_idempotent_cells, 1)
-        self.assertEqual(num_of_cells, 3)
-        self.assertAlmostEqual(idempotent_ratio, 1/3)
-        self.assertEqual(idempotent_cell_idx, [0])
-
-    @unittest.skip
-    def test_check_reproductivity_for_image_IPythonDisplay(self):
-        f = open(image_IPythonDisplay_notebook_path, 'r', encoding='utf-8')
-        analysizer = Analysizer(f)
-        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, _ = analysizer.check_reproductivity(verbose=False)
-        self.assertEqual(num_of_reproductive_cells, 1)
-
-    @unittest.skip
-    def test_check_reproductivity_for_image_Matplotlib(self):
-        f = open(image_Matplotlib_notebook_path,'r', encoding='utf-8')
-        analysizer = Analysizer(f)
-        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, _ = analysizer.check_reproductivity(verbose=False)
-        self.assertEqual(num_of_reproductive_cells, 2)        
-
     # Conda environment required
     def test_relative_path(self):
+        os.chdir(ROOT_FOR_TESTS)
         interface = Osiris.UserInterface(relative_notebook_path)
+        is_executable = interface.analyse_executability(
+            verbose=False, store=False, analyze_strategy='OEC')
+        self.assertEqual(is_executable, True)
 
-        # 'interface.analyse' use 'return subprocess.call' at the code of the function
-        # Subprocess.call returns 'actual process return code'
-        # 1 for false process execution; 0 for successful process execution
-        analyse_result = interface.analyse_executability(verbose=True)
-        
-        # modify this notebook to check for the case that another directory opens another file (PENDING)
-        # add assert at the end (PENDING)
-
-    # Conda environment required
-    # Downloading massive notebooks required (This unit test should be removed when Osiris is officially released) 
-    @unittest.skip('Currently, we do not need to test for massive analyses. Leave it after all tests on individual notebook are completed.')
-    def test_multiple_notebook_analyses(self):
-        
-        # Test 3 notebooks in 3 corresponding repositories with multiple paths relative to this test.py 
-        # A 'downloaded_notebooks.csv' will be used for traversing through the file system 
-        # Currently, all downloaded GitHub repos are stored in /mnt/fit-Knowledgezoo 
-        analyse_results = massive_notebooks_analyze(3, 3) 
-        self.assertEqual(analyse_results, [0]) 
-    
-    # should be renamed
-    @unittest.skip 
-    def test_top_down_analyze_strategy(self):
+    def test_top_down_analyse_executability(self):
+        os.chdir(ROOT_FOR_TESTS)
         interface = Osiris.UserInterface(analyze_strategy_notebook_path)
-        interface.analyse_executability(verbose=True, store=False, analyze_strategy='normal', strong_match=True)
+        is_executable = interface.analyse_executability(
+            verbose=False, store=False, analyze_strategy='normal')
+        self.assertEqual(is_executable, True)
 
-    def test_OEC_analyse_for_executability(self):
+    def test_OEC_analyse_executability(self):
+        os.chdir(ROOT_FOR_TESTS)
         interface = Osiris.UserInterface(analyze_strategy_notebook_path)
-        interface.analyse_executability(verbose=True, store=False, analyze_strategy='OEC')
-    
-    # should be renamed 
+        is_executable = interface.analyse_executability(
+            verbose=False, store=False, analyze_strategy='OEC')
+        self.assertEqual(is_executable, True)
+
+    # PENDING
     @unittest.skip
-    def test_dependency_analyze_strategy(self):
-        interface = Osiris.UserInterface(analyze_strategy_notebook_path) 
-    
-    
+    def test_dependency_analyse_executability(self):
+        os.chdir(ROOT_FOR_TESTS)
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
+        is_executable = interface.analyse_executability(
+            verbose=False, store=False, analyze_strategy='dependency')
+        self.assertEqual(is_executable, True)
+
+    def test_top_down_analyse_strongly_matched_ouptut(self):
+        os.chdir(ROOT_FOR_TESTS)
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = interface.analyse_outputs(
+            verbose=False, store=False, analyze_strategy='normal', strong_match=True)
+        self.assertEqual(num_of_reproductive_cells, 1)
+        self.assertEqual(num_of_cells, 3)
+
+    def test_top_down_analyse_weakly_matched_ouptut(self):
+        os.chdir(ROOT_FOR_TESTS)
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = interface.analyse_outputs(
+            verbose=False, store=False, analyze_strategy='normal', strong_match=False)
+        self.assertEqual(num_of_reproductive_cells, 3)
+        self.assertEqual(num_of_cells, 3)
+
+    def test_OEC_analyse_strongly_matched_ouptut(self):
+        os.chdir(ROOT_FOR_TESTS)
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = interface.analyse_outputs(
+            verbose=False, store=False, analyze_strategy='OEC', strong_match=True)
+        self.assertEqual(num_of_reproductive_cells, 1)
+        self.assertEqual(num_of_cells, 3)
+
+    def test_OEC_analyse_weakly_matched_ouptut(self):
+        os.chdir(ROOT_FOR_TESTS)
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = interface.analyse_outputs(
+            verbose=False, store=False, analyze_strategy='OEC', strong_match=False)
+        self.assertEqual(num_of_reproductive_cells, 3)
+        self.assertEqual(num_of_cells, 3)
+
+    # PENDING
+    @unittest.skip
+    def test_dependency_analyse_strongly_matched_ouptut(self):
+        pass
+
+    # PENDING
+    @unittest.skip
+    def test_dependency_analyse_weakly_matched_ouptut(self):
+        pass
+
+    def test_OEC_analyse_weakly_matched_output_for_image_IPythonDisplay(self):
+        os.chdir(ROOT_FOR_TESTS)
+        interface = Osiris.UserInterface(image_IPythonDisplay_notebook_path)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = interface.analyse_outputs(
+            verbose=False, store=False, analyze_strategy='OEC', strong_match=False)
+        self.assertEqual(num_of_reproductive_cells, 1)
+        self.assertEqual(num_of_cells, 1)
+
+    def test_OEC_analyse_weakly_matched_output_for_image_Matplotlib(self):
+        os.chdir(ROOT_FOR_TESTS)
+        interface = Osiris.UserInterface(image_Matplotlib_notebook_path)
+        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = interface.analyse_outputs(
+            verbose=False, store=False, analyze_strategy='OEC', strong_match=False)
+        self.assertEqual(num_of_reproductive_cells, 2)
+        self.assertEqual(num_of_cells, 2)
 
 
 if __name__ == '__main__':
