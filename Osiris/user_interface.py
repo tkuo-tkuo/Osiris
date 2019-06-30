@@ -97,23 +97,28 @@ class UserInterface():
 
         # Add difference for strong match / weak match (PENDING)
         assert analyze_strategy in ['OEC', 'normal', 'dependency']
-        num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = self.analysizer.check_reproductivity(
+        num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells = self.analysizer.check_output(
             verbose, analyze_strategy, strong_match)
 
         if store:
             if strong_match:
-                csv_name_for_storage = 'Saved_analyse_output_strong_match_results_' + \
-                    analyze_strategy+'.csv'
+                csv_name_for_storage = 'Saved_analyse_output_strong_match_results_'+analyze_strategy+'.csv'
             else:
                 csv_name_for_storage = 'Saved_analyse_output_weak_match_results_'+analyze_strategy+'.csv'
             csv_file = open(csv_name_for_storage, 'a')
             writer = csv.writer(csv_file)
 
             row = []
-            row.append(num_of_reproductive_cells)
+            row.append(num_of_matched_cells)
             row.append(num_of_cells)
-            row.append(reproductivity_ratio)
-            row.append(reproductive_cell_idx)
+            row.append(match_ratio)
+            row.append(match_cell_idx)
             writer.writerow(row)
 
-        return num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells
+        return num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells
+
+    def analyse_reproducibility(self):
+        pass 
+
+    def analyse_reproducibility_for_a_cell_line_by_line(self):
+        pass 

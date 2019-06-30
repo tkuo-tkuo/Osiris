@@ -109,7 +109,7 @@ class Analysizer():
         self._is_executable = is_executable
         return is_executable
 
-    def check_reproductivity(self, verbose, analyse_strategy, strong_match):
+    def check_output(self, verbose, analyse_strategy, strong_match):
         original_outputs, executed_outputs = None, None
         if analyse_strategy == 'OEC':
             self.check_executability(verbose=False, analyze_strategy='OEC')
@@ -161,47 +161,42 @@ class Analysizer():
         assert len(original_outputs) == len(executed_outputs)
 
         # Compare two outputs
-        reproductive_cell_idx = []
-        non_reproductive_cell_idx = []
-        non_reproductive_original_outputs = []
-        non_reproductive_executed_outputs = []
-        num_of_reproductive_cells, num_of_cells = 0, len(original_outputs)
+        matched_cell_idx = []
+        unmatched_cell_idx = []
+        unmatched_original_outputs = []
+        unmatched_executed_outputs = []
+        num_of_matched_cells, num_of_cells = 0, len(original_outputs)
         for i in range(num_of_cells):
             if original_outputs[i] == executed_outputs[i]:
-                num_of_reproductive_cells += 1
-                reproductive_cell_idx.append(i)
+                num_of_matched_cells += 1
+                matched_cell_idx.append(i)
             else: 
-                non_reproductive_cell_idx.append(i)
-                non_reproductive_original_outputs.append(original_outputs[i])
-                non_reproductive_executed_outputs.append(executed_outputs[i])
+                unmatched_cell_idx.append(i)
+                unmatched_original_outputs.append(original_outputs[i])
+                unmatched_executed_outputs.append(executed_outputs[i])
 
         # Return (print) the results
-        reproductivity_ratio = 0
+        match_ratio = 0
         if num_of_cells == 0:
-            reproductivity_ratio = 1
+            match_ratio = 1
         else:
-            reproductivity_ratio = num_of_reproductive_cells/num_of_cells
-        source_code_of_non_reproductive_cells = extract_source_code_from_non_reproductive_cells(self._nb.cells, non_reproductive_cell_idx)
+            match_ratio = num_of_matched_cells/num_of_cells
+        source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
 
         if verbose:
-            print('Reproductivity'.ljust(40), ':', "number of reproductive cells: {num_of_reproductive_cells} ; number of cells: {num_of_cells}".format(
-                num_of_reproductive_cells=num_of_reproductive_cells, num_of_cells=num_of_cells))
-            print('Reproductivity'.ljust(40), ':', "reproductive ratio: {reproductivity_ratio} ; index of reproductive cells: {reproductive_cell_idx}".format(
-                reproductivity_ratio=round(reproductivity_ratio, 3), reproductive_cell_idx=reproductive_cell_idx))
+            print('Match ratio'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
+                num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
+            print('Match ratio'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
+                match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
 
             # Debug & Experiment purpose 
-            # Print cells which are non reproductive 
-            
+            # Print cells which are unmatched 
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            print_source_code_of_non_reproductive_cells(self._nb.cells, non_reproductive_cell_idx, non_reproductive_original_outputs, non_reproductive_executed_outputs)   
-             
+            print_source_code_of_unmatched_cells(self._nb.cells, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs)   
 
-        return num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_of_non_reproductive_cells          
+        return num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_of_unmatched_cells          
 
-    def check_idempotent_line_by_line(self):
-        pass 
-
-    def check_idempotent(self, verbose=True):
+    def check_reproducibility(self, verbose=True):
         self.check_executability(verbose=False)
         if not self._is_executable:
             raise RuntimeError('This notebook is NOT executable')
@@ -263,5 +258,9 @@ class Analysizer():
                 Idemp_ratio=round(idempotent_ratio, 3), idempotent_cell_idx=idempotent_cell_idx))
 
         return num_of_idempotent_cells, num_of_cells, idempotent_ratio, idempotent_cell_idx
+
+    def check_reproducibility_for_a_cell_line_by_line(self):
+        pass
+
 
 
