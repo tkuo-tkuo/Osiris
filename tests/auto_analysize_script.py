@@ -9,21 +9,20 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-n', '--notebook_name', type=str, required=True)
 parser.add_argument('-v', '--verbose', action='store_false', default=True)
 parser.add_argument('-s', '--store', action='store_true', default=False)
-parser.add_argument('-t', '--top-to-down-execution', action='store_true', default=False)
+parser.add_argument('--strategy', type=str, required=True)
 args = parser.parse_args()
 
-mode = 'OEC'
-if args.top_to_down_execution:
-    mode = 'normal'
+print()
+print('Boolean variable for verbose option:', args.verbose)
+print('Boolean variable for storing results:', args.store)
+print('Analyze strategy for executing the given notebok:', args.strategy)
 
-# print('Boolean variable for storing results:', args.store)
-# print('Boolean variable for verbose option:', args.verbose)
+mode = args.strategy
 
 with open(args.notebook_name, 'r', encoding='utf-8') as f:
     analysizer = Analysizer(f)
     is_executable = analysizer.check_executability(args.verbose, mode)
     num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, source_code_from_non_reproductive_cells = analysizer.check_reproductivity(args.verbose, mode)
-    # print(analysizer.check_idempotent(args.verbose))
 
     if args.store:
         if mode == 'OEC':

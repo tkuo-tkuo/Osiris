@@ -71,12 +71,14 @@ class TestOsiris(unittest.TestCase):
         self.assertAlmostEqual(idempotent_ratio, 1/3)
         self.assertEqual(idempotent_cell_idx, [0])
 
+    @unittest.skip
     def test_check_reproductivity_for_image_IPythonDisplay(self):
         f = open(image_IPythonDisplay_notebook_path, 'r', encoding='utf-8')
         analysizer = Analysizer(f)
         num_of_reproductive_cells, num_of_cells, reproductivity_ratio, reproductive_cell_idx, _ = analysizer.check_reproductivity(verbose=False)
         self.assertEqual(num_of_reproductive_cells, 1)
 
+    @unittest.skip
     def test_check_reproductivity_for_image_Matplotlib(self):
         f = open(image_Matplotlib_notebook_path,'r', encoding='utf-8')
         analysizer = Analysizer(f)
@@ -90,7 +92,7 @@ class TestOsiris(unittest.TestCase):
         # 'interface.analyse' use 'return subprocess.call' at the code of the function
         # Subprocess.call returns 'actual process return code'
         # 1 for false process execution; 0 for successful process execution
-        analyse_result = interface.analyse(verbose=False)
+        analyse_result = interface.analyse(verbose=True)
         self.assertEqual(analyse_result, 0)
 
     # Conda environment required
@@ -105,13 +107,15 @@ class TestOsiris(unittest.TestCase):
         self.assertEqual(analyse_results, [0]) 
 
     def test_top_down_analyze_strategy(self):
-        pass 
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
+        interface.analyse(verbose=True, store=False, analyze_strategy='normal', strong_match=True)
 
     def test_OEC_analyze_strategy(self):
-        pass 
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path) 
     
     def test_dependency_analyze_strategy(self):
-        pass 
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path) 
+    
     
 
 
