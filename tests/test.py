@@ -1,8 +1,9 @@
 import sys
 import os
-# sys.path.append('/home/dabao/Osiris')
-sys.path.append('C://Users//User//Desktop//Osiris')
-ROOT_FOR_TESTS = 'C://Users//User//Desktop//Osiris//tests//'
+sys.path.append('/home/dabao/Osiris')
+# sys.path.append('C://Users//User//Desktop//Osiris')
+ROOT_FOR_TESTS = '/home/dabao/Osiris/tests'
+# ROOT_FOR_TESTS = 'C://Users//User//Desktop//Osiris//tests//'
 
 from Osiris.utils import *
 import csv
