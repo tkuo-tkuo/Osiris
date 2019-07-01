@@ -79,50 +79,135 @@ class OECPreprocessor(ExecutePreprocessor):
 
 
 '''
-IdempotentCheckPreprocessor is used to check whether cells of a given notebook possess idempotent characteristic
--  Follow OEO execution path 
--  Insert variables extraction functions at the beginning of the noteook
+ReproducibilityCheckPreprocessor is used to check whether cells of a given notebook possess reproducible characteristic
 '''
-class IdempotentCheckPreprocessor(ExecutePreprocessor):
+class ReproducibilityCheckPreprocessor(ExecutePreprocessor):
 
-    def __init__(self, check_cell_idx, is_duplicate, py_version=3):
+    def __init__(self, check_cell_idx, analyse_strategy, is_duplicate):
         super(ExecutePreprocessor, self).__init__()
         self.check_cell_idx = check_cell_idx
+        self.analyse_strategy = analyse_strategy
         self.is_duplicate = is_duplicate
-        self.py_version = py_version
 
     def preprocess(self, nb, resources):
         copy_nb_cells = nb.cells
 
-        # Requirement 1
-        execution_count_lst = [cell.execution_count for cell in copy_nb_cells]
-        OEO = sorted(range(len(execution_count_lst)),
-                     key=lambda k: execution_count_lst[k])
-        parsed_nb_cells = [copy_nb_cells[idx] for idx in OEO]
+        # Adjust the order of cells for different analyse strategies 
+        if self.analyse_strategy == 'normal':
+            parsed_nb_cells = copy_nb_cells.copy()
+        elif self.analyse_strategy == 'OEC':
+            execution_count_lst = [cell.execution_count for cell in copy_nb_cells]
+            OEO = sorted(range(len(execution_count_lst)),
+                        key=lambda k: execution_count_lst[k])
+            parsed_nb_cells = [copy_nb_cells[idx] for idx in OEO]
+        else: # dependency 
+            pass
 
-        # Requirement 2
-        if self.py_version == 2:
-            extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals()[:]\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
-            var_extract_fun_cell = parsed_nb_cells[0][:]
-        else:
-            extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
-            var_extract_fun_cell = parsed_nb_cells[0].copy()
+        # Insert an function at the beginning of the notebook to inspect the status 
+        extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
+        var_extract_fun_cell = parsed_nb_cells[0].copy()
 
         var_extract_fun_cell.source = extractVar_fun_str
         parsed_nb_cells.insert(0, var_extract_fun_cell)
 
+        # Modify source code of cells to monitor status of self-defined variables 
         if self.is_duplicate:
-            if self.py_version == 2:
-                copy_cell = parsed_nb_cells[self.check_cell_idx]
-                copy_cell = copy_cell[:]
-            else:
-                copy_cell = parsed_nb_cells[self.check_cell_idx]
-                copy_cell = copy_cell.copy()
-
+            copy_cell = parsed_nb_cells[self.check_cell_idx]
+            copy_cell = copy_cell.copy()
             parsed_nb_cells.insert(self.check_cell_idx+1, copy_cell)
             parsed_nb_cells[self.check_cell_idx+1].source += "\nextractVars()"
+            nb.cells = parsed_nb_cells[:self.check_cell_idx+2]
         else:
             parsed_nb_cells[self.check_cell_idx].source += "\nextractVars()"
+            nb.cells = parsed_nb_cells[:self.check_cell_idx+1]
 
-        nb.cells = parsed_nb_cells
-        return super(IdempotentCheckPreprocessor, self).preprocess(nb, resources)
+        return super(ReproducibilityCheckPreprocessor, self).preprocess(nb, resources)
+
+
+'''
+StatusInspectionPreprocessor is used for evalutate status difference line by line for a cell of given notebook 
+'''
+class StatusInspectionPreprocessor(ExecutePreprocessor):
+    
+    def __init__(self, analyse_strategy, check_cell_idx):
+        super(ExecutePreprocessor, self).__init__()
+        self.check_cell_idx = check_cell_idx
+        self.analyse_strategy = analyse_strategy
+
+    def get_number_of_statements(self, nb):
+        copy_nb_cells = nb.cells
+
+        # Adjust the order of cells for different analyse strategies
+        if self.analyse_strategy == 'normal':
+            parsed_nb_cells = copy_nb_cells.copy()
+        elif self.analyse_strategy == 'OEC':
+            execution_count_lst = [
+                cell.execution_count for cell in copy_nb_cells]
+            OEO = sorted(range(len(execution_count_lst)),
+                         key=lambda k: execution_count_lst[k])
+            parsed_nb_cells = [copy_nb_cells[idx] for idx in OEO]
+        else:  # dependency
+            pass
+
+        # Insert an function at the beginning of the notebook to inspect the status
+        extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
+        var_extract_fun_cell = parsed_nb_cells[0].copy()
+
+        var_extract_fun_cell.source = extractVar_fun_str
+        parsed_nb_cells.insert(0, var_extract_fun_cell)
+
+        # Modify source code of cells to monitor status of self-defined variables line by line
+        copy_cell = parsed_nb_cells[self.check_cell_idx]
+        copy_cell = copy_cell.copy()
+        statements = (copy_cell.source).split('\n')
+
+        return len(statements)
+
+    def preprocess_for_inspecting_status_of_certain_line(self, nb, resources, target_line_index):
+        copy_nb_cells = nb.cells
+
+        # Adjust the order of cells for different analyse strategies 
+        if self.analyse_strategy == 'normal':
+            parsed_nb_cells = copy_nb_cells.copy()
+        elif self.analyse_strategy == 'OEC':
+            execution_count_lst = [cell.execution_count for cell in copy_nb_cells]
+            OEO = sorted(range(len(execution_count_lst)),
+                        key=lambda k: execution_count_lst[k])
+            parsed_nb_cells = [copy_nb_cells[idx] for idx in OEO]
+        else: # dependency 
+            pass
+
+        # Insert an function at the beginning of the notebook to inspect the status 
+        extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
+        var_extract_fun_cell = parsed_nb_cells[0].copy()
+
+        var_extract_fun_cell.source = extractVar_fun_str
+        parsed_nb_cells.insert(0, var_extract_fun_cell)
+
+        # Modify source code of cells to monitor status of self-defined variables line by line 
+        copy_cell = parsed_nb_cells[self.check_cell_idx]
+        copy_cell = copy_cell.copy()
+        statements = (copy_cell.source).split('\n')
+
+        # CASE 1: Check for status difference before executing this cell 
+        if target_line_index == -1: 
+            new_source_code_for_the_cell = []
+            new_source_code_for_the_cell.append("extractVars()")
+
+        # CASE 2: Check for status difference until certain statement 
+        else:
+            new_source_code_for_the_cell = [] 
+            for line_index, statement in enumerate(statements):
+                new_source_code_for_the_cell.append(statement)
+                if line_index == target_line_index:
+                    num_of_leading_spaces = len(statement) - len(statement.lstrip())
+                    num_of_extract_vars_func = len("extractVars()")
+                    new_source_code_for_the_cell.append("extractVars()".rjust(num_of_leading_spaces+num_of_extract_vars_func))
+                    break
+
+        new_source_code = '\n'.join(new_source_code_for_the_cell)
+
+        parsed_nb_cells[self.check_cell_idx].source = new_source_code
+        nb.cells = parsed_nb_cells[:self.check_cell_idx+1]
+        return super(StatusInspectionPreprocessor, self).preprocess(nb, resources)
+

@@ -1,7 +1,7 @@
 import nbformat
 import copy
 from nbconvert.preprocessors import ExecutePreprocessor
-from .ExecutePreprocessors import OECPreprocessor, IdempotentCheckPreprocessor
+from .ExecutePreprocessors import OECPreprocessor, ReproducibilityCheckPreprocessor, StatusInspectionPreprocessor
 
 from .utils import *
 
@@ -70,8 +70,11 @@ class Analysizer():
     def _set_ep_as_OEC_mode(self):
         self._ep = OECPreprocessor()
 
-    def _set_ep_check_idempotent_mode(self, check_cell_idx, is_duplicate):
-        self._ep = IdempotentCheckPreprocessor(check_cell_idx, is_duplicate, self._py_version)
+    def _set_ep_check_reproducibility_mode(self, check_cell_idx, analyse_strategy, is_duplicate):
+        self._ep = ReproducibilityCheckPreprocessor(check_cell_idx, analyse_strategy, is_duplicate)
+
+    def _set_ep_status_inspection_mode(self, analyse_strategy, check_cell_idx):
+        self._ep = StatusInspectionPreprocessor(analyse_strategy, check_cell_idx)
 
     def _execute_nb(self):
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
@@ -139,7 +142,6 @@ class Analysizer():
             # Extract the original outputs
             self._nb = copy.deepcopy(self._deep_copy_nb)
             if strong_match:
-                # extract outputs based on normal order -> implement this in utils (PENDING)
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
             else:
                 self._set_ep_as_normal_mode()
@@ -196,71 +198,144 @@ class Analysizer():
 
         return num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_of_unmatched_cells          
 
-    def check_reproducibility(self, verbose=True):
-        self.check_executability(verbose=False)
-        if not self._is_executable:
-            raise RuntimeError('This notebook is NOT executable')
-
+    def check_reproducibility(self, verbose, analyse_strategy):
+        if analyse_strategy == 'OEC':
+            self.check_executability(verbose=False, analyze_strategy='OEC')
+            if not self._is_executable:
+                raise RuntimeError('This notebook is NOT executable')
+        elif analyse_strategy == 'normal':
+            self.check_executability(verbose=False, analyze_strategy='normal')
+            if not self._is_executable:
+                raise RuntimeError('This notebook is NOT executable')
+        elif analyse_strategy == 'dependency':
+            pass 
+        else:
+            pass
+        
         self._nb = copy.deepcopy(self._deep_copy_nb)
         num_of_cells = len(self._nb.cells)
 
-        copy_nb_lst = self._nb.cells.copy()
-
-        idempotent_cell_idx = []
+        reproducible_cell_idx = []
         for i in range(num_of_cells):
-            check_cell_idx = i + 1
+            # +1 cuz we will insert a status inspection function as the first cell (with index 0)
+            check_cell_idx = i + 1 
 
             # Get status variables if execute once
             is_duplicate = False
-            if self._is_py_2:
-                self._nb.cells = copy_nb_lst[:]
-            else:
-                self._nb.cells = copy_nb_lst.copy()
-
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            self._set_ep_check_idempotent_mode(check_cell_idx, is_duplicate)
+            self._set_ep_check_reproducibility_mode(
+                check_cell_idx, analyse_strategy, is_duplicate)
             self._execute_nb()
             check_cell_outputs = self._nb.cells[check_cell_idx].outputs
-            var_status = check_cell_outputs[-1].data['text/plain']
-            var_status_exe_once = var_status
+            var_status_exe_once = check_cell_outputs[-1].data['text/plain']
 
             # Get status variables if execute twice
-            is_duplicate = True
-            if self._is_py_2:
-                self._nb.cells = copy_nb_lst[:]
-            else:
-                self._nb.cells = copy_nb_lst.copy()
-
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            self._set_ep_check_idempotent_mode(check_cell_idx, is_duplicate)
+            is_duplicate = True
+            self._set_ep_check_reproducibility_mode(
+                check_cell_idx, analyse_strategy, is_duplicate)
             self._execute_nb()
             check_cell_outputs = self._nb.cells[check_cell_idx+1].outputs
-            var_status = check_cell_outputs[-1].data['text/plain']
-            var_status_exe_twice = var_status
+            var_status_exe_twice = check_cell_outputs[-1].data['text/plain']
 
-            # Check whether a cell is idempotent & Print
-            idemp_result = (var_status_exe_once == var_status_exe_twice)
+            # Check whether a cell is reproducible & Print
+            is_reproducible = (var_status_exe_once == var_status_exe_twice)
             if verbose:
-                print("Check the {cell_idx} th cell among {num_of_cells} cells. Idempotent result: {Idemp_result}".format(
-                    cell_idx=check_cell_idx, num_of_cells=num_of_cells, Idemp_result=idemp_result))
+                print("Check the {cell_idx} th cell among {num_of_cells} cells. Reproducibility result: {Reproduciblity_result}".format(
+                    cell_idx=check_cell_idx, num_of_cells=num_of_cells, Reproduciblity_result=is_reproducible))
 
             # Store results for further return
-            if idemp_result:
-                idempotent_cell_idx.append(i)
+            if is_reproducible:
+                reproducible_cell_idx.append(i)
 
         # Return
-        num_of_idempotent_cells = len(idempotent_cell_idx)
-        idempotent_ratio = len(idempotent_cell_idx) / num_of_cells
+        num_of_reproducible_cells = len(reproducible_cell_idx)
+        reproducibility_ratio = len(reproducible_cell_idx) / num_of_cells
         if verbose:
-            print('Idempotent'.ljust(40), ':', "number of idempotent cells: {num_of_idempotent_cells} ; number of cells: {num_of_cells}".format(
-                num_of_idempotent_cells=num_of_idempotent_cells, num_of_cells=num_of_cells))
-            print('Idempotent'.ljust(40), ':', "idempoent ratio: {Idemp_ratio} ; index of Idempotent cells: {idempotent_cell_idx}".format(
-                Idemp_ratio=round(idempotent_ratio, 3), idempotent_cell_idx=idempotent_cell_idx))
+            print('Reproducibility'.ljust(40), ':', "number of reproducible cells: {num_of_reproducible_cells} ; number of cells: {num_of_cells}".format(
+                num_of_reproducible_cells=num_of_reproducible_cells, num_of_cells=num_of_cells))
+            print('Reproducibility'.ljust(40), ':', "reproduciblity ratio: {reproducibility_ratio} ; index of reproducible cells: {reproducible_cell_idx}".format(
+                reproducibility_ratio=round(reproducibility_ratio, 3), reproducible_cell_idx=reproducible_cell_idx))
 
-        return num_of_idempotent_cells, num_of_cells, idempotent_ratio, idempotent_cell_idx
+        return num_of_reproducible_cells, num_of_cells, reproducibility_ratio, reproducible_cell_idx
 
-    def check_reproducibility_for_a_cell_line_by_line(self):
-        pass
+    def _ep_get_number_of_statements(self):
+        return self._ep.get_number_of_statements(self._nb)
 
+    def _execute_nb_for_inspecting_status_of_certain_line(self, target_line_index):
+        self._ep.preprocess_for_inspecting_status_of_certain_line(
+            self._nb, {'metadata': {'path': './'}}, target_line_index)
+
+    def check_reproducibility_for_a_cell_line_by_line(self, analyse_strategy, check_cell_idx):
+        if analyse_strategy == 'OEC':
+            self.check_executability(verbose=False, analyze_strategy='OEC')
+            if not self._is_executable:
+                raise RuntimeError('This notebook is NOT executable')
+        elif analyse_strategy == 'normal':
+            self.check_executability(verbose=False, analyze_strategy='normal')
+            if not self._is_executable:
+                raise RuntimeError('This notebook is NOT executable')
+        elif analyse_strategy == 'dependency':
+            pass 
+        else:
+            pass
+
+        # +1 cuz we will insert a status inspection function as the first cell (with index 0)
+        check_cell_idx += 1
+        first_var_status, second_var_status = None, None
+
+        self._nb = copy.deepcopy(self._deep_copy_nb)
+        self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+        num_of_statements = self._ep_get_number_of_statements()
+
+        # Check if the status of self-defined variables has been different before this cell
+        self._nb = copy.deepcopy(self._deep_copy_nb)
+        self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+        try:
+            self._execute_nb_for_inspecting_status_of_certain_line(-1)
+            check_cell_outputs = self._nb.cells[check_cell_idx].outputs
+            first_var_status = check_cell_outputs[-1].data['text/plain']
+        except:
+            first_var_status = None
+            
+        self._nb = copy.deepcopy(self._deep_copy_nb)
+        self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+        try:
+            self._execute_nb_for_inspecting_status_of_certain_line(-1)
+            check_cell_outputs = self._nb.cells[check_cell_idx].outputs
+            second_var_status = check_cell_outputs[-1].data['text/plain']
+        except:
+            second_var_status = None
+
+        if not (first_var_status == second_var_status):
+            return -1 
+
+
+        # Check if the status of self-defined variables has been different upon certain statement
+        for i in range(num_of_statements):
+            self._nb = copy.deepcopy(self._deep_copy_nb)
+            self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+            try:
+                self._execute_nb_for_inspecting_status_of_certain_line(i)
+                check_cell_outputs = self._nb.cells[check_cell_idx].outputs
+                first_var_status = check_cell_outputs[-1].data['text/plain']
+            except:
+                first_var_status = None
+
+            self._nb = copy.deepcopy(self._deep_copy_nb)
+            self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+            try:
+                self._execute_nb_for_inspecting_status_of_certain_line(i)
+                check_cell_outputs = self._nb.cells[check_cell_idx].outputs
+                second_var_status = check_cell_outputs[-1].data['text/plain']
+            except:
+                second_var_status = None
+
+            if not (first_var_status == second_var_status):
+                return i
+
+        # What if the status of self-defined variables remains the same through execution of this cell
+        # return None to indicate unfound 
+        return None
 
 

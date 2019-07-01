@@ -95,14 +95,15 @@ class UserInterface():
             cd_path = '/'.join(cd_path_lst)
             os.chdir(cd_path)
 
-        # Add difference for strong match / weak match (PENDING)
+        # Analysing & Return & Storing (optinal)
         assert analyze_strategy in ['OEC', 'normal', 'dependency']
         num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells = self.analysizer.check_output(
             verbose, analyze_strategy, strong_match)
 
         if store:
             if strong_match:
-                csv_name_for_storage = 'Saved_analyse_output_strong_match_results_'+analyze_strategy+'.csv'
+                csv_name_for_storage = 'Saved_analyse_output_strong_match_results_' + \
+                    analyze_strategy+'.csv'
             else:
                 csv_name_for_storage = 'Saved_analyse_output_weak_match_results_'+analyze_strategy+'.csv'
             csv_file = open(csv_name_for_storage, 'a')
@@ -117,8 +118,72 @@ class UserInterface():
 
         return num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells
 
-    def analyse_reproducibility(self):
-        pass 
+    def analyse_reproducibility(self, verbose=True, store=False, analyze_strategy='OEC'):
+        assert self._py_version in ['3.5', '3.6', '3.7']
 
-    def analyse_reproducibility_for_a_cell_line_by_line(self):
-        pass 
+        path_split_lst = self._nb_path.split('/')
+        # We need to cd to the same directory as the notebook
+        if len(path_split_lst) > 1:
+            cd_path_lst = path_split_lst[:-1]
+            cd_path = '/'.join(cd_path_lst)
+            os.chdir(cd_path)
+
+        # Analysing & Return & Storing (optinal)
+        assert analyze_strategy in ['OEC', 'normal', 'dependency']
+        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = self.analysizer.check_reproducibility(
+            verbose, analyze_strategy)
+
+        if store:
+            csv_name_for_storage = 'Saved_analyse_reproducibility_results_'+analyze_strategy+'.csv'
+            csv_file = open(csv_name_for_storage, 'a')
+            writer = csv.writer(csv_file)
+
+            row = []
+            row.append(num_of_reproducible_cells)
+            row.append(num_of_cells)
+            row.append(reproducible_ratio)
+            row.append(reproducible_cell_idx)
+            writer.writerow(row)
+
+        return num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx
+
+    def analyse_reproducibility_for_a_cell_line_by_line(self, verbose=True, store=False, analyze_strategy='OEC', cell_index=None):
+        if cell_index == None:
+            raise ValueError('cell_index argument should not be empty (None), please indicate the cell_index.')
+        
+        assert self._py_version in ['3.5', '3.6', '3.7']
+
+        path_split_lst = self._nb_path.split('/')
+        # We need to cd to the same directory as the notebook
+        if len(path_split_lst) > 1:
+            cd_path_lst = path_split_lst[:-1]
+            cd_path = '/'.join(cd_path_lst)
+            os.chdir(cd_path)
+
+        # Analysing & Return & Storing (optinal)
+        assert analyze_strategy in ['OEC', 'normal', 'dependency']
+        problematic_statement_index = self.analysizer.check_reproducibility_for_a_cell_line_by_line(analyze_strategy, cell_index)
+        
+        if verbose:
+            if problematic_statement_index is None:
+                print('Statements in this cell did not cause any status difference of self-defined variables')
+            elif problematic_statement_index is -1:
+                print('Status difference of self-defined variables may occur before any execution of statements in this cell')
+            else: 
+                print('The potential statement for causing status difference is line', problematic_statement_index)
+                print('(Note that 0 indicates for the first line and empty lines are also included)')
+
+        if store:
+            csv_name_for_storage = 'Saved_analyse_reproducibility_results_'+analyze_strategy+'_for_cell_'+str(cell_index)+'.csv'
+            csv_file = open(csv_name_for_storage, 'a')
+            writer = csv.writer(csv_file)
+
+            row = []
+            row.append(problematic_statement_index)
+            row.append(-1)
+            row.append(None)
+            writer.writerow(row)
+            
+        return problematic_statement_index
+
+        
