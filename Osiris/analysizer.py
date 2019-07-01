@@ -95,8 +95,8 @@ class Analysizer():
             if analyze_strategy == 'normal':
                 self._set_ep_as_normal_mode()
             elif analyze_strategy == 'dependency':
-                # PENDING
-                pass 
+                naive_notebook_path = 'test_case_1.ipynb'
+                get_dep_matrix(naive_notebook_path)
             else:
                 self._set_ep_as_OEC_mode()
 

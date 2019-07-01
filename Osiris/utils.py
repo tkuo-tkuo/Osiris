@@ -1,5 +1,15 @@
 import nbformat
 
+from .dependency_graph import DependencyGraph
+from .util import get_code_list
+
+def get_dep_matrix(path):
+    print('hey??')
+    code_list = get_code_list(path)
+    graph = DependencyGraph()
+    graph = graph.build(code_list)
+    print(graph) 
+
 def store_nb(nb, relative_path):
     with open(relative_path, 'w') as f:
         nbformat.write(nb, f)

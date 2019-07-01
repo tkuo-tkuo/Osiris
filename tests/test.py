@@ -50,8 +50,7 @@ class TestOsiris(unittest.TestCase):
             verbose=False, store=False, analyze_strategy='OEC')
         self.assertEqual(is_executable, True)
 
-    # PENDING
-    @unittest.skip
+    # WORKING
     def test_dependency_analyse_executability(self):
         os.chdir(ROOT_FOR_TESTS)
         interface = Osiris.UserInterface(analyze_strategy_notebook_path)

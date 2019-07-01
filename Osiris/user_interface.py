@@ -50,6 +50,8 @@ class UserInterface():
             os.environ['PATH'] = '/home/dabao/miniconda3/envs/py37/bin' + \
                 os.pathsep+os.environ.get('PATH', '')
 
+        # print(os.environ['PATH']) # For Debug purpose 
+
     '''
     verbose: Whether the terminal will print out analyzing process on the terminal    
     store: Whether analysized results will be stored for a given notebook 
