@@ -138,27 +138,27 @@ class TestOsiris(unittest.TestCase):
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
 
-    def test_top_down_analyse_reproducibility_for_a_cell_line_by_line(self):
+    def test_top_down_analyse_status_difference_for_a_cell(self):
         os.chdir(ROOT_FOR_TESTS)
         interface = Osiris.UserInterface(
             status_inspection_for_a_cell_notebook_path)
-        problematic_statement_index = interface.analyse_reproducibility_for_a_cell_line_by_line(
+        problematic_statement_index = interface.analyse_status_difference_for_a_cell(
             verbose=False, store=False, analyze_strategy='normal', cell_index=1)
         self.assertEqual(problematic_statement_index, 9)
 
-    def test_OEC_analyse_reproducibility_for_a_cell_line_by_line(self):
+    def test_OEC_analyse_status_difference_for_a_cell(self):
         os.chdir(ROOT_FOR_TESTS)
         interface = Osiris.UserInterface(
             status_inspection_for_a_cell_notebook_path)
-        problematic_statement_index = interface.analyse_reproducibility_for_a_cell_line_by_line(
+        problematic_statement_index = interface.analyse_status_difference_for_a_cell(
             verbose=False, store=False, analyze_strategy='OEC', cell_index=2)
         self.assertEqual(problematic_statement_index, 9)
 
-    def test_dependency_analyse_reproducibility_for_a_cell_line_by_line(self):
+    def test_dependency_analyse_status_difference_for_a_cell(self):
         os.chdir(ROOT_FOR_TESTS)
         interface = Osiris.UserInterface(
             status_inspection_for_a_cell_notebook_path)
-        problematic_statement_index = interface.analyse_reproducibility_for_a_cell_line_by_line(
+        problematic_statement_index = interface.analyse_status_difference_for_a_cell(
             verbose=False, store=False, analyze_strategy='dependency', cell_index=1)
         self.assertEqual(problematic_statement_index, 9)
 

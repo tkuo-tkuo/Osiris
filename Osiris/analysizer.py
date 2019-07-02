@@ -293,7 +293,7 @@ class Analysizer():
         self._ep.preprocess_for_inspecting_status_of_certain_line(
             self._nb, {'metadata': {'path': './'}}, target_line_index)
 
-    def check_reproducibility_for_a_cell_line_by_line(self, analyse_strategy, check_cell_idx):
+    def check_status_difference_for_a_cell(self, analyse_strategy, check_cell_idx):
         assert analyse_strategy in ['OEC', 'normal', 'dependency']
         self.check_executability(
             verbose=False, analyse_strategy=analyse_strategy)

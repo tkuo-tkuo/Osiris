@@ -149,7 +149,7 @@ class UserInterface():
 
         return num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx
 
-    def analyse_reproducibility_for_a_cell_line_by_line(self, verbose=True, store=False, analyze_strategy='OEC', cell_index=None):
+    def analyse_status_difference_for_a_cell(self, verbose=True, store=False, analyze_strategy='OEC', cell_index=None):
         if cell_index == None:
             raise ValueError('cell_index argument should not be empty (None), please indicate the cell_index.')
         
@@ -164,7 +164,7 @@ class UserInterface():
 
         # Analysing & Return & Storing (optinal)
         assert analyze_strategy in ['OEC', 'normal', 'dependency']
-        problematic_statement_index = self.analysizer.check_reproducibility_for_a_cell_line_by_line(analyze_strategy, cell_index)
+        problematic_statement_index = self.analysizer.check_status_difference_for_a_cell(analyze_strategy, cell_index)
         
         if verbose:
             if problematic_statement_index is None:
