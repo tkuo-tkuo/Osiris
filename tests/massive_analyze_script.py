@@ -4,9 +4,15 @@ from threading import Thread
 sys.path.append('/home/dabao/Osiris')
 import Osiris
 
-def massive_notebooks_analyze(start_idx, end_idx, analyze_mode):
+ROOT_FOR_TESTS = '/home/dabao/Osiris/tests'
+# ROOT_FOR_TESTS = 'C://Users//User//Desktop//Osiris//tests//'
+
+def massive_notebooks_analyze(start_idx, end_idx):
     csv_file = open('downloaded_notebooks.csv', 'r', encoding='utf-8')
     reader = csv.reader(csv_file) 
+
+    csv_file_storage = open('records.csv', 'a')
+    writer = csv.writer(csv_file_storage)
 
     for row_idx, row in enumerate(reader):
         nb_idx = row_idx + 1
@@ -17,10 +23,36 @@ def massive_notebooks_analyze(start_idx, end_idx, analyze_mode):
 
             path = '/mnt/fit-Knowledgezoo/jupyternotebooks/'+folder_path+'/'+notebook_path
             
-            print(nb_idx, path)
             try:
+                print('--------------------------------------------------')
+                print(nb_idx)
+                print('--------------------------------------------------')
                 interface = Osiris.UserInterface(path)
-                interface.analyse(verbose=True, store=True, analyze_mode=analyze_mode)
+                for analyze_strategy in ['normal', 'OEC', 'dependency']:
+                    row = []
+                    row.append(nb_idx)
+                    row.append(analyze_strategy)
+                    
+                    print(analyze_strategy)
+                    is_executable = interface.analyse_executability(verbose=False, store=False, analyze_strategy=analyze_strategy)
+                    print('Executability:', is_executable)
+                    row.append(is_executable)
+                    num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(verbose=False, store=False, analyze_strategy=analyze_strategy, strong_match=True)
+                    print('Mathcing ratio (strong):', match_ratio)
+                    row.append(match_ratio)
+                    num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(verbose=False, store=False, analyze_strategy=analyze_strategy, strong_match=False)
+                    print('Mathcing ratio (weak):', match_ratio)
+                    row.append(match_ratio)
+                    num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_reproducibility(verbose=False, store=False, analyze_strategy=analyze_strategy)
+                    print('Reproducible ratio:', reproducible_ratio)
+                    row.append(reproducible_ratio)
+
+
+                    print('Row:', row)                    
+
+                    writer.writerow(row)
+
+                print()
             except Exception as e:
                 print(e)
 
@@ -28,11 +60,9 @@ parser = argparse.ArgumentParser(
     description='analysize Jupyter Notebook files')
 parser.add_argument('--start-index', type=int, required=True)
 parser.add_argument('--end-index', type=int, required=True)
-parser.add_argument('-m', '--analyze-mode', type=str, default='OEC')
 args = parser.parse_args()
 
-massive_notebooks_analyze(args.start_index, args.end_index, args.analyze_mode)
-
+massive_notebooks_analyze(args.start_index, args.end_index)
 
 # Multithread
 '''
