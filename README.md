@@ -1,8 +1,8 @@
 # Jupyter_Osiris
 
-Jupyter_Osiris (Osiris) is a tool for a programmer to check the reproducibility of Jupyter Notebook files. It is observed that plentiful Jupyter Notebook files pushed on GitHub cannot reproduce anticipated outputs. Or worse, some Jupyter Notebook files can even not be executed on different machines. 
+Jupyter_Osiris (Osiris) is a tool for programmers to analyze Jupyter Notebook files before releasement. We discovered that plentiful Jupyter Notebook files pushed on GitHub cannot reproduce anticipated outputs. Alternatively, even worse, some Jupyter Notebook files can even not be executed on different end devices.
 
-Osiris aims to address this issue. As a publisher, one can leverage Osiris to analyze their Jupyter Notebook files before releasing their Jupyter Notebook files to the public. In another hand, as a user, Osiris can also analyze and conclude reasons for non-reproducibility, which facilitates users to reproduce results from Jupyter Notebook files of others. 
+Osiris aims to eliminate this problem. One can leverage Osiris to analyze their Jupyter Notebook files before releasement to the public, which can conclude potential reasons for causing non-reproducibility. By the assistance of Osiris, programmers can properly refine their Jupyter Notebook files and enhance reproducibility of Jupyter Notebook files. 
 
 ## Getting Started
 
