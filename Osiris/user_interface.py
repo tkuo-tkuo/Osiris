@@ -15,7 +15,7 @@ class UserInterface():
         # Extract python version
         self._py_version = None
         f = open(self._nb_path, 'r', encoding='utf-8')
-        self.analysizer = Analysizer(f)
+        self.analysizer = Analysizer(path, f)
         self._py_version = self.analysizer.return_py_version()
 
         # Set conda env indication for corresponding python version

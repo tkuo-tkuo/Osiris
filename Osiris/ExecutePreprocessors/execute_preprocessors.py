@@ -78,6 +78,21 @@ class OECPreprocessor(ExecutePreprocessor):
         return super(OECPreprocessor, self).preprocess(nb, resources)
 
 
+class DependencyPreprocessor(ExecutePreprocessor):
+    def __init__(self, execution_order):
+        super(ExecutePreprocessor, self).__init__()
+        self._execution_order = execution_order
+
+    def preprocess(self, nb, resources):
+        copy_nb_cells = nb.cells
+
+        parsed_nb_cells = [copy_nb_cells[idx] for idx in self._execution_order]
+        parsed_nb_cells[0].source = "import warnings\nwarnings.filterwarnings('ignore')\n" + parsed_nb_cells[0].source
+
+        nb.cells = parsed_nb_cells
+        return super(DependencyPreprocessor, self).preprocess(nb, resources)
+
+
 '''
 ReproducibilityCheckPreprocessor is used to check whether cells of a given notebook possess reproducible characteristic
 '''
@@ -88,6 +103,10 @@ class ReproducibilityCheckPreprocessor(ExecutePreprocessor):
         self.check_cell_idx = check_cell_idx
         self.analyse_strategy = analyse_strategy
         self.is_duplicate = is_duplicate
+        self.execution_order = None
+
+    def set_execution_order(self, execution_order):
+        self.execution_order = execution_order
 
     def preprocess(self, nb, resources):
         copy_nb_cells = nb.cells
@@ -101,7 +120,7 @@ class ReproducibilityCheckPreprocessor(ExecutePreprocessor):
                         key=lambda k: execution_count_lst[k])
             parsed_nb_cells = [copy_nb_cells[idx] for idx in OEO]
         else: # dependency 
-            pass
+            parsed_nb_cells = [copy_nb_cells[idx] for idx in self.execution_order]
 
         # Insert an function at the beginning of the notebook to inspect the status 
         extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
@@ -116,9 +135,11 @@ class ReproducibilityCheckPreprocessor(ExecutePreprocessor):
             copy_cell = copy_cell.copy()
             parsed_nb_cells.insert(self.check_cell_idx+1, copy_cell)
             parsed_nb_cells[self.check_cell_idx+1].source += "\nextractVars()"
+            parsed_nb_cells[0].source = "import warnings\nwarnings.filterwarnings('ignore')\n" + parsed_nb_cells[0].source
             nb.cells = parsed_nb_cells[:self.check_cell_idx+2]
         else:
             parsed_nb_cells[self.check_cell_idx].source += "\nextractVars()"
+            parsed_nb_cells[0].source = "import warnings\nwarnings.filterwarnings('ignore')\n" + parsed_nb_cells[0].source
             nb.cells = parsed_nb_cells[:self.check_cell_idx+1]
 
         return super(ReproducibilityCheckPreprocessor, self).preprocess(nb, resources)
@@ -133,6 +154,10 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
         super(ExecutePreprocessor, self).__init__()
         self.check_cell_idx = check_cell_idx
         self.analyse_strategy = analyse_strategy
+        self.execution_order = None
+
+    def set_execution_order(self, execution_order):
+        self.execution_order = execution_order
 
     def get_number_of_statements(self, nb):
         copy_nb_cells = nb.cells
@@ -147,7 +172,7 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
                          key=lambda k: execution_count_lst[k])
             parsed_nb_cells = [copy_nb_cells[idx] for idx in OEO]
         else:  # dependency
-            pass
+            parsed_nb_cells = [copy_nb_cells[idx] for idx in self.execution_order]
 
         # Insert an function at the beginning of the notebook to inspect the status
         extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
@@ -175,7 +200,9 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
                         key=lambda k: execution_count_lst[k])
             parsed_nb_cells = [copy_nb_cells[idx] for idx in OEO]
         else: # dependency 
-            pass
+            parsed_nb_cells = [copy_nb_cells[idx]
+                               for idx in self.execution_order]
+
 
         # Insert an function at the beginning of the notebook to inspect the status 
         extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
@@ -208,6 +235,7 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
         new_source_code = '\n'.join(new_source_code_for_the_cell)
 
         parsed_nb_cells[self.check_cell_idx].source = new_source_code
+        parsed_nb_cells[0].source = "import warnings\nwarnings.filterwarnings('ignore')\n" + parsed_nb_cells[0].source
         nb.cells = parsed_nb_cells[:self.check_cell_idx+1]
         return super(StatusInspectionPreprocessor, self).preprocess(nb, resources)
 

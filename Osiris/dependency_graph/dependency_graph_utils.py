@@ -41,9 +41,11 @@ def get_code_list(path):
     sources = []
     for cell in cells:
         try :
-            s = "".join(cell[source_flag])
-            tree = ast.parse(s, mode='exec')
-            sources.append(s)
+            # avoid the cell without execution count 
+            if cell['execution_count'] is not None:
+                s = "".join(cell[source_flag])
+                tree = ast.parse(s, mode='exec')
+                sources.append(s)
         except (SyntaxError,):  # to avoid non-python code
             print('Syntax   Error')
             pass

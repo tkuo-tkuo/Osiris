@@ -1,13 +1,14 @@
 import nbformat
 import copy
 from nbconvert.preprocessors import ExecutePreprocessor
-from .ExecutePreprocessors import OECPreprocessor, ReproducibilityCheckPreprocessor, StatusInspectionPreprocessor
+from .ExecutePreprocessors import OECPreprocessor, ReproducibilityCheckPreprocessor, StatusInspectionPreprocessor, DependencyPreprocessor
 
 from .utils import *
 
 class Analysizer():
 
-    def __init__(self, notebook_file):
+    def __init__(self, notebook_path, notebook_file):
+        self._nb_path = notebook_path
         self._nb = nbformat.read(notebook_file, as_version=4)
 
         # ep is abbr for execute_preprocessor, which will be set later corresponding to different analyses
@@ -70,11 +71,20 @@ class Analysizer():
     def _set_ep_as_OEC_mode(self):
         self._ep = OECPreprocessor()
 
+    def _set_ep_as_dependency_mode(self, execution_order):
+        self._ep = DependencyPreprocessor(execution_order)
+
     def _set_ep_check_reproducibility_mode(self, check_cell_idx, analyse_strategy, is_duplicate):
         self._ep = ReproducibilityCheckPreprocessor(check_cell_idx, analyse_strategy, is_duplicate)
 
+    def _set_execution_order_for_ep_check_reproducibility_mode(self, execution_order):
+        self._ep.set_execution_order(execution_order)
+
     def _set_ep_status_inspection_mode(self, analyse_strategy, check_cell_idx):
         self._ep = StatusInspectionPreprocessor(analyse_strategy, check_cell_idx)
+
+    def _set_execution_order_for_ep_status_inspection_mode(self, execution_order):
+        self._ep.set_execution_order(execution_order)
 
     def _execute_nb(self):
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
@@ -88,15 +98,15 @@ class Analysizer():
     def return_py_version(self):
         return self._py_version
 
-    def check_executability(self, verbose=True, analyze_strategy='OEC'):
+    def check_executability(self, verbose, analyse_strategy):
         self._nb = copy.deepcopy(self._deep_copy_nb)
         is_executable = False
         try:
-            if analyze_strategy == 'normal':
+            if analyse_strategy == 'normal':
                 self._set_ep_as_normal_mode()
-            elif analyze_strategy == 'dependency':
-                naive_notebook_path = 'test_case_1.ipynb'
-                get_dep_matrix(naive_notebook_path)
+            elif analyse_strategy == 'dependency':
+                execution_order = get_execution_order(self._nb_path)
+                self._set_ep_as_dependency_mode(execution_order)
             else:
                 self._set_ep_as_OEC_mode()
 
@@ -115,7 +125,7 @@ class Analysizer():
     def check_output(self, verbose, analyse_strategy, strong_match):
         original_outputs, executed_outputs = None, None
         if analyse_strategy == 'OEC':
-            self.check_executability(verbose=False, analyze_strategy='OEC')
+            self.check_executability(verbose=False, analyse_strategy=analyse_strategy)
             if not self._is_executable:
                 raise RuntimeError('This notebook is NOT executable')
 
@@ -135,7 +145,7 @@ class Analysizer():
             self._execute_nb()
             executed_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
         elif analyse_strategy == 'normal':
-            self.check_executability(verbose=False, analyze_strategy='normal')
+            self.check_executability(verbose=False, analyse_strategy=analyse_strategy)
             if not self._is_executable:
                 raise RuntimeError('This notebook is NOT executable')
 
@@ -154,7 +164,26 @@ class Analysizer():
             self._execute_nb()
             executed_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
         elif analyse_strategy == 'dependency':
-            pass 
+            self.check_executability(
+                verbose=False, analyse_strategy=analyse_strategy)
+            if not self._is_executable:
+                raise RuntimeError('This notebook is NOT executable')
+
+            execution_order = get_execution_order(self._nb_path)
+            # Extract the original outputs
+            self._nb = copy.deepcopy(self._deep_copy_nb)
+            if strong_match:
+                original_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
+            else:
+                self._set_ep_as_dependency_mode(execution_order)
+                self._execute_nb()
+                original_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
+
+            # Extract the executed outputs
+            self._nb = copy.deepcopy(self._deep_copy_nb)
+            self._set_ep_as_dependency_mode(execution_order)
+            self._execute_nb()
+            executed_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
         else:
             pass
 
@@ -199,18 +228,14 @@ class Analysizer():
         return num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_of_unmatched_cells          
 
     def check_reproducibility(self, verbose, analyse_strategy):
-        if analyse_strategy == 'OEC':
-            self.check_executability(verbose=False, analyze_strategy='OEC')
-            if not self._is_executable:
-                raise RuntimeError('This notebook is NOT executable')
-        elif analyse_strategy == 'normal':
-            self.check_executability(verbose=False, analyze_strategy='normal')
-            if not self._is_executable:
-                raise RuntimeError('This notebook is NOT executable')
-        elif analyse_strategy == 'dependency':
-            pass 
-        else:
-            pass
+        assert analyse_strategy in ['OEC', 'normal', 'dependency']
+        self.check_executability(verbose=False, analyse_strategy=analyse_strategy)
+        if not self._is_executable:
+            raise RuntimeError('This notebook is NOT executable')
+
+        execution_order = None
+        if analyse_strategy == 'dependency':
+            execution_order = get_execution_order(self._nb_path)
         
         self._nb = copy.deepcopy(self._deep_copy_nb)
         num_of_cells = len(self._nb.cells)
@@ -223,8 +248,9 @@ class Analysizer():
             # Get status variables if execute once
             is_duplicate = False
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            self._set_ep_check_reproducibility_mode(
-                check_cell_idx, analyse_strategy, is_duplicate)
+            self._set_ep_check_reproducibility_mode(check_cell_idx, analyse_strategy, is_duplicate)
+            if execution_order is not None:
+                self._set_execution_order_for_ep_check_reproducibility_mode(execution_order)
             self._execute_nb()
             check_cell_outputs = self._nb.cells[check_cell_idx].outputs
             var_status_exe_once = check_cell_outputs[-1].data['text/plain']
@@ -232,8 +258,9 @@ class Analysizer():
             # Get status variables if execute twice
             self._nb = copy.deepcopy(self._deep_copy_nb)
             is_duplicate = True
-            self._set_ep_check_reproducibility_mode(
-                check_cell_idx, analyse_strategy, is_duplicate)
+            self._set_ep_check_reproducibility_mode(check_cell_idx, analyse_strategy, is_duplicate)
+            if execution_order is not None:
+                self._set_execution_order_for_ep_check_reproducibility_mode(execution_order)
             self._execute_nb()
             check_cell_outputs = self._nb.cells[check_cell_idx+1].outputs
             var_status_exe_twice = check_cell_outputs[-1].data['text/plain']
@@ -267,30 +294,31 @@ class Analysizer():
             self._nb, {'metadata': {'path': './'}}, target_line_index)
 
     def check_reproducibility_for_a_cell_line_by_line(self, analyse_strategy, check_cell_idx):
-        if analyse_strategy == 'OEC':
-            self.check_executability(verbose=False, analyze_strategy='OEC')
-            if not self._is_executable:
-                raise RuntimeError('This notebook is NOT executable')
-        elif analyse_strategy == 'normal':
-            self.check_executability(verbose=False, analyze_strategy='normal')
-            if not self._is_executable:
-                raise RuntimeError('This notebook is NOT executable')
-        elif analyse_strategy == 'dependency':
-            pass 
-        else:
-            pass
+        assert analyse_strategy in ['OEC', 'normal', 'dependency']
+        self.check_executability(
+            verbose=False, analyse_strategy=analyse_strategy)
+        if not self._is_executable:
+            raise RuntimeError('This notebook is NOT executable')
 
         # +1 cuz we will insert a status inspection function as the first cell (with index 0)
         check_cell_idx += 1
         first_var_status, second_var_status = None, None
 
+        execution_order = None
+        if analyse_strategy == 'dependency':
+            execution_order = get_execution_order(self._nb_path)
+
         self._nb = copy.deepcopy(self._deep_copy_nb)
         self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+        if execution_order is not None:
+            self._set_execution_order_for_ep_status_inspection_mode(execution_order)
         num_of_statements = self._ep_get_number_of_statements()
 
         # Check if the status of self-defined variables has been different before this cell
         self._nb = copy.deepcopy(self._deep_copy_nb)
         self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+        if execution_order is not None:
+            self._set_execution_order_for_ep_status_inspection_mode(execution_order)
         try:
             self._execute_nb_for_inspecting_status_of_certain_line(-1)
             check_cell_outputs = self._nb.cells[check_cell_idx].outputs
@@ -300,6 +328,8 @@ class Analysizer():
             
         self._nb = copy.deepcopy(self._deep_copy_nb)
         self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+        if execution_order is not None:
+            self._set_execution_order_for_ep_status_inspection_mode(execution_order)
         try:
             self._execute_nb_for_inspecting_status_of_certain_line(-1)
             check_cell_outputs = self._nb.cells[check_cell_idx].outputs
@@ -310,11 +340,12 @@ class Analysizer():
         if not (first_var_status == second_var_status):
             return -1 
 
-
         # Check if the status of self-defined variables has been different upon certain statement
         for i in range(num_of_statements):
             self._nb = copy.deepcopy(self._deep_copy_nb)
             self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+            if execution_order is not None:
+                self._set_execution_order_for_ep_status_inspection_mode(execution_order)
             try:
                 self._execute_nb_for_inspecting_status_of_certain_line(i)
                 check_cell_outputs = self._nb.cells[check_cell_idx].outputs
@@ -324,6 +355,8 @@ class Analysizer():
 
             self._nb = copy.deepcopy(self._deep_copy_nb)
             self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+            if execution_order is not None:
+                self._set_execution_order_for_ep_status_inspection_mode(execution_order)
             try:
                 self._execute_nb_for_inspecting_status_of_certain_line(i)
                 check_cell_outputs = self._nb.cells[check_cell_idx].outputs

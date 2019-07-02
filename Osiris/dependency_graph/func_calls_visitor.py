@@ -1,6 +1,6 @@
 import ast
 from collections import deque
-from .util import iter_child_nodes
+from .dependency_graph_utils import iter_child_nodes
 from ast import NodeVisitor
 
 class FuncCallVisitor(ast.NodeVisitor):

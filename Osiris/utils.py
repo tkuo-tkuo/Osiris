@@ -1,14 +1,59 @@
 import nbformat
+import collections
+import numpy as np
 
 from .dependency_graph import DependencyGraph
-from .util import get_code_list
+from .dependency_graph import get_code_list
 
-def get_dep_matrix(path):
-    print('hey??')
+def bfs(graph, root):
+    visited, queue = set(), collections.deque([root])
+    visited.add(root)
+    path = []
+    path.append(root)
+    while queue:
+        vertex = queue.popleft()
+        for neighbour in graph[vertex]:
+            if neighbour not in visited:
+                visited.add(neighbour)
+                path.append(neighbour)
+                queue.append(neighbour)
+
+    return path
+
+def dep_matrix_to_dep_lst(matrix):
+    graph = {}
+    for i, node in enumerate(matrix):
+        adj = []
+        for j, connected in enumerate(node):
+            if connected:
+                adj.append(j)
+        graph[i] = adj
+
+    return graph
+
+def get_execution_order(path):
+    name_of_virtual_node_for_forest = 'forest_root'
+
     code_list = get_code_list(path)
-    graph = DependencyGraph()
-    graph = graph.build(code_list)
-    print(graph) 
+    dep_graph = DependencyGraph()
+    dep_matrix = dep_graph.build(code_list)
+    adjacent_lst = dep_matrix_to_dep_lst(np.transpose(dep_matrix))
+    dependency_lst = dep_matrix_to_dep_lst(dep_matrix)
+
+    # Connect trees in forest with a virtual node called 'forest_root'
+    key_for_root_of_tree = []
+    for key in dependency_lst.keys():
+        if dependency_lst[key] == []:
+            key_for_root_of_tree.append(key)
+    adjacent_lst[name_of_virtual_node_for_forest] = key_for_root_of_tree
+
+    # Note that it's just one of the potential execution order generated according dependency between cells
+    execution_order = bfs(adjacent_lst, name_of_virtual_node_for_forest)
+
+    # Remove our virtual node, 'forest_root'
+    execution_order.remove(name_of_virtual_node_for_forest)
+    
+    return execution_order
 
 def store_nb(nb, relative_path):
     with open(relative_path, 'w') as f:
@@ -64,9 +109,30 @@ def extract_outputs_based_on_OEC_order(cells):
 
     return outputs
 
-# PENDING
-def extract_outputs_based_on_dependency_order(cells):
-    pass 
+def extract_outputs_based_on_dependency_order(cells, execution_order):
+    outputs = []
+    cells = cells.copy()
+
+    parsed_nb_cells = [cells[idx] for idx in execution_order]
+    for cell in parsed_nb_cells:
+        if len(cell.outputs) > 0:
+            thorough_output_for_the_cell = ''
+            for output in cell.outputs:
+                if 'text' in output.keys():
+                    thorough_output_for_the_cell += output.text
+                elif 'data' in output.keys():
+                    image_data = output.data
+                    if 'image/png' in image_data.keys():
+                        thorough_output_for_the_cell += image_data['image/png']
+                    elif 'text/plain' in image_data.keys():
+                        thorough_output_for_the_cell += image_data['text/plain']
+                    else:
+                        pass
+            outputs.append(thorough_output_for_the_cell)
+        else:
+            outputs.append('')
+
+    return outputs
 
 def print_source_code_of_unmatched_cells(cells, index_lst, unmatched_original_outputs, unmtached_executed_outputs):
     cells = cells.copy()

@@ -4,3 +4,4 @@ from .execute_preprocessors import LinkExecutePreprocessor
 from .execute_preprocessors import OECPreprocessor
 from .execute_preprocessors import ReproducibilityCheckPreprocessor
 from .execute_preprocessors import StatusInspectionPreprocessor
+from .execute_preprocessors import DependencyPreprocessor
