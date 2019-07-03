@@ -6,54 +6,47 @@ Osiris aims to eliminate this problem. One can leverage Osiris to analyze their 
 
 ## Getting Started
 
-These instructions will help you complete setup, deployment, and testing. In addition, a quick tutorial for getting familiar with Osiris. 
+These instructions will go through execution environments setup, usage, and unit tests for users to check functionalities of Osiris. 
 
 ### Prerequisites
 
-Make sure you have conda installed on your local machine. You can access [the official website](https://www.anaconda.com/) or simply by pip. 
+Make sure both Conda and Pip installed. Install Conda via [the official website](https://www.anaconda.com/) or by pip. 
 
 ```
 pip install conda 
 ```
 
-By activating the default environment, base, in conda. Users should have both <b>nbconvert</b> and <b>nbformat</b> installed in the <b>base</b> environment. These two packages should be installed for manipulation and analyses of Jupyter Notebook files. 
-
-```
-conda activate base  
-```
-
-User can also manually install <b>nbconvert</b> and <b>nbformat</b> by pip. 
-
 ### Setup 
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Before the usage of Osiris, to cope with various python version and package requirements for Jupyter Notebook files. A setup.sh needs to be executed to deploy several Conda environments with several combinations between different versions python and ten selected packages. 
 
 ```
-Give the example
+cd envs 
+source ./setup.sh
 ```
 
-And repeat
+Press yes during Conda environments installation if any. 
+After executing setup.sh, Conda environments with 'Osiris_' prefix should be installed.
+Execute the following command for verification. 
 
 ```
-until finished
+conda env list
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+display an image as a little demonstration 
 
-## Running the tests
+### Running unit tests for Osiris 
 
-There exist a folder called <b>tests</b> in the repository for testing functionalities of Osiris. Please navigate to the <b>tests</b> directory and run the <b>test.py</b> for unit tests. Note that it only contains several essential unit tests, it is highly recommended to include more unit tests. 
+There exist a folder called <b>tests</b> in the repository for testing functionalities of Osiris. Please navigate to the <b>tests</b> directory and run the <b>test.py</b> for unit tests. These unit tests will verify whether Osiris functions properly in various scenarios. 
 
 ```
 cd tests
 python3 test.py -v
 ```
 
-## Deployment
+## Usage 
 
-Add additional notes about how to deploy this on a live system
+usage tutorial 
 
 ## Contributing
 
