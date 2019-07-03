@@ -28,22 +28,24 @@ def massive_notebooks_analyze(start_idx, end_idx):
                 print(nb_idx)
                 print('--------------------------------------------------')
                 interface = Osiris.UserInterface(path)
-                for analyze_strategy in ['normal', 'OEC', 'dependency']:
+                # for analyze_strategy in ['normal', 'OEC', 'dependency']:
+                for analyze_strategy in ['dependency']:
                     row = []
                     row.append(nb_idx)
                     row.append(analyze_strategy)
-                    
+                    verbose = True
+
                     print(analyze_strategy)
-                    is_executable = interface.analyse_executability(verbose=False, store=False, analyze_strategy=analyze_strategy)
+                    is_executable = interface.analyse_executability(verbose=verbose, store=False, analyze_strategy=analyze_strategy)
                     print('Executability:', is_executable)
                     row.append(is_executable)
-                    num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(verbose=False, store=False, analyze_strategy=analyze_strategy, strong_match=True)
+                    num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(verbose=verbose, store=False, analyze_strategy=analyze_strategy, strong_match=True)
                     print('Mathcing ratio (strong):', match_ratio)
                     row.append(match_ratio)
-                    num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(verbose=False, store=False, analyze_strategy=analyze_strategy, strong_match=False)
+                    num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(verbose=verbose, store=False, analyze_strategy=analyze_strategy, strong_match=False)
                     print('Mathcing ratio (weak):', match_ratio)
                     row.append(match_ratio)
-                    num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_reproducibility(verbose=False, store=False, analyze_strategy=analyze_strategy)
+                    num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_reproducibility(verbose=verbose, store=False, analyze_strategy=analyze_strategy)
                     print('Reproducible ratio:', reproducible_ratio)
                     row.append(reproducible_ratio)
 
