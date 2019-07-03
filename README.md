@@ -46,7 +46,35 @@ python3 test.py -v
 
 ## Usage 
 
-usage tutorial 
+intro for this section 
+
+```
+conda activate Osiris_default 
+```
+
+### Parameters 
+
+description for parameters 
+
+### Examples 
+
+example 1 
+
+```
+source ./runOsiris ...
+```
+
+example 2
+
+```
+source ./runOsiris ...
+```
+
+and more 
+
+```
+source ./runOsiris ...
+```
 
 ## Contributing
 
