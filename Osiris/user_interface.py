@@ -23,7 +23,7 @@ class UserInterface():
         self._conda_env = self._get_conda_env_indication(self._py_version)
 
         # Set conda env according to the conda env indication
-        self._set_conda_env()
+        # self._set_conda_env()
 
     def _get_conda_env_indication(self, py_version):
         if py_version is None:
@@ -41,6 +41,9 @@ class UserInterface():
         else:
             return None
 
+    def return_py_version(self):
+        return self._py_version
+
     def _set_conda_env(self):
         # If Osiris can not realize which python version is used by a given notebook, Osiris configurates python 3.7
         if self._conda_env in ['py35', 'py36', 'py37']:
@@ -50,7 +53,7 @@ class UserInterface():
             os.environ['PATH'] = '/home/dabao/miniconda3/envs/py37/bin' + \
                 os.pathsep+os.environ.get('PATH', '')
 
-        # print(os.environ['PATH']) # For Debug purpose 
+        print(os.environ['PATH']) # For Debug purpose 
 
     '''
     verbose: Whether the terminal will print out analyzing process on the terminal    
