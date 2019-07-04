@@ -70,7 +70,7 @@ For Osiris, there are several parameters for users to specify during usage. Belo
   <b>Usage: -v</b> <br/>
   If False, Osiris will filter out all processing/debugging information, leaving only statistic results  — for instance, executability and reproducibility ratio. In contrast, if True, all processing/debugging information like the source code of non-reproducible cells will be listed out. 
   
-- <b>match pattern</b> (required) <br/>
+- <b>match pattern</b> (optional) <br/>
   <b>Usage: -m pattern</b> <br/>
   <b>options: strong/weak/best_effort</b> <br/>
   Set this option to analyze reproducibility of Jupyter Notebook files. Osiris automatically executes and compares outputs of Jupyter Notebook files according to match pattern given. 
@@ -79,7 +79,7 @@ For Osiris, there are several parameters for users to specify during usage. Belo
   <b>Usage: -s</b> <br/>
   Set this option as True to activate analyses on self-reproducibility of cells. Osiris will analyze whether cells in Jupyter Notebook files are self-reproducible or not. If a cell is self-reproducible, it indicates the status of variables is equivalent for executing a cell once or multiple times.  
   
-- <b>debug</b> (required) <br/>
+- <b>debug</b> (optional) <br/>
   <b>Usage: -d cell_index</b> <br/>
   <b>options: a valid number, where 0 indicates the first cell be executed</b> <br/>
   Set this option to analyze a specific cell in details for debugging purpose. Osiris will examine the status difference line by line and locate suspicious statement which may potentially induce the non-reproducibility.   
@@ -87,37 +87,37 @@ For Osiris, there are several parameters for users to specify during usage. Belo
 
 ### Examples 
 
-example 1: analyse whether a notebook is executable in normal (top-to-down) order
+example 1: analyze whether a notebook is executable in normal (top-to-down) order
 
 ```
 source ./runOsiris.sh target_notebook.ipynb normal 
 ```
 
-example 2: analyse reproducibility of a given notebook, using strong match pattern, in OEC (original execution count) order
+example 2: analyze reproducibility of a given notebook, using strong match pattern, in OEC (original execution count) order
 
 ```
 source ./runOsiris.sh target_notebook.ipynb OEC "-m strong"
 ```
 
-example 3: analyse reproducibility of a given notebook, using strong match pattern, in OEC (original execution count) order with full information 
+example 3: analyze reproducibility of a given notebook, using strong match pattern, in OEC (original execution count) order with full information 
 
 ```
 source ./runOsiris.sh target_notebook.ipynb OEC "-m strong -v"
 ```
 
-example 4: analyse self-reproducibility of a given notebook in dependency order  
+example 4: analyze self-reproducibility of a given notebook in dependency order  
 
 ```
 source ./runOsiris.sh target_notebook.ipynb dependency "-s"
 ```
 
-example 5: analyse the first cell of a given notebook in normal (top-to-down) order, where Osiris will locate suspicious statement causing status difference of variables. 
+example 5: analyze the first cell of a given notebook in normal (top-to-down) order, where Osiris will locate suspicious statement causing the status difference of variables. 
 
 ```
 source ./runOsiris.sh target_notebook.ipynb normal "-d 0"
 ```
 
-example 6: analyse both reproducibility of a given notebook, using strong match pattern, and self-reproducibility in OEC (original execution count) order with full information 
+example 6: analyze both reproducibility of a given notebook, using strong match pattern, and self-reproducibility in OEC (original execution count) order with full information 
 
 ```
 source ./runOsiris.sh target_notebook.ipynb OEC "-m strong -s -v"
