@@ -21,7 +21,6 @@ arguments="$FLAG1 $FLAG2 $FLAG3"
 
 # Grab the python version 
 py_version=$(python3 grab_py_version.py -n $1)
-echo $py_version
 
 # Switch to appropriate conda environment 
 if [ "$py_version" = "3.5" ]
@@ -33,8 +32,16 @@ then
 elif [ "$py_version" = "3.7" ]
 then
     conda activate Osiris_py37 
-else 
+elif [ "$py_version" = "2.7" ]
+then
     echo "Osiris currently does not implement for python2.7/3.4"
+    return 
+elif [ "$py_version" = "3.4" ]
+then
+    echo "Osiris currently does not implement for python2.7/3.4"
+    return 
+else 
+    echo "$py_version"
     return 
 fi 
 
