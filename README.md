@@ -37,16 +37,18 @@ display an image as a little demonstration
 
 ### Running unit tests for Osiris 
 
-There exist a folder called <b>tests</b> in the repository for testing functionalities of Osiris. Please navigate to the <b>tests</b> directory and run the <b>test.py</b> for unit tests. These unit tests will verify whether Osiris functions properly in various scenarios. 
+To guarantee all functionalities of Osiris functions accurately. Please run unit tests by instructions below. These unit tests will analyze Jupyter notebook files stored in the tests folder to verify the correctness of Osiris in diverse circumstances. 
+
+Note that for analyzing Jupyter Notebook files, Osiris requires some additional packages installed. For simplicity, activate the default environment of Osiris before running unit tests. 
 
 ```
-cd tests
+conda activate Osiris_default
 python3 test.py -v
 ```
 
 ## Usage 
 
-intro for this section 
+Follow instructions demonstrate how users can analyze their Jupyter Notebook files. To avoid unexpected failures, activate Osiris_default before leveraging Osiris. 
 
 ```
 conda activate Osiris_default 
@@ -54,7 +56,20 @@ conda activate Osiris_default
 
 ### Parameters 
 
-description for parameters 
+For Osiris, there are several parameters for users to specify during usage. Below list out all parameters and the corresponding description. Please refer to the Terminology section for more illustration. 
+
+- <b>notebook_path</b> (required) <br/>
+  Please specify the relative path from runOsiris.sh. For instance, notebook.ipynb or folder/notebook.ipynb. 
+  
+- <b>execute</b> (required) <br/>
+  <b>options: normal/OEC/dependency</b> <br/>
+  Please specify the execute strategy for analyzing Jupyter Notebook files. <br/>
+  Currently, Osiris has three execute strategies, including normal (top-to-down), OEC (original execution_count), and dependency. 
+  
+- <b>verbose -v</b> (optional) <br/>
+  <b>True or False</b> <br/>
+  If True, more...
+  
 
 ### Examples 
 
@@ -76,15 +91,9 @@ and more
 source ./runOsiris ...
 ```
 
-## Contributing
+## Terminology
 
 Skip
-<!-- Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us. -->
-
-## Versioning
-
-Skip
-<!-- We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). -->
 
 ## Authors
 
@@ -100,7 +109,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Why it's called Osiris? <br/>
 Osiris is the god of the afterlife, the underworld, and rebirth in ancient Egyptian religion. Our tool aims to enable Jupyter Notebook files to be executable, more reproducible, giving these files rebirth on different machines. That is the inspiration why I would like to name our tool as Jupyter Osiris. 
-* Hat tip to anyone whose code was used
 * Inspiration
 * etc
 
