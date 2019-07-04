@@ -96,7 +96,9 @@ class DependencyPreprocessor(ExecutePreprocessor):
 '''
 ReproducibilityCheckPreprocessor is used to check whether cells of a given notebook possess reproducible characteristic
 '''
-class ReproducibilityCheckPreprocessor(ExecutePreprocessor):
+
+
+class SelfReproducibilityCheckPreprocessor(ExecutePreprocessor):
 
     def __init__(self, check_cell_idx, analyse_strategy, is_duplicate):
         super(ExecutePreprocessor, self).__init__()
@@ -142,7 +144,7 @@ class ReproducibilityCheckPreprocessor(ExecutePreprocessor):
             parsed_nb_cells[0].source = "import warnings\nwarnings.filterwarnings('ignore')\n" + parsed_nb_cells[0].source
             nb.cells = parsed_nb_cells[:self.check_cell_idx+1]
 
-        return super(ReproducibilityCheckPreprocessor, self).preprocess(nb, resources)
+        return super(SelfReproducibilityCheckPreprocessor, self).preprocess(nb, resources)
 
 
 '''
@@ -220,7 +222,6 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
         if target_line_index == -1: 
             new_source_code_for_the_cell = []
             new_source_code_for_the_cell.append("extractVars()")
-
         # CASE 2: Check for status difference until certain statement 
         else:
             new_source_code_for_the_cell = [] 
@@ -229,6 +230,11 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
                 if line_index == target_line_index:
                     num_of_leading_spaces = len(statement) - len(statement.lstrip())
                     num_of_extract_vars_func = len("extractVars()")
+                    
+                    # adjust # of spaces 
+                    # for the case that contains if/elif/else/for/while/try/except/catch/def 
+                    # (PENDING)
+                    
                     new_source_code_for_the_cell.append("extractVars()".rjust(num_of_leading_spaces+num_of_extract_vars_func))
                     break
 

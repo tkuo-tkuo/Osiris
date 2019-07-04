@@ -1,7 +1,7 @@
 import nbformat
 import copy
 from nbconvert.preprocessors import ExecutePreprocessor
-from .ExecutePreprocessors import OECPreprocessor, ReproducibilityCheckPreprocessor, StatusInspectionPreprocessor, DependencyPreprocessor
+from .ExecutePreprocessors import OECPreprocessor, SelfReproducibilityCheckPreprocessor, StatusInspectionPreprocessor, DependencyPreprocessor
 
 from .utils import *
 
@@ -14,7 +14,6 @@ class Analysizer():
         # ep is abbr for execute_preprocessor, which will be set later corresponding to different analyses
         self._ep = None
         self._py_version = None
-        self._is_py_2 = None
         self._is_executable = None
 
         self._preceding_preapre()
@@ -25,7 +24,7 @@ class Analysizer():
 
     def _preceding_preapre(self):
         # extract python version & whether the version is python 2 or not 
-        self._py_version, self._is_py_2 = self._extract_py_version()
+        self._py_version = self._extract_py_version()
 
         # evaluate the name of kernel -> avoid the usage of inappropriate kernels like 'Python [Root]' or 'conda-root-py'
         kernal_name = self._nb['metadata']['kernelspec']['name']
@@ -41,13 +40,9 @@ class Analysizer():
         py_version = py_version_lst[0]+'.'+py_version_lst[1]
 
         # this assert may be replaced by some error-handling
-        assert py_version in ['2.7', '3.4', '3.5', '3.6', '3.7']
+        assert py_version in ['3.5', '3.6', '3.7']
 
-        is_py_2 = False
-        if py_version[0] == '2':
-            is_py_2 = True
-
-        return py_version, is_py_2
+        return py_version
 
     def _clean_redundant_cells(self):
         invalid_cells_idx = []
@@ -74,10 +69,10 @@ class Analysizer():
     def _set_ep_as_dependency_mode(self, execution_order):
         self._ep = DependencyPreprocessor(execution_order)
 
-    def _set_ep_check_reproducibility_mode(self, check_cell_idx, analyse_strategy, is_duplicate):
-        self._ep = ReproducibilityCheckPreprocessor(check_cell_idx, analyse_strategy, is_duplicate)
+    def _set_ep_check_self_reproducibility_mode(self, check_cell_idx, analyse_strategy, is_duplicate):
+        self._ep = SelfReproducibilityCheckPreprocessor(check_cell_idx, analyse_strategy, is_duplicate)
 
-    def _set_execution_order_for_ep_check_reproducibility_mode(self, execution_order):
+    def _set_execution_order_for_ep_check_self_reproducibility_mode(self, execution_order):
         self._ep.set_execution_order(execution_order)
 
     def _set_ep_status_inspection_mode(self, analyse_strategy, check_cell_idx):
@@ -116,28 +111,27 @@ class Analysizer():
             print(e)
             pass
 
-        if verbose:
-            print('Executability'.ljust(40), ':', is_executable)
+        print('Executability'.ljust(40), ':', is_executable)
 
         self._is_executable = is_executable
         return is_executable
 
-    def check_output(self, verbose, analyse_strategy, strong_match):
+    def check_reproducibility(self, verbose, analyse_strategy, match_pattern):
         original_outputs, executed_outputs = None, None
+
+        # Extract two outputs according to aanalyse_strategy and strong/weak match 
         if analyse_strategy == 'OEC':
-            self.check_executability(verbose=False, analyse_strategy=analyse_strategy)
-            if not self._is_executable:
-                raise RuntimeError('This notebook is NOT executable')
 
             # Extract the original outputs 
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            if strong_match:
+            if match_pattern == 'strong':
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
-            else: 
+            elif match_pattern == 'weak': 
                 self._set_ep_as_OEC_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
-
+            else: # best-effort (PENDING)
+                pass 
 
             # Extract the executed outputs 
             self._nb = copy.deepcopy(self._deep_copy_nb)
@@ -145,18 +139,17 @@ class Analysizer():
             self._execute_nb()
             executed_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
         elif analyse_strategy == 'normal':
-            self.check_executability(verbose=False, analyse_strategy=analyse_strategy)
-            if not self._is_executable:
-                raise RuntimeError('This notebook is NOT executable')
 
             # Extract the original outputs
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            if strong_match:
+            if match_pattern == 'strong':
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
-            else:
+            elif match_pattern == 'weak':
                 self._set_ep_as_normal_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
+            else: # best-effort (PENDING)
+                pass 
 
             # Extract the executed outputs
             self._nb = copy.deepcopy(self._deep_copy_nb)
@@ -164,20 +157,18 @@ class Analysizer():
             self._execute_nb()
             executed_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
         elif analyse_strategy == 'dependency':
-            self.check_executability(
-                verbose=False, analyse_strategy=analyse_strategy)
-            if not self._is_executable:
-                raise RuntimeError('This notebook is NOT executable')
 
             execution_order = get_execution_order(self._nb_path)
             # Extract the original outputs
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            if strong_match:
+            if match_pattern == 'strong':
                 original_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
-            else:
+            elif match_pattern == 'weak':
                 self._set_ep_as_dependency_mode(execution_order)
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
+            else:  # best-effort (PENDING)
+                pass
 
             # Extract the executed outputs
             self._nb = copy.deepcopy(self._deep_copy_nb)
@@ -214,24 +205,20 @@ class Analysizer():
             match_ratio = num_of_matched_cells/num_of_cells
         source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
 
-        if verbose:
-            print('Match ratio'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
-                num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
-            print('Match ratio'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
-                match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
+        print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
+            num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
+        print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
+            match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
 
-            # Debug & Experiment purpose 
-            # Print cells which are unmatched 
+        # Debug & Experiment purpose 
+        # Print cells which are unmatched 
+        if verbose:
             self._nb = copy.deepcopy(self._deep_copy_nb)
             print_source_code_of_unmatched_cells(self._nb.cells, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs)   
 
         return num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_of_unmatched_cells          
 
-    def check_reproducibility(self, verbose, analyse_strategy):
-        assert analyse_strategy in ['OEC', 'normal', 'dependency']
-        self.check_executability(verbose=False, analyse_strategy=analyse_strategy)
-        if not self._is_executable:
-            raise RuntimeError('This notebook is NOT executable')
+    def check_self_reproducibility(self, verbose, analyse_strategy):
 
         execution_order = None
         if analyse_strategy == 'dependency':
@@ -240,7 +227,7 @@ class Analysizer():
         self._nb = copy.deepcopy(self._deep_copy_nb)
         num_of_cells = len(self._nb.cells)
 
-        reproducible_cell_idx = []
+        self_reproducible_cell_idx = []
         for i in range(num_of_cells):
             # +1 cuz we will insert a status inspection function as the first cell (with index 0)
             check_cell_idx = i + 1 
@@ -248,9 +235,9 @@ class Analysizer():
             # Get status variables if execute once
             is_duplicate = False
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            self._set_ep_check_reproducibility_mode(check_cell_idx, analyse_strategy, is_duplicate)
+            self._set_ep_check_self_reproducibility_mode(check_cell_idx, analyse_strategy, is_duplicate)
             if execution_order is not None:
-                self._set_execution_order_for_ep_check_reproducibility_mode(execution_order)
+                self._set_execution_order_for_ep_check_self_reproducibility_mode(execution_order)
             self._execute_nb()
             check_cell_outputs = self._nb.cells[check_cell_idx].outputs
             var_status_exe_once = check_cell_outputs[-1].data['text/plain']
@@ -258,33 +245,33 @@ class Analysizer():
             # Get status variables if execute twice
             self._nb = copy.deepcopy(self._deep_copy_nb)
             is_duplicate = True
-            self._set_ep_check_reproducibility_mode(check_cell_idx, analyse_strategy, is_duplicate)
+            self._set_ep_check_self_reproducibility_mode(check_cell_idx, analyse_strategy, is_duplicate)
             if execution_order is not None:
-                self._set_execution_order_for_ep_check_reproducibility_mode(execution_order)
+                self._set_execution_order_for_ep_check_self_reproducibility_mode(execution_order)
             self._execute_nb()
             check_cell_outputs = self._nb.cells[check_cell_idx+1].outputs
             var_status_exe_twice = check_cell_outputs[-1].data['text/plain']
 
             # Check whether a cell is reproducible & Print
-            is_reproducible = (var_status_exe_once == var_status_exe_twice)
+            is_self_reproducible = (var_status_exe_once == var_status_exe_twice)
             if verbose:
-                print("Check the {cell_idx} th cell among {num_of_cells} cells. Reproducibility result: {Reproduciblity_result}".format(
-                    cell_idx=check_cell_idx, num_of_cells=num_of_cells, Reproduciblity_result=is_reproducible))
+                print("Check the {cell_idx} th cell among {num_of_cells} cells. Self-reproducibility result: {Self_reproduciblity_result}".format(
+                    cell_idx=check_cell_idx, num_of_cells=num_of_cells, Self_reproduciblity_result=is_self_reproducible))
 
             # Store results for further return
-            if is_reproducible:
-                reproducible_cell_idx.append(i)
+            if is_self_reproducible:
+                self_reproducible_cell_idx.append(i)
 
         # Return
-        num_of_reproducible_cells = len(reproducible_cell_idx)
-        reproducibility_ratio = len(reproducible_cell_idx) / num_of_cells
-        if verbose:
-            print('Reproducibility'.ljust(40), ':', "number of reproducible cells: {num_of_reproducible_cells} ; number of cells: {num_of_cells}".format(
-                num_of_reproducible_cells=num_of_reproducible_cells, num_of_cells=num_of_cells))
-            print('Reproducibility'.ljust(40), ':', "reproduciblity ratio: {reproducibility_ratio} ; index of reproducible cells: {reproducible_cell_idx}".format(
-                reproducibility_ratio=round(reproducibility_ratio, 3), reproducible_cell_idx=reproducible_cell_idx))
+        num_of_self_reproducible_cells = len(self_reproducible_cell_idx)
+        self_reproducibility_ratio = len(self_reproducible_cell_idx) / num_of_cells
 
-        return num_of_reproducible_cells, num_of_cells, reproducibility_ratio, reproducible_cell_idx
+        print('Self reproducibility'.ljust(40), ':', "number of self-reproducible cells: {num_of_self_reproducible_cells} ; number of cells: {num_of_cells}".format(
+            num_of_self_reproducible_cells=num_of_self_reproducible_cells, num_of_cells=num_of_cells))
+        print('Self reproducibility'.ljust(40), ':', "self-reproduciblity ratio: {self_reproducibility_ratio} ; index of self-reproducible cells: {self_reproducible_cell_idx}".format(
+            self_reproducibility_ratio=round(self_reproducibility_ratio, 3), self_reproducible_cell_idx=self_reproducible_cell_idx))
+
+        return num_of_self_reproducible_cells, num_of_cells, self_reproducibility_ratio, self_reproducible_cell_idx
 
     def _ep_get_number_of_statements(self):
         return self._ep.get_number_of_statements(self._nb)
@@ -294,11 +281,6 @@ class Analysizer():
             self._nb, {'metadata': {'path': './'}}, target_line_index)
 
     def check_status_difference_for_a_cell(self, analyse_strategy, check_cell_idx):
-        assert analyse_strategy in ['OEC', 'normal', 'dependency']
-        self.check_executability(
-            verbose=False, analyse_strategy=analyse_strategy)
-        if not self._is_executable:
-            raise RuntimeError('This notebook is NOT executable')
 
         # +1 cuz we will insert a status inspection function as the first cell (with index 0)
         check_cell_idx += 1

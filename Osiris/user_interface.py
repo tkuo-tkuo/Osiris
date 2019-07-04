@@ -7,10 +7,11 @@ from .analysizer import Analysizer
 
 class UserInterface():
 
-    def __init__(self, path):
+    def __init__(self, path, verbose):
         # Store the path of the given notebook
         # Note the path is relative path
         self._nb_path = path
+        self._verbose = verbose
 
         # Extract python version
         self._py_version = None
@@ -55,18 +56,7 @@ class UserInterface():
 
         print(os.environ['PATH']) # For Debug purpose 
 
-    '''
-    verbose: Whether the terminal will print out analyzing process on the terminal    
-    store: Whether analysized results will be stored for a given notebook 
-    analyze_strategy: Top-down (normal) / OEC (original execution count) / dependency
-        - top-down (normal): execute Eells from the top one to the bottom one in a notebook 
-        - OEC: Execute cells in increasing execution_count order 
-        - dependency: Execute cells by depth-first order in cell-dependency graph
-    strong_match: If True, we check whether individual cell is strongly matched. 
-                  Otherwise, we check whether individual cell is weakly matched.  
-    '''
-
-    def analyse_executability(self, verbose=True, store=False, analyze_strategy='OEC'):
+    def analyse_executability(self, analyse_strategy):
         assert self._py_version in ['3.5', '3.6', '3.7']
 
         path_split_lst = self._nb_path.split('/')
@@ -76,21 +66,13 @@ class UserInterface():
             cd_path = '/'.join(cd_path_lst)
             os.chdir(cd_path)
 
+        assert analyse_strategy in ['OEC', 'normal', 'dependency']
         is_executable = self.analysizer.check_executability(
-            verbose, analyze_strategy)
-
-        if store:
-            csv_name_for_storage = 'Saved_analyse_executability_results_'+analyze_strategy+'.csv'
-            csv_file = open(csv_name_for_storage, 'a')
-            writer = csv.writer(csv_file)
-
-            row = []
-            row.append(is_executable)
-            writer.writerow(row)
+            self._verbose, analyse_strategy)
 
         return is_executable
 
-    def analyse_outputs(self, verbose=True, store=False, analyze_strategy='OEC', strong_match=True):
+    def analyse_reproducibility(self, analyse_strategy, match_pattern):
         assert self._py_version in ['3.5', '3.6', '3.7']
 
         path_split_lst = self._nb_path.split('/')
@@ -101,29 +83,13 @@ class UserInterface():
             os.chdir(cd_path)
 
         # Analysing & Return & Storing (optinal)
-        assert analyze_strategy in ['OEC', 'normal', 'dependency']
-        num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells = self.analysizer.check_output(
-            verbose, analyze_strategy, strong_match)
-
-        if store:
-            if strong_match:
-                csv_name_for_storage = 'Saved_analyse_output_strong_match_results_' + \
-                    analyze_strategy+'.csv'
-            else:
-                csv_name_for_storage = 'Saved_analyse_output_weak_match_results_'+analyze_strategy+'.csv'
-            csv_file = open(csv_name_for_storage, 'a')
-            writer = csv.writer(csv_file)
-
-            row = []
-            row.append(num_of_matched_cells)
-            row.append(num_of_cells)
-            row.append(match_ratio)
-            row.append(match_cell_idx)
-            writer.writerow(row)
+        assert analyse_strategy in ['OEC', 'normal', 'dependency']
+        num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells = self.analysizer.check_reproducibility(
+            self._verbose, analyse_strategy, match_pattern)
 
         return num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells
 
-    def analyse_reproducibility(self, verbose=True, store=False, analyze_strategy='OEC'):
+    def analyse_self_reproducibility(self, analyse_strategy):
         assert self._py_version in ['3.5', '3.6', '3.7']
 
         path_split_lst = self._nb_path.split('/')
@@ -134,25 +100,13 @@ class UserInterface():
             os.chdir(cd_path)
 
         # Analysing & Return & Storing (optinal)
-        assert analyze_strategy in ['OEC', 'normal', 'dependency']
-        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = self.analysizer.check_reproducibility(
-            verbose, analyze_strategy)
-
-        if store:
-            csv_name_for_storage = 'Saved_analyse_reproducibility_results_'+analyze_strategy+'.csv'
-            csv_file = open(csv_name_for_storage, 'a')
-            writer = csv.writer(csv_file)
-
-            row = []
-            row.append(num_of_reproducible_cells)
-            row.append(num_of_cells)
-            row.append(reproducible_ratio)
-            row.append(reproducible_cell_idx)
-            writer.writerow(row)
+        assert analyse_strategy in ['OEC', 'normal', 'dependency']
+        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = self.analysizer.check_self_reproducibility(
+            self._verbose, analyse_strategy)
 
         return num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx
 
-    def analyse_status_difference_for_a_cell(self, verbose=True, store=False, analyze_strategy='OEC', cell_index=None):
+    def analyse_status_difference_for_a_cell(self, analyse_strategy, cell_index):
         if cell_index == None:
             raise ValueError('cell_index argument should not be empty (None), please indicate the cell_index.')
         
@@ -166,29 +120,17 @@ class UserInterface():
             os.chdir(cd_path)
 
         # Analysing & Return & Storing (optinal)
-        assert analyze_strategy in ['OEC', 'normal', 'dependency']
-        problematic_statement_index = self.analysizer.check_status_difference_for_a_cell(analyze_strategy, cell_index)
+        assert analyse_strategy in ['OEC', 'normal', 'dependency']
+        problematic_statement_index = self.analysizer.check_status_difference_for_a_cell(analyse_strategy, cell_index)
         
-        if verbose:
-            if problematic_statement_index is None:
-                print('Statements in this cell did not cause any status difference of self-defined variables')
-            elif problematic_statement_index is -1:
-                print('Status difference of self-defined variables may occur before any execution of statements in this cell')
-            else: 
-                print('The potential statement for causing status difference is line', problematic_statement_index)
-                print('(Note that 0 indicates for the first line and empty lines are also included)')
-
-        if store:
-            csv_name_for_storage = 'Saved_analyse_reproducibility_results_'+analyze_strategy+'_for_cell_'+str(cell_index)+'.csv'
-            csv_file = open(csv_name_for_storage, 'a')
-            writer = csv.writer(csv_file)
-
-            row = []
-            row.append(problematic_statement_index)
-            row.append(-1)
-            row.append(None)
-            writer.writerow(row)
-            
+        if problematic_statement_index is None:
+            print('Statements in this cell did not cause any status difference of self-defined variables')
+        elif problematic_statement_index is -1:
+            print('Status difference of self-defined variables may occur before any execution of statements in this cell')
+        else: 
+            print('The potential statement for causing status difference is line', problematic_statement_index)
+            print('(Note that 0 indicates for the first line and empty lines are also included)')
+        
         return problematic_statement_index
 
         
