@@ -168,7 +168,7 @@ class Analysizer():
             elif match_pattern == 'weak':
                 self._set_ep_as_dependency_mode(execution_order)
                 self._execute_nb()
-                original_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
+                original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
             else:  # best-effort (PENDING)
                 pass
 
@@ -176,7 +176,7 @@ class Analysizer():
             self._nb = copy.deepcopy(self._deep_copy_nb)
             self._set_ep_as_dependency_mode(execution_order)
             self._execute_nb()
-            executed_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
+            executed_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
         else:
             pass
 

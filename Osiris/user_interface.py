@@ -54,6 +54,7 @@ class UserInterface():
 
         # Analysing & Return & Storing (optinal)
         assert analyse_strategy in ['OEC', 'normal', 'dependency']
+        assert match_pattern in ['strong', 'weak', 'best_effort']
         num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells = self.analysizer.check_reproducibility(
             self._verbose, analyse_strategy, match_pattern)
 

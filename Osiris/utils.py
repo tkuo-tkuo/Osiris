@@ -52,7 +52,7 @@ def get_execution_order(path):
 
     # Remove our virtual node, 'forest_root'
     execution_order.remove(name_of_virtual_node_for_forest)
-    
+    print('According to dependency of cells, the execution order is', execution_order)
     return execution_order
 
 def store_nb(nb, relative_path):
