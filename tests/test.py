@@ -22,6 +22,8 @@ variables_dependency_notebook_path = 'test_case_7.ipynb'
 packages_dependency_notebook_path = 'test_case_8.ipynb'
 output_matching_analyse_via_dependency_strategy_notebook_path = 'test_case_9.ipynb'
 
+verbose = False
+
 class TestOsiris(unittest.TestCase):
 
     def setUp(self):
@@ -32,152 +34,129 @@ class TestOsiris(unittest.TestCase):
     # Conda environment required
     def test_relative_path(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(relative_notebook_path)
-        is_executable = interface.analyse_executability(
-            verbose=False, store=False, analyze_strategy='OEC')
+        interface = Osiris.UserInterface(relative_notebook_path, verbose)
+        is_executable = interface.analyse_executability('OEC')
         self.assertEqual(is_executable, True)
 
     def test_top_down_analyse_executability(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
-        is_executable = interface.analyse_executability(
-            verbose=False, store=False, analyze_strategy='normal')
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path, verbose)
+        is_executable = interface.analyse_executability('normal')
         self.assertEqual(is_executable, True)
 
     def test_OEC_analyse_executability(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
-        is_executable = interface.analyse_executability(
-            verbose=False, store=False, analyze_strategy='OEC')
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path, verbose)
+        is_executable = interface.analyse_executability('OEC')
         self.assertEqual(is_executable, True)
 
     def test_dependency_analyse_executability(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(variables_dependency_notebook_path)
-        is_executable = interface.analyse_executability(
-            verbose=False, store=False, analyze_strategy='dependency')
+        interface = Osiris.UserInterface(variables_dependency_notebook_path, verbose)
+        is_executable = interface.analyse_executability('dependency')
         self.assertEqual(is_executable, True)
 
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(packages_dependency_notebook_path)
-        is_executable = interface.analyse_executability(
-            verbose=False, store=False, analyze_strategy='dependency')
+        interface = Osiris.UserInterface(packages_dependency_notebook_path, verbose)
+        is_executable = interface.analyse_executability('dependency')
         self.assertEqual(is_executable, True)
 
     def test_top_down_analyse_strongly_matched_ouptut(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(
-            verbose=False, store=False, analyze_strategy='normal', strong_match=True)
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path, verbose)
+        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('normal', 'strong')
         self.assertEqual(num_of_matched_cells, 1)
         self.assertEqual(num_of_cells, 3)
 
     def test_top_down_analyse_weakly_matched_ouptut(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(
-            verbose=False, store=False, analyze_strategy='normal', strong_match=False)
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path, verbose)
+        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('normal', 'weak')
         self.assertEqual(num_of_matched_cells, 3)
         self.assertEqual(num_of_cells, 3)
 
     def test_OEC_analyse_strongly_matched_ouptut(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(
-            verbose=False, store=False, analyze_strategy='OEC', strong_match=True)
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path, verbose)
+        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('OEC', 'strong')
         self.assertEqual(num_of_matched_cells, 1)
         self.assertEqual(num_of_cells, 3)
 
     def test_OEC_analyse_weakly_matched_ouptut(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(analyze_strategy_notebook_path)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(
-            verbose=False, store=False, analyze_strategy='OEC', strong_match=False)
+        interface = Osiris.UserInterface(analyze_strategy_notebook_path, verbose)
+        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('OEC', 'weak')
         self.assertEqual(num_of_matched_cells, 3)
         self.assertEqual(num_of_cells, 3)
 
     def test_dependency_analyse_strongly_matched_ouptut(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(output_matching_analyse_via_dependency_strategy_notebook_path)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(
-            verbose=False, store=False, analyze_strategy='dependency', strong_match=True)
+        interface = Osiris.UserInterface(output_matching_analyse_via_dependency_strategy_notebook_path, verbose)
+        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('dependency', 'strong')
         self.assertEqual(num_of_matched_cells, 6)
         self.assertEqual(num_of_cells, 8)
 
     def test_dependency_analyse_weakly_matched_ouptut(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(output_matching_analyse_via_dependency_strategy_notebook_path)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(
-            verbose=False, store=False, analyze_strategy='dependency', strong_match=False)
+        interface = Osiris.UserInterface(output_matching_analyse_via_dependency_strategy_notebook_path, verbose)
+        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('dependency', 'weak')
         self.assertEqual(num_of_matched_cells, 8)
         self.assertEqual(num_of_cells, 8)
 
-    def test_top_down_analyse_reproducibility(self):
+    def test_top_down_analyse_self_reproducibility(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(naive_notebook_path)
-        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_reproducibility(
-            verbose=False, store=False, analyze_strategy='normal')
+        interface = Osiris.UserInterface(naive_notebook_path, verbose)
+        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_self_reproducibility('normal')
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
         self.assertEqual(reproducible_cell_idx, [0, 3])
 
-    def test_OEC_analyse_reproducibility(self):
+    def test_OEC_analyse_self_reproducibility(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(naive_notebook_path)
-        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_reproducibility(
-            verbose=False, store=False, analyze_strategy='OEC')
+        interface = Osiris.UserInterface(naive_notebook_path, verbose)
+        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_self_reproducibility('OEC')
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
         self.assertEqual(reproducible_cell_idx, [0, 1])
 
-    def test_dependency_analyse_reproducibility(self):
+    def test_dependency_analyse_self_reproducibility(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(naive_notebook_path)
-        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_reproducibility(
-            verbose=False, store=False, analyze_strategy='dependency')
+        interface = Osiris.UserInterface(naive_notebook_path, verbose)
+        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_self_reproducibility('dependency')
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
 
     def test_top_down_analyse_status_difference_for_a_cell(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(
-            status_inspection_for_a_cell_notebook_path)
-        problematic_statement_index = interface.analyse_status_difference_for_a_cell(
-            verbose=False, store=False, analyze_strategy='normal', cell_index=1)
+        interface = Osiris.UserInterface(status_inspection_for_a_cell_notebook_path, verbose)
+        problematic_statement_index = interface.analyse_status_difference_for_a_cell('normal', cell_index=1)
         self.assertEqual(problematic_statement_index, 9)
 
     def test_OEC_analyse_status_difference_for_a_cell(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(
-            status_inspection_for_a_cell_notebook_path)
-        problematic_statement_index = interface.analyse_status_difference_for_a_cell(
-            verbose=False, store=False, analyze_strategy='OEC', cell_index=2)
+        interface = Osiris.UserInterface(status_inspection_for_a_cell_notebook_path, verbose)
+        problematic_statement_index = interface.analyse_status_difference_for_a_cell('OEC', 2)
         self.assertEqual(problematic_statement_index, 9)
 
     def test_dependency_analyse_status_difference_for_a_cell(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(
-            status_inspection_for_a_cell_notebook_path)
-        problematic_statement_index = interface.analyse_status_difference_for_a_cell(
-            verbose=False, store=False, analyze_strategy='dependency', cell_index=1)
+        interface = Osiris.UserInterface(status_inspection_for_a_cell_notebook_path, verbose)
+        problematic_statement_index = interface.analyse_status_difference_for_a_cell('dependency', 1)
         self.assertEqual(problematic_statement_index, 9)
 
     def test_OEC_analyse_weakly_matched_output_for_image_IPythonDisplay(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(image_IPythonDisplay_notebook_path)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(
-            verbose=False, store=False, analyze_strategy='OEC', strong_match=False)
+        interface = Osiris.UserInterface(image_IPythonDisplay_notebook_path, verbose)
+        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('OEC', 'weak')
         self.assertEqual(num_of_matched_cells, 1)
         self.assertEqual(num_of_cells, 1)
 
     def test_OEC_analyse_weakly_matched_output_for_image_Matplotlib(self):
         os.chdir(ROOT_FOR_TESTS)
-        interface = Osiris.UserInterface(image_Matplotlib_notebook_path)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_outputs(
-            verbose=False, store=False, analyze_strategy='OEC', strong_match=False)
+        interface = Osiris.UserInterface(image_Matplotlib_notebook_path, verbose)
+        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('OEC', 'weak')
         self.assertEqual(num_of_matched_cells, 2)
         self.assertEqual(num_of_cells, 2)
-
 
 if __name__ == '__main__':
     unittest.main()
