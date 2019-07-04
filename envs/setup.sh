@@ -9,4 +9,4 @@ conda env create -f Osiris_default.yml
 conda activate Osiris_default 
 pip install jupyter_client
 
-conda install nb_conda nb_conda_kernels
+conda install nb_conda nb_conda_kernels matplotlib

@@ -19,42 +19,10 @@ class UserInterface():
         self.analysizer = Analysizer(path, f)
         self._py_version = self.analysizer.return_py_version()
 
-        # Set conda env indication for corresponding python version
-        self._conda_env = None
-        self._conda_env = self._get_conda_env_indication(self._py_version)
-
-        # Set conda env according to the conda env indication
-        # self._set_conda_env()
-
-    def _get_conda_env_indication(self, py_version):
-        if py_version is None:
-            return None
-
-        if py_version == '3.5':
-            return 'py35'
-        elif py_version == '3.6':
-            return 'py36'
-        elif py_version == '3.7':
-            return 'py37'
-        elif py_version in ['2.7', '3.4']:
-            print('Osiris currently is not implemented for python 2.7/3.4')
-            return None
-        else:
-            return None
-
+        self._root_path = os.getcwd()
+ 
     def return_py_version(self):
         return self._py_version
-
-    def _set_conda_env(self):
-        # If Osiris can not realize which python version is used by a given notebook, Osiris configurates python 3.7
-        if self._conda_env in ['py35', 'py36', 'py37']:
-            os.environ['PATH'] = '/home/dabao/miniconda3/envs/' + \
-                self._conda_env+'/bin'+os.pathsep+os.environ.get('PATH', '')
-        else:
-            os.environ['PATH'] = '/home/dabao/miniconda3/envs/py37/bin' + \
-                os.pathsep+os.environ.get('PATH', '')
-
-        print(os.environ['PATH']) # For Debug purpose 
 
     def analyse_executability(self, analyse_strategy):
         assert self._py_version in ['3.5', '3.6', '3.7']
@@ -64,6 +32,7 @@ class UserInterface():
         if len(path_split_lst) > 1:
             cd_path_lst = path_split_lst[:-1]
             cd_path = '/'.join(cd_path_lst)
+            os.chdir(self._root_path)
             os.chdir(cd_path)
 
         assert analyse_strategy in ['OEC', 'normal', 'dependency']
@@ -80,6 +49,7 @@ class UserInterface():
         if len(path_split_lst) > 1:
             cd_path_lst = path_split_lst[:-1]
             cd_path = '/'.join(cd_path_lst)
+            os.chdir(self._root_path)
             os.chdir(cd_path)
 
         # Analysing & Return & Storing (optinal)
@@ -97,6 +67,7 @@ class UserInterface():
         if len(path_split_lst) > 1:
             cd_path_lst = path_split_lst[:-1]
             cd_path = '/'.join(cd_path_lst)
+            os.chdir(self._root_path)
             os.chdir(cd_path)
 
         # Analysing & Return & Storing (optinal)
@@ -117,6 +88,7 @@ class UserInterface():
         if len(path_split_lst) > 1:
             cd_path_lst = path_split_lst[:-1]
             cd_path = '/'.join(cd_path_lst)
+            os.chdir(self._root_path)
             os.chdir(cd_path)
 
         # Analysing & Return & Storing (optinal)

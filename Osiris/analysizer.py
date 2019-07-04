@@ -8,7 +8,7 @@ from .utils import *
 class Analysizer():
 
     def __init__(self, notebook_path, notebook_file):
-        self._nb_path = notebook_path
+        self._nb_path = notebook_path.split('/')[-1]
         self._nb = nbformat.read(notebook_file, as_version=4)
 
         # ep is abbr for execute_preprocessor, which will be set later corresponding to different analyses
@@ -21,6 +21,8 @@ class Analysizer():
         # copy.deepcopy() must be executed at the end of __init__
         # since we would like to store the deep_copy version of the given notebook after parsing and clearning
         self._deep_copy_nb = copy.deepcopy(self._nb)
+
+    
 
     def _preceding_preapre(self):
         # extract python version & whether the version is python 2 or not 

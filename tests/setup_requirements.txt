@@ -1,5 +1,0 @@
-Pre-requirement: users are required to have conda installed in their machines. 
-
-1. For unit tests, 'nbformat'/'nbconvert' are needed to be installed if an unit test directly call Osiris.analysizer without activating conda env. An alternative solution is to enter conda 'base' env.  
-2. Run a script to automatically set up all virtual environments
-3. Setup.py should help users to hardcode the path to the location of the module, Osiris.  
