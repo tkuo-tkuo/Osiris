@@ -3,7 +3,7 @@ import os
 import sys
 import csv
 from .analysizer import Analysizer
-
+from .constants import *
 
 class UserInterface():
 
@@ -25,7 +25,7 @@ class UserInterface():
         return self._py_version
 
     def analyse_executability(self, analyse_strategy):
-        assert self._py_version in ['3.5', '3.6', '3.7']
+        assert self._py_version in VALID_PYTHON_VERSIONS
 
         path_split_lst = self._nb_path.split('/')
         # We need to cd to the same directory as the notebook
@@ -35,14 +35,14 @@ class UserInterface():
             os.chdir(self._root_path)
             os.chdir(cd_path)
 
-        assert analyse_strategy in ['OEC', 'normal', 'dependency']
+        assert analyse_strategy in STRATEGIES
         is_executable = self.analysizer.check_executability(
             self._verbose, analyse_strategy)
 
         return is_executable
 
     def analyse_reproducibility(self, analyse_strategy, match_pattern):
-        assert self._py_version in ['3.5', '3.6', '3.7']
+        assert self._py_version in VALID_PYTHON_VERSIONS
 
         path_split_lst = self._nb_path.split('/')
         # We need to cd to the same directory as the notebook
@@ -53,15 +53,15 @@ class UserInterface():
             os.chdir(cd_path)
 
         # Analysing & Return & Storing (optinal)
-        assert analyse_strategy in ['OEC', 'normal', 'dependency']
-        assert match_pattern in ['strong', 'weak', 'best_effort']
+        assert analyse_strategy in STRATEGIES
+        assert match_pattern in MATCH_PATTERNS
         num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells = self.analysizer.check_reproducibility(
             self._verbose, analyse_strategy, match_pattern)
 
         return num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells
 
     def analyse_self_reproducibility(self, analyse_strategy):
-        assert self._py_version in ['3.5', '3.6', '3.7']
+        assert self._py_version in VALID_PYTHON_VERSIONS
 
         path_split_lst = self._nb_path.split('/')
         # We need to cd to the same directory as the notebook
@@ -72,7 +72,7 @@ class UserInterface():
             os.chdir(cd_path)
 
         # Analysing & Return & Storing (optinal)
-        assert analyse_strategy in ['OEC', 'normal', 'dependency']
+        assert analyse_strategy in STRATEGIES
         num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = self.analysizer.check_self_reproducibility(
             self._verbose, analyse_strategy)
 
@@ -82,7 +82,7 @@ class UserInterface():
         if cell_index == None:
             raise ValueError('cell_index argument should not be empty (None), please indicate the cell_index.')
         
-        assert self._py_version in ['3.5', '3.6', '3.7']
+        assert self._py_version in VALID_PYTHON_VERSIONS
 
         path_split_lst = self._nb_path.split('/')
         # We need to cd to the same directory as the notebook
@@ -93,7 +93,7 @@ class UserInterface():
             os.chdir(cd_path)
 
         # Analysing & Return & Storing (optinal)
-        assert analyse_strategy in ['OEC', 'normal', 'dependency']
+        assert analyse_strategy in STRATEGIES
         problematic_statement_index = self.analysizer.check_status_difference_for_a_cell(analyse_strategy, cell_index)
         
         if problematic_statement_index is None:

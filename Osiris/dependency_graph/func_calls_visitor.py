@@ -29,12 +29,13 @@ def get_func_calls(tree):
     func_calls = []
     for node in ast.walk(tree):
         if isinstance(node, ast.Call):
-            callvisitor = FuncCallVisitor()
-            callvisitor.visit(node.func)
-            func_calls += [callvisitor.name]
-        if isinstance(node, ast.FunctionDef):
+            if not isinstance(node.func, ast.Attribute):  # skip object memeber calls
+                callvisitor = FuncCallVisitor()
+                callvisitor.visit(node.func)
+                func_calls += [callvisitor.name]
+        elif isinstance(node, ast.FunctionDef):
             func_calls += [(node.name, "def")]
-        if isinstance(node, ast.Assign) and isinstance(node.value, ast.Lambda):
+        elif isinstance(node, ast.Assign) and isinstance(node.value, ast.Lambda):
             func_calls += [(node.targets[0].id, "def")]
-
     return func_calls
+

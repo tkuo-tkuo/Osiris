@@ -4,6 +4,7 @@ from nbconvert.preprocessors import ExecutePreprocessor
 from .ExecutePreprocessors import OECPreprocessor, SelfReproducibilityCheckPreprocessor, StatusInspectionPreprocessor, DependencyPreprocessor
 
 from .utils import *
+from .constants import *
 
 class Analysizer():
 
@@ -42,7 +43,7 @@ class Analysizer():
         py_version = py_version_lst[0]+'.'+py_version_lst[1]
 
         # this assert may be replaced by some error-handling
-        assert py_version in ['3.5', '3.6', '3.7']
+        assert py_version in VALID_PYTHON_VERSIONS
 
         return py_version
 
@@ -110,8 +111,8 @@ class Analysizer():
             self._execute_nb()
             is_executable = True
         except Exception as e:
-            print(e)
-            pass
+            if verbose:
+                print(e)
 
         print('Executability'.ljust(40), ':', is_executable)
 

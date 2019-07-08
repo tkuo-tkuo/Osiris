@@ -1,5 +1,6 @@
 import ast
 
+
 class VarsVisitor(ast.NodeVisitor):
     def __init__(self):
         self.result = list()
@@ -84,7 +85,7 @@ class VarsVisitor(ast.NodeVisitor):
             self.visit(arg)
         for keyword in node.keywords:
             self.visit(keyword)
- 
+
     def visit_keyword(self, node):
         self.visit(node.value)
 
@@ -127,14 +128,37 @@ class VarsVisitor(ast.NodeVisitor):
             self.visit(el)
 
     def visit_FunctionDef(self_r, node):
-        """ Don't recurse into user defined functions """
         return node
 
-    def visit_Assign(self, node): 
+    def visit_Assign(self, node):
         if not isinstance(node.value, ast.Lambda):
             self.visit(node.value)
             for target in node.targets:
                 self.visit(target)
+
+    def visit_AugAssign(self, node):
+        if isinstance(node.value, ast.Num):
+            tmp_node = ast.Name(node.target.id, ast.Load())
+            self.visit(tmp_node)
+        else:
+            self.visit(node.value)
+        self.visit(node.target)
+
+    def visit_Call(self, node):
+        name = get_obj_name(node.func)
+        if name is not None:
+            self.result += [(name, 'load')]
+
+
+def get_obj_name(node):
+    if isinstance(node, ast.Name):
+        return None
+    elif isinstance(node, ast.Attribute):
+        if isinstance(node.value, ast.Name):
+            return node.value.id
+        else:
+            return get_obj_name(node.value)
+
 
 def get_vars(node):
     visitor = VarsVisitor()

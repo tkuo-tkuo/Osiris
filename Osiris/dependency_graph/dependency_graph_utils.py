@@ -41,14 +41,15 @@ def get_code_list(path):
     sources = []
     for cell in cells:
         try :
-            # avoid the cell without execution count 
+            # avoid the cell without execution count
             if cell['execution_count'] is not None:
-                s = "".join(cell[source_flag])
+                # remove magic functions
+                code_lines = list(filter(lambda x:x[0]!='#', cell[source_flag])) #
+                s = "".join(code_lines)
                 tree = ast.parse(s, mode='exec')
                 sources.append(s)
         except (SyntaxError,):  # to avoid non-python code
-            print('Syntax   Error')
-            pass
+            sources.append('')
     return sources
 
 def find_local_modules(import_smts):
@@ -78,22 +79,32 @@ def find_local_modules(import_smts):
             result  += [m_name]
     return result
 
-'''
-def main():
-    test_case = [
-            'from ..x import xx',
-            'from .x import xx',
-            'from . import y',
-            'from .. import y',
-            'from y import yy',
-            'from z import zz',
-            'import dependency_graph, sys',
-            'from random import shuffle, tmp',
-            'from ..tmp import *'
-            ]
-    result = find_local_modules(test_case)
-    print(result)
 
-if __name__ == '__main__':
-    main()
-'''
+def get_path_by_extension(root_dir, flag='.ipynb'):
+    paths = []
+    for root, dirs, files in os.walk(root_dir):
+        files = [f for f in files if not f[0] == '.'] 
+        dirs[:] = [d for d in dirs if not d[0] == '.']
+        for file in files:
+            if file.endswith(flag):
+                paths.append(os.path.join(root, file))
+    return paths
+
+
+#def main():
+#    test_case = [
+#            'from ..x import xx',
+#            'from .x import xx',
+#            'from . import y',
+#            'from .. import y',
+#            'from y import yy',
+#            'from z import zz',
+#            'import dependency_graph, sys',
+#            'from random import shuffle, tmp',
+#            'from ..tmp import *'
+#            ]
+#    result = find_local_modules(test_case)
+#    print(result)
+#
+#if __name__ == '__main__':
+#    main()

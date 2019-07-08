@@ -157,7 +157,7 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
         self.check_cell_idx = check_cell_idx
         self.analyse_strategy = analyse_strategy
         self.execution_order = None
-        self.whitelist = ['if', 'elif', 'else', 'for', 'while', 'try', 'except', 'finally', 'def', 'with']
+        self.whitelist = ['if', 'elif', 'else', 'for', 'while', 'try', 'except', 'finally', 'def', 'with', 'class']
 
     def set_execution_order(self, execution_order):
         self.execution_order = execution_order
