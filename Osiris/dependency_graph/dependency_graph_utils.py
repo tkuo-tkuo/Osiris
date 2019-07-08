@@ -44,7 +44,7 @@ def get_code_list(path):
             # avoid the cell without execution count
             if cell['execution_count'] is not None:
                 # remove magic functions
-                code_lines = list(filter(lambda x:x[0]!='#', cell[source_flag])) #
+                code_lines = list(filter(lambda x:x[0]!='%', cell[source_flag])) 
                 s = "".join(code_lines)
                 tree = ast.parse(s, mode='exec')
                 sources.append(s)
