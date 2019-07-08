@@ -33,14 +33,14 @@ def dep_matrix_to_dep_lst(matrix):
 
 def get_execution_order(path):
     name_of_virtual_node_for_forest = 'forest_root'
-
     code_list = get_code_list(path)
     dep_graph = DependencyGraph()
     dep_matrix = dep_graph.build(code_list)
     print(dep_matrix)
 
-    adjacent_lst = dep_matrix_to_dep_lst(np.transpose(dep_matrix))
-    dependency_lst = dep_matrix_to_dep_lst(dep_matrix)
+    adjacent_lst = dep_matrix_to_dep_lst(dep_matrix)
+	
+    dependency_lst = dep_matrix_to_dep_lst(np.transpose(dep_matrix))
 
     # Connect trees in forest with a virtual node called 'forest_root'
     key_for_root_of_tree = []
