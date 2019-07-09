@@ -81,11 +81,10 @@ class Benchbook(unittest.TestCase):
         num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('weak')
         self.assertEqual(match_ratio, 1.0)
 
-    # Involves some issue 
-    # Wait for Jarix to solve the issue 
-    # Also, think about how this utils function can be leverged in Osiris 
     def test_random(self):
-        respond = risk_detect(test_random_nb_path)
+        detect_result, info = risk_detect(test_random_nb_path)
+        self.assertEqual(detect_result, False)
+        self.assertEqual(info, 'inadvisable usage')
 
     def test_time(self):
         interface = Osiris.UserInterface(test_time_nb_path, 'normal', verbose)
@@ -102,11 +101,10 @@ class Benchbook(unittest.TestCase):
         num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('weak')
         self.assertEqual(match_ratio, 1.0)
 
-    # Involves some issue
-    # Wait for Jarix to solve the issue
-    # Also, think about how this utils function can be leverged in Osiris
     def test_exclaimation_mark(self):
-        respond = risk_detect(test_exclaimation_mark_nb_path)
+        detect_result, info = risk_detect(test_exclaimation_mark_nb_path)
+        self.assertEqual(detect_result, False)
+        self.assertEqual(info, 'SyntaxError')
 
     '''
     The following 4 unit tests aim to test on relative path issues 
