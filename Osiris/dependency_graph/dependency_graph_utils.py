@@ -40,10 +40,12 @@ def get_code_list(path):
     cells = list(filter(lambda x:x['cell_type']=='code', cells))
     sources = []
     for cell in cells:
-        # remove magic functions
-        code_lines = list(filter(lambda x:x[0]!='#', cell[source_flag])) #
-        s = "".join(code_lines)
-        sources.append(s)
+        # filter out cells without execution count
+        if cell['execution_count'] is not None:
+            # remove magic functions
+            code_lines = list(filter(lambda x:x[0]!='%', cell[source_flag])) #
+            s = "".join(code_lines)
+            sources.append(s)
     return sources
 
 def find_local_modules(import_smts):

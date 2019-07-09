@@ -84,10 +84,8 @@ class Benchbook(unittest.TestCase):
     # Involves some issue 
     # Wait for Jarix to solve the issue 
     # Also, think about how this utils function can be leverged in Osiris 
-    @unittest.skip 
     def test_random(self):
-        interface = Osiris.UserInterface(test_random_nb_path, 'normal', verbose)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('weak')
+        respond = risk_detect(test_random_nb_path)
 
     def test_time(self):
         interface = Osiris.UserInterface(test_time_nb_path, 'normal', verbose)
