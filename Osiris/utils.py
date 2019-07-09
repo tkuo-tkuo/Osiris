@@ -1,9 +1,19 @@
+import os 
+
 import nbformat
 import collections
 import numpy as np
 
 from .dependency_graph import DependencyGraph
 from .dependency_graph import get_code_list
+from .dependency_graph import detect
+
+'''
+The following utils functions are high-level usage of Jarix's implementation
+'''
+def risk_detect(path):
+    respond = detect(path)
+    print('respond', respond)
 
 def bfs(graph, root):
     visited, queue = set(), collections.deque([root])
@@ -31,15 +41,16 @@ def dep_matrix_to_dep_lst(matrix):
 
     return graph
 
-def get_execution_order(path):
-    name_of_virtual_node_for_forest = 'forest_root'
+def get_dependency_matrix(path):
     code_list = get_code_list(path)
     dep_graph = DependencyGraph()
     dep_matrix = dep_graph.build(code_list)
-    print(dep_matrix)
+    return dep_matrix
 
+def get_execution_order(path):
+    name_of_virtual_node_for_forest = 'forest_root'
+    dep_matrix = get_dependency_matrix(path)
     adjacent_lst = dep_matrix_to_dep_lst(dep_matrix)
-	
     dependency_lst = dep_matrix_to_dep_lst(np.transpose(dep_matrix))
 
     # Connect trees in forest with a virtual node called 'forest_root'
@@ -57,10 +68,29 @@ def get_execution_order(path):
     print('According to dependency of cells, the execution order is', execution_order)
     return execution_order
 
+'''
+This utils function, move_to_appropriate_location, aims to cope with relative path issue
+'''
+def move_to_appropriate_location(path):
+    path_split_lst = path.split('/')
+    # We need to cd to the same directory as the notebook
+    if len(path_split_lst) > 1:
+        cd_path_lst = path_split_lst[:-1]
+        cd_path = '/'.join(cd_path_lst)
+        os.chdir(cd_path)
+
+
+'''
+This utils function, store_nb, is just for debugging purpose
+'''
 def store_nb(nb, relative_path):
     with open(relative_path, 'w') as f:
         nbformat.write(nb, f)
 
+
+'''
+Following utils functions with 'extract_' as prefix aim to parse Jupyter Notebook files and extract useful information for further analyses 
+'''
 def extract_outputs_based_on_normal_order(cells):
     outputs = []
     for cell in cells:
@@ -136,6 +166,27 @@ def extract_outputs_based_on_dependency_order(cells, execution_order):
 
     return outputs
 
+
+def extract_source_code_from_unmatched_cells(cells, index_lst):
+    cells = cells.copy()
+
+    execution_count_lst = [cell.execution_count for cell in cells]
+    OEC = sorted(range(len(execution_count_lst)),
+                 key=lambda k: execution_count_lst[k])
+    parsed_nb_cells = [cells[idx] for idx in OEC]
+
+    unmatched_cells = [cell for (idx, cell) in enumerate(
+        parsed_nb_cells) if idx in index_lst]
+    unmatched_cells = unmatched_cells.copy()
+    source_code_of_unmatched_cells = [
+        cell['source'] for cell in unmatched_cells]
+
+    return source_code_of_unmatched_cells
+
+
+'''
+All remaining utils functions below are for printing purpose 
+'''
 def print_source_code_of_unmatched_cells(cells, index_lst, unmatched_original_outputs, unmtached_executed_outputs):
     cells = cells.copy()
 
@@ -160,15 +211,4 @@ def print_source_code_of_unmatched_cells(cells, index_lst, unmatched_original_ou
             print('Executed output:')
             print(executed_output)
 
-def extract_source_code_from_unmatched_cells(cells, index_lst):
-    cells = cells.copy()
 
-    execution_count_lst = [cell.execution_count for cell in cells]
-    OEC = sorted(range(len(execution_count_lst)),key=lambda k: execution_count_lst[k])
-    parsed_nb_cells = [cells[idx] for idx in OEC]
-
-    unmatched_cells = [cell for (idx, cell) in enumerate(parsed_nb_cells) if idx in index_lst]
-    unmatched_cells = unmatched_cells.copy()
-    source_code_of_unmatched_cells = [cell['source'] for cell in unmatched_cells]
-
-    return source_code_of_unmatched_cells

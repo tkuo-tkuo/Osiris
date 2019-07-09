@@ -4,7 +4,6 @@ from nbconvert.preprocessors import ExecutePreprocessor
 from .ExecutePreprocessors import OECPreprocessor, SelfReproducibilityCheckPreprocessor, StatusInspectionPreprocessor, DependencyPreprocessor
 
 from .utils import *
-from .constants import *
 
 class Analysizer():
 
@@ -23,8 +22,6 @@ class Analysizer():
         # since we would like to store the deep_copy version of the given notebook after parsing and clearning
         self._deep_copy_nb = copy.deepcopy(self._nb)
 
-    
-
     def _preceding_preapre(self):
         # extract python version & whether the version is python 2 or not 
         self._py_version = self._extract_py_version()
@@ -41,9 +38,6 @@ class Analysizer():
         meta_info = self._nb.metadata
         py_version_lst = meta_info['language_info']['version'].split('.')
         py_version = py_version_lst[0]+'.'+py_version_lst[1]
-
-        # this assert may be replaced by some error-handling
-        assert py_version in VALID_PYTHON_VERSIONS
 
         return py_version
 
@@ -87,12 +81,6 @@ class Analysizer():
     def _execute_nb(self):
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
 
-    def _extract_dependency_graph(self):
-        pass 
-
-    def _extract_potential_execution_path_from_dependency_graph(self):
-        pass 
-
     def return_py_version(self):
         return self._py_version
 
@@ -130,6 +118,7 @@ class Analysizer():
             if match_pattern == 'strong':
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
             elif match_pattern == 'weak': 
+
                 self._set_ep_as_OEC_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
@@ -148,6 +137,10 @@ class Analysizer():
             if match_pattern == 'strong':
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
             elif match_pattern == 'weak':
+                # DEBUG 
+                # print('below should be information related to DEBUG')
+                # risk_detect(self._nb_path)
+
                 self._set_ep_as_normal_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
