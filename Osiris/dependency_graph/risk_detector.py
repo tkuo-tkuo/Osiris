@@ -1,6 +1,6 @@
 import sys
 import ast
-from .util import get_code_list
+from .dependency_graph_utils import get_code_list
 from .func_calls_visitor import get_func_calls
 
 whitelist = {
@@ -46,8 +46,10 @@ def get_api_ref_id(tree):
                     id2fullname[d['name']] = node.module+'.'+d['name']
                 else:
                     id2fullname[d['asname']] = node.module+'.'+d['name']
+
     #id2fullname = {k:v for k,v in id2fullname.items() if  v.find('sklearn')>=0 }
     return id2fullname
+
 def func_call_format(func_call_names, id2fullname):
     result = []
     for name in func_call_names:
@@ -67,7 +69,7 @@ def detect(filename):
     for code in code_list:
         try :
             tree = ast.parse(code, mode='exec')
-            cell_func_calls_names = get_func_calls(tree, extended=True)
+            cell_func_calls_names = get_func_calls(tree, extended=True) # Buggy statemnet 
             cell_func_calls_names = [tmp[0] for tmp in cell_func_calls_names]
             cell_func_calls_names = func_call_format(cell_func_calls_names, id2fullname) 
             # all relevant function calls
@@ -83,10 +85,10 @@ def detect(filename):
             return (False, 'inadvisable usage')
     return (True, 'ok')
  
-def main():
-    filename = sys.argv[1]
-    res = detect(filename)
-    print(res)
+# def main():
+#     filename = sys.argv[1]
+#     res = detect(filename)
+#     print(res)
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
