@@ -40,16 +40,10 @@ def get_code_list(path):
     cells = list(filter(lambda x:x['cell_type']=='code', cells))
     sources = []
     for cell in cells:
-        try :
-            # avoid the cell without execution count
-            if cell['execution_count'] is not None:
-                # remove magic functions
-                code_lines = list(filter(lambda x:x[0]!='%', cell[source_flag])) 
-                s = "".join(code_lines)
-                tree = ast.parse(s, mode='exec')
-                sources.append(s)
-        except (SyntaxError,):  # to avoid non-python code
-            sources.append('')
+        # remove magic functions
+        code_lines = list(filter(lambda x:x[0]!='#', cell[source_flag])) #
+        s = "".join(code_lines)
+        sources.append(s)
     return sources
 
 def find_local_modules(import_smts):
@@ -91,20 +85,3 @@ def get_path_by_extension(root_dir, flag='.ipynb'):
     return paths
 
 
-#def main():
-#    test_case = [
-#            'from ..x import xx',
-#            'from .x import xx',
-#            'from . import y',
-#            'from .. import y',
-#            'from y import yy',
-#            'from z import zz',
-#            'import dependency_graph, sys',
-#            'from random import shuffle, tmp',
-#            'from ..tmp import *'
-#            ]
-#    result = find_local_modules(test_case)
-#    print(result)
-#
-#if __name__ == '__main__':
-#    main()
