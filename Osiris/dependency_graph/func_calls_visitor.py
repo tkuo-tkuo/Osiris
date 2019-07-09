@@ -25,11 +25,11 @@ class FuncCallVisitor(ast.NodeVisitor):
         except AttributeError:
             self.generic_visit(node)
 
-def get_func_calls(tree):
+def get_func_calls(tree, extended=False):
     func_calls = []
     for node in ast.walk(tree):
         if isinstance(node, ast.Call):
-            if not isinstance(node.func, ast.Attribute):  # skip object memeber calls
+            if  (extended==True) or (not isinstance(node.func, ast.Attribute)):  # skip object memeber calls
                 callvisitor = FuncCallVisitor()
                 callvisitor.visit(node.func)
                 func_calls += [callvisitor.name]
@@ -38,4 +38,3 @@ def get_func_calls(tree):
         elif isinstance(node, ast.Assign) and isinstance(node.value, ast.Lambda):
             func_calls += [(node.targets[0].id, "def")]
     return func_calls
-
