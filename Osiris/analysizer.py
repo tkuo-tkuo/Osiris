@@ -137,10 +137,6 @@ class Analysizer():
             if match_pattern == 'strong':
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
             elif match_pattern == 'weak':
-                # DEBUG 
-                # print('below should be information related to DEBUG')
-                # risk_detect(self._nb_path)
-
                 self._set_ep_as_normal_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)

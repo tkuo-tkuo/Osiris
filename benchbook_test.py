@@ -4,7 +4,7 @@ import os
 import warnings
 import unittest
 import Osiris
-from Osiris.utils import get_dependency_matrix
+from Osiris.utils import get_dependency_matrix, risk_detect
 
 test_execute_in_normal_strategy_nb_path = 'benchbook/test_execute_in_normal_strategy.ipynb'
 test_execute_in_OEC_strategy_nb_path = 'benchbook/test_execute_in_OEC_strategy.ipynb'
@@ -107,9 +107,8 @@ class Benchbook(unittest.TestCase):
     # Involves some issue
     # Wait for Jarix to solve the issue
     # Also, think about how this utils function can be leverged in Osiris
-    @unittest.skip
     def test_exclaimation_mark(self):
-        pass
+        respond = risk_detect(test_exclaimation_mark_nb_path)
 
     '''
     The following 4 unit tests aim to test on relative path issues 
