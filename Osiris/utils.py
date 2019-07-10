@@ -10,8 +10,8 @@ from .dependency_graph import get_code_list, detect, get_path_by_extension
 '''
 The following utils functions are high-level usage of Jarix's implementation
 '''
-def return_traverse_path(root_path):
-    return get_path_by_extension(root_path)
+def return_traverse_path(root_path, num_of_required_paths):
+    return get_path_by_extension(root_path, num_of_required_paths)
 
 def risk_detect(path):
     return detect(path)

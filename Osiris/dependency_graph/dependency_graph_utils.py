@@ -76,7 +76,7 @@ def find_local_modules(import_smts):
     return result
 
 
-def get_path_by_extension(root_dir, flag='.ipynb'):
+def get_path_by_extension(root_dir, num_of_required_paths, flag='.ipynb'):
     paths = []
     for root, dirs, files in os.walk(root_dir):
         files = [f for f in files if not f[0] == '.'] 
@@ -84,6 +84,9 @@ def get_path_by_extension(root_dir, flag='.ipynb'):
         for file in files:
             if file.endswith(flag):
                 paths.append(os.path.join(root, file))
+                if len(paths) == num_of_required_paths:
+                    return paths
+
     return paths
 
 
