@@ -13,14 +13,9 @@ then
     return
 fi 
 
-
-FLAG1="-n $1"
-FLAG2="-e $2"
-FLAG3="$3"
-arguments="$FLAG1 $FLAG2 $FLAG3"
-
 # Grab the python version 
-py_version=$(python3 grab_py_version.py -n $1 -e $2)
+py_version=$(python3 grab_py_version.py -n "$1" -e $2)
+echo $py_version
 
 # Switch to appropriate conda environment 
 if [ "$py_version" = "3.5" ]
@@ -34,19 +29,19 @@ then
     conda activate Osiris_py37 
 elif [ "$py_version" = "2.7" ]
 then
-    echo "Osiris currently does not implement for python2.7/3.4"
+    # echo "Osiris currently does not implement for python2.7/3.4"
     return 
 elif [ "$py_version" = "3.4" ]
 then
-    echo "Osiris currently does not implement for python2.7/3.4"
-    return 
+    # echo "Osiris currently does not implement for python2.7/3.4"
+    conda activate Osiris_py36
 else 
     echo "$py_version"
     return 
 fi 
 
 # Run Osiris  
-python3 analyse_nb.py $arguments
+python3 analyse_nb.py -n "$1" -e $2 $3
 
 # exit conda env before leaving shell script 
 conda deactivate 
