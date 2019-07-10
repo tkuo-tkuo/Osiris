@@ -20,7 +20,7 @@ FLAG3="$3"
 arguments="$FLAG1 $FLAG2 $FLAG3"
 
 # Grab the python version 
-py_version=$(python3 grab_py_version.py -n $1)
+py_version=$(python3 grab_py_version.py -n $1 -e $2)
 
 # Switch to appropriate conda environment 
 if [ "$py_version" = "3.5" ]

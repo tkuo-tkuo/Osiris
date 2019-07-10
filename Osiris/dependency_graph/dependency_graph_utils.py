@@ -1,7 +1,7 @@
 import ast
 from  _ast import *
 import json
-import sys
+import sys, os
 import pkgutil
 
 def iter_fields(node):

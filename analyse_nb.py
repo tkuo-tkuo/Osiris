@@ -27,24 +27,21 @@ if match_pattern is not None:
 
 
 def analyse_nb(path, execute, verbose, match_pattern, self_reproduce, debug):
-    interface = Osiris.UserInterface(path, verbose)
-    is_executable = interface.analyse_executability(execute)
+    interface = Osiris.UserInterface(path, execute, verbose)
+    is_executable = interface.analyse_executability()
 
     if is_executable:
         # reproducibility 
         if match_pattern is not None:
-            num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility(
-                execute, match_pattern)
+            num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility(match_pattern)
 
         # self-reproducibility 
         if self_reproduce:
-            num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_self_reproducibility(
-                execute)
+            num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_self_reproducibility()
 
         # debug 
         if debug is not None:
-            problematic_statement_index = interface.analyse_status_difference_for_a_cell(
-                execute, debug)
+            problematic_statement_index = interface.analyse_status_difference_for_a_cell(debug)
 
 analyse_nb(path, execute, verbose, match_pattern, self_reproduce, debug)
 
