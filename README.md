@@ -43,7 +43,14 @@ Note that for analyzing Jupyter Notebook files, Osiris requires some additional 
 
 ```
 conda activate Osiris_default
-python3 test.py -v
+python3 test.py -b
+```
+
+## Benchbook 
+
+```
+conda activate Osiris_default
+python3 benchbook_test.py -b
 ```
 
 ## Usage 
@@ -125,11 +132,24 @@ source ./runOsiris.sh target_notebook.ipynb OEC "-m strong -s -v"
 
 ## Terminology
 
-Skip
+- <b>Executable ratio</b><br/>
+  term description 
+ 
+- <b>Reproducibility ratio</b><br/>
+  term description 
+  
+- <b>Self-reproducibilty ratio</b><br/>
+  term description 
+  
+- <b>What is debug in Osiris actually doing?</b><br/>
+  term description 
+  
 
 ## Authors
 
-* **KUO, Tzu-yang** - *Implementation* - [GitHub page](https://github.com/KuoTzu-yang)
+* **Tzu-yang, KUO**
+* **Li, Li**
+* **Jaiwei, Wang**
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
