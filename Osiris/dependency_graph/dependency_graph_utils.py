@@ -61,14 +61,14 @@ def find_local_modules(import_smts):
             if node.level==2:
                 search_path += ['..']
             if node.module is not None:
-                module_names.add(node.module)
+                module_names.add(node.module.split('.')[0])
             else:
                 for nn in node.names:
                     module_names.add(nn.name)
-
+    module_name_plus = ['random', 'unittest', 'warning', 'os', 'pandas', 'IPython', 'seaborn', 'matplotlib', 'sklearn', 'numpy', 'scipy']
     search_path = list(set(search_path))
     all_modules = [x[1] for x in pkgutil.iter_modules(path=search_path)]
-    all_modules += list(sys.builtin_module_names) + ['random']
+    all_modules += list(sys.builtin_module_names) + module_name_plus
     result = []
     for m_name in module_names:
         if m_name not in all_modules:
