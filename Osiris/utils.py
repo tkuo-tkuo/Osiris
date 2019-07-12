@@ -5,13 +5,17 @@ import collections
 import numpy as np
 
 from .dependency_graph import DependencyGraph
-from .dependency_graph import get_code_list, detect, get_path_by_extension
+from .dependency_graph import get_code_list, detect, get_path_by_extension, find_local_modules
 
 '''
 The following utils functions are high-level usage of Jarix's implementation
 '''
-def return_traverse_path(root_path, num_of_required_paths):
-    return get_path_by_extension(root_path, num_of_required_paths)
+def distinguish_local_modules(import_statements):
+    result = find_local_modules(import_statements)
+    return result
+
+def return_traverse_path(root_path):
+    return get_path_by_extension(root_path)
 
 def risk_detect(path):
     return detect(path)

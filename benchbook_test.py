@@ -4,13 +4,14 @@ import os
 import warnings
 import unittest
 import Osiris
-from Osiris.utils import get_dependency_matrix, risk_detect
+from Osiris.utils import get_dependency_matrix, risk_detect, distinguish_local_modules
 
 test_execute_in_normal_strategy_nb_path = 'benchbook/test_execute_in_normal_strategy.ipynb'
 test_execute_in_OEC_strategy_nb_path = 'benchbook/test_execute_in_OEC_strategy.ipynb'
 test_on_case_require_executing_a_cell_twice_nb_path = 'benchbook/test_on_case_require_executing_a_cell_twice.ipynb'
 
 test_on_magic_function_nb_path = 'benchbook/test_on_magic_function.ipynb'
+test_on_self_defined_packages_detection_nb_path = 'benchbook/test_on_self_defined_packages_detection.ipynb'
 
 test_reproducibility_with_strong_match_pattern_nb_path = 'benchbook/test_reproducibility_with_strong_match_pattern.ipynb'
 test_dict_issue_nb_path = 'benchbook/test_dict_issue.ipynb'
@@ -67,6 +68,43 @@ class Benchbook(unittest.TestCase):
         interface = Osiris.UserInterface(test_on_magic_function_nb_path, 'dependency', verbose)
         num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('strong')
         self.assertEqual(num_of_cells, 2)
+
+    # Jiawei
+    def test_on_self_defined_packages_detection(self):
+        # random case 
+        statements = ['from random import randint',
+                      'import sys, os',
+                      'import time', 
+                      'import warning', 
+                      'import unittest']
+        results = distinguish_local_modules(statements)
+        self.assertEqual(results, [])
+
+        # test top 10 packages -> refer to the paper 
+        statements = ['import numpy as np',
+                      'from matplotlib import pyplot as plt',
+                      'import pandas', 
+                      'import sklearn', 
+                      'import os, time, math', 
+                      'import scipy', 
+                      'import seaborn', 
+                      'import IPython']
+        results = distinguish_local_modules(statements)
+        self.assertEqual(results, [])
+
+        # A package which does not exist 
+        statements = ['from a import b',
+                      'import a',
+                      'import c'] 
+        results = distinguish_local_modules(statements)
+        self.assertEqual(results, ['a', 'c'])
+
+        # A package which exist in the same directory (PENDING)
+        statements = ['import Osiris',
+                      'from Osiris.utils import get_dependency_matrix, risk_detect, distinguish_local_modules']
+        results = distinguish_local_modules(statements)
+        self.assertEqual(results, [])
+
 
     '''
     The following 7 unit tests aim to test on reproducibility, which may cause challenges for Osiris to reproduce outputs 
