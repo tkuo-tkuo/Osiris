@@ -4,7 +4,7 @@ import sys
 import csv
 from .analysizer import Analysizer
 from .constants import *
-from .utils import move_to_appropriate_location
+from .utils import move_to_appropriate_location, distinguish_local_modules
 
 class UserInterface():
 
@@ -31,6 +31,10 @@ class UserInterface():
 
     def return_import_statements(self):
         return self.analysizer.return_import_statements()
+
+    def return_missing_packages(self):
+        import_statements = self.analysizer.return_import_statements()
+        return distinguish_local_modules(import_statements)
 
     def analyse_executability(self):
         move_to_appropriate_location(self._nb_path)

@@ -87,6 +87,7 @@ class Benchbook(unittest.TestCase):
         # test top 10 packages -> refer to the paper 
         statements = ['import numpy as np',
                       'from matplotlib import pyplot as plt',
+                      'import matplotlib.pyplot as plt',
                       'import pandas', 
                       'import sklearn', 
                       'import os, time, math', 

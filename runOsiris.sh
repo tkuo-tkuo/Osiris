@@ -40,6 +40,24 @@ else
     return 
 fi 
 
+# This part should be enable for users to utilzie Osiris but not in experiments 
+# Grab the missing packages 
+:'
+missing_packages=$(python3 grab_missing_packages.py -n "$1" -e $2)
+'
+
+# This part should be enable for users to utilzie Osiris but not in experiments 
+# Install the missing packages
+:'
+Field_Separator=$IFS
+IFS=,
+for package in $missing_packages; do	
+	conda install $package
+done
+			
+IFS=$Field_Separator
+'
+
 # Run Osiris  
 python3 analyse_nb.py -n "$1" -e $2 $3
 
