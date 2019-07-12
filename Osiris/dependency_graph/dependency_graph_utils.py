@@ -65,7 +65,7 @@ def find_local_modules(import_smts):
             else:
                 for nn in node.names:
                     module_names.add(nn.name)
-    module_name_plus = ['random', 'unittest', 'warning', 'os', 'pandas', 'IPython', 'seaborn', 'matplotlib', 'sklearn', 'numpy', 'scipy']
+    module_name_plus = ['random', 'unittest', 'warning', 'os', 'pandas', 'IPython', 'seaborn', 'matplotlib', 'sklearn', 'numpy', 'scipy', 'math']
     search_path = list(set(search_path))
     all_modules = [x[1] for x in pkgutil.iter_modules(path=search_path)]
     all_modules += list(sys.builtin_module_names) + module_name_plus
