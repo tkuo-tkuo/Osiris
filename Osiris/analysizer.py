@@ -15,6 +15,7 @@ class Analysizer():
         self._ep = None
         self._py_version = None
         self._is_executable = None
+        self._import_statemnets = None
 
         self._preceding_preapre()
 
@@ -33,6 +34,7 @@ class Analysizer():
 
         # clean redundant (unexecuted/markdown/raw) cells
         self._clean_redundant_cells()
+        self._extract_import_statements()
 
     def _extract_py_version(self):
         meta_info = self._nb.metadata
@@ -40,6 +42,16 @@ class Analysizer():
         py_version = py_version_lst[0]+'.'+py_version_lst[1]
 
         return py_version
+
+    def _extract_import_statements(self):
+        import_statements = []
+        for cell in self._nb.cells:
+            statements = (cell.source).split('\n')
+            for statement in statements:
+                if any(substr in statement for substr in ['from', 'import']):
+                    import_statements.append(statement)
+        
+        self._import_statemnets = import_statements
 
     def _clean_redundant_cells(self):
         invalid_cells_idx = []
@@ -83,6 +95,9 @@ class Analysizer():
 
     def return_py_version(self):
         return self._py_version
+
+    def return_import_statements(self):
+        return self._import_statemnets
 
     def check_executability(self, verbose, analyse_strategy):
         self._nb = copy.deepcopy(self._deep_copy_nb)

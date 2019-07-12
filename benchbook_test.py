@@ -11,7 +11,7 @@ test_execute_in_OEC_strategy_nb_path = 'benchbook/test_execute_in_OEC_strategy.i
 test_on_case_require_executing_a_cell_twice_nb_path = 'benchbook/test_on_case_require_executing_a_cell_twice.ipynb'
 
 test_on_magic_function_nb_path = 'benchbook/test_on_magic_function.ipynb'
-test_on_self_defined_packages_detection_nb_path = 'benchbook/test_on_self_defined_packages_detection.ipynb'
+test_import_statements_extraction_nb_path = 'benchbook/test_import_statements_extraction.ipynb'
 
 test_reproducibility_with_strong_match_pattern_nb_path = 'benchbook/test_reproducibility_with_strong_match_pattern.ipynb'
 test_dict_issue_nb_path = 'benchbook/test_dict_issue.ipynb'
@@ -69,7 +69,11 @@ class Benchbook(unittest.TestCase):
         num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('strong')
         self.assertEqual(num_of_cells, 2)
 
-    # Jiawei
+    def test_import_statements_extraction(self):
+        interface = Osiris.UserInterface(test_import_statements_extraction_nb_path, 'normal', verbose)
+        import_statements = interface.return_import_statements()
+        self.assertEqual(import_statements, ['import time', 'import random', 'from random import randint'])
+
     def test_on_self_defined_packages_detection(self):
         # random case 
         statements = ['from random import randint',
@@ -97,14 +101,13 @@ class Benchbook(unittest.TestCase):
                       'import a',
                       'import c'] 
         results = distinguish_local_modules(statements)
-        self.assertEqual(results, ['a', 'c'])
+        self.assertTrue(results == ['a', 'c'] or results == ['c', 'a'])
 
         # A package which exist in the same directory (PENDING)
         statements = ['import Osiris',
                       'from Osiris.utils import get_dependency_matrix, risk_detect, distinguish_local_modules']
         results = distinguish_local_modules(statements)
         self.assertEqual(results, [])
-
 
     '''
     The following 7 unit tests aim to test on reproducibility, which may cause challenges for Osiris to reproduce outputs 

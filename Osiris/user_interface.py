@@ -20,7 +20,6 @@ class UserInterface():
         self.analysizer = Analysizer(path, f)
 
         # Extract python version
-        self._py_version = None
         self._py_version = self.analysizer.return_py_version()
         
         # Ensure both python version and strategy are valid
@@ -29,6 +28,9 @@ class UserInterface():
  
     def return_py_version(self):
         return self._py_version
+
+    def return_import_statements(self):
+        return self.analysizer.return_import_statements()
 
     def analyse_executability(self):
         move_to_appropriate_location(self._nb_path)
