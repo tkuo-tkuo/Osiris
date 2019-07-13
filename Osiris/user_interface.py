@@ -8,12 +8,13 @@ from .utils import move_to_appropriate_location, distinguish_local_modules
 
 class UserInterface():
 
-    def __init__(self, path, execute_strategy, verbose):
+    def __init__(self, path, execute_strategy, verbose, analyse_all_dependency=False):
         # Store the path of the given notebook
         # Note the path is relative path
         self._nb_path = path
         self._execute_strategy = execute_strategy
         self._verbose = verbose
+        self.analyse_all_dependency = analyse_all_dependency
 
         # Create an analysizer, which takes the responsibility for the low-level manipulation 
         f = open(self._nb_path, 'r', encoding='utf-8')
@@ -39,16 +40,24 @@ class UserInterface():
     def analyse_executability(self):
         move_to_appropriate_location(self._nb_path)
 
-        is_executable = self.analysizer.check_executability(self._verbose, self._execute_strategy)
-        return is_executable
+        if (self.analyse_all_dependency is True) and self._execute_strategy == 'dependency':
+            lst_executabilities = self.analysizer.check_executability_on_all_potential_execution_paths(self._verbose)
+            return lst_executabilities
+        else: 
+            is_executable = self.analysizer.check_executability(self._verbose, self._execute_strategy)
+            return is_executable
 
     def analyse_reproducibility(self, match_pattern):
         assert match_pattern in MATCH_PATTERNS
         move_to_appropriate_location(self._nb_path)
 
-        num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells = self.analysizer.check_reproducibility(
-            self._verbose, self._execute_strategy, match_pattern)
-        return num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells
+        if (self.analyse_all_dependency is True) and self._execute_strategy == 'dependency':
+            lst_of_matched_ratios = self.analysizer.check_reproducibility_on_all_potential_execution_paths(self._verbose, match_pattern)
+            return lst_of_matched_ratios
+        else: 
+            num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells = self.analysizer.check_reproducibility(
+                self._verbose, self._execute_strategy, match_pattern)
+            return num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells
 
     def analyse_self_reproducibility(self):
         move_to_appropriate_location(self._nb_path)

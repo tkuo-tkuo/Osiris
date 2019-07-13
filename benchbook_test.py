@@ -36,6 +36,7 @@ test_package_dependency_nb_path = 'benchbook/test_package_dependency.ipynb'
 test_irrational_path_nb_path = 'benchbook/test_irrational_path.ipynb'
 test_implicit_var_definition_nb_path = 'benchbook/test_implicit_var_definition.ipynb'
 
+test_multiple_execution_paths_nb_path = 'benchbook/test_multiple_execution_paths.ipynb'
 
 # Global setting
 verbose = True
@@ -192,6 +193,17 @@ class Benchbook(unittest.TestCase):
     def test_implicit_var_definition(self):
         dep_matrix = get_dependency_matrix(test_implicit_var_definition_nb_path)
         self.assertEqual(dep_matrix[2][3], 0.0)
+
+    '''
+    The following 2 unit tests aim to test generation of multiple execution paths 
+    '''
+    def test_execuability_on_multiple_execution_paths(self):
+        interface = Osiris.UserInterface(test_multiple_execution_paths_nb_path, 'dependency', verbose, True)
+        results = interface.analyse_executability()
+        print(results)
+
+    def test_reproducibility_on_multiple_execution_paths(self):
+        interface = Osiris.UserInterface(test_multiple_execution_paths_nb_path, 'dependency', verbose, True)
 
 if __name__ == '__main__':
     unittest.main()

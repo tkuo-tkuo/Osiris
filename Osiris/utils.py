@@ -79,9 +79,15 @@ def get_execution_order(path):
     dep_graph = DependencyGraph()
     _ = dep_graph.build(code_list)
     execution_order = dep_graph.gen_exec_path()
-    print('execution order:', execution_order)
     return execution_order 
 
+def get_all_potential_execution_orders(path):
+    code_list = get_code_list(path)
+    dep_graph = DependencyGraph()
+    _ = dep_graph.build(code_list)
+    execution_orders = dep_graph.gen_exec_path(mode='multiple')
+    return execution_orders
+    
 '''
 This utils function, move_to_appropriate_location, aims to cope with relative path issue
 '''

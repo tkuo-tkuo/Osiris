@@ -4,6 +4,8 @@ import json
 from _ast import *
 from .func_calls_visitor import get_func_calls
 from .vars_visitor import get_vars
+from copy import deepcopy
+import queue
 
 class FilterTransformer(ast.NodeTransformer):
     def __init__(self):
