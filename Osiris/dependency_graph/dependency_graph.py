@@ -31,11 +31,13 @@ def get_fun_ref_id(tree):
                     func_ref_ids += [d['asname']]
     return func_ref_ids
 
-class DependencyGraph:
+class DependencyGraph():
+
     def __init__(self):
         self.vars_table_list = []
         self.func_table_list = []
         self.adj_mat = None
+    
     def update_symbol_table(self, node):
         transfomer = FilterTransformer()  # remove classes 
         node = transfomer.visit(node)
@@ -110,8 +112,9 @@ class DependencyGraph:
                     adj_mat[i] = np.zeros(n)
             in_degrees = np.sum(adj_mat, axis=0)
             todo_node_idx = (in_degrees==0).nonzero()[0].tolist()# in-degree=0
-        exec_order = [i+1 for i in exec_order]
+        
         return exec_order
+
     def bfs(self, adj_mat):
         in_degrees = np.sum(self.adj_mat, axis=0)
         N = adj_mat.shape[0]
@@ -151,7 +154,7 @@ class DependencyGraph:
 
     def gen_exec_path(self, mode='single'):
         if mode == 'single':
-            self.get_topological_order()
+            return self.get_topological_order()
         elif mode == 'multiple':
-            self.get_all_order()
+            return self.get_all_order()
 

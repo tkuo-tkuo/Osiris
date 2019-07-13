@@ -20,7 +20,6 @@ def return_traverse_path(root_path):
 def risk_detect(path):
     return detect(path)
 
-'''
 def bfs(graph, root):
     visited, queue = set(), collections.deque([root])
     visited.add(root)
@@ -46,14 +45,13 @@ def dep_matrix_to_dep_lst(matrix):
         graph[i] = adj
 
     return graph
-'''
 
 def get_dependency_matrix(path):
     code_list = get_code_list(path)
     dep_graph = DependencyGraph()
     dep_matrix = dep_graph.build(code_list)
     return dep_matrix
-'''
+
 # deprived 
 def get_execution_order_deprived(path):
     name_of_virtual_node_for_forest = 'forest_root'
@@ -75,13 +73,13 @@ def get_execution_order_deprived(path):
     execution_order.remove(name_of_virtual_node_for_forest)
     print('According to dependency of cells, the execution order is', execution_order)
     return execution_order
-'''
 
 def get_execution_order(path):
     code_list = get_code_list(path)
     dep_graph = DependencyGraph()
-    dep_graph.build(code_list)
-    execution_order = dep_graph.gen_exec_order()
+    _ = dep_graph.build(code_list)
+    execution_order = dep_graph.gen_exec_path()
+    print('execution order:', execution_order)
     return execution_order 
 
 '''
