@@ -95,6 +95,7 @@ class DependencyGraph:
             for j in range(i):
                 self.is_dependent(i, j)
         return self.adj_mat
+
     def get_topological_order(self):
         from copy import deepcopy
         adj_mat = deepcopy(self.adj_mat)
@@ -110,15 +111,48 @@ class DependencyGraph:
             in_degrees = np.sum(adj_mat, axis=0)
             todo_node_idx = (in_degrees==0).nonzero()[0].tolist()# in-degree=0
         exec_order = [i+1 for i in exec_order]
-        print(exec_order)
+        return exec_order
+    def bfs(self, adj_mat):
+        print(adj_mat)
+        in_degrees = np.sum(self.adj_mat, axis=0)
+        N = adj_mat.shape[0]
+        q = queue.Queue()
+        visited = [False]*N
+        visit_order = []
+        todo_nodes = (in_degrees==0).nonzero()[0].tolist()# nodes where in-degree=0
+        for n in todo_nodes:
+            q.put(n)
 
-    def get_all_order_util():
-        return 0
+        while not q.empty():
+            n = q.get()
+            visited[n] = True
+            visit_order += [n]
+            todo_nodes = self.adj_mat[n].nonzero()[0].tolist()
+            for tmp in todo_nodes:
+                if not visited[tmp] and tmp not in q.queue:
+                    q.put(tmp)
+        return visit_order
+
     def get_all_order(self):
-        return 0
+        N = self.adj_mat.shape[0]
+        adj_mat1 = deepcopy(self.adj_mat)
+        adj_mat2 = deepcopy(self.adj_mat)
+        key_nodes = []
+        visited = [False]*N
+        N = self.adj_mat.shape[0]
+        for i in range(N):
+            for j in range(N):
+                for g in range(N):
+                    if self.adj_mat[i][j]==1 and self.adj_mat[i][g]==1 and self.adj_mat[g][j]==1:
+                        adj_mat1[g][j]=0
+                        adj_mat2[i][j]=0
+        order1 = self.bfs(adj_mat1)
+        order2 =  self.bfs(adj_mat2)
+        return [order1, order2]
+
     def gen_exec_path(self, mode='single'):
         if mode == 'single':
             self.get_topological_order()
         elif mode == 'multiple':
-            pass
+            self.get_all_order()
 
