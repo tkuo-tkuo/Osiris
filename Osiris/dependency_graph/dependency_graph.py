@@ -131,7 +131,7 @@ class DependencyGraph():
             n = q.get()
             visited[n] = True
             visit_order += [n]
-            todo_nodes = self.adj_mat[n].nonzero()[0].tolist()
+            todo_nodes = adj_mat[n].nonzero()[0].tolist()
             for tmp in todo_nodes:
                 if not visited[tmp] and tmp not in q.queue:
                     q.put(tmp)
@@ -149,7 +149,8 @@ class DependencyGraph():
                 for g in range(N):
                     if self.adj_mat[i][j]==1 and self.adj_mat[i][g]==1 and self.adj_mat[g][j]==1:
                         adj_mat1[g][j]=0
-                        adj_mat2[i][j]=0
+                        adj_mat1[i][g] = 0
+                        adj_mat1[j][g] = 1
         order1 = self.bfs(adj_mat1)
         order2 =  self.bfs(adj_mat2)
         return [order1, order2]
