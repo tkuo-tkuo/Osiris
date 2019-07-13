@@ -56,7 +56,7 @@ def find_local_modules(import_smts):
     for node in ast.walk(tree):
         if isinstance(node, ast.Import) :
             for nn in node.names:
-                module_names.add(nn.name)
+                module_names.add(nn.name.split('.')[0])
         if isinstance(node, ast.ImportFrom):
             if node.level==2:
                 search_path += ['..']
