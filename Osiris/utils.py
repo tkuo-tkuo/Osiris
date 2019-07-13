@@ -87,7 +87,7 @@ def get_all_potential_execution_orders(path):
     _ = dep_graph.build(code_list)
     execution_orders = dep_graph.gen_exec_path(mode='multiple')
     return execution_orders
-    
+
 '''
 This utils function, move_to_appropriate_location, aims to cope with relative path issue
 '''

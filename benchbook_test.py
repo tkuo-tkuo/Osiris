@@ -200,10 +200,12 @@ class Benchbook(unittest.TestCase):
     def test_execuability_on_multiple_execution_paths(self):
         interface = Osiris.UserInterface(test_multiple_execution_paths_nb_path, 'dependency', verbose, True)
         results = interface.analyse_executability()
-        print(results)
+        self.assertEqual(results, [False, True])
 
     def test_reproducibility_on_multiple_execution_paths(self):
         interface = Osiris.UserInterface(test_multiple_execution_paths_nb_path, 'dependency', verbose, True)
+        results = interface.analyse_reproducibility('strong')
+        self.assertEqual(results, [None, 1.0])
 
 if __name__ == '__main__':
     unittest.main()
