@@ -113,7 +113,6 @@ class DependencyGraph:
         exec_order = [i+1 for i in exec_order]
         return exec_order
     def bfs(self, adj_mat):
-        print(adj_mat)
         in_degrees = np.sum(self.adj_mat, axis=0)
         N = adj_mat.shape[0]
         q = queue.Queue()
