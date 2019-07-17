@@ -134,16 +134,33 @@ source ./runOsiris.sh target_notebook.ipynb OEC "-m strong -s -v"
 
 - <b>Executable ratio</b><br/>
   term description 
- 
+
+- <b>OEC (Original Execution Count) Execution Strategy</b><br/>
+  term description
+  
+- <b>Dependency Execution Strategy</b><br/>
+  term description
+  
 - <b>Reproducibility ratio</b><br/>
-  term description 
+  term description
+  
+- <b>Strong Mattch Pattern</b><br/>
+  term description
+  
+- <b>Weak Match Pattern</b><br/>
+  term description
+  
+- <b>Best Effort Match Pattern</b><br/>
+  term description
   
 - <b>Self-reproducibilty ratio</b><br/>
   term description 
   
 - <b>What is debug in Osiris actually doing?</b><br/>
-  term description 
+  term description
   
+- <b>Algorithm behind execution paths generation for Dependency Execution Strategy</b><br/>
+  [Jiawei]
 
 ## Authors
 
