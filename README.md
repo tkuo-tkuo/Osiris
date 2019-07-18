@@ -164,6 +164,10 @@ source ./runOsiris.sh target_notebook.ipynb OEC "-m strong -s -v"
 
 - <b>Algorithm behind execution paths generation for Dependency Execution Strategy</b><br/>
   [term description, Jiawei]
+  
+## Implementation Details 
+
+- Before any re-execution and analyze, Osiris will preprocess the given Jupyter Notebook file, removing all markdown cells/raw cells/cells without Execution Count. 
 
 ## Authors
 
@@ -171,11 +175,9 @@ source ./runOsiris.sh target_notebook.ipynb OEC "-m strong -s -v"
 * **Li, Li**
 * **Jaiwei, Wang**
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Pending 
 
 ## Acknowledgments
 
@@ -186,4 +188,4 @@ Osiris is the god of the afterlife, the underworld, and rebirth in ancient Egypt
 
 ## Reference 
 
-Skip
+Pending 
