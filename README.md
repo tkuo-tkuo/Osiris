@@ -86,6 +86,10 @@ For Osiris, there are several parameters for users to specify during usage. Belo
   <b>Usage: -s</b> <br/>
   Set this option as True to activate analyses on self-reproducibility of cells. Osiris will analyze whether cells in Jupyter Notebook files are self-reproducible or not. If a cell is self-reproducible, it indicates the status of variables is equivalent for executing a cell once or multiple times.  
   
+- <b>all potential execution paths</b> (optional) <br/>
+  <b>Usage: -a</b> <br/>
+  Set this option as True to activate analyses on all potential execution paths according to the Cell-Dependency Graph. Osiris will analyze each potential execution path individually and display corresponding analytical results. 
+  
 - <b>debug</b> (optional) <br/>
   <b>Usage: -d cell_index</b> <br/>
   <b>options: a valid number, where 0 indicates the first cell be executed</b> <br/>
