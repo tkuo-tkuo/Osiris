@@ -1,4 +1,4 @@
-3,"3.5
+3,/mnt/fit-Knowledgezoo/jupyternotebooks/moble@MatchedFiltering/FilteringWidgets.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -30,7 +30,7 @@ ImportError: No module named 'h5py'
 
 Executability                            : False
 "
-4,"3.6
+4,/mnt/fit-Knowledgezoo/jupyternotebooks/moble@MatchedFiltering/MatchedFiltering.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -78,7 +78,7 @@ ModuleNotFoundError: No module named 'h5py'
 
 Executability                            : False
 "
-11,"3.6
+11,/mnt/fit-Knowledgezoo/jupyternotebooks/kwinkunks@notebooks/Fun_with_logs.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -106,7 +106,7 @@ SyntaxError: invalid syntax (las.py, line 167)
 
 Executability                            : False
 "
-16,"3.5
+16,/mnt/fit-Knowledgezoo/jupyternotebooks/tritemio@notebooks/Derivation of FRET and S correction formulas.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -130,7 +130,7 @@ ImportError: No module named 'sympy'
 
 Executability                            : False
 "
-28,"3.5
+28,/mnt/fit-Knowledgezoo/jupyternotebooks/lmcintosh@ipython-notebooks/baccuslab/2016 05-31 writing JSON config file for expt 5-31.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 with open('config.json', 'w') as outfile:
@@ -148,7 +148,7 @@ PermissionError: [Errno 13] Permission denied: 'config.json'
 
 Executability                            : False
 "
-33,"3.5
+33,/mnt/fit-Knowledgezoo/jupyternotebooks/SiggyF@notebooks/alcatraz_drifters.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -175,7 +175,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-42,"3.5
+42,/mnt/fit-Knowledgezoo/jupyternotebooks/tfgg@magres-format/notebooks/Calculating NQR frequencies.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -201,7 +201,7 @@ ImportError: No module named 'magres'
 
 Executability                            : False
 "
-43,"3.5
+43,/mnt/fit-Knowledgezoo/jupyternotebooks/tfgg@magres-format/notebooks/Getting started (chemical shifts).ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -225,7 +225,7 @@ ImportError: No module named 'magres'
 
 Executability                            : False
 "
-44,"3.5
+44,/mnt/fit-Knowledgezoo/jupyternotebooks/tfgg@magres-format/notebooks/Glycine - Plotting chemical shifts.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from magres.atoms import MagresAtoms, MagresAtomsView
@@ -241,7 +241,7 @@ ImportError: No module named 'magres'
 
 Executability                            : False
 "
-45,"3.5
+45,/mnt/fit-Knowledgezoo/jupyternotebooks/tfgg@magres-format/notebooks/Printing summary tables.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -272,7 +272,7 @@ ImportError: No module named 'magres'
 
 Executability                            : False
 "
-46,"3.5
+46,/mnt/fit-Knowledgezoo/jupyternotebooks/tfgg@magres-format/notebooks/Processing disordered EFGs.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -300,7 +300,7 @@ ImportError: No module named 'magres'
 
 Executability                            : False
 "
-47,"3.5
+47,/mnt/fit-Knowledgezoo/jupyternotebooks/tfgg@magres-format/notebooks/Selecting atoms.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -325,7 +325,7 @@ ImportError: No module named 'magres'
 
 Executability                            : False
 "
-48,"3.5
+48,/mnt/fit-Knowledgezoo/jupyternotebooks/tfgg@magres-format/notebooks/Structural properties.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -350,7 +350,7 @@ ImportError: No module named 'magres'
 
 Executability                            : False
 "
-67,"3.5
+67,/mnt/fit-Knowledgezoo/jupyternotebooks/sr320@LabDocs/jupyter_nbs/sam/20161117_docker_oly_vcf_analysis.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -368,7 +368,7 @@ SyntaxError: invalid syntax (<ipython-input-1-cf38163fa452>, line 3)
 
 Executability                            : False
 "
-72,"3.6
+72,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@MathematicalPhysics/Bessel/DrumHead.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -399,7 +399,7 @@ ModuleNotFoundError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-75,"3.6
+75,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@MathematicalPhysics/DiffGeo/DesernoReviewProblems.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -424,7 +424,7 @@ ModuleNotFoundError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-78,"3.6
+78,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@MathematicalPhysics/Fourier/Plucked and Hammered String.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -447,7 +447,7 @@ ModuleNotFoundError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-79,"3.6
+79,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@MathematicalPhysics/Fourier/SinAndCosineSolutions.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -467,7 +467,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-80,"3.6
+80,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@MathematicalPhysics/Laplace/Steady State Temp in Rectangular Plate (analytic).ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -489,7 +489,7 @@ ModuleNotFoundError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-84,"3.6
+84,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@MathematicalPhysics/PowerSeries/Taylor Series.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -518,7 +518,7 @@ ModuleNotFoundError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-85,"3.5
+85,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@MathematicalPhysics/PressureWaves/PressureWaveInteractive.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from ipywidgets import interact
@@ -534,7 +534,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-86,"3.6
+86,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@MathematicalPhysics/SeriesSolutions/Airy.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -554,7 +554,7 @@ ModuleNotFoundError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-87,"3.5
+87,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@MathematicalPhysics/SeriesSolutions/Legendre.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from ipywidgets import interact
@@ -570,7 +570,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-106,"3.5
+106,/mnt/fit-Knowledgezoo/jupyternotebooks/DawesLab@LabNotebooks/HIstogram Comparisons.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from plotly.graph_objs import *
@@ -590,7 +590,7 @@ ImportError: No module named 'plotly'
 
 Executability                            : False
 "
-108,"3.5
+108,/mnt/fit-Knowledgezoo/jupyternotebooks/DawesLab@LabNotebooks/Live widget demo.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -677,7 +677,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-136,"3.5
+136,/mnt/fit-Knowledgezoo/jupyternotebooks/jhamrick@blog/source/notebooks/reproducible-plots.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 url = ""https://gist.githubusercontent.com/jhamrick/cfa18fcd3032ba435ec78a194b1447be/raw/4a4052c56161df8e454a61ab5286a769799c64b8/task_data.csv""
@@ -704,7 +704,7 @@ PermissionError: [Errno 13] Permission denied: 'task_data.csv'
 
 Executability                            : False
 "
-139,"3.5
+139,/mnt/fit-Knowledgezoo/jupyternotebooks/roskakori@talks/pygraz/xpathnamespace/XML namespaces and XPath with Python.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from lxml import etree
@@ -722,7 +722,7 @@ ImportError: No module named 'lxml'
 
 Executability                            : False
 "
-142,"3.5
+142,/mnt/fit-Knowledgezoo/jupyternotebooks/roskakori@talks/python_for_testers/Fileformats.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from lxml import etree
@@ -740,7 +740,7 @@ ImportError: No module named 'lxml'
 
 Executability                            : False
 "
-144,"3.5
+144,/mnt/fit-Knowledgezoo/jupyternotebooks/roskakori@talks/python_for_testers/Logging.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 log = logging.getLogger('numbers')
@@ -782,7 +782,7 @@ NameError: name 'os' is not defined
 
 Executability                            : False
 "
-151,"3.5
+151,/mnt/fit-Knowledgezoo/jupyternotebooks/sfstoolbox@data/sphbesselh_zeros/sphHankel_zeros.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -813,7 +813,7 @@ ImportError: No module named 'mpmath'
 
 Executability                            : False
 "
-162,"3.6
+162,/mnt/fit-Knowledgezoo/jupyternotebooks/roguephysicist@SHGYield/example/sshg-tutorial.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -842,7 +842,7 @@ ModuleNotFoundError: No module named 'yaml'
 
 Executability                            : False
 "
-179,"3.6
+179,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/init.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -861,7 +861,7 @@ SyntaxError: invalid syntax (<ipython-input-1-00fc06b10e5c>, line 5)
 
 Executability                            : False
 "
-181,"3.6
+181,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/test_bash.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -880,7 +880,7 @@ SyntaxError: invalid syntax (<ipython-input-1-37de45bc0266>, line 5)
 
 Executability                            : False
 "
-184,"3.6
+184,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Git/basic.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -906,7 +906,7 @@ SyntaxError: invalid syntax (<ipython-input-1-655a02bb9bd6>, line 7)
 
 Executability                            : False
 "
-185,"3.6
+185,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/HelloWorld.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -928,7 +928,7 @@ SyntaxError: invalid syntax (<ipython-input-1-f23cd94b924b>, line 5)
 
 Executability                            : False
 "
-186,"3.6
+186,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/ISBN4-7973-2703-0_IteratorPattern.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -964,7 +964,7 @@ SyntaxError: invalid syntax (<ipython-input-1-a79df0003050>, line 8)
 
 Executability                            : False
 "
-187,"3.6
+187,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/Install.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -983,7 +983,7 @@ UsageError: Line magic function `%%bash` not found.
 
 Executability                            : False
 "
-188,"3.6
+188,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/JUnitTest.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1021,7 +1021,7 @@ SyntaxError: invalid syntax (<ipython-input-1-0f923b1796a6>, line 7)
 
 Executability                            : False
 "
-189,"3.6
+189,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/Work.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1043,7 +1043,7 @@ SyntaxError: invalid syntax (<ipython-input-1-1cb66c200d99>, line 8)
 
 Executability                            : False
 "
-190,"3.6
+190,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerDBStep1-2.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1132,7 +1132,7 @@ SyntaxError: invalid syntax (<ipython-input-1-3bae8d8f0600>, line 9)
 
 Executability                            : False
 "
-191,"3.6
+191,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerDBStep10.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1173,7 +1173,7 @@ SyntaxError: invalid syntax (<ipython-input-1-3c37ac744c8b>, line 10)
 
 Executability                            : False
 "
-192,"3.6
+192,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerGUIStep1-4.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1242,7 +1242,7 @@ SyntaxError: invalid syntax (<ipython-input-1-1ca2d12fd9e3>, line 11)
 
 Executability                            : False
 "
-193,"3.6
+193,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerGUIStep5_DBGUI.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1394,7 +1394,7 @@ SyntaxError: invalid syntax (<ipython-input-1-3970a7d93e74>, line 12)
 
 Executability                            : False
 "
-194,"3.6
+194,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerGUIStep6-8.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1527,7 +1527,7 @@ SyntaxError: invalid syntax (<ipython-input-1-bafd0611f31b>, line 10)
 
 Executability                            : False
 "
-195,"3.6
+195,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerStep1-9.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1564,7 +1564,7 @@ SyntaxError: invalid syntax (<ipython-input-1-1fda45063530>, line 7)
 
 Executability                            : False
 "
-196,"3.6
+196,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerStep13-16.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1622,7 +1622,7 @@ SyntaxError: invalid syntax (<ipython-input-1-91ba778625ee>, line 8)
 
 Executability                            : False
 "
-197,"3.6
+197,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerStep17-23.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1683,7 +1683,7 @@ SyntaxError: invalid syntax (<ipython-input-1-74a6386ad377>, line 8)
 
 Executability                            : False
 "
-198,"3.6
+198,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerStep24-27.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1702,7 +1702,7 @@ SyntaxError: invalid syntax (<ipython-input-1-fac8321675d4>, line 5)
 
 Executability                            : False
 "
-199,"3.6
+199,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Java/sunjava.seesaa.net_JavaProgrammingBeginnerStep30.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1769,7 +1769,7 @@ SyntaxError: invalid syntax (<ipython-input-1-c75ac248a9d5>, line 8)
 
 Executability                            : False
 "
-202,"3.6
+202,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/Ruby/Install.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1784,7 +1784,7 @@ UsageError: Line magic function `%%bash` not found.
 
 Executability                            : False
 "
-203,"3.6
+203,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/UML/01_UML.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1848,7 +1848,7 @@ SyntaxError: invalid syntax (<ipython-input-1-f486e9b23e13>, line 5)
 
 Executability                            : False
 "
-204,"3.6
+204,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/UML/install.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1875,7 +1875,7 @@ SyntaxError: invalid syntax (<ipython-input-1-64664a8219e7>, line 13)
 
 Executability                            : False
 "
-205,"3.6
+205,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/jQuery/basic.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1923,7 +1923,7 @@ SyntaxError: invalid syntax (<ipython-input-1-ecd0c9828f1d>, line 5)
 
 Executability                            : False
 "
-206,"3.6
+206,/mnt/fit-Knowledgezoo/jupyternotebooks/ftakao2007@python/jupyter_notebook/jQuery/tmp.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -1989,7 +1989,7 @@ IndentationError: unindent does not match any outer indentation level (<tokenize
 
 Executability                            : False
 "
-210,"3.5
+210,/mnt/fit-Knowledgezoo/jupyternotebooks/gena@gena.github.io/experiments/three.js.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2011,11 +2011,11 @@ SyntaxError: invalid syntax (<ipython-input-1-f75676eca08f>, line 3)
 
 Executability                            : False
 "
-239,"3.6
+239,/mnt/fit-Knowledgezoo/jupyternotebooks/sarathid@Learning/Deep_learning_ND/Week 1/dlnd-your-first-network/DLND-your-first-network/dlnd-your-first-neural-network.ipynb,"3.6
 Cell execution timed out
 Executability                            : False
 "
-262,"3.6
+262,/mnt/fit-Knowledgezoo/jupyternotebooks/robblack007@JupyterNotebooks/Python/Excel/Generador trayectorias.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 graf_trayectorias(""QO2 -> 3i -> LB -> 2j -> 1.0i+1.0j -> FS"")
@@ -2036,7 +2036,7 @@ NameError: name 'axisEqual3D' is not defined
 
 Executability                            : False
 "
-263,"3.5
+263,/mnt/fit-Knowledgezoo/jupyternotebooks/robblack007@JupyterNotebooks/Python/Pruebas/DLA.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # Diffusion Limited Aggregation fractal
@@ -2107,7 +2107,7 @@ ImportError: No module named 'PIL'
 
 Executability                            : False
 "
-266,"3.6
+266,/mnt/fit-Knowledgezoo/jupyternotebooks/dodecatheon@golden-lotus/doubleturk.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2127,7 +2127,7 @@ UsageError: Line magic function `%` not found.
 
 Executability                            : False
 "
-267,"3.6
+267,/mnt/fit-Knowledgezoo/jupyternotebooks/dodecatheon@golden-lotus/nturk.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2147,7 +2147,7 @@ UsageError: Line magic function `%` not found.
 
 Executability                            : False
 "
-278,"3.5
+278,/mnt/fit-Knowledgezoo/jupyternotebooks/jtpio@jtpio.github.io/notebooks/de_bruijn_sequences/De_Bruijn_Sequences.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import networkx as nx
@@ -2167,7 +2167,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-292,"3.5
+292,/mnt/fit-Knowledgezoo/jupyternotebooks/flothesof@SongCreator/IPython notebooks/Explore XML file names in wikifonia dump.ipynb,"3.5
 Executability                            : True
 Reproducibility                          : number of matched cells: 7 ; number of cells: 18
 Reproducibility                          : matched ratio: 0.389 ; index of matched cells: [0, 2, 3, 8, 10, 11, 15]
@@ -2535,7 +2535,7 @@ Executed output:
 ../MusicXML_files/wikifonia20100503/3012.xml                 All My Loving  
 ../MusicXML_files/wikifonia20100503/5017.xml                    Happy Xmas  
 "
-298,"3.6
+298,/mnt/fit-Knowledgezoo/jupyternotebooks/alexlib@engineering_experiments_measurements_course/Fourier_coefficients_analytical_evaluation_periodic_ramp_function.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2561,7 +2561,7 @@ ModuleNotFoundError: No module named 'sympy'
 
 Executability                            : False
 "
-325,"3.7
+325,/mnt/fit-Knowledgezoo/jupyternotebooks/rlabbe@Kalman-and-Bayesian-Filters-in-Python/01-g-h-filter.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -2578,7 +2578,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-326,"3.7
+326,/mnt/fit-Knowledgezoo/jupyternotebooks/rlabbe@Kalman-and-Bayesian-Filters-in-Python/04-One-Dimensional-Kalman-Filters.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -2595,7 +2595,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-327,"3.7
+327,/mnt/fit-Knowledgezoo/jupyternotebooks/rlabbe@Kalman-and-Bayesian-Filters-in-Python/Appendix-E-Ensemble-Kalman-Filters.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -2612,7 +2612,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-332,"3.6
+332,/mnt/fit-Knowledgezoo/jupyternotebooks/barbagroup@CFDPython/lessons/05_Step_4.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2633,7 +2633,7 @@ ModuleNotFoundError: No module named 'sympy'
 
 Executability                            : False
 "
-364,"3.5
+364,/mnt/fit-Knowledgezoo/jupyternotebooks/scikit-image@skimage-tutorials/book/lessons/4_segmentation.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from skimage import data
@@ -2653,11 +2653,11 @@ ImportError: No module named 'skimage'
 
 Executability                            : False
 "
-365,"3.6
+365,/mnt/fit-Knowledgezoo/jupyternotebooks/scikit-image@skimage-tutorials/lectures/solutions/5_ransac.ipynb,"3.6
 list index out of range
 Executability                            : False
 "
-367,"3.6
+367,/mnt/fit-Knowledgezoo/jupyternotebooks/AllenDowney@BayesMadeSimple/world_cup02.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2681,7 +2681,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-378,"3.5
+378,/mnt/fit-Knowledgezoo/jupyternotebooks/kikocorreoso@brythonmagic/notebooks/OpenLayers (python) tutorial.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2744,7 +2744,7 @@ ImportError: No module named 'brythonmagic'
 
 Executability                            : False
 "
-383,"3.5
+383,/mnt/fit-Knowledgezoo/jupyternotebooks/iit-cs429@main/lectures/lec04/Dictionaries.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # Fetch a list of word counts.
@@ -2780,7 +2780,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-386,"3.5
+386,/mnt/fit-Knowledgezoo/jupyternotebooks/iit-cs429@main/lectures/lec09/Evaluation.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # Interpolated precision: max of precisions to right of value
@@ -2821,7 +2821,7 @@ TypeError: step() got multiple values for argument 'x'
 
 Executability                            : False
 "
-388,"3.6
+388,/mnt/fit-Knowledgezoo/jupyternotebooks/AeroPython@Curso_AeroPython/notebooks_completos/092-Ejemplos-FelixBaumgartner.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 # Función del sistema
@@ -2860,7 +2860,7 @@ NameError: name 'integrate' is not defined
 
 Executability                            : False
 "
-395,"3.5
+395,/mnt/fit-Knowledgezoo/jupyternotebooks/AeroPython@Curso_AeroPython/notebooks_completos/091-Ejemplos-Lotka-Volterra.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from IPython.html.widgets import interact
@@ -2876,7 +2876,7 @@ ImportError: No module named 'widgets'
 
 Executability                            : False
 "
-396,"3.5
+396,/mnt/fit-Knowledgezoo/jupyternotebooks/AeroPython@Curso_AeroPython/notebooks_completos/015-NumPy-EntradaSalida.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 np.savetxt('diferencia_interanual.txt', data_dif, fmt='%9.3f', newline = '\r\n')
@@ -2899,7 +2899,7 @@ PermissionError: [Errno 13] Permission denied: 'diferencia_interanual.txt'
 
 Executability                            : False
 "
-433,"3.5
+433,/mnt/fit-Knowledgezoo/jupyternotebooks/mgbellemare@SkipCTS/python/tutorials/text_prediction_tutorial.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2922,7 +2922,7 @@ ImportError: No module named 'cts'
 
 Executability                            : False
 "
-435,"3.5
+435,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170327/tensorflow/mnist-softmax.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2947,7 +2947,7 @@ ImportError: No module named 'mnist'
 
 Executability                            : False
 "
-436,"3.5
+436,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170327/tensorflow/mnist-cnn.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2972,7 +2972,7 @@ ImportError: No module named 'tensorflow'
 
 Executability                            : False
 "
-437,"3.5
+437,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170307/tensorflow/day01.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -2999,7 +2999,7 @@ ImportError: No module named 'tensorflow'
 
 Executability                            : False
 "
-438,"3.5
+438,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170320/tensorflow/mnist.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3024,7 +3024,7 @@ ImportError: No module named 'mnist'
 
 Executability                            : False
 "
-439,"3.5
+439,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170306/tensorflow/test.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3048,7 +3048,7 @@ ImportError: No module named 'tensorflow'
 
 Executability                            : False
 "
-440,"3.5
+440,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170314/tensorflow/graph.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3078,7 +3078,7 @@ ImportError: No module named 'tensorflow'
 
 Executability                            : False
 "
-441,"3.6
+441,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170620/tensorflow/day01.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3105,7 +3105,7 @@ ModuleNotFoundError: No module named 'tensorflow'
 
 Executability                            : False
 "
-442,"3.5
+442,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170328/tensorflow/day04.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3130,7 +3130,7 @@ ImportError: No module named 'mnist'
 
 Executability                            : False
 "
-443,"3.5
+443,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170313/tensorflow/linear-algebra.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3154,7 +3154,7 @@ ImportError: No module named 'tensorflow'
 
 Executability                            : False
 "
-444,"3.5
+444,/mnt/fit-Knowledgezoo/jupyternotebooks/ahastudio@CodingLife/20170313/tensorflow/graph.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3178,7 +3178,7 @@ ImportError: No module named 'tensorflow'
 
 Executability                            : False
 "
-449,"3.5
+449,/mnt/fit-Knowledgezoo/jupyternotebooks/hugobowne@machine_learning_techniques/notes_on_ML/K-NN_and_preprocessing.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 y = y1 <= 5 # is the rating <= 5?
@@ -3254,7 +3254,7 @@ TypeError: numpy boolean subtract, the `-` operator, is deprecated, use the bitw
 
 Executability                            : False
 "
-450,"3.5
+450,/mnt/fit-Knowledgezoo/jupyternotebooks/pierrelux@notebooks/d3jupyterwidget.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3282,7 +3282,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-457,"3.6
+457,/mnt/fit-Knowledgezoo/jupyternotebooks/ComputoCienciasUniandes@MetodosComputacionalesAvanzados/weeks/15/code/neural_network.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 z = function(x,y)
@@ -3310,7 +3310,7 @@ PermissionError: [Errno 13] Permission denied: 'data.txt'
 
 Executability                            : False
 "
-458,"3.5
+458,/mnt/fit-Knowledgezoo/jupyternotebooks/ComputoCienciasUniandes@MetodosComputacionalesAvanzados/weeks/11/code/linear.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 data = pd.read_csv('http://www-bcf.usc.edu/~gareth/ISL/Credit.csv', index_col=0)
@@ -3366,7 +3366,7 @@ ParserError: Error tokenizing data. C error: Expected 1 fields in line 76, saw 3
 
 Executability                            : False
 "
-475,"3.5
+475,/mnt/fit-Knowledgezoo/jupyternotebooks/cranmer@TheoryAndPractice/content/downloads/notebooks/really-interactive-posts.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from ipywidgets import interact, interactive
@@ -3384,7 +3384,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-481,"3.5
+481,/mnt/fit-Knowledgezoo/jupyternotebooks/Who8MyLunch@ipynb_widget_canvas/notebooks/03 - Different Ways to Display an Image.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3415,7 +3415,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-482,"3.5
+482,/mnt/fit-Knowledgezoo/jupyternotebooks/Who8MyLunch@ipynb_widget_canvas/notebooks/00 - Readme.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3441,7 +3441,7 @@ ImportError: No module named 'widget_canvas'
 
 Executability                            : False
 "
-554,"3.5
+554,/mnt/fit-Knowledgezoo/jupyternotebooks/vorth@ipython/heptagons/Sevenfold Rotation.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 df.to_csv('revelation_stats.csv', encoding=""utf-8"", sep=""\t"")
@@ -3478,7 +3478,7 @@ PermissionError: [Errno 13] Permission denied: 'revelation_stats.csv'
 
 Executability                            : False
 "
-565,"3.5
+565,/mnt/fit-Knowledgezoo/jupyternotebooks/ajrichards@notebook/example-data/iris-dataset.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3499,7 +3499,7 @@ ImportError: No module named 'sympy'
 
 Executability                            : False
 "
-567,"3.6
+567,/mnt/fit-Knowledgezoo/jupyternotebooks/betatim@TimsHome/content/downloads/notebooks/interactive-posts.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 ## print the columns description
@@ -3521,7 +3521,7 @@ NameError: name 'df' is not defined
 
 Executability                            : False
 "
-569,"3.5
+569,/mnt/fit-Knowledgezoo/jupyternotebooks/humanitiesprogramming@humanitiesprogramming.github.io/python/notebooks/text-analysis.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import numpy as np
@@ -3548,7 +3548,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-570,"3.5
+570,/mnt/fit-Knowledgezoo/jupyternotebooks/flgomezc@sfr-dmhm/analysis_whole/MCMC_variance and Cosmic_Variance.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from ipywidgets import interact, interactive
@@ -3566,7 +3566,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-571,"3.5
+571,/mnt/fit-Knowledgezoo/jupyternotebooks/payne92@notebooks/30 Text to Speech.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3590,7 +3590,7 @@ ImportError: No module named 'atmospy'
 
 Executability                            : False
 "
-572,"3.6
+572,/mnt/fit-Knowledgezoo/jupyternotebooks/payne92@notebooks/00 Javascript In Notebooks.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3619,7 +3619,7 @@ ModuleNotFoundError: No module named 'bs4'
 
 Executability                            : False
 "
-620,"3.5
+620,/mnt/fit-Knowledgezoo/jupyternotebooks/jhillairet@documents/notebooks/Fusion_Basics/The cyclotron interaction.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3645,7 +3645,7 @@ ImportError: No module named 'sympy'
 
 Executability                            : False
 "
-685,"3.5
+685,/mnt/fit-Knowledgezoo/jupyternotebooks/yardsale8@cs106/notebooks/Selection.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 p1.x = 3
@@ -3662,7 +3662,7 @@ SyntaxError: Missing parentheses in call to 'print' (<ipython-input-3-33da1538ff
 
 Executability                            : False
 "
-687,"3.5
+687,/mnt/fit-Knowledgezoo/jupyternotebooks/betatim@betatim.github.io/downloads/notebooks/unbiased-performance-estimates.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 a = Cdgame()
@@ -3678,7 +3678,7 @@ SyntaxError: invalid syntax (<ipython-input-2-d1f039fafa24>, line 2)
 
 Executability                            : False
 "
-691,"3.5
+691,/mnt/fit-Knowledgezoo/jupyternotebooks/betatim@betatim.github.io/downloads/notebooks/really-interactive-posts.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import numpy as np
@@ -3708,7 +3708,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-695,"3.5
+695,/mnt/fit-Knowledgezoo/jupyternotebooks/marcinofulus@ProgramowanieRownolegle/notes.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from ipywidgets import interact, interactive
@@ -3726,7 +3726,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-703,"3.5
+703,/mnt/fit-Knowledgezoo/jupyternotebooks/bryansim@Python/mousetrackerproc/mousetracker_processing.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3749,7 +3749,7 @@ SyntaxError: invalid syntax (<ipython-input-1-ec022dd62f6b>, line 3)
 
 Executability                            : False
 "
-711,"3.5
+711,/mnt/fit-Knowledgezoo/jupyternotebooks/numerical-mooc@numerical-mooc/lessons/04_spreadout/04_01_Heat_Equation_1D_Explicit.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -3769,7 +3769,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-712,"3.6
+712,/mnt/fit-Knowledgezoo/jupyternotebooks/numerical-mooc@numerical-mooc/lessons/04_spreadout/04_05_Crank-Nicolson.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 geojson = df_to_geojson(df_leaflet, df_leaflet.columns, lat='lat', lon='lng')
@@ -3797,7 +3797,7 @@ PermissionError: [Errno 13] Permission denied: 'leaflet/lastfm-dataset.js'
 
 Executability                            : False
 "
-713,"3.6
+713,/mnt/fit-Knowledgezoo/jupyternotebooks/numerical-mooc@numerical-mooc/lessons/04_spreadout/04_02_Heat_Equation_1D_Implicit.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 ax = artists_most.plot(kind='bar', figsize=[11, 7], width=0.8, alpha=0.7, color='#339933', edgecolor=None, zorder=2)
@@ -3877,7 +3877,7 @@ PermissionError: [Errno 13] Permission denied: 'images/lastfm-artists-played-mos
 
 Executability                            : False
 "
-719,"3.6
+719,/mnt/fit-Knowledgezoo/jupyternotebooks/numerical-mooc@numerical-mooc/lessons/01_phugoid/01_01_Phugoid_Theory.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import urllib.request
@@ -3908,7 +3908,7 @@ PermissionError: [Errno 13] Permission denied: 'uvinitial.npz'
 
 Executability                            : False
 "
-727,"3.6
+727,/mnt/fit-Knowledgezoo/jupyternotebooks/bokeh@bokeh-notebooks/tutorial/04 - styling.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import numba
@@ -3926,7 +3926,7 @@ ModuleNotFoundError: No module named 'numba'
 
 Executability                            : False
 "
-738,"3.7
+738,/mnt/fit-Knowledgezoo/jupyternotebooks/AllenDowney@ThinkBayes2/code/chap03soln.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -3949,7 +3949,7 @@ ModuleNotFoundError: No module named 'bokeh'
 
 Executability                            : False
 "
-740,"3.7
+740,/mnt/fit-Knowledgezoo/jupyternotebooks/AllenDowney@ThinkBayes2/code/chap03.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -3977,7 +3977,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-745,"3.7
+745,/mnt/fit-Knowledgezoo/jupyternotebooks/AllenDowney@ThinkBayes2/code/survival.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -4000,7 +4000,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-748,"3.6
+748,/mnt/fit-Knowledgezoo/jupyternotebooks/AllenDowney@ThinkBayes2/code/chap02.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4027,7 +4027,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-749,"3.7
+749,/mnt/fit-Knowledgezoo/jupyternotebooks/hans@ipython-notebooks/The Heart of Silicon Valley.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -4054,7 +4054,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-752,"3.7
+752,/mnt/fit-Knowledgezoo/jupyternotebooks/briandalessandro@DataScienceCourse/ipython/python35/Lecture_PandasIntro_3.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -4081,7 +4081,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-753,"3.7
+753,/mnt/fit-Knowledgezoo/jupyternotebooks/briandalessandro@DataScienceCourse/ipython/python35/Lecture_ERM_LogReg_3.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -4109,7 +4109,7 @@ ModuleNotFoundError: No module named 'thinkbayes2'
 
 Executability                            : False
 "
-754,"3.5
+754,/mnt/fit-Knowledgezoo/jupyternotebooks/briandalessandro@DataScienceCourse/ipython/python35/Lecture_SimpleiPythonExample_3.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4136,7 +4136,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-757,"3.5
+757,/mnt/fit-Knowledgezoo/jupyternotebooks/TwistedHardware@mltutorial/notebooks/jupyter/3. Python Basics.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4184,11 +4184,11 @@ IndentationError: unexpected indent (<ipython-input-1-f777d2d95002>, line 3)
 
 Executability                            : False
 "
-758,"3.5
+758,/mnt/fit-Knowledgezoo/jupyternotebooks/TwistedHardware@mltutorial/notebooks/jupyter/4. Numpy.ipynb,"3.5
 Cell execution timed out
 Executability                            : False
 "
-770,"3.5
+770,/mnt/fit-Knowledgezoo/jupyternotebooks/DaveBackus@Data_Bootcamp/Code/Lab/EntryPoll_bootcamp_experiments.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 f = open('filespython.txt', 'w')
@@ -4214,7 +4214,7 @@ PermissionError: [Errno 13] Permission denied: 'filespython.txt'
 
 Executability                            : False
 "
-771,"3.5
+771,/mnt/fit-Knowledgezoo/jupyternotebooks/DaveBackus@Data_Bootcamp/Code/Lab/Airbnb_experiments_Chase.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4255,7 +4255,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-772,"3.5
+772,/mnt/fit-Knowledgezoo/jupyternotebooks/DaveBackus@Data_Bootcamp/Code/IPython/bootcamp_exam_practice_answerkey.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 url = 'http://pages.stern.nyu.edu/~dbackus/Data/beer_production_1947-2004.xlsx'
@@ -4317,7 +4317,7 @@ ImportError: Install xlrd >= 0.9.0 for Excel support
 
 Executability                            : False
 "
-777,"3.5
+777,/mnt/fit-Knowledgezoo/jupyternotebooks/jupyter@design/surveys/2015-notebook-ux/analysis/prep/3b_integration_themes.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 plt.style.use('fivethirtyeight')
@@ -4379,7 +4379,7 @@ PermissionError: [Errno 13] Permission denied: 'debt.pdf'
 
 Executability                            : False
 "
-796,"3.5
+796,/mnt/fit-Knowledgezoo/jupyternotebooks/calpolydatascience@data301/Content/Tidy/CleanWrangle.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 %%writefile data1.csv
@@ -4420,7 +4420,7 @@ PermissionError: [Errno 13] Permission denied: 'data1.csv'
 
 Executability                            : False
 "
-797,"3.5
+797,/mnt/fit-Knowledgezoo/jupyternotebooks/calpolydatascience@data301/Content/Model/02-Probability.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 with open('people.json', 'w') as f:
@@ -4438,7 +4438,7 @@ PermissionError: [Errno 13] Permission denied: 'people.json'
 
 Executability                            : False
 "
-802,"3.6
+802,/mnt/fit-Knowledgezoo/jupyternotebooks/calpolydatascience@data301/Content/Model/Scipy.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4461,7 +4461,7 @@ ModuleNotFoundError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-827,"3.6
+827,/mnt/fit-Knowledgezoo/jupyternotebooks/fnl@asdm-tm-class/Day 1 - Document classification.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4482,7 +4482,7 @@ SyntaxError: Missing parentheses in call to 'print'. Did you mean print(source #
 
 Executability                            : False
 "
-836,"3.5
+836,/mnt/fit-Knowledgezoo/jupyternotebooks/haraldschilly@python-fuer-mathematiker/doc/1-0-einfuehrung.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4503,7 +4503,7 @@ ImportError: No module named 'sympy'
 
 Executability                            : False
 "
-837,"3.5
+837,/mnt/fit-Knowledgezoo/jupyternotebooks/haraldschilly@python-fuer-mathematiker/doc/3-3-zahlentheorie.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # Nur für das Skriptum wird auf quadatische PNG Plots umgestellt, später wieder SVG
@@ -4524,7 +4524,7 @@ ImportError: No module named 'mpmath'
 
 Executability                            : False
 "
-838,"3.5
+838,/mnt/fit-Knowledgezoo/jupyternotebooks/haraldschilly@python-fuer-mathematiker/doc/7-0-outro.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import sympy as sy
@@ -4542,7 +4542,7 @@ ImportError: No module named 'sympy'
 
 Executability                            : False
 "
-841,"3.5
+841,/mnt/fit-Knowledgezoo/jupyternotebooks/haraldschilly@python-fuer-mathematiker/doc/3-8-kryptographie.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import mpmath as mpm
@@ -4564,7 +4564,7 @@ ImportError: No module named 'mpmath'
 
 Executability                            : False
 "
-842,"3.5
+842,/mnt/fit-Knowledgezoo/jupyternotebooks/haraldschilly@python-fuer-mathematiker/doc/1-2-installation.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from sympy.ntheory import isprime, nextprime
@@ -4582,7 +4582,7 @@ ImportError: No module named 'sympy'
 
 Executability                            : False
 "
-845,"3.5
+845,/mnt/fit-Knowledgezoo/jupyternotebooks/ska-sa@tutorials/4_HartRAO_spectral_line/3_Bandpass_correction.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4621,7 +4621,7 @@ SyntaxError: invalid syntax (<ipython-input-1-b48c49827e33>, line 3)
 
 Executability                            : False
 "
-847,"3.5
+847,/mnt/fit-Knowledgezoo/jupyternotebooks/ska-sa@tutorials/0_Intro_to_the_notebook/3_Python_intro_examples.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4672,7 +4672,7 @@ ImportError: No module named 'bs4'
 
 Executability                            : False
 "
-866,"3.6
+866,/mnt/fit-Knowledgezoo/jupyternotebooks/kylepjohnson@notebooks/public_talks/2016_12_08_harvard_classics/6 N-grams.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import urllib.request
@@ -4697,7 +4697,7 @@ PermissionError: [Errno 13] Permission denied: 'tutorial2-01.mat'
 
 Executability                            : False
 "
-869,"3.5
+869,"/mnt/fit-Knowledgezoo/jupyternotebooks/kylepjohnson@notebooks/google_ml_tensorflow/Google 5, Classifier.ipynb","3.5
 An error occurred while executing the following cell:
 ------------------
 df = make_all_features_for_tweets()
@@ -4720,7 +4720,7 @@ PermissionError: [Errno 13] Permission denied: 'feature_tables'
 
 Executability                            : False
 "
-892,"3.6
+892,/mnt/fit-Knowledgezoo/jupyternotebooks/garth-wells@IA-maths-Jupyter/Lecture01.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4751,7 +4751,7 @@ ModuleNotFoundError: No module named 'sympy'
 
 Executability                            : False
 "
-893,"3.6
+893,/mnt/fit-Knowledgezoo/jupyternotebooks/garth-wells@IA-maths-Jupyter/Lecture08.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4780,7 +4780,7 @@ ModuleNotFoundError: No module named 'sympy'
 
 Executability                            : False
 "
-897,"3.6
+897,/mnt/fit-Knowledgezoo/jupyternotebooks/jklymak@Phy411/lectures/Lecture-07-Filtering.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4804,7 +4804,7 @@ ModuleNotFoundError: No module named 'sympy'
 
 Executability                            : False
 "
-899,"3.6
+899,/mnt/fit-Knowledgezoo/jupyternotebooks/jklymak@Phy411/lectures/Lecture-06-Cospectra-Sampling.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4836,7 +4836,7 @@ ModuleNotFoundError: No module named 'sympy'
 
 Executability                            : False
 "
-900,"3.6
+900,/mnt/fit-Knowledgezoo/jupyternotebooks/cpraveen@chebpy/p02.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4869,7 +4869,7 @@ ModuleNotFoundError: No module named 'sympy'
 
 Executability                            : False
 "
-902,"3.5
+902,/mnt/fit-Knowledgezoo/jupyternotebooks/cpraveen@chebpy/p01.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4913,7 +4913,7 @@ ImportError: No module named 'sympy'
 
 Executability                            : False
 "
-903,"3.5
+903,/mnt/fit-Knowledgezoo/jupyternotebooks/DAInamite@programming-humanoid-robot-in-python/joint_control/add_training_data.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -4972,7 +4972,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-945,"3.6
+945,/mnt/fit-Knowledgezoo/jupyternotebooks/bgruening@notebooks/Python/count_biocontainer.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 X, y = load_iris(return_X_y=True)
@@ -5004,7 +5004,7 @@ Error: line contains NULL byte
 
 Executability                            : False
 "
-968,"3.6
+968,/mnt/fit-Knowledgezoo/jupyternotebooks/mglerner@IntroToComputationalScience/AnnealingSalesman/Annealing Salesman.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 %%writefile test_string.py
@@ -5064,7 +5064,7 @@ PermissionError: [Errno 13] Permission denied: 'test_string.py'
 
 Executability                            : False
 "
-976,"3.5
+976,/mnt/fit-Knowledgezoo/jupyternotebooks/chuckpr@CSIP_succession_data_analysis/figures_and_stats/labeled_biomass_estimate.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5088,7 +5088,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-977,"3.6
+977,/mnt/fit-Knowledgezoo/jupyternotebooks/looselycoupled@xbus-503-ipython-demos/BeautifulSoup/demo.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 assert is_num_palindrome(123321)
@@ -5106,7 +5106,7 @@ NameError: name 'is_num_palindrome' is not defined
 
 Executability                            : False
 "
-985,"3.5
+985,/mnt/fit-Knowledgezoo/jupyternotebooks/alberto139@Udacity/MLND/P0_titanic_survival_exploration/Titanic_Survival_Exploration.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5139,7 +5139,7 @@ ImportError: No module named 'bs4'
 
 Executability                            : False
 "
-986,"3.5
+986,/mnt/fit-Knowledgezoo/jupyternotebooks/astroandes@BlackHole/src/test.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from ipywidgets import interactive
@@ -5159,7 +5159,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-991,"3.5
+991,/mnt/fit-Knowledgezoo/jupyternotebooks/damontallen@Construction-Lectures-Fall-2014/Week 0 - Greetings - Web only.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5188,7 +5188,7 @@ ImportError: No module named 'widgets'
 
 Executability                            : False
 "
-997,"3.5
+997,/mnt/fit-Knowledgezoo/jupyternotebooks/damontallen@Construction-Lectures-Fall-2014/Week 12 - Excavation.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from sklearn.externals import joblib
@@ -5220,7 +5220,7 @@ PermissionError: [Errno 13] Permission denied: 'LRclf.pkl'
 
 Executability                            : False
 "
-1002,"3.6
+1002,/mnt/fit-Knowledgezoo/jupyternotebooks/IvanSmirnovRus@code/python/Lecture11.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5234,7 +5234,7 @@ UsageError: Line magic function `%%javascript` not found.
 
 Executability                            : False
 "
-1028,"3.6
+1028,/mnt/fit-Knowledgezoo/jupyternotebooks/nicoguaro@notebooks_examples/Manufactured solutions.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5264,7 +5264,7 @@ ModuleNotFoundError: No module named 'bokeh'
 
 Executability                            : False
 "
-1029,"3.6
+1029,/mnt/fit-Knowledgezoo/jupyternotebooks/nicoguaro@notebooks_examples/Airy stress functions.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5292,7 +5292,7 @@ ModuleNotFoundError: No module named 'bokeh'
 
 Executability                            : False
 "
-1033,"3.6
+1033,/mnt/fit-Knowledgezoo/jupyternotebooks/nicoguaro@notebooks_examples/QM_analytical solutions.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5314,7 +5314,7 @@ SyntaxError: import * only allowed at module level (<ipython-input-1-394b77b3992
 
 Executability                            : False
 "
-1036,"3.6
+1036,/mnt/fit-Knowledgezoo/jupyternotebooks/nicoguaro@notebooks_examples/Stiffness_eigenvalues.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5335,7 +5335,7 @@ SyntaxError: import * only allowed at module level (<ipython-input-1-a0374f0ffde
 
 Executability                            : False
 "
-1037,"3.6
+1037,/mnt/fit-Knowledgezoo/jupyternotebooks/gboye@Divers/LibreOffice-IncludeMacro.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5360,7 +5360,7 @@ ModuleNotFoundError: No module named 'sympy'
 
 Executability                            : False
 "
-1042,"3.5
+1042,/mnt/fit-Knowledgezoo/jupyternotebooks/tentaaakel@chicaca/stringCompare.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5391,7 +5391,7 @@ ImportError: No module named 'sympy'
 
 Executability                            : False
 "
-1044,"3.6
+1044,/mnt/fit-Knowledgezoo/jupyternotebooks/tentaaakel@chicaca/charSort.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5412,11 +5412,11 @@ SyntaxError: import * only allowed at module level (<ipython-input-1-6931c7d89ed
 
 Executability                            : False
 "
-1053,"3.5
+1053,/mnt/fit-Knowledgezoo/jupyternotebooks/aligazala@datasciencecoursera/First_Analysis.ipynb,"3.5
 Cell execution timed out
 Executability                            : False
 "
-1054,"3.5
+1054,/mnt/fit-Knowledgezoo/jupyternotebooks/ondrolexa@sg2/13_Transpression.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5530,7 +5530,7 @@ ImportError: cannot import name 'cross_validation'
 
 Executability                            : False
 "
-1055,"3.5
+1055,/mnt/fit-Knowledgezoo/jupyternotebooks/ondrolexa@sg2/12_Superposed_deformation.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 writeFp = open('config.json', 'w')
@@ -5559,7 +5559,7 @@ PermissionError: [Errno 13] Permission denied: 'config.json'
 
 Executability                            : False
 "
-1058,"3.5
+1058,/mnt/fit-Knowledgezoo/jupyternotebooks/ondrolexa@sg2/10_Introduction_to_strain_analysis.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5595,7 +5595,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-1076,"3.5
+1076,/mnt/fit-Knowledgezoo/jupyternotebooks/postlogist@course_reliability/structural_reliability/svertka.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5621,7 +5621,7 @@ ImportError: No module named 'bs4'
 
 Executability                            : False
 "
-1101,"3.5
+1101,"/mnt/fit-Knowledgezoo/jupyternotebooks/ninotoshi@playground/book/grokking_deep_learning/6 Our First ""Deep"" Neural Network.ipynb","3.5
 An error occurred while executing the following cell:
 ------------------
 init(m)
@@ -5644,7 +5644,7 @@ KeyError: 'bc0'
 
 Executability                            : False
 "
-1106,"3.5
+1106,/mnt/fit-Knowledgezoo/jupyternotebooks/ninotoshi@playground/book/grokking_deep_learning/4.2 Learning the whole dataset.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # reseni s konstatni konduktivitou
@@ -5671,7 +5671,7 @@ KeyError: 'bc0'
 
 Executability                            : False
 "
-1118,"3.6
+1118,/mnt/fit-Knowledgezoo/jupyternotebooks/francisglee@problem-sets/20.440_Biological_Networks/Pset3/Functions.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5703,7 +5703,7 @@ ModuleNotFoundError: No module named 'skimage'
 
 Executability                            : False
 "
-1122,"3.6
+1122,/mnt/fit-Knowledgezoo/jupyternotebooks/thierryherrmann@simple-machine-learning/singular-value-decomposition-img-compr/SVD_recommendation_and_img_compression.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5726,7 +5726,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-1141,"3.5
+1141,/mnt/fit-Knowledgezoo/jupyternotebooks/donovanfm@data-journeyman/app/ipython-notebooks/santy_claus.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5808,7 +5808,7 @@ PermissionError: [Errno 13] Permission denied: 'test.png'
 
 Executability                            : False
 "
-1150,"3.5
+1150,/mnt/fit-Knowledgezoo/jupyternotebooks/anokhin@sfera-dm/lecture_01/tutorial/python-tools.v3.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from sklearn.cross_validation import train_test_split
@@ -5832,7 +5832,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-1151,"3.5
+1151,/mnt/fit-Knowledgezoo/jupyternotebooks/mikekul1984@firstrepo/Python/nborwankar-LearnDataScience-97d8d7d/notebooks/D1. K-Means Clustering - Overview.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # print(X_data.shape)
@@ -5862,7 +5862,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-1152,"3.5
+1152,/mnt/fit-Knowledgezoo/jupyternotebooks/mikekul1984@firstrepo/Python/nborwankar-LearnDataScience-97d8d7d/notebooks/A2. Linear Regression - Data Exploration - Lending Club.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # print(X_data.shape)
@@ -5892,7 +5892,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-1153,"3.5
+1153,/mnt/fit-Knowledgezoo/jupyternotebooks/mikekul1984@firstrepo/Python/nborwankar-LearnDataScience-97d8d7d/notebooks/A2. Linear Regression - Data Exploration - Lending Club.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # print(X_data.shape)
@@ -5922,7 +5922,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-1211,"3.5
+1211,/mnt/fit-Knowledgezoo/jupyternotebooks/mcrovella@CS132-Geometric-Algorithms/L24SymmetricMatrices.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -5970,7 +5970,7 @@ ImportError: No module named 'qrcode'
 
 Executability                            : False
 "
-1213,"3.6
+1213,/mnt/fit-Knowledgezoo/jupyternotebooks/mcrovella@CS132-Geometric-Algorithms/L20Orthogonality.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6021,7 +6021,7 @@ ModuleNotFoundError: No module named 'qrcode'
 
 Executability                            : False
 "
-1215,"3.6
+1215,/mnt/fit-Knowledgezoo/jupyternotebooks/mcrovella@CS132-Geometric-Algorithms/L08MatrixofLinearTranformation.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6070,7 +6070,7 @@ ModuleNotFoundError: No module named 'qrcode'
 
 Executability                            : False
 "
-1223,"3.5
+1223,/mnt/fit-Knowledgezoo/jupyternotebooks/mcrovella@CS132-Geometric-Algorithms/L02Numerics.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6118,7 +6118,7 @@ ImportError: No module named 'qrcode'
 
 Executability                            : False
 "
-1225,"3.5
+1225,/mnt/fit-Knowledgezoo/jupyternotebooks/Kuntal-G@Machine-Learning/Python-machine-learning/Unsupervised Learning-SkLearn.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6166,7 +6166,7 @@ ImportError: No module named 'qrcode'
 
 Executability                            : False
 "
-1229,"3.5
+1229,/mnt/fit-Knowledgezoo/jupyternotebooks/nansencenter@nansat-lectures/notebooks/03 object oriented programming.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6215,7 +6215,7 @@ ImportError: No module named 'qrcode'
 
 Executability                            : False
 "
-1231,"3.6
+1231,/mnt/fit-Knowledgezoo/jupyternotebooks/nansencenter@nansat-lectures/notebooks/examples/piformula.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6264,11 +6264,11 @@ ModuleNotFoundError: No module named 'qrcode'
 
 Executability                            : False
 "
-1232,"3.6
+1232,/mnt/fit-Knowledgezoo/jupyternotebooks/ProfessorBrunner@ml-sims/deep_learning/helper_sam.ipynb,"3.6
 list index out of range
 Executability                            : False
 "
-1235,"3.5
+1235,/mnt/fit-Knowledgezoo/jupyternotebooks/Carreau@talks/2016-09-23-uc-merced-seminar/Factoring.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from clintrials.dosefinding.efftox import _pi_E, _pi_T, _pi_ab, _L_n, scale_doses
@@ -6284,7 +6284,7 @@ ImportError: No module named 'clintrials'
 
 Executability                            : False
 "
-1243,"3.5
+1243,/mnt/fit-Knowledgezoo/jupyternotebooks/particle-physics-playground@playground/activities/ppp_physicsbkg_000_specialrelativity.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6309,7 +6309,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-1244,"3.5
+1244,/mnt/fit-Knowledgezoo/jupyternotebooks/particle-physics-playground@playground/activities/ppp_experiment_001_cleo.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 from ipywidgets import interact, interactive
@@ -6327,7 +6327,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-1245,"3.5
+1245,/mnt/fit-Knowledgezoo/jupyternotebooks/particle-physics-playground@playground/activities/ppp_codebkg_002_babar.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6353,7 +6353,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-1257,"3.6
+1257,/mnt/fit-Knowledgezoo/jupyternotebooks/qingkaikong@blog/2017_13_visualize_high_dimensional_dataset/Visualize_high_dimensional_dataset.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 # load the data
@@ -6389,7 +6389,7 @@ Error: line contains NULL byte
 
 Executability                            : False
 "
-1269,"3.6
+1269,/mnt/fit-Knowledgezoo/jupyternotebooks/RobertTalbert@discretecs/vertex_coloring.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 output.to_excel('planets.xls')
@@ -6426,7 +6426,7 @@ ModuleNotFoundError: No module named 'xlwt'
 
 Executability                            : False
 "
-1270,"3.5
+1270,/mnt/fit-Knowledgezoo/jupyternotebooks/RobertTalbert@discretecs/archive/TransitiveClosure.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import networkx as nx
@@ -6448,7 +6448,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-1271,"3.5
+1271,/mnt/fit-Knowledgezoo/jupyternotebooks/RobertTalbert@discretecs/archive/Relations-digraphs.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6485,7 +6485,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-1273,"3.5
+1273,/mnt/fit-Knowledgezoo/jupyternotebooks/RobertTalbert@discretecs/archive/RelationProperties.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6520,7 +6520,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-1274,"3.5
+1274,/mnt/fit-Knowledgezoo/jupyternotebooks/RobertTalbert@discretecs/archive/The Jupyter Notebook environment.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6550,7 +6550,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-1275,"3.5
+1275,/mnt/fit-Knowledgezoo/jupyternotebooks/RobertTalbert@discretecs/archive/Jupyter-tutorial.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6584,7 +6584,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-1276,"3.5
+1276,/mnt/fit-Knowledgezoo/jupyternotebooks/RobertTalbert@discretecs/archive/Compositions.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6611,7 +6611,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-1277,"3.5
+1277,/mnt/fit-Knowledgezoo/jupyternotebooks/RobertTalbert@discretecs/archive/ProofByContrapositive.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6636,7 +6636,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-1283,"3.5
+1283,/mnt/fit-Knowledgezoo/jupyternotebooks/RobertTalbert@discretecs/archive/lessons/lesson4.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # For MTH 325 students: Using Python to visualize graphs...
@@ -6666,7 +6666,7 @@ ImportError: No module named 'networkx'
 
 Executability                            : False
 "
-1311,"3.6
+1311,/mnt/fit-Knowledgezoo/jupyternotebooks/Mashimo@datascience/01-Regression/LogisticRegression.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 # import the IPython widgets
@@ -6688,7 +6688,7 @@ ModuleNotFoundError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-1319,"3.5
+1319,/mnt/fit-Knowledgezoo/jupyternotebooks/bshurick@ischool/ML at Scale/DivideAndConquer2-python-brandon_shurick.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 data = pd.read_csv(""datasets/ex2data1.txt"", header=None, 
@@ -6745,7 +6745,7 @@ FileNotFoundError: File b'datasets/ex2data1.txt' does not exist
 
 Executability                            : False
 "
-1367,"3.5
+1367,/mnt/fit-Knowledgezoo/jupyternotebooks/felixfan@scripts/python/ipynb/useful-tips.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -6874,7 +6874,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-1401,"3.5
+1401,/mnt/fit-Knowledgezoo/jupyternotebooks/enalisnick@blog_sandbox/Decision_Boundaries_from_Priors.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import re, urllib.parse, os
@@ -6905,7 +6905,7 @@ PermissionError: [Errno 13] Permission denied: 'table7zips'
 
 Executability                            : False
 "
-1402,"3.5
+1402,/mnt/fit-Knowledgezoo/jupyternotebooks/enalisnick@blog_sandbox/Tree-Based_Priors.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import re, urllib.parse, os
@@ -6936,7 +6936,7 @@ PermissionError: [Errno 13] Permission denied: 'tablep1zips'
 
 Executability                            : False
 "
-1458,"3.6
+1458,/mnt/fit-Knowledgezoo/jupyternotebooks/jingzbu@TAHTMA/test/comparison_study_empirical_error_N_8.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 ## method 1 binary search by taking advantage of sorted array
@@ -6971,7 +6971,7 @@ AssertionError:
 
 Executability                            : False
 "
-1493,"3.5
+1493,/mnt/fit-Knowledgezoo/jupyternotebooks/ellisonbg@jupyter-talks/12-JupyterLab.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7051,7 +7051,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-1494,"3.5
+1494,/mnt/fit-Knowledgezoo/jupyternotebooks/ngrislain@experiments/Kernel trick.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7129,7 +7129,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-1495,"3.5
+1495,/mnt/fit-Knowledgezoo/jupyternotebooks/maxthemouse@myhpsc/lectures/lecture6/Lecture6.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7209,7 +7209,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-1496,"3.5
+1496,/mnt/fit-Knowledgezoo/jupyternotebooks/maxthemouse@myhpsc/homework/homework4/quadrature.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7287,7 +7287,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-1497,"3.5
+1497,/mnt/fit-Knowledgezoo/jupyternotebooks/maxthemouse@myhpsc/homework/homework5/notebook/quadrature2.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7367,7 +7367,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-1498,"3.5
+1498,/mnt/fit-Knowledgezoo/jupyternotebooks/nikitamath@ipythonnotebook/anya_task2_rp.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7447,7 +7447,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-1500,"3.5
+1500,/mnt/fit-Knowledgezoo/jupyternotebooks/dkmehrmann@Practice/elo_538.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7527,7 +7527,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-1501,"3.5
+1501,/mnt/fit-Knowledgezoo/jupyternotebooks/dkmehrmann@Practice/rmagic.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7607,7 +7607,7 @@ ImportError: No module named 'requests'
 
 Executability                            : False
 "
-1514,"3.6
+1514,/mnt/fit-Knowledgezoo/jupyternotebooks/xthomas@dataviz/ServiceSurvey/CensusRevenueTax.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 df16.to_csv('./data/agencies_hr_2016.csv')
@@ -7644,7 +7644,7 @@ PermissionError: [Errno 13] Permission denied: './data/agencies_hr_2016.csv'
 
 Executability                            : False
 "
-1515,"3.6
+1515,/mnt/fit-Knowledgezoo/jupyternotebooks/xthomas@dataviz/ServiceSurvey/LookAtExcel.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7670,7 +7670,7 @@ ModuleNotFoundError: No module named 'lxml'
 
 Executability                            : False
 "
-1517,"3.5
+1517,/mnt/fit-Knowledgezoo/jupyternotebooks/xthomas@dataviz/angelList/WEST_Matching.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 sixteenfile = open('data/2016-EX-AWARDS_deduplicated.txt', 'w')
@@ -7692,7 +7692,7 @@ PermissionError: [Errno 13] Permission denied: 'data/2016-EX-AWARDS_deduplicated
 
 Executability                            : False
 "
-1518,"3.5
+1518,/mnt/fit-Knowledgezoo/jupyternotebooks/xthomas@dataviz/AgencyRevenueCuts/filtering.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7719,7 +7719,7 @@ ImportError: No module named 'plotly'
 
 Executability                            : False
 "
-1520,"3.5
+1520,/mnt/fit-Knowledgezoo/jupyternotebooks/cthoyt@notebooks/Church Encodings.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7744,7 +7744,7 @@ ImportError: No module named 'plotly'
 
 Executability                            : False
 "
-1523,"3.6
+1523,/mnt/fit-Knowledgezoo/jupyternotebooks/cthoyt@notebooks/bit/pl2/Pl2Assignment6.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 # Import the excel file and call it xls_file
@@ -7788,7 +7788,7 @@ ImportError: Install xlrd >= 1.0.0 for Excel support
 
 Executability                            : False
 "
-1549,"3.6
+1549,/mnt/fit-Knowledgezoo/jupyternotebooks/calebjordan@Data-Analysis/JPM Experiments/Transmon Frequency Fit.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 #from pandas.util.testing import assert_frame_equal
@@ -7819,7 +7819,7 @@ NameError: name 'df_norm_v1' is not defined
 
 Executability                            : False
 "
-1585,"3.6
+1585,/mnt/fit-Knowledgezoo/jupyternotebooks/doku@ipython_notebooks/sketch_book/Assignment3_python2.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 from bokeh.plotting import figure, output_notebook, show
@@ -7839,7 +7839,7 @@ ModuleNotFoundError: No module named 'bokeh'
 
 Executability                            : False
 "
-1587,"3.5
+1587,/mnt/fit-Knowledgezoo/jupyternotebooks/doku@ipython_notebooks/sketch_book/Magic_squares.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7874,7 +7874,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-1588,"3.6
+1588,/mnt/fit-Knowledgezoo/jupyternotebooks/doku@ipython_notebooks/sketch_book/Assignment9.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7907,7 +7907,7 @@ ModuleNotFoundError: No module named 'bokeh'
 
 Executability                            : False
 "
-1599,"3.5
+1599,/mnt/fit-Knowledgezoo/jupyternotebooks/yw5aj@ipynb/winpythondocs/seaborn_demo_from_jakevdp.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -7931,7 +7931,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-1645,"3.5
+1645,/mnt/fit-Knowledgezoo/jupyternotebooks/chrisalbon@notes_on_data_science_machine_learning_and_artificial_intelligence/content/python/pandas_create_column_with_loop.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 df.to_csv('pandas_dataframe_importing_csv/example.csv')
@@ -7968,7 +7968,7 @@ PermissionError: [Errno 13] Permission denied: 'pandas_dataframe_importing_csv/e
 
 Executability                            : False
 "
-1737,"3.6
+1737,/mnt/fit-Knowledgezoo/jupyternotebooks/simnalamburt@snucse/Deep Learning from Scratch/3-activation-function.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -8025,7 +8025,7 @@ PermissionError: [Errno 13] Permission denied: '/mnt/fit-Knowledgezoo/jupyternot
 
 Executability                            : False
 "
-1739,"3.6
+1739,/mnt/fit-Knowledgezoo/jupyternotebooks/simnalamburt@snucse/Deep Learning from Scratch/4-learning.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -8177,7 +8177,7 @@ PermissionError: [Errno 13] Permission denied: '/mnt/fit-Knowledgezoo/jupyternot
 
 Executability                            : False
 "
-1742,"3.6
+1742,/mnt/fit-Knowledgezoo/jupyternotebooks/PyDataTokyo@pydata-tokyo-tutorial-1/pydatatokyo_tutorial_dh.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -8329,7 +8329,7 @@ PermissionError: [Errno 13] Permission denied: '/mnt/fit-Knowledgezoo/jupyternot
 
 Executability                            : False
 "
-1747,"3.6
+1747,/mnt/fit-Knowledgezoo/jupyternotebooks/amarallab@Introduction-to-Python-Programming-and-Data-Science/Lessons/Day7_am2_Bootstrapping_MC_chains.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -8489,7 +8489,7 @@ PermissionError: [Errno 13] Permission denied: '/mnt/fit-Knowledgezoo/jupyternot
 
 Executability                            : False
 "
-1751,"3.5
+1751,/mnt/fit-Knowledgezoo/jupyternotebooks/amarallab@Introduction-to-Python-Programming-and-Data-Science/Homework/HW1/Day1Homework.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 df_kaggle = pd.DataFrame({'PassengerId': df_test['PassengerId'], 'Survived':np.array(y_test_pred)})
@@ -8528,15 +8528,15 @@ PermissionError: [Errno 13] Permission denied: 'kaggle_gendermodel.csv'
 
 Executability                            : False
 "
-1755,"3.6
+1755,/mnt/fit-Knowledgezoo/jupyternotebooks/odtu@ee564/TRAIN/Melih/Worse Design 2.ipynb,"3.6
 list index out of range
 Executability                            : False
 "
-1757,"3.6
+1757,/mnt/fit-Knowledgezoo/jupyternotebooks/odtu@ee564/TRAIN/Melih/worse design 1.ipynb,"3.6
 list index out of range
 Executability                            : False
 "
-1809,"3.5
+1809,/mnt/fit-Knowledgezoo/jupyternotebooks/JWarmenhoven@ipython_notebooks/Pandas/Pandas - Alternative DataFrame Constructors.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 ax = seaborn.violinplot(x='z_score_ihs', y='status', data=self_df, inner='quartile', hue='pert_type', split=True)
@@ -8607,7 +8607,7 @@ PermissionError: [Errno 13] Permission denied: 'viz/self-targeting-perts.png'
 
 Executability                            : False
 "
-1828,"3.6
+1828,/mnt/fit-Knowledgezoo/jupyternotebooks/nfaggian@notebooks/Introductions/Tutorial - 1.5 - Scikit-Learn.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -8626,7 +8626,7 @@ UsageError: Line magic function `%` not found.
 
 Executability                            : False
 "
-1829,"3.7
+1829,/mnt/fit-Knowledgezoo/jupyternotebooks/nfaggian@notebooks/Introductions/Tutorial - 1.1 - Numpy.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -8656,7 +8656,7 @@ NameError: name 'cutoff' is not defined
 
 Executability                            : False
 "
-1836,"3.5
+1836,/mnt/fit-Knowledgezoo/jupyternotebooks/raphaelcastaneda@pycon_notes/2016/Talks/refactoring python.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -8697,7 +8697,7 @@ ImportError: No module named 'ipywidgets'
 
 Executability                            : False
 "
-1849,"3.6
+1849,/mnt/fit-Knowledgezoo/jupyternotebooks/kkai@perception-aware/3.analysis/Anscombe.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -8723,7 +8723,7 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-1850,"3.7
+1850,/mnt/fit-Knowledgezoo/jupyternotebooks/kkai@perception-aware/3.analysis/MacAndPC.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -8752,11 +8752,11 @@ SyntaxError: from __future__ imports must occur at the beginning of the file (<i
 
 Executability                            : False
 "
-1855,"3.5
+1855,/mnt/fit-Knowledgezoo/jupyternotebooks/tristan-salles@notebooks-2015/MARS5001/Modelling-session2/Lecture-overview.ipynb,"3.5
 list index out of range
 Executability                            : False
 "
-1856,"3.5
+1856,/mnt/fit-Knowledgezoo/jupyternotebooks/ketch@PseudoSpectralPython/PSPython_01-linear-PDEs.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 y = [[3, 3, 2], [0, 3, 2], [0, 0, 3]]
@@ -8806,7 +8806,7 @@ TypeError: stackplot() got multiple values for argument 'x'
 
 Executability                            : False
 "
-1919,"3.5
+1919,/mnt/fit-Knowledgezoo/jupyternotebooks/bartleyn@practice/NetworkX Graphs.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 Ns = 4096 # number of samples
@@ -8854,7 +8854,7 @@ AttributeError: 'AxesSubplot' object has no attribute 'hold'
 
 Executability                            : False
 "
-1923,"3.5
+1923,/mnt/fit-Knowledgezoo/jupyternotebooks/matted@ipynb_test/Pandas groupby example.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 plt.hold(True)
@@ -8884,7 +8884,7 @@ AttributeError: module 'matplotlib.pyplot' has no attribute 'hold'
 
 Executability                            : False
 "
-1954,"3.5
+1954,/mnt/fit-Knowledgezoo/jupyternotebooks/aenfield@random/10MinutesToPandas.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 %timeit df.to_csv(""csv_format"")
@@ -8953,7 +8953,7 @@ PermissionError: [Errno 13] Permission denied: 'csv_format'
 
 Executability                            : False
 "
-1961,"3.6
+1961,/mnt/fit-Knowledgezoo/jupyternotebooks/asheeshdwivedi@tutorials/python-tutorials/Python statement/While loops.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -8980,7 +8980,7 @@ ModuleNotFoundError: No module named 'sympy'
 
 Executability                            : False
 "
-1967,"3.5
+1967,/mnt/fit-Knowledgezoo/jupyternotebooks/socc-io@ALPC/DeepLearning/lecture/ImageManipulation.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 d = pd.read_excel('data.xlsx')
@@ -9036,7 +9036,7 @@ ImportError: Install xlrd >= 0.9.0 for Excel support
 
 Executability                            : False
 "
-2006,"3.5
+2006,/mnt/fit-Knowledgezoo/jupyternotebooks/DavidsonNext@Interactives/macroeconomics/various/old-structure/Phillips_Curve/LC2/Phillips_LC2_HOA1.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -9062,7 +9062,7 @@ ImportError: No module named 'sympy'
 
 Executability                            : False
 "
-2053,"3.5
+2053,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/data_analysis/coursera_vvedenie_v_analyz_dannyh/3_1_svm/3_1_statement_svm.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 ### Construct Harald graph
@@ -9158,7 +9158,7 @@ PermissionError: [Errno 13] Permission denied: 'Ricardo.png'
 
 Executability                            : False
 "
-2061,"3.5
+2061,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/data_analysis/coursera_vvedenie_v_analyz_dannyh/3_4_metrics/3_4_statement_metrics.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -9187,7 +9187,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-2062,"3.5
+2062,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/data_analysis/coursera_vvedenie_v_analyz_dannyh/6_1_clastering/6_1_clastering.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -9215,7 +9215,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-2063,"3.5
+2063,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/data_analysis/coursera_mashinnoe_obuchenie_i_analiz_dannyh/matematika_i_python_dlya_analiza_dannyh/4_1/4_1.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 res = ' '.join([str(x + 1) for x in clf.support_]) 
@@ -9236,7 +9236,7 @@ PermissionError: [Errno 13] Permission denied: '1.txt'
 
 Executability                            : False
 "
-2064,"3.5
+2064,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/data_analysis/coursera_mashinnoe_obuchenie_i_analiz_dannyh/matematika_i_python_dlya_analiza_dannyh/2_1/2_1.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -9263,7 +9263,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-2065,"3.5
+2065,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/data_analysis/coursera_mashinnoe_obuchenie_i_analiz_dannyh/matematika_i_python_dlya_analiza_dannyh/3_1/3_1.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -9291,7 +9291,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-2066,"3.5
+2066,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/mipt/programming_technologies (6 term)/task_3/task_3.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -9322,7 +9322,7 @@ ImportError: No module named 'sklearn.cross_validation'
 
 Executability                            : False
 "
-2067,"3.5
+2067,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/mipt/optimization_methods (6 term)/programming_gorishniy_376.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 res = score_scaled - score
@@ -9344,7 +9344,7 @@ PermissionError: [Errno 13] Permission denied: '1.txt'
 
 Executability                            : False
 "
-2068,"3.5
+2068,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/mipt/optimization_methods (6 term)/task6_gorishniy.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 answer = clf.predict(X_test)
@@ -9366,7 +9366,7 @@ PermissionError: [Errno 13] Permission denied: '1.txt'
 
 Executability                            : False
 "
-2069,"3.5
+2069,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/mipt/parallel_data_processing (7 term)/3/task_3_diagrams.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 pca = PCA(n_components=10)
@@ -9399,7 +9399,7 @@ PermissionError: [Errno 13] Permission denied: '1.txt'
 
 Executability                            : False
 "
-2070,"3.5
+2070,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/mipt/parallel_data_processing (7 term)/4/task_4_diagrams.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 with open(""1.txt"", ""w"") as txt1: 
@@ -9417,7 +9417,7 @@ PermissionError: [Errno 13] Permission denied: '1.txt'
 
 Executability                            : False
 "
-2071,"3.5
+2071,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/mipt/parallel_data_processing (7 term)/1/task_1_diagrams.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 tp = np.sum((y_true == 1) & (y_pred == 1))
@@ -9443,7 +9443,7 @@ PermissionError: [Errno 13] Permission denied: '1.txt'
 
 Executability                            : False
 "
-2072,"3.5
+2072,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/mipt/parallel_data_processing (7 term)/5/task_5_diagrams.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -9474,7 +9474,7 @@ ImportError: No module named 'skimage'
 
 Executability                            : False
 "
-2074,"3.5
+2074,/mnt/fit-Knowledgezoo/jupyternotebooks/StrausMG@learning/python/pandas.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 with open(""1.txt"", ""w"") as txt1:
@@ -9492,7 +9492,7 @@ PermissionError: [Errno 13] Permission denied: '1.txt'
 
 Executability                            : False
 "
-2099,"3.6
+2099,/mnt/fit-Knowledgezoo/jupyternotebooks/atremblay@AMRAP/Opens2017/17.2/Julia Shaw/Julia Shaw.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 E = 72000. # modulus [MPa]
@@ -9542,7 +9542,7 @@ PermissionError: [Errno 13] Permission denied: 'cs_a06_nx006_ny006_g000.inp'
 
 Executability                            : False
 "
-2100,"3.6
+2100,/mnt/fit-Knowledgezoo/jupyternotebooks/tentrillion@ipython_notebooks/CodeReview_125255.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 maxD = 60.0
@@ -9605,7 +9605,7 @@ ValueError: Format 'jpg' is not supported (supported formats: eps, pdf, pgf, png
 
 Executability                            : False
 "
-2112,"3.6
+2112,/mnt/fit-Knowledgezoo/jupyternotebooks/stitchfix@Algorithms-Notebooks/Long-Tails.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 # In R, I exported the dataset from package 'ISLR' to an Excel file
@@ -9677,7 +9677,7 @@ ImportError: Install xlrd >= 1.0.0 for Excel support
 
 Executability                            : False
 "
-2115,"3.5
+2115,/mnt/fit-Knowledgezoo/jupyternotebooks/jbwhit@jupyter-tips-and-tricks/deliver/03-Pandas-and-Plotting.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # Read in some data to show some real world exampled
@@ -9733,7 +9733,7 @@ ImportError: Install xlrd >= 0.9.0 for Excel support
 
 Executability                            : False
 "
-2166,"3.5
+2166,/mnt/fit-Knowledgezoo/jupyternotebooks/DELabUW@szkola-letnia-2015/zajecia/dzien1_czesc2_wykresy_start.ipynb,"3.5
 RUNNING THE L-BFGS-B CODE
 
            * * *
@@ -20503,7 +20503,7 @@ Executed output:
 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
 
 "
-2197,"3.5
+2197,/mnt/fit-Knowledgezoo/jupyternotebooks/drorata@drorata.github.io/content/notebooks/Hypothesis-testing.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 r = np.linspace(0, 1.4, 200)
@@ -20579,7 +20579,7 @@ PermissionError: [Errno 13] Permission denied: 'orbitals_1.pdf'
 
 Executability                            : False
 "
-2199,"3.7
+2199,/mnt/fit-Knowledgezoo/jupyternotebooks/drorata@drorata.github.io/content/notebooks/linear-regression-minimal-example.ipynb,"3.7
 Python 3.7.3
 An error occurred while executing the following cell:
 ------------------
@@ -20676,7 +20676,7 @@ PermissionError: [Errno 13] Permission denied: 'puits_infini.pdf'
 
 Executability                            : False
 "
-2202,"3.5
+2202,/mnt/fit-Knowledgezoo/jupyternotebooks/Sean-Lan@PyMOTW/Collections/Counter.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 fig, axes = plt.subplots(
@@ -20771,7 +20771,7 @@ PermissionError: [Errno 13] Permission denied: 'AO_radial.pdf'
 
 Executability                            : False
 "
-2203,"3.5
+2203,/mnt/fit-Knowledgezoo/jupyternotebooks/Sean-Lan@PyMOTW/Collections/defaultdict.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -20793,7 +20793,7 @@ ImportError: No module named 'bokeh'
 
 Executability                            : False
 "
-2210,"3.5
+2210,/mnt/fit-Knowledgezoo/jupyternotebooks/OpenWIM@pywim/notebooks/specifications/Weigh-in-Motion-Data.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 # データをファイル出力
@@ -20845,7 +20845,7 @@ PermissionError: [Errno 13] Permission denied: 'data.csv'
 
 Executability                            : False
 "
-2215,"3.5
+2215,/mnt/fit-Knowledgezoo/jupyternotebooks/dting@euler/py3/euler012_Highly_Divisible_Triangular_Number.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -20877,7 +20877,7 @@ ImportError: No module named 'h5py'
 
 Executability                            : False
 "
-2216,"3.5
+2216,/mnt/fit-Knowledgezoo/jupyternotebooks/dting@euler/py3/euler013_Large_Sum.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -20908,7 +20908,7 @@ ImportError: No module named 'numba'
 
 Executability                            : False
 "
-2217,"3.6
+2217,/mnt/fit-Knowledgezoo/jupyternotebooks/dting@euler/py3/euler004_Largest_Palindrome_Product.ipynb,"3.6
 An error occurred while executing the following cell:
 ------------------
 import warnings
@@ -20937,7 +20937,7 @@ ModuleNotFoundError: No module named 'peakutils'
 
 Executability                            : False
 "
-2219,"3.5
+2219,/mnt/fit-Knowledgezoo/jupyternotebooks/dting@euler/py3/euler017_Number_Letter_Counts.ipynb,"3.5
 An error occurred while executing the following cell:
 ------------------
 import warnings
