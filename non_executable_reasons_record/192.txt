@@ -1,0 +1,68 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### 変数の設定
+name=GUITest
+#classpath=".:/root/git_jupyter_notebook/Java/postgresql-42.1.1.jar"
+#classpath=".:/Users/ftakao2007/jupyter/jupyter_notebook/Java/postgresql-42.1.1.jar"
+
+
+### ソースの編集
+cat <<- EOS > ${name}.java
+
+import java.awt.*;
+import java.awt.event.*;
+
+class PrefFrame extends Frame {
+  //# コンストラクタ
+  public PrefFrame(String title) {
+    //#フレームのタイトルの設定
+    setTitle(title);
+
+    //#ウィンドウを閉じる時のイベント処理。無名クラス
+    addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e) {
+        System.exit(0);
+      }
+    });
+  }
+}
+
+public class ${name} {
+  public static void main(String args[]){
+    //# PrefFrameクラスのインスタンスを生成。コンストラクタを呼び出している
+    PrefFrame frm = new PrefFrame("都道府県マスター");
+    //# Frameクラスから継承したメソッドを利用
+    //# ウィンドウの表示位置
+    frm.setLocation(300, 200);
+    //# ウィンドウのサイズ
+    frm.setSize(250, 350);
+    //# ウィンドウの背景色
+    //# Color.LIGHT_GRAYはColorクラスの定数
+    frm.setBackground(Color.LIGHT_GRAY);
+    //# ウィンドウを表示する
+    frm.setVisible(true);
+  }
+}
+EOS
+
+### コンパイル
+#javac ${name}.java
+javac -encoding UTF-8 ${name}.java
+
+### 実行
+#java -classpath ${classpath} ${name}
+java  ${name}
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-1ca2d12fd9e3>"[0;36m, line [0;32m11[0m
+[0;31m    cat <<- EOS > ${name}.java[0m
+[0m                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-1ca2d12fd9e3>, line 11)
+
+Executability                            : False

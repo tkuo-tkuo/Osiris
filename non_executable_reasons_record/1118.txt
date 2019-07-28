@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import skimage
+from skimage import img_as_float
+import skimage.filters as skif
+from skimage.color import rgb2gray
+import skimage.data as skid
+import skimage.exposure as skie
+from ipywidgets import interact
+import matplotlib.pyplot as plt
+import seaborn
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-7ad10395a750>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mskimage[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mskimage[0m [0;32mimport[0m [0mimg_as_float[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mskimage[0m[0;34m.[0m[0mfilters[0m [0;32mas[0m [0mskif[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'skimage'
+ModuleNotFoundError: No module named 'skimage'
+
+Executability                            : False

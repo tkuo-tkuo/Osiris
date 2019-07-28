@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+directory=gittest
+
+### branchesディレクトリの確認
+cd ${directory}
+echo "### .git/branches"
+echo "================================================"
+ls .git/branches
+echo "================================================"
+echo
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-655a02bb9bd6>"[0;36m, line [0;32m7[0m
+[0;31m    cd ${directory}[0m
+[0m       ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-655a02bb9bd6>, line 7)
+
+Executability                            : False

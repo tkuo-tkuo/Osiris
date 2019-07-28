@@ -1,0 +1,38 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Función del sistema
+def f(y, t):
+    g = 9.8  # m / s2
+    C_D = 0.4
+    A = 1.0  # m^2
+    m = 80  # kg
+    return np.array([
+        y[1],
+        -g + rho_ISA(y[0]) * y[1] ** 2 * C_D * A / (2 * m)
+    ])
+
+# Condiciones iniciales
+y0 = np.array([39000, 0])
+
+# Vector de tiempos
+t = np.linspace(0, 250)
+
+# Integramos la ecuación
+sol = integrate.odeint(f, y0, t)
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-15-a3ea2727fa1b>[0m in [0;36m<module>[0;34m[0m
+[1;32m     17[0m [0;34m[0m[0m
+[1;32m     18[0m [0;31m# Integramos la ecuación[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 19[0;31m [0msol[0m [0;34m=[0m [0mintegrate[0m[0;34m.[0m[0modeint[0m[0;34m([0m[0mf[0m[0;34m,[0m [0my0[0m[0;34m,[0m [0mt[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     20[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'integrate' is not defined
+NameError: name 'integrate' is not defined
+
+Executability                            : False

@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+geojson = df_to_geojson(df_leaflet, df_leaflet.columns, lat='lat', lon='lng')
+
+# save the geojson result to a file
+output_filename = 'leaflet/lastfm-dataset.js'
+with open(output_filename, 'w') as output_file:
+    output_file.write('var dataset={};'.format(json.dumps(geojson, separators=(',',':'))))
+    
+# how many features did we save to the geojson file?
+print('{:,} geotagged features saved to file'.format(len(geojson['features'])))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-9-47c90e1a21be>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m# save the geojson result to a file[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0moutput_filename[0m [0;34m=[0m [0;34m'leaflet/lastfm-dataset.js'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0moutput_filename[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0moutput_file[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m     [0moutput_file[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m'var dataset={};'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mjson[0m[0;34m.[0m[0mdumps[0m[0;34m([0m[0mgeojson[0m[0;34m,[0m [0mseparators[0m[0;34m=[0m[0;34m([0m[0;34m','[0m[0;34m,[0m[0;34m':'[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'leaflet/lastfm-dataset.js'
+PermissionError: [Errno 13] Permission denied: 'leaflet/lastfm-dataset.js'
+
+Executability                            : False

@@ -1,0 +1,20 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+res = ' '.join([str(x + 1) for x in clf.support_]) 
+with open("1.txt", 'w') as txt1:
+    txt1.write(res)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-4-c35de10ef8fc>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mres[0m [0;34m=[0m [0;34m' '[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0;34m[[0m[0mstr[0m[0;34m([0m[0mx[0m [0;34m+[0m [0;36m1[0m[0;34m)[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0mclf[0m[0;34m.[0m[0msupport_[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"1.txt"[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mtxt1[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0mtxt1[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mres[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '1.txt'
+PermissionError: [Errno 13] Permission denied: '1.txt'
+
+Executability                            : False

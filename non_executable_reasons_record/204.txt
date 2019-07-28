@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+
+### PlantUMLインストール(Ubuntu16.04)
+### ※ Javaはインストール済みの前提
+#sudo apt-get install -y graphviz doxygen
+
+### Mac
+# brew install graphviz
+
+### plantuml.jarはググってダウンロードする
+ls plantuml.jar
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-64664a8219e7>"[0;36m, line [0;32m13[0m
+[0;31m    ls plantuml.jar[0m
+[0m              ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-64664a8219e7>, line 13)
+
+Executability                            : False

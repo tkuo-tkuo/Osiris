@@ -1,0 +1,27 @@
+3.7
+Python 3.7.3
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Configure Jupyter so figures appear in the notebook
+%matplotlib inline
+
+# Configure Jupyter to display the assigned value after an assignment
+%config InteractiveShell.ast_node_interactivity='last_expr_or_assign'
+
+# import classes from thinkbayes2
+from thinkbayes2 import Hist, Pmf, Suite
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-78801f75da3c>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;31m# import classes from thinkbayes2[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0;32mfrom[0m [0mthinkbayes2[0m [0;32mimport[0m [0mHist[0m[0;34m,[0m [0mPmf[0m[0;34m,[0m [0mSuite[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mModuleNotFoundError[0m: No module named 'thinkbayes2'
+ModuleNotFoundError: No module named 'thinkbayes2'
+
+Executability                            : False

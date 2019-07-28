@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+assert is_num_palindrome(123321)
+assert not is_num_palindrome(42)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-5259d5e709ec>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32massert[0m [0mis_num_palindrome[0m[0;34m([0m[0;36m123321[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32massert[0m [0;32mnot[0m [0mis_num_palindrome[0m[0;34m([0m[0;36m42[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'is_num_palindrome' is not defined
+NameError: name 'is_num_palindrome' is not defined
+
+Executability                            : False

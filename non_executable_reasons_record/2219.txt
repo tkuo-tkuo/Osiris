@@ -1,0 +1,47 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from IPython.display import display
+from matplotlib import pyplot as plt
+from scipy import signal
+from scipy import constants
+from scipy.signal import argrelextrema
+from collections import defaultdict
+from sklearn import metrics
+
+import statsmodels.api as sm
+import numpy as np
+import pandas as pd
+import numba as nb
+import sqlalchemy
+import os
+import sys
+import datetime
+import peakutils
+
+# local
+sys.path.insert(
+    0, os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))
+)
+
+from pywim.utils.dsp.synthetic_data.sensor_data import gen_truck_raw_data
+from pywim.estimation.vehicular_classification import dww
+
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-297b965b3297>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     12[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0;32mimport[0m [0mnumba[0m [0;32mas[0m [0mnb[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;32mimport[0m [0msqlalchemy[0m[0;34m[0m[0m
+[1;32m     16[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'numba'
+ImportError: No module named 'numba'
+
+Executability                            : False

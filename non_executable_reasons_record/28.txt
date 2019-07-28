@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+with open('config.json', 'w') as outfile:
+    json.dump(stimulus_seq, outfile)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-8-53eb0a0c6302>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'config.json'[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0moutfile[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0mjson[0m[0;34m.[0m[0mdump[0m[0;34m([0m[0mstimulus_seq[0m[0;34m,[0m [0moutfile[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'config.json'
+PermissionError: [Errno 13] Permission denied: 'config.json'
+
+Executability                            : False

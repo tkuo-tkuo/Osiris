@@ -1,0 +1,16 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+p1.x = 3
+p1.y = 4
+print p1
+------------------
+
+[0;36m  File [0;32m"<ipython-input-3-33da1538ff63>"[0;36m, line [0;32m3[0m
+[0;31m    print p1[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m Missing parentheses in call to 'print'
+
+SyntaxError: Missing parentheses in call to 'print' (<ipython-input-3-33da1538ff63>, line 3)
+
+Executability                            : False

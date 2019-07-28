@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from bs4 import BeautifulSoup
+def print_quotes(soup):
+    for quote in soup.find_all('span', {'itemprop': 'text'}):
+        author = quote.findNext('small', {'itemprop': 'author'}).text
+        print("%-20s" % author, quote.text[:50])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-70b06fe6ecaf>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mbs4[0m [0;32mimport[0m [0mBeautifulSoup[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mdef[0m [0mprint_quotes[0m[0;34m([0m[0msoup[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      5[0m     [0;32mfor[0m [0mquote[0m [0;32min[0m [0msoup[0m[0;34m.[0m[0mfind_all[0m[0;34m([0m[0;34m'span'[0m[0;34m,[0m [0;34m{[0m[0;34m'itemprop'[0m[0;34m:[0m [0;34m'text'[0m[0;34m}[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'bs4'
+ImportError: No module named 'bs4'
+
+Executability                            : False

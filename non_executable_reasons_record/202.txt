@@ -1,0 +1,14 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### Gemfileにpry-docが含まれていることを確認
+cat /Users/ftakao2007/jupyter/Gemfile
+------------------
+
+
+UsageError: Line magic function `%%bash` not found.
+
+Executability                            : False

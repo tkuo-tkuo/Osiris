@@ -1,0 +1,31 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from sklearn.externals import joblib
+
+# save the classifier object as LRclf.pkl
+joblib.dump(clf, filename='LRclf.pkl')
+# save the vectorizer object as vectorizer.pkl
+joblib.dump(vectorizer, filename='vectorizer.pkl')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-12-0c6e72ae258e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# save the classifier object as LRclf.pkl[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mjoblib[0m[0;34m.[0m[0mdump[0m[0;34m([0m[0mclf[0m[0;34m,[0m [0mfilename[0m[0;34m=[0m[0;34m'LRclf.pkl'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;31m# save the vectorizer object as vectorizer.pkl[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mjoblib[0m[0;34m.[0m[0mdump[0m[0;34m([0m[0mvectorizer[0m[0;34m,[0m [0mfilename[0m[0;34m=[0m[0;34m'vectorizer.pkl'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/site-packages/sklearn/externals/joblib/numpy_pickle.py[0m in [0;36mdump[0;34m(value, filename, compress, protocol, cache_size)[0m
+[1;32m    499[0m             [0mNumpyPickler[0m[0;34m([0m[0mf[0m[0;34m,[0m [0mprotocol[0m[0;34m=[0m[0mprotocol[0m[0;34m)[0m[0;34m.[0m[0mdump[0m[0;34m([0m[0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    500[0m     [0;32melif[0m [0mis_filename[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 501[0;31m         [0;32mwith[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m    502[0m             [0mNumpyPickler[0m[0;34m([0m[0mf[0m[0;34m,[0m [0mprotocol[0m[0;34m=[0m[0mprotocol[0m[0;34m)[0m[0;34m.[0m[0mdump[0m[0;34m([0m[0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    503[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'LRclf.pkl'
+PermissionError: [Errno 13] Permission denied: 'LRclf.pkl'
+
+Executability                            : False

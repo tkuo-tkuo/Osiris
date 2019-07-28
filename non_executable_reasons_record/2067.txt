@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+res = score_scaled - score
+print(res)
+with open("1.txt", 'w') as txt1:
+    txt1.write("%.3f" % res)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-7-7fb21982d276>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mres[0m [0;34m=[0m [0mscore_scaled[0m [0;34m-[0m [0mscore[0m[0;34m[0m[0m
+[1;32m      2[0m [0mprint[0m[0;34m([0m[0mres[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"1.txt"[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mtxt1[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mtxt1[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m"%.3f"[0m [0;34m%[0m [0mres[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '1.txt'
+PermissionError: [Errno 13] Permission denied: '1.txt'
+
+Executability                            : False

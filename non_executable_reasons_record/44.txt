@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from magres.atoms import MagresAtoms, MagresAtomsView
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-90c00b5a2494>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mmagres[0m[0;34m.[0m[0matoms[0m [0;32mimport[0m [0mMagresAtoms[0m[0;34m,[0m [0mMagresAtomsView[0m[0;34m[0m[0m
+[0m
+[0;31mImportError[0m: No module named 'magres'
+ImportError: No module named 'magres'
+
+Executability                            : False

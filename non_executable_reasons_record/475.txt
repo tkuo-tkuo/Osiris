@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from ipywidgets import interact, interactive
+from IPython.display import clear_output, display, HTML
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-bc683a220190>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mipywidgets[0m [0;32mimport[0m [0minteract[0m[0;34m,[0m [0minteractive[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mIPython[0m[0;34m.[0m[0mdisplay[0m [0;32mimport[0m [0mclear_output[0m[0;34m,[0m [0mdisplay[0m[0;34m,[0m [0mHTML[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'ipywidgets'
+ImportError: No module named 'ipywidgets'
+
+Executability                            : False

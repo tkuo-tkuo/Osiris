@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import division
+from sympy import *
+from sympy import symbols
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+
+x, y, z = symbols('x y z')
+h1, h2, h3, L, r = symbols('h1 h2 h3 L r')
+init_printing()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-c19347f450c2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mdivision[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0msympy[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0msympy[0m [0;32mimport[0m [0msymbols[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'sympy'
+ImportError: No module named 'sympy'
+
+Executability                            : False

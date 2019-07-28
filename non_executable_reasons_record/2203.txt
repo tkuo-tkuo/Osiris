@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import bokeh.plotting as bp
+bp.output_notebook()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-129c6e46ae54>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mbokeh[0m[0;34m.[0m[0mplotting[0m [0;32mas[0m [0mbp[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mbp[0m[0;34m.[0m[0moutput_notebook[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'bokeh'
+ImportError: No module named 'bokeh'
+
+Executability                            : False

@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+with open('people.json', 'w') as f:
+    f.write(j3)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-21-7d1329fe47db>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'people.json'[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mj3[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'people.json'
+PermissionError: [Errno 13] Permission denied: 'people.json'
+
+Executability                            : False

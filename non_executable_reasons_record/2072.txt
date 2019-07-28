@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy             as np
+import pandas            as pd
+import matplotlib.pyplot as plt
+import skimage           as skim
+import scipy.linalg      as lin
+
+from sklearn.cluster import KMeans
+from skimage.io      import imread
+
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-e74e01cfb45b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mpandas[0m            [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mskimage[0m           [0;32mas[0m [0mskim[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mimport[0m [0mscipy[0m[0;34m.[0m[0mlinalg[0m      [0;32mas[0m [0mlin[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'skimage'
+ImportError: No module named 'skimage'
+
+Executability                            : False

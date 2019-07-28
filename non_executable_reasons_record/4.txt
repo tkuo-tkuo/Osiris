@@ -1,0 +1,47 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# These are for plotting
+#%matplotlib notebook
+%matplotlib inline
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
+
+# This is an important module whenever you use python for numerics
+import numpy as np
+
+# This lets us read LIGO's data file
+import h5py
+
+# We'll do some fancy signal processing, which is easier with this
+import scipy.signal
+from scipy.interpolate import InterpolatedUnivariateSpline
+
+# These are some nice interactive things we'll use in this notebook
+from IPython.display import display, Audio, Latex, clear_output
+import ipywidgets as widgets
+
+# These are some messy functions I've defined in another file (`utilities.py`)
+from utilities import  (fade, derivative, plot_td_and_fd, filter_and_plot, add_notch_filter,
+                        filter_cheat, notch_data, bandpass, retrieve_new_data)
+
+# This just sets the default size of our plots
+mpl.rcParams['figure.figsize'] = [9.5, 6.0]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-32b37d2c0d31>[0m in [0;36m<module>[0;34m[0m
+[1;32m     12[0m [0;34m[0m[0m
+[1;32m     13[0m [0;31m# This lets us read LIGO's data file[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0;32mimport[0m [0mh5py[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;34m[0m[0m
+[1;32m     16[0m [0;31m# We'll do some fancy signal processing, which is easier with this[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'h5py'
+ModuleNotFoundError: No module named 'h5py'
+
+Executability                            : False

@@ -1,0 +1,31 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from IPython.display import display
+from datetime import datetime
+from matplotlib import pyplot as plt
+from scipy import misc
+
+import h5py
+import json
+import numpy as np
+import os
+import pandas as pd
+import sys
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-8ece3b23a37f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0mmisc[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mimport[0m [0mh5py[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mimport[0m [0mjson[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'h5py'
+ImportError: No module named 'h5py'
+
+Executability                            : False

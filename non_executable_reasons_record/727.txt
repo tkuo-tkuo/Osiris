@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import numba
+from numba import jit
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-10-bfba85d57298>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mnumba[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mnumba[0m [0;32mimport[0m [0mjit[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'numba'
+ModuleNotFoundError: No module named 'numba'
+
+Executability                            : False

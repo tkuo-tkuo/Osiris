@@ -6,7 +6,7 @@ import Osiris
 parser = argparse.ArgumentParser()
 parser.add_argument('-n', '--notebook-name', type=str, required=True)
 parser.add_argument('-e', '--execute', type=str, required=True)
-parser.add_argument('-v', '--verbose', action='store_true', default=False)
+parser.add_argument('-v', '--verbose', action='store_true', default=True)
 parser.add_argument('-m', '--match-pattern', type=str, default=None)
 parser.add_argument('-s', '--self-reproduce', action='store_true', default=False)
 parser.add_argument('-a', '--all', action='store_true', default=False)

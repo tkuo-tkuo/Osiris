@@ -1,0 +1,48 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib nbagg
+%config InlineBackend.figure_format='retina'
+# import libraries
+import numpy as np
+import matplotlib as mp
+import pandas as pd
+import matplotlib.pyplot as plt
+import laUtilities as ut
+import slideUtilities as sl
+import demoUtilities as dm
+import pandas as pd
+from importlib import reload
+from datetime import datetime
+from IPython.display import Image
+from IPython.display import display_html
+from IPython.display import display
+from IPython.display import Math
+from IPython.display import Latex
+from IPython.display import HTML
+reload(sl)
+print('')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-00030d305d76>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0;32mimport[0m [0mlaUtilities[0m [0;32mas[0m [0mut[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;32mimport[0m [0mslideUtilities[0m [0;32mas[0m [0msl[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0;32mimport[0m [0mdemoUtilities[0m [0;32mas[0m [0mdm[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/jupyternotebooks/mcrovella@CS132-Geometric-Algorithms/laUtilities.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;32mimport[0m [0mitertools[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mjson[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mimport[0m [0mqrcode[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mimport[0m [0mhashlib[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'qrcode'
+ModuleNotFoundError: No module named 'qrcode'
+
+Executability                            : False

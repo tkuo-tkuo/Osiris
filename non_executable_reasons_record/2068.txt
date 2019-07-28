@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+answer = clf.predict(X_test)
+res = ' '.join("%.2f" % x for x in answer)
+with open("1.txt", 'w') as txt1:
+    txt1.write(res)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-5-eb9614dfb919>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0manswer[0m [0;34m=[0m [0mclf[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mX_test[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      2[0m [0mres[0m [0;34m=[0m [0;34m' '[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0;34m"%.2f"[0m [0;34m%[0m [0mx[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0manswer[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"1.txt"[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mtxt1[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mtxt1[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mres[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '1.txt'
+PermissionError: [Errno 13] Permission denied: '1.txt'
+
+Executability                            : False

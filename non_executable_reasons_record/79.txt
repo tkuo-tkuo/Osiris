@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import division
+%matplotlib inline
+import matplotlib as mpl, numpy as np, pandas as pd, seaborn as sns
+from matplotlib import pyplot as plt
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-1b48c51e0c06>"[0;36m, line [0;32m6[0m
+[0;31m    from matplotlib import pyplot as plt[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-1b48c51e0c06>, line 6)
+
+Executability                            : False

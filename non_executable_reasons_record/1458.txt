@@ -1,0 +1,34 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+## method 1 binary search by taking advantage of sorted array
+## nlog(m) complexity
+
+import bisect
+def found(xs, x):
+    i = bisect.bisect_left(xs, x)
+    return i < len(xs) and xs[i] == x
+
+def sum_pairs(xs1, xs2, k):
+    result = set()
+    for x1 in xs1:
+        x2 = k - x1
+        if found(xs2, x2):
+            result.add((x1, x2))
+    return result
+        
+
+assert sum_pairs(xs1, xs2, k) == {(5, 5), (7, 3)}
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAssertionError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-6-0b07917b13b0>[0m in [0;36m<module>[0;34m[0m
+[1;32m     16[0m [0;34m[0m[0m
+[1;32m     17[0m [0;34m[0m[0m
+[0;32m---> 18[0;31m [0;32massert[0m [0msum_pairs[0m[0;34m([0m[0mxs1[0m[0;34m,[0m [0mxs2[0m[0;34m,[0m [0mk[0m[0;34m)[0m [0;34m==[0m [0;34m{[0m[0;34m([0m[0;36m5[0m[0;34m,[0m [0;36m5[0m[0;34m)[0m[0;34m,[0m [0;34m([0m[0;36m7[0m[0;34m,[0m [0;36m3[0m[0;34m)[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mAssertionError[0m: 
+AssertionError: 
+
+Executability                            : False

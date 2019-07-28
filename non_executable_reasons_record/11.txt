@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from las import LASReader
+import matplotlib.pyplot as plt
+import numpy as np
+% matplotlib inline
+------------------
+
+Traceback [0;36m(most recent call last)[0m:
+
+  File [1;32m"/home/dabao/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m3296[0m, in [1;35mrun_code[0m
+    exec(code_obj, self.user_global_ns, self.user_ns)
+
+[0;36m  File [0;32m"<ipython-input-1-81e8a63708ea>"[0;36m, line [0;32m3[0;36m, in [0;35m<module>[0;36m[0m
+[0;31m    from las import LASReader[0m
+
+[0;36m  File [0;32m"/mnt/fit-Knowledgezoo/jupyternotebooks/kwinkunks@notebooks/las.py"[0;36m, line [0;32m167[0m
+[0;31m    print "%-16s %-30s [%s]" % (namestr, "'" + item.data + "'",[0m
+[0m                           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (las.py, line 167)
+
+Executability                            : False

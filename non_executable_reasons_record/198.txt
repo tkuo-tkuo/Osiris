@@ -1,0 +1,18 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### パッケージ用ディレクトリの作成
+mkdir -p com/github/ftakao2007/test
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-fac8321675d4>"[0;36m, line [0;32m5[0m
+[0;31m    mkdir -p com/github/ftakao2007/test[0m
+[0m               ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-fac8321675d4>, line 5)
+
+Executability                            : False

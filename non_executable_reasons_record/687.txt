@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+a = Cdgame()
+print a.rescount((31,34,55,56,57),(1,2,3,4,5))
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-d1f039fafa24>"[0;36m, line [0;32m2[0m
+[0;31m    print a.rescount((31,34,55,56,57),(1,2,3,4,5))[0m
+[0m          ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-2-d1f039fafa24>, line 2)
+
+Executability                            : False

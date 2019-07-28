@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import division
+import numpy as np
+from sympy import *
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import colors
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-394b77b3992b>"[0;36m, line [0;32m2[0m
+[0;31m    warnings.filterwarnings('ignore')[0m
+[0m         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m import * only allowed at module level
+
+SyntaxError: import * only allowed at module level (<ipython-input-1-394b77b3992b>, line 2)
+
+Executability                            : False

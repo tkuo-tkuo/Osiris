@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import sympy
+sympy.init_printing()
+
+Q11, Q12, Q21, Q22 = sympy.symbols('Q_11 Q_12 Q_21 Q_22')
+x1, x2, y1, y2, x, y  = sympy.symbols('x_1 x_2 y_1 y_2 x y')
+l,w, csi, eta = sympy.symbols('l w xi eta')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-b26b84b226f4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0msympy[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0msympy[0m[0;34m.[0m[0minit_printing[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'sympy'
+ModuleNotFoundError: No module named 'sympy'
+
+Executability                            : False

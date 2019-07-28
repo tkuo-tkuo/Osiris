@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+% matplotlib notebook
+import matplotlib
+% config InlineBackend.figure_format = 'pdf'
+% matplotlib inline
+# matplotlib.use('SVG')
+import matplotlib.pyplot as plt
+import numpy as np
+from math import *
+------------------
+
+
+UsageError: Line magic function `%` not found.
+
+Executability                            : False

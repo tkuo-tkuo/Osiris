@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+sixteenfile = open('data/2016-EX-AWARDS_deduplicated.txt', 'w')
+for item in sixteen:
+  sixteenfile.write(item +'\n')
+sixteenfile.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-5-b4bbf4a142f5>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0msixteenfile[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'data/2016-EX-AWARDS_deduplicated.txt'[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfor[0m [0mitem[0m [0;32min[0m [0msixteen[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      3[0m   [0msixteenfile[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mitem[0m [0;34m+[0m[0;34m'\n'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0msixteenfile[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'data/2016-EX-AWARDS_deduplicated.txt'
+PermissionError: [Errno 13] Permission denied: 'data/2016-EX-AWARDS_deduplicated.txt'
+
+Executability                            : False

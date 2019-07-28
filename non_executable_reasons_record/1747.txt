@@ -1,0 +1,159 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import signal
+import sys
+import mnist
+from common import sigmoid, gradient_sigmoid, softmax, cross_entropy_error_batch
+
+#
+# Hyper parameters
+#
+# 히든레이어 뉴런 수 (ex: 50, 100)
+HIDDEN_LAYER_SIZE = 50
+# 정규분포 난수로 생성될 초기 가중치의 표준편차
+WEIGHT_INIT_STD = 0.01
+# 경사하강법을 몇번 적용할지
+ITERATION_COUNT = 3
+# 학습에 사용할 미니배치의 크기
+BATCH_SIZE = 100
+# 학습률
+LEARNING_RATE = 10
+# 에퍼크, 학습 진척도를 얼마나 자주 표시할지 (ex: 100, 300)
+UPDATE_PER_EPOCH = 1
+
+#
+# Utility functions
+#
+def make_predict(input):
+    def predict(w0, b0, w1, b1):
+        a0 = input @ w0 + b0
+        z0 = sigmoid(a0)
+        a1 = z0 @ w1 + b1
+        z1 = softmax(a1)
+        return [a0, z0, a1, z1]
+    return predict
+
+def accuracy(expected, actual):
+    return (expected.argmax(axis=-1) == actual.argmax(axis=-1)).mean()
+
+#
+# Main logic
+#
+MNIST = mnist.load()
+TRAIN_IMG = MNIST['train_img']
+TRAIN_LABEL = MNIST['train_label']
+
+layer0_size = TRAIN_IMG.shape[-1]
+layer1_size = HIDDEN_LAYER_SIZE
+layer2_size = TRAIN_LABEL.shape[-1]
+
+# Randomly initialize the parameters
+parameters = [
+    # w0
+    WEIGHT_INIT_STD * np.random.randn(layer0_size, layer1_size), 
+    # b0
+    np.zeros(layer1_size),
+    # w1
+    WEIGHT_INIT_STD * np.random.randn(layer1_size, layer2_size),
+    # b1
+    np.zeros(layer2_size),
+]
+
+print('''학습 시작!
+
+반복횟수\t정확도\tLoss
+-------------------------------------------''')
+
+try:
+    for iteration in range(ITERATION_COUNT):
+        # Sample a batch from the train image/label set
+        sample = np.random.choice(TRAIN_IMG.shape[0], BATCH_SIZE)
+        BATCH_IMG = TRAIN_IMG[sample]
+        BATCH_LABEL = TRAIN_LABEL[sample]
+
+        predict = make_predict(BATCH_IMG)
+
+        # Try the result
+        if iteration % UPDATE_PER_EPOCH == 0:
+            expected = predict(*parameters)[-1]
+            percentage = accuracy(expected, BATCH_LABEL)*100
+            loss = cross_entropy_error_batch(expected, BATCH_LABEL)
+            print(f'{iteration:8}\t{percentage:.04}%\t{loss}')
+
+        # Calculate gradient
+        def grad(parameters, h=1E-4):
+            def loss_function(*arguments):
+                expected = predict(*arguments)[-1]
+                return cross_entropy_error_batch(expected, BATCH_LABEL)
+            def grad(param):
+                shape = param.shape
+                gradient = np.empty(shape)
+                for j in np.ndindex(shape):
+                    orig = param[j]
+                    param[j] = orig + h
+                    y2 = loss_function(*parameters)
+                    param[j] = orig - h
+                    y1 = loss_function(*parameters)
+                    param[j] = orig
+                    gradient[j] = (y2 - y1)/(2*h)
+                return gradient
+            return [grad(param) for param in parameters]
+
+        # Update parameters using gradient descent method
+        gradient = grad(parameters)
+        for param, grad in zip(parameters, gradient):
+            param -= LEARNING_RATE * grad
+
+    expected = make_predict(MNIST['test_img'])(*parameters)[-1]
+    TEST_LABEL = MNIST['test_label']
+    percentage = accuracy(expected, TEST_LABEL)*100
+
+    print(f'''
+    학습 완료!
+
+    최종 점수
+    -------------
+    정확도 : {percentage}%
+    ''')
+except KeyboardInterrupt:
+    print('\n\x1b[31mInterrupted!!!\x1b[31m')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-9a8997e879b7>[0m in [0;36m<module>[0;34m[0m
+[1;32m     41[0m [0;31m# Main logic[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     42[0m [0;31m#[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 43[0;31m [0mMNIST[0m [0;34m=[0m [0mmnist[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     44[0m [0mTRAIN_IMG[0m [0;34m=[0m [0mMNIST[0m[0;34m[[0m[0;34m'train_img'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     45[0m [0mTRAIN_LABEL[0m [0;34m=[0m [0mMNIST[0m[0;34m[[0m[0;34m'train_label'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/jupyternotebooks/simnalamburt@snucse/Deep Learning from Scratch/mnist/__init__.py[0m in [0;36mload[0;34m(normalize, flatten, one_hot_label)[0m
+[1;32m     84[0m [0;34m[0m[0m
+[1;32m     85[0m     [0;31m# MNIST 데이터를 로드한다.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 86[0;31m     [0mdataset[0m [0;34m=[0m [0mdownload[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     87[0m [0;34m[0m[0m
+[1;32m     88[0m     [0;31m# [0.0, 1.0] 구간 안에 들어가도록 이미지를 정규화한다.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/jupyternotebooks/simnalamburt@snucse/Deep Learning from Scratch/mnist/__init__.py[0m in [0;36mdownload[0;34m()[0m
+[1;32m     39[0m         [0;31m# 이미 다운받은 파일일경우 생략한다.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     40[0m         [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 41[0;31m             [0mrequest[0m[0;34m.[0m[0murlretrieve[0m[0;34m([0m[0mURL_BASE[0m [0;34m+[0m [0mfile_name[0m[0;34m,[0m [0mpath[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     42[0m [0;34m[0m[0m
+[1;32m     43[0m     [0;32mdef[0m [0mload[0m[0;34m([0m[0mcallback[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/urllib/request.py[0m in [0;36murlretrieve[0;34m(url, filename, reporthook, data)[0m
+[1;32m    256[0m         [0;31m# Handle temporary file setup.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    257[0m         [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 258[0;31m             [0mtfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    259[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    260[0m             [0mtfp[0m [0;34m=[0m [0mtempfile[0m[0;34m.[0m[0mNamedTemporaryFile[0m[0;34m([0m[0mdelete[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '/mnt/fit-Knowledgezoo/jupyternotebooks/simnalamburt@snucse/Deep Learning from Scratch/mnist/train-images-idx3-ubyte.gz'
+PermissionError: [Errno 13] Permission denied: '/mnt/fit-Knowledgezoo/jupyternotebooks/simnalamburt@snucse/Deep Learning from Scratch/mnist/train-images-idx3-ubyte.gz'
+
+Executability                            : False

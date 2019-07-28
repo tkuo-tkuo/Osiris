@@ -1,0 +1,40 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### 変数の設定
+name=ConnectDb
+classpath=".:/root/git_jupyter_notebook/Java/postgresql-42.1.1.jar"
+#classpath=".:/Users/ftakao2007/jupyter/jupyter_notebook/Java/postgresql-42.1.1.jar"
+
+### ソースの編集
+cat <<- EOS > ${name}.java
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+class ${name} {
+  static Connection getConnection() throws Exception{
+    Connection con = null;
+    
+    //# 接続
+    con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ftakao2007_development", "ftakao2007", "pass");
+    //#con = DriverManager.getConnection("jdbc:postgresql://10.136.3.189:5432/jsd_development", "jsd", "pass");
+    return con;
+  }
+}
+EOS
+
+### コンパイル(デバッグ目的。本来はコンパイルしなくても他のコードをコンパイルすると自動でこのコードもコンパイルされる)
+javac -encoding UTF-8 ${name}.java
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-3c37ac744c8b>"[0;36m, line [0;32m10[0m
+[0;31m    cat <<- EOS > ${name}.java[0m
+[0m                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-3c37ac744c8b>, line 10)
+
+Executability                            : False

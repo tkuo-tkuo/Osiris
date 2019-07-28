@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import division
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.dates as dts
+import pandas as pd
+import statsmodels.api as sm
+from bs4 import BeautifulSoup
+import subprocess,os
+import runProcs
+%matplotlib inline
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-cf048f4a6de6>"[0;36m, line [0;32m6[0m
+[0;31m    import matplotlib.dates as dts[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-cf048f4a6de6>, line 6)
+
+Executability                            : False

@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### 変数の設定
+name=Book
+
+### ソースの編集
+cat <<- EOS > ${name}.java
+public class ${name} {
+    private String name;
+    public Book(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+}
+EOS
+
+### コンパイル
+#javac ${name}.java
+javac -encoding UTF-8 ${name}.java
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-a79df0003050>"[0;36m, line [0;32m8[0m
+[0;31m    cat <<- EOS > ${name}.java[0m
+[0m                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-a79df0003050>, line 8)
+
+Executability                            : False

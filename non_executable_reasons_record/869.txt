@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+df = make_all_features_for_tweets()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-16-a269126a997e>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdf[0m [0;34m=[0m [0mmake_all_features_for_tweets[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-15-fab5c6a03276>[0m in [0;36mmake_all_features_for_tweets[0;34m()[0m
+[1;32m      9[0m     [0mfeatures_dir[0m [0;34m=[0m [0;34m'feature_tables'[0m[0;34m[0m[0m
+[1;32m     10[0m     [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0misdir[0m[0;34m([0m[0mfeatures_dir[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m         [0mos[0m[0;34m.[0m[0mmkdir[0m[0;34m([0m[0mfeatures_dir[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;34m[0m[0m
+[1;32m     13[0m     [0;31m# load csvs to dfs[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'feature_tables'
+PermissionError: [Errno 13] Permission denied: 'feature_tables'
+
+Executability                            : False

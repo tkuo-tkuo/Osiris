@@ -1,0 +1,18 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+
+### Ubuntuにjava8をインストール
+#sudo apt-get -y install openjdk-8-jdk
+
+### JUnitの取得
+#wget http://central.maven.org/maven2/junit/junit/4.11/junit-4.11.jar
+------------------
+
+
+UsageError: Line magic function `%%bash` not found.
+
+Executability                            : False

@@ -1,0 +1,13 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%javascript
+IPython.load_extensions("calico-spell-check", "calico-document-tools", "calico-cell-tools");
+------------------
+
+
+UsageError: Line magic function `%%javascript` not found.
+
+Executability                            : False

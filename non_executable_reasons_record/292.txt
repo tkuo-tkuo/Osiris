@@ -1,0 +1,367 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 7 ; number of cells: 18
+Reproducibility                          : matched ratio: 0.389 ; index of matched cells: [0, 2, 3, 8, 10, 11, 15]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+fnames = glob.glob("../MusicXML_files/wikifonia20100503/*.xml")
+fnames[:10]
+
+-----------------
+Original output:
+['../MusicXML_files/wikifonia20100503\\100.xml',
+ '../MusicXML_files/wikifonia20100503\\1000.xml',
+ '../MusicXML_files/wikifonia20100503\\1002.xml',
+ '../MusicXML_files/wikifonia20100503\\1003.xml',
+ '../MusicXML_files/wikifonia20100503\\1007.xml',
+ '../MusicXML_files/wikifonia20100503\\1008.xml',
+ '../MusicXML_files/wikifonia20100503\\101.xml',
+ '../MusicXML_files/wikifonia20100503\\1011.xml',
+ '../MusicXML_files/wikifonia20100503\\1019.xml',
+ '../MusicXML_files/wikifonia20100503\\102.xml']
+Executed output:
+['../MusicXML_files/wikifonia20100503/4336.xml',
+ '../MusicXML_files/wikifonia20100503/3399.xml',
+ '../MusicXML_files/wikifonia20100503/3204.xml',
+ '../MusicXML_files/wikifonia20100503/3677.xml',
+ '../MusicXML_files/wikifonia20100503/3299.xml',
+ '../MusicXML_files/wikifonia20100503/255.xml',
+ '../MusicXML_files/wikifonia20100503/5213.xml',
+ '../MusicXML_files/wikifonia20100503/729.xml',
+ '../MusicXML_files/wikifonia20100503/939.xml',
+ '../MusicXML_files/wikifonia20100503/1637.xml']
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+root = tree.getroot()
+root
+
+-----------------
+Original output:
+<Element 'score-partwise' at 0x00000000054C96D8>
+Executed output:
+<Element 'score-partwise' at 0x7f6b756f0ef8>
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+root.getchildren()
+
+-----------------
+Original output:
+[<Element 'work' at 0x00000000054C9818>,
+ <Element 'movement-number' at 0x00000000054C9908>,
+ <Element 'movement-title' at 0x00000000054C9958>,
+ <Element 'identification' at 0x00000000054C99A8>,
+ <Element 'part-list' at 0x00000000054C9D18>,
+ <Element 'part' at 0x00000000054C9F98>,
+ <Element 'part' at 0x00000000054DD638>,
+ <Element 'part' at 0x00000000054F2CC8>]
+Executed output:
+[<Element 'work' at 0x7f6b746825e8>,
+ <Element 'movement-number' at 0x7f6b746826d8>,
+ <Element 'movement-title' at 0x7f6b74682728>,
+ <Element 'identification' at 0x7f6b74682778>,
+ <Element 'defaults' at 0x7f6b74682a48>,
+ <Element 'credit' at 0x7f6b74682e08>,
+ <Element 'credit' at 0x7f6b74682ea8>,
+ <Element 'credit' at 0x7f6b74682f98>,
+ <Element 'part-list' at 0x7f6b74689098>,
+ <Element 'part' at 0x7f6b74689318>]
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+root.find('identification/creator').text
+
+-----------------
+Original output:
+'Miles Davis'
+Executed output:
+'Bob Crewe, Bob Gaudio'
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+root.find('movement-title').text
+
+-----------------
+Original output:
+'All Blues'
+Executed output:
+'Silence is Golden'
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+title_composer(fnames[0])
+
+-----------------
+Original output:
+('Miles Davis', 'All Blues')
+Executed output:
+('Bob Crewe, Bob Gaudio', 'Silence is Golden')
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+df = pd.DataFrame(data=metadata, index=fnames, columns=('composer', 'song_title'))
+df.head(10)
+
+-----------------
+Original output:
+                                                                    composer  \
+../MusicXML_files/wikifonia20100503\100.xml                      Miles Davis   
+../MusicXML_files/wikifonia20100503\1000.xml              Ukrainian folksong   
+../MusicXML_files/wikifonia20100503\1002.xml                  Frederik Vahle   
+../MusicXML_files/wikifonia20100503\1003.xml             Belle and Sebastian   
+../MusicXML_files/wikifonia20100503\1007.xml             Belle and Sebastian   
+../MusicXML_files/wikifonia20100503\1008.xml  Howard Greenfield, Neal Sedaka   
+../MusicXML_files/wikifonia20100503\101.xml                   Charlie Parker   
+../MusicXML_files/wikifonia20100503\1011.xml                  Ned Washington   
+../MusicXML_files/wikifonia20100503\1019.xml           John Lennon, Yoko Ono   
+../MusicXML_files/wikifonia20100503\102.xml               The Rolling Stones   
+
+                                                         song_title  
+../MusicXML_files/wikifonia20100503\100.xml               All Blues  
+../MusicXML_files/wikifonia20100503\1000.xml  Gehe nicht, oh Gregor  
+../MusicXML_files/wikifonia20100503\1002.xml    Schlaflied für Anne  
+../MusicXML_files/wikifonia20100503\1003.xml            Get me away  
+../MusicXML_files/wikifonia20100503\1007.xml           Storytelling  
+../MusicXML_files/wikifonia20100503\1008.xml     Where the Boys Are  
+../MusicXML_files/wikifonia20100503\101.xml            Anthropology  
+../MusicXML_files/wikifonia20100503\1011.xml    The Nearness of You  
+../MusicXML_files/wikifonia20100503\1019.xml             Happy Xmas  
+../MusicXML_files/wikifonia20100503\102.xml          Paint it black  
+Executed output:
+                                                               composer  \
+../MusicXML_files/wikifonia20100503/4336.xml      Bob Crewe, Bob Gaudio   
+../MusicXML_files/wikifonia20100503/3399.xml           Horatio Nicholls   
+../MusicXML_files/wikifonia20100503/3204.xml                  Joe Burke   
+../MusicXML_files/wikifonia20100503/3677.xml               Robert Allen   
+../MusicXML_files/wikifonia20100503/3299.xml               Iram Kosloff   
+../MusicXML_files/wikifonia20100503/255.xml   Burt Bacharach, Hal David   
+../MusicXML_files/wikifonia20100503/5213.xml                  Bob Troup   
+../MusicXML_files/wikifonia20100503/729.xml        Kistehén tánczenekar   
+../MusicXML_files/wikifonia20100503/939.xml               Jimmy Forrest   
+../MusicXML_files/wikifonia20100503/1637.xml    Claude-Michel Schönberg   
+
+                                                                      song_title  
+../MusicXML_files/wikifonia20100503/4336.xml                   Silence is Golden  
+../MusicXML_files/wikifonia20100503/3399.xml                  Among My Souvenirs  
+../MusicXML_files/wikifonia20100503/3204.xml    Tip toe thru' the tulips with me  
+../MusicXML_files/wikifonia20100503/3677.xml              It's Not For Me To Say  
+../MusicXML_files/wikifonia20100503/3299.xml  I Want You, I Need You, I Love You  
+../MusicXML_files/wikifonia20100503/255.xml                I Say A Little Prayer  
+../MusicXML_files/wikifonia20100503/5213.xml                            Route 66  
+../MusicXML_files/wikifonia20100503/729.xml                        Szájbergyerek  
+../MusicXML_files/wikifonia20100503/939.xml                          Night Train  
+../MusicXML_files/wikifonia20100503/1637.xml                  I Dreamed A  Dream  
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+df[df.composer.str.contains('rolling', case=False)]
+
+-----------------
+Original output:
+                                                       composer  \
+../MusicXML_files/wikifonia20100503\102.xml  The Rolling Stones   
+
+                                                 song_title  
+../MusicXML_files/wikifonia20100503\102.xml  Paint it black  
+Executed output:
+                                                       composer  \
+../MusicXML_files/wikifonia20100503/102.xml  The Rolling Stones   
+
+                                                 song_title  
+../MusicXML_files/wikifonia20100503/102.xml  Paint it black  
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+df[df.composer.str.contains('stone', case=False)]
+
+-----------------
+Original output:
+                                                                               composer  \
+../MusicXML_files/wikifonia20100503\102.xml                          The Rolling Stones   
+../MusicXML_files/wikifonia20100503\3785.xml                    Harry Stone, Jack Stapp   
+../MusicXML_files/wikifonia20100503\3787.xml                 Jay Livingstone, Ray Evans   
+../MusicXML_files/wikifonia20100503\3866.xml                         Nelson, Touchstone   
+../MusicXML_files/wikifonia20100503\4865.xml  Mack David, Al Hoffman, Jerry Livingstone   
+../MusicXML_files/wikifonia20100503\5416.xml    Merle Travis, Cliffie Stone, Eddie Kirk   
+
+                                                                      song_title  
+../MusicXML_files/wikifonia20100503\102.xml                       Paint it black  
+../MusicXML_files/wikifonia20100503\3785.xml         Chattanoogie Shoe Shine Boy  
+../MusicXML_files/wikifonia20100503\3787.xml                     To Each His Own  
+../MusicXML_files/wikifonia20100503\3866.xml                        Just Because  
+../MusicXML_files/wikifonia20100503\4865.xml                   Chi-baba chi-baba  
+../MusicXML_files/wikifonia20100503\5416.xml  So Firm, So Round, So Fully Packed  
+Executed output:
+                                                                               composer  \
+../MusicXML_files/wikifonia20100503/3866.xml                         Nelson, Touchstone   
+../MusicXML_files/wikifonia20100503/3785.xml                    Harry Stone, Jack Stapp   
+../MusicXML_files/wikifonia20100503/5416.xml    Merle Travis, Cliffie Stone, Eddie Kirk   
+../MusicXML_files/wikifonia20100503/102.xml                          The Rolling Stones   
+../MusicXML_files/wikifonia20100503/3787.xml                 Jay Livingstone, Ray Evans   
+../MusicXML_files/wikifonia20100503/4865.xml  Mack David, Al Hoffman, Jerry Livingstone   
+
+                                                                      song_title  
+../MusicXML_files/wikifonia20100503/3866.xml                        Just Because  
+../MusicXML_files/wikifonia20100503/3785.xml         Chattanoogie Shoe Shine Boy  
+../MusicXML_files/wikifonia20100503/5416.xml  So Firm, So Round, So Fully Packed  
+../MusicXML_files/wikifonia20100503/102.xml                       Paint it black  
+../MusicXML_files/wikifonia20100503/3787.xml                     To Each His Own  
+../MusicXML_files/wikifonia20100503/4865.xml                   Chi-baba chi-baba  
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+df[df.composer.str.contains('keith', case=False)]
+
+-----------------
+Original output:
+                                                                 composer  \
+../MusicXML_files/wikifonia20100503\1099.xml  Keith Richards, Mick Jagger   
+../MusicXML_files/wikifonia20100503\3765.xml     Ben Peters, Vivian Keith   
+../MusicXML_files/wikifonia20100503\5303.xml  Keith Richards, Mick Jagger   
+
+                                                                  song_title  
+../MusicXML_files/wikifonia20100503\1099.xml                           Angie  
+../MusicXML_files/wikifonia20100503\3765.xml  Before The Next Teardrop Falls  
+../MusicXML_files/wikifonia20100503\5303.xml                Honky-Tonk Woman  
+Executed output:
+                                                                 composer  \
+../MusicXML_files/wikifonia20100503/5303.xml  Keith Richards, Mick Jagger   
+../MusicXML_files/wikifonia20100503/1099.xml  Keith Richards, Mick Jagger   
+../MusicXML_files/wikifonia20100503/3765.xml     Ben Peters, Vivian Keith   
+
+                                                                  song_title  
+../MusicXML_files/wikifonia20100503/5303.xml                Honky-Tonk Woman  
+../MusicXML_files/wikifonia20100503/1099.xml                           Angie  
+../MusicXML_files/wikifonia20100503/3765.xml  Before The Next Teardrop Falls  
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+df[df.composer.str.contains('lennon', case=False)]
+
+-----------------
+Original output:
+                                                                    composer  \
+../MusicXML_files/wikifonia20100503\1019.xml           John Lennon, Yoko Ono   
+../MusicXML_files/wikifonia20100503\120.xml      John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\151.xml      John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\1904.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\2430.xml     Paul McCartney, John Lennon   
+../MusicXML_files/wikifonia20100503\2519.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3012.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3153.xml  John Lennon and Paul McCartney   
+../MusicXML_files/wikifonia20100503\3154.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3155.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3413.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3485.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\368.xml      John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3689.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3834.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3864.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3874.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3911.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3975.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\3980.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\4074.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\4288.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\4400.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\4740.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\4741.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\4742.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\4750.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503\5017.xml           John Lennon, Yoko Ono   
+../MusicXML_files/wikifonia20100503\530.xml                      John Lennon   
+
+                                                                song_title  
+../MusicXML_files/wikifonia20100503\1019.xml                    Happy Xmas  
+../MusicXML_files/wikifonia20100503\120.xml                   Lady Madonna  
+../MusicXML_files/wikifonia20100503\151.xml                  Eleanor Rigby  
+../MusicXML_files/wikifonia20100503\1904.xml            A Hard Day's Night  
+../MusicXML_files/wikifonia20100503\2430.xml                      Michelle  
+../MusicXML_files/wikifonia20100503\2519.xml                     Yesterday  
+../MusicXML_files/wikifonia20100503\3012.xml                 All My Loving  
+../MusicXML_files/wikifonia20100503\3153.xml      I saw her standing there  
+../MusicXML_files/wikifonia20100503\3154.xml      I saw her standing there  
+../MusicXML_files/wikifonia20100503\3155.xml                Ticket to ride  
+../MusicXML_files/wikifonia20100503\3413.xml  Do You Want To Know A Secret  
+../MusicXML_files/wikifonia20100503\3485.xml             Ob-La-Di Ob-La-Da  
+../MusicXML_files/wikifonia20100503\368.xml             A Hard Day's Night  
+../MusicXML_files/wikifonia20100503\3689.xml                    Love Me Do  
+../MusicXML_files/wikifonia20100503\3834.xml      I Want To Hold Your Hand  
+../MusicXML_files/wikifonia20100503\3864.xml                And I Love Her  
+../MusicXML_files/wikifonia20100503\3874.xml          The Fool On The Hill  
+../MusicXML_files/wikifonia20100503\3911.xml                    Penny Lane  
+../MusicXML_files/wikifonia20100503\3975.xml              You Won't See Me  
+../MusicXML_files/wikifonia20100503\3980.xml              Please Please Me  
+../MusicXML_files/wikifonia20100503\4074.xml              Yellow Submarine  
+../MusicXML_files/wikifonia20100503\4288.xml                Norwegian Wood  
+../MusicXML_files/wikifonia20100503\4400.xml          All You Need Is Love  
+../MusicXML_files/wikifonia20100503\4740.xml             Eight Days A Week  
+../MusicXML_files/wikifonia20100503\4741.xml                From Me To You  
+../MusicXML_files/wikifonia20100503\4742.xml     The Long And Winding Road  
+../MusicXML_files/wikifonia20100503\4750.xml                      Hey Jude  
+../MusicXML_files/wikifonia20100503\5017.xml                    Happy Xmas  
+../MusicXML_files/wikifonia20100503\530.xml                        Imagine  
+Executed output:
+                                                                    composer  \
+../MusicXML_files/wikifonia20100503/4400.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3864.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/4740.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/4741.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/368.xml      John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/1904.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3485.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/151.xml      John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/2519.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/2430.xml     Paul McCartney, John Lennon   
+../MusicXML_files/wikifonia20100503/1019.xml           John Lennon, Yoko Ono   
+../MusicXML_files/wikifonia20100503/530.xml                      John Lennon   
+../MusicXML_files/wikifonia20100503/4742.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3689.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3874.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3155.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/4288.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/120.xml      John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3975.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3153.xml  John Lennon and Paul McCartney   
+../MusicXML_files/wikifonia20100503/3154.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/4074.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3834.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3980.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3413.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/4750.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3911.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/3012.xml     John Lennon, Paul McCartney   
+../MusicXML_files/wikifonia20100503/5017.xml           John Lennon, Yoko Ono   
+
+                                                                song_title  
+../MusicXML_files/wikifonia20100503/4400.xml          All You Need Is Love  
+../MusicXML_files/wikifonia20100503/3864.xml                And I Love Her  
+../MusicXML_files/wikifonia20100503/4740.xml             Eight Days A Week  
+../MusicXML_files/wikifonia20100503/4741.xml                From Me To You  
+../MusicXML_files/wikifonia20100503/368.xml             A Hard Day's Night  
+../MusicXML_files/wikifonia20100503/1904.xml            A Hard Day's Night  
+../MusicXML_files/wikifonia20100503/3485.xml             Ob-La-Di Ob-La-Da  
+../MusicXML_files/wikifonia20100503/151.xml                  Eleanor Rigby  
+../MusicXML_files/wikifonia20100503/2519.xml                     Yesterday  
+../MusicXML_files/wikifonia20100503/2430.xml                      Michelle  
+../MusicXML_files/wikifonia20100503/1019.xml                    Happy Xmas  
+../MusicXML_files/wikifonia20100503/530.xml                        Imagine  
+../MusicXML_files/wikifonia20100503/4742.xml     The Long And Winding Road  
+../MusicXML_files/wikifonia20100503/3689.xml                    Love Me Do  
+../MusicXML_files/wikifonia20100503/3874.xml          The Fool On The Hill  
+../MusicXML_files/wikifonia20100503/3155.xml                Ticket to ride  
+../MusicXML_files/wikifonia20100503/4288.xml                Norwegian Wood  
+../MusicXML_files/wikifonia20100503/120.xml                   Lady Madonna  
+../MusicXML_files/wikifonia20100503/3975.xml              You Won't See Me  
+../MusicXML_files/wikifonia20100503/3153.xml      I saw her standing there  
+../MusicXML_files/wikifonia20100503/3154.xml      I saw her standing there  
+../MusicXML_files/wikifonia20100503/4074.xml              Yellow Submarine  
+../MusicXML_files/wikifonia20100503/3834.xml      I Want To Hold Your Hand  
+../MusicXML_files/wikifonia20100503/3980.xml              Please Please Me  
+../MusicXML_files/wikifonia20100503/3413.xml  Do You Want To Know A Secret  
+../MusicXML_files/wikifonia20100503/4750.xml                      Hey Jude  
+../MusicXML_files/wikifonia20100503/3911.xml                    Penny Lane  
+../MusicXML_files/wikifonia20100503/3012.xml                 All My Loving  
+../MusicXML_files/wikifonia20100503/5017.xml                    Happy Xmas  
