@@ -4,7 +4,9 @@ from .func_calls_visitor import get_func_calls
 
 whitelist = {
         'numpy.random.*':'numpy.random.seed',
-        'random.*':'random.seed'
+        'sklearn.utils.random.*':'numpy.random.seed',
+        'random.*':'random.seed',
+        'scipy.sparse.random.*':'numpy.random.seed'
         }
 
 def match_api(func_call_name, api_name):

@@ -83,6 +83,11 @@ class VarsVisitor(ast.NodeVisitor):
         name = get_obj_name(node.func)
         if name is not None:
             self.result += [(name, 'load')]
+        else:
+            Ops_node = get_Ops(node)
+            if Ops_node is not None:
+                self.visit(Ops_node)
+
 
         for arg in node.args:
             self.visit(arg)
@@ -154,6 +159,12 @@ def get_obj_name(node):
             return node.value.id
         else:
             return get_obj_name(node.value)
+
+def get_Ops(tree):
+    for node in ast.walk(tree):
+        if isinstance(node, ast.BoolOp) or isinstance(node, ast.BinOp) or  isinstance(node, ast.UnaryOp):
+            return node
+    return None
 
 def get_vars(node):
     visitor = VarsVisitor()
