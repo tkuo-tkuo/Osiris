@@ -1,0 +1,88 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### 変数の設定
+name=PostgresConnect
+classpath=".:/root/git_jupyter_notebook/Java/postgresql-42.1.1.jar"
+
+### ソースの編集
+cat <<- EOS > ${name}.java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ${name} {
+  public static void main(String[] args) throws Exception{
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+    
+    try{
+      //# 接続。pg_shadowを表示するため管理者(postgres)
+      connection = DriverManager.getConnection("jdbc:postgresql://10.136.3.189:5432/jsd_test", "postgres", "pass");
+      statement = connection.createStatement();
+      
+      //# SQL文発行
+      resultSet = statement.executeQuery("SELECT * FROM pg_shadow");
+
+      //# 値の取得。resultSetから値を取り出している。fieldsに取り出した値を1行ずつ追加している
+      List<String> fields = new ArrayList<String>();
+      ResultSetMetaData rsmd = resultSet.getMetaData();
+      for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+        fields.add(rsmd.getColumnName(i));
+      }
+
+      //# 結果の出力
+      int rowCount = 0;
+      while (resultSet.next()) {
+        rowCount++;
+
+        System.out.println("---------------------------------------------------");
+        System.out.println("--- Rows:" + rowCount);
+        System.out.println("---------------------------------------------------");
+
+        //# 値は、「resultSet.getString(<フィールド名>)」で取得する。
+        for (String field : fields) {
+          System.out.println(field + ":" + resultSet.getString(field));
+        }
+      }
+            
+    } finally {
+      //# 接続を切断する
+      if (resultSet != null) {
+        resultSet.close();
+      }
+      if (statement != null) {
+        statement.close();
+      }
+      if (connection != null) {
+        connection.close();
+      }
+    }
+  }
+}
+EOS
+
+### コンパイル
+#javac ${name}.java
+javac -encoding UTF-8 ${name}.java
+
+### 実行
+java -classpath ${classpath} ${name}
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-3bae8d8f0600>"[0;36m, line [0;32m9[0m
+[0;31m    cat <<- EOS > ${name}.java[0m
+[0m                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-3bae8d8f0600>, line 9)
+
+Executability                            : False

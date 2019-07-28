@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from sklearn.cross_validation import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 4)
+N_train, = y_train.shape
+N_test,  = y_test.shape
+print (N_train, N_test)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-f7544be84d2c>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mcross_validation[0m [0;32mimport[0m [0mtrain_test_split[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mX_train[0m[0;34m,[0m [0mX_test[0m[0;34m,[0m [0my_train[0m[0;34m,[0m [0my_test[0m [0;34m=[0m [0mtrain_test_split[0m[0;34m([0m[0mX[0m[0;34m,[0m [0my[0m[0;34m,[0m [0mtest_size[0m [0;34m=[0m [0;36m0.25[0m[0;34m,[0m [0mrandom_state[0m [0;34m=[0m [0;36m4[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mN_train[0m[0;34m,[0m [0;34m=[0m [0my_train[0m[0;34m.[0m[0mshape[0m[0;34m[0m[0m
+[1;32m      4[0m [0mN_test[0m[0;34m,[0m  [0;34m=[0m [0my_test[0m[0;34m.[0m[0mshape[0m[0;34m[0m[0m
+[1;32m      5[0m [0mprint[0m [0;34m([0m[0mN_train[0m[0;34m,[0m [0mN_test[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'sklearn.cross_validation'
+ImportError: No module named 'sklearn.cross_validation'
+
+Executability                            : False

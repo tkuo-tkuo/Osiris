@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+plt.hold(True)
+plt.plot(wn, zn_a+zn_b, label='Rayleigh damping')
+plt.plot(wn, zn_a, label='mass proportional')
+plt.plot(wn, zn_b, label='stiffness proportional')
+plt.xlabel('Vibration frequency $\omega_n$ [rad/s]')
+plt.ylabel('Damping coefficient $\zeta_n$ [-]')
+plt.legend(loc='best')
+plt.grid(True)
+plt.xlim([0, 35.])
+plt.ylim([0, 0.2])
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-5-833beee62a50>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mplt[0m[0;34m.[0m[0mhold[0m[0;34m([0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mwn[0m[0;34m,[0m [0mzn_a[0m[0;34m+[0m[0mzn_b[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'Rayleigh damping'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mwn[0m[0;34m,[0m [0mzn_a[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'mass proportional'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mwn[0m[0;34m,[0m [0mzn_b[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'stiffness proportional'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m'Vibration frequency $\omega_n$ [rad/s]'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'matplotlib.pyplot' has no attribute 'hold'
+AttributeError: module 'matplotlib.pyplot' has no attribute 'hold'
+
+Executability                            : False

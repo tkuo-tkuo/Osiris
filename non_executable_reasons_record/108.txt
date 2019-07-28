@@ -1,0 +1,86 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib notebook
+import pandas as pd  
+import matplotlib.pyplot as plt  
+from ipywidgets import *  
+from IPython.display import display  
+import ipywidgets  
+plt.style.use('ggplot')
+
+NUMBER_OF_PINGS = 4
+
+#displaying the text widget
+text = widgets.Text(description="Domain to ping", width=200)  
+display(text)
+
+#preparing the plot 
+data = pd.DataFrame()  
+x = range(1,NUMBER_OF_PINGS+1)  
+plots = dict()  
+fig, ax = plt.subplots()  
+plt.xlabel('iterations')  
+plt.ylabel('ms')  
+plt.xticks(x)  
+plt.show()
+
+#preparing a container to put in created checkbox per domain
+checkboxes = []  
+cb_container = widgets.HBox()  
+display(cb_container)
+
+#add button that updates the graph based on the checkboxes
+button = widgets.Button(description="Update the graph")
+
+#function to deal with the added domain name
+def handle_submit(sender):  
+    #a part of the magic inside python : pinging
+    res = !ping -c {NUMBER_OF_PINGS} {text.value}
+    print(res)
+    hits = res.grep('64 bytes').fields(-2).s.replace("time=","").split()
+    if len(hits) == 0:
+        print("Domain gave error on pinging")
+    else:
+         #rebuild plot based on ping result
+        data[text.value] = hits
+        data[text.value] = data[text.value].astype(float)
+        plots[text.value], = ax.plot(x, data[text.value], label=text.value)
+        plt.legend()
+        plt.draw()
+        #add a new checkbox for the new domain
+        checkboxes.append(widgets.Checkbox(description = text.value, value=True, width=90))
+        cb_container.children=[i for i in checkboxes]
+        if len(checkboxes) == 1:
+            display(button)
+
+#function to deal with the checkbox update button       
+def on_button_clicked(b):  
+    for c in cb_container.children:
+        if not c.value:
+            plots[c.description].set_visible(False)
+        else:
+            plots[c.description].set_visible(True)
+    plt.legend()
+    plt.draw()
+
+button.on_click(on_button_clicked)  
+text.on_submit(handle_submit)  
+plt.show()  
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-4d62ea14ab2c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mipywidgets[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0mIPython[0m[0;34m.[0m[0mdisplay[0m [0;32mimport[0m [0mdisplay[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mipywidgets[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'ipywidgets'
+ImportError: No module named 'ipywidgets'
+
+Executability                            : False

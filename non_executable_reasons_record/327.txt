@@ -1,0 +1,16 @@
+3.7
+Python 3.7.3
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import division, print_function
+%matplotlib inline
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-c6da1c618c8b>"[0;36m, line [0;32m6[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-c6da1c618c8b>, line 6)
+
+Executability                            : False

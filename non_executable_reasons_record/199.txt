@@ -1,0 +1,66 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### 変数の設定
+name=Person
+
+### ソースの編集
+cat <<- EOS > ${name}.java
+
+class ${name} {
+  String name;
+  int age;
+  String address;
+  
+  Person(String _name, int _age, String _address){
+    name = _name;
+    age = _age;
+    address = _address;
+  }
+  
+  void say(){
+    System.out.println("Name:" + name + " Age:" + age + " Address:" + address);
+  }
+  
+  void setName(String _name){
+    name = _name;
+  }
+  
+  void setAge(int _age){
+    if (_age > 0) {
+      age = _age;
+    }else{
+      age = 0;
+    }
+  }
+  
+  void setAddress(String _address){
+    address = _address;
+  }
+  
+  String getName(){
+    return name;
+  }
+  
+  int getAge(){
+    return age;
+  }
+  
+  String getAddress(){
+    return address;
+  }
+}
+EOS
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-c75ac248a9d5>"[0;36m, line [0;32m8[0m
+[0;31m    cat <<- EOS > ${name}.java[0m
+[0m                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-c75ac248a9d5>, line 8)
+
+Executability                            : False

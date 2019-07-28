@@ -1,0 +1,63 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+
+current_dir=`pwd`
+isbn="ISBN4-7973-2703-0"
+fig="Fig.0-6"
+
+### サンプルコードの作成
+cat <<- EOS > ${current_dir}/plantuml/${isbn}_${fig}.pu
+@startuml
+skinparam classAttributeIconSize 0
+skinparam sequenceParticipant underline
+
+actor User
+participant ":Client" as A
+participant ":Server" as B
+participant ":Device" as C
+
+User -> A: work
+activate A
+
+A -> B: open
+activate B
+B --> A
+deactivate B
+
+A -> B: print
+activate B
+B -> C: write
+activate C
+C --> B
+deactivate C
+B --> A
+deactivate B
+
+A -> B: close
+activate B
+B --> A
+deactivate B
+
+A --> User
+deactivate A
+
+
+@enduml
+EOS
+
+### サンプルコードからUMLの図を作成
+java -jar plantuml.jar -o ${current_dir}/img -tpng ${current_dir}/plantuml/${isbn}_${fig}.pu
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-f486e9b23e13>"[0;36m, line [0;32m5[0m
+[0;31m    current_dir=`pwd`[0m
+[0m                ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-f486e9b23e13>, line 5)
+
+Executability                            : False

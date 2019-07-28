@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from ipywidgets import interact
+from IPython.display import display
+from sympy import Symbol, Eq, factor, init_printing
+init_printing(use_latex='mathjax')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-42e482da78e7>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mipywidgets[0m [0;32mimport[0m [0minteract[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mIPython[0m[0;34m.[0m[0mdisplay[0m [0;32mimport[0m [0mdisplay[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0msympy[0m [0;32mimport[0m [0mSymbol[0m[0;34m,[0m [0mEq[0m[0;34m,[0m [0mfactor[0m[0;34m,[0m [0minit_printing[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'ipywidgets'
+ImportError: No module named 'ipywidgets'
+
+Executability                            : False

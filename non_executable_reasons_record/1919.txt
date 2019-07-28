@@ -1,0 +1,47 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+Ns = 4096 # number of samples
+np.random.seed(1234) # random seed (for repeatability)
+rn = np.random.random(Ns)-0.5 # zero mean random noise
+
+Fs = 100 # sampling frequency
+dt = 1./Fs # time discretisation
+tt = np.arange(Ns)*dt # time sampling
+
+A = 0.067 # sine wave amplitude
+f = 10.24 # sine wave frequency
+sw = A*np.sin(2*np.pi*f*tt) # sine wave
+
+ss = sw+rn # sample signal
+signals = (rn, sw, ss)
+labels = ('Random noise', 'Sine wave', 'Sample signal')
+
+v = [(np.max(v), np.min(v), np.mean(v), rms_flat(v)) for v in signals]
+df = pd.DataFrame(data=v, index=labels, columns=('Max', 'Min', 'Mean', 'RMS'))
+print(df)
+
+fig, ax = plt.subplots()
+ax.hold(True)
+for v in (2,1):
+    ax.plot(tt, signals[v], label=labels[v])
+ax.set_title('Time history')
+ax.set_xlabel('Time [s]')
+ax.set_ylabel('Amplitude [V]')
+ax.legend()
+ax.grid()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-3-a9948000f5d2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     20[0m [0;34m[0m[0m
+[1;32m     21[0m [0mfig[0m[0;34m,[0m [0max[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 22[0;31m [0max[0m[0;34m.[0m[0mhold[0m[0;34m([0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     23[0m [0;32mfor[0m [0mv[0m [0;32min[0m [0;34m([0m[0;36m2[0m[0;34m,[0m[0;36m1[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     24[0m     [0max[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mtt[0m[0;34m,[0m [0msignals[0m[0;34m[[0m[0mv[0m[0;34m][0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0mlabels[0m[0;34m[[0m[0mv[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'AxesSubplot' object has no attribute 'hold'
+AttributeError: 'AxesSubplot' object has no attribute 'hold'
+
+Executability                            : False

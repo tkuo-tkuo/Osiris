@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import mpmath as mpm
+mpm.mp.dps = 100
+
+mpm.sin(mpm.mpf("3.1415926535"))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-17-560290de0929>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mmpmath[0m [0;32mas[0m [0mmpm[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mmpm[0m[0;34m.[0m[0mmp[0m[0;34m.[0m[0mdps[0m [0;34m=[0m [0;36m100[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mmpm[0m[0;34m.[0m[0msin[0m[0;34m([0m[0mmpm[0m[0;34m.[0m[0mmpf[0m[0;34m([0m[0;34m"3.1415926535"[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'mpmath'
+ImportError: No module named 'mpmath'
+
+Executability                            : False

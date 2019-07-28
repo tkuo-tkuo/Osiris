@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import division
+from sympy import *
+x, y, z, t = symbols('x y z t')
+f, g, h = symbols('f g h', cls=Function)
+init_printing()
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-a0374f0ffde0>"[0;36m, line [0;32m2[0m
+[0;31m    warnings.filterwarnings('ignore')[0m
+[0m         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m import * only allowed at module level
+
+SyntaxError: import * only allowed at module level (<ipython-input-1-a0374f0ffde0>, line 2)
+
+Executability                            : False

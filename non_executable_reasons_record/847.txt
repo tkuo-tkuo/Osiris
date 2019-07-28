@@ -1,0 +1,50 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import datetime
+print("Zeitpunkt: %s" % datetime.date.today())
+
+import sys
+print("Python: %s" % sys.version.splitlines()[0])
+
+# bs4: beautifulsoup4
+libs = ['numpy', 'scipy', 'matplotlib', 'sympy', 'mpmath', 'pandas', 'statsmodels',
+        'sklearn', 'networkx', 'yaml', 'json', 'csv', 'sqlite3', 'cython', "bs4"]
+from importlib import import_module
+for lib_name in sorted(libs):
+    lib = import_module(lib_name)
+    try:
+        vers = lib.__version__
+    except:
+        vers = lib.version
+    print("{:<15s} {}".format(lib_name, vers))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-029624fec636>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     12[0m [0;32mfrom[0m [0mimportlib[0m [0;32mimport[0m [0mimport_module[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mfor[0m [0mlib_name[0m [0;32min[0m [0msorted[0m[0;34m([0m[0mlibs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m     [0mlib[0m [0;34m=[0m [0mimport_module[0m[0;34m([0m[0mlib_name[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     15[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     16[0m         [0mvers[0m [0;34m=[0m [0mlib[0m[0;34m.[0m[0m__version__[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/importlib/__init__.py[0m in [0;36mimport_module[0;34m(name, package)[0m
+[1;32m    124[0m                 [0;32mbreak[0m[0;34m[0m[0m
+[1;32m    125[0m             [0mlevel[0m [0;34m+=[0m [0;36m1[0m[0;34m[0m[0m
+[0;32m--> 126[0;31m     [0;32mreturn[0m [0m_bootstrap[0m[0;34m.[0m[0m_gcd_import[0m[0;34m([0m[0mname[0m[0;34m[[0m[0mlevel[0m[0;34m:[0m[0;34m][0m[0;34m,[0m [0mpackage[0m[0;34m,[0m [0mlevel[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    127[0m [0;34m[0m[0m
+[1;32m    128[0m [0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/importlib/_bootstrap.py[0m in [0;36m_gcd_import[0;34m(name, package, level)[0m
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/importlib/_bootstrap.py[0m in [0;36m_find_and_load[0;34m(name, import_)[0m
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/importlib/_bootstrap.py[0m in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
+
+[0;31mImportError[0m: No module named 'bs4'
+ImportError: No module named 'bs4'
+
+Executability                            : False

@@ -1,0 +1,132 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### 変数の設定
+name=GUITest6
+#classpath=".:/root/git_jupyter_notebook/Java/postgresql-42.1.1.jar"
+#classpath=".:/Users/ftakao2007/jupyter/jupyter_notebook/Java/postgresql-42.1.1.jar"
+
+### ソースの編集
+cat <<- EOS > ${name}.java
+
+import java.awt.*;
+import java.awt.event.*;
+
+class PrefFrame extends Frame implements ActionListener {
+    Label lb1;
+    TextArea txtar1;
+    Button btn1, btn2, btn3;
+    
+    public PrefFrame(String title) {
+        setTitle(title);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+
+        //# ラベル
+        lb1 = new Label("ボタンをクリックしてください。",Label.CENTER);
+        //# フォントがSerif、書体がBOLD、ポイントが14になる
+        Font f = new Font("Serif", Font.BOLD, 14);
+        lb1.setFont(f);
+        //# 文字の色が青色になる
+        lb1.setForeground(Color.blue);
+        add(lb1, BorderLayout.NORTH);
+        
+        //# テキストエリア
+        txtar1 = new TextArea();
+        //# フォントがDialog、書体がPLAIN(標準)、ポイントが16になる
+        txtar1.setFont(new Font("Dialog", Font.PLAIN, 16));
+        //# 文字の色がダークグレイになる
+        txtar1.setForeground(new Color(64,64,64));
+        add(txtar1, BorderLayout.CENTER);
+        
+        //# パネル
+        Panel pn1 = new Panel();
+        pn1.setLayout(new GridLayout(1, 3));
+        
+        //# ボタン1
+        btn1 = new Button("表示");
+        btn1.addActionListener(this);
+        pn1.add(btn1);
+        
+        //# ボタン2
+        btn2 = new Button("クリア");
+        btn2.addActionListener(this);
+        pn1.add(btn2);
+
+        //# ボタン3
+        btn3 = new Button("終了");
+        btn3.addActionListener(this);
+        //# 背景色がダークグレイになる
+        btn3.setBackground(new Color(255,0,255));
+        //# 前景色(文字色)がマゼンダになる
+        btn3.setForeground(new Color(255,255,255));
+        pn1.add(btn3);
+        
+        //# パネル
+        add(pn1, BorderLayout.SOUTH);
+    }
+  
+    public void actionPerformed (ActionEvent e) {
+        if (e.getSource() == btn1) {
+            prefDisplay();
+        } else if (e.getSource() == btn2) {
+            txtar1.setText("");
+        } else {
+            System.exit(0);
+        }
+    }
+    
+    //# クラス内からしか使わないのでアクセス修飾子はprivate
+    private void prefDisplay () {
+        StringBuffer temp = new StringBuffer();
+        temp.append("1" + "\t");
+        temp.append("Hokkaido" + "\n");
+        temp.append("2" + "\t");
+        temp.append("Aomori" + "\n");
+        temp.append("3" + "\t");
+        temp.append("Iwate" + "\n");
+        temp.append("4" + "\t");
+        temp.append("Miyagi" + "\n");
+        temp.append("5" + "\t");
+        temp.append("Akita" + "\n");
+        txtar1.setText(temp.toString());
+    }
+            
+}
+
+public class $name {
+    public static void main(String args[]){
+        PrefFrame frm = new PrefFrame("都道府県マスター");
+        //# フレームの設定
+        frm.setLocation(300,200);
+        frm.setSize(250,350);
+        frm.setBackground(Color.LIGHT_GRAY);
+        frm.setVisible(true);
+    }
+}
+EOS
+
+### コンパイル
+#javac ${name}.java
+javac -encoding UTF-8 ${name}.java
+
+### 実行
+#java -classpath ${classpath} ${name}
+java ${name}
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-bafd0611f31b>"[0;36m, line [0;32m10[0m
+[0;31m    cat <<- EOS > ${name}.java[0m
+[0m                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-bafd0611f31b>, line 10)
+
+Executability                            : False

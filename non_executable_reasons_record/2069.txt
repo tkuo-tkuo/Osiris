@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+pca = PCA(n_components=10)
+pca.fit(X)
+
+i = 0
+total_ratio = 0
+for ratio in pca.explained_variance_ratio_:
+    i += 1
+    total_ratio += ratio
+    if (total_ratio >= 0.9):
+        break
+
+res = "%d" % (i)
+print(res)
+with open("1.txt", 'w') as txt1:
+    txt1.write(res)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-e89efc10776b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     12[0m [0mres[0m [0;34m=[0m [0;34m"%d"[0m [0;34m%[0m [0;34m([0m[0mi[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     13[0m [0mprint[0m[0;34m([0m[0mres[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"1.txt"[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mtxt1[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     15[0m     [0mtxt1[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mres[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '1.txt'
+PermissionError: [Errno 13] Permission denied: '1.txt'
+
+Executability                            : False

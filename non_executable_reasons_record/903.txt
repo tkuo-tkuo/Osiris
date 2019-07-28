@@ -1,0 +1,58 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import networkx as nx
+
+# Create a directed networkx graph
+G = nx.DiGraph()
+
+# Add web pages (graph nodes)
+for i in range(5):
+   G.add_node(i, label="p" + str(i))
+
+# Add outgoing web links with weights (directed graph edges)
+G.add_edge(0, 1, weight=1.0/4.0, label="1/4")
+G.add_edge(0, 2, weight=1.0/4.0, label="1/4")
+G.add_edge(0, 3, weight=1.0/4.0, label="1/4")
+G.add_edge(0, 4, weight=1.0/4.0, label="1/4")
+
+
+G.add_edge(1, 2, weight=1.0/3.0, label="1/3")
+G.add_edge(1, 3, weight=1.0/3.0, label="1/3")
+G.add_edge(1, 4, weight=1.0/3.0, label="1/3")
+
+G.add_edge(2, 0, weight=1.0/2.0, label="1/2")
+G.add_edge(2, 1, weight=1.0/2.0, label="1/2")
+
+G.add_edge(3, 0, weight=1.0/2.0, label="1/2")
+G.add_edge(3, 2, weight=1.0/2.0, label="1/2")
+
+G.add_edge(4, 1, weight=1.0/3.0, label="1/3")
+G.add_edge(4, 2, weight=1.0/3.0, label="1/3")
+G.add_edge(4, 3, weight=1.0/3.0, label="1/3")
+
+print(nx.__version__)
+
+# To plot graph, convert to a PyGraphviz graph for drawing
+Ag = nx.nx_agraph.to_agraph(G)
+Ag.layout(prog='dot')
+Ag.draw('web.svg')
+from IPython.display import SVG
+SVG('web.svg')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-9bac6c3f1a10>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mnetworkx[0m [0;32mas[0m [0mnx[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;31m# Create a directed networkx graph[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'networkx'
+ImportError: No module named 'networkx'
+
+Executability                            : False

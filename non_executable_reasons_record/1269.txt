@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+output.to_excel('planets.xls')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-14-1bfbf04f644e>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0moutput[0m[0;34m.[0m[0mto_excel[0m[0;34m([0m[0;34m'planets.xls'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36mto_excel[0;34m(self, excel_writer, sheet_name, na_rep, float_format, columns, header, index, index_label, startrow, startcol, engine, merge_cells, encoding, inf_rep, verbose, freeze_panes)[0m
+[1;32m   2125[0m         formatter.write(excel_writer, sheet_name=sheet_name, startrow=startrow,
+[1;32m   2126[0m                         [0mstartcol[0m[0;34m=[0m[0mstartcol[0m[0;34m,[0m [0mfreeze_panes[0m[0;34m=[0m[0mfreeze_panes[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2127[0;31m                         engine=engine)
+[0m[1;32m   2128[0m [0;34m[0m[0m
+[1;32m   2129[0m     def to_json(self, path_or_buf=None, orient=None, date_format=None,
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/formats/excel.py[0m in [0;36mwrite[0;34m(self, writer, sheet_name, startrow, startcol, freeze_panes, engine)[0m
+[1;32m    654[0m             [0mneed_save[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    655[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 656[0;31m             [0mwriter[0m [0;34m=[0m [0mExcelWriter[0m[0;34m([0m[0m_stringify_path[0m[0;34m([0m[0mwriter[0m[0;34m)[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    657[0m             [0mneed_save[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    658[0m [0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, path, engine, encoding, mode, **engine_kwargs)[0m
+[1;32m   1657[0m                  **engine_kwargs):
+[1;32m   1658[0m         [0;31m# Use the xlwt module as the Excel writer.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1659[0;31m         [0;32mimport[0m [0mxlwt[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1660[0m         [0mengine_kwargs[0m[0;34m[[0m[0;34m'engine'[0m[0;34m][0m [0;34m=[0m [0mengine[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1661[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'xlwt'
+ModuleNotFoundError: No module named 'xlwt'
+
+Executability                            : False

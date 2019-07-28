@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+name=JUnitTest
+
+### ソースの編集
+cat <<- EOS > ${name}.java
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class ${name} {
+        public static int num(){
+                return 10;
+        }
+
+        @Test
+        public void test(){
+                assertEquals(10, num());
+        }
+}
+EOS
+
+### ソースの確認
+cat ${name}.java
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-0f923b1796a6>"[0;36m, line [0;32m7[0m
+[0;31m    cat <<- EOS > ${name}.java[0m
+[0m                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-0f923b1796a6>, line 7)
+
+Executability                            : False

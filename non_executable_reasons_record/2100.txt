@@ -1,0 +1,62 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+maxD = 60.0
+maxF = 20000.
+plt.figure(figsize=(16,10), dpi=300)
+
+plt.plot(d1,f1*4, 'o-', label='fine')
+plt.plot(d2,f2*4, '^-', ms=12, label='coarse')
+plt.plot(d3,f3*4, 'h-', ms=12, label='coarse 2')
+
+plt.xlim([0,maxD])
+plt.ylim([-500,maxF])
+plt.xticks(np.arange(0.0,maxD+1,5))
+plt.yticks(np.arange(-500.0,maxF+.5,1000))
+plt.title('Hinged Roof - Force displacement relation',fontsize=18, fontweight='bold')
+plt.xlabel('Node $y$ displacement $[mm]$', fontsize=16)
+plt.ylabel('Force $y$ $[N]$', fontsize=16)
+plt.legend(loc='lower right', shadow=True)
+plt.grid()
+plt.savefig('Lab04.jpg')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-5-1d8e32e94ee0>[0m in [0;36m<module>[0;34m[0m
+[1;32m     16[0m [0mplt[0m[0;34m.[0m[0mlegend[0m[0;34m([0m[0mloc[0m[0;34m=[0m[0;34m'lower right'[0m[0;34m,[0m [0mshadow[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     17[0m [0mplt[0m[0;34m.[0m[0mgrid[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 18[0;31m [0mplt[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m'Lab04.jpg'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/pyplot.py[0m in [0;36msavefig[0;34m(*args, **kwargs)[0m
+[1;32m    714[0m [0;32mdef[0m [0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    715[0m     [0mfig[0m [0;34m=[0m [0mgcf[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 716[0;31m     [0mres[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    717[0m     [0mfig[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mdraw_idle[0m[0;34m([0m[0;34m)[0m   [0;31m# need this if 'transparent=True' to reset colors[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    718[0m     [0;32mreturn[0m [0mres[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/figure.py[0m in [0;36msavefig[0;34m(self, fname, transparent, **kwargs)[0m
+[1;32m   2178[0m             [0mself[0m[0;34m.[0m[0mpatch[0m[0;34m.[0m[0mset_visible[0m[0;34m([0m[0mframeon[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2179[0m [0;34m[0m[0m
+[0;32m-> 2180[0;31m         [0mself[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2181[0m [0;34m[0m[0m
+[1;32m   2182[0m         [0;32mif[0m [0mframeon[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, **kwargs)[0m
+[1;32m   2012[0m [0;34m[0m[0m
+[1;32m   2013[0m         [0;31m# get canvas object and print method for format[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2014[0;31m         [0mcanvas[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_get_output_canvas[0m[0;34m([0m[0mformat[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2015[0m         [0mprint_method[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mcanvas[0m[0;34m,[0m [0;34m'print_%s'[0m [0;34m%[0m [0mformat[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2016[0m [0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backend_bases.py[0m in [0;36m_get_output_canvas[0;34m(self, fmt)[0m
+[1;32m   1954[0m         raise ValueError(
+[1;32m   1955[0m             [0;34m"Format {!r} is not supported (supported formats: {})"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1956[0;31m             .format(fmt, ", ".join(sorted(self.get_supported_filetypes()))))
+[0m[1;32m   1957[0m [0;34m[0m[0m
+[1;32m   1958[0m     def print_figure(self, filename, dpi=None, facecolor=None, edgecolor=None,
+
+[0;31mValueError[0m: Format 'jpg' is not supported (supported formats: eps, pdf, pgf, png, ps, raw, rgba, svg, svgz)
+ValueError: Format 'jpg' is not supported (supported formats: eps, pdf, pgf, png, ps, raw, rgba, svg, svgz)
+
+Executability                            : False

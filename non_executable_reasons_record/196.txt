@@ -1,0 +1,57 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### 変数の設定
+name=PersonTest
+
+### ソースの編集
+cat <<- EOS > ${name}.java
+
+class Person {
+  //# フィールド（変数）の定義
+  String name;
+  int age;
+  String address;
+  
+  //# コンクラスタの定義。仮引数とフィールド名を区別するために仮引数にはアンダースコアをつけている
+  Person(String _name, int _age, String _address){
+    name = _name;
+    age = _age;
+    address = _address;
+  }
+}
+
+public class ${name} {
+  public static void main (String[] args) {
+
+    //# new演算してインスタンスを生成。頭のPersonはクラス名。newの後ろはコンストラクタ
+    Person taro = new Person("Taro", 21, "Tokyo");
+    System.out.println("Name:" + taro.name + " Age:" + taro.age + " Address:" + taro.address);
+
+    Person hanako = new Person("Hanako", 18, "Hokkaido");
+    System.out.println("Name:" + taro.name + " Age:" + taro.age + " Address:" + taro.address);
+
+  }
+}
+EOS
+
+### コンパイル
+#javac ${name}.java
+### コメントアウトすら文字化けするのでエンコーディングを指定
+javac -encoding UTF-8 ${name}.java
+
+### 実行
+java ${name}
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-91ba778625ee>"[0;36m, line [0;32m8[0m
+[0;31m    cat <<- EOS > ${name}.java[0m
+[0m                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-91ba778625ee>, line 8)
+
+Executability                            : False

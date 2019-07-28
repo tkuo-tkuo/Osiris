@@ -1,0 +1,47 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+ '''
+Pandas is one of the most powerful contributions to python for quick and easy data analysis. Data Science is dominated by
+one common data structure - the table. Python never had a great native way to manipulate tables in ways that many analysts
+are used to (if you're at all familliar with spreadsheets or relational databases). The basic Pandas data structure is the Data 
+Frame which, if you are an R user, should sound familliar.
+
+This module is a very high level treatment of basic data operations one typically uses when manipulating tables in Python. 
+To really learn all of the details, refer to the book.
+'''
+
+#To import
+import pandas as pd #Its common to use pd as the abbreviation
+from pandas import Series, DataFrame #Wes McKinney recommends importing these separately - they are used so often and benefit from having their own namespace
+
+'''
+The Series - for this module we'll skip the Series (see book for details), but we will define it. A Series is a one dimensional
+array like object that has an array plus an index, which labels the array entries. Once we present a Data Frame, one can think
+of a series as similar to a Data Frame with just one column.
+'''
+
+'''
+A simple example of the DataFrame - building one from a dictionary
+(note for this to work each list has to be the same length)
+'''
+data = {'state':['OH', 'OH', 'OH', 'NV', 'NV'], 
+        'year':[2000, 2001, 2002, 2001, 2002],
+        'pop':[1.5, 1.7, 3.6, 2.4, 2.9]}
+
+frame = pd.DataFrame(data) #This function will turn the dict to the data frame. Notice that the keys become columns and an index is created
+
+frame
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-f777d2d95002>"[0;36m, line [0;32m3[0m
+[0;31m    '''[0m
+[0m    ^[0m
+[0;31mIndentationError[0m[0;31m:[0m unexpected indent
+
+IndentationError: unexpected indent (<ipython-input-1-f777d2d95002>, line 3)
+
+Executability                            : False

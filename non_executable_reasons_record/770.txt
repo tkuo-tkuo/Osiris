@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+f = open('filespython.txt', 'w')
+f.write('This is another line\n')
+f.close()
+
+f = open('filespython.txt', 'r')
+print(f.read())
+f.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-5c855b88ee62>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'filespython.txt'[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m'This is another line\n'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mf[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'filespython.txt'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'filespython.txt'
+PermissionError: [Errno 13] Permission denied: 'filespython.txt'
+
+Executability                            : False

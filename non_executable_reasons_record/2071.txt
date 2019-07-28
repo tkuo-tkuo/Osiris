@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+tp = np.sum((y_true == 1) & (y_pred == 1))
+fp = np.sum((y_true == 0) & (y_pred == 1))
+fn = np.sum((y_true == 1) & (y_pred == 0))
+tn = np.sum((y_true == 0) & (y_pred == 0))
+res = "%d %d %d %d" % (tp, fp, fn, tn)
+print(res)
+with open("1.txt", 'w') as txt1:
+    txt1.write(res)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-f4f595679128>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0mres[0m [0;34m=[0m [0;34m"%d %d %d %d"[0m [0;34m%[0m [0;34m([0m[0mtp[0m[0;34m,[0m [0mfp[0m[0;34m,[0m [0mfn[0m[0;34m,[0m [0mtn[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0mprint[0m[0;34m([0m[0mres[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"1.txt"[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mtxt1[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      8[0m     [0mtxt1[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mres[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '1.txt'
+PermissionError: [Errno 13] Permission denied: '1.txt'
+
+Executability                            : False

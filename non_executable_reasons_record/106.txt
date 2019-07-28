@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from plotly.graph_objs import *
+from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
+init_notebook_mode(connected=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-9-6b439445e344>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mplotly[0m[0;34m.[0m[0mgraph_objs[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mplotly[0m[0;34m.[0m[0moffline[0m [0;32mimport[0m [0mdownload_plotlyjs[0m[0;34m,[0m [0minit_notebook_mode[0m[0;34m,[0m [0mplot[0m[0;34m,[0m [0miplot[0m[0;34m[0m[0m
+[1;32m      3[0m [0minit_notebook_mode[0m[0;34m([0m[0mconnected[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'plotly'
+ImportError: No module named 'plotly'
+
+Executability                            : False

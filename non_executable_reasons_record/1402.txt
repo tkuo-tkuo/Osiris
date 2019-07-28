@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import re, urllib.parse, os
+
+# find all the links to the zip files on this index page
+zyears = [urllib.parse.urljoin(iurl, z)  for z in re.findall('<a href="([^"]*?\.zip)"', str(ipage))]
+
+dirname = "tablep1zips"
+if not os.path.exists(dirname):
+    os.mkdir(dirname)
+
+    
+zyears    
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-3a58200a9b34>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0mdirname[0m [0;34m=[0m [0;34m"tablep1zips"[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mdirname[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m     [0mos[0m[0;34m.[0m[0mmkdir[0m[0;34m([0m[0mdirname[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'tablep1zips'
+PermissionError: [Errno 13] Permission denied: 'tablep1zips'
+
+Executability                            : False

@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np, scipy as sp, matplotlib.pyplot as plt, seaborn as sns
+sns.set_style({'axes.grid' : False})
+
+from mpl_toolkits.mplot3d import Axes3D
+from ipywidgets import interact, fixed
+from matplotlib import cm
+from numpy import sin, cos, arctan, arctan2, array, sqrt, linspace, meshgrid, pi
+#%matplotlib inline
+import scipy.special
+from scipy.special import j0,j1,jn,y0,y1,yn, jn_zeros
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-047ec445a849>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mmpl_toolkits[0m[0;34m.[0m[0mmplot3d[0m [0;32mimport[0m [0mAxes3D[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mipywidgets[0m [0;32mimport[0m [0minteract[0m[0;34m,[0m [0mfixed[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0mcm[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0mnumpy[0m [0;32mimport[0m [0msin[0m[0;34m,[0m [0mcos[0m[0;34m,[0m [0marctan[0m[0;34m,[0m [0marctan2[0m[0;34m,[0m [0marray[0m[0;34m,[0m [0msqrt[0m[0;34m,[0m [0mlinspace[0m[0;34m,[0m [0mmeshgrid[0m[0;34m,[0m [0mpi[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'ipywidgets'
+ModuleNotFoundError: No module named 'ipywidgets'
+
+Executability                            : False

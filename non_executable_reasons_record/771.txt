@@ -1,0 +1,40 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd   #The data package
+
+import sys            #The code below wont work for any versions before Python 3. This just ensures that (I guess).
+assert sys.version_info >= (3,5)
+
+"""
+The MEPS dataset is is compressed in a .zip file in the link above. The code here downloads the .zip file, unzips
+and saves the MEPS dataset. 
+"""
+
+import requests, io, zipfile     #Three packages we'll need to unzip the data
+
+url = requests.get("http://meps.ahrq.gov/mepsweb/data_files/pufs/h155dat.zip") #Downloads the .DAT file
+
+zipfile = zipfile.ZipFile(io.BytesIO(url.content))                             #Unzips the .DAT file
+
+url_unzipped = zipfile.extract(zipfile.namelist()[0])                          #Extracts/stores the .DAT file
+
+print(zipfile.namelist())   #Unzipped file name
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-15d221b3cc86>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     11[0m """
+[1;32m     12[0m [0;34m[0m[0m
+[0;32m---> 13[0;31m [0;32mimport[0m [0mrequests[0m[0;34m,[0m [0mio[0m[0;34m,[0m [0mzipfile[0m     [0;31m#Three packages we'll need to unzip the data[0m[0;34m[0m[0m
+[0m[1;32m     14[0m [0;34m[0m[0m
+[1;32m     15[0m [0murl[0m [0;34m=[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m"http://meps.ahrq.gov/mepsweb/data_files/pufs/h155dat.zip"[0m[0;34m)[0m [0;31m#Downloads the .DAT file[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'requests'
+ImportError: No module named 'requests'
+
+Executability                            : False

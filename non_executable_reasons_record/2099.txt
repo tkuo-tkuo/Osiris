@@ -1,0 +1,49 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+E = 72000. # modulus [MPa]
+ν = 0.33   # Poisson's coefficient
+
+nx = [[6,6,12,12,24,24],[18,36,36,72,72,144]]
+ny = [[6,12,12,24,24,48],[6,6,12,12,24,24]]
+
+#test many nodes
+#nx = [50,100]
+#ny = [50,50]
+
+# list of gammas
+γ_v = [0.0, 0.1, 0.25, 0.5, 0.75, 1.0, 2.0, 4.0, 6.0, 9.0]
+
+#test
+#γ_v = [0.0, .5, 2.0, 6.0]
+
+
+if len(nx[0]) == len(ny[0]) and len(nx[1]) == len(ny[1]):
+    for i, a in enumerate(a_l):
+        for j in range(len(nx[i])):
+            for γ_act in γ_v:
+                write_inp_file(a, b, h, nx[i][j], ny[i][j], E, ν, γ_act)
+else:
+    print("nx and ny vector lenghts don't match")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-5-b6e6f3624f41>[0m in [0;36m<module>[0;34m[0m
+[1;32m     20[0m         [0;32mfor[0m [0mj[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mnx[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     21[0m             [0;32mfor[0m [0mγ_act[0m [0;32min[0m [0mγ_v[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 22[0;31m                 [0mwrite_inp_file[0m[0;34m([0m[0ma[0m[0;34m,[0m [0mb[0m[0;34m,[0m [0mh[0m[0;34m,[0m [0mnx[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m[[0m[0mj[0m[0;34m][0m[0;34m,[0m [0mny[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m[[0m[0mj[0m[0;34m][0m[0;34m,[0m [0mE[0m[0;34m,[0m [0mν[0m[0;34m,[0m [0mγ_act[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     23[0m [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     24[0m     [0mprint[0m[0;34m([0m[0;34m"nx and ny vector lenghts don't match"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-3-15bfa5d739ef>[0m in [0;36mwrite_inp_file[0;34m(a, b, h, nx, ny, E, ν, γ, num_modes, num_vects, max_iter)[0m
+[1;32m     52[0m     [0mfilename[0m [0;34m=[0m [0mbasename[0m[0;34m+[0m[0;34m'.inp'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     53[0m [0;34m[0m[0m
+[0;32m---> 54[0;31m     [0moutfile[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"wt"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     55[0m [0;34m[0m[0m
+[1;32m     56[0m     [0moutfile[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m"** Lab 08 input file - buckling of plate under compression and shear\n"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'cs_a06_nx006_ny006_g000.inp'
+PermissionError: [Errno 13] Permission denied: 'cs_a06_nx006_ny006_g000.inp'
+
+Executability                            : False

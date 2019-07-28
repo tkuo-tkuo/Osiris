@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# first a little house-keeping
+from __future__ import print_function, division
+
+% matplotlib inline
+
+import numpy as np
+import thinkplot
+import thinkbayes2
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-b9b6b884dd16>"[0;36m, line [0;32m7[0m
+[0;31m    [0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-b9b6b884dd16>, line 7)
+
+Executability                            : False

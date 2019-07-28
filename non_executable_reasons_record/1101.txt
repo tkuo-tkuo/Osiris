@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+init(m)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-4-b21f7ebb85e0>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0minit[0m[0;34m([0m[0mm[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m/mnt/fit-Knowledgezoo/jupyternotebooks/ondrolexa@heat/heatlib_var.py[0m in [0;36minit[0;34m(m)[0m
+[1;32m     68[0m     [0mm[0m[0;34m[[0m[0;34m'xm'[0m[0;34m][0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlinspace[0m[0;34m([0m[0mm[0m[0;34m[[0m[0;34m'dx'[0m[0;34m][0m[0;34m/[0m[0;36m2[0m[0;34m,[0m [0mm[0m[0;34m[[0m[0;34m'tc'[0m[0;34m][0m [0;34m-[0m [0mm[0m[0;34m[[0m[0;34m'dx'[0m[0;34m][0m[0;34m/[0m[0;36m2[0m[0;34m,[0m [0mm[0m[0;34m[[0m[0;34m'n'[0m[0;34m][0m[0;34m-[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     69[0m     [0;31m# Boundary conditions[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 70[0;31m     [0;32mif[0m [0mm[0m[0;34m[[0m[0;34m'bc0'[0m[0;34m][0m[0;34m[[0m[0;34m'kind'[0m[0;34m][0m [0;34m==[0m [0;34m'dirichlet'[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     71[0m         [0mu2[0m [0;34m=[0m [0;34m[[0m[0;36m1[0m[0;34m,[0m [0;36m0[0m[0;34m][0m[0;34m[0m[0m
+[1;32m     72[0m         [0mbu[0m [0;34m=[0m [0mm[0m[0;34m[[0m[0;34m'bc0'[0m[0;34m][0m[0;34m[[0m[0;34m'val'[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: 'bc0'
+KeyError: 'bc0'
+
+Executability                            : False

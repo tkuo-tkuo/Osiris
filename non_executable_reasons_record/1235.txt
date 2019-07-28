@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from clintrials.dosefinding.efftox import _pi_E, _pi_T, _pi_ab, _L_n, scale_doses
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-26b678eb1cca>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mclintrials[0m[0;34m.[0m[0mdosefinding[0m[0;34m.[0m[0mefftox[0m [0;32mimport[0m [0m_pi_E[0m[0;34m,[0m [0m_pi_T[0m[0;34m,[0m [0m_pi_ab[0m[0;34m,[0m [0m_L_n[0m[0;34m,[0m [0mscale_doses[0m[0;34m[0m[0m
+[0m
+[0;31mImportError[0m: No module named 'clintrials'
+ImportError: No module named 'clintrials'
+
+Executability                            : False

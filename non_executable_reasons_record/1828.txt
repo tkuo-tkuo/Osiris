@@ -1,0 +1,18 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Import the required packages
+%matplotlib inline
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Make the display easy to read
+% precision 2
+------------------
+
+
+UsageError: Line magic function `%` not found.
+
+Executability                            : False

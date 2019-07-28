@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+### 変数の設定
+name=Work
+
+### ソースの確認
+cat ${name}.java
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-1cb66c200d99>"[0;36m, line [0;32m8[0m
+[0;31m    cat ${name}.java[0m
+[0m        ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-1cb66c200d99>, line 8)
+
+Executability                            : False

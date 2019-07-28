@@ -1,0 +1,18 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+#sudo timedatectl set-timezone Asia/Tokyo
+sudo timedatectl
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-00fc06b10e5c>"[0;36m, line [0;32m5[0m
+[0;31m    sudo timedatectl[0m
+[0m                   ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-00fc06b10e5c>, line 5)
+
+Executability                            : False

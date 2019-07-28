@@ -1,0 +1,96 @@
+3.7
+Python 3.7.3
+An error occurred while executing the following cell:
+------------------
+fig, axes = plt.subplots(
+    nrows=2, ncols=3, figsize=(12, 8), 
+    gridspec_kw=dict(wspace=0, hspace=.0, height_ratios=[2, 1])
+)
+
+# nombre de photos
+ntry = 5000
+# dimension de la boite
+L = 1
+
+jitter = .5
+x = np.linspace(0, L, 100)
+for i in range(3):
+    p = i + 1
+    
+    # sample the density
+    pos = np.random.uniform(0, L, ntry)
+    rho = phi(pos, p, L)**2
+    rnd = np.random.uniform(0, 2/L, ntry)
+    ix = np.where(rho > rnd)
+    pos = pos[ix]
+
+    # plot
+    axes[0, i].plot(x, phi(x, p, L)**2, color="C3")
+    axes[0, i].hist(pos, bins=20, normed=True, alpha=.4, edgecolor="C7")
+    axes[1, i].scatter(pos, np.random.normal(0, jitter, ix[0].shape), color="C7", s=1)
+
+    # layout
+    axes[0, i].set_title("$p$ = %d" % p, fontsize=16)
+    axes[1, i].set_ylim(-10, 10)
+    axes[1, i].yaxis.set_visible(False)
+    axes[1, i].set_xlim((0, L))
+    axes[1, i].set_xticks([0, L/4, L/2, 3*L/4, L])
+    text = axes[1, i].set_xticklabels(["0", "L/4", "L/2", "3L/4", "L"], fontsize=14)
+    axes[1, i].set_xlabel("$x$", fontsize=18)
+    if i > 0:
+        axes[0, i].yaxis.set_visible(False)
+        axes[1, i].set_xticks([L/4, L/2, 3*L/4, L])
+        text = axes[1, i].set_xticklabels(["L/4", "L/2", "3L/4", "L"], fontsize=14)
+    else:
+        axes[1, i].set_xticks([0, L/4, L/2, 3*L/4, L])
+        text = axes[1, i].set_xticklabels(["0", "L/4", "L/2", "3L/4", "L"], fontsize=14)
+
+fig.savefig("puits_infini.pdf")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-6-c2089cb37e52>[0m in [0;36m<module>[0;34m[0m
+[1;32m     42[0m         [0mtext[0m [0;34m=[0m [0maxes[0m[0;34m[[0m[0;36m1[0m[0;34m,[0m [0mi[0m[0;34m][0m[0;34m.[0m[0mset_xticklabels[0m[0;34m([0m[0;34m[[0m[0;34m"0"[0m[0;34m,[0m [0;34m"L/4"[0m[0;34m,[0m [0;34m"L/2"[0m[0;34m,[0m [0;34m"3L/4"[0m[0;34m,[0m [0;34m"L"[0m[0;34m][0m[0;34m,[0m [0mfontsize[0m[0;34m=[0m[0;36m14[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     43[0m [0;34m[0m[0m
+[0;32m---> 44[0;31m [0mfig[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m"puits_infini.pdf"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/miniconda3/envs/Osiris_py37/lib/python3.7/site-packages/matplotlib/figure.py[0m in [0;36msavefig[0;34m(self, fname, transparent, **kwargs)[0m
+[1;32m   2178[0m             [0mself[0m[0;34m.[0m[0mpatch[0m[0;34m.[0m[0mset_visible[0m[0;34m([0m[0mframeon[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2179[0m [0;34m[0m[0m
+[0;32m-> 2180[0;31m         [0mself[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2181[0m [0;34m[0m[0m
+[1;32m   2182[0m         [0;32mif[0m [0mframeon[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py37/lib/python3.7/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, **kwargs)[0m
+[1;32m   2080[0m                     [0morientation[0m[0;34m=[0m[0morientation[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2081[0m                     [0mbbox_inches_restore[0m[0;34m=[0m[0m_bbox_inches_restore[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2082[0;31m                     **kwargs)
+[0m[1;32m   2083[0m             [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2084[0m                 [0;32mif[0m [0mbbox_inches[0m [0;32mand[0m [0mrestore_bbox[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py37/lib/python3.7/site-packages/matplotlib/backends/backend_pdf.py[0m in [0;36mprint_pdf[0;34m(self, filename, dpi, bbox_inches_restore, metadata, **kwargs)[0m
+[1;32m   2494[0m             [0mfile[0m [0;34m=[0m [0mfilename[0m[0;34m.[0m[0m_file[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2495[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2496[0;31m             [0mfile[0m [0;34m=[0m [0mPdfFile[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmetadata[0m[0;34m=[0m[0mmetadata[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2497[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2498[0m             [0mfile[0m[0;34m.[0m[0mnewPage[0m[0;34m([0m[0mwidth[0m[0;34m,[0m [0mheight[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py37/lib/python3.7/site-packages/matplotlib/backends/backend_pdf.py[0m in [0;36m__init__[0;34m(self, filename, metadata)[0m
+[1;32m    430[0m         [0mself[0m[0;34m.[0m[0moriginal_file_like[0m [0;34m=[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    431[0m         [0mself[0m[0;34m.[0m[0mtell_base[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 432[0;31m         [0mfh[0m[0;34m,[0m [0mopened[0m [0;34m=[0m [0mcbook[0m[0;34m.[0m[0mto_filehandle[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"wb"[0m[0;34m,[0m [0mreturn_opened[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    433[0m         [0;32mif[0m [0;32mnot[0m [0mopened[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    434[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py37/lib/python3.7/site-packages/matplotlib/cbook/__init__.py[0m in [0;36mto_filehandle[0;34m(fname, flag, return_opened, encoding)[0m
+[1;32m    430[0m             [0mfh[0m [0;34m=[0m [0mbz2[0m[0;34m.[0m[0mBZ2File[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0mflag[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    431[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 432[0;31m             [0mfh[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0mflag[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    433[0m         [0mopened[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    434[0m     [0;32melif[0m [0mhasattr[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'seek'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'puits_infini.pdf'
+PermissionError: [Errno 13] Permission denied: 'puits_infini.pdf'
+
+Executability                            : False

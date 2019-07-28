@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+url = "https://gist.githubusercontent.com/jhamrick/cfa18fcd3032ba435ec78a194b1447be/raw/4a4052c56161df8e454a61ab5286a769799c64b8/task_data.csv"
+urlretrieve(url, "task_data.csv")
+print("Downloaded task_data.csv")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-8b239d8bb9e7>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0murl[0m [0;34m=[0m [0;34m"https://gist.githubusercontent.com/jhamrick/cfa18fcd3032ba435ec78a194b1447be/raw/4a4052c56161df8e454a61ab5286a769799c64b8/task_data.csv"[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0murlretrieve[0m[0;34m([0m[0murl[0m[0;34m,[0m [0;34m"task_data.csv"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0;34m"Downloaded task_data.csv"[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36murlretrieve[0;34m(url, filename, reporthook, data)[0m
+[1;32m    196[0m         [0;31m# Handle temporary file setup.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    197[0m         [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 198[0;31m             [0mtfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    199[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    200[0m             [0mtfp[0m [0;34m=[0m [0mtempfile[0m[0;34m.[0m[0mNamedTemporaryFile[0m[0;34m([0m[0mdelete[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'task_data.csv'
+PermissionError: [Errno 13] Permission denied: 'task_data.csv'
+
+Executability                            : False

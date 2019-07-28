@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+writeFp = open('config.json', 'w')
+json.dump({'b':1, 'a':2}, writeFp, sort_keys=True)
+writeFp.close()
+readFp = open('config.json', 'r')
+for line in readFp:
+    print(line)
+readFp.close()
+
+# separators without spaces reduce json file size
+print(json.dumps({'b':1, 'a':2}, sort_keys=True, separators=(',', ':')))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-7-a76939ee0056>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mwriteFp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'config.json'[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mjson[0m[0;34m.[0m[0mdump[0m[0;34m([0m[0;34m{[0m[0;34m'b'[0m[0;34m:[0m[0;36m1[0m[0;34m,[0m [0;34m'a'[0m[0;34m:[0m[0;36m2[0m[0;34m}[0m[0;34m,[0m [0mwriteFp[0m[0;34m,[0m [0msort_keys[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mwriteFp[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mreadFp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'config.json'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mreadFp[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'config.json'
+PermissionError: [Errno 13] Permission denied: 'config.json'
+
+Executability                            : False

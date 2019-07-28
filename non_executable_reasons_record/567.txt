@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+## print the columns description
+print("Shape of my data frame: {} x {}".format(df.shape[0],df.shape[1]))
+pp = pprint.PrettyPrinter(indent=2)
+pp.pprint(list(df.columns))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-64478d119b93>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m## print the columns description[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mprint[0m[0;34m([0m[0;34m"Shape of my data frame: {} x {}"[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mdf[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m[0mdf[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mpp[0m [0;34m=[0m [0mpprint[0m[0;34m.[0m[0mPrettyPrinter[0m[0;34m([0m[0mindent[0m[0;34m=[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mpp[0m[0;34m.[0m[0mpprint[0m[0;34m([0m[0mlist[0m[0;34m([0m[0mdf[0m[0;34m.[0m[0mcolumns[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
+
+Executability                            : False

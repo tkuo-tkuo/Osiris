@@ -1,0 +1,61 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+url = 'http://pages.stern.nyu.edu/~dbackus/Data/beer_production_1947-2004.xlsx'
+beer = pd.read_excel(url, skiprows=12, index_col=0)
+
+print('Dimensions:', beer.shape)
+beer[list(range(1,11))].head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, io, **kwds)[0m
+[1;32m    351[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 352[0;31m             [0;32mimport[0m [0mxlrd[0m[0;34m[0m[0m
+[0m[1;32m    353[0m         [0;32mexcept[0m [0mImportError[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'xlrd'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-d75c887a9465>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0murl[0m [0;34m=[0m [0;34m'http://pages.stern.nyu.edu/~dbackus/Data/beer_production_1947-2004.xlsx'[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mbeer[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;36m12[0m[0;34m,[0m [0mindex_col[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mprint[0m[0;34m([0m[0;34m'Dimensions:'[0m[0;34m,[0m [0mbeer[0m[0;34m.[0m[0mshape[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mbeer[0m[0;34m[[0m[0mlist[0m[0;34m([0m[0mrange[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m11[0m[0;34m)[0m[0;34m)[0m[0;34m][0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    176[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    177[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0m
+[0;32m--> 178[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    179[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0m
+[1;32m    180[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    176[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    177[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0m
+[0;32m--> 178[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    179[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0m
+[1;32m    180[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/excel.py[0m in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, **kwds)[0m
+[1;32m    305[0m [0;34m[0m[0m
+[1;32m    306[0m     [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mExcelFile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 307[0;31m         [0mio[0m [0;34m=[0m [0mExcelFile[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    308[0m [0;34m[0m[0m
+[1;32m    309[0m     return io.parse(
+
+[0;32m~/miniconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, io, **kwds)[0m
+[1;32m    352[0m             [0;32mimport[0m [0mxlrd[0m[0;34m[0m[0m
+[1;32m    353[0m         [0;32mexcept[0m [0mImportError[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 354[0;31m             [0;32mraise[0m [0mImportError[0m[0;34m([0m[0merr_msg[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    355[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    356[0m             [0mver[0m [0;34m=[0m [0mtuple[0m[0;34m([0m[0mmap[0m[0;34m([0m[0mint[0m[0;34m,[0m [0mxlrd[0m[0;34m.[0m[0m__VERSION__[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m"."[0m[0;34m)[0m[0;34m[[0m[0;34m:[0m[0;36m2[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: Install xlrd >= 0.9.0 for Excel support
+ImportError: Install xlrd >= 0.9.0 for Excel support
+
+Executability                            : False

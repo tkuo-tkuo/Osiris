@@ -1,0 +1,38 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%writefile res/program1.py
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+# This is an example, which contains all the main parts for a proper standalone program
+# Copyright: Harald Schilly <harald.schilly@univie.ac.at>, 2014
+# License: Apache 2.0
+import math
+
+def calculate(x):
+    """
+    The important calculation
+    """
+    if x < 0:
+        y = - x
+    else:
+        y = math.sqrt(x)
+    return x + y
+
+if __name__ == "__main__":
+    z = 21
+    print("Program started, z = %f" % z)
+    result = calculate(z)
+    print("Result = %f" % result)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-b48c49827e33>"[0;36m, line [0;32m3[0m
+[0;31m    %%writefile res/program1.py[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-b48c49827e33>, line 3)
+
+Executability                            : False

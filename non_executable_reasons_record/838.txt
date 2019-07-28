@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import sympy as sy
+from sympy.geometry import Point, Segment, Circle, Line, Triangle
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-320b3be7e0fd>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0msympy[0m [0;32mas[0m [0msy[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0msympy[0m[0;34m.[0m[0mgeometry[0m [0;32mimport[0m [0mPoint[0m[0;34m,[0m [0mSegment[0m[0;34m,[0m [0mCircle[0m[0;34m,[0m [0mLine[0m[0;34m,[0m [0mTriangle[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'sympy'
+ImportError: No module named 'sympy'
+
+Executability                            : False

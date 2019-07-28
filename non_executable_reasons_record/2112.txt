@@ -1,0 +1,71 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# In R, I exported the dataset from package 'ISLR' to an Excel file
+df = pd.read_excel('Data/Default.xlsx')
+
+# Note: factorize() returns two objects: a label array and an array with the unique values.
+# We are only interested in the first object. 
+df['default2'] = df.default.factorize()[0]
+df['student2'] = df.student.factorize()[0]
+df.head(3)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, filepath_or_buffer)[0m
+[1;32m    390[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 391[0;31m             [0;32mimport[0m [0mxlrd[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    392[0m         [0;32mexcept[0m [0mImportError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'xlrd'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-00ebe670de53>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# In R, I exported the dataset from package 'ISLR' to an Excel file[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m'Data/Default.xlsx'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;31m# Note: factorize() returns two objects: a label array and an array with the unique values.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m# We are only interested in the first object.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, parse_cols, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, verbose, parse_dates, date_parser, thousands, comment, skip_footer, skipfooter, convert_float, mangle_dupe_cols, **kwds)[0m
+[1;32m    348[0m [0;34m[0m[0m
+[1;32m    349[0m     [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mExcelFile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 350[0;31m         [0mio[0m [0;34m=[0m [0mExcelFile[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    351[0m [0;34m[0m[0m
+[1;32m    352[0m     return io.parse(
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, io, engine)[0m
+[1;32m    651[0m         [0mself[0m[0;34m.[0m[0m_io[0m [0;34m=[0m [0m_stringify_path[0m[0;34m([0m[0mio[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    652[0m [0;34m[0m[0m
+[0;32m--> 653[0;31m         [0mself[0m[0;34m.[0m[0m_reader[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_engines[0m[0;34m[[0m[0mengine[0m[0;34m][0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_io[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    654[0m [0;34m[0m[0m
+[1;32m    655[0m     [0;32mdef[0m [0m__fspath__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, filepath_or_buffer)[0m
+[1;32m    391[0m             [0;32mimport[0m [0mxlrd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    392[0m         [0;32mexcept[0m [0mImportError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 393[0;31m             [0;32mraise[0m [0mImportError[0m[0;34m([0m[0merr_msg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    394[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    395[0m             [0;32mif[0m [0mxlrd[0m[0;34m.[0m[0m__VERSION__[0m [0;34m<[0m [0mLooseVersion[0m[0;34m([0m[0;34m"1.0.0"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: Install xlrd >= 1.0.0 for Excel support
+ImportError: Install xlrd >= 1.0.0 for Excel support
+
+Executability                            : False

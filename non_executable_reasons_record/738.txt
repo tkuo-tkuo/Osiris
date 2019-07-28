@@ -1,0 +1,22 @@
+3.7
+Python 3.7.3
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from bokeh.plotting import figure 
+from bokeh.io import output_notebook, show
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-337c96fb4a79>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mbokeh[0m[0;34m.[0m[0mplotting[0m [0;32mimport[0m [0mfigure[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mbokeh[0m[0;34m.[0m[0mio[0m [0;32mimport[0m [0moutput_notebook[0m[0;34m,[0m [0mshow[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'bokeh'
+ModuleNotFoundError: No module named 'bokeh'
+
+Executability                            : False

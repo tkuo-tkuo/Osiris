@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+graf_trayectorias("QO2 -> 3i -> LB -> 2j -> 1.0i+1.0j -> FS")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-48-e83b12fceabf>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mgraf_trayectorias[0m[0;34m([0m[0;34m"QO2 -> 3i -> LB -> 2j -> 1.0i+1.0j -> FS"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-47-f471dda34dd6>[0m in [0;36mgraf_trayectorias[0;34m(especificacion)[0m
+[1;32m     23[0m     [0max[0m[0;34m.[0m[0m_axis3don[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     24[0m     [0max[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mxs[0m[0;34m,[0m [0mys[0m[0;34m,[0m [0mzs[0m[0;34m,[0m [0;34m"k-"[0m[0;34m)[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 25[0;31m     [0maxisEqual3D[0m[0;34m([0m[0max[0m[0;34m)[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'axisEqual3D' is not defined
+NameError: name 'axisEqual3D' is not defined
+
+Executability                            : False
