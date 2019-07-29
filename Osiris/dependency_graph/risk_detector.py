@@ -1,7 +1,9 @@
 import ast
-from .dependency_graph_utils import get_code_list
-from .func_calls_visitor import get_func_calls
+#from .dependency_graph_utils import get_code_list
+#from .func_calls_visitor import get_func_calls
 
+from dependency_graph_utils import get_code_list
+from func_calls_visitor import get_func_calls
 whitelist = {
         'numpy.random.*':'numpy.random.seed',
         'sklearn.utils.random.*':'numpy.random.seed',
@@ -83,3 +85,31 @@ def detect(filename):
             return (False, 'inadvisable usage')
     return (True, 'ok')
 
+def is_impeded(smt, import_smts):
+    try:
+        code = "\n".join(import_smts)
+        import_smts_tree = ast.parse(code)
+        id2fullname = get_api_ref_id(import_smts_tree)
+
+        tree = ast.parse(smt)
+        cell_func_calls_names = get_func_calls(tree, extended=True)
+        cell_func_calls_names = [tmp[0] for tmp in cell_func_calls_names]
+        cell_func_calls_names = func_call_format(cell_func_calls_names, id2fullname)
+        sol = match_whitelist(cell_func_calls_names[0])
+        if sol is not None:
+            return True
+        return False
+
+    except (SyntaxError,):  # to avoid non-python code
+        return (False, 'SyntaxError')
+
+"""
+example code 
+
+smts = [
+        'import numpy as np',
+        'import random',
+        'from random import shuffle'
+        ]
+print(is_impeded('np.random.randint()', smts))
+"""
