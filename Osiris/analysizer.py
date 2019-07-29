@@ -113,19 +113,21 @@ class Analysizer():
         for cell in cells :
             cell_statements = cell.source.split('\n')
             for statement in cell_statements:
-                if is_statement_contain_randomness(statement, import_statements):
-                    print(statement)
-        # Currently, Osiris will repair:
-        # 1. Functions involve randomness 
-        # PENDING 
-        # Wait for Jaiwei's interface to integreate 
+                # Currently, Osiris will repair:
+                # 1. Functions involve randomness 
+                # WORKING -> BUGGY
+                try:
+                    if is_statement_contain_randomness(statement, import_statements):
+                        print('statement contains randomness detected:', statement) # Debug purpose
+                except Exception as e:
+                    # print(e) # Debug purpose
+                    pass 
 
-        # 2. Time related functions 
-        # PENDING
+                # 2. Time related functions 
+                # PENDING
 
-        # 3. More 
-        # PENDING
-        pass 
+                # 3. More 
+                # PENDING
 
     def return_py_version(self):
         return self._py_version

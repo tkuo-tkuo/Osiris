@@ -85,7 +85,6 @@ def detect(filename):
     return (True, 'ok')
 
 def is_impeded(smt, import_smts):
-    print(smt, import_smts)
     try:
         code = "\n".join(import_smts)
         import_smts_tree = ast.parse(code)
@@ -120,4 +119,6 @@ Issue case
 smt = 'import random'
 import_smts = ['import random ', 'from IPython.display import Image ']
 print(is_impeded(smt, import_smts)) # should return False
+
+Error: list index out of range
 '''
