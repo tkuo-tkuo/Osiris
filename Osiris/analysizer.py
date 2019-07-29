@@ -28,9 +28,12 @@ class Analysizer():
         self._py_version = self._extract_py_version()
 
         # evaluate the name of kernel -> avoid the usage of inappropriate kernels like 'Python [Root]' or 'conda-root-py'
-        kernal_name = self._nb['metadata']['kernelspec']['name']
-        if kernal_name not in ['python2', 'python3']:
-            self._nb['metadata']['kernelspec']['name'] = 'python3'
+        try:
+            kernal_name = self._nb['metadata']['kernelspec']['name']
+            if kernal_name not in ['python2', 'python3']:
+                self._nb['metadata']['kernelspec']['name'] = 'python3'
+        except:
+            pass 
 
         # clean redundant (unexecuted/markdown/raw) cells
         self._clean_redundant_cells()
@@ -38,10 +41,12 @@ class Analysizer():
 
     def _extract_py_version(self):
         meta_info = self._nb.metadata
-        py_version_lst = meta_info['language_info']['version'].split('.')
-        py_version = py_version_lst[0]+'.'+py_version_lst[1]
-
-        return py_version
+        try:
+            py_version_lst = meta_info['language_info']['version'].split('.')
+            py_version = py_version_lst[0]+'.'+py_version_lst[1]
+            return py_version
+        except:
+            return None
 
     def _extract_import_statements(self):
         import_statements = []
