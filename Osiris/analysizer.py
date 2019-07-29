@@ -99,6 +99,22 @@ class Analysizer():
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
 
     def _best_effort_repair(self):
+        whitelist = ['from', 'import']
+        import_statements = []
+        cells = copy.deepcopy(self._nb.cells)
+        for cell in cells:
+            cell_statements = cell.source.split('\n')
+            for statement in cell_statements:
+                if any(substr in statement for substr in whitelist):
+                    import_statements.append(statement)
+        
+        print(import_statements)
+
+        for cell in cells :
+            cell_statements = cell.source.split('\n')
+            for statement in cell_statements:
+                if is_statement_contain_randomness(statement, import_statements):
+                    print(statement)
         # Currently, Osiris will repair:
         # 1. Functions involve randomness 
         # PENDING 
@@ -148,13 +164,11 @@ class Analysizer():
             try:
                 self._nb = copy.deepcopy(self._deep_copy_nb)
                 if match_pattern == 'strong':
-                    original_outputs = extract_outputs_based_on_dependency_order(
-                        self._nb.cells, execution_order)
+                    original_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
                 elif match_pattern == 'weak':
                     self._set_ep_as_dependency_mode(execution_order)
                     self._execute_nb()
-                    original_outputs = extract_outputs_based_on_normal_order(
-                        self._nb.cells)
+                    original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
                 else:  # best-effort (PENDING)
                     pass
 
@@ -185,8 +199,7 @@ class Analysizer():
                     match_ratio = 1
                 else:
                     match_ratio = num_of_matched_cells/num_of_cells
-                source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(
-                    self._nb.cells, unmatched_cell_idx)
+                source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
 
                 print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
                     num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))

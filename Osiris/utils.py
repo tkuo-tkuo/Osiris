@@ -5,7 +5,7 @@ import collections
 import numpy as np
 
 from .dependency_graph import DependencyGraph
-from .dependency_graph import get_code_list, detect, get_path_by_extension, find_local_modules
+from .dependency_graph import get_code_list, detect, is_impeded, get_path_by_extension, find_local_modules
 
 '''
 The following utils functions are high-level usage of Jarix's implementation
@@ -19,6 +19,9 @@ def return_traverse_path(root_path):
 
 def risk_detect(path):
     return detect(path)
+
+def is_statement_contain_randomness(statement, list_of_import_statements):
+    return is_impeded(statement, list_of_import_statements)
 
 def bfs(graph, root):
     visited, queue = set(), collections.deque([root])

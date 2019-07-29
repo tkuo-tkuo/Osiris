@@ -1,9 +1,8 @@
 import ast
-#from .dependency_graph_utils import get_code_list
-#from .func_calls_visitor import get_func_calls
 
-from dependency_graph_utils import get_code_list
-from func_calls_visitor import get_func_calls
+from .dependency_graph_utils import get_code_list
+from .func_calls_visitor import get_func_calls
+
 whitelist = {
         'numpy.random.*':'numpy.random.seed',
         'sklearn.utils.random.*':'numpy.random.seed',
@@ -86,6 +85,7 @@ def detect(filename):
     return (True, 'ok')
 
 def is_impeded(smt, import_smts):
+    print(smt, import_smts)
     try:
         code = "\n".join(import_smts)
         import_smts_tree = ast.parse(code)
@@ -113,3 +113,11 @@ smts = [
         ]
 print(is_impeded('np.random.randint()', smts))
 """
+
+''' 
+Issue case 
+
+smt = 'import random'
+import_smts = ['import random ', 'from IPython.display import Image ']
+print(is_impeded(smt, import_smts)) # should return False
+'''
