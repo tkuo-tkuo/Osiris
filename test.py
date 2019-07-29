@@ -7,6 +7,7 @@ import Osiris
 
 test_executability_notebook_path = 'tests/test_executability.ipynb'
 test_reproducibility_notebook_path = 'tests/test_reproducibility.ipynb'
+test_best_effort_notebook_path = 'tests/test_best_effort.ipynb' # It's for sub testset among reproducibility test set 
 test_self_reproducibility_notebook_path = 'tests/test_self_reproducibility.ipynb'
 test_debug_for_a_cell_notebook_path = 'tests/test_debug_for_a_cell.ipynb'
 
@@ -44,64 +45,80 @@ class TestOsiris(unittest.TestCase):
         self.assertEqual(is_executable, True)
 
     '''
-    The following 6 unit tests focus reproducibility
+    The following 9 unit tests focus reproducibility
     '''
     def test_top_down_strong_reproducibility(self):
         interface = Osiris.UserInterface(test_reproducibility_notebook_path, 'normal', verbose)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('strong')
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('strong')
         self.assertEqual(num_of_matched_cells, 6)
         self.assertEqual(num_of_cells, 8)
 
     def test_top_down_weak_reproducibility(self):
         interface = Osiris.UserInterface(test_reproducibility_notebook_path, 'normal', verbose)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('weak')
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('weak')
         self.assertEqual(num_of_matched_cells, 8)
         self.assertEqual(num_of_cells, 8)
 
     def test_OEC_strong_reproducibility(self):
         interface = Osiris.UserInterface(test_reproducibility_notebook_path, 'OEC', verbose)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('strong')
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('strong')
         self.assertEqual(num_of_matched_cells, 8)
         self.assertEqual(num_of_cells, 8)
 
     def test_OEC_weak_reproducibility(self):
         interface = Osiris.UserInterface(test_reproducibility_notebook_path, 'OEC', verbose)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('weak')
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('weak')
         self.assertEqual(num_of_matched_cells, 8)
         self.assertEqual(num_of_cells, 8)
 
     def test_dependency_strong_reproducibility(self):
         interface = Osiris.UserInterface(test_reproducibility_notebook_path, 'dependency', verbose)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('strong')
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('strong')
         self.assertEqual(num_of_matched_cells, 7) # BUGGY STATEMENT 
         self.assertEqual(num_of_cells, 8)
 
     def test_dependency_weak_reproducibility(self):
         interface = Osiris.UserInterface(test_reproducibility_notebook_path, 'dependency', verbose)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('weak')
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('weak')
         self.assertEqual(num_of_matched_cells, 8)
         self.assertEqual(num_of_cells, 8)
+
+    # For best_effort match pattern, we carefully crafted a notebook for testing best_effort match pattern 
+    def test_top_down_best_effort_reproducibility(self):
+        interface = Osiris.UserInterface(test_best_effort_notebook_path, 'normal', verbose)
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('best_effort')
+        print(num_of_matched_cells, num_of_cells)
+
+    def test_OEC_best_effort_reproducibility(self):
+        interface = Osiris.UserInterface(test_best_effort_notebook_path, 'OEC', verbose)
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('best_effort')
+        print(num_of_matched_cells, num_of_cells)
+        
+    def test_dependency_best_effort_reproducibility(self):
+        interface = Osiris.UserInterface(test_best_effort_notebook_path, 'dependency', verbose)
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('best_effort')
+        print(num_of_matched_cells, num_of_cells)
 
     '''
     The following 3 unit tests focus self-reproducibility
     '''
     def test_top_down_self_reproducibility(self):
         interface = Osiris.UserInterface(test_self_reproducibility_notebook_path, 'normal', verbose)
-        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_self_reproducibility()
+        num_of_reproducible_cells, num_of_cells, _, reproducible_cell_idx = interface.analyse_self_reproducibility()
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
         self.assertEqual(reproducible_cell_idx, [0, 3])
 
     def test_OEC_self_reproducibility(self):
         interface = Osiris.UserInterface(test_self_reproducibility_notebook_path, 'OEC', verbose)
-        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_self_reproducibility()
+        num_of_reproducible_cells, num_of_cells, _, reproducible_cell_idx = interface.analyse_self_reproducibility()
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
         self.assertEqual(reproducible_cell_idx, [0, 1])
 
     def test_dependency_self_reproducibility(self):
         interface = Osiris.UserInterface(test_self_reproducibility_notebook_path, 'dependency', verbose)
-        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = interface.analyse_self_reproducibility()
+        num_of_reproducible_cells, num_of_cells, _, _ = interface.analyse_self_reproducibility()
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
 
@@ -128,13 +145,13 @@ class TestOsiris(unittest.TestCase):
     '''
     def test_image_IPythonDisplay(self):
         interface = Osiris.UserInterface(test_IPythonDisplay_notebook_path, 'OEC', verbose)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('weak')
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('weak')
         self.assertEqual(num_of_matched_cells, 1)
         self.assertEqual(num_of_cells, 1)
 
     def test_image_Matplotlib(self):
         interface = Osiris.UserInterface(test_Matplotlib_notebook_path, 'OEC', verbose)
-        num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_from_unmatched_cells = interface.analyse_reproducibility('weak')
+        num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('weak')
         self.assertEqual(num_of_matched_cells, 2)
         self.assertEqual(num_of_cells, 2)
 

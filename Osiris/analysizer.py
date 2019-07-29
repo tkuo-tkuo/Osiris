@@ -98,6 +98,19 @@ class Analysizer():
     def _execute_nb(self):
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
 
+    def _best_effort_repair(self):
+        # Currently, Osiris will repair:
+        # 1. Functions involve randomness 
+        # PENDING 
+        # Wait for Jaiwei's interface to integreate 
+
+        # 2. Time related functions 
+        # PENDING
+
+        # 3. More 
+        # PENDING
+        pass 
+
     def return_py_version(self):
         return self._py_version
 
@@ -222,24 +235,27 @@ class Analysizer():
 
         # Extract two outputs according to aanalyse_strategy and strong/weak match 
         if analyse_strategy == 'OEC':
-
             # Extract the original outputs 
             self._nb = copy.deepcopy(self._deep_copy_nb)
+
             if match_pattern == 'strong':
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
             elif match_pattern == 'weak': 
-
                 self._set_ep_as_OEC_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
-            else: # best-effort (PENDING)
-                pass 
+            else: # best-effort 
+                self._best_effort_repair() #PENDING
+                self._set_ep_as_OEC_mode()
+                self._execute_nb()
+                original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
 
             # Extract the executed outputs 
             self._nb = copy.deepcopy(self._deep_copy_nb)
             self._set_ep_as_OEC_mode()
             self._execute_nb()
             executed_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
+
         elif analyse_strategy == 'normal':
 
             # Extract the original outputs

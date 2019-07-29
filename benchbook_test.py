@@ -207,5 +207,6 @@ class Benchbook(unittest.TestCase):
         results = interface.analyse_reproducibility('strong')
         self.assertEqual(results, [None, 1.0])
 
+
 if __name__ == '__main__':
     unittest.main()
