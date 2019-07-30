@@ -29,7 +29,8 @@ then
     conda activate Osiris_py37 
 elif [ "$py_version" = "2.7" ]
 then
-    conda activate Osiris_py27 
+    # conda activate Osiris_py27
+    return  
 elif [ "$py_version" = "3.4" ]
 then
     conda activate Osiris_py34
