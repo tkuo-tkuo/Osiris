@@ -29,12 +29,10 @@ then
     conda activate Osiris_py37 
 elif [ "$py_version" = "2.7" ]
 then
-    # echo "Osiris currently does not implement for python2.7/3.4"
-    return 
+    conda activate Osiris_py27 
 elif [ "$py_version" = "3.4" ]
 then
-    # echo "Osiris currently does not implement for python2.7/3.4"
-    conda activate Osiris_py36
+    conda activate Osiris_py34
 else 
     echo "$py_version"
     return 
