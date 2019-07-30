@@ -125,3 +125,11 @@ print(is_impeded(smt, import_smts)) # should return False
 
 Error: list index out of range
 '''
+
+'''
+Cases: 
+1. Input: ‘a = random.randint(0,3)', ['import random']
+2. Input: 'nump.random.randint(5)', ['import numpy']
+3. Input: 'np.random.randint(5)', ['import numpy as np']
+4. pending
+'''
