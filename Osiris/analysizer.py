@@ -1,5 +1,6 @@
 import nbformat
 import copy
+
 from nbconvert.preprocessors import ExecutePreprocessor
 from .ExecutePreprocessors import OECPreprocessor, SelfReproducibilityCheckPreprocessor, StatusInspectionPreprocessor, DependencyPreprocessor
 
@@ -98,6 +99,14 @@ class Analysizer():
     def _execute_nb(self):
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
 
+    def _return_fix_statement(self, statement):
+        # Pretend let the given statement using random module 
+        # (logic here)
+
+
+        # Remove this hard-coded return when the logic is complete 
+        return 'random.seed(10)'.rjust(len(statement) - len(statement.lstrip()))
+
     def _best_effort_repair(self):
         whitelist = ['from', 'import']
         import_statements = []
@@ -105,29 +114,26 @@ class Analysizer():
         for cell in cells:
             cell_statements = cell.source.split('\n')
             for statement in cell_statements:
+                # Detect whether this statement is our target (random/time)
                 if any(substr in statement for substr in whitelist):
                     import_statements.append(statement)
         
-        print(import_statements)
-
-        for cell in cells :
+        for cell_idx, cell in enumerate(cells):
             cell_statements = cell.source.split('\n')
-            for statement in cell_statements:
-                # Currently, Osiris will repair:
-                # 1. Functions involve randomness 
-                # WORKING -> BUGGY
+            return_cell_statements = copy.deepcopy(cell_statements)
+            for idx, statement in enumerate(cell_statements):
+                # Detect whether this statement is our target (random/time)
                 try:
                     if is_statement_contain_randomness(statement, import_statements):
-                        print('statement contains randomness detected:', statement) # Debug purpose
-                except Exception as e:
-                    # print(e) # Debug purpose
-                    pass 
+                        fix_statement = self._return_fix_statement(statement)
+                        return_cell_statements.insert(idx, fix_statement)
+                except:
+                    pass
+            
+            return_source_code = '\n'.join(return_cell_statements)
+            cells[cell_idx].source = return_source_code
 
-                # 2. Time related functions 
-                # PENDING
-
-                # 3. More 
-                # PENDING
+        self._nb.cells = cells
 
     def return_py_version(self):
         return self._py_version
@@ -267,6 +273,9 @@ class Analysizer():
 
             # Extract the executed outputs 
             self._nb = copy.deepcopy(self._deep_copy_nb)
+            if match_pattern == 'best_effort':
+                self._best_effort_repair()
+
             self._set_ep_as_OEC_mode()
             self._execute_nb()
             executed_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
@@ -282,10 +291,15 @@ class Analysizer():
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
             else: # best-effort (PENDING)
-                pass 
+                self._best_effort_repair() #PENDING
+                self._set_ep_as_normal_mode()
+                self._execute_nb()
+                original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
 
             # Extract the executed outputs
             self._nb = copy.deepcopy(self._deep_copy_nb)
+            if match_pattern == 'best_effort':
+                self._best_effort_repair()
             self._set_ep_as_normal_mode()
             self._execute_nb()
             executed_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
@@ -301,10 +315,15 @@ class Analysizer():
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
             else:  # best-effort (PENDING)
-                pass
+                self._best_effort_repair() #PENDING
+                self._set_ep_as_dependency_mode(execution_order)
+                self._execute_nb()
+                original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
 
             # Extract the executed outputs
             self._nb = copy.deepcopy(self._deep_copy_nb)
+            if match_pattern == 'best_effort':
+                self._best_effort_repair()
             self._set_ep_as_dependency_mode(execution_order)
             self._execute_nb()
             executed_outputs = extract_outputs_based_on_normal_order(self._nb.cells)

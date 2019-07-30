@@ -92,10 +92,11 @@ def is_impeded(smt, import_smts):
 
         tree = ast.parse(smt)
         cell_func_calls_names = get_func_calls(tree, extended=True)
-        if len(cell_func_calls_names) == 0:
-            return False
         cell_func_calls_names = [tmp[0] for tmp in cell_func_calls_names]
         cell_func_calls_names = func_call_format(cell_func_calls_names, id2fullname)
+        
+        if len(cell_func_calls_names) == 0:
+            return False
         sol = match_whitelist(cell_func_calls_names[0])
         if sol is not None:
             return True
@@ -123,4 +124,12 @@ import_smts = ['import random ', 'from IPython.display import Image ']
 print(is_impeded(smt, import_smts)) # should return False
 
 Error: list index out of range
+'''
+
+'''
+Cases: 
+1. Input: ‘a = random.randint(0,3)', ['import random']
+2. Input: 'nump.random.randint(5)', ['import numpy']
+3. Input: 'np.random.randint(5)', ['import numpy as np']
+4. pending
 '''
