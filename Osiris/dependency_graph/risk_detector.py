@@ -92,6 +92,8 @@ def is_impeded(smt, import_smts):
 
         tree = ast.parse(smt)
         cell_func_calls_names = get_func_calls(tree, extended=True)
+        if len(cell_func_calls_names) == 0:
+            return False
         cell_func_calls_names = [tmp[0] for tmp in cell_func_calls_names]
         cell_func_calls_names = func_call_format(cell_func_calls_names, id2fullname)
         sol = match_whitelist(cell_func_calls_names[0])
