@@ -4,10 +4,10 @@ from .dependency_graph_utils import get_code_list
 from .func_calls_visitor import get_func_calls
 
 whitelist = {
-        'numpy.random.*':'numpy.random.seed',
-        'sklearn.utils.random.*':'numpy.random.seed',
-        'random.*':'random.seed',
-        'scipy.sparse.random.*':'numpy.random.seed'
+        'numpy.random.*':'numpy.random.seed(100)',
+        'sklearn.utils.random.*':'numpy.random.seed(100)',
+        'random.*':'random.seed(100)',
+        'scipy.sparse.random.*':'numpy.random.seed(100)'
         }
 
 def match_api(func_call_name, api_name):
@@ -94,7 +94,7 @@ def is_impeded(smt, import_smts):
         cell_func_calls_names = get_func_calls(tree, extended=True)
         cell_func_calls_names = [tmp[0] for tmp in cell_func_calls_names]
         cell_func_calls_names = func_call_format(cell_func_calls_names, id2fullname)
-        
+ 
         if len(cell_func_calls_names) == 0:
             return False
         sol = match_whitelist(cell_func_calls_names[0])
@@ -104,6 +104,27 @@ def is_impeded(smt, import_smts):
 
     except (SyntaxError,):  # to avoid non-python code
         return (False, 'SyntaxError')
+
+def get_antidote(smt, import_smts):
+    try:
+        code = "\n".join(import_smts)
+        import_smts_tree = ast.parse(code)
+        id2fullname = get_api_ref_id(import_smts_tree)
+
+        tree = ast.parse(smt)
+        cell_func_calls_names = get_func_calls(tree, extended=True)
+        cell_func_calls_names = [tmp[0] for tmp in cell_func_calls_names]
+        cell_func_calls_names = func_call_format(cell_func_calls_names, id2fullname)
+        
+        if len(cell_func_calls_names) == 0:
+            return None
+        sol = match_whitelist(cell_func_calls_names[0])
+        return sol
+
+    except (SyntaxError,):  # to avoid non-python code
+        print('SyntaxError')
+        return None
+    
 
 """
 example code 
