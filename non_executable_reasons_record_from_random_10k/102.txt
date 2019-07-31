@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+for kern in kernel_options:
+    sns.kdeplot(dataset,kernel=kern,label=kern,shade=True,alpha=0.5)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-14-6498d62b5a4e>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfor[0m [0mkern[0m [0;32min[0m [0mkernel_options[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0msns[0m[0;34m.[0m[0mkdeplot[0m[0;34m([0m[0mdataset[0m[0;34m,[0m[0mkernel[0m[0;34m=[0m[0mkern[0m[0;34m,[0m[0mlabel[0m[0;34m=[0m[0mkern[0m[0;34m,[0m[0mshade[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0malpha[0m[0;34m=[0m[0;36m0.5[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'kernel_options' is not defined
+NameError: name 'kernel_options' is not defined
+
+Executability                            : False

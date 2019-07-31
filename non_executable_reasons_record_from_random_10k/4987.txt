@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from keras.layers import Bidirectional, Concatenate, Permute, Dot, Input, LSTM, Multiply
+from keras.layers import RepeatVector, Dense, Activation, Lambda
+from keras.optimizers import Adam
+from keras.utils import to_categorical
+from keras.models import load_model, save_model, Model
+import keras.backend as K
+import numpy as np
+
+from faker import Faker
+import random
+from tqdm import tqdm
+from babel.dates import format_date
+from nmt_utils import *
+import matplotlib.pyplot as plt
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-5c9e13e894aa>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mBidirectional[0m[0;34m,[0m [0mConcatenate[0m[0;34m,[0m [0mPermute[0m[0;34m,[0m [0mDot[0m[0;34m,[0m [0mInput[0m[0;34m,[0m [0mLSTM[0m[0;34m,[0m [0mMultiply[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mRepeatVector[0m[0;34m,[0m [0mDense[0m[0;34m,[0m [0mActivation[0m[0;34m,[0m [0mLambda[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0moptimizers[0m [0;32mimport[0m [0mAdam[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'keras'
+ModuleNotFoundError: No module named 'keras'
+
+Executability                            : False

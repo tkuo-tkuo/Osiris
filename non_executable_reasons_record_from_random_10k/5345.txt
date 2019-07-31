@@ -1,0 +1,49 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from nltk import Tree
+tree=Tree.fromstring("""
+S -> NP VP | kon NP VP | NP VP S | S S
+NP -> det n | det adj n | adj n | pp
+VP -> v | v NP | v ADJP | VP kon VP
+ADJP -> adj | adv adj
+adj  -> 'outnumbered' | 'more'
+det  -> 'the'
+kon  -> 'When' | 'because'
+n  -> 'Parisians' | 'Greeks' | 'Persians' | 'men'
+pp  -> 'they'
+v  -> 'fought' | 'were' | 'had'
+""")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-5-a4eb606ecd57>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     11[0m [0mpp[0m  [0;34m->[0m [0;34m'they'[0m[0;34m[0m[0m
+[1;32m     12[0m [0mv[0m  [0;34m->[0m [0;34m'fought'[0m [0;34m|[0m [0;34m'were'[0m [0;34m|[0m [0;34m'had'[0m[0;34m[0m[0m
+[0;32m---> 13[0;31m """)
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/tree.py[0m in [0;36mfromstring[0;34m(cls, s, brackets, read_node, read_leaf, node_pattern, leaf_pattern, remove_empty_top_bracketing)[0m
+[1;32m    632[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    633[0m                 [0;32mif[0m [0mlen[0m[0;34m([0m[0mstack[0m[0;34m)[0m [0;34m==[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 634[0;31m                     [0mcls[0m[0;34m.[0m[0m_parse_error[0m[0;34m([0m[0ms[0m[0;34m,[0m [0mmatch[0m[0;34m,[0m [0mopen_b[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    635[0m                 [0;32mif[0m [0mread_leaf[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m [0mtoken[0m [0;34m=[0m [0mread_leaf[0m[0;34m([0m[0mtoken[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    636[0m                 [0mstack[0m[0;34m[[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mtoken[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/tree.py[0m in [0;36m_parse_error[0;34m(cls, s, match, expecting)[0m
+[1;32m    677[0m             [0moffset[0m [0;34m=[0m [0;36m13[0m[0;34m[0m[0m
+[1;32m    678[0m         [0mmsg[0m [0;34m+=[0m [0;34m'\n%s"%s"\n%s^'[0m [0;34m%[0m [0;34m([0m[0;34m' '[0m[0;34m*[0m[0;36m16[0m[0;34m,[0m [0ms[0m[0;34m,[0m [0;34m' '[0m[0;34m*[0m[0;34m([0m[0;36m17[0m[0;34m+[0m[0moffset[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 679[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0mmsg[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    680[0m [0;34m[0m[0m
+[1;32m    681[0m     [0;31m#////////////////////////////////////////////////////////////[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: Tree.read(): expected '(' but got 'S'
+            at index 1.
+                " S -> NP VP..."
+                  ^
+ValueError: Tree.read(): expected '(' but got 'S'
+            at index 1.
+                " S -> NP VP..."
+                  ^
+
+Executability                            : False

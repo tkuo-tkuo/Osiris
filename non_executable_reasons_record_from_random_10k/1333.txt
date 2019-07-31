@@ -1,0 +1,61 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import chap01soln
+import thinkplot
+import math
+import numpy as np
+import nsfg
+import thinkstats2
+
+
+def BiasPmf(pmf, label=''):
+    """Returns the Pmf with oversampling proportional to value.
+
+    If pmf is the distribution of true values, the result is the
+    distribution that would be seen if values are oversampled in
+    proportion to their values; for example, if you ask students
+    how big their classes are, large classes are oversampled in
+    proportion to their size.
+
+    Args:
+      pmf: Pmf object.
+      label: string label for the new Pmf.
+
+     Returns:
+       Pmf object
+    """
+    new_pmf = pmf.Copy(label=label)
+
+    for x, p in pmf.Items():
+        new_pmf.Mult(x, x)
+        
+    new_pmf.Normalize()
+    return new_pmf
+
+
+
+#resp = chap01soln.ReadFemResp()
+ts = resp.numkdhh
+pmf = thinkstats2.Pmf(ts, label='actual')
+biased_pmf = BiasPmf(pmf, label='observed')
+thinkplot.Pmfs([pmf, biased_pmf])
+thinkplot.Show(xlabel='class size', ylabel='PMF')
+
+print('pmf mean', pmf.Mean())
+print('biased mean', biased_pmf.Mean())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-59cd778bc009>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     34[0m [0;34m[0m[0m
+[1;32m     35[0m [0;31m#resp = chap01soln.ReadFemResp()[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 36[0;31m [0mts[0m [0;34m=[0m [0mresp[0m[0;34m.[0m[0mnumkdhh[0m[0;34m[0m[0m
+[0m[1;32m     37[0m [0mpmf[0m [0;34m=[0m [0mthinkstats2[0m[0;34m.[0m[0mPmf[0m[0;34m([0m[0mts[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'actual'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     38[0m [0mbiased_pmf[0m [0;34m=[0m [0mBiasPmf[0m[0;34m([0m[0mpmf[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'observed'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'resp' is not defined
+NameError: name 'resp' is not defined
+
+Executability                            : False

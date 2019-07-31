@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from pyspatial.vector import read_layer
+import pandas as pd
+pd.set_option("display.max_columns", 99)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-e90b3cb45c1e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mpyspatial[0m[0;34m.[0m[0mvector[0m [0;32mimport[0m [0mread_layer[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mpd[0m[0;34m.[0m[0mset_option[0m[0;34m([0m[0;34m"display.max_columns"[0m[0;34m,[0m [0;36m99[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pyspatial'
+ModuleNotFoundError: No module named 'pyspatial'
+
+Executability                            : False

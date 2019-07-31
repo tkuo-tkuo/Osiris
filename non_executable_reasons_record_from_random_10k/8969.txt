@@ -1,0 +1,36 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+def Betrag(x): #Sorgt dafür, dass x immer positiv ist.
+    if x<0:
+        x=-x #Sobald x negativ ist, wird x positiv gemacht.
+    return(x) #Gibt den x-Wert zurück-
+def my_sqrt(x): #Zieht die wurzel aus x.
+    Genauigkeit = False #Ändert sich im Laufe der nächsten while-Schleife zu False, wenn die Genauigkeit von 2 aufeinadnerfolgenden Zahlen erreicht ist.
+    Fa=1
+    Fb=1 #Legt die Anfangswerte bei 1 fest.
+    Maschinengenauigkeit=2**(-24) #Definiert die Maschinengenauigkeit. 
+    ############ Maschinengenauigkeit fuer double precision ist 2 ** -53 -2
+    while Genauigkeit!=True: #Solange die Funktion Genauigkeit ungleich True ist, läuft die while-Schleife.
+        F=AllgFib(F0=Fa, F1=Fb, a=2, b=x-1) #F ist eine Liste, welche 3 aufeinanderfolgende Fibonaccizahlen enthält.
+        if (Betrag(F[2]/F[2-1]-F[2-1]/F[2-2]))<Maschinengenauigkeit: #Greift, wenn die Betragsfunktion kleiner als die Funktion der Maschinengenauigkeit ist.
+            Genauigkeit=True #Setzt die Funktion Genauigkeit auf True, was die while-Schleife stoppt.
+        else: #Ist die Betragsfunktion größer als die Funktion der Maschinengenauigkeit, läuft die wihle-Schleife weiter.
+            Fa=F[1];Fb=F[2] #Die Stelle F[2] in der nächsten Liste F,der Größe 3, besitzt durch diese Anweisung die nächst höhere Fibonaccizahl im Vergleich zu F[2] in dieser Liste F.
+    lim=F[2]/F[2-1] #Berechnet den Grenzwert der Folge Fn/Fn-1, was näherungsweise gleichzusetzen ist mit 1+ der Wurzel aus x.
+    return(lim-1) #Gibt den Grenzwert zurück und gleicht das +1 aus.       
+print ("Ergebnis   von mir:", my_sqrt(2))
+print ("Ergebnis von Numpy:", np.sqrt(2))  
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-8b6f88296b6b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     18[0m     [0;32mreturn[0m[0;34m([0m[0mlim[0m[0;34m-[0m[0;36m1[0m[0;34m)[0m [0;31m#Gibt den Grenzwert zurück und gleicht das +1 aus.[0m[0;34m[0m[0m
+[1;32m     19[0m [0mprint[0m [0;34m([0m[0;34m"Ergebnis   von mir:"[0m[0;34m,[0m [0mmy_sqrt[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 20[0;31m [0mprint[0m [0;34m([0m[0;34m"Ergebnis von Numpy:"[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0msqrt[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

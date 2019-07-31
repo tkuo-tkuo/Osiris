@@ -1,0 +1,183 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+
+# Grab list of crop variables from a csv
+item_list <- read.csv("~/2num.csv", header = FALSE)
+izem <- data.frame(item_list[1,])
+
+# Grab list of crop codes and urls
+urllists <- read.csv("~/datasheeturl.csv")
+
+#Create variable of all urls
+webpages <- (urllists)
+
+truncated <- data.frame(urllists[1:3,])
+
+# Grab list of crop variables from a csv
+item_list <- read.csv("~/2num.csv", header = FALSE)
+
+
+
+# for loop to move through
+for(i in 1:nrow(truncated)) {
+  url <- toString(truncated[i,1])
+  html <- read_html(url)
+
+  #Grab the species name
+  species <- html_text(html_nodes(html, "h2"))
+  
+  # Create empty list to add table data into
+  tbls2_ls <- list()
+  
+  # Specify which table(s) from html you want to grab & name them something useful (e.g., Ecology, ... , Uses)
+  tbls2_ls$Description <- html %>%
+    html_nodes("table") %>% 
+    .[1] %>%
+    html_table(fill = TRUE) %>%
+    .[[1]]
+  
+  tbls2_ls$Ecology <- html %>%
+    html_nodes("table") %>% 
+    .[2] %>%
+    html_table(fill = TRUE) %>%
+    .[[1]]
+  
+  tbls2_ls$ClimaticZone <- html %>%
+    html_nodes("table") %>% 
+    .[3] %>%
+    html_table(fill = TRUE) %>%
+    .[[1]]
+  
+  tbls2_ls$Cultivation <- html %>%
+    html_nodes("table") %>% 
+    .[4] %>%
+    html_table(fill = TRUE) %>%
+    .[[1]]
+  
+  tbls2_ls$Uses <- html %>%
+    html_nodes("table") %>% 
+    .[6] %>%
+    html_table(fill = TRUE) %>%
+    .[[1]]
+  
+  
+  #Clean up 'Uses' table into a better format
+  # Rename columns with variables in first row
+  colnames(tbls2_ls$Uses) <- tbls2_ls$Uses[1,]
+  
+  #Remove first row
+  tbls2_ls$Uses <- tbls2_ls$Uses[-1,]
+  
+# Assign variables from table data
+  
+  
+  # Creates variables that concide with item_list 
+  
+  c1 <- "crop code should go here"
+  c2 <- species
+  c3 <- tbls2_ls$Description[1, 2]
+  c4 <- tbls2_ls$Description[2, 2]
+  c5 <- tbls2_ls$Description[3, 2]
+  c6 <- tbls2_ls$Description[1, 4]
+  c7 <- tbls2_ls$Description[2, 4]
+  c8 <- tbls2_ls$Description[3, 4]
+  c9 <- tbls2_ls$Ecology[3,2]
+  c10 <- tbls2_ls$Ecology[3,3]
+  c11 <- tbls2_ls$Ecology[3,4]
+  c12 <- tbls2_ls$Ecology[3,5]
+  c13 <- tbls2_ls$Ecology[4,2]
+  c14 <- tbls2_ls$Ecology[4,3]
+  c15 <- tbls2_ls$Ecology[4,4]
+  c16 <- tbls2_ls$Ecology[4,5]
+  c17 <- tbls2_ls$Ecology[5,2]
+  c18 <- tbls2_ls$Ecology[5,3]
+  c19 <- tbls2_ls$Ecology[5,4]
+  c20 <- tbls2_ls$Ecology[5,5]
+  c21 <- tbls2_ls$Ecology[6,2]
+  c22 <- tbls2_ls$Ecology[6,3]
+  c23 <- tbls2_ls$Ecology[6,4]
+  c24 <- tbls2_ls$Ecology[6,5]
+  c25 <- tbls2_ls$Ecology[7,2]
+  c26 <- tbls2_ls$Ecology[7,3]
+  c27 <- tbls2_ls$Ecology[7,4]
+  c28 <- tbls2_ls$Ecology[7,5]
+  c29 <- tbls2_ls$Ecology[8,2]
+  c30 <- tbls2_ls$Ecology[8,3]
+  c31 <- tbls2_ls$Ecology[8,4]
+  c32 <- tbls2_ls$Ecology[8,5]
+  c33 <- tbls2_ls$Ecology[2,7]
+  c34 <- tbls2_ls$Ecology[2,8]
+  c35 <- tbls2_ls$Ecology[3,7]
+  c36 <- tbls2_ls$Ecology[3,8]
+  c37 <- tbls2_ls$Ecology[4,7]
+  c38 <- tbls2_ls$Ecology[4,8]
+  c39 <- tbls2_ls$Ecology[5,7]
+  c40 <- tbls2_ls$Ecology[5,8]
+  c41 <- tbls2_ls$Ecology[6,7]
+  c42 <- tbls2_ls$Ecology[6,8]
+  c43 <- tbls2_ls$Ecology[7,7]
+  c44 <- tbls2_ls$Ecology[7,8]
+  c45 <- tbls2_ls$ClimaticZone[1,2]
+  c46 <- tbls2_ls$ClimaticZone[1,4]
+  c47 <- tbls2_ls$ClimaticZone[2,2]
+  c48 <- tbls2_ls$ClimaticZone[2,4]
+  c49 <- tbls2_ls$ClimaticZone[3,2]
+  c50 <- tbls2_ls$ClimaticZone[3,4]
+  c51 <- tbls2_ls$ClimaticZone[4,2]
+  c52 <- tbls2_ls$Cultivation[2,2]
+  c53 <- tbls2_ls$Cultivation[3,1]
+  c54 <- tbls2_ls$Cultivation[3,2]
+  c55 <- tbls2_ls$Cultivation[3,3]
+  c56 <- tbls2_ls$Cultivation[3,4]
+  c57 <- tbls2_ls$Cultivation[3,5]
+  c58 <- tbls2_ls$Cultivation[2,4]
+  c59 <- tbls2_ls$Cultivation[2,5]
+  c60 <- c(tbls2_ls$Uses [1,1])
+  c61 <- c(tbls2_ls$Uses[1,2])
+  c62 <- c(tbls2_ls$Uses[1,3])
+  c63 <- url
+  
+  # Make a big 'ol list
+  crop_data <- list (c1, c2, c3, c4 ,c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30, c31, c32, c33, c34, c35, c36, c37, c38, c39, c40, c41, c42, c43, c44, c45, c46, c47, c48, c49, c50, c51, c52, c53, c54, c55, c56, c57, c58, c59, c60, c61, c62, c63)
+  
+ super <- data.frame(crop_data)
+
+  # Transpose
+  crop_data <- t(crop_data)
+  
+  print(crop_data)
+  
+  #convert to data frame
+  crop_df <- data.frame(crop_data)
+  
+
+
+# attach ____ as a row in dataframe  
+  
+
+
+
+}
+
+# Read html from each url into tables
+newb <- newdf
+
+# parse and return multiple grabs as a ____
+
+
+
+ 
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-6f7f87e4832e>"[0;36m, line [0;32m22[0m
+[0;31m    for(i in 1:nrow(truncated)) {[0m
+[0m              ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-6f7f87e4832e>, line 22)
+
+Executability                            : False

@@ -1,0 +1,34 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+def main():
+    while True:
+        turtle.clear()
+        init()
+        time_string = time.strftime("%H-%M=%S+", time.localtime())
+        turtle.getscreen().tracer(30,0)
+        drawDate(time_string) 
+        time.sleep(1)
+        turtle.hideturtle()
+        
+main()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-88c4ffcf3676>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m         [0mturtle[0m[0;34m.[0m[0mhideturtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0mmain[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-5-88c4ffcf3676>[0m in [0;36mmain[0;34m()[0m
+[1;32m      1[0m [0;32mdef[0m [0mmain[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m     [0;32mwhile[0m [0;32mTrue[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m         [0mturtle[0m[0;34m.[0m[0mclear[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m         [0minit[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m         [0mtime_string[0m [0;34m=[0m [0mtime[0m[0;34m.[0m[0mstrftime[0m[0;34m([0m[0;34m"%H-%M=%S+"[0m[0;34m,[0m [0mtime[0m[0;34m.[0m[0mlocaltime[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'turtle' is not defined
+NameError: name 'turtle' is not defined
+
+Executability                            : False

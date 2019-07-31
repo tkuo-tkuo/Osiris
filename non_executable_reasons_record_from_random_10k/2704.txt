@@ -1,0 +1,14 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+you have imported matplotlib.pyplot under the name plt. So you can now use plt instead of matplotlib.pyplot.
+------------------
+
+[0;36m  File [0;32m"<ipython-input-6-6bbea2a0bcf9>"[0;36m, line [0;32m1[0m
+[0;31m    you have imported matplotlib.pyplot under the name plt. So you can now use plt instead of matplotlib.pyplot.[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-6-6bbea2a0bcf9>, line 1)
+
+Executability                            : False

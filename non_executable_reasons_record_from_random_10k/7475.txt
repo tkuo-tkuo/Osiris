@@ -1,0 +1,15 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas
+import csv
+
+jeopardy = pandas.read_csv("jeopardy.csv")
+jeopardy.head(5)
+------------------
+
+FileNotFoundError: File b'jeopardy.csv' does not exist
+
+Executability                            : False

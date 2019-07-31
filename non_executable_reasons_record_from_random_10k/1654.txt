@@ -1,0 +1,43 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+server = 'DESKTOP-L1PEIU7\SQLEXPRESS'
+db = 'Chinook'
+
+conn = pyodbc.connect('DRIVER={SQL Server};SERVER=' + server + ';DATABASE='+ db + ';Trusted_Connection=yes')
+
+sql = """
+SELECT 
+c.LastName,
+c.FirstName,
+t.Name,
+a.Title
+FROM [Chinook].[dbo].[InvoiceLine] il
+join Chinook.dbo.Invoice i
+on i.InvoiceId  = il.InvoiceId
+join Chinook.dbo.Customer c
+on c.CustomerId = i.CustomerId
+join Chinook.dbo.Track t
+on t.TrackId = il.TrackId
+join Chinook.dbo.Album a
+on a.AlbumId = t.AlbumId
+order by c.LastName,c.FirstName
+"""
+
+df = pd.read_sql(sql, conn)
+df.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mError[0m                                     Traceback (most recent call last)
+[0;32m<ipython-input-2-eae1b5eda095>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mdb[0m [0;34m=[0m [0;34m'Chinook'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0mconn[0m [0;34m=[0m [0mpyodbc[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m'DRIVER={SQL Server};SERVER='[0m [0;34m+[0m [0mserver[0m [0;34m+[0m [0;34m';DATABASE='[0m[0;34m+[0m [0mdb[0m [0;34m+[0m [0;34m';Trusted_Connection=yes'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m sql = """
+
+[0;31mError[0m: ('01000', "[01000] [unixODBC][Driver Manager]Can't open lib 'SQL Server' : file not found (0) (SQLDriverConnect)")
+Error: ('01000', "[01000] [unixODBC][Driver Manager]Can't open lib 'SQL Server' : file not found (0) (SQLDriverConnect)")
+
+Executability                            : False

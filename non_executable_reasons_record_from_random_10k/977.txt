@@ -1,0 +1,45 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import matplotlib.pyplot as plt # side-stepping mpl backend
+import matplotlib.gridspec as gridspec # subplots
+import plotly.plotly as py
+from plotly.graph_objs import *
+import plotly.tools as tls
+fig1 = plt.figure()
+# Make a legend for specific lines.
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+t1 = np.arange(0.0, 2.0, 0.1)
+t2 = np.arange(0.0, 2.0, 0.01)
+
+# note that plot returns a list of lines.  The "l1, = plot" usage
+# extracts the first element of the list into l1 using tuple
+# unpacking.  So l1 is a Line2D instance, not a sequence of lines
+l1, = plt.plot(t2, np.exp(-t2))
+l2, l3 = plt.plot(t2, np.sin(2 * np.pi * t2), '--go', t1, np.log(1 + t1), '.')
+l4, = plt.plot(t2, np.exp(-t2) * np.sin(2 * np.pi * t2), 'rs-.')
+
+plt.xlabel('time')
+plt.ylabel('volts')
+plt.title('Damped oscillation')
+
+plt.show()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-c11dadb1e18a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m [0;31m# side-stepping mpl backend[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mgridspec[0m [0;32mas[0m [0mgridspec[0m [0;31m# subplots[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mplotly[0m[0;34m.[0m[0mplotly[0m [0;32mas[0m [0mpy[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mplotly[0m[0;34m.[0m[0mgraph_objs[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mplotly[0m[0;34m.[0m[0mtools[0m [0;32mas[0m [0mtls[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'plotly'
+ModuleNotFoundError: No module named 'plotly'
+
+Executability                            : False

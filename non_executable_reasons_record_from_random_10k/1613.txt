@@ -1,0 +1,67 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# initialize deck and shuffle it
+cards = Deck()
+cards.shuffle()
+
+# initialize the player and dealer
+player = Gambler('Player1',bank=100,sex='M',hand=[])
+player.setName()
+dealer = Gambler('Dealer',bank=1000000,sex='M',hand=[])
+    
+# actual loop for the program
+while 1:
+
+    # Burnside Blackjack
+    print('Welcome to the Burnside Casino. It\'s time for Blackjack!')
+
+    broke = player.anteUp()
+    if broke == 1:
+        print('you loser. you are broke! you are kicked out of the casino!')
+        break
+    
+    blackjack()
+
+    # test to see if we should continue playing
+    if keep_playing('Continue playing? (Y/N): ') == 1:
+        clear_output()
+        player.hand = []
+        dealer.hand = []
+        cards = Deck()
+        cards.shuffle()
+        print(cards.full_deck)
+        continue
+    else:
+        # clear_output()
+        print('thanks for playing')
+        break
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-5-a5ad52074152>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;31m# initialize the player and dealer[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mplayer[0m [0;34m=[0m [0mGambler[0m[0;34m([0m[0;34m'Player1'[0m[0;34m,[0m[0mbank[0m[0;34m=[0m[0;36m100[0m[0;34m,[0m[0msex[0m[0;34m=[0m[0;34m'M'[0m[0;34m,[0m[0mhand[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0mplayer[0m[0;34m.[0m[0msetName[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mdealer[0m [0;34m=[0m [0mGambler[0m[0;34m([0m[0;34m'Dealer'[0m[0;34m,[0m[0mbank[0m[0;34m=[0m[0;36m1000000[0m[0;34m,[0m[0msex[0m[0;34m=[0m[0;34m'M'[0m[0;34m,[0m[0mhand[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-2-1c7035fe5b14>[0m in [0;36msetName[0;34m(self)[0m
+[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m     [0;32mdef[0m [0msetName[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m         [0mself[0m[0;34m.[0m[0mname[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m'Enter your name: '[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     13[0m         [0;32mreturn[0m[0;34m[0m[0m
+[1;32m     14[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

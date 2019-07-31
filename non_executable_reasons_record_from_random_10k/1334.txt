@@ -1,0 +1,48 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 7
+Reproducibility                          : matched ratio: 0.714 ; index of matched cells: [0, 1, 2, 5, 6]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+df = df.dropna(subset=['htm3', 'wtkg2'])
+bins = np.arange(135, 210, 5)
+indices = np.digitize(df.htm3, bins)
+groups = df.groupby(indices)
+
+
+#groups
+
+# for i, group in groups:
+#     print(i, len(group))
+
+#heights = [group.htm3.mean() for i, group in groups]
+#cdfs = [thinkstats2.Cdf(group.wtkg2) for i, group in groups]
+
+#cdfs
+
+# for percent in [75, 50, 25]:
+#     weights = [cdf.Percentile(percent) for cdf in cdfs]
+#     label = '%dth' % percent
+#     thinkplot.Plot(heights, weights, label=label)
+
+# thinkplot.Show(xlabel='Height (cm)',
+#         ylabel='Weight (kg)',
+#         axis = [140,210,20, 200])    
+
+-----------------
+Original output:
+16
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+ thinkstats2.Corr(df.htm3, np.log(df.wtkg2))
+
+
+-----------------
+Original output:
+0.53172826059829925
+Executed output:
+0.5317282605983409

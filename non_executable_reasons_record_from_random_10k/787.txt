@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
+ax.scatter(df['Rec'],df['Freq'],df['Mon'],df['Time'],marker='+')#You can also add more variables here to represent color and size.
+
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-5a083f9f8f4f>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mfig[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0max[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0madd_subplot[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0max[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mdf[0m[0;34m[[0m[0;34m'Rec'[0m[0;34m][0m[0;34m,[0m[0mdf[0m[0;34m[[0m[0;34m'Freq'[0m[0;34m][0m[0;34m,[0m[0mdf[0m[0;34m[[0m[0;34m'Mon'[0m[0;34m][0m[0;34m,[0m[0mdf[0m[0;34m[[0m[0;34m'Time'[0m[0;34m][0m[0;34m,[0m[0mmarker[0m[0;34m=[0m[0;34m'+'[0m[0;34m)[0m[0;31m#You can also add more variables here to represent color and size.[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

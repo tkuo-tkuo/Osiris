@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+with open('../data/fan/fan_weighted_edges.pkl', 'rb+') as f:
+    fan_edges = pickle.load(f)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-7fc0a235a0bf>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'../data/fan/fan_weighted_edges.pkl'[0m[0;34m,[0m [0;34m'rb+'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0mfan_edges[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/fan/fan_weighted_edges.pkl'
+FileNotFoundError: [Errno 2] No such file or directory: '../data/fan/fan_weighted_edges.pkl'
+
+Executability                            : False

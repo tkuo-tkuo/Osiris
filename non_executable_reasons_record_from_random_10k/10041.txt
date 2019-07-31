@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pyspark as ps
+from pyspark import SparkConf
+from pyspark import SparkContext
+from pyspark.sql import SQLContext
+from pyspark.sql.functions import desc, asc
+from pyspark.streaming import StreamingContext
+
+from pyspark.ml.feature import StopWordsRemover
+
+#plotting
+import matplotlib.pyplot as plt
+import seaborn as sn
+%matplotlib inline
+
+import pandas as pd
+import socket
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-a2cc540c0704>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mpyspark[0m [0;32mas[0m [0mps[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mpyspark[0m [0;32mimport[0m [0mSparkConf[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mpyspark[0m [0;32mimport[0m [0mSparkContext[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pyspark'
+ModuleNotFoundError: No module named 'pyspark'
+
+Executability                            : False

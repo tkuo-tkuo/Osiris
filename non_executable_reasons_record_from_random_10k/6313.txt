@@ -1,0 +1,48 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 5
+Reproducibility                          : matched ratio: 0.4 ; index of matched cells: [0, 4]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+# NumPyに用意されている関数を用いると超高速
+print("Normal Python: {0} sec (x {1:3f})".format(normal_py_sec,1))
+print("Naive NumPy  : {0} sec (x {1:3f})".format(naive_np_sec,normal_py_sec/naive_np_sec))
+print("Good NumPy   : {0} sec (x {1:3f})".format(good_np_sec,normal_py_sec/good_np_sec))
+
+-----------------
+Original output:
+Normal Python: 0.6410859870600234 sec (x 1.000000)
+Naive NumPy  : 0.5603530267393353 sec (x 1.144075)
+Good NumPy   : 0.008742285555399576 sec (x 73.331623)
+
+Executed output:
+Normal Python: 0.523196775931865 sec (x 1.000000)
+Naive NumPy  : 0.6023738540243357 sec (x 0.868558)
+Good NumPy   : 0.01126730302348733 sec (x 46.434961)
+
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+# ただし，Python標準の配列と異なり，基本的には配列のデータタイプは1種類のみ
+import numpy as np
+a = np.array([1,2,3])
+a.dtype
+
+-----------------
+Original output:
+dtype('int32')
+Executed output:
+dtype('int64')
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+# 異なるデータタイプを入れると自動的に全体をカバーするような汎用的なデータタイプとなる
+np.array([1,"stringy"])
+
+-----------------
+Original output:
+array(['1', 'stringy'], 
+      dtype='<U11')
+Executed output:
+array(['1', 'stringy'], dtype='<U21')

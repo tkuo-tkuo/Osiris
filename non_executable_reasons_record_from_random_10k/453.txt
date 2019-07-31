@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+u = Upload()
+u.clearFileRetorno()
+u.getGerundioByBase(fileLinks, delimitador, 'id_row', 'palavra', 'abertura_link')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-5d55c85aa110>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mu[0m [0;34m=[0m [0mUpload[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mu[0m[0;34m.[0m[0mclearFileRetorno[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mu[0m[0;34m.[0m[0mgetGerundioByBase[0m[0;34m([0m[0mfileLinks[0m[0;34m,[0m [0mdelimitador[0m[0;34m,[0m [0;34m'id_row'[0m[0;34m,[0m [0;34m'palavra'[0m[0;34m,[0m [0;34m'abertura_link'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/CalebeCavalcante@MyBinder/dicGerundios/uploadDic.py[0m in [0;36mclearFileRetorno[0;34m(self)[0m
+[1;32m     29[0m [0;34m[0m[0m
+[1;32m     30[0m   [0;32mdef[0m [0mclearFileRetorno[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 31[0;31m     [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m [0mself[0m[0;34m.[0m[0mfileNameRetorno[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     32[0m     [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m'chave, palavra, retorno\n'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     33[0m     [0mf[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'retorno_file.txt'
+PermissionError: [Errno 13] Permission denied: 'retorno_file.txt'
+
+Executability                            : False

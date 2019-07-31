@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+sms = pd.read_csv('SMSSpamCollection.data', delimiter="\t", header=None)
+sms.columns = ['label', 'sms']
+sms.label = sms.label.map(lambda x: int(x == 'spam'))
+y = sms.label
+contenue = sms.sms.tolist()
+kf = StratifiedKFold(n_splits=9, shuffle=True, random_state=20)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-d27d74e65845>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0msms[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'SMSSpamCollection.data'[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m"\t"[0m[0;34m,[0m [0mheader[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0msms[0m[0;34m.[0m[0mcolumns[0m [0;34m=[0m [0;34m[[0m[0;34m'label'[0m[0;34m,[0m [0;34m'sms'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0msms[0m[0;34m.[0m[0mlabel[0m [0;34m=[0m [0msms[0m[0;34m.[0m[0mlabel[0m[0;34m.[0m[0mmap[0m[0;34m([0m[0;32mlambda[0m [0mx[0m[0;34m:[0m [0mint[0m[0;34m([0m[0mx[0m [0;34m==[0m [0;34m'spam'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

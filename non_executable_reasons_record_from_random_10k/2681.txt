@@ -1,0 +1,41 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Importation des différentes bibliothèques
+import numpy as np
+import theano
+import matplotlib.pyplot as plt
+from scipy.misc import toimage
+%matplotlib inline
+
+from keras.datasets import cifar10
+from keras.models import Sequential
+from keras.layers.core import Dense, Dropout, Flatten, Activation
+from keras.optimizers import SGD, Adam, RMSprop
+from keras.layers.convolutional import Convolution2D
+from keras.layers.convolutional import MaxPooling2D
+from keras.constraints import maxnorm
+from keras.utils import np_utils
+from keras import backend as K
+K.set_image_dim_ordering('th')
+
+#pour reproduction
+seed = 7
+np.random.seed(seed)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-9464c3db4d0f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;31m#Importation des différentes bibliothèques[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mtheano[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mmisc[0m [0;32mimport[0m [0mtoimage[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'theano'
+ImportError: No module named 'theano'
+
+Executability                            : False

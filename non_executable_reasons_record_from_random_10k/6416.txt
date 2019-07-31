@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+re.search(pattern, string)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-1500541e80e3>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mre[0m[0;34m.[0m[0msearch[0m[0;34m([0m[0mpattern[0m[0;34m,[0m [0mstring[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'pattern' is not defined
+NameError: name 'pattern' is not defined
+
+Executability                            : False

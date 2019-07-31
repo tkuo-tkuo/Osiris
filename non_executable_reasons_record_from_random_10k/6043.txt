@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# figure
+fig = plt.figure(figsize=(12, 6))
+
+# ax1
+ax1 = fig.add_subplot(1, 2, 1)
+ax1.grid(True)
+ax1.tick_params(labelsize=12)
+ax1.plot(tpoints, ypoints, color='k', linewidth=1)
+ax1.set_xlabel(r'$t$ [sec]', fontsize=18)
+ax1.set_ylabel(r'$y(t)$', fontsize=18)
+
+# ax2
+ax2 = fig.add_subplot(1, 2, 2)
+ax2.grid(True)
+ax2.tick_params(labelsize=12)
+ax2.plot(xpoints, zpoints, color='steelblue', linewidth=1, alpha=0.75)
+ax2.set_xlabel(r'$x$', fontsize=18)
+ax2.set_ylabel(r'$z$', fontsize=18)`
+------------------
+
+[0;36m  File [0;32m"<ipython-input-11-0e5362b28b0d>"[0;36m, line [0;32m18[0m
+[0;31m    ax2.set_ylabel(r'$z$', fontsize=18)`[0m
+[0m                                       ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-11-0e5362b28b0d>, line 18)
+
+Executability                            : False

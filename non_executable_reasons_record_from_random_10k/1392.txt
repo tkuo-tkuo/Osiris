@@ -1,0 +1,68 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+chunk_size = 10000
+num_chunks = param_num_chunks
+
+subreddits = set(top_subs[:param_top_n_subs]) | param_additional_subs
+
+# Load comments df in from saved database
+if param_load_from_database:
+    print("Loading raw comment data from reddit_sentiments_database.hdf5...")
+    df = pd.read_hdf("reddit_sentiments_database.hdf5", "comment_raw")
+
+# Load raw comment data in from reddit dataset file
+else:
+    print("Loading up to %d comments from %s...\n" % (chunk_size * num_chunks, param_dataset_file))
+    df = pd.DataFrame()
+    reader = pd.read_json(param_dataset_file, lines=True, chunksize=chunk_size)
+
+    sub_count      = len(subreddits)
+    remaining_subs = subreddits
+    finished_subs  = set()
+    for i, data in enumerate(reader):
+        df = df.append(data[data.subreddit.str.lower().isin(remaining_subs)][["body", "subreddit", "score", "controversiality"]])
+        
+        if i % 25 == 0:
+            print("Iteration %d/%d..." % (i, num_chunks))
+            subs_to_remove = set()
+            for sub in remaining_subs:
+                sub_comment_count = len(df[df.subreddit.str.lower() == sub])
+
+                if sub_comment_count >= param_comment_num_target:
+                    finished_subs.add(sub)
+                    subs_to_remove.add(sub)
+                    print("Done loading %d comments from r/%s... (%d/%d)" % 
+                          (sub_comment_count, sub, len(finished_subs), sub_count))
+            remaining_subs = remaining_subs - subs_to_remove
+            
+        if i == num_chunks or len(remaining_subs) == 0: break
+        
+    # Store raw comments dataframe to hdf5 database
+    if param_store_to_database:
+        df.to_hdf("reddit_sentiments_database.hdf5", "comment_raw", table=True, mode='a')
+        
+print("Done -- Successfully loaded in %d comments from the following %d subreddits:\n\n%s" % 
+      (len(df), df["subreddit"].nunique(), df["subreddit"].value_counts()))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-5-b008db42f6b7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0;32mif[0m [0mparam_load_from_database[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m     [0mprint[0m[0;34m([0m[0;34m"Loading raw comment data from reddit_sentiments_database.hdf5..."[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_hdf[0m[0;34m([0m[0;34m"reddit_sentiments_database.hdf5"[0m[0;34m,[0m [0;34m"comment_raw"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m [0;31m# Load raw comment data in from reddit dataset file[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/pytables.py[0m in [0;36mread_hdf[0;34m(path_or_buf, key, mode, **kwargs)[0m
+[1;32m    364[0m         [0;32mif[0m [0;32mnot[0m [0mexists[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    365[0m             raise compat.FileNotFoundError(
+[0;32m--> 366[0;31m                 'File {path} does not exist'.format(path=path_or_buf))
+[0m[1;32m    367[0m [0;34m[0m[0m
+[1;32m    368[0m         [0mstore[0m [0;34m=[0m [0mHDFStore[0m[0;34m([0m[0mpath_or_buf[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0mmode[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: File reddit_sentiments_database.hdf5 does not exist
+FileNotFoundError: File reddit_sentiments_database.hdf5 does not exist
+
+Executability                            : False

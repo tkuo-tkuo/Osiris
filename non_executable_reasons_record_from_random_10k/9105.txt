@@ -1,0 +1,34 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+from sklearn.cross_validation import KFold, train_test_split
+import xgboost
+import re
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import roc_auc_score
+import seaborn as sns
+from sklearn.preprocessing import Normalizer
+from collections import Counter
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-808f12b3f60b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mcross_validation[0m [0;32mimport[0m [0mKFold[0m[0;34m,[0m [0mtrain_test_split[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mxgboost[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mimport[0m [0mre[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'xgboost'
+ImportError: No module named 'xgboost'
+
+Executability                            : False

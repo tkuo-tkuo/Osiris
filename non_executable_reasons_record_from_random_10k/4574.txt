@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from py2neo import Graph
+
+grafo = Graph(host= 'localhost', user= 'neo4j', password='357896')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-83a623bde585>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mpy2neo[0m [0;32mimport[0m [0mGraph[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mgrafo[0m [0;34m=[0m [0mGraph[0m[0;34m([0m[0mhost[0m[0;34m=[0m [0;34m'localhost'[0m[0;34m,[0m [0muser[0m[0;34m=[0m [0;34m'neo4j'[0m[0;34m,[0m [0mpassword[0m[0;34m=[0m[0;34m'357896'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'py2neo'
+ImportError: No module named 'py2neo'
+
+Executability                            : False

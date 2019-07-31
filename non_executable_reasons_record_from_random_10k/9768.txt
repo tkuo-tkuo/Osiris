@@ -1,0 +1,20 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+library('readr')
+library('caret')
+library('lattice')
+library('ggplot2')
+library('OneR')
+library('GoodmanKruskal')
+library('C50')
+library("caret")
+library("lattice")
+library("gmodels")
+------------------
+
+NameError: name 'library' is not defined
+
+Executability                            : False

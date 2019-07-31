@@ -1,0 +1,45 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#reinitiliazation of initial graph in Q7
+path = 'ca-GrQc.txt'
+#Initializing empty graph
+G_initial = nx.Graph()  
+nodes = []
+edgelist = []
+
+#adds all present nodes in list nodes and all edges in edge_list
+with open(path) as f:
+    for line in f:
+        if line[0] != '#':
+            line = line.strip()
+            FromNodeId, ToNodeId = line.split('\t')
+            edge = (FromNodeId,ToNodeId)
+            edgelist.append(edge)
+            if FromNodeId not in nodes:
+                nodes.append(FromNodeId)
+            if ToNodeId not in nodes:
+                nodes.append(ToNodeId)
+                
+#add edges from list edges and nodes from list nodes
+G_initial.add_nodes_from(nodes)
+G_initial.add_edges_from(edgelist)
+
+#generates GCC for initial graph
+GCC_initial = max(nx.connected_component_subgraphs(G_initial),key=len)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-4-03583310fad1>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;31m#adds all present nodes in list nodes and all edges in edge_list[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mpath[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m     [0;32mfor[0m [0mline[0m [0;32min[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m         [0;32mif[0m [0mline[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m!=[0m [0;34m'#'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'ca-GrQc.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'ca-GrQc.txt'
+
+Executability                            : False

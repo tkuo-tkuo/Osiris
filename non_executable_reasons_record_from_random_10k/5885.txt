@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+d['c']
+------------------
+
+KeyError: 'c'
+
+Executability                            : False

@@ -1,0 +1,46 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from IPython.display import Image
+Image('F:/Wallpapers/coderslobby/Flow-Diagram.png')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/display.py[0m in [0;36m_data_and_metadata[0;34m(self, always_both)[0m
+[1;32m   1264[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1265[0;31m             [0mb64_data[0m [0;34m=[0m [0mb2a_base64[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mdata[0m[0;34m)[0m[0;34m.[0m[0mdecode[0m[0;34m([0m[0;34m'ascii'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1266[0m         [0;32mexcept[0m [0mTypeError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: a bytes-like object is required, not 'str'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/formatters.py[0m in [0;36m__call__[0;34m(self, obj, include, exclude)[0m
+[1;32m    968[0m [0;34m[0m[0m
+[1;32m    969[0m             [0;32mif[0m [0mmethod[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 970[0;31m                 [0;32mreturn[0m [0mmethod[0m[0;34m([0m[0minclude[0m[0;34m=[0m[0minclude[0m[0;34m,[0m [0mexclude[0m[0;34m=[0m[0mexclude[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    971[0m             [0;32mreturn[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    972[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/display.py[0m in [0;36m_repr_mimebundle_[0;34m(self, include, exclude)[0m
+[1;32m   1253[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0membed[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1254[0m             [0mmimetype[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_mimetype[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1255[0;31m             [0mdata[0m[0;34m,[0m [0mmetadata[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_data_and_metadata[0m[0;34m([0m[0malways_both[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1256[0m             [0;32mif[0m [0mmetadata[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1257[0m                 [0mmetadata[0m [0;34m=[0m [0;34m{[0m[0mmimetype[0m[0;34m:[0m [0mmetadata[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/display.py[0m in [0;36m_data_and_metadata[0;34m(self, always_both)[0m
+[1;32m   1266[0m         [0;32mexcept[0m [0mTypeError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1267[0m             raise FileNotFoundError(
+[0;32m-> 1268[0;31m                 "No such file or directory: '%s'" % (self.data))
+[0m[1;32m   1269[0m         [0mmd[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1270[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mmetadata[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: No such file or directory: 'F:/Wallpapers/coderslobby/Flow-Diagram.png'
+FileNotFoundError: No such file or directory: 'F:/Wallpapers/coderslobby/Flow-Diagram.png'
+
+Executability                            : False

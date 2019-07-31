@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# import reticulate and IRdisplay
+library(reticulate)
+use_python("/usr/local/bin/python3", required = T)
+library(repr)
+library(IRdisplay)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-20c92ac7cbf6>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# import reticulate and IRdisplay[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mlibrary[0m[0;34m([0m[0mreticulate[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0muse_python[0m[0;34m([0m[0;34m"/usr/local/bin/python3"[0m[0;34m,[0m [0mrequired[0m [0;34m=[0m [0mT[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0mlibrary[0m[0;34m([0m[0mrepr[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'library' is not defined
+NameError: name 'library' is not defined
+
+Executability                            : False

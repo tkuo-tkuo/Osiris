@@ -1,0 +1,52 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import unicode_literals, print_function, division
+from io import open
+import glob
+import unicodedata
+import string
+
+all_letters = string.ascii_letters + " .,;'-"
+n_letters = len(all_letters) + 1 # 添加 EOS 标记
+
+def findFiles(path): return glob.glob(path)
+
+# 将 Unicode 字符串转换为纯 ASCII 编码, 感谢 http://stackoverflow.com/a/518232/2809427
+def unicodeToAscii(s):
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', s)
+        if unicodedata.category(c) != 'Mn'
+        and c in all_letters
+    )
+
+# 读取文件并分割成行
+def readLines(filename):
+    lines = open(filename, encoding='utf-8').read().strip().split('\n')
+    return [unicodeToAscii(line) for line in lines]
+
+# 构建映射字典 category_lines , 每个类别是由很多个行组成的list
+category_lines = {}
+all_categories = []
+for filename in findFiles('data/names/*.txt'):
+    category = filename.split('/')[-1].split('.')[0]
+    all_categories.append(category)
+    lines = readLines(filename)
+    category_lines[category] = lines
+
+n_categories = len(all_categories)
+
+print('# categories:', n_categories, all_categories)
+print(unicodeToAscii("O'Néàl"))
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-6836c558b331>"[0;36m, line [0;32m6[0m
+[0;31m    import unicodedata[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-6836c558b331>, line 6)
+
+Executability                            : False

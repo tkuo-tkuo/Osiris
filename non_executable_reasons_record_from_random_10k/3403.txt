@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Importando o o rpy2
+import rpy2.robjects as robjects
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-2-733894aafb18>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Importando o o rpy2[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mrpy2[0m[0;34m.[0m[0mrobjects[0m [0;32mas[0m [0mrobjects[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/rpy2/robjects/__init__.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m     12[0m [0;32mimport[0m [0mtypes[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mimport[0m [0marray[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0;32mimport[0m [0mrpy2[0m[0;34m.[0m[0mrinterface[0m [0;32mas[0m [0mrinterface[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;32mimport[0m [0mrpy2[0m[0;34m.[0m[0mrlike[0m[0;34m.[0m[0mcontainer[0m [0;32mas[0m [0mrlc[0m[0;34m[0m[0m
+[1;32m     16[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/rpy2/rinterface.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;32mimport[0m [0matexit[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mtyping[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mrpy2[0m[0;34m.[0m[0mrinterface_lib[0m [0;32mimport[0m [0mopenrlib[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mrpy2[0m[0;34m.[0m[0mrinterface_lib[0m[0;34m.[0m[0m_rinterface_capi[0m [0;32mas[0m [0m_rinterface[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mrpy2[0m[0;34m.[0m[0mrinterface_lib[0m[0;34m.[0m[0membedded[0m [0;32mas[0m [0membedded[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/rpy2/rinterface_lib/openrlib.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m     19[0m [0;34m[0m[0m
+[1;32m     20[0m [0;34m[0m[0m
+[0;32m---> 21[0;31m [0mrlib[0m [0;34m=[0m [0m_dlopen_rlib[0m[0;34m([0m[0mR_HOME[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     22[0m [0;34m[0m[0m
+[1;32m     23[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/rpy2/rinterface_lib/openrlib.py[0m in [0;36m_dlopen_rlib[0;34m(r_home)[0m
+[1;32m     12[0m     [0;34m"""Open R's shared C library."""[0m[0;34m[0m[0m
+[1;32m     13[0m     [0;32mif[0m [0mr_home[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m         raise ValueError('r_home is None. '
+[0m[1;32m     15[0m                          'Try python -m rpy2.situation')
+[1;32m     16[0m     [0mlib_path[0m [0;34m=[0m [0mrpy2[0m[0;34m.[0m[0msituation[0m[0;34m.[0m[0mget_rlib_path[0m[0;34m([0m[0mr_home[0m[0;34m,[0m [0mplatform[0m[0;34m.[0m[0msystem[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: r_home is None. Try python -m rpy2.situation
+ValueError: r_home is None. Try python -m rpy2.situation
+
+Executability                            : False

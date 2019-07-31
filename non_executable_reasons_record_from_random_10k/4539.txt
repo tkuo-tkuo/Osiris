@@ -1,0 +1,302 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 11 ; number of cells: 22
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [0, 1, 6, 9, 10, 14, 16, 18, 19, 20, 21]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+%%time
+# 全探索
+memo = {}
+def totv(i, w):
+    if i == n:
+        res = 0
+    elif w < wv[i][0]:
+        res = totv(i + 1, w)
+    else:
+        select = totv(i + 1, w - wv[i][0]) + wv[i][1]
+        not_select = totv(i + 1, w)
+        res = max(select, not_select)
+    return res
+
+print(totv(0, W))
+
+-----------------
+Original output:
+45
+CPU times: user 36 ms, sys: 0 ns, total: 36 ms
+Wall time: 35.8 ms
+
+Executed output:
+41
+CPU times: user 47.5 ms, sys: 3.1 ms, total: 50.6 ms
+Wall time: 49.5 ms
+
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+%%time
+# メモ化
+memo = {}
+def totv(i, w):
+    if (i, w) in memo:
+        return memo[i, w]
+    if i == n:
+        res = 0
+    elif w < wv[i][0]:
+        res = totv(i + 1, w)
+    else:
+        select = totv(i + 1, w - wv[i][0]) + wv[i][1]
+        not_select = totv(i + 1, w)
+        res = max(select, not_select)
+    memo[i, w] = res
+    return res
+
+print(totv(0, W))
+
+-----------------
+Original output:
+45
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 706 µs
+
+Executed output:
+41
+CPU times: user 471 µs, sys: 0 ns, total: 471 µs
+Wall time: 439 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+%%time
+# 動的計画法
+memo = [list(x) for x in [[0] * (W + 1)] * n] 
+for leftw in range(W + 1):
+    if leftw >= wv[n - 1][0]:
+        memo[n - 1][leftw] = wv[n - 1][1]
+
+for i in range(n - 2, -1, -1):
+    for leftw in range(W + 1):
+        if leftw < wv[i][0]:
+            memo[i][leftw] = memo[i + 1][leftw]
+        else:
+            select = memo[i + 1][leftw - wv[i][0]] + wv[i][1]
+            not_select = memo[i + 1][leftw]
+            memo[i][leftw] = max(select, not_select)
+
+print(memo[0][W])
+
+-----------------
+Original output:
+45
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 523 µs
+
+Executed output:
+41
+CPU times: user 511 µs, sys: 0 ns, total: 511 µs
+Wall time: 462 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+%%time
+V = 100
+inf = 1000000000000000
+memo = [list(x) for x in [[inf] * (V + 1)] * (n + 1)]
+memo[0][0] = 0
+for i in range(n):
+    for leftv in range(V + 1):
+        memo[i + 1][leftv] = min(memo[i][leftv], memo[i][leftv - wv[i][1]] + wv[i][0])
+
+print(max([i for goods in memo for i, w in enumerate(goods) if w <= W]))
+
+-----------------
+Original output:
+45
+CPU times: user 4 ms, sys: 0 ns, total: 4 ms
+Wall time: 4.1 ms
+
+Executed output:
+41
+CPU times: user 9.21 ms, sys: 0 ns, total: 9.21 ms
+Wall time: 9.12 ms
+
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+import random
+import string
+n = 10
+m = 10
+s = ''.join(random.choices(string.ascii_uppercase, k=n))
+t = ''.join(random.choices(string.ascii_uppercase, k=m))
+s, t
+
+-----------------
+Original output:
+('ZGTFOSZBYQ', 'VRMNUERAPO')
+Executed output:
+('KHCITGAQYB', 'ZGHMGQGVIU')
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+%%time
+# 動的計画法
+memo = {}
+for i in range(n):
+    for j in range(m):
+        if s[i] == t[j]:
+            memo[i + 1, j + 1] = memo.get((i, j), 0) + 1
+        else:
+            left = memo.get((i, j + 1), 0)
+            right = memo.get((i + 1, j), 0)
+            memo[i + 1, j + 1] = max(left, right)
+
+print(memo[n, m])
+
+-----------------
+Original output:
+1
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 247 µs
+
+Executed output:
+3
+CPU times: user 686 µs, sys: 107 µs, total: 793 µs
+Wall time: 670 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+%%time
+# 全探索
+def totw(i, leftw):
+    if i == n:
+        return 0
+    maxn = int(leftw / wv[i][0])
+    return max([totw(i + 1, leftw - j * wv[i][0]) + j * wv[i][1] for j in range(maxn + 1)])
+
+print(totw(0, W))
+
+-----------------
+Original output:
+60
+CPU times: user 76 ms, sys: 4 ms, total: 80 ms
+Wall time: 80 ms
+
+Executed output:
+50
+CPU times: user 246 ms, sys: 0 ns, total: 246 ms
+Wall time: 244 ms
+
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+%%time
+# 動的計画法
+memo = [list(x) for x in [[0] * (W + 1)] * (n + 1)]
+for i in range(n):
+    for leftw in range(W + 1):
+        maxn = int(leftw / wv[i][0])
+        if maxn == 0:
+            memo[i + 1][leftw] = memo[i][leftw]
+        else:
+            for j in range(maxn + 1):
+                v = memo[i][leftw - j * wv[i][0]] + j * wv[i][1]
+                memo[i + 1][leftw] = max(memo[i + 1][leftw], v)
+
+print(memo[n - 1][W])
+
+-----------------
+Original output:
+60
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 1.01 ms
+
+Executed output:
+50
+CPU times: user 956 µs, sys: 0 ns, total: 956 µs
+Wall time: 878 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+%%time
+# 動的計画法 2
+memo = [list(x) for x in [[0] * (W + 1)] * (n + 1)]
+for i in range(n):
+    for leftw in range(W + 1):
+        maxn = int(leftw / wv[i][0])
+        if maxn == 0:
+            memo[i + 1][leftw] = memo[i][leftw]
+        else:
+            memo[i + 1][leftw] = max(memo[i][leftw], memo[i + 1][leftw - wv[i][0]] + wv[i][1])
+
+print(memo[n - 1][W])
+
+-----------------
+Original output:
+60
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 662 µs
+
+Executed output:
+50
+CPU times: user 636 µs, sys: 71 µs, total: 707 µs
+Wall time: 658 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+%%time
+# 全探索（本当は DP で解く問題）
+def subsumk(s, left):
+    if s == k:
+        return True
+    b = False
+    for i in range(n):
+        if left[i] == 0:
+            continue
+        l = list(left)
+        l[i] -= 1
+        b |= subsumk(s + a[i], l)
+    return b
+
+print(subsumk(0, m))
+
+-----------------
+Original output:
+True
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 768 µs
+
+Executed output:
+True
+CPU times: user 1.67 ms, sys: 0 ns, total: 1.67 ms
+Wall time: 1.62 ms
+
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+%%time
+dp = [1] * n
+
+for i in range(n):
+    for j in range(i):
+        if a[j] < a[i]:
+            dp[i] = max(dp[i], dp[j] + 1)
+
+print(dp[n - 1])
+
+-----------------
+Original output:
+3
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 198 µs
+
+Executed output:
+3
+CPU times: user 649 µs, sys: 76 µs, total: 725 µs
+Wall time: 480 µs
+

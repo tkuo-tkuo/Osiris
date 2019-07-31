@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import numpy as np
+import scipy as sp
+import plotly
+import matplotlib.pyplot as plt
+plotly.offline.init_notebook_mode(connected=True)
+import plotly.plotly as py
+import plotly.graph_objs as go
+from plotly.graph_objs import Scatter, Figure, Layout
+from plotly.graph_objs import *
+plotly.tools.set_credentials_file(username='Shahbaz011', api_key='Iyrl0NHekuQV7gR6e1eG')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-4cc4b1c53fb0>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mscipy[0m [0;32mas[0m [0msp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mplotly[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0mplotly[0m[0;34m.[0m[0moffline[0m[0;34m.[0m[0minit_notebook_mode[0m[0;34m([0m[0mconnected[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'plotly'
+ModuleNotFoundError: No module named 'plotly'
+
+Executability                            : False

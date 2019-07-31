@@ -1,0 +1,34 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+
+import Bayesian_Particle_Tracking
+
+from Bayesian_Particle_Tracking import model
+from Bayesian_Particle_Tracking.model import diffusion, log_likelihood, log_posterior, log_prior
+from Bayesian_Particle_Tracking.prior import JeffreysPrior, UniformPrior
+from Bayesian_Particle_Tracking.generate_data import data_generation, generator
+from Bayesian_Particle_Tracking import io
+from Bayesian_Particle_Tracking.data_analysis import max_likelihood_estimation, MSD, Nind, sigma_var, CGW_analysis
+import emcee
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-855bfe6cb47d>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     11[0m [0;32mfrom[0m [0mBayesian_Particle_Tracking[0m [0;32mimport[0m [0mio[0m[0;34m[0m[0m
+[1;32m     12[0m [0;32mfrom[0m [0mBayesian_Particle_Tracking[0m[0;34m.[0m[0mdata_analysis[0m [0;32mimport[0m [0mmax_likelihood_estimation[0m[0;34m,[0m [0mMSD[0m[0;34m,[0m [0mNind[0m[0;34m,[0m [0msigma_var[0m[0;34m,[0m [0mCGW_analysis[0m[0;34m[0m[0m
+[0;32m---> 13[0;31m [0;32mimport[0m [0memcee[0m[0;34m[0m[0m
+[0m[1;32m     14[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m     15[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'emcee'
+ImportError: No module named 'emcee'
+
+Executability                            : False

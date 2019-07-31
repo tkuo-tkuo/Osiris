@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+fig, (axis1,axis2) = plt.subplots(1,2,sharey=True)
+sns.regplot('total_bill','tip_pect',tips,ax=axis1)
+sns.violinplot(y='tip_pect',x='size',data=tips.sort('size'),ax=axis2)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-17-7b7cc111f11e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mfig[0m[0;34m,[0m [0;34m([0m[0maxis1[0m[0;34m,[0m[0maxis2[0m[0;34m)[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0msharey[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      2[0m [0msns[0m[0;34m.[0m[0mregplot[0m[0;34m([0m[0;34m'total_bill'[0m[0;34m,[0m[0;34m'tip_pect'[0m[0;34m,[0m[0mtips[0m[0;34m,[0m[0max[0m[0;34m=[0m[0maxis1[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0msns[0m[0;34m.[0m[0mviolinplot[0m[0;34m([0m[0my[0m[0;34m=[0m[0;34m'tip_pect'[0m[0;34m,[0m[0mx[0m[0;34m=[0m[0;34m'size'[0m[0;34m,[0m[0mdata[0m[0;34m=[0m[0mtips[0m[0;34m.[0m[0msort[0m[0;34m([0m[0;34m'size'[0m[0;34m)[0m[0;34m,[0m[0max[0m[0;34m=[0m[0maxis2[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/generic.py[0m in [0;36m__getattr__[0;34m(self, name)[0m
+[1;32m   4370[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0m_info_axis[0m[0;34m.[0m[0m_can_hold_identifiers_and_holds_name[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   4371[0m                 [0;32mreturn[0m [0mself[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0m
+[0;32m-> 4372[0;31m             [0;32mreturn[0m [0mobject[0m[0;34m.[0m[0m__getattribute__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   4373[0m [0;34m[0m[0m
+[1;32m   4374[0m     [0;32mdef[0m [0m__setattr__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'DataFrame' object has no attribute 'sort'
+AttributeError: 'DataFrame' object has no attribute 'sort'
+
+Executability                            : False

@@ -1,0 +1,12 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+#列にも同じような操作ができます。
+new_columns = ['col1','col2','col3','col4','col5','col6']
+
+dframe2.reindex(columns=new_columns)
+------------------
+
+NameError: name 'dframe2' is not defined
+
+Executability                            : False

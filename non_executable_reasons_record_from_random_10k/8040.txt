@@ -1,0 +1,34 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#create empty list 
+pop = []
+#loop over countries, leave out missing data
+#have to do contries first, starting with cities does not work
+for co in document.iterfind('country'): 
+    co_name = co.find('name').text
+    for cy in co.getiterator('city'):
+        city = cy.find('name').text
+        # exclude those that have no data for city population
+        if cy.find('population') is not None:
+            pop1 = cy.find('population').text
+            pop.append([co_name, city, float(pop1)])
+# convert to dataframe
+city_df = pd.DataFrame(city_pop, columns=['country', 'city', 'population'])
+# sort descending by city population and print
+city_df.sort_values('population', ascending=False).head(10)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-7-572adf373020>[0m in [0;36m<module>[0;34m[0m
+[1;32m     12[0m             [0mpop[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m[[0m[0mco_name[0m[0;34m,[0m [0mcity[0m[0;34m,[0m [0mfloat[0m[0;34m([0m[0mpop1[0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0;31m# convert to dataframe[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0mcity_df[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mcity_pop[0m[0;34m,[0m [0mcolumns[0m[0;34m=[0m[0;34m[[0m[0;34m'country'[0m[0;34m,[0m [0;34m'city'[0m[0;34m,[0m [0;34m'population'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;31m# sort descending by city population and print[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m [0mcity_df[0m[0;34m.[0m[0msort_values[0m[0;34m([0m[0;34m'population'[0m[0;34m,[0m [0mascending[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;36m10[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'city_pop' is not defined
+NameError: name 'city_pop' is not defined
+
+Executability                            : False

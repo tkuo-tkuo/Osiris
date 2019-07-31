@@ -1,0 +1,33 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+#Randomizer
+import random
+import numpy
+cohort = ["hunter","jon","michael", "runjini", "sheuli","tori"]
+random.shuffle(cohort)
+
+print("Day 1/2/3:")
+print(cohort)
+cohort = numpy.roll(cohort,1)
+print("Day 4/5/6:")
+print(cohort)
+
+
+-----------------
+Original output:
+Day 1/2/3:
+['runjini', 'tori', 'nat', 'michael', 'hunter', 'sheuli', 'jon']
+Day 4/5/6:
+['jon' 'runjini' 'tori' 'nat' 'michael' 'hunter' 'sheuli']
+
+Executed output:
+Day 1/2/3:
+['tori', 'runjini', 'jon', 'hunter', 'michael', 'sheuli']
+Day 4/5/6:
+['sheuli' 'tori' 'runjini' 'jon' 'hunter' 'michael']
+

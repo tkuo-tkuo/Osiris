@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# May autocorrect an error rather than giving you a non-existent time error
+pd.Timestamp('2016-03-13 02:00', tz = 'US/Eastern')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNonExistentTimeError[0m                      Traceback (most recent call last)
+[0;32m<ipython-input-12-5c0a4f298106>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# May autocorrect an error rather than giving you a non-existent time error[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mpd[0m[0;34m.[0m[0mTimestamp[0m[0;34m([0m[0;34m'2016-03-13 02:00'[0m[0;34m,[0m [0mtz[0m [0;34m=[0m [0;34m'US/Eastern'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32mpandas/_libs/tslibs/timestamps.pyx[0m in [0;36mpandas._libs.tslibs.timestamps.Timestamp.__new__[0;34m()[0m
+
+[0;32mpandas/_libs/tslibs/conversion.pyx[0m in [0;36mpandas._libs.tslibs.conversion.convert_to_tsobject[0;34m()[0m
+
+[0;32mpandas/_libs/tslibs/conversion.pyx[0m in [0;36mpandas._libs.tslibs.conversion.convert_str_to_tsobject[0;34m()[0m
+
+[0;32mpandas/_libs/tslibs/conversion.pyx[0m in [0;36mpandas._libs.tslibs.conversion.tz_localize_to_utc[0;34m()[0m
+
+[0;31mNonExistentTimeError[0m: 2016-03-13 02:00:00
+NonExistentTimeError: 2016-03-13 02:00:00
+
+Executability                            : False

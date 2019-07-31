@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import pymysql
+import pandas as pd
+import getpass
+from textblob import TextBlob
+import re
+from gensim.models.phrases import Phraser, Phrases
+from IPython.display import clear_output, display, HTML
+import pickle
+import gzip
+import seaborn as sns
+from collections import Counter
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-4-87e80cf4699b>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mpymysql[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mgetpass[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mtextblob[0m [0;32mimport[0m [0mTextBlob[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mre[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pymysql'
+ImportError: No module named 'pymysql'
+
+Executability                            : False

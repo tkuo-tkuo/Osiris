@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import print_function
+from IPython.display import display
+from ipywidgets import *
+from traitlets import *
+
+import numpy as np
+import pandas as pd
+import bqplot as bq
+import datetime as dt
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-4e1ffff70309>"[0;36m, line [0;32m2[0m
+[0;31m    warnings.filterwarnings('ignore')[0m
+[0m         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m import * only allowed at module level
+
+SyntaxError: import * only allowed at module level (<ipython-input-1-4e1ffff70309>, line 2)
+
+Executability                            : False

@@ -1,0 +1,178 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+class SMSClassification(SMSBase):
+    __pipelines = {}
+    __params = {}
+    __format_model_file_name = '{}_model.pkl'
+
+    def __init__(self, filename, frac=0.8):
+        super().__init__(filename, frac)
+        
+        self.__bow = CountVectorizer(analyzer=self.create_lemmas)
+        self.__tfidf = TfidfTransformer()
+        
+        self.__svd = TruncatedSVD(n_components=50)
+
+        self.__cv = StratifiedKFold(n_splits=10)
+        
+        self.__default_params = {
+            'tfidf__use_idf': (True, False),
+            'bow__analyzer': (self.create_lemmas, self.create_tokens),
+        }
+        
+        self.__X = self._df_train['context'].values.tolist()
+        self.__y = self._df_train['class'].values.tolist()
+        
+   
+    def __create_pipeline(self, option='NB'):
+                        
+        if (option in self.__pipelines) is False:
+                        
+            if option is 'NB':
+                classifier = MultinomialNB()
+                pipeline = Pipeline([
+                    ('bow', self.__bow),
+                    ('tfidf', self.__tfidf),
+                    ('classifier', classifier),
+                ])
+
+            elif option is 'SVM':
+                classifier = SVC()
+                pipeline = Pipeline([
+                    ('bow', self.__bow),
+                    ('tfidf', self.__tfidf),
+                    ('svd', self.__svd),
+                    ('classifier', classifier),
+                ])
+                
+            elif option is 'RFT':
+                classifier = RandomForestClassifier()
+                pipeline = Pipeline([
+                    ('bow', self.__bow),
+                    ('tfidf', self.__tfidf),
+                    ('svd', self.__svd),
+                    ('classifier', classifier),
+                ])
+                
+            else:
+                classifier = MultinomialNB()
+
+            self.__pipelines[option] = pipeline
+            
+            return pipeline
+
+        else:
+            return self.__pipelines[option]
+            
+            
+    def __create_grid_search_params(self, option='NB'):
+        
+        if (option in self.__params) is False:
+            if option is 'SVM':
+                params = [
+                    {
+                      'classifier__C': [1, 10, 100, 1000], 
+                      'classifier__kernel': ['linear']
+                    },
+                    {
+                      'classifier__C': [1, 10, 100, 1000], 
+                      'classifier__gamma': [0.001, 0.0001], 
+                      'classifier__kernel': ['rbf']
+                    },
+                ]
+
+                # merging two list of paramaters on the same list.
+#                 params = list(map(lambda m : {**m, **self.__default_params}, params))
+            else:
+                params = self.__default_params
+
+            self.__params[option] = params
+        else:
+            params = self.__params[option]
+            
+        return params
+
+        
+        
+    def validate(self, option='NB'):
+        
+        pipeline = self.__create_pipeline(option)
+        if pipeline is not None:            
+            scores = cross_val_score(pipeline, 
+                                     self.__X, 
+                                     self.__y, 
+                                     scoring='accuracy', 
+                                     cv=self.__cv, 
+                                     verbose=1, 
+                                     n_jobs=-1)
+
+            print('scores={}\nmean={} std={}'.format(scores, scores.mean(), scores.std()))
+        else:
+            print ("pipeline does not exist!")
+
+        
+    def train(self, option='NB', dump=True):
+        
+        pipeline = self.__create_pipeline(option)
+        if pipeline is not None:
+            
+            params = self.__create_grid_search_params(option)
+            
+            grid = GridSearchCV(
+                pipeline, 
+                params, 
+                refit=True, 
+                n_jobs=-1, 
+                scoring='accuracy', 
+                cv=self.__cv)
+
+            model = grid.fit(self.__X, self.__y)
+            
+            display('(Grid Search) Best Parameters:', )
+            display(pd.DataFrame([model.best_params_]))
+
+            if dump:
+                model_file_name = self.__format_model_file_name.format(option)
+                Util.dump_pickle(model, model_file_name)
+                
+            return model
+                
+        else:
+            print('pipeline does not exist!')
+            return None
+
+    
+    def test(self, X=None, model=None, model_file=None):
+        
+        if X is None:
+            X = self.__X
+        
+        if model is None and model_file is None:
+            print('Please, use either model or model_file')
+            return []
+        
+        if model_file is not None and os.path.isfile(model_file):
+            model = Util.load_pickle(model_file)
+            print('{} file was loaded'.format(model_file))
+            return model.predict(X)
+        
+        if model is not None:
+            return model.predict(X)
+        else:
+            return []
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-5559a95dd06b>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mclass[0m [0mSMSClassification[0m[0;34m([0m[0mSMSBase[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0m__pipelines[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m      3[0m     [0m__params[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m      4[0m     [0m__format_model_file_name[0m [0;34m=[0m [0;34m'{}_model.pkl'[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'SMSBase' is not defined
+NameError: name 'SMSBase' is not defined
+
+Executability                            : False

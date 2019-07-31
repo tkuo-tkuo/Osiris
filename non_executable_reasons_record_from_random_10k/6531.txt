@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+hero = parse_hero_id()
+columns = [str(x) for x in hero]
+columns = ['RADIANT_WIN'] + columns
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-6-4e6aed498a9f>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mhero[0m [0;34m=[0m [0mparse_hero_id[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mcolumns[0m [0;34m=[0m [0;34m[[0m[0mstr[0m[0;34m([0m[0mx[0m[0;34m)[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0mhero[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      3[0m [0mcolumns[0m [0;34m=[0m [0;34m[[0m[0;34m'RADIANT_WIN'[0m[0;34m][0m [0;34m+[0m [0mcolumns[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-5-7cca6b342909>[0m in [0;36mparse_hero_id[0;34m()[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mdef[0m [0mparse_hero_id[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0mjson_path[0m[0;34m)[0m [0;32mas[0m [0mjson_data[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      7[0m         [0mraw_json[0m [0;34m=[0m [0mjson[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mjson_data[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      8[0m         [0mheroes[0m [0;34m=[0m [0mraw_json[0m[0;34m[[0m[0;34m'heroes'[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/home/hpham/hero.json'
+FileNotFoundError: [Errno 2] No such file or directory: '/home/hpham/hero.json'
+
+Executability                            : False

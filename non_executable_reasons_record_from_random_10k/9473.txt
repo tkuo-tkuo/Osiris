@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from pyspark.sql import SparkSession
+
+spark_session = SparkSession.builder.getOrCreate()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-9214bf2a2a45>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0msql[0m [0;32mimport[0m [0mSparkSession[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mspark_session[0m [0;34m=[0m [0mSparkSession[0m[0;34m.[0m[0mbuilder[0m[0;34m.[0m[0mgetOrCreate[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pyspark'
+ImportError: No module named 'pyspark'
+
+Executability                            : False

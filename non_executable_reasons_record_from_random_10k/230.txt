@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+train = pickle.load(open('quora_questions_train_features_v2.pickle', 'rb'))
+test = pd.DataFrame()
+for i in range(1, 6):
+    test = pd.concat([test, pickle.load(open('quora_questions_test_features_v2_part' + str(i) + '.pickle', 'rb'))])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-34afafb97cc6>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mtrain[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0;34m'quora_questions_train_features_v2.pickle'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mtest[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m6[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mtest[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mconcat[0m[0;34m([0m[0;34m[[0m[0mtest[0m[0;34m,[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0;34m'quora_questions_test_features_v2_part'[0m [0;34m+[0m [0mstr[0m[0;34m([0m[0mi[0m[0;34m)[0m [0;34m+[0m [0;34m'.pickle'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'quora_questions_train_features_v2.pickle'
+FileNotFoundError: [Errno 2] No such file or directory: 'quora_questions_train_features_v2.pickle'
+
+Executability                            : False

@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# create new DataFrames for the Categorical Variables
+occ_dummies = pd.get_dummies(df['occupation'])
+hus_occ_dummies = pd.get_dummies(df['occupation_husb'])
+
+# let's take a quick look at the results
+occ_dummies.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-8d53d0ce6da0>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# create new DataFrames for the Categorical Variables[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mocc_dummies[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mget_dummies[0m[0;34m([0m[0mdf[0m[0;34m[[0m[0;34m'occupation'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mhus_occ_dummies[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mget_dummies[0m[0;34m([0m[0mdf[0m[0;34m[[0m[0;34m'occupation_husb'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

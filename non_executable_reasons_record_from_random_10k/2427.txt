@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# an integer is not iterable
+set(4)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-21e1bafa4c18>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# an integer is not iterable[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mset[0m[0;34m([0m[0;36m4[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: 'int' object is not iterable
+TypeError: 'int' object is not iterable
+
+Executability                            : False

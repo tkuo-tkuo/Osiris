@@ -1,0 +1,71 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+caltech_dir = '../data/image/101_ObjectCategories'
+categories = ['chair', 'camera', 'butterfly','elephant','flamingo']
+nb_classes = len(categories)
+
+image_w = 64
+image_h = 64
+pixels = image_w * image_h * 3
+
+#이미지 데이터 읽어 들이기
+
+X = []
+Y = []
+for idx, cat in enumerate(categories):
+    label = [0 for i in range(len(categories)) ]
+    label[idx] = 1
+    
+    image_dir = caltech_dir + '/' + cat
+    files = glob.glob(image_dir+'/*.jpg')
+    for i, f in enumerate(files):
+        img = Image.open(f)
+        img = img.convert('RGB')
+        img = img.resize((image_w, image_h))
+        data = np.asarray(img)
+        X.append(data)
+        Y.append(label)
+        if i % 10 == 0:
+            print(i, '\n', data)
+
+X = np.array(X)            
+Y = np.array(Y)
+
+X_train, X_test, y_train, y_test = train_test_split(X, Y)
+
+xy = (X_train, X_test, y_train, y_test)
+np.save('../data/image/5obj.npy', xy)
+
+print('ok,', len(Y))
+        
+    
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-2-0f4a62682a79>[0m in [0;36m<module>[0;34m[0m
+[1;32m     30[0m [0mY[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mY[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     31[0m [0;34m[0m[0m
+[0;32m---> 32[0;31m [0mX_train[0m[0;34m,[0m [0mX_test[0m[0;34m,[0m [0my_train[0m[0;34m,[0m [0my_test[0m [0;34m=[0m [0mtrain_test_split[0m[0;34m([0m[0mX[0m[0;34m,[0m [0mY[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     33[0m [0;34m[0m[0m
+[1;32m     34[0m [0mxy[0m [0;34m=[0m [0;34m([0m[0mX_train[0m[0;34m,[0m [0mX_test[0m[0;34m,[0m [0my_train[0m[0;34m,[0m [0my_test[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/model_selection/_split.py[0m in [0;36mtrain_test_split[0;34m(*arrays, **options)[0m
+[1;32m   2098[0m     [0mn_samples[0m [0;34m=[0m [0m_num_samples[0m[0;34m([0m[0marrays[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2099[0m     n_train, n_test = _validate_shuffle_split(n_samples, test_size, train_size,
+[0;32m-> 2100[0;31m                                               default_test_size=0.25)
+[0m[1;32m   2101[0m [0;34m[0m[0m
+[1;32m   2102[0m     [0;32mif[0m [0mshuffle[0m [0;32mis[0m [0;32mFalse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/model_selection/_split.py[0m in [0;36m_validate_shuffle_split[0;34m(n_samples, test_size, train_size, default_test_size)[0m
+[1;32m   1780[0m             [0;34m'resulting train set will be empty. Adjust any of the '[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1781[0m             'aforementioned parameters.'.format(n_samples, test_size,
+[0;32m-> 1782[0;31m                                                 train_size)
+[0m[1;32m   1783[0m         )
+[1;32m   1784[0m [0;34m[0m[0m
+
+[0;31mValueError[0m: With n_samples=0, test_size=0.25 and train_size=None, the resulting train set will be empty. Adjust any of the aforementioned parameters.
+ValueError: With n_samples=0, test_size=0.25 and train_size=None, the resulting train set will be empty. Adjust any of the aforementioned parameters.
+
+Executability                            : False

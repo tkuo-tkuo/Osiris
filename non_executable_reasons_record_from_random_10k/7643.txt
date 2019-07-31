@@ -1,0 +1,49 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+alphas_test = np.linspace(-0.01, 1)
+rcv3=RidgeCV(alphas=alphas_test,store_cv_values=True)
+rcv3.fit(x,y)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-16-32628a56b352>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0malphas_test[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlinspace[0m[0;34m([0m[0;34m-[0m[0;36m0.01[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mrcv3[0m[0;34m=[0m[0mRidgeCV[0m[0;34m([0m[0malphas[0m[0;34m=[0m[0malphas_test[0m[0;34m,[0m[0mstore_cv_values[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mrcv3[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mx[0m[0;34m,[0m[0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/linear_model/ridge.py[0m in [0;36mfit[0;34m(self, X, y, sample_weight)[0m
+[1;32m   1526[0m                                   [0mgcv_mode[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mgcv_mode[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1527[0m                                   store_cv_values=self.store_cv_values)
+[0;32m-> 1528[0;31m             [0mestimator[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX[0m[0;34m,[0m [0my[0m[0;34m,[0m [0msample_weight[0m[0;34m=[0m[0msample_weight[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1529[0m             [0mself[0m[0;34m.[0m[0malpha_[0m [0;34m=[0m [0mestimator[0m[0;34m.[0m[0malpha_[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1530[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mstore_cv_values[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/linear_model/ridge.py[0m in [0;36mfit[0;34m(self, X, y, sample_weight)[0m
+[1;32m   1397[0m             raise ValueError(
+[1;32m   1398[0m                 [0;34m"alphas must be positive. Got {} containing some "[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1399[0;31m                 "negative or null value instead.".format(self.alphas))
+[0m[1;32m   1400[0m [0;34m[0m[0m
+[1;32m   1401[0m         [0;32mif[0m [0msample_weight[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m [0;32mand[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0msample_weight[0m[0;34m,[0m [0mfloat[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: alphas must be positive. Got [-0.01        0.01061224  0.03122449  0.05183673  0.07244898  0.09306122
+  0.11367347  0.13428571  0.15489796  0.1755102   0.19612245  0.21673469
+  0.23734694  0.25795918  0.27857143  0.29918367  0.31979592  0.34040816
+  0.36102041  0.38163265  0.4022449   0.42285714  0.44346939  0.46408163
+  0.48469388  0.50530612  0.52591837  0.54653061  0.56714286  0.5877551
+  0.60836735  0.62897959  0.64959184  0.67020408  0.69081633  0.71142857
+  0.73204082  0.75265306  0.77326531  0.79387755  0.8144898   0.83510204
+  0.85571429  0.87632653  0.89693878  0.91755102  0.93816327  0.95877551
+  0.97938776  1.        ] containing some negative or null value instead.
+ValueError: alphas must be positive. Got [-0.01        0.01061224  0.03122449  0.05183673  0.07244898  0.09306122
+  0.11367347  0.13428571  0.15489796  0.1755102   0.19612245  0.21673469
+  0.23734694  0.25795918  0.27857143  0.29918367  0.31979592  0.34040816
+  0.36102041  0.38163265  0.4022449   0.42285714  0.44346939  0.46408163
+  0.48469388  0.50530612  0.52591837  0.54653061  0.56714286  0.5877551
+  0.60836735  0.62897959  0.64959184  0.67020408  0.69081633  0.71142857
+  0.73204082  0.75265306  0.77326531  0.79387755  0.8144898   0.83510204
+  0.85571429  0.87632653  0.89693878  0.91755102  0.93816327  0.95877551
+  0.97938776  1.        ] containing some negative or null value instead.
+
+Executability                            : False

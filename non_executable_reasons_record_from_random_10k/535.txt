@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+spam_data = pd.read_csv(SPAMBASE_DATA_URL, header=None, names=(feature_names + ['spam']))
+ 
+X, y = spam_data.ix[:, :-1].values, spam_data.ix[:, -1].values
+ 
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-678adb9cbbd0>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mspam_data[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mSPAMBASE_DATA_URL[0m[0;34m,[0m [0mheader[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mnames[0m[0;34m=[0m[0;34m([0m[0mfeature_names[0m [0;34m+[0m [0;34m[[0m[0;34m'spam'[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mX[0m[0;34m,[0m [0my[0m [0;34m=[0m [0mspam_data[0m[0;34m.[0m[0mix[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m [0;34m:[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mvalues[0m[0;34m,[0m [0mspam_data[0m[0;34m.[0m[0mix[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m [0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mvalues[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

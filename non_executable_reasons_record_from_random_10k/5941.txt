@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#You should have them already downloaded in the data directory
+try:
+    #adding path for both local and server, only one of these will actually be used at a time
+    nltk.data.path.append('/project2/macs60000/shared_data/nltk')
+    nltk.data.path.append('../data')
+    #Check that everything is in place
+    nltk.corpus.gutenberg.fileids()
+except LookupError:
+    print("You have to download all the documents")
+    print("Downloading to ../data this should only take a couple minutes")
+    nltk.download('all', download_dir = '../data')
+    nltk.data.path.append('../data')
+#If you haven't downloaded the copura then you will have to run `nltk.download()`
+print(nltk.corpus.gutenberg.fileids())
+print(len(nltk.corpus.gutenberg.fileids()))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-0cca569cd3e4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0;31m#adding path for both local and server, only one of these will actually be used at a time[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m'/project2/macs60000/shared_data/nltk'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m'../data'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m     [0;31m#Check that everything is in place[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'nltk' is not defined
+NameError: name 'nltk' is not defined
+
+Executability                            : False

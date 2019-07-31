@@ -1,0 +1,19 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+install.packages(“Rfacebook”)
+library("Rfacebook") 
+
+myoauth <- fbOAuth(app_id="Facebook-ID", app-secret="Facebook-secret")
+
+save(myouath, file="myoauth")
+load("myoauth")
+me <- getUsers("me", token = myoauth)
+me$name
+------------------
+
+SyntaxError: invalid character in identifier (<ipython-input-1-ecc5d7cd5a8a>, line 3)
+
+Executability                            : False

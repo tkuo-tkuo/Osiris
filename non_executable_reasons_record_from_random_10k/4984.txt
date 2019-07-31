@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+from w2v_utils import *
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-9598dfca4539>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mw2v_utils[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/vilon888@machine-learning/deeplearning.ai/5.Sequence Models/Programming-Assignments/Week2/Word Vector Representation/w2v_utils.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mModel[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mInput[0m[0;34m,[0m [0mDense[0m[0;34m,[0m [0mReshape[0m[0;34m,[0m [0mmerge[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m[0;34m.[0m[0membeddings[0m [0;32mimport[0m [0mEmbedding[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mpreprocessing[0m[0;34m.[0m[0msequence[0m [0;32mimport[0m [0mskipgrams[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mpreprocessing[0m [0;32mimport[0m [0msequence[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'keras'
+ModuleNotFoundError: No module named 'keras'
+
+Executability                            : False

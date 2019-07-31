@@ -1,0 +1,13 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from sklearn import svm, metrics
+from sklearn import datasets
+import matplotlib.pyplot as plt
+% matplotlib inline
+------------------
+
+
+UsageError: Line magic function `%` not found.
+
+Executability                            : False

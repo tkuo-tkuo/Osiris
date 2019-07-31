@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from imblearn.under_sampling import RandomUnderSampler
+from imblearn.under_sampling import NearMiss
+from imblearn.under_sampling import TomekLinks
+from imblearn.under_sampling import RepeatedEditedNearestNeighbours
+from imblearn.over_sampling import SMOTE
+from imblearn.over_sampling import ADASYN
+from sklearn.model_selection import KFold
+from sklearn.metrics import cohen_kappa_score
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+import matplotlib.pyplot as plt
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-2e271f7a72e9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mlinear_model[0m [0;32mimport[0m [0mLogisticRegression[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mensemble[0m [0;32mimport[0m [0mRandomForestClassifier[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mfrom[0m [0mimblearn[0m[0;34m.[0m[0munder_sampling[0m [0;32mimport[0m [0mRandomUnderSampler[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mfrom[0m [0mimblearn[0m[0;34m.[0m[0munder_sampling[0m [0;32mimport[0m [0mNearMiss[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mfrom[0m [0mimblearn[0m[0;34m.[0m[0munder_sampling[0m [0;32mimport[0m [0mTomekLinks[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'imblearn'
+ModuleNotFoundError: No module named 'imblearn'
+
+Executability                            : False

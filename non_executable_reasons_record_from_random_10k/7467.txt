@@ -1,0 +1,37 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import sqlite3
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+db = "chinook.db"
+
+def run_query(q):
+    with sqlite3.connect(db) as conn:
+        return pd.read_sql(q, conn)
+    
+def run_command(q):
+    with sqlite3.connect(db) as conn:
+        conn.isolation_level = None
+        conn.execute(q)
+        
+def show_tables():
+    q = '''
+        SELECT 
+            name,
+            type
+        FROM sqlite_master
+        WHERE type IN ("table", "view")'''
+    return run_query(q)
+
+show_tables()
+------------------
+
+OperationalError: unable to open database file
+
+Executability                            : False

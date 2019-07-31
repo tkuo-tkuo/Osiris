@@ -1,0 +1,261 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+# Dependancies
+import json
+import requests as req
+
+#URL for GET requests to retrieve the vheicle data
+url = "https://api.spacexdata.com/v2/launchpads"
+response = req.get(url).json()
+print(json.dumps(response,indent = 4, sort_keys = True))
+
+-----------------
+Original output:
+[
+    {
+        "details": "SpaceX primary Falcon 9 launch pad, where all east coast Falcon 9s launched prior to the AMOS-6 anomaly. Initially used to launch Titan rockets for Lockheed Martin. Back online since CRS-13 on 2017-12-15.",
+        "full_name": "Cape Canaveral Air Force Station Space Launch Complex 40",
+        "id": "ccafs_slc_40",
+        "location": {
+            "latitude": 28.5618571,
+            "longitude": -80.577366,
+            "name": "Cape Canaveral",
+            "region": "Florida"
+        },
+        "status": "active",
+        "vehicles_launched": [
+            "Falcon 9"
+        ]
+    },
+    {
+        "details": "SpaceX new launch site currently under construction to help keep up with the Falcon 9 and Heavy manifests. Expected to be completed in late 2018. Initially will be limited to 12 flights per year, and only GTO launches.",
+        "full_name": "SpaceX South Texas Launch Site",
+        "id": "stls",
+        "location": {
+            "latitude": 25.9972641,
+            "longitude": -97.1560845,
+            "name": "Boca Chica Village",
+            "region": "Texas"
+        },
+        "status": "under construction",
+        "vehicles_launched": [
+            "Falcon 9"
+        ]
+    },
+    {
+        "details": "SpaceX west coast landing pad, has not yet been used. Expected to first be used during the Formosat-5 launch.",
+        "full_name": "Vandenberg Air Force Base Space Launch Complex 4W",
+        "id": "vafb_slc_4w",
+        "location": {
+            "latitude": 34.6332043,
+            "longitude": -120.6156234,
+            "name": "Vandenberg Air Force Base",
+            "region": "California"
+        },
+        "status": "active",
+        "vehicles_launched": [
+            "Falcon 9"
+        ]
+    },
+    {
+        "details": "SpaceX east coast landing pad, where the historic first landing occurred. Originally used for early Atlas missiles and rockets from Lockheed Martin. Currently being expanded to add two smaller pads for Falcon Heavy RTLS missions.",
+        "full_name": "Cape Canaveral Air Force Station Space Launch Complex 13",
+        "id": "ccafs_lc_13",
+        "location": {
+            "latitude": 28.4857244,
+            "longitude": -80.5449222,
+            "name": "Cape Canaveral",
+            "region": "Florida"
+        },
+        "status": "active",
+        "vehicles_launched": [
+            "Falcon 9"
+        ]
+    },
+    {
+        "details": "SpaceX original launch site, where all of the Falcon 1 launches occured. Abandoned as SpaceX decided against upgrading the pad to support Falcon 9.",
+        "full_name": "Kwajalein Atoll Omelek Island",
+        "id": "kwajalein_atoll",
+        "location": {
+            "latitude": 9.0477206,
+            "longitude": 167.7431292,
+            "name": "Omelek Island",
+            "region": "Marshall Islands"
+        },
+        "status": "retired",
+        "vehicles_launched": [
+            "Falcon 1"
+        ]
+    },
+    {
+        "details": "NASA historic launch pad that launched most of the Saturn V and Space Shuttle missions. Initially for Falcon Heavy launches, it is now launching all of SpaceX east coast missions due to the damage from the AMOS-6 anomaly. After SLC-40 repairs are complete, it will be upgraded to support Falcon Heavy, a process which will take about two months. In the future it will launch commercial crew missions and the Interplanetary Transport System.",
+        "full_name": "Kennedy Space Center Historic Launch Complex 39A",
+        "id": "ksc_lc_39a",
+        "location": {
+            "latitude": 28.6080585,
+            "longitude": -80.6039558,
+            "name": "Cape Canaveral",
+            "region": "Florida"
+        },
+        "status": "active",
+        "vehicles_launched": [
+            "Falcon 9",
+            "Falcon Heavy"
+        ]
+    },
+    {
+        "details": "SpaceX original west coast launch pad for Falcon 1. Performed a static fire but was never used for a launch and abandoned due to scheduling conflicts.",
+        "full_name": "Vandenberg Air Force Base Space Launch Complex 3W",
+        "id": "vafb_slc_3w",
+        "location": {
+            "latitude": 34.6440904,
+            "longitude": -120.5931438,
+            "name": "Vandenberg Air Force Base",
+            "region": "California"
+        },
+        "status": "retired",
+        "vehicles_launched": [
+            "Falcon 9"
+        ]
+    },
+    {
+        "details": "SpaceX primary west coast launch pad for polar orbits and sun synchronous orbits, primarily used for Iridium. Also intended to be capable of launching Falcon Heavy.",
+        "full_name": "Vandenberg Air Force Base Space Launch Complex 4E",
+        "id": "vafb_slc_4e",
+        "location": {
+            "latitude": 34.632093,
+            "longitude": -120.610829,
+            "name": "Vandenberg Air Force Base",
+            "region": "California"
+        },
+        "status": "active",
+        "vehicles_launched": [
+            "Falcon 9"
+        ]
+    }
+]
+
+Executed output:
+[
+    {
+        "attempted_launches": 15,
+        "details": "SpaceX primary west coast launch pad for polar orbits and sun synchronous orbits, primarily used for Iridium. Also intended to be capable of launching Falcon Heavy.",
+        "full_name": "Vandenberg Air Force Base Space Launch Complex 4E",
+        "id": "vafb_slc_4e",
+        "location": {
+            "latitude": 34.632093,
+            "longitude": -120.610829,
+            "name": "Vandenberg Air Force Base",
+            "region": "California"
+        },
+        "padid": 6,
+        "status": "active",
+        "successful_launches": 15,
+        "vehicles_launched": [
+            "Falcon 9"
+        ],
+        "wikipedia": "https://en.wikipedia.org/wiki/Vandenberg_AFB_Space_Launch_Complex_4"
+    },
+    {
+        "attempted_launches": 44,
+        "details": "SpaceX primary Falcon 9 launch pad, where all east coast Falcon 9s launched prior to the AMOS-6 anomaly. Initially used to launch Titan rockets for Lockheed Martin. Back online since CRS-13 on 2017-12-15.",
+        "full_name": "Cape Canaveral Air Force Station Space Launch Complex 40",
+        "id": "ccafs_slc_40",
+        "location": {
+            "latitude": 28.5618571,
+            "longitude": -80.577366,
+            "name": "Cape Canaveral",
+            "region": "Florida"
+        },
+        "padid": 2,
+        "status": "active",
+        "successful_launches": 42,
+        "vehicles_launched": [
+            "Falcon 9"
+        ],
+        "wikipedia": "https://en.wikipedia.org/wiki/Cape_Canaveral_Air_Force_Station_Space_Launch_Complex_40"
+    },
+    {
+        "attempted_launches": 0,
+        "details": "SpaceX new launch site currently under construction to help keep up with the Falcon 9 and Heavy manifests. Expected to be completed in late 2018. Initially will be limited to 12 flights per year, and only GTO launches.",
+        "full_name": "SpaceX South Texas Launch Site",
+        "id": "stls",
+        "location": {
+            "latitude": 25.9972641,
+            "longitude": -97.1560845,
+            "name": "Boca Chica Village",
+            "region": "Texas"
+        },
+        "padid": 8,
+        "status": "under construction",
+        "successful_launches": 0,
+        "vehicles_launched": [
+            "Falcon 9"
+        ],
+        "wikipedia": "https://en.wikipedia.org/wiki/SpaceX_South_Texas_Launch_Site"
+    },
+    {
+        "attempted_launches": 5,
+        "details": "SpaceX original launch site, where all of the Falcon 1 launches occured. Abandoned as SpaceX decided against upgrading the pad to support Falcon 9.",
+        "full_name": "Kwajalein Atoll Omelek Island",
+        "id": "kwajalein_atoll",
+        "location": {
+            "latitude": 9.0477206,
+            "longitude": 167.7431292,
+            "name": "Omelek Island",
+            "region": "Marshall Islands"
+        },
+        "padid": 1,
+        "status": "retired",
+        "successful_launches": 2,
+        "vehicles_launched": [
+            "Falcon 1"
+        ],
+        "wikipedia": "https://en.wikipedia.org/wiki/Omelek_Island"
+    },
+    {
+        "attempted_launches": 18,
+        "details": "NASA historic launch pad that launched most of the Saturn V and Space Shuttle missions. Initially for Falcon Heavy launches, it is now launching all of SpaceX east coast missions due to the damage from the AMOS-6 anomaly. After SLC-40 repairs are complete, it will be upgraded to support Falcon Heavy, a process which will take about two months. In the future it will launch commercial crew missions and the Interplanetary Transport System.",
+        "full_name": "Kennedy Space Center Historic Launch Complex 39A",
+        "id": "ksc_lc_39a",
+        "location": {
+            "latitude": 28.6080585,
+            "longitude": -80.6039558,
+            "name": "Cape Canaveral",
+            "region": "Florida"
+        },
+        "padid": 4,
+        "status": "active",
+        "successful_launches": 18,
+        "vehicles_launched": [
+            "Falcon 9",
+            "Falcon Heavy"
+        ],
+        "wikipedia": "https://en.wikipedia.org/wiki/Kennedy_Space_Center_Launch_Complex_39#Launch_Pad_39A"
+    },
+    {
+        "attempted_launches": 0,
+        "details": "SpaceX original west coast launch pad for Falcon 1. Performed a static fire but was never used for a launch and abandoned due to scheduling conflicts.",
+        "full_name": "Vandenberg Air Force Base Space Launch Complex 3W",
+        "id": "vafb_slc_3w",
+        "location": {
+            "latitude": 34.6440904,
+            "longitude": -120.5931438,
+            "name": "Vandenberg Air Force Base",
+            "region": "California"
+        },
+        "padid": 5,
+        "status": "retired",
+        "successful_launches": 0,
+        "vehicles_launched": [
+            "Falcon 1"
+        ],
+        "wikipedia": "https://en.wikipedia.org/wiki/Vandenberg_AFB_Space_Launch_Complex_3"
+    }
+]
+

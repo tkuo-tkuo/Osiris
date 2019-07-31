@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+cf = find_connection_file("1168db12")
+kc = BlockingKernelClient(connection_file=cf)
+kc.load_connection_file()
+kc.start_channels()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-6-9125f57629a6>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mcf[0m [0;34m=[0m [0mfind_connection_file[0m[0;34m([0m[0;34m"1168db12"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mkc[0m [0;34m=[0m [0mBlockingKernelClient[0m[0;34m([0m[0mconnection_file[0m[0;34m=[0m[0mcf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mkc[0m[0;34m.[0m[0mload_connection_file[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mkc[0m[0;34m.[0m[0mstart_channels[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/jupyter_client/connect.py[0m in [0;36mfind_connection_file[0;34m(filename, path, profile)[0m
+[1;32m    216[0m     [0mmatches[0m [0;34m=[0m [0;34m[[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mabspath[0m[0;34m([0m[0mm[0m[0;34m)[0m [0;32mfor[0m [0mm[0m [0;32min[0m [0mmatches[0m [0;34m][0m[0;34m[0m[0m
+[1;32m    217[0m     [0;32mif[0m [0;32mnot[0m [0mmatches[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 218[0;31m         [0;32mraise[0m [0mIOError[0m[0;34m([0m[0;34m"Could not find %r in %r"[0m [0;34m%[0m [0;34m([0m[0mfilename[0m[0;34m,[0m [0mpath[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    219[0m     [0;32melif[0m [0mlen[0m[0;34m([0m[0mmatches[0m[0;34m)[0m [0;34m==[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    220[0m         [0;32mreturn[0m [0mmatches[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mOSError[0m: Could not find '1168db12' in ['.', '/run/user/1004/jupyter']
+OSError: Could not find '1168db12' in ['.', '/run/user/1004/jupyter']
+
+Executability                            : False

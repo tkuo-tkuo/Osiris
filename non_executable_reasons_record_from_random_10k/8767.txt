@@ -1,0 +1,178 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+checkpoint = tf.train.latest_checkpoint('checkpoints')
+samp = sample(checkpoint, 2000, lstm_size, len(vocab), prime="Far")
+print(samp)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-20-4c058b3d8da7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mcheckpoint[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mtrain[0m[0;34m.[0m[0mlatest_checkpoint[0m[0;34m([0m[0;34m'checkpoints'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0msamp[0m [0;34m=[0m [0msample[0m[0;34m([0m[0mcheckpoint[0m[0;34m,[0m [0;36m2000[0m[0;34m,[0m [0mlstm_size[0m[0;34m,[0m [0mlen[0m[0;34m([0m[0mvocab[0m[0;34m)[0m[0;34m,[0m [0mprime[0m[0;34m=[0m[0;34m"Far"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0msamp[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-18-8693ad72bd2c>[0m in [0;36msample[0;34m(checkpoint, n_samples, lstm_size, vocab_size, prime)[0m
+[1;32m      1[0m [0;32mdef[0m [0msample[0m[0;34m([0m[0mcheckpoint[0m[0;34m,[0m [0mn_samples[0m[0;34m,[0m [0mlstm_size[0m[0;34m,[0m [0mvocab_size[0m[0;34m,[0m [0mprime[0m[0;34m=[0m[0;34m"The "[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m     [0msamples[0m [0;34m=[0m [0;34m[[0m[0mc[0m [0;32mfor[0m [0mc[0m [0;32min[0m [0mprime[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     [0mmodel[0m [0;34m=[0m [0mCharRNN[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mvocab[0m[0;34m)[0m[0;34m,[0m [0mlstm_size[0m[0;34m=[0m[0mlstm_size[0m[0;34m,[0m [0msampling[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0msaver[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mtrain[0m[0;34m.[0m[0mSaver[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0;32mwith[0m [0mtf[0m[0;34m.[0m[0mSession[0m[0;34m([0m[0;34m)[0m [0;32mas[0m [0msess[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-14-85de622c798a>[0m in [0;36m__init__[0;34m(self, num_classes, batch_size, num_steps, lstm_size, num_layers, learning_rate, grad_clip, sampling)[0m
+[1;32m     25[0m [0;34m[0m[0m
+[1;32m     26[0m         [0;31m# Run each sequence step through the RNN and collect the outputs[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 27[0;31m         [0moutputs[0m[0;34m,[0m [0mstate[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mnn[0m[0;34m.[0m[0mdynamic_rnn[0m[0;34m([0m[0mcell[0m[0;34m,[0m [0mx_one_hot[0m[0;34m,[0m [0minitial_state[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0minitial_state[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     28[0m         [0mself[0m[0;34m.[0m[0mfinal_state[0m [0;34m=[0m [0mstate[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     29[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py[0m in [0;36mnew_func[0;34m(*args, **kwargs)[0m
+[1;32m    322[0m               [0;34m'in a future version'[0m [0;32mif[0m [0mdate[0m [0;32mis[0m [0;32mNone[0m [0;32melse[0m [0;34m([0m[0;34m'after %s'[0m [0;34m%[0m [0mdate[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    323[0m               instructions)
+[0;32m--> 324[0;31m       [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    325[0m     return tf_decorator.make_decorator(
+[1;32m    326[0m         [0mfunc[0m[0;34m,[0m [0mnew_func[0m[0;34m,[0m [0;34m'deprecated'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/rnn.py[0m in [0;36mdynamic_rnn[0;34m(cell, inputs, sequence_length, initial_state, dtype, parallel_iterations, swap_memory, time_major, scope)[0m
+[1;32m    705[0m         [0mswap_memory[0m[0;34m=[0m[0mswap_memory[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    706[0m         [0msequence_length[0m[0;34m=[0m[0msequence_length[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 707[0;31m         dtype=dtype)
+[0m[1;32m    708[0m [0;34m[0m[0m
+[1;32m    709[0m     [0;31m# Outputs of _dynamic_rnn_loop are always shaped [time, batch, depth].[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/rnn.py[0m in [0;36m_dynamic_rnn_loop[0;34m(cell, inputs, initial_state, parallel_iterations, swap_memory, sequence_length, dtype)[0m
+[1;32m    914[0m       [0mparallel_iterations[0m[0;34m=[0m[0mparallel_iterations[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    915[0m       [0mmaximum_iterations[0m[0;34m=[0m[0mtime_steps[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 916[0;31m       swap_memory=swap_memory)
+[0m[1;32m    917[0m [0;34m[0m[0m
+[1;32m    918[0m   [0;31m# Unpack final output if not using output tuples.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/control_flow_ops.py[0m in [0;36mwhile_loop[0;34m(cond, body, loop_vars, shape_invariants, parallel_iterations, back_prop, swap_memory, name, maximum_iterations, return_same_structure)[0m
+[1;32m   3499[0m       [0mops[0m[0;34m.[0m[0madd_to_collection[0m[0;34m([0m[0mops[0m[0;34m.[0m[0mGraphKeys[0m[0;34m.[0m[0mWHILE_CONTEXT[0m[0;34m,[0m [0mloop_context[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3500[0m     result = loop_context.BuildLoop(cond, body, loop_vars, shape_invariants,
+[0;32m-> 3501[0;31m                                     return_same_structure)
+[0m[1;32m   3502[0m     [0;32mif[0m [0mmaximum_iterations[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3503[0m       [0;32mreturn[0m [0mresult[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/control_flow_ops.py[0m in [0;36mBuildLoop[0;34m(self, pred, body, loop_vars, shape_invariants, return_same_structure)[0m
+[1;32m   3010[0m       [0;32mwith[0m [0mops[0m[0;34m.[0m[0mget_default_graph[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0m_mutation_lock[0m[0;34m([0m[0;34m)[0m[0;34m:[0m  [0;31m# pylint: disable=protected-access[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3011[0m         original_body_result, exit_vars = self._BuildLoop(
+[0;32m-> 3012[0;31m             pred, body, original_loop_vars, loop_vars, shape_invariants)
+[0m[1;32m   3013[0m     [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3014[0m       [0mself[0m[0;34m.[0m[0mExit[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/control_flow_ops.py[0m in [0;36m_BuildLoop[0;34m(self, pred, body, original_loop_vars, loop_vars, shape_invariants)[0m
+[1;32m   2935[0m         expand_composites=True)
+[1;32m   2936[0m     [0mpre_summaries[0m [0;34m=[0m [0mops[0m[0;34m.[0m[0mget_collection[0m[0;34m([0m[0mops[0m[0;34m.[0m[0mGraphKeys[0m[0;34m.[0m[0m_SUMMARY_COLLECTION[0m[0;34m)[0m  [0;31m# pylint: disable=protected-access[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2937[0;31m     [0mbody_result[0m [0;34m=[0m [0mbody[0m[0;34m([0m[0;34m*[0m[0mpacked_vars_for_body[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2938[0m     [0mpost_summaries[0m [0;34m=[0m [0mops[0m[0;34m.[0m[0mget_collection[0m[0;34m([0m[0mops[0m[0;34m.[0m[0mGraphKeys[0m[0;34m.[0m[0m_SUMMARY_COLLECTION[0m[0;34m)[0m  [0;31m# pylint: disable=protected-access[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2939[0m     [0;32mif[0m [0;32mnot[0m [0mnest[0m[0;34m.[0m[0mis_sequence_or_composite[0m[0;34m([0m[0mbody_result[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/control_flow_ops.py[0m in [0;36m<lambda>[0;34m(i, lv)[0m
+[1;32m   3454[0m         cond = lambda i, lv: (  # pylint: disable=g-long-lambda
+[1;32m   3455[0m             math_ops.logical_and(i < maximum_iterations, orig_cond(*lv)))
+[0;32m-> 3456[0;31m         [0mbody[0m [0;34m=[0m [0;32mlambda[0m [0mi[0m[0;34m,[0m [0mlv[0m[0;34m:[0m [0;34m([0m[0mi[0m [0;34m+[0m [0;36m1[0m[0;34m,[0m [0morig_body[0m[0;34m([0m[0;34m*[0m[0mlv[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3457[0m [0;34m[0m[0m
+[1;32m   3458[0m     [0;32mif[0m [0mexecuting_eagerly[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/rnn.py[0m in [0;36m_time_step[0;34m(time, output_ta_t, state)[0m
+[1;32m    882[0m           skip_conditionals=True)
+[1;32m    883[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 884[0;31m       [0;34m([0m[0moutput[0m[0;34m,[0m [0mnew_state[0m[0;34m)[0m [0;34m=[0m [0mcall_cell[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    885[0m [0;34m[0m[0m
+[1;32m    886[0m     [0;31m# Keras cells always wrap state as list, even if it's a single tensor.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/rnn.py[0m in [0;36m<lambda>[0;34m()[0m
+[1;32m    868[0m     [0;32mif[0m [0mis_keras_rnn_cell[0m [0;32mand[0m [0;32mnot[0m [0mnest[0m[0;34m.[0m[0mis_sequence[0m[0;34m([0m[0mstate[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    869[0m       [0mstate[0m [0;34m=[0m [0;34m[[0m[0mstate[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 870[0;31m     [0mcall_cell[0m [0;34m=[0m [0;32mlambda[0m[0;34m:[0m [0mcell[0m[0;34m([0m[0minput_t[0m[0;34m,[0m [0mstate[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    871[0m [0;34m[0m[0m
+[1;32m    872[0m     [0;32mif[0m [0msequence_length[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/rnn_cell_impl.py[0m in [0;36m__call__[0;34m(self, inputs, state, scope)[0m
+[1;32m    246[0m         [0msetattr[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mscope_attrname[0m[0;34m,[0m [0mscope[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    247[0m       [0;32mwith[0m [0mscope[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 248[0;31m         [0;32mreturn[0m [0msuper[0m[0;34m([0m[0mRNNCell[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0m__call__[0m[0;34m([0m[0minputs[0m[0;34m,[0m [0mstate[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    249[0m [0;34m[0m[0m
+[1;32m    250[0m   [0;32mdef[0m [0m_rnn_get_variable[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mgetter[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/layers/base.py[0m in [0;36m__call__[0;34m(self, inputs, *args, **kwargs)[0m
+[1;32m    535[0m [0;34m[0m[0m
+[1;32m    536[0m       [0;31m# Actually call layer[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 537[0;31m       [0moutputs[0m [0;34m=[0m [0msuper[0m[0;34m([0m[0mLayer[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0m__call__[0m[0;34m([0m[0minputs[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    538[0m [0;34m[0m[0m
+[1;32m    539[0m     [0;32mif[0m [0;32mnot[0m [0mcontext[0m[0;34m.[0m[0mexecuting_eagerly[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/keras/engine/base_layer.py[0m in [0;36m__call__[0;34m(self, inputs, *args, **kwargs)[0m
+[1;32m    632[0m                     [0moutputs[0m [0;34m=[0m [0mbase_layer_utils[0m[0;34m.[0m[0mmark_as_return[0m[0;34m([0m[0moutputs[0m[0;34m,[0m [0macd[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    633[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 634[0;31m                   [0moutputs[0m [0;34m=[0m [0mcall_fn[0m[0;34m([0m[0minputs[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    635[0m [0;34m[0m[0m
+[1;32m    636[0m             [0;32mexcept[0m [0mTypeError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/autograph/impl/api.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    147[0m       [0;32mexcept[0m [0mException[0m [0;32mas[0m [0me[0m[0;34m:[0m  [0;31m# pylint:disable=broad-except[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    148[0m         [0;32mif[0m [0mhasattr[0m[0;34m([0m[0me[0m[0;34m,[0m [0;34m'ag_error_metadata'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 149[0;31m           [0;32mraise[0m [0me[0m[0;34m.[0m[0mag_error_metadata[0m[0;34m.[0m[0mto_exception[0m[0;34m([0m[0mtype[0m[0;34m([0m[0me[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    150[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    151[0m           [0;32mraise[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: in converted code:
+    relative to /home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python:
+
+    ops/rnn_cell_impl.py:1719 call *
+        cur_inp, new_state = cell(cur_inp, cur_state)
+    ops/rnn_cell_impl.py:1159 __call__
+        inputs, state, cell_call_fn=self.cell.__call__, scope=scope)
+    ops/rnn_cell_impl.py:766 call *
+        gate_inputs = math_ops.matmul(
+    util/dispatch.py:180 wrapper
+        return target(*args, **kwargs)
+    ops/math_ops.py:2647 matmul
+        a, b, transpose_a=transpose_a, transpose_b=transpose_b, name=name)
+    ops/gen_math_ops.py:5925 mat_mul
+        name=name)
+    framework/op_def_library.py:788 _apply_op_helper
+        op_def=op_def)
+    util/deprecation.py:507 new_func
+        return func(*args, **kwargs)
+    framework/ops.py:3616 create_op
+        op_def=op_def)
+    framework/ops.py:2027 __init__
+        control_input_ops)
+    framework/ops.py:1867 _create_c_op
+        raise ValueError(str(e))
+
+    ValueError: Dimensions must be equal, but are 1024 and 595 for 'rnn/while/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/MatMul_1' (op: 'MatMul') with input shapes: [1,1024], [595,2048].
+
+ValueError: in converted code:
+    relative to /home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python:
+
+    ops/rnn_cell_impl.py:1719 call *
+        cur_inp, new_state = cell(cur_inp, cur_state)
+    ops/rnn_cell_impl.py:1159 __call__
+        inputs, state, cell_call_fn=self.cell.__call__, scope=scope)
+    ops/rnn_cell_impl.py:766 call *
+        gate_inputs = math_ops.matmul(
+    util/dispatch.py:180 wrapper
+        return target(*args, **kwargs)
+    ops/math_ops.py:2647 matmul
+        a, b, transpose_a=transpose_a, transpose_b=transpose_b, name=name)
+    ops/gen_math_ops.py:5925 mat_mul
+        name=name)
+    framework/op_def_library.py:788 _apply_op_helper
+        op_def=op_def)
+    util/deprecation.py:507 new_func
+        return func(*args, **kwargs)
+    framework/ops.py:3616 create_op
+        op_def=op_def)
+    framework/ops.py:2027 __init__
+        control_input_ops)
+    framework/ops.py:1867 _create_c_op
+        raise ValueError(str(e))
+
+    ValueError: Dimensions must be equal, but are 1024 and 595 for 'rnn/while/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/MatMul_1' (op: 'MatMul') with input shapes: [1,1024], [595,2048].
+
+
+Executability                            : False

@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import cross_val_score
+clf = DecisionTreeClassifier()
+clf.fit(train_x, train_y.ravel())
+expected = test_y
+predictions_dtc = clf.predict(test_x)
+
+
+scores = cross_val_score(clf, train_x, train_y.ravel(), cv=3)
+print(scores.mean())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-75cc880c6671>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmodel_selection[0m [0;32mimport[0m [0mcross_val_score[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mclf[0m [0;34m=[0m [0mDecisionTreeClassifier[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0mclf[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mtrain_x[0m[0;34m,[0m [0mtrain_y[0m[0;34m.[0m[0mravel[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0mexpected[0m [0;34m=[0m [0mtest_y[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0mpredictions_dtc[0m [0;34m=[0m [0mclf[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mtest_x[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'train_x' is not defined
+NameError: name 'train_x' is not defined
+
+Executability                            : False

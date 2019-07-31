@@ -1,0 +1,133 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
+
+#load data
+mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
+
+batch_size = 100
+
+batch_count = mnist.train.num_examples // batch_size
+
+def variable_summaries(var):
+    with tf.name_scope('summaries'):
+        mean = tf.reduce_mean(var)
+        tf.summary.scalar('mean', mean)
+        with tf.name_scope('stddev'):
+            stddev = tf.sqrt(tf.reduce_mean(tf.square(var - mean)))
+        tf.summary.scalar('stddev', stddev)
+        tf.summary.scalar('max', tf.reduce_max(var))
+        tf.summary.scalar('min', tf.reduce_min(var))
+        tf.summary.histogram('histogram', var)
+
+with tf.name_scope('input'):
+#define place holder
+    x = tf.placeholder(tf.float32, [None, 784])
+    y = tf.placeholder(tf.float32, [None, 10])
+    keep_prob = tf.placeholder(tf.float32)
+
+#create a 4-level neural network
+with tf.name_scope('Layers'):
+    with tf.name_scope('Layers1'):
+        with tf.name_scope('weights'):
+            W1 = tf.Variable(tf.truncated_normal([784, 500], stddev=0.1))
+            variable_summaries(W1)
+        with tf.name_scope('bias1'):
+            b1 = tf.Variable(tf.zeros([500])+0.1)
+            variable_summaries(b1)
+        with tf.name_scope('wx_b'):
+            wx_b1 = tf.matmul(x, W1)+b1
+        with tf.name_scope('activate_func'):
+            L1 = tf.nn.tanh(wx_b1)
+        with tf.name_scope('dropout1'):
+            L1_dropout = tf.nn.dropout(L1, keep_prob)
+            
+    with tf.name_scope('Layers2'):
+        with tf.name_scope('weights2'):
+            W2 = tf.Variable(tf.truncated_normal([500, 300], stddev=0.1))
+            variable_summaries(W2)
+        with tf.name_scope('bias2'):
+            b2 = tf.Variable(tf.zeros([300])+0.1)
+            variable_summaries(b2)
+        with tf.name_scope('wx_b2'):
+            wx_b2 = tf.matmul(L1_dropout, W2)+b2
+        with tf.name_scope('activate_func'):
+            L2 = tf.nn.tanh(wx_b2)
+        with tf.name_scope('dropout2'):
+            L2_dropout = tf.nn.dropout(L2, keep_prob)
+
+    with tf.name_scope('Layers3'):
+        with tf.name_scope('weights3'):
+            W3 = tf.Variable(tf.truncated_normal([300, 10], stddev=0.1))
+            variable_summaries(W3)
+        with tf.name_scope('bias3'):
+            b3 = tf.Variable(tf.zeros([10])+0.1)
+            variable_summaries(b3)
+        with tf.name_scope('wx_b3'):
+            wx_b3 = tf.matmul(L2_dropout, W3)+b3
+        with tf.name_scope('activate_func'):
+            prediction = tf.nn.tanh(wx_b3)
+
+with tf.name_scope('train'):
+    with tf.name_scope('learning_rate'):
+        #学习率使用指数衰减法
+        global_step = tf.Variable(0)
+        learn_rate = tf.train.exponential_decay(0.1, global_step, 100, 0.95, staircase=True)
+        tf.summary.scalar('learning rate', learn_rate)
+    with tf.name_scope('loss'):
+        #二次代价函数
+        # loss = tf.reduce_mean(tf.square(y - prediction))
+        loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=y, logits=prediction), name='loss')
+        # loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=y, logits=prediction))
+        tf.summary.scalar('loss', loss)
+    with tf.name_scope('train'):
+        #train
+        train = tf.train.GradientDescentOptimizer(learn_rate).minimize(loss, global_step=global_step)
+
+init = tf.global_variables_initializer()
+
+with tf.name_scope('accuracy'):
+    #比较预测值与实际值
+    correct_pred = tf.equal(tf.argmax(y, 1), tf.argmax(prediction, 1)) #argmax 返回沿着某个维度最大值的位置
+
+    #准确率
+    accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+    tf.summary.scalar('accuracy', accuracy)
+
+#combin all variable monitored
+merged = tf.summary.merge_all()
+
+with tf.Session() as sess:
+    sess.run(init)
+    
+    writer = tf.summary.FileWriter('logs/', sess.graph)
+    print("keep_prob 1.0")
+    for step in range(2000):
+        batch_xs, batch_ys = mnist.train.next_batch(batch_size)
+        summary, _ = sess.run([merged, train], feed_dict={x:batch_xs, y:batch_ys, keep_prob:1.0})
+        
+        if step % 100 == 0:
+            writer.add_summary(summary, step)
+            test_acc = sess.run(accuracy, feed_dict={x:mnist.test.images, y:mnist.test.labels, keep_prob:1.0})
+            train_acc = sess.run(accuracy, feed_dict={x:mnist.train.images, y:mnist.train.labels, keep_prob:1.0})
+            print("step:" + str(step) + " test accurancy:" + str(test_acc) + " train accurancy:" + str(train_acc))
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-3fdaa1740272>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mexamples[0m[0;34m.[0m[0mtutorials[0m[0;34m.[0m[0mmnist[0m [0;32mimport[0m [0minput_data[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

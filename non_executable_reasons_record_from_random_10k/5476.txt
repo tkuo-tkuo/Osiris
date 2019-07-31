@@ -1,0 +1,55 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from IPython.display import HTML
+fig, ax = plt.subplots()
+
+x = np.arange(0, 2*np.pi, 0.01)
+line, = ax.plot(x, np.sin(x))
+
+
+def animate(i):
+#     plt.plot(np.sin(x + i/10.0))
+    line.set_ydata(np.sin(x + i/10.0))  # update the data
+    return line,
+
+
+ani = animation.FuncAnimation(fig, animate, np.arange(1, 200), interval=25)
+HTML(ani.to_html5_video())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/animation.py[0m in [0;36m__getitem__[0;34m(self, name)[0m
+[1;32m    160[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 161[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mavail[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    162[0m         [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: 'ffmpeg'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mRuntimeError[0m                              Traceback (most recent call last)
+[0;32m<ipython-input-3-a6e4749ea207>[0m in [0;36m<module>[0;34m[0m
+[1;32m     13[0m [0;34m[0m[0m
+[1;32m     14[0m [0mani[0m [0;34m=[0m [0manimation[0m[0;34m.[0m[0mFuncAnimation[0m[0;34m([0m[0mfig[0m[0;34m,[0m [0manimate[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m200[0m[0;34m)[0m[0;34m,[0m [0minterval[0m[0;34m=[0m[0;36m25[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 15[0;31m [0mHTML[0m[0;34m([0m[0mani[0m[0;34m.[0m[0mto_html5_video[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/animation.py[0m in [0;36mto_html5_video[0;34m(self, embed_limit)[0m
+[1;32m   1324[0m                 [0;31m# We create a writer manually so that we can get the[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1325[0m                 [0;31m# appropriate size for the tag[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1326[0;31m                 [0mWriter[0m [0;34m=[0m [0mwriters[0m[0;34m[[0m[0mrcParams[0m[0;34m[[0m[0;34m'animation.writer'[0m[0;34m][0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1327[0m                 writer = Writer(codec='h264',
+[1;32m   1328[0m                                 [0mbitrate[0m[0;34m=[0m[0mrcParams[0m[0;34m[[0m[0;34m'animation.bitrate'[0m[0;34m][0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/animation.py[0m in [0;36m__getitem__[0;34m(self, name)[0m
+[1;32m    162[0m         [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    163[0m             raise RuntimeError(
+[0;32m--> 164[0;31m                 'Requested MovieWriter ({}) not available'.format(name))
+[0m[1;32m    165[0m [0;34m[0m[0m
+[1;32m    166[0m [0;34m[0m[0m
+
+[0;31mRuntimeError[0m: Requested MovieWriter (ffmpeg) not available
+RuntimeError: Requested MovieWriter (ffmpeg) not available
+
+Executability                            : False

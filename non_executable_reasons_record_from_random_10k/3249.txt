@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+data_path = ("https://raw.githubusercontent.com/Thinkful-Ed/data-201-resources/"
+             "master/sms_spam_collection/SMSSpamCollection"
+            )
+sms_raw = pd.read_csv(data_path, delimiter= '\t', header=None)
+sms_raw.columns = ['spam', 'message']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-f33f29550ce2>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m              [0;34m"master/sms_spam_collection/SMSSpamCollection"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m             )
+[0;32m----> 6[0;31m [0msms_raw[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mdata_path[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m [0;34m'\t'[0m[0;34m,[0m [0mheader[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0msms_raw[0m[0;34m.[0m[0mcolumns[0m [0;34m=[0m [0;34m[[0m[0;34m'spam'[0m[0;34m,[0m [0;34m'message'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+import numpy as np
+import pandas as pd
+import matplotlib.pylab as pl
+from geopandas import GeoDataFrame
+from fiona.crs import from_epsg
+import shapely as shp
+import seaborn 
+import os
+import geopandas as gpd
+
+print (os.getenv("PUIDATA"))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-fb289db929f3>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpylab[0m [0;32mas[0m [0mpl[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mgeopandas[0m [0;32mimport[0m [0mGeoDataFrame[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0mfiona[0m[0;34m.[0m[0mcrs[0m [0;32mimport[0m [0mfrom_epsg[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mimport[0m [0mshapely[0m [0;32mas[0m [0mshp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'geopandas'
+ImportError: No module named 'geopandas'
+
+Executability                            : False

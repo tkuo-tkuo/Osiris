@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+def prepare_util_matrix():
+    util_matrix = __get_empty_util_matrix(allMovies)
+    
+    _Ratings['norm_rating'] = __normalize_ratings(_Ratings)
+    
+    userIds = _Ratings['userId'].unique()
+    for userId in userIds:
+        new_row__for_util_matrix = __get_util_matrix_row(userId, _Ratings, allMovies)
+        util_matrix = util_matrix.append(new_row__for_util_matrix, ignore_index=True)
+    return util_matrix
+
+util_matrix = prepare_util_matrix()
+util_matrix.head(10)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-cf39eb57f81e>[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m     [0;32mreturn[0m [0mutil_matrix[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[0;32m---> 12[0;31m [0mutil_matrix[0m [0;34m=[0m [0mprepare_util_matrix[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0mutil_matrix[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;36m10[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-8-cf39eb57f81e>[0m in [0;36mprepare_util_matrix[0;34m()[0m
+[1;32m      6[0m     [0muserIds[0m [0;34m=[0m [0m_Ratings[0m[0;34m[[0m[0;34m'userId'[0m[0;34m][0m[0;34m.[0m[0munique[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m     [0;32mfor[0m [0muserId[0m [0;32min[0m [0muserIds[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m         [0mnew_row__for_util_matrix[0m [0;34m=[0m [0m__get_util_matrix_row[0m[0;34m([0m[0muserId[0m[0;34m,[0m [0m_Ratings[0m[0;34m,[0m [0mallMovies[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m         [0mutil_matrix[0m [0;34m=[0m [0mutil_matrix[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mnew_row__for_util_matrix[0m[0;34m,[0m [0mignore_index[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m     [0;32mreturn[0m [0mutil_matrix[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name '__get_util_matrix_row' is not defined
+NameError: name '__get_util_matrix_row' is not defined
+
+Executability                            : False

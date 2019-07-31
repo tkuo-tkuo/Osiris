@@ -1,0 +1,60 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Generate song
+import numpy as np
+# initialize database
+df = pd.DataFrame(columns=['Channel','Time','State','Program','Note','Volume'])
+#df.head()
+#df.append([ [0] * 5 ] * 100)
+Channel = [];
+Time = [];
+State = [];
+Note = [];
+Volume = [];
+
+#Generate Song
+for i in range(0,100):
+    Program = 1
+    Channel = 1;
+    Time = int(round((2*i)*333));
+    State = 'Note_on_C';
+    Volume = 90;
+    VolumeOff = 0;
+    Note = np.random.randint(low=36,high=73)
+    
+    frame = [int(Channel), Time, State, Program, Note, Volume]
+    
+    df.loc[i*2] = [int(Channel), Time, State, Program, Note, Volume]
+    
+    Time = Time + 333;
+    df.loc[(i*2)+1] = [Channel, Time, State, Program, Note, VolumeOff]
+    df['Channel']=df['Channel'].astype(int)
+    df['Time']=df['Time'].astype(int)
+    df['Program']=df['Program'].astype(int)
+    df['Note']=df['Note'].astype(int)
+    df['Volume']=df['Volume'].astype(int)
+df.head()
+
+# Convert DataFrame to CSV
+# Convert CSV to MIDI
+# Play MIDI file
+
+# df.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-6f320c269dcd>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m# initialize database[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0;34m[[0m[0;34m'Channel'[0m[0;34m,[0m[0;34m'Time'[0m[0;34m,[0m[0;34m'State'[0m[0;34m,[0m[0;34m'Program'[0m[0;34m,[0m[0;34m'Note'[0m[0;34m,[0m[0;34m'Volume'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;31m#df.head()[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;31m#df.append([ [0] * 5 ] * 100)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

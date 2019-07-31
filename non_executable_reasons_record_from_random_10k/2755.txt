@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import cv2
+------------------
+
+ImportError: No module named 'cv2'
+
+Executability                            : False

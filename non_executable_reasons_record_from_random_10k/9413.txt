@@ -1,0 +1,162 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 13
+Reproducibility                          : matched ratio: 0.077 ; index of matched cells: [5]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+from ipywidgets import Button, Layout
+
+b = Button(description='(50% width, 80px height) button',
+           layout=Layout(width='50%', height='80px'))
+b
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Button(description='(50% width, 80px height) button', layout=Layout(height='80px', width='50%'), style=ButtonS…
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+Button(description='Another button with the same layout', layout=b.layout)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Button(description='Another button with the same layout', layout=Layout(height='80px', width='50%'), style=But…
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+from ipywidgets import IntSlider
+
+IntSlider(description='A too long description')
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+IntSlider(value=0, description='A too long description')
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+from ipywidgets import HBox, Label
+
+HBox([Label('A too long description'), IntSlider()])
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+HBox(children=(Label(value='A too long description'), IntSlider(value=0)))
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+from ipywidgets import Button, HBox, VBox
+
+words = ['correct', 'horse', 'battery', 'staple']
+items = [Button(description=w) for w in words]
+left_box = VBox([items[0], items[1]])
+right_box = VBox([items[2], items[3]])
+HBox([left_box, right_box])
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+HBox(children=(VBox(children=(Button(description='correct', style=ButtonStyle()), Button(description='horse', …
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+IntSlider(description=r'\(\int_0^t f\)')
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+IntSlider(value=0, description='\\(\\int_0^t f\\)')
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+Label(value=r'\(e=mc^2\)')
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Label(value='\\(e=mc^2\\)')
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+style = {'description_width': 'initial'}
+IntSlider(description='A too long description', style=style)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+IntSlider(value=0, description='A too long description', style=SliderStyle(description_width='initial'))
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+b1 = Button(description='Custom color')
+b1.style.button_color = 'lightgreen'
+b1
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Button(description='Custom color', style=ButtonStyle(button_color='lightgreen'))
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+b1.style.keys
+
+-----------------
+Original output:
+['_model_module',
+ '_model_module_version',
+ '_model_name',
+ '_view_count',
+ '_view_module',
+ '_view_module_version',
+ '_view_name',
+ 'button_color',
+ 'font_weight',
+ 'msg_throttle']
+Executed output:
+['_model_module',
+ '_model_module_version',
+ '_model_name',
+ '_view_count',
+ '_view_module',
+ '_view_module_version',
+ '_view_name',
+ 'button_color',
+ 'font_weight']
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+b2 = Button()
+b2.style = b1.style
+b2
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Button(style=ButtonStyle(button_color='lightgreen'))
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+s1 = IntSlider(description='Blue handle')
+s1.style.handle_color = 'lightblue'
+s1
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+IntSlider(value=0, description='Blue handle', style=SliderStyle(handle_color='lightblue'))

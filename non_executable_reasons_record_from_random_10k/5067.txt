@@ -1,0 +1,41 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 3]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+#this is assertion block which verifies the solution.
+
+try:
+    def verify_answer():
+        """
+        enter your verification code here.
+        return true if your checks pass
+        eg: 
+        if above_user_answer_var > 100: 
+            return True
+        else:
+            return False
+        """
+        if stoic == 999:
+            return True
+        else:
+            return False
+
+    ref_assert_var = verify_answer()
+except Exception as e: 
+    print('Your assertion block throws error: ' + str(e))
+else:
+    if ref_assert_var:
+        print('continue')
+    else:
+        print('The answer did not pass the test.')
+
+-----------------
+Original output:
+The answer did not pass the test.
+
+Executed output:
+continue
+

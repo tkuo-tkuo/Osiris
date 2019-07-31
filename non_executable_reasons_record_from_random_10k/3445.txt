@@ -1,0 +1,315 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os, numpy, csv, shutil
+import pandas as pd
+from statistics import mode
+
+output_Dir='C:/Users/Gedas/Desktop/DTU/31380/final/output/'
+data=pd.read_csv(output_Dir+'Hakuna_e.csv')
+
+array_Channel_1 = array_Channel_2 = array_Channel_3 = array_Channel_4 = array_Channel_5 = array_Channel_6 = pd.DataFrame()
+array_Channel_7 = array_Channel_8 = array_Channel_9 = array_Channel_10 = array_Channel_11 = array_Channel_12 = pd.DataFrame()
+array_Channel_13 = array_Channel_14 = array_Channel_15 = array_Channel_16 = pd.DataFrame()
+
+array_Instrument=[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
+
+for i in range(0,len(data)):
+    if data.Channel[i] == 1:
+        array_Channel_1 = array_Channel_1.append(data[i:i+1])
+    elif data.Channel[i] == 2:
+        array_Channel_2 = array_Channel_2.append(data[i:i+1])
+    elif data.Channel[i] == 3:
+        array_Channel_3 = array_Channel_3.append(data[i:i+1])
+    elif data.Channel[i] == 4:
+        array_Channel_4 = array_Channel_4.append(data[i:i+1])
+    elif data.Channel[i] == 5:
+        array_Channel_5 = array_Channel_5.append(data[i:i+1])
+    elif data.Channel[i] == 6:
+        array_Channel_6 = array_Channel_6.append(data[i:i+1])
+    elif data.Channel[i] == 7:
+        array_Channel_7 = array_Channel_7.append(data[i:i+1])
+    elif data.Channel[i] == 8:
+        array_Channel_8 = array_Channel_8.append(data[i:i+1])
+    elif data.Channel[i] == 9:
+        array_Channel_9 = array_Channel_9.append(data[i:i+1])
+    elif data.Channel[i] == 10:
+        array_Channel_10 = array_Channel_10.append(data[i:i+1])
+    elif data.Channel[i] == 11:
+        array_Channel_11 = array_Channel_11.append(data[i:i+1])
+    elif data.Channel[i] == 12:
+        array_Channel_12 = array_Channel_12.append(data[i:i+1])
+    elif data.Channel[i] == 13:
+        array_Channel_13 = array_Channel_13.append(data[i:i+1])
+    elif data.Channel[i] == 14:
+        array_Channel_14 = array_Channel_14.append(data[i:i+1])
+    elif data.Channel[i] == 15:
+        array_Channel_15 = array_Channel_15.append(data[i:i+1])
+    elif data.Channel[i] == 16:
+        array_Channel_16 = array_Channel_16.append(data[i:i+1])
+channel_Leng = [array_Channel_1.empty, array_Channel_2.empty, array_Channel_3.empty, array_Channel_4.empty, 
+                array_Channel_5.empty, array_Channel_6.empty, array_Channel_7.empty, array_Channel_8.empty, 
+                array_Channel_8.empty, array_Channel_9.empty, array_Channel_10.empty, array_Channel_11.empty, 
+                array_Channel_12.empty, array_Channel_13.empty, array_Channel_14.empty, array_Channel_15.empty, 
+                array_Channel_16.empty]
+
+settings_Midi = pd.DataFrame(columns = ['Channel','Time','State','Program','Note','Volume'])
+for i in range(16):
+    settings_Midi=settings_Midi.append(pd.DataFrame([[i, 0, 'Program_c', i, array_Instrument[i]],
+                                                     [i, 0, 'Control_c', i, array_Instrument[i], 100]],
+                                                   columns = ['Channel','Time','State','Program','Note','Volume']))
+
+try:
+    data.insert(3,'Program',1)
+except Exception as e:
+    e
+data=data[['Channel','Time','State','Program','Note','Volume']]
+settings_Midi_head = pd.DataFrame([[0, 0, 'Header', 1, max(data.Channel), 384],
+                              [1, 0, 'Start_track'],
+                              [1, 0, 'Tempo', int(data.Note[len(data)-1]*1000)],
+                              [1, 0, 'MIDI_port', 0]],
+                            columns = ['Channel','Time','State','Program','Note','Volume'] )
+
+settings_Midi_end = pd.DataFrame([[0, 0, 'End_of_file', 0, 0, 0]],
+                            columns = ['Channel','Time','State','Program','Note','Volume'])
+
+
+# !!!! remove when the final version is done
+data = data.drop(len(data)-1)
+data = data.drop(len(data)-1)
+
+data=settings_Midi.append(data)
+data=data.append(settings_Midi_end)
+
+# Chanell 1 append
+
+settings_Midi_head = settings_Midi_head.append(settings_Midi[2:4])
+array_Channel_1 = settings_Midi_head.append(array_Channel_1)
+if not channel_Leng[0]:
+    array_Channel_1 = array_Channel_1.append(pd.DataFrame([[1,max(array_Channel_1.Time), ' End_track']],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_1 = array_Channel_1.append(pd.DataFrame([[1,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+
+# Chanell 2 append
+array_Channel_2 = settings_Midi[4:6].append(array_Channel_2)
+if not channel_Leng[1]:
+    array_Channel_2 = array_Channel_2.append(pd.DataFrame([[2,max(array_Channel_2.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_2 = array_Channel_2.append(pd.DataFrame([[2,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+# Chanell 3 append
+array_Channel_3 = settings_Midi[6:8].append(array_Channel_3)
+if not channel_Leng[2]:
+    array_Channel_3 = array_Channel_3.append(pd.DataFrame([[3,max(array_Channel_3.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_3 = array_Channel_3.append(pd.DataFrame([[3,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+# Chanell 4 append
+array_Channel_4 = settings_Midi[8:10].append(array_Channel_4)
+if not channel_Leng[3]:
+    array_Channel_4 = array_Channel_4.append(pd.DataFrame([[4,max(array_Channel_4.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_4 = array_Channel_4.append(pd.DataFrame([[4,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+# Chanell 5 append
+array_Channel_5 = settings_Midi[10:12].append(array_Channel_5)
+if not channel_Leng[1]:
+    array_Channel_5 = array_Channel_5.append(pd.DataFrame([[5,max(array_Channel_5.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_5 = array_Channel_5.append(pd.DataFrame([[5,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+    
+# Chanell 6 append
+array_Channel_6 = settings_Midi[12:14].append(array_Channel_6)
+if not channel_Leng[1]:
+    array_Channel_6 = array_Channel_6.append(pd.DataFrame([[6,max(array_Channel_6.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_6 = array_Channel_6.append(pd.DataFrame([[6,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+# Chanell 7 append
+array_Channel_7 = settings_Midi[14:16].append(array_Channel_7)
+if not channel_Leng[1]:
+    array_Channel_7 = array_Channel_7.append(pd.DataFrame([[7,max(array_Channel_7.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_7 = array_Channel_7.append(pd.DataFrame([[7,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+
+# Chanell 8 append
+array_Channel_8 = settings_Midi[16:18].append(array_Channel_8)
+if not channel_Leng[1]:
+    array_Channel_8 = array_Channel_8.append(pd.DataFrame([[8,max(array_Channel_8.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_8 = array_Channel_8.append(pd.DataFrame([[8,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+    
+# Chanell 9 append
+array_Channel_9 = settings_Midi[18:20].append(array_Channel_9)
+if not channel_Leng[1]:
+    array_Channel_9 = array_Channel_9.append(pd.DataFrame([[9,max(array_Channel_9.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_9 = array_Channel_9.append(pd.DataFrame([[9,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+
+# Chanell 10 append
+array_Channel_10 = settings_Midi[20:22].append(array_Channel_10)
+if not channel_Leng[1]:
+    array_Channel_10 = array_Channel_10.append(pd.DataFrame([[10,max(array_Channel_10.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_10 = array_Channel_10.append(pd.DataFrame([[10,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+
+# Chanell 11 append
+array_Channel_11 = settings_Midi[22:24].append(array_Channel_11)
+if not channel_Leng[1]:
+    array_Channel_11 = array_Channel_11.append(pd.DataFrame([[11,max(array_Channel_11.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_11 = array_Channel_11.append(pd.DataFrame([[11,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+
+# Chanell 12 append
+array_Channel_12 = settings_Midi[24:26].append(array_Channel_12)
+if not channel_Leng[1]:
+    array_Channel_12 = array_Channel_12.append(pd.DataFrame([[12,max(array_Channel_12.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_12 = array_Channel_12.append(pd.DataFrame([[12,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+
+# Chanell 13 append
+array_Channel_13 = settings_Midi[26:28].append(array_Channel_13)
+if not channel_Leng[1]:
+    array_Channel_13 = array_Channel_13.append(pd.DataFrame([[13,max(array_Channel_13.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_13 = array_Channel_13.append(pd.DataFrame([[13,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+
+# Chanell 14 append
+array_Channel_14 = settings_Midi[28:30].append(array_Channel_14)
+if not channel_Leng[1]:
+    array_Channel_14 = array_Channel_14.append(pd.DataFrame([[14,max(array_Channel_14.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_14 = array_Channel_14.append(pd.DataFrame([[14,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+
+# Chanell 15 append
+array_Channel_15 = settings_Midi[30:32].append(array_Channel_15)
+if not channel_Leng[1]:
+    array_Channel_15 = array_Channel_15.append(pd.DataFrame([[15,max(array_Channel_15.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_15 = array_Channel_15.append(pd.DataFrame([[15,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+
+# Chanell 16 append
+array_Channel_16 = settings_Midi[32:34].append(array_Channel_16)
+if not channel_Leng[1]:
+    array_Channel_16 = array_Channel_16.append(pd.DataFrame([[16,max(array_Channel_16.Time), ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume']))
+else:
+    array_Channel_16 = array_Channel_16.append(pd.DataFrame([[16,0, ' End_track',0,0,0]],
+                                           columns = ['Channel','Time','State','Program','Note','Volume'])) 
+    
+data_out = pd.DataFrame([],columns = ['Channel','Time','State','Program','Note','Volume'])
+
+data_out = data_out.append(array_Channel_1)
+data_out = data_out.append(array_Channel_2)
+data_out = data_out.append(array_Channel_3)
+data_out = data_out.append(array_Channel_4)
+data_out = data_out.append(array_Channel_5)
+data_out = data_out.append(array_Channel_6)
+data_out = data_out.append(array_Channel_7)
+data_out = data_out.append(array_Channel_8)
+data_out = data_out.append(array_Channel_9)
+data_out = data_out.append(array_Channel_10)
+data_out = data_out.append(array_Channel_11)
+data_out = data_out.append(array_Channel_12)
+data_out = data_out.append(array_Channel_13)
+data_out = data_out.append(array_Channel_14)
+data_out = data_out.append(array_Channel_15)
+data_out = data_out.append(array_Channel_16)
+data_out = data_out.append(settings_Midi_end)
+
+data_out['Channel']=data_out['Channel'].fillna(0)
+data_out['Time']=data_out['Time'].fillna(0)
+data_out['Program']=data_out['Program'].fillna(0)
+data_out['Note']=data_out['Note'].fillna(0)
+data_out['Volume']=data_out['Volume'].fillna(0)
+
+data_out['Channel'] = data_out['Channel'].astype(int)
+data_out['Time'] = data_out['Time'].astype(int)
+data_out['Program'] = data_out['Program'].astype(int)
+data_out['Note'] = data_out['Note'].astype(int)
+data_out['Volume'] = data_out['Volume'].astype(int)
+
+data_out=data_out[['Channel','Time','State','Program','Note','Volume']]
+data_out.to_csv('testas.csv',index=False, header = False)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-db23d55c1941>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0moutput_Dir[0m[0;34m=[0m[0;34m'C:/Users/Gedas/Desktop/DTU/31380/final/output/'[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0mdata[0m[0;34m=[0m[0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0moutput_Dir[0m[0;34m+[0m[0;34m'Hakuna_e.csv'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;34m[0m[0m
+[1;32m     10[0m [0marray_Channel_1[0m [0;34m=[0m [0marray_Channel_2[0m [0;34m=[0m [0marray_Channel_3[0m [0;34m=[0m [0marray_Channel_4[0m [0;34m=[0m [0marray_Channel_5[0m [0;34m=[0m [0marray_Channel_6[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/parsers.py[0m in [0;36mparser_f[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, skipfooter, doublequote, delim_whitespace, low_memory, memory_map, float_precision)[0m
+[1;32m    676[0m                     skip_blank_lines=skip_blank_lines)
+[1;32m    677[0m [0;34m[0m[0m
+[0;32m--> 678[0;31m         [0;32mreturn[0m [0m_read[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m,[0m [0mkwds[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    679[0m [0;34m[0m[0m
+[1;32m    680[0m     [0mparser_f[0m[0;34m.[0m[0m__name__[0m [0;34m=[0m [0mname[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/parsers.py[0m in [0;36m_read[0;34m(filepath_or_buffer, kwds)[0m
+[1;32m    438[0m [0;34m[0m[0m
+[1;32m    439[0m     [0;31m# Create the parser.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 440[0;31m     [0mparser[0m [0;34m=[0m [0mTextFileReader[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    441[0m [0;34m[0m[0m
+[1;32m    442[0m     [0;32mif[0m [0mchunksize[0m [0;32mor[0m [0miterator[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/parsers.py[0m in [0;36m__init__[0;34m(self, f, engine, **kwds)[0m
+[1;32m    785[0m             [0mself[0m[0;34m.[0m[0moptions[0m[0;34m[[0m[0;34m'has_index_names'[0m[0;34m][0m [0;34m=[0m [0mkwds[0m[0;34m[[0m[0;34m'has_index_names'[0m[0;34m][0m[0;34m[0m[0m
+[1;32m    786[0m [0;34m[0m[0m
+[0;32m--> 787[0;31m         [0mself[0m[0;34m.[0m[0m_make_engine[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    788[0m [0;34m[0m[0m
+[1;32m    789[0m     [0;32mdef[0m [0mclose[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/parsers.py[0m in [0;36m_make_engine[0;34m(self, engine)[0m
+[1;32m   1012[0m     [0;32mdef[0m [0m_make_engine[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0;34m'c'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1013[0m         [0;32mif[0m [0mengine[0m [0;34m==[0m [0;34m'c'[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1014[0;31m             [0mself[0m[0;34m.[0m[0m_engine[0m [0;34m=[0m [0mCParserWrapper[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mf[0m[0;34m,[0m [0;34m**[0m[0mself[0m[0;34m.[0m[0moptions[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1015[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1016[0m             [0;32mif[0m [0mengine[0m [0;34m==[0m [0;34m'python'[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/parsers.py[0m in [0;36m__init__[0;34m(self, src, **kwds)[0m
+[1;32m   1706[0m         [0mkwds[0m[0;34m[[0m[0;34m'usecols'[0m[0;34m][0m [0;34m=[0m [0mself[0m[0;34m.[0m[0musecols[0m[0;34m[0m[0m
+[1;32m   1707[0m [0;34m[0m[0m
+[0;32m-> 1708[0;31m         [0mself[0m[0;34m.[0m[0m_reader[0m [0;34m=[0m [0mparsers[0m[0;34m.[0m[0mTextReader[0m[0;34m([0m[0msrc[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1709[0m [0;34m[0m[0m
+[1;32m   1710[0m         [0mpassed_names[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mnames[0m [0;32mis[0m [0;32mNone[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/parsers.pyx[0m in [0;36mpandas._libs.parsers.TextReader.__cinit__[0;34m()[0m
+
+[0;32mpandas/_libs/parsers.pyx[0m in [0;36mpandas._libs.parsers.TextReader._setup_parser_source[0;34m()[0m
+
+[0;31mFileNotFoundError[0m: File b'C:/Users/Gedas/Desktop/DTU/31380/final/output/Hakuna_e.csv' does not exist
+FileNotFoundError: File b'C:/Users/Gedas/Desktop/DTU/31380/final/output/Hakuna_e.csv' does not exist
+
+Executability                            : False

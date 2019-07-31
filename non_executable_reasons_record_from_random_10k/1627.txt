@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+varcont = vartype_df["variable"][vartype_df["variable_type"] == "continuous"]
+varcat = vartype_df["variable"][vartype_df["variable_type"] == "categorical"]
+dfcont = df_bg[varcont]
+dfcat = df_bg[varcat]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-7235246344dd>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mvarcont[0m [0;34m=[0m [0mvartype_df[0m[0;34m[[0m[0;34m"variable"[0m[0;34m][0m[0;34m[[0m[0mvartype_df[0m[0;34m[[0m[0;34m"variable_type"[0m[0;34m][0m [0;34m==[0m [0;34m"continuous"[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mvarcat[0m [0;34m=[0m [0mvartype_df[0m[0;34m[[0m[0;34m"variable"[0m[0;34m][0m[0;34m[[0m[0mvartype_df[0m[0;34m[[0m[0;34m"variable_type"[0m[0;34m][0m [0;34m==[0m [0;34m"categorical"[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mdfcont[0m [0;34m=[0m [0mdf_bg[0m[0;34m[[0m[0mvarcont[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mdfcat[0m [0;34m=[0m [0mdf_bg[0m[0;34m[[0m[0mvarcat[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'vartype_df' is not defined
+NameError: name 'vartype_df' is not defined
+
+Executability                            : False

@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#SYNTAX FOR IF/ELIF/ELSE STATEMENTS
+
+if {conditions}:
+    {run this code}
+elif {conditions}:
+    {run this code}
+elif {conditions}:
+    {run this code}
+else:
+    {run this code}
+------------------
+
+[0;36m  File [0;32m"<ipython-input-3-1aefb6837b12>"[0;36m, line [0;32m4[0m
+[0;31m    {run this code}[0m
+[0m            ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-3-1aefb6837b12>, line 4)
+
+Executability                            : False

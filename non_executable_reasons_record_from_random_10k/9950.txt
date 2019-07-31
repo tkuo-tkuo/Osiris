@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+second = greeting('Mrs.')
+second('Kumari')
+second('Kabita')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-20-b32fb7ae3aa6>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0msecond[0m [0;34m=[0m [0mgreeting[0m[0;34m([0m[0;34m'Mrs.'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0msecond[0m[0;34m([0m[0;34m'Kumari'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0msecond[0m[0;34m([0m[0;34m'Kabita'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'greeting' is not defined
+NameError: name 'greeting' is not defined
+
+Executability                            : False

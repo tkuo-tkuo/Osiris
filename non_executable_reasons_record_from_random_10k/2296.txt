@@ -1,0 +1,42 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+import numpy as np
+import scipy as sp
+import unittest
+from discretize import TreeMesh
+from discretize.utils import meshutils
+import inspect
+import matplotlib.pyplot as plt
+from scipy.interpolate import griddata, LinearNDInterpolator
+from SimPEG import Mesh, Directives, Maps, InvProblem, Optimization, Utils
+from SimPEG import DataMisfit, Inversion, Regularization, mkvc
+import SimPEG.PF as PF
+import os
+from matplotlib.patches import Rectangle
+from SimPEG.Utils import mkvc, modelutils
+from scipy.spatial import cKDTree
+from ipywidgets import interact, interactive, fixed, interact_manual
+import ipywidgets as widgets
+from scipy.spatial import Delaunay
+import vtki
+from vtki import examples
+vtki.set_plot_theme('document')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-b8f2991d3964>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mimport[0m [0mscipy[0m [0;32mas[0m [0msp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0munittest[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mdiscretize[0m [0;32mimport[0m [0mTreeMesh[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0mdiscretize[0m[0;34m.[0m[0mutils[0m [0;32mimport[0m [0mmeshutils[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mimport[0m [0minspect[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'discretize'
+ModuleNotFoundError: No module named 'discretize'
+
+Executability                            : False

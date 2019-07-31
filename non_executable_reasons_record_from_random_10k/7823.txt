@@ -1,0 +1,35 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Read files
+for filename in os.listdir(base_dir):
+	# print("Reading file "+filename)
+	with open(base_dir+"/"+filename) as json_data:
+		recipes_results = json.load(json_data)
+		for hit in recipes_results["hits"]:
+			recipe = hit["recipe"]
+			label = recipe["label"]
+			if label not in all_recipes:
+				idss_recipe = {"image": recipe["image"],
+				"url": recipe["url"],
+				"dietLabels": recipe["dietLabels"],
+				"healthLabels": recipe["healthLabels"],
+				"ingredients": extract_ingredient_facts(recipe), 
+				"name": label, 
+				"nutrition": extract_nutrition_facts(recipe)}
+				all_recipes[label] = idss_recipe
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-10-85d7156bb44e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Read files[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfor[0m [0mfilename[0m [0;32min[0m [0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0mbase_dir[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      3[0m         [0;31m# print("Reading file "+filename)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m         [0;32mwith[0m [0mopen[0m[0;34m([0m[0mbase_dir[0m[0;34m+[0m[0;34m"/"[0m[0;34m+[0m[0mfilename[0m[0;34m)[0m [0;32mas[0m [0mjson_data[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      5[0m                 [0mrecipes_results[0m [0;34m=[0m [0mjson[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mjson_data[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/mnt/fit-Knowledgezoo/Github_repos_download/data/blackzaku@idss_pw3_food/food'
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/fit-Knowledgezoo/Github_repos_download/data/blackzaku@idss_pw3_food/food'
+
+Executability                            : False

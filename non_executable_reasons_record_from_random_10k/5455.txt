@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+embs = np.load('embs-150.npy')
+sents = np.load('useful_sents.npy')
+useful_sents = sents[:len(embs)]
+print (len(useful_sents))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-e4f7620419ae>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0membs[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34m'embs-150.npy'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0msents[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34m'useful_sents.npy'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0museful_sents[0m [0;34m=[0m [0msents[0m[0;34m[[0m[0;34m:[0m[0mlen[0m[0;34m([0m[0membs[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      4[0m [0mprint[0m [0;34m([0m[0mlen[0m[0;34m([0m[0museful_sents[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/numpy/lib/npyio.py[0m in [0;36mload[0;34m(file, mmap_mode, allow_pickle, fix_imports, encoding)[0m
+[1;32m    370[0m     [0mown_fid[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0m
+[1;32m    371[0m     [0;32mif[0m [0misinstance[0m[0;34m([0m[0mfile[0m[0;34m,[0m [0mbasestring[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 372[0;31m         [0mfid[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfile[0m[0;34m,[0m [0;34m"rb"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    373[0m         [0mown_fid[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0m
+[1;32m    374[0m     [0;32melif[0m [0mis_pathlib_path[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'embs-150.npy'
+FileNotFoundError: [Errno 2] No such file or directory: 'embs-150.npy'
+
+Executability                            : False

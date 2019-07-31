@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+AL, linear_activation_cache = linear_activation_backward_test_case()
+
+dA_prev, dW, db = linear_activation_backward(AL, linear_activation_cache, activation = "sigmoid")
+print ("sigmoid:")
+print ("dA_prev = "+ str(dA_prev))
+print ("dW = " + str(dW))
+print ("db = " + str(db) + "\n")
+
+dA_prev, dW, db = linear_activation_backward(AL, linear_activation_cache, activation = "relu")
+print ("relu:")
+print ("dA_prev = "+ str(dA_prev))
+print ("dW = " + str(dW))
+print ("db = " + str(db))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-16-f450c37216ba>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mAL[0m[0;34m,[0m [0mlinear_activation_cache[0m [0;34m=[0m [0mlinear_activation_backward_test_case[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0mdA_prev[0m[0;34m,[0m [0mdW[0m[0;34m,[0m [0mdb[0m [0;34m=[0m [0mlinear_activation_backward[0m[0;34m([0m[0mAL[0m[0;34m,[0m [0mlinear_activation_cache[0m[0;34m,[0m [0mactivation[0m [0;34m=[0m [0;34m"sigmoid"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mprint[0m [0;34m([0m[0;34m"sigmoid:"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mprint[0m [0;34m([0m[0;34m"dA_prev = "[0m[0;34m+[0m [0mstr[0m[0;34m([0m[0mdA_prev[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'linear_activation_backward' is not defined
+NameError: name 'linear_activation_backward' is not defined
+
+Executability                            : False

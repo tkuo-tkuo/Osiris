@@ -1,0 +1,64 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+epochs = 20
+batch_size = 100
+num_steps = 100
+train_x, train_y, val_x, val_y = split_data(chars, batch_size, num_steps)
+
+for lstm_size in [128,256,512]:
+    for num_layers in [1, 2]:
+        for learning_rate in [0.002, 0.001]:
+            log_string = 'logs/4/lr={},rl={},ru={}'.format(learning_rate, num_layers, lstm_size)
+            writer = tf.summary.FileWriter(log_string)
+            model = build_rnn(len(vocab), 
+                    batch_size=batch_size,
+                    num_steps=num_steps,
+                    learning_rate=learning_rate,
+                    lstm_size=lstm_size,
+                    num_layers=num_layers)
+            
+            train(model, epochs, writer)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionDeniedError[0m                     Traceback (most recent call last)
+[0;32m<ipython-input-14-849ae51f9178>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m         [0;32mfor[0m [0mlearning_rate[0m [0;32min[0m [0;34m[[0m[0;36m0.002[0m[0;34m,[0m [0;36m0.001[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m             [0mlog_string[0m [0;34m=[0m [0;34m'logs/4/lr={},rl={},ru={}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mlearning_rate[0m[0;34m,[0m [0mnum_layers[0m[0;34m,[0m [0mlstm_size[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m             [0mwriter[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0msummary[0m[0;34m.[0m[0mFileWriter[0m[0;34m([0m[0mlog_string[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m             model = build_rnn(len(vocab), 
+[1;32m     12[0m                     [0mbatch_size[0m[0;34m=[0m[0mbatch_size[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/summary/writer/writer.py[0m in [0;36m__init__[0;34m(self, logdir, graph, max_queue, flush_secs, graph_def, filename_suffix, session)[0m
+[1;32m    365[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    366[0m       event_writer = EventFileWriter(logdir, max_queue, flush_secs,
+[0;32m--> 367[0;31m                                      filename_suffix)
+[0m[1;32m    368[0m [0;34m[0m[0m
+[1;32m    369[0m     [0mself[0m[0;34m.[0m[0m_closed[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/summary/writer/event_file_writer.py[0m in [0;36m__init__[0;34m(self, logdir, max_queue, flush_secs, filename_suffix)[0m
+[1;32m     65[0m     [0mself[0m[0;34m.[0m[0m_logdir[0m [0;34m=[0m [0mstr[0m[0;34m([0m[0mlogdir[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     66[0m     [0;32mif[0m [0;32mnot[0m [0mgfile[0m[0;34m.[0m[0mIsDirectory[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_logdir[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 67[0;31m       [0mgfile[0m[0;34m.[0m[0mMakeDirs[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_logdir[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     68[0m     [0mself[0m[0;34m.[0m[0m_event_queue[0m [0;34m=[0m [0msix[0m[0;34m.[0m[0mmoves[0m[0;34m.[0m[0mqueue[0m[0;34m.[0m[0mQueue[0m[0;34m([0m[0mmax_queue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     69[0m     self._ev_writer = pywrap_tensorflow.EventsWriter(
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/lib/io/file_io.py[0m in [0;36mrecursive_create_dir[0;34m(dirname)[0m
+[1;32m    436[0m     [0merrors[0m[0;34m.[0m[0mOpError[0m[0;34m:[0m [0mIf[0m [0mthe[0m [0moperation[0m [0mfails[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    437[0m   """
+[0;32m--> 438[0;31m   [0mrecursive_create_dir_v2[0m[0;34m([0m[0mdirname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    439[0m [0;34m[0m[0m
+[1;32m    440[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/lib/io/file_io.py[0m in [0;36mrecursive_create_dir_v2[0;34m(path)[0m
+[1;32m    451[0m     [0merrors[0m[0;34m.[0m[0mOpError[0m[0;34m:[0m [0mIf[0m [0mthe[0m [0moperation[0m [0mfails[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    452[0m   """
+[0;32m--> 453[0;31m   [0mpywrap_tensorflow[0m[0;34m.[0m[0mRecursivelyCreateDir[0m[0;34m([0m[0mcompat[0m[0;34m.[0m[0mas_bytes[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    454[0m [0;34m[0m[0m
+[1;32m    455[0m [0;34m[0m[0m
+
+[0;31mPermissionDeniedError[0m: logs; Permission denied
+PermissionDeniedError: logs; Permission denied
+
+Executability                            : False

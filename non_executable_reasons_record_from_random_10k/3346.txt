@@ -1,0 +1,38 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Question 2 : voir dans la fonction apprentissage_loi_normale
+liste_parametres_classe1 = apprentissage_loi_normale(donnees_classe1)
+liste_parametres_classe2 = apprentissage_loi_normale(donnees_classe2)
+liste_parametres_classe3 = apprentissage_loi_normale(donnees_classe3)
+
+liste_parametres_classes = [liste_parametres_classe1, liste_parametres_classe2, liste_parametres_classe3]
+
+donnee_test_classe1 = [0.18322726, -1.0297674999999999]
+donnee_test_classe2 = [3.5376671000000002, 4.8338850000000004]
+donnee_test_classe3 = [3.2696486, 0.49428706]
+
+plt.figure()
+affichage_lois_normales(liste_donnees_classes,liste_parametres_classes)
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-13-9ab3cf6c624e>[0m in [0;36m<module>[0;34m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 13[0;31m [0maffichage_lois_normales[0m[0;34m([0m[0mliste_donnees_classes[0m[0;34m,[0m[0mliste_parametres_classes[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     14[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-9e79e33d9964>[0m in [0;36maffichage_lois_normales[0;34m(liste_donnees_classes, liste_parametres_classes)[0m
+[1;32m     42[0m         [0mX[0m[0;34m,[0m [0mY[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mmeshgrid[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     43[0m [0;34m[0m[0m
+[0;32m---> 44[0;31m         [0mZ[0m [0;34m=[0m [0mmlab[0m[0;34m.[0m[0mbivariate_normal[0m[0;34m([0m[0mX[0m[0;34m,[0m [0mY[0m[0;34m,[0m [0mcov_matrix[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mcov_matrix[0m[0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0mvecteur_moyenne[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mvecteur_moyenne[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0mcov_matrix[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     45[0m         [0mplt[0m[0;34m.[0m[0mcontour[0m[0;34m([0m[0mX[0m[0;34m,[0m[0mY[0m[0;34m,[0m[0mZ[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     46[0m [0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'matplotlib.mlab' has no attribute 'bivariate_normal'
+AttributeError: module 'matplotlib.mlab' has no attribute 'bivariate_normal'
+
+Executability                            : False

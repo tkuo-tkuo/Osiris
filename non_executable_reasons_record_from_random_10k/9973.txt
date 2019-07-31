@@ -1,0 +1,58 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Part 2 - Fitting the CNN to the images
+
+from keras.preprocessing.image import ImageDataGenerator
+
+train_datagen = ImageDataGenerator(rescale = 1./255,
+                                   shear_range = 0.2,
+                                   zoom_range = 0.2,
+                                   horizontal_flip = True)
+
+test_datagen = ImageDataGenerator(rescale = 1./255)
+
+training_set = train_datagen.flow_from_directory('/home/karan/Downloads/Dataset/English Alphabet Dataset/Training',
+                                                 target_size = (32, 32),
+                                                 batch_size = 32,
+                                                 class_mode = 'categorical')
+
+test_set = test_datagen.flow_from_directory('/home/karan/Downloads/Dataset/English Alphabet Dataset/Testing',
+                                            target_size = (32, 32),
+                                            batch_size = 32,
+                                            class_mode = 'categorical')
+
+classifier.fit_generator(training_set,
+                         steps_per_epoch = 8000,
+                         epochs = 1,
+                         validation_data = test_set,
+                         validation_steps = 2000)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-3-566123fbea8a>[0m in [0;36m<module>[0;34m[0m
+[1;32m     13[0m                                                  [0mtarget_size[0m [0;34m=[0m [0;34m([0m[0;36m32[0m[0;34m,[0m [0;36m32[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m                                                  [0mbatch_size[0m [0;34m=[0m [0;36m32[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 15[0;31m                                                  class_mode = 'categorical')
+[0m[1;32m     16[0m [0;34m[0m[0m
+[1;32m     17[0m test_set = test_datagen.flow_from_directory('/home/karan/Downloads/Dataset/English Alphabet Dataset/Testing',
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/keras_preprocessing/image/image_data_generator.py[0m in [0;36mflow_from_directory[0;34m(self, directory, target_size, color_mode, classes, class_mode, batch_size, shuffle, seed, save_to_dir, save_prefix, save_format, follow_links, subset, interpolation)[0m
+[1;32m    538[0m             [0mfollow_links[0m[0;34m=[0m[0mfollow_links[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    539[0m             [0msubset[0m[0;34m=[0m[0msubset[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 540[0;31m             [0minterpolation[0m[0;34m=[0m[0minterpolation[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    541[0m         )
+[1;32m    542[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/keras_preprocessing/image/directory_iterator.py[0m in [0;36m__init__[0;34m(self, directory, image_data_generator, target_size, color_mode, classes, class_mode, batch_size, shuffle, seed, data_format, save_to_dir, save_prefix, save_format, follow_links, subset, interpolation, dtype)[0m
+[1;32m    104[0m         [0;32mif[0m [0;32mnot[0m [0mclasses[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    105[0m             [0mclasses[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 106[0;31m             [0;32mfor[0m [0msubdir[0m [0;32min[0m [0msorted[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0mdirectory[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    107[0m                 [0;32mif[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0misdir[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mdirectory[0m[0;34m,[0m [0msubdir[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    108[0m                     [0mclasses[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0msubdir[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/home/karan/Downloads/Dataset/English Alphabet Dataset/Training'
+FileNotFoundError: [Errno 2] No such file or directory: '/home/karan/Downloads/Dataset/English Alphabet Dataset/Training'
+
+Executability                            : False

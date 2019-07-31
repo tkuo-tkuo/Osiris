@@ -1,0 +1,87 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+counters_cols = ['tariff_id', 'living_region', 'age', 'credit_count', 'overdue_credit_count',
+                 'gender', 'marital_status', 'job_position', 'credit_month', 'education']
+
+other_cols = ['credit_sum', 'score_shk', 'monthly_income', 'monthly_credit_sum',
+              'lr_median_income_dif', 'lr_median_credit_sum_dif', 'income_credit_sum_dif',
+              'income_credit_sum_frac', 'lr_median_credit_sum_frac']
+
+df.living_region.fillna('N', inplace=True)
+df.credit_count.fillna(10, inplace=True)
+df.overdue_credit_count.fillna(2, inplace=True)
+df['credit_sum'] = df.credit_sum.apply(lambda x: float(x.replace(',', '.')))
+df['score_shk'] = df.score_shk.apply(lambda x: float(x.replace(',', '.')))
+
+# нормализация имен регионов для подсчета статистик, для классификации использовались исходные
+a = ['РЕСП', 'ОБЛ', 'ОБЛАСТЬ', 'КРАЙ', 'ОБЛ.', 'РЕСП.', 'Р-Н', 'АО', 'КРАЙ.', '-', 'Г', 'Г.', 'АОБЛ', 'РЕСПУБЛИКА',
+    'ОКРУГ', 'АВТОНОМНЫЙ']
+df['living_region2'] = df.living_region.apply(lambda x: ''.join([y for y in x.upper().split() if y not in a]))
+df['living_region2'] = df.living_region2.apply(lambda x: ''.join([y for y in x.split('.') if y not in a]))
+
+df.loc[df.living_region2 == 'САХА/ЯКУТИЯ/', 'living_region2'] = 'САХА'
+df.loc[df.living_region2 == 'САХА(ЯКУТИЯ)', 'living_region2'] = 'САХА'
+df.loc[df.living_region2 == 'ХАНТЫ-МАНСИЙСКИЙЮГРА', 'living_region2'] = 'ХАНТЫ-МАНСИЙСКИЙ'
+df.loc[df.living_region2 == 'ХАНТЫ-МАНСИЙСКИЙЮ', 'living_region2'] = 'ХАНТЫ-МАНСИЙСКИЙ'
+df.loc[df.living_region2 == 'ЕВРЕЙСКАЯАВТОНОМНАЯ', 'living_region2'] = 'ЕВРЕЙСКАЯ'
+df.loc[df.living_region2 == 'ЧУВАШСКАЯЧУВАШИЯ', 'living_region2'] = 'ЧУВАШСКАЯ'
+df.loc[df.living_region2 == 'ЧУВАШИЯЧУВАШСКАЯ', 'living_region2'] = 'ЧУВАШСКАЯ'
+df.loc[df.living_region2 == 'СЕВЕРНАЯОСЕТИЯАЛАНИЯ', 'living_region2'] = 'ОСЕТИЯ'
+df.loc[df.living_region2 == 'СЕВОСЕТИЯАЛАНИЯ', 'living_region2'] = 'ОСЕТИЯ'
+df.loc[df.living_region2 == 'ГОРЬКОВСКАЯ', 'living_region2'] = 'НИЖЕГОРОДСКАЯ'
+df.loc[df.living_region2 == 'ПЕРМСКАЯ', 'living_region2'] = 'ПЕРМСКИЙ'
+df.loc[df.living_region2 == 'КАМЧАТСКАЯ', 'living_region2'] = 'КАМЧАТСКИЙ'
+df.loc[df.living_region2 == 'ЧУКОТСКИЙАO', 'living_region2'] = 'ЧУКОТСКИЙ'
+df.loc[df.living_region2 == 'АЛТАЙ', 'living_region2'] = 'АЛТАЙСКИЙ'
+
+# преобразования вещественных признаков
+f = lambda x: x.fillna(x.median(), inplace=True)
+df.groupby(df.living_region2).monthly_income.transform(f)
+
+df['monthly_credit_sum'] = df.credit_sum / df.credit_month
+
+median_income = dict(df.groupby(df.living_region2).monthly_income.median())
+df['lr_median_income_dif'] = df.monthly_income - df.living_region2.map(median_income)
+
+median_credit_sum = dict(df.groupby(df.living_region2).credit_sum.median())
+df['lr_median_credit_sum_dif'] = df.credit_sum - df.living_region2.map(median_credit_sum)
+df['lr_median_credit_sum_frac'] = df.credit_sum / df.living_region2.map(median_credit_sum)
+
+df['income_credit_sum_dif'] = df.monthly_income - df.monthly_credit_sum
+df['income_credit_sum_frac'] = df.monthly_income / df.monthly_credit_sum
+
+# Объединим редко встречающиеся значения признаков
+df.loc[df.credit_count > 10, 'credit_count'] = 10
+df.loc[df.overdue_credit_count > 2, 'overdue_credit_count'] = 2
+
+compress_vals(df, 'living_region', 5, 'N')
+compress_vals(df, 'tariff_id', 5, 2.0)
+compress_vals(df, 'job_position', 20, 'N')
+
+
+replace_val(df, 'credit_month', [30, 31, 32], 36)
+replace_val(df, 'credit_month', [21, 22, 23, 25, 26, 27, 28, 29], 24)
+replace_val(df, 'credit_month', [17], 18)
+
+for col in ['living_region', 'gender', 'marital_status', 'job_position', 'education']:
+    df[col], _ = pd.factorize(df[col])
+
+# частоты встреч
+for col in counters_cols:
+    df[col + '_count'] = df[col].map(df[col].value_counts())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-2f1f933d07c4>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     53[0m [0mdf[0m[0;34m.[0m[0mloc[0m[0;34m[[0m[0mdf[0m[0;34m.[0m[0moverdue_credit_count[0m [0;34m>[0m [0;36m2[0m[0;34m,[0m [0;34m'overdue_credit_count'[0m[0;34m][0m [0;34m=[0m [0;36m2[0m[0;34m[0m[0m
+[1;32m     54[0m [0;34m[0m[0m
+[0;32m---> 55[0;31m [0mcompress_vals[0m[0;34m([0m[0mdf[0m[0;34m,[0m [0;34m'living_region'[0m[0;34m,[0m [0;36m5[0m[0;34m,[0m [0;34m'N'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     56[0m [0mcompress_vals[0m[0;34m([0m[0mdf[0m[0;34m,[0m [0;34m'tariff_id'[0m[0;34m,[0m [0;36m5[0m[0;34m,[0m [0;36m2.0[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     57[0m [0mcompress_vals[0m[0;34m([0m[0mdf[0m[0;34m,[0m [0;34m'job_position'[0m[0;34m,[0m [0;36m20[0m[0;34m,[0m [0;34m'N'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: compress_vals() missing 1 required positional argument: 'value'
+TypeError: compress_vals() missing 1 required positional argument: 'value'
+
+Executability                            : False

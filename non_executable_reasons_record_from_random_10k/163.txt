@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Install Graphviz + set system path to dot
+# pip install export_graphviz
+
+with open("tree.dot", 'w') as f:
+        export_graphviz(clf, out_file=f,
+                        feature_names=source.columns,
+                        filled=True)
+        
+!dot -Tpng tree.dot -o tree.png 
+display(Image('tree.png'))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-11-d76fd111ecf5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;31m# pip install export_graphviz[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"tree.dot"[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m         export_graphviz(clf, out_file=f,
+[1;32m      6[0m                         [0mfeature_names[0m[0;34m=[0m[0msource[0m[0;34m.[0m[0mcolumns[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'tree.dot'
+PermissionError: [Errno 13] Permission denied: 'tree.dot'
+
+Executability                            : False

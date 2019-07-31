@@ -1,0 +1,74 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+#Various Data Sets Loading
+#Non Car and Car Images
+
+# Download vehicles data set from https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip
+# Download non-vehicles data set from https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip
+
+noncars = glob.glob('./datasets/non-vehicles/**/*.png', recursive = True)
+
+cars = glob.glob('./datasets/vehicles/**/*.png', recursive = True)
+
+
+#Image Arrays - cars and noncars
+
+car_images = []
+noncar_images = []
+
+#Loading noncar(non-vehicle) images from the respective dataset
+
+for non_car_image in noncars:
+    noncar_images.append(mpimg.imread(non_car_image))
+
+#Loading car(vehicle) images from the respective dataset
+for car_image in cars:
+    car_images.append(mpimg.imread(car_image))
+
+    
+#Size(count) of Datasets
+noncar_count =  len (noncar_images)
+car_count = len (car_images)
+
+
+print("Non Car images are : ", noncar_count)
+print("car Images are :", car_count)
+
+
+### Plot Data Set Example images from both Cars and Non Cars
+
+sample_noncar_images = [
+    noncar_images[random.randint(0, noncar_count - 1)],
+    noncar_images[random.randint(0, noncar_count - 1)],
+    noncar_images[random.randint(0, noncar_count - 1)],
+    noncar_images[random.randint(0, noncar_count - 1)],
+    noncar_images[random.randint(0, noncar_count - 1)]
+]
+
+sample_car_images = [
+    car_images[random.randint(0, car_count - 1)],
+    car_images[random.randint(0, car_count - 1)],
+    car_images[random.randint(0, car_count - 1)],
+    car_images[random.randint(0, car_count - 1)],
+    car_images[random.randint(0, car_count - 1)],
+]
+
+sample_images = np.concatenate((sample_noncar_images, sample_car_images), axis = 0)
+
+plot_images_in_array (sample_images, (5,2), fig_size=(20,10))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-e1ff91ae5c5a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;31m# Download non-vehicles data set from https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0mnoncars[0m [0;34m=[0m [0mglob[0m[0;34m.[0m[0mglob[0m[0;34m([0m[0;34m'./datasets/non-vehicles/**/*.png'[0m[0;34m,[0m [0mrecursive[0m [0;34m=[0m [0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0mcars[0m [0;34m=[0m [0mglob[0m[0;34m.[0m[0mglob[0m[0;34m([0m[0;34m'./datasets/vehicles/**/*.png'[0m[0;34m,[0m [0mrecursive[0m [0;34m=[0m [0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'glob' is not defined
+NameError: name 'glob' is not defined
+
+Executability                            : False

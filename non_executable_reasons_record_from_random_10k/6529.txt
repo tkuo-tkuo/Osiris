@@ -1,0 +1,33 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+from methods import grad_desc, coord_desc, proj_desc, proj_ball_desc, heavy_ball, back_descent
+from plotting import plot_it, plot_convergence
+import matplotlib.pyplot as plt
+%matplotlib inline
+%precision 4
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-77b22551edce>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mmethods[0m [0;32mimport[0m [0mgrad_desc[0m[0;34m,[0m [0mcoord_desc[0m[0;34m,[0m [0mproj_desc[0m[0;34m,[0m [0mproj_ball_desc[0m[0;34m,[0m [0mheavy_ball[0m[0;34m,[0m [0mback_descent[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mplotting[0m [0;32mimport[0m [0mplot_it[0m[0;34m,[0m [0mplot_convergence[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/ananasness@optimize_it/methods.py[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mshapely[0m[0;34m.[0m[0mgeometry[0m [0;32mimport[0m [0mLineString[0m[0;34m,[0m [0mPoint[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;32mdef[0m [0mexactline[0m[0;34m([0m[0mv_k[0m[0;34m,[0m [0mQ[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      5[0m     [0;32mreturn[0m [0mnp[0m[0;34m.[0m[0mlinalg[0m[0;34m.[0m[0mnorm[0m[0;34m([0m[0mv_k[0m[0;34m)[0m [0;34m**[0m [0;36m2[0m [0;34m/[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mdot[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mdot[0m[0;34m([0m[0mv_k[0m[0;34m,[0m [0mQ[0m[0;34m)[0m[0;34m,[0m [0mv_k[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'shapely'
+ImportError: No module named 'shapely'
+
+Executability                            : False

@@ -1,0 +1,64 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+import requests
+from bs4 import BeautifulSoup 
+from newspaper import Article
+
+stocks = {'Apple':'AAPL','Google':'GOOGL','facebook':'FB','Tesla':'TSLA','Microsoft':'MSFT','Yahoo':'AABA','Sage':'sage'}
+list = []
+def scrap(stock,days):
+    date = 'true'
+    i = 1
+    day = (datetime.now() - timedelta(days=days-1)).strftime("%d")
+    while date == 'true':
+        url = 'http://www.nasdaq.com/symbol/'+stocks[stock]+'/news-headlines?page='+str(i)
+        html = requests.get(url)
+        soup = BeautifulSoup(html.text, "lxml")
+        divs = soup.findAll('div',attrs={'class':'news-headlines'})
+        spans = divs[0].findAll('span',attrs={'class':'fontS14px'})
+        small = divs[0].findAll('small')
+        i = i+1
+        url_list = []
+        for span in range(10):
+            print("\nDate : ",small[span].text.strip().split('/')[1]+"\n")
+            if(int(small[span].text.strip().split('/')[1]) < int(day)):
+                date = 'false'
+                break
+            link = spans[span].find('a')
+            print(link['href'])
+            url_list.append(link['href'])
+        for url in url_list:
+            try:
+                news = Article(url)
+                news.download()
+                time.sleep(1)
+                news.parse()
+            except:
+                continue
+            list.append({'Ticker':stock,'Title':news.title,'Text':news.text.replace('\n',' '),'Date':news.publish_date,'Author':news.authors})
+    panda = pd.DataFrame(data=list,columns=['Ticker', 'Title', 'Text', 'Date', 'Author'])
+    panda.to_csv(stock+'.txt', encoding='utf-8',index=False)
+  
+scrap('Apple',5)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-2899c2a59f5a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;32mimport[0m [0mrequests[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mbs4[0m [0;32mimport[0m [0mBeautifulSoup[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mfrom[0m [0mnewspaper[0m [0;32mimport[0m [0mArticle[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;34m[0m[0m
+[1;32m     10[0m [0mstocks[0m [0;34m=[0m [0;34m{[0m[0;34m'Apple'[0m[0;34m:[0m[0;34m'AAPL'[0m[0;34m,[0m[0;34m'Google'[0m[0;34m:[0m[0;34m'GOOGL'[0m[0;34m,[0m[0;34m'facebook'[0m[0;34m:[0m[0;34m'FB'[0m[0;34m,[0m[0;34m'Tesla'[0m[0;34m:[0m[0;34m'TSLA'[0m[0;34m,[0m[0;34m'Microsoft'[0m[0;34m:[0m[0;34m'MSFT'[0m[0;34m,[0m[0;34m'Yahoo'[0m[0;34m:[0m[0;34m'AABA'[0m[0;34m,[0m[0;34m'Sage'[0m[0;34m:[0m[0;34m'sage'[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'newspaper'
+ModuleNotFoundError: No module named 'newspaper'
+
+Executability                            : False

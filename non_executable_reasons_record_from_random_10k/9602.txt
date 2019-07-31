@@ -1,0 +1,53 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#https://stackoverflow.com/questions/28542686/3d-plot-of-the-error-function-in-a-linear-regression
+
+def error(m, b, points):
+    totalError = 0
+    for i in range(0, len(points)):
+        totalError += (points[i].y - (m * points[i].x + b)) ** 2
+    return totalError / float(len(points))
+
+x = y = np.arange(-3.0, 3.0, 0.05)
+Point = collections.namedtuple('Point', ['x', 'y'])
+
+m, b = 3, 2
+noise = np.random.random(x.size)
+points = [Point(xp, m*xp+b+err) for xp,err in zip(x, noise)]
+
+fig = plt.figure(figsize = (14, 10))
+ax = fig.add_subplot(111, projection='3d')
+
+ms = np.linspace(2.0, 4.0, 10)
+bs = np.linspace(1.5, 2.5, 10)
+
+M, B = np.meshgrid(ms, bs)
+zs = np.array([error(mp, bp, points) 
+               for mp, bp in zip(np.ravel(M), np.ravel(B))])
+Z = zs.reshape(M.shape)
+
+ax.plot_surface(M, B, Z, rstride=1, cstride=1, color='b', alpha=0.5)
+
+ax.set_xlabel('m')
+ax.set_ylabel('b')
+ax.set_zlabel('error')
+
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-5d31c69a545f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m     [0;32mreturn[0m [0mtotalError[0m [0;34m/[0m [0mfloat[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mpoints[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0mx[0m [0;34m=[0m [0my[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0;34m-[0m[0;36m3.0[0m[0;34m,[0m [0;36m3.0[0m[0;34m,[0m [0;36m0.05[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0mPoint[0m [0;34m=[0m [0mcollections[0m[0;34m.[0m[0mnamedtuple[0m[0;34m([0m[0;34m'Point'[0m[0;34m,[0m [0;34m[[0m[0;34m'x'[0m[0;34m,[0m [0;34m'y'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     13[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

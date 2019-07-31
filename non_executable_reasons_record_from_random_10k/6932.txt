@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# サンプル用のアレイを作る
+arr = np.arange(9).reshape((3,3))
+arr
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-4d9b32b608eb>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# サンプル用のアレイを作る[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0marr[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0;36m9[0m[0;34m)[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0;34m([0m[0;36m3[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0marr[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

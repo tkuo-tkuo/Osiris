@@ -1,0 +1,13 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+hondoomba = c(1,45,3,4,2)
+hondoomba
+
+------------------
+
+NameError: name 'c' is not defined
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.005, print_cost = True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-11-1302dd8ddd53>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0md[0m [0;34m=[0m [0mmodel[0m[0;34m([0m[0mtrain_set_x[0m[0;34m,[0m [0mtrain_set_y[0m[0;34m,[0m [0mtest_set_x[0m[0;34m,[0m [0mtest_set_y[0m[0;34m,[0m [0mnum_iterations[0m [0;34m=[0m [0;36m2000[0m[0;34m,[0m [0mlearning_rate[0m [0;34m=[0m [0;36m0.005[0m[0;34m,[0m [0mprint_cost[0m [0;34m=[0m [0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'model' is not defined
+NameError: name 'model' is not defined
+
+Executability                            : False

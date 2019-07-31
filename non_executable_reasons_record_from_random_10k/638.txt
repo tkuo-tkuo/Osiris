@@ -1,0 +1,33 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import importlib
+import os
+import pickle
+import sys
+from glob import glob
+
+import dotmap
+import matplotlib.pyplot as plt
+import numpy as np
+from tqdm import tqdm
+
+sys.path.append('../global/')
+import cityiograph
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-9f19295f9c98>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0;32mfrom[0m [0mglob[0m [0;32mimport[0m [0mglob[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mimport[0m [0mdotmap[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'dotmap'
+ImportError: No module named 'dotmap'
+
+Executability                            : False

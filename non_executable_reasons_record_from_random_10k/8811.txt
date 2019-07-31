@@ -1,0 +1,12 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+d <- read.table("heptatlon")
+head(d)
+------------------
+
+NameError: name 'd' is not defined
+
+Executability                            : False

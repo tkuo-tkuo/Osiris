@@ -1,0 +1,14 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 6
+Reproducibility                          : matched ratio: 0.833 ; index of matched cells: [0, 2, 3, 4, 5]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+enumerate(liste)
+
+-----------------
+Original output:
+<enumerate at 0x300aeeb2d0>
+Executed output:
+<enumerate at 0x7f5714100fc0>

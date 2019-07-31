@@ -1,0 +1,60 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import math
+noTestCases=int(input())
+
+for case in range(noTestCases):
+    noStudents=int(input())
+    gpa=input()
+    gpa=[float(i) for i in gpa.split(" ")]
+    corrList=[]
+    for i in range(5):
+        scores=input()
+        scores=[float(i) for i in scores.split(" ")]
+        x=sum(gpa)/len(gpa)
+        y=sum(scores)/len(scores)
+        a=[i-x for i in gpa]
+        b=[j-y for j in scores]
+        ab=[]
+        a2=sum([i*i for i in a])
+        b2=sum([i*i for i in b])
+        if a2==0:
+            a2=noStudents
+        if b2==0:
+            b2=noStudents
+        for i in range(noStudents):
+            ab.append(a[i]*b[i])
+        abSum=sum(ab)
+        corrList.append(abSum/math.sqrt(a2*b2))
+    maxCorr=0
+    index=0
+    for i in range(5):
+        if corrList[i]>=maxCorr:
+            index=i
+            maxCorr=corrList[i]
+    print (index+1)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-1-af012e74c8c2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mmath[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mnoTestCases[0m[0;34m=[0m[0mint[0m[0;34m([0m[0minput[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;32mfor[0m [0mcase[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mnoTestCases[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

@@ -1,0 +1,42 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+Resistor47k = pd.read_csv('data/Resistor 47k.csv')
+
+Resistor47k = Resistor47k[2:22]
+Resistor47k["Time"] = Resistor47k["Time"].apply(lambda x: x-0.2)
+
+plt.figure(1)
+plt.plot(Resistor47k["Time"],Resistor47k["Potential"],'o', Resistor47k["Time"],Resistor47k["Potential"])
+pylab.title('Gráfico do potencial pelo tempo usando o resistor de 47k')
+plt.xlabel("Tempo")
+plt.ylabel("Potencial")
+plt.figure(2)
+slope, intercept, r_value, p_value, std_err = stats.linregress(Resistor47k["Time"],Resistor47k["Potential"].apply(numpy.log))
+line = slope*Resistor47k["Time"]+intercept
+
+plt.plot(Resistor47k["Time"],Resistor47k["Potential"].apply(numpy.log),'o', Resistor47k["Time"], line)
+pylab.title('Gráfico do potencial pelo tempo usando o resistor de 47k (Linearizado)')
+ax = plt.gca()
+fig = plt.gcf()
+plt.xlabel("Tempo")
+plt.ylabel("Potencial")
+plt.show()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-881d86a37962>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mResistor47k[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'data/Resistor 47k.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mResistor47k[0m [0;34m=[0m [0mResistor47k[0m[0;34m[[0m[0;36m2[0m[0;34m:[0m[0;36m22[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

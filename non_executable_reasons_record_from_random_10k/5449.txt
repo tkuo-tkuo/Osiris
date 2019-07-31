@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+print(confusion_matrix(y_test,pred))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-15-c7768593ae95>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mprint[0m[0;34m([0m[0mconfusion_matrix[0m[0;34m([0m[0my_test[0m[0;34m,[0m[0mpred[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'pred' is not defined
+NameError: name 'pred' is not defined
+
+Executability                            : False

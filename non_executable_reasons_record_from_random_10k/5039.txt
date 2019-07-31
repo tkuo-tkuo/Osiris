@@ -1,0 +1,234 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 9
+Reproducibility                          : matched ratio: 0.556 ; index of matched cells: [0, 1, 2, 4, 6]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+# Calcular erro padrão com amostras de diferentes tamanhos
+
+media = 0
+desvio_padrao = 10
+
+for i in [10, 100, 1000, 10000]:
+    ep = erro_padrao(aleatorio(media, desvio_padrao, n_obs=i))
+    print("n_obs: {}; erro padrão: {:.2f}".format(i, ep))    
+
+-----------------
+Original output:
+n_obs: 10; erro padrão: 3.30
+n_obs: 100; erro padrão: 0.90
+n_obs: 1000; erro padrão: 0.31
+n_obs: 10000; erro padrão: 0.10
+
+Executed output:
+n_obs: 10; erro padrão: 2.52
+n_obs: 100; erro padrão: 0.92
+n_obs: 1000; erro padrão: 0.32
+n_obs: 10000; erro padrão: 0.10
+
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+# Calcular estatística-t a diferentes valores de corte
+
+x = aleatorio(0, 100, 1000)
+
+for i in np.linspace(0,25,26):
+    est_t, media = t_stat_media(x, i)
+    print("Média: {:.2f}; valor de corte: {:.2f}; estatística-t: {:.2f}"
+          .format(media, i, est_t))
+
+-----------------
+Original output:
+Média: 1.57; valor de corte: 0.00; estatística-t: 0.51
+Média: 1.57; valor de corte: 1.00; estatística-t: 0.18
+Média: 1.57; valor de corte: 2.00; estatística-t: -0.14
+Média: 1.57; valor de corte: 3.00; estatística-t: -0.47
+Média: 1.57; valor de corte: 4.00; estatística-t: -0.79
+Média: 1.57; valor de corte: 5.00; estatística-t: -1.12
+Média: 1.57; valor de corte: 6.00; estatística-t: -1.44
+Média: 1.57; valor de corte: 7.00; estatística-t: -1.77
+Média: 1.57; valor de corte: 8.00; estatística-t: -2.10
+Média: 1.57; valor de corte: 9.00; estatística-t: -2.42
+Média: 1.57; valor de corte: 10.00; estatística-t: -2.75
+Média: 1.57; valor de corte: 11.00; estatística-t: -3.07
+Média: 1.57; valor de corte: 12.00; estatística-t: -3.40
+Média: 1.57; valor de corte: 13.00; estatística-t: -3.72
+Média: 1.57; valor de corte: 14.00; estatística-t: -4.05
+Média: 1.57; valor de corte: 15.00; estatística-t: -4.38
+Média: 1.57; valor de corte: 16.00; estatística-t: -4.70
+Média: 1.57; valor de corte: 17.00; estatística-t: -5.03
+Média: 1.57; valor de corte: 18.00; estatística-t: -5.35
+Média: 1.57; valor de corte: 19.00; estatística-t: -5.68
+Média: 1.57; valor de corte: 20.00; estatística-t: -6.00
+Média: 1.57; valor de corte: 21.00; estatística-t: -6.33
+Média: 1.57; valor de corte: 22.00; estatística-t: -6.66
+Média: 1.57; valor de corte: 23.00; estatística-t: -6.98
+Média: 1.57; valor de corte: 24.00; estatística-t: -7.31
+Média: 1.57; valor de corte: 25.00; estatística-t: -7.63
+
+Executed output:
+Média: -0.04; valor de corte: 0.00; estatística-t: -0.01
+Média: -0.04; valor de corte: 1.00; estatística-t: -0.33
+Média: -0.04; valor de corte: 2.00; estatística-t: -0.65
+Média: -0.04; valor de corte: 3.00; estatística-t: -0.97
+Média: -0.04; valor de corte: 4.00; estatística-t: -1.29
+Média: -0.04; valor de corte: 5.00; estatística-t: -1.61
+Média: -0.04; valor de corte: 6.00; estatística-t: -1.94
+Média: -0.04; valor de corte: 7.00; estatística-t: -2.26
+Média: -0.04; valor de corte: 8.00; estatística-t: -2.58
+Média: -0.04; valor de corte: 9.00; estatística-t: -2.90
+Média: -0.04; valor de corte: 10.00; estatística-t: -3.22
+Média: -0.04; valor de corte: 11.00; estatística-t: -3.54
+Média: -0.04; valor de corte: 12.00; estatística-t: -3.86
+Média: -0.04; valor de corte: 13.00; estatística-t: -4.18
+Média: -0.04; valor de corte: 14.00; estatística-t: -4.50
+Média: -0.04; valor de corte: 15.00; estatística-t: -4.82
+Média: -0.04; valor de corte: 16.00; estatística-t: -5.14
+Média: -0.04; valor de corte: 17.00; estatística-t: -5.46
+Média: -0.04; valor de corte: 18.00; estatística-t: -5.78
+Média: -0.04; valor de corte: 19.00; estatística-t: -6.10
+Média: -0.04; valor de corte: 20.00; estatística-t: -6.42
+Média: -0.04; valor de corte: 21.00; estatística-t: -6.74
+Média: -0.04; valor de corte: 22.00; estatística-t: -7.06
+Média: -0.04; valor de corte: 23.00; estatística-t: -7.38
+Média: -0.04; valor de corte: 24.00; estatística-t: -7.70
+Média: -0.04; valor de corte: 25.00; estatística-t: -8.02
+
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+# Calcular p-valor a diferentes valores de corte
+
+for i in np.linspace(0,25,26):
+    est_t, media, p_val = p_valor(x, i)
+    print("Média: {:.2f}; valor de corte: {:.2f}; estatística-t: {:.2f}; p-valor: {:.4f}"
+          .format(media, i, est_t, p_val))
+
+-----------------
+Original output:
+Média: 1.57; valor de corte: 0.00; estatística-t: 0.51; p-valor: 0.6096
+Média: 1.57; valor de corte: 1.00; estatística-t: 0.18; p-valor: 0.8533
+Média: 1.57; valor de corte: 2.00; estatística-t: -0.14; p-valor: 0.8881
+Média: 1.57; valor de corte: 3.00; estatística-t: -0.47; p-valor: 0.6410
+Média: 1.57; valor de corte: 4.00; estatística-t: -0.79; p-valor: 0.4284
+Média: 1.57; valor de corte: 5.00; estatística-t: -1.12; p-valor: 0.2638
+Média: 1.57; valor de corte: 6.00; estatística-t: -1.44; p-valor: 0.1491
+Média: 1.57; valor de corte: 7.00; estatística-t: -1.77; p-valor: 0.0771
+Média: 1.57; valor de corte: 8.00; estatística-t: -2.10; p-valor: 0.0364
+Média: 1.57; valor de corte: 9.00; estatística-t: -2.42; p-valor: 0.0157
+Média: 1.57; valor de corte: 10.00; estatística-t: -2.75; p-valor: 0.0061
+Média: 1.57; valor de corte: 11.00; estatística-t: -3.07; p-valor: 0.0022
+Média: 1.57; valor de corte: 12.00; estatística-t: -3.40; p-valor: 0.0007
+Média: 1.57; valor de corte: 13.00; estatística-t: -3.72; p-valor: 0.0002
+Média: 1.57; valor de corte: 14.00; estatística-t: -4.05; p-valor: 0.0001
+Média: 1.57; valor de corte: 15.00; estatística-t: -4.38; p-valor: 0.0000
+Média: 1.57; valor de corte: 16.00; estatística-t: -4.70; p-valor: 0.0000
+Média: 1.57; valor de corte: 17.00; estatística-t: -5.03; p-valor: 0.0000
+Média: 1.57; valor de corte: 18.00; estatística-t: -5.35; p-valor: 0.0000
+Média: 1.57; valor de corte: 19.00; estatística-t: -5.68; p-valor: 0.0000
+Média: 1.57; valor de corte: 20.00; estatística-t: -6.00; p-valor: 0.0000
+Média: 1.57; valor de corte: 21.00; estatística-t: -6.33; p-valor: 0.0000
+Média: 1.57; valor de corte: 22.00; estatística-t: -6.66; p-valor: 0.0000
+Média: 1.57; valor de corte: 23.00; estatística-t: -6.98; p-valor: 0.0000
+Média: 1.57; valor de corte: 24.00; estatística-t: -7.31; p-valor: 0.0000
+Média: 1.57; valor de corte: 25.00; estatística-t: -7.63; p-valor: 0.0000
+
+Executed output:
+Média: -0.04; valor de corte: 0.00; estatística-t: -0.01; p-valor: 0.9902
+Média: -0.04; valor de corte: 1.00; estatística-t: -0.33; p-valor: 0.7394
+Média: -0.04; valor de corte: 2.00; estatística-t: -0.65; p-valor: 0.5137
+Média: -0.04; valor de corte: 3.00; estatística-t: -0.97; p-valor: 0.3304
+Média: -0.04; valor de corte: 4.00; estatística-t: -1.29; p-valor: 0.1959
+Média: -0.04; valor de corte: 5.00; estatística-t: -1.61; p-valor: 0.1067
+Média: -0.04; valor de corte: 6.00; estatística-t: -1.94; p-valor: 0.0532
+Média: -0.04; valor de corte: 7.00; estatística-t: -2.26; p-valor: 0.0243
+Média: -0.04; valor de corte: 8.00; estatística-t: -2.58; p-valor: 0.0101
+Média: -0.04; valor de corte: 9.00; estatística-t: -2.90; p-valor: 0.0039
+Média: -0.04; valor de corte: 10.00; estatística-t: -3.22; p-valor: 0.0013
+Média: -0.04; valor de corte: 11.00; estatística-t: -3.54; p-valor: 0.0004
+Média: -0.04; valor de corte: 12.00; estatística-t: -3.86; p-valor: 0.0001
+Média: -0.04; valor de corte: 13.00; estatística-t: -4.18; p-valor: 0.0000
+Média: -0.04; valor de corte: 14.00; estatística-t: -4.50; p-valor: 0.0000
+Média: -0.04; valor de corte: 15.00; estatística-t: -4.82; p-valor: 0.0000
+Média: -0.04; valor de corte: 16.00; estatística-t: -5.14; p-valor: 0.0000
+Média: -0.04; valor de corte: 17.00; estatística-t: -5.46; p-valor: 0.0000
+Média: -0.04; valor de corte: 18.00; estatística-t: -5.78; p-valor: 0.0000
+Média: -0.04; valor de corte: 19.00; estatística-t: -6.10; p-valor: 0.0000
+Média: -0.04; valor de corte: 20.00; estatística-t: -6.42; p-valor: 0.0000
+Média: -0.04; valor de corte: 21.00; estatística-t: -6.74; p-valor: 0.0000
+Média: -0.04; valor de corte: 22.00; estatística-t: -7.06; p-valor: 0.0000
+Média: -0.04; valor de corte: 23.00; estatística-t: -7.38; p-valor: 0.0000
+Média: -0.04; valor de corte: 24.00; estatística-t: -7.70; p-valor: 0.0000
+Média: -0.04; valor de corte: 25.00; estatística-t: -8.02; p-valor: 0.0000
+
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+# Ou, simplesmente, utilizar o scipy
+
+media = np.mean(x)
+
+for i in np.linspace(0,25,26):
+    est_t, p_val = stats.ttest_1samp(x, i)
+    print("Média: {:.2f}; valor de corte: {:.2f}; estatística-t: {:.2f}; p-valor: {:.4f}"
+          .format(media, i, est_t, p_val))
+
+-----------------
+Original output:
+Média: 1.57; valor de corte: 0.00; estatística-t: 0.51; p-valor: 0.6096
+Média: 1.57; valor de corte: 1.00; estatística-t: 0.18; p-valor: 0.8533
+Média: 1.57; valor de corte: 2.00; estatística-t: -0.14; p-valor: 0.8881
+Média: 1.57; valor de corte: 3.00; estatística-t: -0.47; p-valor: 0.6410
+Média: 1.57; valor de corte: 4.00; estatística-t: -0.79; p-valor: 0.4284
+Média: 1.57; valor de corte: 5.00; estatística-t: -1.12; p-valor: 0.2638
+Média: 1.57; valor de corte: 6.00; estatística-t: -1.44; p-valor: 0.1491
+Média: 1.57; valor de corte: 7.00; estatística-t: -1.77; p-valor: 0.0771
+Média: 1.57; valor de corte: 8.00; estatística-t: -2.10; p-valor: 0.0364
+Média: 1.57; valor de corte: 9.00; estatística-t: -2.42; p-valor: 0.0157
+Média: 1.57; valor de corte: 10.00; estatística-t: -2.75; p-valor: 0.0061
+Média: 1.57; valor de corte: 11.00; estatística-t: -3.07; p-valor: 0.0022
+Média: 1.57; valor de corte: 12.00; estatística-t: -3.40; p-valor: 0.0007
+Média: 1.57; valor de corte: 13.00; estatística-t: -3.72; p-valor: 0.0002
+Média: 1.57; valor de corte: 14.00; estatística-t: -4.05; p-valor: 0.0001
+Média: 1.57; valor de corte: 15.00; estatística-t: -4.38; p-valor: 0.0000
+Média: 1.57; valor de corte: 16.00; estatística-t: -4.70; p-valor: 0.0000
+Média: 1.57; valor de corte: 17.00; estatística-t: -5.03; p-valor: 0.0000
+Média: 1.57; valor de corte: 18.00; estatística-t: -5.35; p-valor: 0.0000
+Média: 1.57; valor de corte: 19.00; estatística-t: -5.68; p-valor: 0.0000
+Média: 1.57; valor de corte: 20.00; estatística-t: -6.00; p-valor: 0.0000
+Média: 1.57; valor de corte: 21.00; estatística-t: -6.33; p-valor: 0.0000
+Média: 1.57; valor de corte: 22.00; estatística-t: -6.66; p-valor: 0.0000
+Média: 1.57; valor de corte: 23.00; estatística-t: -6.98; p-valor: 0.0000
+Média: 1.57; valor de corte: 24.00; estatística-t: -7.31; p-valor: 0.0000
+Média: 1.57; valor de corte: 25.00; estatística-t: -7.63; p-valor: 0.0000
+
+Executed output:
+Média: -0.04; valor de corte: 0.00; estatística-t: -0.01; p-valor: 0.9902
+Média: -0.04; valor de corte: 1.00; estatística-t: -0.33; p-valor: 0.7394
+Média: -0.04; valor de corte: 2.00; estatística-t: -0.65; p-valor: 0.5137
+Média: -0.04; valor de corte: 3.00; estatística-t: -0.97; p-valor: 0.3304
+Média: -0.04; valor de corte: 4.00; estatística-t: -1.29; p-valor: 0.1959
+Média: -0.04; valor de corte: 5.00; estatística-t: -1.61; p-valor: 0.1067
+Média: -0.04; valor de corte: 6.00; estatística-t: -1.94; p-valor: 0.0532
+Média: -0.04; valor de corte: 7.00; estatística-t: -2.26; p-valor: 0.0243
+Média: -0.04; valor de corte: 8.00; estatística-t: -2.58; p-valor: 0.0101
+Média: -0.04; valor de corte: 9.00; estatística-t: -2.90; p-valor: 0.0039
+Média: -0.04; valor de corte: 10.00; estatística-t: -3.22; p-valor: 0.0013
+Média: -0.04; valor de corte: 11.00; estatística-t: -3.54; p-valor: 0.0004
+Média: -0.04; valor de corte: 12.00; estatística-t: -3.86; p-valor: 0.0001
+Média: -0.04; valor de corte: 13.00; estatística-t: -4.18; p-valor: 0.0000
+Média: -0.04; valor de corte: 14.00; estatística-t: -4.50; p-valor: 0.0000
+Média: -0.04; valor de corte: 15.00; estatística-t: -4.82; p-valor: 0.0000
+Média: -0.04; valor de corte: 16.00; estatística-t: -5.14; p-valor: 0.0000
+Média: -0.04; valor de corte: 17.00; estatística-t: -5.46; p-valor: 0.0000
+Média: -0.04; valor de corte: 18.00; estatística-t: -5.78; p-valor: 0.0000
+Média: -0.04; valor de corte: 19.00; estatística-t: -6.10; p-valor: 0.0000
+Média: -0.04; valor de corte: 20.00; estatística-t: -6.42; p-valor: 0.0000
+Média: -0.04; valor de corte: 21.00; estatística-t: -6.74; p-valor: 0.0000
+Média: -0.04; valor de corte: 22.00; estatística-t: -7.06; p-valor: 0.0000
+Média: -0.04; valor de corte: 23.00; estatística-t: -7.38; p-valor: 0.0000
+Média: -0.04; valor de corte: 24.00; estatística-t: -7.70; p-valor: 0.0000
+Média: -0.04; valor de corte: 25.00; estatística-t: -8.02; p-valor: 0.0000
+

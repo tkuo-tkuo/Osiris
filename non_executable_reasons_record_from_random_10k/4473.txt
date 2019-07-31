@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+num_cats=sub_dict_name.get("cat",0)
+num_dogs=sub_dict_name.get("dog",0)
+num_unis=sub_dict_name.get("unicorn",0)
+print(num_cats,num_dogs,num_unis)
+
+sub_dict_name["cat"]+=1
+print(sub_dict_name)
+sub_dict_name["horse"]+=1
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-17-352b09ddacc7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0msub_dict_name[0m[0;34m[[0m[0;34m"cat"[0m[0;34m][0m[0;34m+=[0m[0;36m1[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0mprint[0m[0;34m([0m[0msub_dict_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0msub_dict_name[0m[0;34m[[0m[0;34m"horse"[0m[0;34m][0m[0;34m+=[0m[0;36m1[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mKeyError[0m: 'horse'
+KeyError: 'horse'
+
+Executability                            : False

@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+import pandas
+import math
+import matplotlib
+from PIL import Image
+import matplotlib.pyplot as plt
+from matplotlib import cm
+import numpy as np
+import cv2
+from skimage.transform import hough_line, hough_line_peaks,probabilistic_hough_line
+from skimage.feature import canny
+import skimage.io as io
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-c5c6e69b6ebc>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0mcm[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;32mfrom[0m [0mskimage[0m[0;34m.[0m[0mtransform[0m [0;32mimport[0m [0mhough_line[0m[0;34m,[0m [0mhough_line_peaks[0m[0;34m,[0m[0mprobabilistic_hough_line[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mfrom[0m [0mskimage[0m[0;34m.[0m[0mfeature[0m [0;32mimport[0m [0mcanny[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

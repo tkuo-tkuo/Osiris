@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#1: ** Row oriented approach**... *-- List of DIctionaries --*... So, [] is outside,{} is inside
+
+sales = [{"Account":"Jones LLc","Jan":150,"Feb":200,"Mar":140},
+         {"Account":"Alpha Co","Jan":200,"Feb":210,"Mar":215},
+         {"Account":"Blue Inc","Jan":50,"Feb":90,"Mar":95}]
+sales_df = pd.DataFrame(sales)
+sales_df
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-155819c94ad1>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m          [0;34m{[0m[0;34m"Account"[0m[0;34m:[0m[0;34m"Alpha Co"[0m[0;34m,[0m[0;34m"Jan"[0m[0;34m:[0m[0;36m200[0m[0;34m,[0m[0;34m"Feb"[0m[0;34m:[0m[0;36m210[0m[0;34m,[0m[0;34m"Mar"[0m[0;34m:[0m[0;36m215[0m[0;34m}[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m          {"Account":"Blue Inc","Jan":50,"Feb":90,"Mar":95}]
+[0;32m----> 6[0;31m [0msales_df[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0msales[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0msales_df[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

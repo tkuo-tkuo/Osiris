@@ -1,0 +1,22 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+column_order = [
+    'FirstName',
+    'NickName',
+    'LastName',
+    'Gender',
+    'DoB',
+    'Authorized',
+    'BodyType',
+    'BodyScale',
+    'HeadType',
+    'SkinColour',
+    'Bio',
+]
+df.to_csv('prison-architect-names.csv', columns=column_order)
+------------------
+
+PermissionError: [Errno 13] Permission denied: 'prison-architect-names.csv'
+
+Executability                            : False

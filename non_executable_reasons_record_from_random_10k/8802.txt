@@ -1,0 +1,29 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.fftpack import fft2, ifft2, fftn, ifftn, fftshift
+from imageio import imread
+from scipy.misc import imresize
+from scipy.stats import multivariate_normal
+
+import warnings
+warnings.filterwarnings('ignore')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-f2096227bf18>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mfftpack[0m [0;32mimport[0m [0mfft2[0m[0;34m,[0m [0mifft2[0m[0;34m,[0m [0mfftn[0m[0;34m,[0m [0mifftn[0m[0;34m,[0m [0mfftshift[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mimageio[0m [0;32mimport[0m [0mimread[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mmisc[0m [0;32mimport[0m [0mimresize[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mstats[0m [0;32mimport[0m [0mmultivariate_normal[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: cannot import name 'imresize'
+ImportError: cannot import name 'imresize'
+
+Executability                            : False

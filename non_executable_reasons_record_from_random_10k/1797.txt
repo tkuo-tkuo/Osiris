@@ -1,0 +1,167 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+import random
+import numpy as np
+import tensorflow as tf
+import datetime
+from PIL import Image
+
+# 用前10000个数据进行10-fold的cross_validation
+dir = "/media/gui/LENOVO/学习/AMAZON/train-jpg/"
+label_name = "cloudy"
+kp = 0.7 # dropout = 1-kp
+
+def read_label(filname,label_name):
+
+    with open("/media/gui/LENOVO/学习/AMAZON/train_v2.csv/train_v2.csv") as fl:
+        raw = fl.readlines()
+        fl.close()
+    result = list()
+    for part in raw:
+        line = part.strip("\n").split(",")
+        mutilabels = line[1].strip(" ")
+        if label_name in mutilabels:
+            result.append([1,0])
+        else:
+            result.append([0,1])
+    return result
+
+all_input_label = read_label("/media/gui/LENOVO/学习/AMAZON/train_v2.csv/train_v2.csv",label_name)
+
+# 定义输入节点，对应于图片像素值矩阵集合和图片标签(即所代表的数字)
+x = tf.placeholder(tf.float32, shape=[None, 64*64*3])
+y_ = tf.placeholder(tf.float32, shape=[None, 2])
+
+x_image = tf.reshape(x, [-1, 64, 64, 3])
+
+# 定义第一个卷积层的variables和ops
+W_conv1 = tf.Variable(tf.truncated_normal([5, 5, 3, 16], stddev=0.1))
+b_conv1 = tf.Variable(tf.constant(0.1, shape=[16]))
+
+L1_conv = tf.nn.conv2d(x_image, W_conv1, strides=[1, 1, 1, 1], padding='SAME')
+L1_relu = tf.nn.relu(L1_conv + b_conv1)
+L1_pool = tf.nn.max_pool(L1_relu, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
+
+# 定义第二个卷积层的variables和ops
+W_conv2 = tf.Variable(tf.truncated_normal([3, 3, 16, 32], stddev=0.1))
+b_conv2 = tf.Variable(tf.constant(0.1, shape=[32]))
+
+L2_conv = tf.nn.conv2d(L1_pool, W_conv2, strides=[1, 1, 1, 1], padding='SAME')
+L2_relu = tf.nn.relu(L2_conv + b_conv2)
+L2_pool = tf.nn.max_pool(L2_relu, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
+
+
+# 全连接层
+W_fc1 = tf.Variable(tf.truncated_normal([16 * 16 * 32, 256], stddev=0.1))
+b_fc1 = tf.Variable(tf.constant(0.1, shape=[256]))
+
+h_pool2_flat = tf.reshape(L2_pool, [-1, 16*16*32])
+h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
+
+
+# dropout
+keep_prob = tf.placeholder(tf.float32)
+h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+
+
+# readout层
+W_fc2 = tf.Variable(tf.truncated_normal([256, 2], stddev=0.1))
+b_fc2 = tf.Variable(tf.constant(0.1, shape=[2]))
+
+y_conv = tf.matmul(h_fc1_drop, W_fc2) + b_fc2
+
+# 定义优化器和训练op
+cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=y_conv))
+# 加入正则化
+tf.add_to_collection(tf.GraphKeys.WEIGHTS, W_conv1)
+tf.add_to_collection(tf.GraphKeys.WEIGHTS, W_conv2)
+tf.add_to_collection(tf.GraphKeys.WEIGHTS, W_fc1)
+tf.add_to_collection(tf.GraphKeys.WEIGHTS, W_fc2)
+regularizer = tf.contrib.layers.l2_regularizer(scale=5.0/50000)
+reg_term = tf.contrib.layers.apply_regularization(regularizer)
+cross_entropy = (cross_entropy + reg_term)
+train_step = tf.train.AdamOptimizer((1e-4)).minimize(cross_entropy)
+correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_, 1))
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+
+file_prefix = "/media/gui/LENOVO/学习/AMAZON/project/train-jpg-all-"
+data_iteration_num = 3
+split_count = 1000
+
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    print("Start the tensorflow session")
+    '''设置每次训练op的输入个数和迭代次数，这里为了支持任意图片总数，定义了一个余数remainder，
+    譬如，如果每次训练op的输入个数为60，图片总数为150张，则前面两次各输入60张，最后一次输入30张（余数30）'''
+    batch_size = 50
+    iterations = 100
+
+    for bi in range(data_iteration_num):
+        train_data_index = random.randint(0, 8)
+        input_images = np.loadtxt(file_prefix + str(train_data_index), dtype="int")
+
+        # 执行训练迭代
+        for it in range(iterations):
+            t_pre = datetime.datetime.now()
+            # print("Start the "+str(it+1)+" iteration.")
+            # for sp in range(1):
+            # input_images = np.loadtxt( file_prefix+str(sp),dtype = "int")
+            input_count = len(input_images)
+            batches_count = int(input_count / batch_size)
+            remainder = input_count % batch_size
+            input_labels = all_input_label[(train_data_index*split_count+0):(train_data_index*split_count+input_count)]
+            for n in range(batches_count):
+                train_step.run(feed_dict={x: input_images[n * batch_size:(n + 1) * batch_size],
+                                          y_: input_labels[n * batch_size:(n + 1) * batch_size], keep_prob: kp})
+                # print("Running the " + str(n + 1) + " batch in " + str(it + 1) + " iteration.")
+            if remainder > 0:
+                start_index = batches_count * batch_size
+                train_step.run(feed_dict={x: input_images[start_index:input_count - 1],
+                                          y_: input_labels[start_index:input_count - 1], keep_prob: kp})
+
+            iterate_accuracy = 0
+            if (it + 1) % 20 == 0:
+                iterate_accuracy = accuracy.eval(feed_dict={x: input_images, y_: input_labels, keep_prob: 1.0})
+                print('iteration %d-%d: accuracy %s' % (bi,it + 1, iterate_accuracy))
+                if iterate_accuracy >= 1:
+                    break
+
+        test_images = np.loadtxt(file_prefix + str(9))
+        test_labels = all_input_label[9000:10000]
+        print("The end of %d out-iteration, The test accuracy is as follows." % bi)
+        print("test accuracy %g" % accuracy.eval(feed_dict={x: test_images, y_: test_labels, keep_prob: 1.0}))
+
+
+
+        # t_after = datetime.datetime.now()
+        # t = (t_after-t_pre).seconds
+        # print("Have costed "+str(t)+" in last iteration.")
+
+    test_images = np.loadtxt(file_prefix + str(9))
+    test_labels = input_labels = all_input_label[9000:10000]
+    print("Final test accuracy %g" % accuracy.eval(feed_dict={x: test_images, y_: test_labels, keep_prob: 1.0}))
+
+
+
+
+
+print("end")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-88007c82c2e3>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mimport[0m [0mrandom[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mimport[0m [0mdatetime[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfrom[0m [0mPIL[0m [0;32mimport[0m [0mImage[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

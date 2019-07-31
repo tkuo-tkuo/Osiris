@@ -1,0 +1,42 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+from keras import layers
+from keras.layers import Input, Dense, Activation, ZeroPadding2D, BatchNormalization, Flatten, Conv2D
+from keras.layers import AveragePooling2D, MaxPooling2D, Dropout, GlobalMaxPooling2D, GlobalAveragePooling2D
+from keras.models import Model
+from keras.preprocessing import image
+from keras.utils import layer_utils
+from keras.utils.data_utils import get_file
+from keras.applications.imagenet_utils import preprocess_input
+import pydot
+from IPython.display import SVG
+from keras.utils.vis_utils import model_to_dot
+from keras.utils import plot_model
+from kt_utils import *
+from keras import regularizers
+
+import keras.backend as K
+K.set_image_data_format('channels_last')
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import imshow
+
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-7957db22618d>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mkeras[0m [0;32mimport[0m [0mlayers[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mInput[0m[0;34m,[0m [0mDense[0m[0;34m,[0m [0mActivation[0m[0;34m,[0m [0mZeroPadding2D[0m[0;34m,[0m [0mBatchNormalization[0m[0;34m,[0m [0mFlatten[0m[0;34m,[0m [0mConv2D[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mAveragePooling2D[0m[0;34m,[0m [0mMaxPooling2D[0m[0;34m,[0m [0mDropout[0m[0;34m,[0m [0mGlobalMaxPooling2D[0m[0;34m,[0m [0mGlobalAveragePooling2D[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'keras'
+ModuleNotFoundError: No module named 'keras'
+
+Executability                            : False

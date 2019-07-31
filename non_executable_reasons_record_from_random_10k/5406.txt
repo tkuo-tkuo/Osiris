@@ -1,0 +1,73 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import random
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from pylab import rcParams
+from tqdm import tqdm
+rcParams['figure.figsize'] = 10, 6
+
+numbertossesHTH = []
+numbertossesHTT = []
+numbertossesTTT = []
+
+for _ in tqdm(range(0, 10000)): 
+    tosscounter = 3
+    tosslist = [random.choice('HT'), random.choice('HT'), random.choice('HT')]
+    while (tosslist[-3] != 'H') or (tosslist[-2] != 'T') or (tosslist[-1] != 'H'):
+        tosslist.append(random.choice('HT'))
+        tosscounter += 1
+    numbertossesHTH.append(tosscounter)
+    tosscounter = 3
+    tosslist = [random.choice('HT'), random.choice('HT'), random.choice('HT')]
+    while (tosslist[-3] != 'H') or (tosslist[-2] != 'T') or (tosslist[-1] != 'T'):
+        tosslist.append(random.choice('HT'))
+        tosscounter += 1
+    numbertossesHTT.append(tosscounter)
+    tosscounter = 3
+    tosslist = [random.choice('HT'), random.choice('HT'), random.choice('HT')]
+    while (tosslist[-3] != 'T') or (tosslist[-2] != 'T') or (tosslist[-1] != 'T'):
+        tosslist.append(random.choice('HT'))
+        tosscounter += 1
+    numbertossesTTT.append(tosscounter)
+print('The average number of tosses for Heads, Tails, Heads is',
+      np.average(numbertossesHTH))
+print('The average number of tosses for Heads, Tails, Tails is',
+      np.average(numbertossesHTT))
+print('The average number of tosses for Tails, Tails, Tails is',
+      np.average(numbertossesTTT))
+
+bins = np.linspace(0, 50, 50)
+sns.kdeplot(numbertossesHTT, color = 'tomato',gridsize=1000)
+sns.kdeplot(numbertossesTTT, color = 'steelblue',gridsize=1000)
+sns.kdeplot(numbertossesHTH, color = 'goldenrod',gridsize=1000)
+    
+plt.xlim(0, 50)
+plt.ylim(0, 0.150)
+plt.grid(which='major', linestyle='-', linewidth='0.25', color='k', alpha = 0.35)
+plt.xlabel('Number of Tosses')
+plt.ylabel('Number of Times Tossed')
+#sns.despine()
+plt.show()
+
+
+
+-----------------
+Original output:
+100%|██████████| 10000/10000 [00:00<00:00, 11601.89it/s]
+The average number of tosses for Heads, Tails, Heads is 10.0132
+The average number of tosses for Heads, Tails, Tails is 8.1049
+The average number of tosses for Tails, Tails, Tails is 13.9063
+<Figure size 1000x600 with 1 Axes>
+Executed output:
+  0%|          | 0/10000 [00:00<?, ?it/s] 47%|████▋     | 4705/10000 [00:00<00:00, 47049.04it/s] 95%|█████████▍| 9468/10000 [00:00<00:00, 47217.96it/s]100%|██████████| 10000/10000 [00:00<00:00, 47092.67it/s]The average number of tosses for Heads, Tails, Heads is 10.0717
+The average number of tosses for Heads, Tails, Tails is 7.9245
+The average number of tosses for Tails, Tails, Tails is 14.0746
+
+<Figure size 1000x600 with 1 Axes>

@@ -1,0 +1,57 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import chainer
+from chainer import cuda, Function, gradient_check, report, training, utils, Variable
+from chainer import datasets, iterators, optimizers, serializers
+from chainer import Link, Chain, ChainList
+import chainer.functions as F
+import chainer.links as L
+from chainer.training import extensions
+import inspect
+#%matplotlib inline
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+
+train, test = datasets.get_mnist()
+train_iter = iterators.SerialIterator(train, batch_size=100, shuffle=True)
+test_iter = iterators.SerialIterator(train, batch_size=100, shuffle=False, repeat=False)
+
+test_y = np.array([[1,2,3,1]], dtype=np.float32)
+test_t = np.array([2])
+
+#-Log(softmax(f))
+-F.log(F.softmax(test_y))
+
+#/np.sum(np.exp(test_y),axis=0)
+
+#softmax_cross_entropyはΣ-t * Log(softmax(y))だが、t={0,1}なので[正解ラベルの数字]番目だけ残る
+#此の例はミニバッチ数=1なので-Log(softmax(y[2]))(上記のベクトルの要素[2])
+F.softmax_cross_entropy(test_y, test_t)
+F.accuracy(test_y, test_t)
+
+#同様にミニバッチが複数ある場合は、各ミニバッチにおいて上記を計算して和をとる
+test_y = np.array([[1,2,3,1],[1,2,3,1],[1,2,3,1],], dtype=np.float32)
+test_t = np.array([2,0,0])
+
+F.softmax_cross_entropy(test_y, test_t)
+F.accuracy(test_y, test_t)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-5a3f46bddef0>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mchainer[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mchainer[0m [0;32mimport[0m [0mcuda[0m[0;34m,[0m [0mFunction[0m[0;34m,[0m [0mgradient_check[0m[0;34m,[0m [0mreport[0m[0;34m,[0m [0mtraining[0m[0;34m,[0m [0mutils[0m[0;34m,[0m [0mVariable[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mchainer[0m [0;32mimport[0m [0mdatasets[0m[0;34m,[0m [0miterators[0m[0;34m,[0m [0moptimizers[0m[0;34m,[0m [0mserializers[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'chainer'
+ModuleNotFoundError: No module named 'chainer'
+
+Executability                            : False

@@ -1,0 +1,14 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 6 ; number of cells: 7
+Reproducibility                          : matched ratio: 0.857 ; index of matched cells: [0, 2, 3, 4, 5, 6]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+map(double,[1,2,3,4,5,6,7])
+
+-----------------
+Original output:
+<map at 0x753d07d358>
+Executed output:
+<map at 0x7fb884c1ab70>

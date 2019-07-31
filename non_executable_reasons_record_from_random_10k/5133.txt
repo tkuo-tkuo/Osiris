@@ -1,0 +1,12 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+resnet18 = models.resnet18(pretrained=True)
+resnet18
+------------------
+
+NameError: name 'models' is not defined
+
+Executability                            : False

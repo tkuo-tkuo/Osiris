@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+def FindFile2Skip(skipS,procList)
+'''e.g. skipS = 'S1997302193636' '''
+
+    skipfile=''
+    for l1file in l1files:
+        if re.search(skipS,l1file):
+            skipfile = l1file
+            break
+    print("\nfound %s to skip" % skipfile)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-4-d1ecd2bdb855>"[0;36m, line [0;32m1[0m
+[0;31m    def FindFile2Skip(skipS,procList)[0m
+[0m                                     ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-4-d1ecd2bdb855>, line 1)
+
+Executability                            : False

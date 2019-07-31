@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+from IPython.core.display import HTML
+css = open('style-table.css').read() + open('style-notebook.css').read()
+HTML('<style>{}</style>'.format(css))
+------------------
+
+FileNotFoundError: [Errno 2] No such file or directory: 'style-table.css'
+
+Executability                            : False

@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from sklearn.cross_validation import train_test_split
+train_data, test_data = train_test_split(df, test_size=0.25)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-7-1201150a7182>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mcross_validation[0m [0;32mimport[0m [0mtrain_test_split[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mtrain_data[0m[0;34m,[0m [0mtest_data[0m [0;34m=[0m [0mtrain_test_split[0m[0;34m([0m[0mdf[0m[0;34m,[0m [0mtest_size[0m[0;34m=[0m[0;36m0.25[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'sklearn.cross_validation'
+ModuleNotFoundError: No module named 'sklearn.cross_validation'
+
+Executability                            : False

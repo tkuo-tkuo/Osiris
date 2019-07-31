@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# YOUR CODE HERE
+def prob(row):
+    return row[1] / surnames['count'].sum()
+surnames['probability'] = surnames.apply (lambda row: prob(row), axis=1)
+surnames = surnames.sort('probability', ascending=True)
+surnames.head()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-b9b9a3a6d83e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;32mdef[0m [0mprob[0m[0;34m([0m[0mrow[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      3[0m     [0;32mreturn[0m [0mrow[0m[0;34m[[0m[0;36m1[0m[0;34m][0m [0;34m/[0m [0msurnames[0m[0;34m[[0m[0;34m'count'[0m[0;34m][0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0msurnames[0m[0;34m[[0m[0;34m'probability'[0m[0;34m][0m [0;34m=[0m [0msurnames[0m[0;34m.[0m[0mapply[0m [0;34m([0m[0;32mlambda[0m [0mrow[0m[0;34m:[0m [0mprob[0m[0;34m([0m[0mrow[0m[0;34m)[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0msurnames[0m [0;34m=[0m [0msurnames[0m[0;34m.[0m[0msort[0m[0;34m([0m[0;34m'probability'[0m[0;34m,[0m [0mascending[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0msurnames[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'surnames' is not defined
+NameError: name 'surnames' is not defined
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+train_df.describe()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-f4497d385f66>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mtrain_df[0m[0;34m.[0m[0mdescribe[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'train_df' is not defined
+NameError: name 'train_df' is not defined
+
+Executability                            : False

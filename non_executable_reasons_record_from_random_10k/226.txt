@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+tfidf = pickle.load(open('quora_tfidf.pickle', 'rb'))['tfidf_matrix']
+train = pickle.load(open('quora_questions_train_features.pickle', 'rb'))
+test = pickle.load(open('quora_questions_test_features.pickle', 'rb'))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-2f260ec71131>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mtfidf[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0;34m'quora_tfidf.pickle'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m)[0m[0;34m[[0m[0;34m'tfidf_matrix'[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mtrain[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0;34m'quora_questions_train_features.pickle'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mtest[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0;34m'quora_questions_test_features.pickle'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pickle' is not defined
+NameError: name 'pickle' is not defined
+
+Executability                            : False

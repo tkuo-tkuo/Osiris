@@ -1,0 +1,55 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+map_wells(df)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-7-217d8a807a4e>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mmap_wells[0m[0;34m([0m[0mdf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-6-e4f10a78b18e>[0m in [0;36mmap_wells[0;34m(df)[0m
+[1;32m     45[0m [0;34m[0m[0m
+[1;32m     46[0m     [0;31m#Show the figure[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 47[0;31m     [0mshow[0m[0;34m([0m[0mfig[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/bokeh/io/showing.py[0m in [0;36mshow[0;34m(obj, browser, new, notebook_handle, notebook_url, **kw)[0m
+[1;32m    143[0m         [0;32mreturn[0m [0mrun_notebook_hook[0m[0;34m([0m[0mstate[0m[0;34m.[0m[0mnotebook_type[0m[0;34m,[0m [0;34m'app'[0m[0;34m,[0m [0mobj[0m[0;34m,[0m [0mstate[0m[0;34m,[0m [0mnotebook_url[0m[0;34m,[0m [0;34m**[0m[0mkw[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    144[0m [0;34m[0m[0m
+[0;32m--> 145[0;31m     [0;32mreturn[0m [0m_show_with_state[0m[0;34m([0m[0mobj[0m[0;34m,[0m [0mstate[0m[0;34m,[0m [0mbrowser[0m[0;34m,[0m [0mnew[0m[0;34m,[0m [0mnotebook_handle[0m[0;34m=[0m[0mnotebook_handle[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    146[0m [0;34m[0m[0m
+[1;32m    147[0m [0;31m#-----------------------------------------------------------------------------[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/bokeh/io/showing.py[0m in [0;36m_show_with_state[0;34m(obj, state, browser, new, notebook_handle)[0m
+[1;32m    181[0m [0;34m[0m[0m
+[1;32m    182[0m     [0;32mif[0m [0mstate[0m[0;34m.[0m[0mfile[0m [0;32mor[0m [0;32mnot[0m [0mshown[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 183[0;31m         [0m_show_file_with_state[0m[0;34m([0m[0mobj[0m[0;34m,[0m [0mstate[0m[0;34m,[0m [0mnew[0m[0;34m,[0m [0mcontroller[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    184[0m [0;34m[0m[0m
+[1;32m    185[0m     [0;32mreturn[0m [0mcomms_handle[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/bokeh/io/showing.py[0m in [0;36m_show_file_with_state[0;34m(obj, state, new, controller)[0m
+[1;32m    164[0m [0;34m[0m[0m
+[1;32m    165[0m     '''
+[0;32m--> 166[0;31m     [0mfilename[0m [0;34m=[0m [0msave[0m[0;34m([0m[0mobj[0m[0;34m,[0m [0mstate[0m[0;34m=[0m[0mstate[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    167[0m     [0mcontroller[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0;34m"file://"[0m [0;34m+[0m [0mfilename[0m[0;34m,[0m [0mnew[0m[0;34m=[0m[0mNEW_PARAM[0m[0;34m[[0m[0mnew[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    168[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/bokeh/io/saving.py[0m in [0;36msave[0;34m(obj, filename, resources, title, template, state, **kwargs)[0m
+[1;32m     84[0m [0;34m[0m[0m
+[1;32m     85[0m     [0mfilename[0m[0;34m,[0m [0mresources[0m[0;34m,[0m [0mtitle[0m [0;34m=[0m [0m_get_save_args[0m[0;34m([0m[0mstate[0m[0;34m,[0m [0mfilename[0m[0;34m,[0m [0mresources[0m[0;34m,[0m [0mtitle[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 86[0;31m     [0m_save_helper[0m[0;34m([0m[0mobj[0m[0;34m,[0m [0mfilename[0m[0;34m,[0m [0mresources[0m[0;34m,[0m [0mtitle[0m[0;34m,[0m [0mtemplate[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     87[0m     [0;32mreturn[0m [0mabspath[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     88[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/bokeh/io/saving.py[0m in [0;36m_save_helper[0;34m(obj, filename, resources, title, template)[0m
+[1;32m    148[0m     [0mhtml[0m [0;34m=[0m [0mfile_html[0m[0;34m([0m[0mobj[0m[0;34m,[0m [0mresources[0m[0;34m,[0m [0mtitle[0m[0;34m=[0m[0mtitle[0m[0;34m,[0m [0mtemplate[0m[0;34m=[0m[0mtemplate[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    149[0m [0;34m[0m[0m
+[0;32m--> 150[0;31m     [0;32mwith[0m [0mio[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m"w"[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m"utf-8"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    151[0m         [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mdecode_utf8[0m[0;34m([0m[0mhtml[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    152[0m [0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '../well_map.html'
+PermissionError: [Errno 13] Permission denied: '../well_map.html'
+
+Executability                            : False

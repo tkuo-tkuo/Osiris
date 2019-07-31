@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Python 2:
+# from urllib import urlretrieve
+# Python 3:
+from urllib.request import urlretrieve
+import os
+
+
+def download_if_needed(url, filename, force_download=False):
+    if force_download or not os.path.exists(filename):
+        urlretrieve(url, filename)
+    else:
+        pass
+
+    
+download_if_needed(URL, 'open_data_year_one.zip')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-5-bde663a937fd>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     13[0m [0;34m[0m[0m
+[1;32m     14[0m [0;34m[0m[0m
+[0;32m---> 15[0;31m [0mdownload_if_needed[0m[0;34m([0m[0mURL[0m[0;34m,[0m [0;34m'open_data_year_one.zip'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-5-bde663a937fd>[0m in [0;36mdownload_if_needed[0;34m(url, filename, force_download)[0m
+[1;32m      8[0m [0;32mdef[0m [0mdownload_if_needed[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mfilename[0m[0;34m,[0m [0mforce_download[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      9[0m     [0;32mif[0m [0mforce_download[0m [0;32mor[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m         [0murlretrieve[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mfilename[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     11[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     12[0m         [0;32mpass[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36murlretrieve[0;34m(url, filename, reporthook, data)[0m
+[1;32m    196[0m         [0;31m# Handle temporary file setup.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    197[0m         [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 198[0;31m             [0mtfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    199[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    200[0m             [0mtfp[0m [0;34m=[0m [0mtempfile[0m[0;34m.[0m[0mNamedTemporaryFile[0m[0;34m([0m[0mdelete[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'open_data_year_one.zip'
+PermissionError: [Errno 13] Permission denied: 'open_data_year_one.zip'
+
+Executability                            : False

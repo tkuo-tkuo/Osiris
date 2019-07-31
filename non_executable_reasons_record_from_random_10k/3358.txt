@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Gerando valores e inserindo na tabela
+for i in range(10):
+    data_insert_var()
+    time.sleep(1)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-2-fa16ac48a4c0>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Gerando valores e inserindo na tabela[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m10[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     [0mdata_insert_var[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mtime[0m[0;34m.[0m[0msleep[0m[0;34m([0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-e8ee7c6eed50>[0m in [0;36mdata_insert_var[0;34m()[0m
+[1;32m     29[0m     [0mnew_valor[0m [0;34m=[0m [0mrandom[0m[0;34m.[0m[0mrandrange[0m[0;34m([0m[0;36m50[0m[0;34m,[0m[0;36m100[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     30[0m     c.execute("INSERT INTO produtos (date, prod_name, valor) VALUES (?, ?, ?)", 
+[0;32m---> 31[0;31m               (new_date, new_prod_name, new_valor))
+[0m[1;32m     32[0m     [0mconn[0m[0;34m.[0m[0mcommit[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mOperationalError[0m: attempt to write a readonly database
+OperationalError: attempt to write a readonly database
+
+Executability                            : False

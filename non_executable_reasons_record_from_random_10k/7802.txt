@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+compDict = pickle.load(open('mUpComp.pkl','rb'))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-07d2e8b55ae5>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mcompDict[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0;34m'mUpComp.pkl'[0m[0;34m,[0m[0;34m'rb'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mImportError[0m: No module named 'pandas.indexes'
+ImportError: No module named 'pandas.indexes'
+
+Executability                            : False

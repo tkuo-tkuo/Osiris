@@ -1,0 +1,12 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+par(mfrow=c(1,2))
+acf(GCI$NEWC); pacf(GCI$NEWC)
+------------------
+
+SyntaxError: invalid syntax (<ipython-input-1-8bef9aa76dea>, line 4)
+
+Executability                            : False

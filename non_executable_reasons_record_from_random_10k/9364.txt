@@ -1,0 +1,36 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# You may need to Reconnect (more than Restart) the Kernel to pick up changes to these values
+
+master = '--master spark://spark-master-2-0-1:7077'
+conf = '--conf spark.cores.max=2 --conf spark.executor.memory=2g --conf spark.cassandra.connection.host=cassandra'
+packages = '--packages com.amazonaws:aws-java-sdk:1.7.4,org.apache.hadoop:hadoop-aws:2.7.1,org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.1,com.datastax.spark:spark-cassandra-connector_2.11:2.0.0-M3,com.databricks:spark-avro_2.11:3.0.1,com.databricks:spark-xml_2.11:0.4.1'
+jars = '--jars /root/lib/jpmml-sparkml-package-1.0-SNAPSHOT.jar'
+py_files = '--py-files /root/lib/jpmml.py'
+
+os.environ['PYSPARK_SUBMIT_ARGS'] = master \
+  + ' ' + conf \
+  + ' ' + packages \
+  + ' ' + jars \
+  + ' ' + py_files \
+  + ' ' + 'pyspark-shell'
+
+print(os.environ['PYSPARK_SUBMIT_ARGS'])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-fbff48fd2e55>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m [0mpy_files[0m [0;34m=[0m [0;34m'--py-files /root/lib/jpmml.py'[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0mos[0m[0;34m.[0m[0menviron[0m[0;34m[[0m[0;34m'PYSPARK_SUBMIT_ARGS'[0m[0;34m][0m [0;34m=[0m [0mmaster[0m   [0;34m+[0m [0;34m' '[0m [0;34m+[0m [0mconf[0m   [0;34m+[0m [0;34m' '[0m [0;34m+[0m [0mpackages[0m   [0;34m+[0m [0;34m' '[0m [0;34m+[0m [0mjars[0m   [0;34m+[0m [0;34m' '[0m [0;34m+[0m [0mpy_files[0m   [0;34m+[0m [0;34m' '[0m [0;34m+[0m [0;34m'pyspark-shell'[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;34m[0m[0m
+[1;32m     13[0m [0mprint[0m[0;34m([0m[0mos[0m[0;34m.[0m[0menviron[0m[0;34m[[0m[0;34m'PYSPARK_SUBMIT_ARGS'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'os' is not defined
+NameError: name 'os' is not defined
+
+Executability                            : False

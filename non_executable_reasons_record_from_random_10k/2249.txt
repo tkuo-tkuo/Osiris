@@ -1,0 +1,80 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+stype = 'dipole-dipole'
+dtype = 'appConductivity'
+
+# Survey parameters
+b = 20 # Tx-Rx seperation
+a = 20 # Dipole spacing
+n = 15  # Number of Rx per Tx
+
+# Model parameters (background, sphere1, sphere2)
+sig = np.r_[1e-2,1e-1,1e-3]
+
+# Centroid of spheres
+#loc = np.c_[[-75.,0.,-75.],[75.,0.,-75.]]
+loc = np.c_[[-75.,0.,-75.],[75.,0.,-75.]]
+
+# Radius of spheres
+radi = np.r_[50.,50.]
+
+# Forward solver
+slvr = 'BiCGStab' #'LU'
+
+# Preconditioner
+pcdr = 'Jacobi'#
+
+# Inversion parameter
+pct = 0.02 # Percent of abs(obs) value
+flr = 2e-5 # Minimum floor value
+chifact = 100
+ref_mod = ([1e-2,1e-1])
+
+# DOI threshold
+cutoff = 0.8
+
+# number of padding cells
+padc = 0
+
+# Plotting param
+xmin, xmax = -250, 250
+ymin, ymax = -150, 150
+zmin, zmax = -125, 25
+vmin = -2.4771213
+vmax = -1.4771213
+depth = 200. # Maximum depth to plot
+dx_in = 5
+
+#`srvy_end = [(-200.  ,  0.), (200.  ,  0.)]
+srvy_end = [(-225.  ,  0.), (225.  ,  0.)]
+#%% SCRIPT STARTS HERE
+nx = int(np.abs(srvy_end[0][0] - srvy_end[1][0]) /dx_in * 1.25)
+ny = nx#int( np.max(radi) /dx_in ) 
+ny += (ny+1)%2 # Make sure it is odd so the survey is centered
+
+nz = int( np.abs( np.min(loc[2,:]) - np.max(radi) )  /dx_in )
+
+# Create mesh
+hxind = [(dx_in,15,-1.3), (dx_in, nx), (dx_in,15,1.3)]
+hyind = [(dx_in,15,-1.3), (dx_in, int(ny/3)), (dx_in,15,1.3)]
+hzind = [(dx_in,13,-1.3),(dx_in, nz)]
+
+mesh = Mesh.TensorMesh([hxind, hyind, hzind], 'CCN')
+
+mesh2D = Mesh.TensorMesh([hxind, hzind], 'CN')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-b8c4f3abcbb4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;31m# Model parameters (background, sphere1, sphere2)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0msig[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mr_[0m[0;34m[[0m[0;36m1e-2[0m[0;34m,[0m[0;36m1e-1[0m[0;34m,[0m[0;36m1e-3[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0;31m# Centroid of spheres[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

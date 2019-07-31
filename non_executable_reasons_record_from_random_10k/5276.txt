@@ -1,0 +1,122 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Question 3
+
+
+inputFile=open(folder+file)
+text=""
+textArray=[]
+for row in inputFile:
+    if row !="\n":
+        text+=row.replace(" ","").replace("\n"," ")
+    else:
+        textArray.append("**" + text.replace("\n","")+ "**")
+        text=""
+
+inputFile.close()
+
+trigramsArray=[]
+corpusChar=""
+from nltk.util import ngrams
+for sentence in textArray:
+    corpusChar= corpusChar+sentence + " "
+    trigrams = ngrams(sentence.lower(),3)
+    for trigram in trigrams:
+        trigramsArray.append(trigram)
+
+SentenceA="**I do not like them in a mouse.**".lower()
+SentenceB="**I am Sam I am Sam**".lower()
+SentenceC="**I do like them anywhere**".lower()
+SentenceD="**I would like green ham and beef.**".lower()
+
+corpusChar += SentenceA + " " + SentenceB + " " + SentenceC + " " + SentenceD
+charVocabulary=set(corpusChar)
+#print (charVocabulary)
+#kneser_ney = nltk.KneserNeyProbDist(cfdChar)
+
+biCharArray=[]
+corpusChar=""
+from nltk.util import ngrams
+for sentence in textArray:
+    corpusChar= corpusChar+sentence + " "
+    bigrams = ngrams(sentence.lower(),2)
+    for bigram in bigrams:
+        biCharArray.append(bigram)
+#print (biCharArray)
+
+#print(trigramsArray)
+trigram_cnt = {}
+bigram_cnt = {}
+
+for (a,b,c) in trigramsArray:
+    if (a,b,c) not in trigram_cnt:
+        trigram_cnt[(a,b,c)] = 1
+    else:
+        trigram_cnt[(a,b,c)] += 1
+#print(trigram_cnt)
+
+for (a,b) in biCharArray:
+    if (a,b) not in bigram_cnt:
+        bigram_cnt[(a,b)] = 1
+    else:
+        bigram_cnt[(a,b)] += 1
+
+# Calculating character trigram probabilities
+trigram_probDic = {}
+for (a,b,c) in trigram_cnt:
+    if (a,b,c) not in trigram_probDic:
+        trigram_probDic[(a,b,c)] = trigram_cnt[(a,b,c)]/ bigram_cnt[(a,b)]
+print(trigram_probDic)
+
+
+#Add One Smoothing
+
+trigram_probDicOne={}
+for (a,b,c) in trigramsArray:
+    #To get the unique trigrams
+    if (a,b,c) not in trigram_probDicOne:
+        trigram_probDicOne[(a,b,c)]=  (trigram_cnt[(a,b,c)] + 1) / bigram_cnt[(a,b)]
+print ("\nTrigrams Probabilities with add one smoothing\n")
+print (trigram_probDicOne)
+
+
+sentences=[SentenceA,SentenceB,SentenceC,SentenceD]
+#Probability of sentences
+print ("\n\n Sentence Probabilities:\n")
+for sentence in sentences:
+    sentProb=1
+    sentenceTrigrams = ngrams(sentence.lower(),3)
+    print("\n sentence trigrams")
+    trigramProb=[]
+    for (a,b,c) in sentenceTrigrams:
+        try:
+            check1=trigram_cnt[(a,b,c)]
+        except:
+            check1=0
+        try:
+            check2=bigram_cnt[(a,b)] 
+        except:
+            check2=0
+        prob=(1+check1) / (check2+ len(charVocabulary))
+        sentProb*= prob
+        trigramProb.append(prob)
+    print (sentenceTrigrams, ":" , sentProb)
+    print (trigramProb)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-31022ebaa900>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0minputFile[0m[0;34m=[0m[0mopen[0m[0;34m([0m[0mfolder[0m[0;34m+[0m[0mfile[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0mtext[0m[0;34m=[0m[0;34m""[0m[0;34m[0m[0m
+[1;32m      8[0m [0mtextArray[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'folder' is not defined
+NameError: name 'folder' is not defined
+
+Executability                            : False

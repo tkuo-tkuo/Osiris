@@ -1,0 +1,60 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+train_X, train_Y, test_X, test_Y = load_2D_dataset()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/scipy/io/matlab/mio.py[0m in [0;36m_open_file[0;34m(file_like, appendmat, mode)[0m
+[1;32m     38[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 39[0;31m         [0;32mreturn[0m [0mopen[0m[0;34m([0m[0mfile_like[0m[0;34m,[0m [0mmode[0m[0;34m)[0m[0;34m,[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     40[0m     [0;32mexcept[0m [0mIOError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'datasets/data.mat'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-a9a84d38b990>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mtrain_X[0m[0;34m,[0m [0mtrain_Y[0m[0;34m,[0m [0mtest_X[0m[0;34m,[0m [0mtest_Y[0m [0;34m=[0m [0mload_2D_dataset[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/mangohero1985@coursera_dl/2_hyperparameter_tuning_regularization_and_optimization/week5/Regularizaiton/reg_utils.py[0m in [0;36mload_2D_dataset[0;34m()[0m
+[1;32m    326[0m [0;34m[0m[0m
+[1;32m    327[0m [0;32mdef[0m [0mload_2D_dataset[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 328[0;31m     [0mdata[0m [0;34m=[0m [0mscipy[0m[0;34m.[0m[0mio[0m[0;34m.[0m[0mloadmat[0m[0;34m([0m[0;34m'datasets/data.mat'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    329[0m     [0mtrain_X[0m [0;34m=[0m [0mdata[0m[0;34m[[0m[0;34m'X'[0m[0;34m][0m[0;34m.[0m[0mT[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    330[0m     [0mtrain_Y[0m [0;34m=[0m [0mdata[0m[0;34m[[0m[0;34m'y'[0m[0;34m][0m[0;34m.[0m[0mT[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/scipy/io/matlab/mio.py[0m in [0;36mloadmat[0;34m(file_name, mdict, appendmat, **kwargs)[0m
+[1;32m    214[0m     """
+[1;32m    215[0m     [0mvariable_names[0m [0;34m=[0m [0mkwargs[0m[0;34m.[0m[0mpop[0m[0;34m([0m[0;34m'variable_names'[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 216[0;31m     [0;32mwith[0m [0m_open_file_context[0m[0;34m([0m[0mfile_name[0m[0;34m,[0m [0mappendmat[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    217[0m         [0mMR[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0mmat_reader_factory[0m[0;34m([0m[0mf[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    218[0m         [0mmatfile_dict[0m [0;34m=[0m [0mMR[0m[0;34m.[0m[0mget_variables[0m[0;34m([0m[0mvariable_names[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/contextlib.py[0m in [0;36m__enter__[0;34m(self)[0m
+[1;32m     79[0m     [0;32mdef[0m [0m__enter__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     80[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 81[0;31m             [0;32mreturn[0m [0mnext[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mgen[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     82[0m         [0;32mexcept[0m [0mStopIteration[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     83[0m             [0;32mraise[0m [0mRuntimeError[0m[0;34m([0m[0;34m"generator didn't yield"[0m[0;34m)[0m [0;32mfrom[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/scipy/io/matlab/mio.py[0m in [0;36m_open_file_context[0;34m(file_like, appendmat, mode)[0m
+[1;32m     17[0m [0;34m@[0m[0mcontextmanager[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     18[0m [0;32mdef[0m [0m_open_file_context[0m[0;34m([0m[0mfile_like[0m[0;34m,[0m [0mappendmat[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'rb'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 19[0;31m     [0mf[0m[0;34m,[0m [0mopened[0m [0;34m=[0m [0m_open_file[0m[0;34m([0m[0mfile_like[0m[0;34m,[0m [0mappendmat[0m[0;34m,[0m [0mmode[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     20[0m     [0;32myield[0m [0mf[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     21[0m     [0;32mif[0m [0mopened[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/scipy/io/matlab/mio.py[0m in [0;36m_open_file[0;34m(file_like, appendmat, mode)[0m
+[1;32m     43[0m             [0;32mif[0m [0mappendmat[0m [0;32mand[0m [0;32mnot[0m [0mfile_like[0m[0;34m.[0m[0mendswith[0m[0;34m([0m[0;34m'.mat'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     44[0m                 [0mfile_like[0m [0;34m+=[0m [0;34m'.mat'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 45[0;31m             [0;32mreturn[0m [0mopen[0m[0;34m([0m[0mfile_like[0m[0;34m,[0m [0mmode[0m[0;34m)[0m[0;34m,[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     46[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     47[0m             [0;32mraise[0m [0mIOError[0m[0;34m([0m[0;34m'Reader needs file name or open file-like object'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'datasets/data.mat'
+FileNotFoundError: [Errno 2] No such file or directory: 'datasets/data.mat'
+
+Executability                            : False

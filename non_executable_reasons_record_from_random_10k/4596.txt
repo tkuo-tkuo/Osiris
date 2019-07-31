@@ -1,0 +1,35 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import csv
+import cv2
+import numpy as np
+import sklearn
+from math import pow, fabs, atan, sin, cos, pi, tan
+from sklearn.model_selection import train_test_split
+from sklearn.utils import shuffle
+
+# Open .csv file and store it's information into memory
+samples = []
+
+with open('C:/Users/Carlos/Desktop/data/driving_log.csv') as csvfile:
+    reader = csv.reader(csvfile)
+    for line in reader:
+        samples.append(line)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-d0e10e5766b0>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mcsv[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0msklearn[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

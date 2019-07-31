@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+algos = os.listdir(resultDir)
+count = 0
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-5-abe86b72e5bc>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0malgos[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0mresultDir[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mcount[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/mnt/fit-Knowledgezoo/Github_repos_download/data/trueutkarsh@sarsa-qlearning-implementation/results'
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/fit-Knowledgezoo/Github_repos_download/data/trueutkarsh@sarsa-qlearning-implementation/results'
+
+Executability                            : False

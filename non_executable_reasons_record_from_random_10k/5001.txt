@@ -1,0 +1,72 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 9
+Reproducibility                          : matched ratio: 0.556 ; index of matched cells: [0, 2, 3, 5, 7]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+# plot_graph(G)
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+#answer_two().nodes(data=True)
+
+-----------------
+Original output:
+[('Andy', {'type': 'employee'}),
+ ('Anaconda', {'type': 'movie'}),
+ ('Mean Girls', {'type': 'movie'}),
+ ('The Matrix', {'type': 'movie'}),
+ ('Claude', {'type': 'employee'}),
+ ('Monty Python and the Holy Grail', {'type': 'movie'}),
+ ('Snakes on a Plane', {'type': 'movie'}),
+ ('Frida', {'type': 'employee'}),
+ ('The Shawshank Redemption', {'type': 'movie'}),
+ ('The Social Network', {'type': 'movie'}),
+ ('Georgia', {'type': 'employee'}),
+ ('Joan', {'type': 'employee'}),
+ ('Forrest Gump', {'type': 'movie'}),
+ ('Kung Fu Panda', {'type': 'movie'}),
+ ('Lee', {'type': 'employee'}),
+ ('Pablo', {'type': 'employee'}),
+ ('The Dark Knight', {'type': 'movie'}),
+ ('Vincent', {'type': 'employee'}),
+ ('The Godfather', {'type': 'movie'})]
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+# answer_three().edges(data=True)
+
+-----------------
+Original output:
+[('Andy', 'Lee', {'weight': 1}),
+ ('Andy', 'Georgia', {'weight': 1}),
+ ('Andy', 'Frida', {'weight': 1}),
+ ('Andy', 'Joan', {'weight': 1}),
+ ('Andy', 'Pablo', {'weight': 1}),
+ ('Andy', 'Claude', {'weight': 1}),
+ ('Claude', 'Georgia', {'weight': 3}),
+ ('Frida', 'Pablo', {'weight': 2}),
+ ('Frida', 'Vincent', {'weight': 2}),
+ ('Joan', 'Lee', {'weight': 3}),
+ ('Pablo', 'Vincent', {'weight': 1})]
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+answer_four()
+
+-----------------
+Original output:
+0.7883962221733477
+Executed output:
+0.7883962221733475

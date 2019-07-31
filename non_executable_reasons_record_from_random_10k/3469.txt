@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+os.chdir("C:/Users/user/Desktop")
+os.getcwd()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-3-bf046da355fc>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mos[0m[0;34m.[0m[0mchdir[0m[0;34m([0m[0;34m"C:/Users/user/Desktop"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mos[0m[0;34m.[0m[0mgetcwd[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'C:/Users/user/Desktop'
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/user/Desktop'
+
+Executability                            : False

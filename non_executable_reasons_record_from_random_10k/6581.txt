@@ -1,0 +1,46 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%file simple.c
+#include <stdlib.h>
+#include <stdio.h>
+
+int* just_a_func(){
+    int *heapintlist;
+    int i;
+    int stackintlist[3]; /*Allocate in this functions frame on stack*/
+    heapintlist = (int *) malloc(3*sizeof(int)); /*Allocate on heap*/
+    for (i = 0; i < 3; i++) {
+        stackintlist[i] = i;
+        heapintlist[i] =i;
+    }
+    for (i = 0; i < 3; i++) {
+        printf("stackintlist %d\n",stackintlist[i]);
+        printf("heapintlist %d :  %d\n", i, heapintlist[i]);
+    }
+    return heapintlist; /*stackintlist unallocated here */
+}
+int main() {
+    int* heapintlist;
+    int i;
+    
+    heapintlist=just_a_func();
+    for (i = 0; i < 3; i++) {
+        heapintlist[i] =i+5;
+        printf("heapintlist %d :  %d\n", i, heapintlist[i]);
+    }
+    free(heapintlist);
+    /* garbage in &heapinlist[i] after this */
+}
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-37b470cedafe>"[0;36m, line [0;32m3[0m
+[0;31m    %%file simple.c[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-37b470cedafe>, line 3)
+
+Executability                            : False

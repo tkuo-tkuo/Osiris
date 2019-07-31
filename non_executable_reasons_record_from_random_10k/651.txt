@@ -1,0 +1,12 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+X = tf.placeholder(tf.float32, shape=[None,2], name = 'X')
+Y = tf.placeholder(tf.float32, shape=[None,8], name = 'Y')
+------------------
+
+NameError: name 'tf' is not defined
+
+Executability                            : False

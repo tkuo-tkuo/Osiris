@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+HART_survey=read.csv("_bentrevino_files/HART_survey_data.csv")
+------------------
+
+NameError: name 'read' is not defined
+
+Executability                            : False

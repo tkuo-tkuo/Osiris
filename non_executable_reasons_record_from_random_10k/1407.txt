@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+
+%env CUDA_DEVICE_ORDER=PCI_BUS_ID
+%env CUDA_VISIBLE_DEVICES=2
+
+#To ensure you have only the correct device visible:
+from tensorflow.python.client import device_lib
+print(device_lib.list_local_devices())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-47287916c9e7>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0;31m#To ensure you have only the correct device visible:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mpython[0m[0;34m.[0m[0mclient[0m [0;32mimport[0m [0mdevice_lib[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0mprint[0m[0;34m([0m[0mdevice_lib[0m[0;34m.[0m[0mlist_local_devices[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

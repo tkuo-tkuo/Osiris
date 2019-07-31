@@ -1,0 +1,45 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+answer_eleven()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-20-c4a57cd38cd3>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0manswer_eleven[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-19-6d03b8e2d925>[0m in [0;36manswer_eleven[0;34m()[0m
+[1;32m      2[0m     [0mlength_of_doc[0m[0;34m=[0m[0mX_train[0m[0;34m.[0m[0mmap[0m[0;34m([0m[0;32mlambda[0m [0mx[0m[0;34m:[0m [0mlen[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m#X_test_len[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m     [0mdigit_count[0m[0;34m=[0m[0mX_train[0m[0;34m.[0m[0mmap[0m[0;34m([0m[0;32mlambda[0m [0mx[0m [0;34m:[0m[0mlen[0m[0;34m([0m[0mre[0m[0;34m.[0m[0mfindall[0m[0;34m([0m[0;34mr'\d'[0m[0;34m,[0m[0mx[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;31m#X_test_digit[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m     [0mnon_word_char_count[0m[0;34m=[0m[0mX_train[0m[0;34m.[0m[0mmap[0m[0;34m([0m[0;32mlambda[0m [0mx[0m [0;34m:[0m[0mlen[0m[0;34m([0m[0mre[0m[0;34m.[0m[0mfindall[0m[0;34m([0m[0;34mr'\W'[0m[0;34m,[0m[0mx[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/series.py[0m in [0;36mmap[0;34m(self, arg, na_action)[0m
+[1;32m   3380[0m         """
+[1;32m   3381[0m         new_values = super(Series, self)._map_values(
+[0;32m-> 3382[0;31m             arg, na_action=na_action)
+[0m[1;32m   3383[0m         return self._constructor(new_values,
+[1;32m   3384[0m                                  index=self.index).__finalize__(self)
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/base.py[0m in [0;36m_map_values[0;34m(self, mapper, na_action)[0m
+[1;32m   1216[0m [0;34m[0m[0m
+[1;32m   1217[0m         [0;31m# mapper is a function[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1218[0;31m         [0mnew_values[0m [0;34m=[0m [0mmap_f[0m[0;34m([0m[0mvalues[0m[0;34m,[0m [0mmapper[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1219[0m [0;34m[0m[0m
+[1;32m   1220[0m         [0;32mreturn[0m [0mnew_values[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/lib.pyx[0m in [0;36mpandas._libs.lib.map_infer[0;34m()[0m
+
+[0;32m<ipython-input-19-6d03b8e2d925>[0m in [0;36m<lambda>[0;34m(x)[0m
+[1;32m      2[0m     [0mlength_of_doc[0m[0;34m=[0m[0mX_train[0m[0;34m.[0m[0mmap[0m[0;34m([0m[0;32mlambda[0m [0mx[0m[0;34m:[0m [0mlen[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m#X_test_len[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m     [0mdigit_count[0m[0;34m=[0m[0mX_train[0m[0;34m.[0m[0mmap[0m[0;34m([0m[0;32mlambda[0m [0mx[0m [0;34m:[0m[0mlen[0m[0;34m([0m[0mre[0m[0;34m.[0m[0mfindall[0m[0;34m([0m[0;34mr'\d'[0m[0;34m,[0m[0mx[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;31m#X_test_digit[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m     [0mnon_word_char_count[0m[0;34m=[0m[0mX_train[0m[0;34m.[0m[0mmap[0m[0;34m([0m[0;32mlambda[0m [0mx[0m [0;34m:[0m[0mlen[0m[0;34m([0m[0mre[0m[0;34m.[0m[0mfindall[0m[0;34m([0m[0;34mr'\W'[0m[0;34m,[0m[0mx[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 're' is not defined
+NameError: name 're' is not defined
+
+Executability                            : False

@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+sns.heatmap(stars.corr(),cmap='coolwarm',annot=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-003318856751>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0msns[0m[0;34m.[0m[0mheatmap[0m[0;34m([0m[0mstars[0m[0;34m.[0m[0mcorr[0m[0;34m([0m[0;34m)[0m[0;34m,[0m[0mcmap[0m[0;34m=[0m[0;34m'coolwarm'[0m[0;34m,[0m[0mannot[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'sns' is not defined
+NameError: name 'sns' is not defined
+
+Executability                            : False

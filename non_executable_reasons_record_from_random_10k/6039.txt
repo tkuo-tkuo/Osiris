@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+print("Welcome to PIthon!!")
+# PI Data Archive
+piServers = PIServers()
+piServer = piServers.DefaultPIServer;
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-1bbabf6b908d>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mprint[0m[0;34m([0m[0;34m"Welcome to PIthon!!"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;31m# PI Data Archive[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mpiServers[0m [0;34m=[0m [0mPIServers[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mpiServer[0m [0;34m=[0m [0mpiServers[0m[0;34m.[0m[0mDefaultPIServer[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'PIServers' is not defined
+NameError: name 'PIServers' is not defined
+
+Executability                            : False

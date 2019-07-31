@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+# Import both the ddos and csv traffic
+ddos_df = pd.read_csv('resources/ddostrace.pcap.csv')
+regular_df = pd.read_csv('resources/equinix-chicago.pcap.csv')
+------------------
+
+FileNotFoundError: File b'resources/ddostrace.pcap.csv' does not exist
+
+Executability                            : False

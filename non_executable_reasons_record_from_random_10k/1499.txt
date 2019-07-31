@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Be careful with quotes!
+' I'm using single quotes, but will create an error'
+------------------
+
+[0;36m  File [0;32m"<ipython-input-5-3b26cff97c4c>"[0;36m, line [0;32m2[0m
+[0;31m    ' I'm using single quotes, but will create an error'[0m
+[0m        ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-5-3b26cff97c4c>, line 2)
+
+Executability                            : False

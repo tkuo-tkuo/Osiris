@@ -1,0 +1,47 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+#number of input, hidden and output nodes
+input_nodes = 784
+hidden_nodes = 100
+output_nodes = 10
+#learning rate is 0.3
+learning_rate = 0.3
+#create instance of neural network
+n = neuralNetwork(input_nodes, hidden_nodes, output_nodes, learning_rate)
+
+#load the mnist training data csv file into a list
+training_data_file = open("mnist_dataset/mnist_train.csv", 'r')
+training_data_list = training_data_file.readlines() 
+#no lo lee en memoria
+training_data_file.close()
+
+#training the neural network
+
+#go throught all records in the training data set
+for record in training_data_list:
+    #split the record by the , commas
+    all_values = record.split(',')
+    #scale and shift inputs
+    inputs = (np.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
+    #create the target output values (all 0.01 except the corect value .99)
+    targets = np.zeros(output_nodes) + 0.01
+    #all_values[0] is the target value for all records
+    targets[int(all_values[0])] = 0.99
+    n.train(inputs, targets)
+    pass
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-8-1bbc0751389e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m [0;34m[0m[0m
+[1;32m     10[0m [0;31m#load the mnist training data csv file into a list[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0mtraining_data_file[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m"mnist_dataset/mnist_train.csv"[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0mtraining_data_list[0m [0;34m=[0m [0mtraining_data_file[0m[0;34m.[0m[0mreadlines[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     13[0m [0;31m#no lo lee en memoria[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'mnist_dataset/mnist_train.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'mnist_dataset/mnist_train.csv'
+
+Executability                            : False

@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import tensorflow as tf
+X = tf.placeholder(tf.float32, shape=(1, height, width, 1))
+feature_maps = tf.constant(fmap)
+convolution = tf.nn.conv2d(X, feature_maps, strides=[1,5,5,1], padding="SAME")
+with tf.Session() as sess:
+    output = convolution.eval(feed_dict={X: image_grayscale})
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-3-0d9947d67301>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mX[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mplaceholder[0m[0;34m([0m[0mtf[0m[0;34m.[0m[0mfloat32[0m[0;34m,[0m [0mshape[0m[0;34m=[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0mheight[0m[0;34m,[0m [0mwidth[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mfeature_maps[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mconstant[0m[0;34m([0m[0mfmap[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mconvolution[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mnn[0m[0;34m.[0m[0mconv2d[0m[0;34m([0m[0mX[0m[0;34m,[0m [0mfeature_maps[0m[0;34m,[0m [0mstrides[0m[0;34m=[0m[0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m5[0m[0;34m,[0m[0;36m5[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0mpadding[0m[0;34m=[0m[0;34m"SAME"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mwith[0m [0mtf[0m[0;34m.[0m[0mSession[0m[0;34m([0m[0;34m)[0m [0;32mas[0m [0msess[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

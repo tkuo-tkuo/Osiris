@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Imports visualisation libraries, (matplot.lib and seaborn for graphical and statistical analysis )
+
+import matplotlib.pyplot as plt
+%matplotlib inline 
+import seaborn as sns
+import datetime as dt
+from mpl_toolkits.basemap import Basemap
+%config InlineBackend.figure_format = 'retina'
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-f2a0c70a05c8>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mdatetime[0m [0;32mas[0m [0mdt[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mmpl_toolkits[0m[0;34m.[0m[0mbasemap[0m [0;32mimport[0m [0mBasemap[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'config'[0m[0;34m,[0m [0;34m"InlineBackend.figure_format = 'retina'"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'mpl_toolkits.basemap'
+ModuleNotFoundError: No module named 'mpl_toolkits.basemap'
+
+Executability                            : False

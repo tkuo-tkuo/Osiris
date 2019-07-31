@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+final_sig, time_stamps = ecg.process_signal(N=5)
+plot(final_sig,time_stamps,end=2000)
+plt.savefig('DetectedR_5.png',bbox_inches='tight')
+#Additionally plotting one QRS wave
+plot(final_sig,time_stamps,start=450,end=550)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-0d29d23714e9>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mfinal_sig[0m[0;34m,[0m [0mtime_stamps[0m [0;34m=[0m [0mecg[0m[0;34m.[0m[0mprocess_signal[0m[0;34m([0m[0mN[0m[0;34m=[0m[0;36m5[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplot[0m[0;34m([0m[0mfinal_sig[0m[0;34m,[0m[0mtime_stamps[0m[0;34m,[0m[0mend[0m[0;34m=[0m[0;36m2000[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m'DetectedR_5.png'[0m[0;34m,[0m[0mbbox_inches[0m[0;34m=[0m[0;34m'tight'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'ecg' is not defined
+NameError: name 'ecg' is not defined
+
+Executability                            : False

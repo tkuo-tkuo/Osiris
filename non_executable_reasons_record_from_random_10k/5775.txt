@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# using seabron to create a linear fit
+sns.lmplot(x='RM', y='Price', data = boston_df)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-6-0e8014f19552>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# using seabron to create a linear fit[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0msns[0m[0;34m.[0m[0mlmplot[0m[0;34m([0m[0mx[0m[0;34m=[0m[0;34m'RM'[0m[0;34m,[0m [0my[0m[0;34m=[0m[0;34m'Price'[0m[0;34m,[0m [0mdata[0m [0;34m=[0m [0mboston_df[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/seaborn/regression.py[0m in [0;36mlmplot[0;34m(x, y, data, hue, col, row, palette, col_wrap, size, aspect, markers, sharex, sharey, hue_order, col_order, row_order, legend, legend_out, x_estimator, x_bins, x_ci, scatter, fit_reg, ci, n_boot, units, order, logistic, lowess, robust, logx, x_partial, y_partial, truncate, x_jitter, y_jitter, scatter_kws, line_kws)[0m
+[1;32m    550[0m     [0mneed_cols[0m [0;34m=[0m [0;34m[[0m[0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0mhue[0m[0;34m,[0m [0mcol[0m[0;34m,[0m [0mrow[0m[0;34m,[0m [0munits[0m[0;34m,[0m [0mx_partial[0m[0;34m,[0m [0my_partial[0m[0;34m][0m[0;34m[0m[0m
+[1;32m    551[0m     [0mcols[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0munique[0m[0;34m([0m[0;34m[[0m[0ma[0m [0;32mfor[0m [0ma[0m [0;32min[0m [0mneed_cols[0m [0;32mif[0m [0ma[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mtolist[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 552[0;31m     [0mdata[0m [0;34m=[0m [0mdata[0m[0;34m[[0m[0mcols[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m    553[0m [0;34m[0m[0m
+[1;32m    554[0m     [0;31m# Initialize the grid[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   2677[0m         [0;32mif[0m [0misinstance[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0;34m([0m[0mSeries[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mndarray[0m[0;34m,[0m [0mIndex[0m[0;34m,[0m [0mlist[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   2678[0m             [0;31m# either boolean or fancy integer index[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2679[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_array[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2680[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mDataFrame[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   2681[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_frame[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m_getitem_array[0;34m(self, key)[0m
+[1;32m   2721[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_take[0m[0;34m([0m[0mindexer[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2722[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 2723[0;31m             [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mloc[0m[0;34m.[0m[0m_convert_to_indexer[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2724[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_take[0m[0;34m([0m[0mindexer[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2725[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/indexing.py[0m in [0;36m_convert_to_indexer[0;34m(self, obj, axis, is_setter)[0m
+[1;32m   1325[0m                 [0;32mif[0m [0mmask[0m[0;34m.[0m[0many[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1326[0m                     raise KeyError('{mask} not in index'
+[0;32m-> 1327[0;31m                                    .format(mask=objarr[mask]))
+[0m[1;32m   1328[0m [0;34m[0m[0m
+[1;32m   1329[0m                 [0;32mreturn[0m [0mcom[0m[0;34m.[0m[0m_values_from_object[0m[0;34m([0m[0mindexer[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: "['Price'] not in index"
+KeyError: "['Price'] not in index"
+
+Executability                            : False

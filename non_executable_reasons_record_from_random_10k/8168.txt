@@ -1,0 +1,74 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+clf = LogisticRegression(C=1e5)
+
+plot_binaryMesh(clf, X, Y, 1)
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_axes.py[0m in [0;36m_parse_scatter_color_args[0;34m(c, edgecolors, kwargs, xshape, yshape, get_next_color_func)[0m
+[1;32m   4276[0m             [0;32mtry[0m[0;34m:[0m  [0;31m# Then is 'c' acceptable as PathCollection facecolors?[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 4277[0;31m                 [0mcolors[0m [0;34m=[0m [0mmcolors[0m[0;34m.[0m[0mto_rgba_array[0m[0;34m([0m[0mc[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   4278[0m                 [0mn_elem[0m [0;34m=[0m [0mcolors[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/colors.py[0m in [0;36mto_rgba_array[0;34m(c, alpha)[0m
+[1;32m    285[0m     [0;32mfor[0m [0mi[0m[0;34m,[0m [0mcc[0m [0;32min[0m [0menumerate[0m[0;34m([0m[0mc[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 286[0;31m         [0mresult[0m[0;34m[[0m[0mi[0m[0;34m][0m [0;34m=[0m [0mto_rgba[0m[0;34m([0m[0mcc[0m[0;34m,[0m [0malpha[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    287[0m     [0;32mreturn[0m [0mresult[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/colors.py[0m in [0;36mto_rgba[0;34m(c, alpha)[0m
+[1;32m    176[0m     [0;32mif[0m [0mrgba[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m  [0;31m# Suppress exception chaining of cache lookup failure.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 177[0;31m         [0mrgba[0m [0;34m=[0m [0m_to_rgba_no_colorcycle[0m[0;34m([0m[0mc[0m[0;34m,[0m [0malpha[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    178[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/colors.py[0m in [0;36m_to_rgba_no_colorcycle[0;34m(c, alpha)[0m
+[1;32m    241[0m     [0;32mif[0m [0mlen[0m[0;34m([0m[0mc[0m[0;34m)[0m [0;32mnot[0m [0;32min[0m [0;34m[[0m[0;36m3[0m[0;34m,[0m [0;36m4[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 242[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"RGBA sequence should have length 3 or 4"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    243[0m     [0;32mif[0m [0mlen[0m[0;34m([0m[0mc[0m[0;34m)[0m [0;34m==[0m [0;36m3[0m [0;32mand[0m [0malpha[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: RGBA sequence should have length 3 or 4
+
+During handling of the above exception, another exception occurred:
+
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-12-15599202cb5b>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mclf[0m [0;34m=[0m [0mLogisticRegression[0m[0;34m([0m[0mC[0m[0;34m=[0m[0;36m1e5[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0mplot_binaryMesh[0m[0;34m([0m[0mclf[0m[0;34m,[0m [0mX[0m[0;34m,[0m [0mY[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-11-12da3a1f17da>[0m in [0;36mplot_binaryMesh[0;34m(clf, X, y, p, ax)[0m
+[1;32m     44[0m [0;34m[0m[0m
+[1;32m     45[0m     [0;31m# Plot also the training points[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 46[0;31m     [0max[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mX[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m [0;36m0[0m[0;34m][0m[0;34m,[0m [0mX[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m [0;36m1[0m[0;34m][0m[0;34m,[0m [0mc[0m[0;34m=[0m[0my[0m[0;34m,[0m [0medgecolors[0m[0;34m=[0m[0;34m'k'[0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0mcm_data[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     47[0m     ax.annotate('Accuracy : {:0.2f}'.format(accuracy),
+[1;32m     48[0m         [0mxy[0m[0;34m=[0m[0;34m([0m[0;36m0[0m[0;34m,[0m[0;36m0[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/__init__.py[0m in [0;36minner[0;34m(ax, data, *args, **kwargs)[0m
+[1;32m   1587[0m     [0;32mdef[0m [0minner[0m[0;34m([0m[0max[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0mdata[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1588[0m         [0;32mif[0m [0mdata[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1589[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0max[0m[0;34m,[0m [0;34m*[0m[0mmap[0m[0;34m([0m[0msanitize_sequence[0m[0;34m,[0m [0margs[0m[0;34m)[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1590[0m [0;34m[0m[0m
+[1;32m   1591[0m         [0mbound[0m [0;34m=[0m [0mnew_sig[0m[0;34m.[0m[0mbind[0m[0;34m([0m[0max[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_axes.py[0m in [0;36mscatter[0;34m(self, x, y, s, c, marker, cmap, norm, vmin, vmax, alpha, linewidths, verts, edgecolors, plotnonfinite, **kwargs)[0m
+[1;32m   4444[0m             self._parse_scatter_color_args(
+[1;32m   4445[0m                 [0mc[0m[0;34m,[0m [0medgecolors[0m[0;34m,[0m [0mkwargs[0m[0;34m,[0m [0mxshape[0m[0;34m,[0m [0myshape[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 4446[0;31m                 get_next_color_func=self._get_patches_for_fill.get_next_color)
+[0m[1;32m   4447[0m [0;34m[0m[0m
+[1;32m   4448[0m         [0;32mif[0m [0mplotnonfinite[0m [0;32mand[0m [0mcolors[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_axes.py[0m in [0;36m_parse_scatter_color_args[0;34m(c, edgecolors, kwargs, xshape, yshape, get_next_color_func)[0m
+[1;32m   4288[0m                         [0;34m"acceptable for use with 'x' with size {xs}, "[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   4289[0m                         [0;34m"'y' with size {ys}."[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 4290[0;31m                             [0;34m.[0m[0mformat[0m[0;34m([0m[0mnc[0m[0;34m=[0m[0mn_elem[0m[0;34m,[0m [0mxs[0m[0;34m=[0m[0mxsize[0m[0;34m,[0m [0mys[0m[0;34m=[0m[0mysize[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   4291[0m                     )
+[1;32m   4292[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: 'c' argument has 100 elements, which is not acceptable for use with 'x' with size 100, 'y' with size 100.
+ValueError: 'c' argument has 100 elements, which is not acceptable for use with 'x' with size 100, 'y' with size 100.
+
+Executability                            : False

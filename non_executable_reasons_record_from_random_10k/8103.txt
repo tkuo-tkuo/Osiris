@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+with open("flower.jpg", "wb") as f:
+    f.write(image_binary)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-4-0e1c8286667c>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"flower.jpg"[0m[0;34m,[0m [0;34m"wb"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mimage_binary[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'flower.jpg'
+PermissionError: [Errno 13] Permission denied: 'flower.jpg'
+
+Executability                            : False

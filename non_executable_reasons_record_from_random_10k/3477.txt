@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import sqlite3 # Sqlite'yı dahil ediyoruz
+
+con = sqlite3.connect("kütüphane.db") # Tabloya bağlanıyoruz.
+
+cursor = con.cursor() # cursor isimli değişken veritabanı üzerinde işlem yapmak için kullanacağımız imleç olacak.
+
+
+con.close() # Bağlantıyı koparıyoruz.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-2-cea9b9fe8968>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0msqlite3[0m [0;31m# Sqlite'yı dahil ediyoruz[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0mcon[0m [0;34m=[0m [0msqlite3[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m"kütüphane.db"[0m[0;34m)[0m [0;31m# Tabloya bağlanıyoruz.[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mcursor[0m [0;34m=[0m [0mcon[0m[0;34m.[0m[0mcursor[0m[0;34m([0m[0;34m)[0m [0;31m# cursor isimli değişken veritabanı üzerinde işlem yapmak için kullanacağımız imleç olacak.[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mOperationalError[0m: unable to open database file
+OperationalError: unable to open database file
+
+Executability                            : False

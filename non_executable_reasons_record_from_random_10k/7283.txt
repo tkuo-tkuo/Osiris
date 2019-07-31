@@ -1,0 +1,20 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# to scale the predicted outcome back to $1000's
+num_rooms_std = sc_x.transform(np.array([[5.0]]))
+price_std = lr.predict(num_rooms_std)
+print("Price in $1000's: %.3f" % sc_y.inverse_transform(price_std)) 
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-10-55aa8f0f4a40>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mnum_rooms_std[0m [0;34m=[0m [0msc_x[0m[0;34m.[0m[0mtransform[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0;34m[[0m[0;36m5.0[0m[0;34m][0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mprice_std[0m [0;34m=[0m [0mlr[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mnum_rooms_std[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mprint[0m[0;34m([0m[0;34m"Price in $1000's: %.3f"[0m [0;34m%[0m [0msc_y[0m[0;34m.[0m[0minverse_transform[0m[0;34m([0m[0mprice_std[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: only size-1 arrays can be converted to Python scalars
+TypeError: only size-1 arrays can be converted to Python scalars
+
+Executability                            : False

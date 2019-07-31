@@ -1,0 +1,200 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#importing some useful packages
+import os
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import cv2
+from sklearn import linear_model
+import numpy as np
+import math
+# Import everything needed to edit/save/watch video clips
+from moviepy.editor import VideoFileClip
+from IPython.display import HTML
+%matplotlib inline
+
+def grayscale(img):
+    """Applies the Grayscale transform
+    This will return an image with only one color channel
+    but NOTE: to see the returned image as grayscale
+    (assuming your grayscaled image is called 'gray')
+    you should call plt.imshow(gray, cmap='gray')"""
+    return cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    # Or use BGR2GRAY if you read an image with cv2.imread()
+    # return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    
+def canny(img, low_threshold, high_threshold):
+    """Applies the Canny transform"""
+    return cv2.Canny(img, low_threshold, high_threshold)
+
+def gaussian_blur(img, kernel_size):
+    """Applies a Gaussian Noise kernel"""
+    return cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)
+
+def region_of_interest(img, vertices):
+    """
+    Applies an image mask.
+    
+    Only keeps the region of the image defined by the polygon
+    formed from `vertices`. The rest of the image is set to black.
+    """
+    #defining a blank mask to start with
+    mask = np.zeros_like(img)   
+    
+    #defining a 3 channel or 1 channel color to fill the mask with depending on the input image
+    if len(img.shape) > 2:
+        channel_count = img.shape[2]  # i.e. 3 or 4 depending on your image
+        ignore_mask_color = (255,) * channel_count
+    else:
+        ignore_mask_color = 255
+        
+    #filling pixels inside the polygon defined by "vertices" with the fill color    
+    cv2.fillPoly(mask, vertices, ignore_mask_color)
+    
+    #returning the image only where mask pixels are nonzero
+    masked_image = cv2.bitwise_and(img, mask)
+    return masked_image
+
+
+def draw_lines(img, lines, color=[255, 0, 0], thickness=2):
+    """
+    NOTE: this is the function you might want to use as a starting point once you want to 
+    average/extrapolate the line segments you detect to map out the full
+    extent of the lane (going from the result shown in raw-lines-example.mp4
+    to that shown in P1_example.mp4).  
+    
+    Think about things like separating line segments by their 
+    slope ((y2-y1)/(x2-x1)) to decide which segments are part of the left
+    line vs. the right line.  Then, you can average the position of each of 
+    the lines and extrapolate to the top and bottom of the lane.
+    
+    This function draws `lines` with `color` and `thickness`.    
+    Lines are drawn on the image inplace (mutates the image).
+    If you want to make the lines semi-transparent, think about combining
+    this function with the weighted_img() function below
+    """
+    for line in lines:
+        for x1,y1,x2,y2 in line:
+            cv2.line(img, (x1, y1), (x2, y2), color, thickness)
+            
+def line_reg(lines, ave_num):
+    # Point seperation.
+    global global_l_intercept
+    global global_r_coef
+    global global_r_intercept
+    global global_r_coef
+    l_coor_Xtrain = []
+    l_coor_Ytrain = []
+    r_coor_Xtrain = []
+    r_coor_Ytrain = []
+    l_dist_weight = []
+    r_dist_weight = []
+    
+    for k in range(0, len(lines)):
+        px1, py1, px2, py2 = lines[k][0]
+        slope = ((py2-py1)/(px2-px1))
+        dist = round(np.sqrt(((px2-px1)**2)+((py2-py1)**2)), 3)
+        
+        if slope < 0:
+            l_coor_Xtrain.extend([px1, px2])
+            l_coor_Ytrain.extend([py1, py2])
+            l_dist_weight.extend([dist, dist])
+        elif slope > 0:
+            r_coor_Xtrain.extend([px1, px2])
+            r_coor_Ytrain.extend([py1, py2])
+            r_dist_weight.extend([dist, dist])
+        else:
+            pass
+    l_coor_Xtrain = np.asarray(l_coor_Xtrain).reshape(-1, 1)
+    l_coor_Ytrain = np.asarray(l_coor_Ytrain)
+    r_coor_Xtrain = np.asarray(r_coor_Xtrain).reshape(-1, 1)
+    r_coor_Ytrain = np.asarray(r_coor_Ytrain)
+    l_dist_weight = np.asarray(l_dist_weight)
+    r_dist_weight = np.asarray(r_dist_weight)
+    
+    if len(l_coor_Xtrain) != 0:
+        reg_l = linear_model.LinearRegression()
+        reg_l.fit(l_coor_Xtrain, l_coor_Ytrain, l_dist_weight)
+        
+        global_l_intercept.append(reg_l.intercept_)
+        if len(global_l_intercept) > ave_num:
+            del global_l_intercept[0]
+        
+        global_l_coef.append(reg_l.coef_[0])
+        if len(global_l_coef) > ave_num:
+            del global_l_coef[0]
+        
+    if len(r_coor_Xtrain) != 0:
+        reg_r = linear_model.LinearRegression()
+        reg_r.fit(r_coor_Xtrain, r_coor_Ytrain, r_dist_weight)
+
+        global_r_intercept.append(reg_r.intercept_)
+        if len(global_r_intercept) > ave_num:
+            del global_r_intercept[0]
+        
+        global_r_coef.append(reg_r.coef_[0])
+        if len(global_r_coef) > ave_num:
+            del global_r_coef[0]
+        
+    return (ave(global_l_coef), ave(global_l_intercept), ave(global_r_coef), ave(global_r_intercept))
+
+def draw_side_lines(image, coef1, intercept1, coef2, intercept2):
+    imshape = image.shape
+    line_image = np.zeros((imshape[0],imshape[1],3), np.uint8)
+    (output_x1, output_y1) = solve_X(imshape[0], intercept1, coef1)
+    (output_x2, output_y2) = solve_X((imshape[0]/2)+60, intercept1, coef1)
+    cv2.line(line_image, (output_x1, output_y1), (output_x2, output_y2), [255, 0, 0], 10)
+    (output_x1, output_y1) = solve_X(imshape[0], intercept2, coef2)
+    (output_x2, output_y2) = solve_X((imshape[0]/2)+60, intercept2, coef2)
+    cv2.line(line_image, (output_x1, output_y1), (output_x2, output_y2), [255, 0, 0], 10)
+    return line_image
+        
+        
+def ave(any_list):
+    average = sum(any_list)/float(len(any_list))
+    return average
+
+def solve_X(output_y, intercept, coef):
+    output_x = (output_y - intercept) / coef
+    return (int(output_x), int(output_y))
+
+def hough_lines(img, rho, theta, threshold, min_line_len, max_line_gap):
+    """
+    `img` should be the output of a Canny transform.
+    Returns an image with hough lines drawn.
+    """
+    lines = cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len, maxLineGap=max_line_gap)
+    line_img = np.zeros((img.shape[0], img.shape[1], 3), dtype=np.uint8)
+    draw_lines(line_img, lines)
+    return line_img
+
+# Python 3 has support for cool math symbols.
+
+def weighted_img(img, initial_img, α=0.8, β=1., λ=0.):
+    """
+    `img` is the output of the hough_lines(), An image with lines drawn on it.
+    Should be a blank image (all black) with lines drawn on it.
+    `initial_img` should be the image before any processing.
+    The result image is computed as follows:
+    """
+    return cv2.addWeighted(initial_img, α, img, β, λ)
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-759ee673ba1e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mimage[0m [0;32mas[0m [0mmpimg[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0msklearn[0m [0;32mimport[0m [0mlinear_model[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

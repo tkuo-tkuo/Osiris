@@ -1,0 +1,73 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+tmp_cb['two'] = tmp_cubed
+print(tmp_cb)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m_ensure_valid_index[0;34m(self, value)[0m
+[1;32m   3169[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 3170[0;31m                 [0mvalue[0m [0;34m=[0m [0mSeries[0m[0;34m([0m[0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3171[0m             [0;32mexcept[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/series.py[0m in [0;36m__init__[0;34m(self, data, index, dtype, name, copy, fastpath)[0m
+[1;32m    275[0m [0;34m[0m[0m
+[0;32m--> 276[0;31m                 [0mdata[0m [0;34m=[0m [0mSingleBlockManager[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mindex[0m[0;34m,[0m [0mfastpath[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    277[0m [0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/internals.py[0m in [0;36m__init__[0;34m(self, block, axis, do_integrity_check, fastpath)[0m
+[1;32m   4676[0m         [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mblock[0m[0;34m,[0m [0mBlock[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 4677[0;31m             [0mblock[0m [0;34m=[0m [0mmake_block[0m[0;34m([0m[0mblock[0m[0;34m,[0m [0mplacement[0m[0;34m=[0m[0mslice[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0mlen[0m[0;34m([0m[0maxis[0m[0;34m)[0m[0;34m)[0m[0;34m,[0m [0mndim[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   4678[0m [0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/internals.py[0m in [0;36mmake_block[0;34m(values, placement, klass, ndim, dtype, fastpath)[0m
+[1;32m   3204[0m [0;34m[0m[0m
+[0;32m-> 3205[0;31m     [0;32mreturn[0m [0mklass[0m[0;34m([0m[0mvalues[0m[0;34m,[0m [0mndim[0m[0;34m=[0m[0mndim[0m[0;34m,[0m [0mplacement[0m[0;34m=[0m[0mplacement[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3206[0m [0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/internals.py[0m in [0;36m__init__[0;34m(self, values, placement, ndim)[0m
+[1;32m   2302[0m         super(ObjectBlock, self).__init__(values, ndim=ndim,
+[0;32m-> 2303[0;31m                                           placement=placement)
+[0m[1;32m   2304[0m [0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/internals.py[0m in [0;36m__init__[0;34m(self, values, placement, ndim)[0m
+[1;32m    124[0m                 [0;34m'Wrong number of items passed {val}, placement implies '[0m[0;34m[0m[0m
+[0;32m--> 125[0;31m                 '{mgr}'.format(val=len(self.values), mgr=len(self.mgr_locs)))
+[0m[1;32m    126[0m [0;34m[0m[0m
+
+[0;31mValueError[0m: Wrong number of items passed 1, placement implies 3
+
+During handling of the above exception, another exception occurred:
+
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-4-97f68352c09e>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mtmp_cb[0m[0;34m[[0m[0;34m'two'[0m[0;34m][0m [0;34m=[0m [0mtmp_cubed[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0mtmp_cb[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m__setitem__[0;34m(self, key, value)[0m
+[1;32m   3114[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   3115[0m             [0;31m# set column[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3116[0;31m             [0mself[0m[0;34m.[0m[0m_set_item[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3117[0m [0;34m[0m[0m
+[1;32m   3118[0m     [0;32mdef[0m [0m_setitem_slice[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m_set_item[0;34m(self, key, value)[0m
+[1;32m   3188[0m         """
+[1;32m   3189[0m [0;34m[0m[0m
+[0;32m-> 3190[0;31m         [0mself[0m[0;34m.[0m[0m_ensure_valid_index[0m[0;34m([0m[0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3191[0m         [0mvalue[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_sanitize_column[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   3192[0m         [0mNDFrame[0m[0;34m.[0m[0m_set_item[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m_ensure_valid_index[0;34m(self, value)[0m
+[1;32m   3170[0m                 [0mvalue[0m [0;34m=[0m [0mSeries[0m[0;34m([0m[0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   3171[0m             [0;32mexcept[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 3172[0;31m                 raise ValueError('Cannot set a frame with no defined index '
+[0m[1;32m   3173[0m                                  [0;34m'and a value that cannot be converted to a '[0m[0;34m[0m[0m
+[1;32m   3174[0m                                  'Series')
+
+[0;31mValueError[0m: Cannot set a frame with no defined index and a value that cannot be converted to a Series
+ValueError: Cannot set a frame with no defined index and a value that cannot be converted to a Series
+
+Executability                            : False

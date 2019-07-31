@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+param_grid = {'learning_rate': [0.01, 0.1, 0.1, 0.5, 1.0],
+              'max_depth':[1, 3, 5, 7, 9],
+              'n_estimators': [100, 300, 500],
+              'loss' : ['deviance', 'exponential'],
+              'subsample':[0.2, 0.5, 0.8, 1],
+              'max_features': [0.5, 1]}
+
+grid_search = GridSearchCV(GradientBoostingClassifier(), param_grid=param_grid, cv=5, verbose=3, n_jobs=3, scoring='accuracy')
+grid_search.fit(data.toarray(), target)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-744eba60e3a6>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m               'max_features': [0.5, 1]}
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0mgrid_search[0m [0;34m=[0m [0mGridSearchCV[0m[0;34m([0m[0mGradientBoostingClassifier[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mparam_grid[0m[0;34m=[0m[0mparam_grid[0m[0;34m,[0m [0mcv[0m[0;34m=[0m[0;36m5[0m[0;34m,[0m [0mverbose[0m[0;34m=[0m[0;36m3[0m[0;34m,[0m [0mn_jobs[0m[0;34m=[0m[0;36m3[0m[0;34m,[0m [0mscoring[0m[0;34m=[0m[0;34m'accuracy'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0mgrid_search[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mdata[0m[0;34m.[0m[0mtoarray[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mtarget[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'GradientBoostingClassifier' is not defined
+NameError: name 'GradientBoostingClassifier' is not defined
+
+Executability                            : False

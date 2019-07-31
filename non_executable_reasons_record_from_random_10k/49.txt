@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+fn = r"labeledChineseReview"
+docs = []
+for i in range(1,6):
+    fname = fn+str(i)+".csv"
+    f= open(fname, 'r', encoding = 'utf8')
+    reader = csv.reader(f)
+    docs.extend(getRows(reader))
+f.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-4-ef6d1f455718>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m6[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mfname[0m [0;34m=[0m [0mfn[0m[0;34m+[0m[0mstr[0m[0;34m([0m[0mi[0m[0;34m)[0m[0;34m+[0m[0;34m".csv"[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m     [0mf[0m[0;34m=[0m [0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'r'[0m[0;34m,[0m [0mencoding[0m [0;34m=[0m [0;34m'utf8'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      6[0m     [0mreader[0m [0;34m=[0m [0mcsv[0m[0;34m.[0m[0mreader[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      7[0m     [0mdocs[0m[0;34m.[0m[0mextend[0m[0;34m([0m[0mgetRows[0m[0;34m([0m[0mreader[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'labeledChineseReview1.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'labeledChineseReview1.csv'
+
+Executability                            : False

@@ -1,0 +1,33 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from SimPEG import Mesh, Utils, EM, Maps, Survey
+from SimPEG import DataMisfit, Regularization, Optimization
+from SimPEG import Directives, InvProblem, Inversion
+import numpy as np
+from SimPEG.PF import BaseMag, Magnetics
+from scipy.constants import mu_0
+from SimPEG.PF.MagAnalytics import spheremodel, CongruousMagBC
+from SimPEG.PF.Magnetics import Problem3D_DiffSecondary
+from pymatsolver import PardisoSolver
+import matplotlib.pyplot as plt
+# import SeogiUtils as SeUtils
+# import simpegEM.Utils.Solver.Mumps as Mumps
+# %pylab inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-76d16026bc22>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0mMesh[0m[0;34m,[0m [0mUtils[0m[0;34m,[0m [0mEM[0m[0;34m,[0m [0mMaps[0m[0;34m,[0m [0mSurvey[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0mDataMisfit[0m[0;34m,[0m [0mRegularization[0m[0;34m,[0m [0mOptimization[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0mDirectives[0m[0;34m,[0m [0mInvProblem[0m[0;34m,[0m [0mInversion[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'SimPEG'
+ModuleNotFoundError: No module named 'SimPEG'
+
+Executability                            : False

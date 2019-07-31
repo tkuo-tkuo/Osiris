@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+H = popt[0] * 3.2408e-20 #Converting Mpc to km which cancels out the unit for distance which leaves 1/s
+
+age_s= 1/H #Finding age of universe
+age_years = age_s * 3.17098e-8 #Converting seconds to years
+
+print(H, "1/s - Hubble's constant without distance untis")
+print(age_years, "years - Age of Universe found with Hubble's constant")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-dec11b490dc9>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mH[0m [0;34m=[0m [0mpopt[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m*[0m [0;36m3.2408e-20[0m [0;31m#Converting Mpc to km which cancels out the unit for distance which leaves 1/s[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mage_s[0m[0;34m=[0m [0;36m1[0m[0;34m/[0m[0mH[0m [0;31m#Finding age of universe[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mage_years[0m [0;34m=[0m [0mage_s[0m [0;34m*[0m [0;36m3.17098e-8[0m [0;31m#Converting seconds to years[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'popt' is not defined
+NameError: name 'popt' is not defined
+
+Executability                            : False

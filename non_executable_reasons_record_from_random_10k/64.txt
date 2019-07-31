@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# 3次元行列の転置も可能
+arr3d.transpose((0,2,1))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-7-953683cddbb9>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# 3次元行列の転置も可能[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0marr3d[0m[0;34m.[0m[0mtranspose[0m[0;34m([0m[0;34m([0m[0;36m0[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'arr3d' is not defined
+NameError: name 'arr3d' is not defined
+
+Executability                            : False

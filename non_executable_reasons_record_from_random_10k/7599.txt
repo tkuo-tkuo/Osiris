@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# imports and setups
+import pylab as pl
+import pandas as pd
+import numpy as np
+from getCitiBikeCSV import getCitiBikeCSV
+
+%pylab inline
+
+import os
+import json
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-2e40cf7aef89>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mgetCitiBikeCSV[0m [0;32mimport[0m [0mgetCitiBikeCSV[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'pylab'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'getCitiBikeCSV'
+ImportError: No module named 'getCitiBikeCSV'
+
+Executability                            : False

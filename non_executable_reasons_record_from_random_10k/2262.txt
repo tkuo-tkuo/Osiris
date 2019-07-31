@@ -1,0 +1,29 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from SimPEG import Mesh, Directives, Maps, InvProblem, Optimization, DataMisfit, Inversion, Utils, Regularization, mkvc
+import SimPEG.PF as PF
+import numpy as np
+from scipy import sparse as sp
+from SimPEG import PF, Mesh, Utils
+from SimPEG.Utils import mkvc
+from matplotlib.patches import Rectangle
+import matplotlib.pyplot as plt
+%pylab inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-0ffc57e06d70>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0mMesh[0m[0;34m,[0m [0mDirectives[0m[0;34m,[0m [0mMaps[0m[0;34m,[0m [0mInvProblem[0m[0;34m,[0m [0mOptimization[0m[0;34m,[0m [0mDataMisfit[0m[0;34m,[0m [0mInversion[0m[0;34m,[0m [0mUtils[0m[0;34m,[0m [0mRegularization[0m[0;34m,[0m [0mmkvc[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mSimPEG[0m[0;34m.[0m[0mPF[0m [0;32mas[0m [0mPF[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'SimPEG'
+ModuleNotFoundError: No module named 'SimPEG'
+
+Executability                            : False

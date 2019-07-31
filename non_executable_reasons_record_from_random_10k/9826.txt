@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+products.head(10)['name']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-acf459160ede>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mproducts[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;36m10[0m[0;34m)[0m[0;34m[[0m[0;34m'name'[0m[0;34m][0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'products' is not defined
+NameError: name 'products' is not defined
+
+Executability                            : False

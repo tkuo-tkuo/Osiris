@@ -1,0 +1,16 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+"Murat'
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-b88c62c85bbc>"[0;36m, line [0;32m3[0m
+[0;31m    "Murat'[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m EOL while scanning string literal
+
+SyntaxError: EOL while scanning string literal (<ipython-input-1-b88c62c85bbc>, line 3)
+
+Executability                            : False

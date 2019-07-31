@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+^ = matches at beginning of string
+$ = matches at end of string
+
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-3-17ec37b3c461>"[0;36m, line [0;32m1[0m
+[0;31m    ^ = matches at beginning of string[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-3-17ec37b3c461>, line 1)
+
+Executability                            : False

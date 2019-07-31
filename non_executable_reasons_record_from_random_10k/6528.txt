@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+lmbds = [lambda x, c=cs[i]: np.dot(c, x) for i in range(10)]
+conds = [lambda x, c=cs[i]: np.dot(c, x) - 3 <= 0 for i in range(10)]
+x = x_star
+for i in range(10):
+    print('conditions:'lmbds[i](x), conds[i](x))
+    
+------------------
+
+[0;36m  File [0;32m"<ipython-input-8-8830cc3d60eb>"[0;36m, line [0;32m5[0m
+[0;31m    print('conditions:'lmbds[i](x), conds[i](x))[0m
+[0m                           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-8-8830cc3d60eb>, line 5)
+
+Executability                            : False

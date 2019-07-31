@@ -1,0 +1,328 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 13 ; number of cells: 20
+Reproducibility                          : matched ratio: 0.65 ; index of matched cells: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 13, 16, 17]
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+cross_validate(SVC(), X_train, y_train, 
+               scoring=['accuracy', 'roc_auc'], 
+               return_train_score=True)
+
+-----------------
+Original output:
+{'fit_time': array([0.07734418, 0.07731342, 0.07697606]),
+ 'score_time': array([0.06752324, 0.06801224, 0.06795096]),
+ 'test_accuracy': array([0.90200445, 0.90200445, 0.90200445]),
+ 'test_roc_auc': array([0.99657688, 0.99814815, 0.99943883]),
+ 'train_accuracy': array([1., 1., 1.]),
+ 'train_roc_auc': array([1., 1., 1.])}
+Executed output:
+{'fit_time': array([0.07533765, 0.06716847, 0.06707454]),
+ 'score_time': array([0.05734134, 0.05715585, 0.05712771]),
+ 'test_accuracy': array([0.90200445, 0.90200445, 0.90200445]),
+ 'train_accuracy': array([1., 1., 1.]),
+ 'test_roc_auc': array([0.99657688, 0.99814815, 0.99943883]),
+ 'train_roc_auc': array([1., 1., 1.])}
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+cross_validate(SVC(), X_train, y_train, 
+               scoring={'acc':'accuracy', 'ra':'roc_auc'}, 
+               return_train_score=False)
+
+-----------------
+Original output:
+{'fit_time': array([0.07807112, 0.07732844, 0.07694435]),
+ 'score_time': array([0.06790733, 0.06801248, 0.0679276 ]),
+ 'test_acc': array([0.90200445, 0.90200445, 0.90200445]),
+ 'test_ra': array([0.99657688, 0.99814815, 0.99943883])}
+Executed output:
+{'fit_time': array([0.07048416, 0.0674715 , 0.06684041]),
+ 'score_time': array([0.05752373, 0.05743337, 0.05744481]),
+ 'test_acc': array([0.90200445, 0.90200445, 0.90200445]),
+ 'test_ra': array([0.99657688, 0.99814815, 0.99943883])}
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+grid = GridSearchCV(SVC(), param_grid=param_grid, 
+                    scoring=['accuracy'], refit='accuracy',
+                    return_train_score=True)
+grid.fit(X_train, y_train)
+
+-----------------
+Original output:
+GridSearchCV(cv=None, error_score='raise',
+       estimator=SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto', kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False),
+       fit_params=None, iid=True, n_jobs=1,
+       param_grid={'gamma': [0.0001, 0.01, 0.1, 1, 10]},
+       pre_dispatch='2*n_jobs', refit='accuracy', return_train_score=True,
+       scoring=['accuracy'], verbose=0)
+Executed output:
+GridSearchCV(cv='warn', error_score='raise-deprecating',
+             estimator=SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+                           decision_function_shape='ovr', degree=3,
+                           gamma='auto_deprecated', kernel='rbf', max_iter=-1,
+                           probability=False, random_state=None, shrinking=True,
+                           tol=0.001, verbose=False),
+             iid='warn', n_jobs=None,
+             param_grid={'gamma': [0.0001, 0.01, 0.1, 1, 10]},
+             pre_dispatch='2*n_jobs', refit='accuracy', return_train_score=True,
+             scoring=['accuracy'], verbose=0)
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+np.transpose(pd.DataFrame(grid.cv_results_))
+
+-----------------
+Original output:
+                                       0                1               2  \
+mean_fit_time                  0.0168132        0.0757732       0.0780415   
+mean_score_time               0.00678404         0.033596       0.0335807   
+mean_test_accuracy              0.965108         0.902004        0.902004   
+mean_train_accuracy             0.970676                1               1   
+param_gamma                       0.0001             0.01             0.1   
+params                 {'gamma': 0.0001}  {'gamma': 0.01}  {'gamma': 0.1}   
+rank_test_accuracy                     1                2               2   
+split0_test_accuracy            0.966592         0.902004        0.902004   
+split0_train_accuracy           0.975501                1               1   
+split1_test_accuracy             0.96882         0.902004        0.902004   
+split1_train_accuracy           0.962138                1               1   
+split2_test_accuracy            0.959911         0.902004        0.902004   
+split2_train_accuracy           0.974388                1               1   
+std_fit_time                  0.00237105      9.74064e-05     6.51735e-05   
+std_score_time               4.82091e-05      0.000133161     1.28898e-05   
+std_test_accuracy             0.00378546                0               0   
+std_train_accuracy            0.00605401                0               0   
+
+                                  3              4  
+mean_fit_time             0.0616728      0.0608571  
+mean_score_time           0.0269036      0.0265659  
+mean_test_accuracy         0.902004       0.902004  
+mean_train_accuracy               1              1  
+param_gamma                       1             10  
+params                 {'gamma': 1}  {'gamma': 10}  
+rank_test_accuracy                2              2  
+split0_test_accuracy       0.902004       0.902004  
+split0_train_accuracy             1              1  
+split1_test_accuracy       0.902004       0.902004  
+split1_train_accuracy             1              1  
+split2_test_accuracy       0.902004       0.902004  
+split2_train_accuracy             1              1  
+std_fit_time            6.42986e-05    5.23741e-05  
+std_score_time          1.51178e-05    1.23769e-05  
+std_test_accuracy                 0              0  
+std_train_accuracy                0              0  
+Executed output:
+                                       0                1               2  \
+mean_fit_time                  0.0193079        0.0667037       0.0673031   
+std_fit_time                  0.00780502       0.00164418     0.000118478   
+mean_score_time               0.00640217        0.0286336       0.0286702   
+std_score_time               0.000372332      0.000171413     9.67532e-05   
+param_gamma                       0.0001             0.01             0.1   
+params                 {'gamma': 0.0001}  {'gamma': 0.01}  {'gamma': 0.1}   
+split0_test_accuracy            0.966592         0.902004        0.902004   
+split1_test_accuracy             0.96882         0.902004        0.902004   
+split2_test_accuracy            0.959911         0.902004        0.902004   
+mean_test_accuracy              0.965108         0.902004        0.902004   
+std_test_accuracy             0.00378546                0               0   
+rank_test_accuracy                     1                2               2   
+split0_train_accuracy           0.975501                1               1   
+split1_train_accuracy           0.962138                1               1   
+split2_train_accuracy           0.974388                1               1   
+mean_train_accuracy             0.970676                1               1   
+std_train_accuracy            0.00605401                0               0   
+
+                                  3              4  
+mean_fit_time             0.0564619      0.0558758  
+std_fit_time            8.63811e-05    1.96518e-05  
+mean_score_time           0.0243398      0.0241231  
+std_score_time          5.87347e-06    7.27176e-05  
+param_gamma                       1             10  
+params                 {'gamma': 1}  {'gamma': 10}  
+split0_test_accuracy       0.902004       0.902004  
+split1_test_accuracy       0.902004       0.902004  
+split2_test_accuracy       0.902004       0.902004  
+mean_test_accuracy         0.902004       0.902004  
+std_test_accuracy                 0              0  
+rank_test_accuracy                2              2  
+split0_train_accuracy             1              1  
+split1_train_accuracy             1              1  
+split2_train_accuracy             1              1  
+mean_train_accuracy               1              1  
+std_train_accuracy                0              0  
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+grid = GridSearchCV(SVC(), param_grid=param_grid, 
+                    scoring={'acc':'accuracy', 'ra':'roc_auc'}, refit='ra',
+                    return_train_score=True)
+grid.fit(X_train, y_train)
+
+-----------------
+Original output:
+GridSearchCV(cv=None, error_score='raise',
+       estimator=SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto', kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False),
+       fit_params=None, iid=True, n_jobs=1,
+       param_grid={'gamma': [0.0001, 0.01, 0.1, 1, 10]},
+       pre_dispatch='2*n_jobs', refit='ra', return_train_score=True,
+       scoring={'acc': 'accuracy', 'ra': 'roc_auc'}, verbose=0)
+Executed output:
+GridSearchCV(cv='warn', error_score='raise-deprecating',
+             estimator=SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+                           decision_function_shape='ovr', degree=3,
+                           gamma='auto_deprecated', kernel='rbf', max_iter=-1,
+                           probability=False, random_state=None, shrinking=True,
+                           tol=0.001, verbose=False),
+             iid='warn', n_jobs=None,
+             param_grid={'gamma': [0.0001, 0.01, 0.1, 1, 10]},
+             pre_dispatch='2*n_jobs', refit='ra', return_train_score=True,
+             scoring={'acc': 'accuracy', 'ra': 'roc_auc'}, verbose=0)
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+np.transpose(pd.DataFrame(grid.cv_results_))
+
+-----------------
+Original output:
+                                  0                1               2  \
+mean_fit_time             0.0155746        0.0764983       0.0781859   
+mean_score_time           0.0142375        0.0683261       0.0679193   
+mean_test_acc              0.965108         0.902004        0.902004   
+mean_test_ra               0.988403         0.998335        0.918986   
+mean_train_acc             0.970676                1               1   
+mean_train_ra              0.992134                1               1   
+param_gamma                  0.0001             0.01             0.1   
+params            {'gamma': 0.0001}  {'gamma': 0.01}  {'gamma': 0.1}   
+rank_test_acc                     1                2               2   
+rank_test_ra                      2                1               3   
+split0_test_acc            0.966592         0.902004        0.902004   
+split0_test_ra              0.98367         0.997419        0.934007   
+split0_train_acc           0.975501                1               1   
+split0_train_ra            0.992017                1               1   
+split1_test_acc             0.96882         0.902004        0.902004   
+split1_test_ra             0.987149         0.998148        0.912458   
+split1_train_acc           0.962138                1               1   
+split1_train_ra            0.994935                1               1   
+split2_test_acc            0.959911         0.902004        0.902004   
+split2_test_ra             0.994388         0.999439        0.910494   
+split2_train_acc           0.974388                1               1   
+split2_train_ra             0.98945                1               1   
+std_fit_time            0.000151084       0.00098676     0.000118984   
+std_score_time           0.00017767      0.000943679     3.47377e-05   
+std_test_acc             0.00378546                0               0   
+std_test_ra              0.00446456      0.000835283       0.0106514   
+std_train_acc            0.00605401                0               0   
+std_train_ra             0.00224093                0               0   
+
+                             3              4  
+mean_fit_time        0.0618318      0.0608933  
+mean_score_time      0.0541253      0.0534937  
+mean_test_acc         0.902004       0.902004  
+mean_test_ra               0.5            0.5  
+mean_train_acc               1              1  
+mean_train_ra                1              1  
+param_gamma                  1             10  
+params            {'gamma': 1}  {'gamma': 10}  
+rank_test_acc                2              2  
+rank_test_ra                 4              4  
+split0_test_acc       0.902004       0.902004  
+split0_test_ra             0.5            0.5  
+split0_train_acc             1              1  
+split0_train_ra              1              1  
+split1_test_acc       0.902004       0.902004  
+split1_test_ra             0.5            0.5  
+split1_train_acc             1              1  
+split1_train_ra              1              1  
+split2_test_acc       0.902004       0.902004  
+split2_test_ra             0.5            0.5  
+split2_train_acc             1              1  
+split2_train_ra              1              1  
+std_fit_time       0.000188033    2.97027e-05  
+std_score_time     1.53183e-05    0.000114588  
+std_test_acc                 0              0  
+std_test_ra                  0              0  
+std_train_acc                0              0  
+std_train_ra                 0              0  
+Executed output:
+                                  0                1               2  \
+mean_fit_time             0.0164247        0.0658532       0.0673985   
+std_fit_time             0.00461011      0.000229166     0.000238304   
+mean_score_time           0.0121216        0.0574892       0.0574522   
+std_score_time          9.08543e-05      0.000195527     7.27863e-05   
+param_gamma                  0.0001             0.01             0.1   
+params            {'gamma': 0.0001}  {'gamma': 0.01}  {'gamma': 0.1}   
+split0_test_acc            0.966592         0.902004        0.902004   
+split1_test_acc             0.96882         0.902004        0.902004   
+split2_test_acc            0.959911         0.902004        0.902004   
+mean_test_acc              0.965108         0.902004        0.902004   
+std_test_acc             0.00378546                0               0   
+rank_test_acc                     1                2               2   
+split0_train_acc           0.975501                1               1   
+split1_train_acc           0.962138                1               1   
+split2_train_acc           0.974388                1               1   
+mean_train_acc             0.970676                1               1   
+std_train_acc            0.00605401                0               0   
+split0_test_ra              0.98367         0.997419        0.934007   
+split1_test_ra             0.987149         0.998148        0.912458   
+split2_test_ra             0.994388         0.999439        0.910494   
+mean_test_ra               0.988403         0.998335        0.918986   
+std_test_ra              0.00446456      0.000835283       0.0106514   
+rank_test_ra                      2                1               3   
+split0_train_ra            0.992017                1               1   
+split1_train_ra            0.994935                1               1   
+split2_train_ra             0.98945                1               1   
+mean_train_ra              0.992134                1               1   
+std_train_ra             0.00224093                0     6.40988e-17   
+
+                             3              4  
+mean_fit_time        0.0563724      0.0555673  
+std_fit_time       0.000213558    0.000227006  
+mean_score_time      0.0493642      0.0488361  
+std_score_time     0.000122472    3.00296e-05  
+param_gamma                  1             10  
+params            {'gamma': 1}  {'gamma': 10}  
+split0_test_acc       0.902004       0.902004  
+split1_test_acc       0.902004       0.902004  
+split2_test_acc       0.902004       0.902004  
+mean_test_acc         0.902004       0.902004  
+std_test_acc                 0              0  
+rank_test_acc                2              2  
+split0_train_acc             1              1  
+split1_train_acc             1              1  
+split2_train_acc             1              1  
+mean_train_acc               1              1  
+std_train_acc                0              0  
+split0_test_ra             0.5            0.5  
+split1_test_ra             0.5            0.5  
+split2_test_ra             0.5            0.5  
+mean_test_ra               0.5            0.5  
+std_test_ra                  0              0  
+rank_test_ra                 4              4  
+split0_train_ra              1              1  
+split1_train_ra              1              1  
+split2_train_ra              1              1  
+mean_train_ra                1              1  
+std_train_ra                 0              0  
+-------------------------------------------
+Source Code of a Unmatched Cell 19
+-------------------------------------------
+grid.best_estimator_
+
+-----------------
+Original output:
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma=0.01, kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+Executed output:
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma=0.01, kernel='rbf',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)

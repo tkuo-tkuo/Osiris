@@ -1,0 +1,12 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from sonair.processing import *
+%matplotlib inline
+------------------
+
+ImportError: No module named 'sonair'
+
+Executability                            : False

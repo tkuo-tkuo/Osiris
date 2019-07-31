@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import pymc as pm
+
+n = 4
+for i in range(10):
+    ax = plt.subplot(2, 5, i + 1)
+    if i >= 5:
+        n = 15
+    plt.imshow(pm.rwishart(n + 1, np.eye(n)), interpolation="none",
+               cmap=plt.cm.hot)
+    ax.axis("off")
+
+plt.suptitle("Random matrices from a Wishart Distribution");
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-3-6d41d7b20632>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mpymc[0m [0;32mas[0m [0mpm[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mn[0m [0;34m=[0m [0;36m4[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m10[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0max[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0msubplot[0m[0;34m([0m[0;36m2[0m[0;34m,[0m [0;36m5[0m[0;34m,[0m [0mi[0m [0;34m+[0m [0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pymc'
+ModuleNotFoundError: No module named 'pymc'
+
+Executability                            : False

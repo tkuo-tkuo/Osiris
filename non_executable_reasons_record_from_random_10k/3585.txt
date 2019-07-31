@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Hatalı Kod
+a = "3.14.324324"
+b = float(a)
+b
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-4-b5a4ec5bd952>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Hatalı Kod[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0ma[0m [0;34m=[0m [0;34m"3.14.324324"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mb[0m [0;34m=[0m [0mfloat[0m[0;34m([0m[0ma[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mb[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: could not convert string to float: '3.14.324324'
+ValueError: could not convert string to float: '3.14.324324'
+
+Executability                            : False

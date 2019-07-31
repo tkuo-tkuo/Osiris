@@ -1,0 +1,146 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 8 ; number of cells: 13
+Reproducibility                          : matched ratio: 0.615 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 9]
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+from sklearn.feature_extraction.text import CountVectorizer
+vectorizer = CountVectorizer(tokenizer=stem_tokenizer)
+vectorizer.fit(X_train)
+print (vectorizer.transform([sms]))
+
+-----------------
+Original output:
+  (0, 13)	1
+  (0, 1213)	1
+  (0, 2925)	1
+  (0, 3791)	1
+  (0, 4233)	1
+  (0, 6016)	1
+  (0, 6027)	1
+  (0, 6343)	1
+
+Executed output:
+  (0, 13)	1
+  (0, 1216)	1
+  (0, 2946)	1
+  (0, 3840)	1
+  (0, 4291)	1
+  (0, 6073)	1
+  (0, 6086)	1
+  (0, 6400)	1
+
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+from sklearn.feature_extraction.text import TfidfTransformer
+
+tfidf_transformer = TfidfTransformer()
+tfidf_transformer.fit(vectorizer.transform(X_train))
+print(tfidf_transformer.transform(vectorizer.transform([sms])))
+
+-----------------
+Original output:
+  (0, 6343)	0.45148801552291284
+  (0, 6027)	0.36975100398316985
+  (0, 6016)	0.2718539318849461
+  (0, 4233)	0.4298916254058644
+  (0, 3791)	0.3444574628661074
+  (0, 2925)	0.37945962658835003
+  (0, 1213)	0.3401816241603434
+  (0, 13)	0.14955703816980243
+
+Executed output:
+  (0, 6400)	0.42152385044333956
+  (0, 6086)	0.37679911934826055
+  (0, 6073)	0.27403766521878753
+  (0, 4291)	0.4543678367780844
+  (0, 3840)	0.34518619377580173
+  (0, 2946)	0.379286625349427
+  (0, 1216)	0.3370494002555144
+  (0, 13)	0.14892663748924245
+
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+from sklearn import metrics
+from sklearn.metrics import accuracy_score
+
+y_pred = clf_pipeline.predict(X_test)
+
+print ("Test accuracy: {:.2f}".format(accuracy_score(y_test, y_pred)))
+print ()
+print(metrics.classification_report(y_test, y_pred, digits=4))
+
+-----------------
+Original output:
+Test accuracy: 0.99
+
+             precision    recall  f1-score   support
+
+          0     0.9779    0.9366    0.9568       142
+          1     0.9908    0.9969    0.9939       973
+
+avg / total     0.9892    0.9892    0.9891      1115
+
+
+Executed output:
+Test accuracy: 0.98
+
+             precision    recall  f1-score   support
+
+          0     0.9655    0.9032    0.9333       155
+          1     0.9845    0.9948    0.9896       960
+
+avg / total     0.9819    0.9821    0.9818      1115
+
+
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+from sklearn.metrics import confusion_matrix
+
+print(confusion_matrix(y_test, y_pred))
+
+-----------------
+Original output:
+[[133   9]
+ [  3 970]]
+
+Executed output:
+[[140  15]
+ [  5 955]]
+
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+y_pred = clf_pipeline.predict(X_train)
+
+print ("Train accuracy: {:.2f}".format(accuracy_score(y_train, y_pred)))
+print ()
+print(metrics.classification_report(y_train, y_pred, digits=4))
+
+-----------------
+Original output:
+Train accuracy: 1.00
+
+             precision    recall  f1-score   support
+
+          0     0.9966    0.9702    0.9832       605
+          1     0.9953    0.9995    0.9974      3852
+
+avg / total     0.9955    0.9955    0.9955      4457
+
+
+Executed output:
+Train accuracy: 1.00
+
+             precision    recall  f1-score   support
+
+          0     0.9983    0.9730    0.9855       592
+          1     0.9959    0.9997    0.9978      3865
+
+avg / total     0.9962    0.9962    0.9962      4457
+
+

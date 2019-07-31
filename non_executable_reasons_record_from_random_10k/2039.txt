@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+> getwd()
+[1] "/Users/victorialarson/Desktop/Dev League/Repos"
+> read.csv("Birthdays_1.txt")
+Error in make.names(col.names, unique = TRUE) : 
+  invalid multibyte string 1
+> read.csv("Birthdays_2.csv")
+Error in make.names(col.names, unique = TRUE) : 
+  invalid multibyte string 2
+> getwd()
+[1] "/Users/victorialarson/Desktop/Dev League/Repos"
+> read.csv("Birthdays_2.csv") 
+- Running this made the first line in the project into a header because i didnt have a header. 
+- I then used this piece of code to fix it and R made headers for me. #insert firework emoji here# 
+> read.csv("Birthdays_2.csv", header = FALSE)
+(V1, V2, V3) 
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-7839505fbda6>"[0;36m, line [0;32m3[0m
+[0;31m    > getwd()[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-7839505fbda6>, line 3)
+
+Executability                            : False

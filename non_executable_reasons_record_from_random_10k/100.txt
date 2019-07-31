@@ -1,0 +1,342 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 15
+Reproducibility                          : matched ratio: 0.133 ; index of matched cells: [0, 8]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+dframe = DataFrame({'k1':['X','X','Y','Y','Z'],
+                    'k2':['alpha','beta','alpha','beta','alpha'],
+                    'dataset1':np.random.randn(5),
+                    'dataset2':np.random.randn(5)})
+dframe
+
+-----------------
+Original output:
+   dataset1  dataset2 k1     k2
+0  1.283895 -0.114607  X  alpha
+1 -0.434267 -1.107295  X   beta
+2 -0.805005  0.340358  Y  alpha
+3 -1.102286 -1.005364  Y   beta
+4 -1.799444  0.076507  Z  alpha
+Executed output:
+   dataset1  dataset2 k1     k2
+0 -1.602705 -1.367211  X  alpha
+1  2.184352  0.555235  X   beta
+2 -0.109950 -1.404717  Y  alpha
+3  1.137521  0.149315  Y   beta
+4  0.478620 -0.606142  Z  alpha
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+# k1をキーとして、データをグループにまとめます。
+group1 = dframe['dataset1'].groupby(dframe['k1'])
+group1
+
+-----------------
+Original output:
+<pandas.core.groupby.SeriesGroupBy object at 0x106fad4e0>
+Executed output:
+<pandas.core.groupby.groupby.SeriesGroupBy object at 0x7f4760591208>
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+#グループごとの平均値を計算
+group1.mean()
+
+-----------------
+Original output:
+k1
+X    0.424814
+Y   -0.953646
+Z   -1.799444
+Name: dataset1, dtype: float64
+Executed output:
+k1
+X    0.290823
+Y    0.513786
+Z    0.478620
+Name: dataset1, dtype: float64
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+# キーは変えられます。
+cities = np.array(['NY','LA','LA','NY','NY'])
+month = np.array(['JAN','FEB','JAN','FEB','JAN'])
+#  それぞれでグループ化します。
+dframe['dataset1'].groupby([cities,month]).mean()
+
+-----------------
+Original output:
+LA  FEB   -0.434267
+    JAN   -0.805005
+NY  FEB   -1.102286
+    JAN   -0.257774
+Name: dataset1, dtype: float64
+Executed output:
+LA  FEB    2.184352
+    JAN   -0.109950
+NY  FEB    1.137521
+    JAN   -0.562043
+Name: dataset1, dtype: float64
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+dframe
+
+-----------------
+Original output:
+   dataset1  dataset2 k1     k2
+0  1.283895 -0.114607  X  alpha
+1 -0.434267 -1.107295  X   beta
+2 -0.805005  0.340358  Y  alpha
+3 -1.102286 -1.005364  Y   beta
+4 -1.799444  0.076507  Z  alpha
+Executed output:
+   dataset1  dataset2 k1     k2
+0 -1.602705 -1.367211  X  alpha
+1  2.184352  0.555235  X   beta
+2 -0.109950 -1.404717  Y  alpha
+3  1.137521  0.149315  Y   beta
+4  0.478620 -0.606142  Z  alpha
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+dframe.groupby('k1').mean()
+
+-----------------
+Original output:
+    dataset1  dataset2
+k1                    
+X   0.424814 -0.610951
+Y  -0.953646 -0.332503
+Z  -1.799444  0.076507
+Executed output:
+    dataset1  dataset2
+k1                    
+X   0.290823 -0.405988
+Y   0.513786 -0.627701
+Z   0.478620 -0.606142
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+# 複数の列名にも対応しています。
+dframe.groupby(['k1','k2']).mean()
+
+-----------------
+Original output:
+          dataset1  dataset2
+k1 k2                       
+X  alpha  1.283895 -0.114607
+   beta  -0.434267 -1.107295
+Y  alpha -0.805005  0.340358
+   beta  -1.102286 -1.005364
+Z  alpha -1.799444  0.076507
+Executed output:
+          dataset1  dataset2
+k1 k2                       
+X  alpha -1.602705 -1.367211
+   beta   2.184352  0.555235
+Y  alpha -0.109950 -1.404717
+   beta   1.137521  0.149315
+Z  alpha  0.478620 -0.606142
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+# イテレート（繰り返し処理）ができます。
+for name,group in dframe.groupby('k1'):
+    print('This is the {} group'.format(name))
+    print(group)
+    print('\n')
+
+-----------------
+Original output:
+This is the X group
+   dataset1  dataset2 k1     k2
+0  1.283895 -0.114607  X  alpha
+1 -0.434267 -1.107295  X   beta
+
+
+This is the Y group
+   dataset1  dataset2 k1     k2
+2 -0.805005  0.340358  Y  alpha
+3 -1.102286 -1.005364  Y   beta
+
+
+This is the Z group
+   dataset1  dataset2 k1     k2
+4 -1.799444  0.076507  Z  alpha
+
+
+
+Executed output:
+This is the X group
+   dataset1  dataset2 k1     k2
+0 -1.602705 -1.367211  X  alpha
+1  2.184352  0.555235  X   beta
+
+
+This is the Y group
+   dataset1  dataset2 k1     k2
+2 -0.109950 -1.404717  Y  alpha
+3  1.137521  0.149315  Y   beta
+
+
+This is the Z group
+   dataset1  dataset2 k1     k2
+4   0.47862 -0.606142  Z  alpha
+
+
+
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+# 複数のキーでも同じ事ができます。
+for (k1,k2) , group in dframe.groupby(['k1','k2']):
+    print('Key1 = {} Key2 = {}'.format(k1,k2))
+    print(group)
+    print('\n')
+
+-----------------
+Original output:
+Key1 = X Key2 = alpha
+   dataset1  dataset2 k1     k2
+0  1.283895 -0.114607  X  alpha
+
+
+Key1 = X Key2 = beta
+   dataset1  dataset2 k1    k2
+1 -0.434267 -1.107295  X  beta
+
+
+Key1 = Y Key2 = alpha
+   dataset1  dataset2 k1     k2
+2 -0.805005  0.340358  Y  alpha
+
+
+Key1 = Y Key2 = beta
+   dataset1  dataset2 k1    k2
+3 -1.102286 -1.005364  Y  beta
+
+
+Key1 = Z Key2 = alpha
+   dataset1  dataset2 k1     k2
+4 -1.799444  0.076507  Z  alpha
+
+
+
+Executed output:
+Key1 = X Key2 = alpha
+   dataset1  dataset2 k1     k2
+0 -1.602705 -1.367211  X  alpha
+
+
+Key1 = X Key2 = beta
+   dataset1  dataset2 k1    k2
+1  2.184352  0.555235  X  beta
+
+
+Key1 = Y Key2 = alpha
+   dataset1  dataset2 k1     k2
+2  -0.10995 -1.404717  Y  alpha
+
+
+Key1 = Y Key2 = beta
+   dataset1  dataset2 k1    k2
+3  1.137521  0.149315  Y  beta
+
+
+Key1 = Z Key2 = alpha
+   dataset1  dataset2 k1     k2
+4   0.47862 -0.606142  Z  alpha
+
+
+
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+gr = dframe.groupby('k1')
+gr.get_group('X')
+
+-----------------
+Original output:
+   dataset1  dataset2 k1     k2
+0  1.283895 -0.114607  X  alpha
+1 -0.434267 -1.107295  X   beta
+Executed output:
+   dataset1  dataset2 k1     k2
+0 -1.602705 -1.367211  X  alpha
+1  2.184352  0.555235  X   beta
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+# リストを作ってそれを辞書にするこもできます。
+group_dict = dict(list(dframe.groupby('k1')))
+group_dict['X']
+
+-----------------
+Original output:
+   dataset1  dataset2 k1     k2
+0  1.283895 -0.114607  X  alpha
+1 -0.434267 -1.107295  X   beta
+Executed output:
+   dataset1  dataset2 k1     k2
+0 -1.602705 -1.367211  X  alpha
+1  2.184352  0.555235  X   beta
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+# 列方向（axis = 1）についても同じような事ができます。
+# ちょっと複雑ですが、
+group_dict_axis1 = dict(list(dframe.groupby(dframe.dtypes,axis=1)))
+group_dict_axis1
+
+-----------------
+Original output:
+{dtype('float64'):    dataset1  dataset2
+ 0  1.283895 -0.114607
+ 1 -0.434267 -1.107295
+ 2 -0.805005  0.340358
+ 3 -1.102286 -1.005364
+ 4 -1.799444  0.076507, dtype('O'):   k1     k2
+ 0  X  alpha
+ 1  X   beta
+ 2  Y  alpha
+ 3  Y   beta
+ 4  Z  alpha}
+Executed output:
+{dtype('float64'):    dataset1  dataset2
+ 0 -1.602705 -1.367211
+ 1  2.184352  0.555235
+ 2 -0.109950 -1.404717
+ 3  1.137521  0.149315
+ 4  0.478620 -0.606142, dtype('O'):   k1     k2
+ 0  X  alpha
+ 1  X   beta
+ 2  Y  alpha
+ 3  Y   beta
+ 4  Z  alpha}
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+# 列を限定することもできます。
+dataset2_group = dframe.groupby(['k1','k2'])[['dataset2']]
+dataset2_group.mean()
+
+-----------------
+Original output:
+          dataset2
+k1 k2             
+X  alpha -0.114607
+   beta  -1.107295
+Y  alpha  0.340358
+   beta  -1.005364
+Z  alpha  0.076507
+Executed output:
+          dataset2
+k1 k2             
+X  alpha -1.367211
+   beta   0.555235
+Y  alpha -1.404717
+   beta   0.149315
+Z  alpha -0.606142

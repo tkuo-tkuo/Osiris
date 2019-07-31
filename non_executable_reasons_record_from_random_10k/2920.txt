@@ -1,0 +1,107 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# in this assignment, i want to create a function that make three turtles draw circles by the rule of second,minute and hour so i should use 
+# the turtle and time moudle in python
+import turtle
+import time
+
+#this part aims to set the color and position of turtles
+h = turtle.Turtle()
+m = turtle.Turtle()
+s = turtle.Turtle()
+
+s.penup()
+m.penup()
+h.penup()
+
+s.color('red')
+m.color('blue')
+h.color('green')
+
+s.goto(100,100)
+m.goto(-100,50)
+h.goto(0,-100)
+
+s.pendown()
+m.pendown()
+h.pendown()
+
+#this part aims to make three turtles draw circles in order of time.for example,the turtle which represents minute will draw a picture when 
+#the turtle represents second has drawn circles for 60 times
+Sec = 0
+Min = 0
+while(True):
+    s.speed(10)
+    s.circle(50)
+    s.penup()
+    s.pendown()
+    Sec += 1
+    if(Sec < 60): 
+        continue
+    else:
+        m.speed(10)
+        m.circle(50)
+        Sec = 0
+        m.penup()
+        m.pendown()
+        Min += 1
+        if(Min < 60 ): continue
+        else:
+            h.speed(10)
+            h.circle(50)
+            Min = 0
+            h.penup()
+            h.pendown()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTclError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-1-29c2d593033e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;31m#this part aims to set the color and position of turtles[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0mh[0m [0;34m=[0m [0mturtle[0m[0;34m.[0m[0mTurtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0mm[0m [0;34m=[0m [0mturtle[0m[0;34m.[0m[0mTurtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0ms[0m [0;34m=[0m [0mturtle[0m[0;34m.[0m[0mTurtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self, shape, undobuffersize, visible)[0m
+[1;32m   3810[0m                  visible=_CFG["visible"]):
+[1;32m   3811[0m         [0;32mif[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3812[0;31m             [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;34m=[0m [0mScreen[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3813[0m         RawTurtle.__init__(self, Turtle._screen,
+[1;32m   3814[0m                            [0mshape[0m[0;34m=[0m[0mshape[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36mScreen[0;34m()[0m
+[1;32m   3660[0m     else return the existing one."""
+[1;32m   3661[0m     [0;32mif[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3662[0;31m         [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;34m=[0m [0m_Screen[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3663[0m     [0;32mreturn[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3664[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m   3676[0m         [0;31m# preserved (perhaps by passing it as an optional parameter)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3677[0m         [0;32mif[0m [0m_Screen[0m[0;34m.[0m[0m_root[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3678[0;31m             [0m_Screen[0m[0;34m.[0m[0m_root[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_root[0m [0;34m=[0m [0m_Root[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3679[0m             [0mself[0m[0;34m.[0m[0m_root[0m[0;34m.[0m[0mtitle[0m[0;34m([0m[0m_Screen[0m[0;34m.[0m[0m_title[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3680[0m             [0mself[0m[0;34m.[0m[0m_root[0m[0;34m.[0m[0mondestroy[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_destroy[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m    432[0m     [0;34m"""Root class for Screen based on Tkinter."""[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    433[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 434[0;31m         [0mTK[0m[0;34m.[0m[0mTk[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    435[0m [0;34m[0m[0m
+[1;32m    436[0m     [0;32mdef[0m [0msetupcanvas[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mwidth[0m[0;34m,[0m [0mheight[0m[0;34m,[0m [0mcwidth[0m[0;34m,[0m [0mcheight[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/tkinter/__init__.py[0m in [0;36m__init__[0;34m(self, screenName, baseName, className, useTk, sync, use)[0m
+[1;32m   2021[0m                 [0mbaseName[0m [0;34m=[0m [0mbaseName[0m [0;34m+[0m [0mext[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2022[0m         [0minteractive[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2023[0;31m         [0mself[0m[0;34m.[0m[0mtk[0m [0;34m=[0m [0m_tkinter[0m[0;34m.[0m[0mcreate[0m[0;34m([0m[0mscreenName[0m[0;34m,[0m [0mbaseName[0m[0;34m,[0m [0mclassName[0m[0;34m,[0m [0minteractive[0m[0;34m,[0m [0mwantobjects[0m[0;34m,[0m [0museTk[0m[0;34m,[0m [0msync[0m[0;34m,[0m [0muse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2024[0m         [0;32mif[0m [0museTk[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2025[0m             [0mself[0m[0;34m.[0m[0m_loadtk[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTclError[0m: no display name and no $DISPLAY environment variable
+TclError: no display name and no $DISPLAY environment variable
+
+Executability                            : False

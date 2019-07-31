@@ -1,0 +1,55 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+data = pd.read_csv('http://www-bcf.usc.edu/~gareth/ISL/Credit.csv', index_col=0)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mParserError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-f36186ee6803>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdata[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'http://www-bcf.usc.edu/~gareth/ISL/Credit.csv'[0m[0;34m,[0m [0mindex_col[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/parsers.py[0m in [0;36mparser_f[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, skipfooter, doublequote, delim_whitespace, low_memory, memory_map, float_precision)[0m
+[1;32m    676[0m                     skip_blank_lines=skip_blank_lines)
+[1;32m    677[0m [0;34m[0m[0m
+[0;32m--> 678[0;31m         [0;32mreturn[0m [0m_read[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m,[0m [0mkwds[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    679[0m [0;34m[0m[0m
+[1;32m    680[0m     [0mparser_f[0m[0;34m.[0m[0m__name__[0m [0;34m=[0m [0mname[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/parsers.py[0m in [0;36m_read[0;34m(filepath_or_buffer, kwds)[0m
+[1;32m    444[0m [0;34m[0m[0m
+[1;32m    445[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 446[0;31m         [0mdata[0m [0;34m=[0m [0mparser[0m[0;34m.[0m[0mread[0m[0;34m([0m[0mnrows[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    447[0m     [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    448[0m         [0mparser[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/parsers.py[0m in [0;36mread[0;34m(self, nrows)[0m
+[1;32m   1034[0m                 [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m'skipfooter not supported for iteration'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1035[0m [0;34m[0m[0m
+[0;32m-> 1036[0;31m         [0mret[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mread[0m[0;34m([0m[0mnrows[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1037[0m [0;34m[0m[0m
+[1;32m   1038[0m         [0;31m# May alter columns / col_dict[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/parsers.py[0m in [0;36mread[0;34m(self, nrows)[0m
+[1;32m   1846[0m     [0;32mdef[0m [0mread[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mnrows[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1847[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1848[0;31m             [0mdata[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_reader[0m[0;34m.[0m[0mread[0m[0;34m([0m[0mnrows[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1849[0m         [0;32mexcept[0m [0mStopIteration[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1850[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0m_first_chunk[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/parsers.pyx[0m in [0;36mpandas._libs.parsers.TextReader.read[0;34m()[0m
+
+[0;32mpandas/_libs/parsers.pyx[0m in [0;36mpandas._libs.parsers.TextReader._read_low_memory[0;34m()[0m
+
+[0;32mpandas/_libs/parsers.pyx[0m in [0;36mpandas._libs.parsers.TextReader._read_rows[0;34m()[0m
+
+[0;32mpandas/_libs/parsers.pyx[0m in [0;36mpandas._libs.parsers.TextReader._tokenize_rows[0;34m()[0m
+
+[0;32mpandas/_libs/parsers.pyx[0m in [0;36mpandas._libs.parsers.raise_parser_error[0;34m()[0m
+
+[0;31mParserError[0m: Error tokenizing data. C error: Expected 1 fields in line 76, saw 3
+
+ParserError: Error tokenizing data. C error: Expected 1 fields in line 76, saw 3
+
+
+Executability                            : False

@@ -1,0 +1,17 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import glob # that will help us to obtain the files from a directory 
+print(glob.glob('inflammation*.csv'))
+
+-----------------
+Original output:
+['inflammation-01.csv', 'inflammation-02.csv', 'inflammation-03.csv', 'inflammation-04.csv', 'inflammation-05.csv', 'inflammation-06.csv', 'inflammation-07.csv', 'inflammation-08.csv', 'inflammation-09.csv', 'inflammation-10.csv', 'inflammation-11.csv', 'inflammation-12.csv']
+
+Executed output:
+[]
+

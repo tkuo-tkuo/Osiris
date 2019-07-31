@@ -1,0 +1,178 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 7 ; number of cells: 15
+Reproducibility                          : matched ratio: 0.467 ; index of matched cells: [0, 2, 3, 4, 5, 10, 14]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+dir(datetime)
+
+-----------------
+Original output:
+['MAXYEAR',
+ 'MINYEAR',
+ '__builtins__',
+ '__cached__',
+ '__doc__',
+ '__file__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ '_divide_and_round',
+ 'date',
+ 'datetime',
+ 'datetime_CAPI',
+ 'time',
+ 'timedelta',
+ 'timezone',
+ 'tzinfo']
+Executed output:
+['MAXYEAR',
+ 'MINYEAR',
+ '__builtins__',
+ '__cached__',
+ '__doc__',
+ '__file__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'date',
+ 'datetime',
+ 'datetime_CAPI',
+ 'sys',
+ 'time',
+ 'timedelta',
+ 'timezone',
+ 'tzinfo']
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+dir(time)
+
+-----------------
+Original output:
+['_STRUCT_TM_ITEMS',
+ '__doc__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'altzone',
+ 'asctime',
+ 'clock',
+ 'ctime',
+ 'daylight',
+ 'get_clock_info',
+ 'gmtime',
+ 'localtime',
+ 'mktime',
+ 'monotonic',
+ 'perf_counter',
+ 'process_time',
+ 'sleep',
+ 'strftime',
+ 'strptime',
+ 'struct_time',
+ 'time',
+ 'timezone',
+ 'tzname']
+Executed output:
+['CLOCK_MONOTONIC',
+ 'CLOCK_MONOTONIC_RAW',
+ 'CLOCK_PROCESS_CPUTIME_ID',
+ 'CLOCK_REALTIME',
+ 'CLOCK_THREAD_CPUTIME_ID',
+ '_STRUCT_TM_ITEMS',
+ '__doc__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'altzone',
+ 'asctime',
+ 'clock',
+ 'clock_getres',
+ 'clock_gettime',
+ 'clock_settime',
+ 'ctime',
+ 'daylight',
+ 'get_clock_info',
+ 'gmtime',
+ 'localtime',
+ 'mktime',
+ 'monotonic',
+ 'perf_counter',
+ 'process_time',
+ 'sleep',
+ 'strftime',
+ 'strptime',
+ 'struct_time',
+ 'time',
+ 'timezone',
+ 'tzname',
+ 'tzset']
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+time.ctime(time.time())
+
+-----------------
+Original output:
+'Thu Mar 29 21:26:09 2018'
+Executed output:
+'Wed Jul 31 16:35:02 2019'
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+time.time()
+
+-----------------
+Original output:
+1522329970.6423671
+Executed output:
+1564554902.3034728
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+time.localtime()
+
+-----------------
+Original output:
+time.struct_time(tm_year=2018, tm_mon=3, tm_mday=29, tm_hour=21, tm_min=26, tm_sec=26, tm_wday=3, tm_yday=88, tm_isdst=0)
+Executed output:
+time.struct_time(tm_year=2019, tm_mon=7, tm_mday=31, tm_hour=16, tm_min=35, tm_sec=2, tm_wday=2, tm_yday=212, tm_isdst=0)
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+time.strftime('%Y-%m-%d',time.localtime())#make tuple to formact
+
+-----------------
+Original output:
+'2018-03-29'
+Executed output:
+'2019-07-31'
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+time.mktime(time.localtime())#tuple to second
+
+-----------------
+Original output:
+1522329995.0
+Executed output:
+1564554902.0
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+import numpy as np
+t0=time.clock()
+np.random.rand(100,100)
+time.clock()-t0
+
+-----------------
+Original output:
+0.00015494759207967945
+Executed output:
+0.00014300000000000423

@@ -1,0 +1,121 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 13 ; number of cells: 23
+Reproducibility                          : matched ratio: 0.565 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 9, 11, 12, 13, 14, 21]
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+elevationA["Highest elevation"].plot(kind="bar")
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f2b535c26a0>
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f3259fbd470>
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+elevationA["Average elevation"].plot()
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f2b52b841d0>
+Executed output:
+<matplotlib.axes._subplots.AxesSubplot at 0x7f3259fbd470>
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+bp.hist(column=["VALUE1NUM","VALUE2NUM"], bins=100)
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>array([[<matplotlib.axes._subplots.AxesSubplot object at 0x7f2b081e86a0>,
+        <matplotlib.axes._subplots.AxesSubplot object at 0x7f2b08169588>]], dtype=object)
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>array([[<matplotlib.axes._subplots.AxesSubplot object at 0x7f325587b5c0>,
+        <matplotlib.axes._subplots.AxesSubplot object at 0x7f32544d4cf8>]],
+      dtype=object)
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+blood_pressure.plot(kind="hist", alpha=0.5)
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f2b00cf0710>
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f32540528d0>
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+blood_pressure.plot(kind="hist", bins=100, 
+                    colors = ['orange','black'],alpha=0.75)
+
+-----------------
+Original output:
+/opt/conda/lib/python3.5/site-packages/pandas/tools/plotting.py:983: UserWarning: 'colors' is being deprecated. Please use 'color'instead of 'colors'
+  warnings.warn(("'colors' is being deprecated. Please use 'color'"
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f2b00651ba8>
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f325401d780>
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+blood_pressure.plot(kind="kde")
+
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f2afbfde748>
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f3253ef5400>
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+blood_pressure.plot(kind="box")
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f2af424b6a0>
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f32327bf4a8>
+-------------------------------------------
+Source Code of a Unmatched Cell 19
+-------------------------------------------
+blood_pressure.plot(kind='scatter',x='diastolic',y='systolic')
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f2af41d1ef0>
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f323277c390>
+-------------------------------------------
+Source Code of a Unmatched Cell 20
+-------------------------------------------
+blood_pressure.plot(kind='hexbin',
+                    x='diastolic',
+                    y='systolic',
+                   gridsize=25)
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f2af40f0a58>
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object><matplotlib.axes._subplots.AxesSubplot at 0x7f3232724898>
+-------------------------------------------
+Source Code of a Unmatched Cell 22
+-------------------------------------------
+scatter_matrix(blood_pressure,diagonal='kde')
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>array([[<matplotlib.axes._subplots.AxesSubplot object at 0x7f2af40138d0>,
+        <matplotlib.axes._subplots.AxesSubplot object at 0x7f2af3ffde48>],
+       [<matplotlib.axes._subplots.AxesSubplot object at 0x7f2af3f55d30>,
+        <matplotlib.axes._subplots.AxesSubplot object at 0x7f2af3f99668>]], dtype=object)
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>array([[<matplotlib.axes._subplots.AxesSubplot object at 0x7f3224160be0>,
+        <matplotlib.axes._subplots.AxesSubplot object at 0x7f322417bc50>],
+       [<matplotlib.axes._subplots.AxesSubplot object at 0x7f3224111e48>,
+        <matplotlib.axes._subplots.AxesSubplot object at 0x7f32241314a8>]],
+      dtype=object)

@@ -1,0 +1,33 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+from keras.applications.mobilenetv2 import MobileNetV2
+from keras.layers import Dense, Input, Dropout
+from keras.models import Model
+import Utils as utl
+from matplotlib import pyplot as plt
+import time
+import numpy as np
+
+os.environ["PATH"] += os.pathsep + 'E:\miniconda\envs\tensorflow\Library\bin\graphviz'
+
+INPUT_SHAPE=(96,96,3)
+BATCH_SIZE=64
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-f483439d9997>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mapplications[0m[0;34m.[0m[0mmobilenetv2[0m [0;32mimport[0m [0mMobileNetV2[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mDense[0m[0;34m,[0m [0mInput[0m[0;34m,[0m [0mDropout[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mModel[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

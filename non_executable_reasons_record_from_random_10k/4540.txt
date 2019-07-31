@@ -1,0 +1,98 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 6 ; number of cells: 9
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 1, 2, 4, 6, 7]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+%%time
+if subsum_k(0, a):
+    print('Yes')
+else:
+    print('No')
+
+-----------------
+Original output:
+No
+CPU times: user 4 ms, sys: 0 ns, total: 4 ms
+Wall time: 463 µs
+
+Executed output:
+No
+CPU times: user 460 µs, sys: 48 µs, total: 508 µs
+Wall time: 425 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+%%time
+count = 0
+for x in range(M):
+    for y in range(N):
+        if field[y][x] == '.':
+            continue
+        is_new = True
+        for dx, dy in [(-1, -1), (-1, 0), (0, -1), (1, -1)]:
+            x2, y2 = x + dx, y + dy
+            if x2 < 0 or x2 >= M or y2 < 0 or y2 >= N:
+                continue
+            if field[y2][x2] == 'W':
+                is_new = False
+                break
+        if is_new:
+            count += 1
+
+print(count)
+
+-----------------
+Original output:
+3
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 407 µs
+
+Executed output:
+3
+CPU times: user 682 µs, sys: 0 ns, total: 682 µs
+Wall time: 577 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+%%time
+start = [(y, x) for y, line in enumerate(maze) for x, c in enumerate(line) if c == 'S'][0]
+goal = [(y, x) for y, line in enumerate(maze) for x, c in enumerate(line) if c == 'G'][0]
+
+queue = [start]
+distances = {start: 0}
+visited = set()
+visited.add(start)
+while len(queue) > 0:
+    y, x = queue.pop(0)
+    for dy, dx in [(-1, 0), (0, -1), (1, 0), (0, 1)]:
+        x2, y2 = x + dx, y + dy
+        if x2 < 0 or x2 >= M or y2 < 0 or y2 >= N:
+            continue
+        if maze[y2][x2] == '#':
+            continue
+        if (y2, x2) in visited:
+            continue
+        queue.append((y2, x2))
+        visited.add((y2, x2))
+        distances[y2, x2] = distances[y, x] + 1
+        if maze[y2][x2] == 'G':
+            queue = []
+            break
+
+print(distances.get(goal, -1))
+
+-----------------
+Original output:
+22
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 407 µs
+
+Executed output:
+22
+CPU times: user 598 µs, sys: 0 ns, total: 598 µs
+Wall time: 605 µs
+

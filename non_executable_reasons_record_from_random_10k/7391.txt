@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+% matplotlib inline
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
+import msmtools.generation as msmgen
+import pyemma.msm as msm
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-99f0d4d16988>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mticker[0m [0;32mas[0m [0mmtick[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mmsmtools[0m[0;34m.[0m[0mgeneration[0m [0;32mas[0m [0mmsmgen[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mimport[0m [0mpyemma[0m[0;34m.[0m[0mmsm[0m [0;32mas[0m [0mmsm[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'msmtools'
+ImportError: No module named 'msmtools'
+
+Executability                            : False

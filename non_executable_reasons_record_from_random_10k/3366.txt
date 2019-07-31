@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Executando a instrução sql no cursor
+cur.execute(sql_create)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-7-58d47d2d6025>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Executando a instrução sql no cursor[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mcur[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0msql_create[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mOperationalError[0m: table cursos already exists
+OperationalError: table cursos already exists
+
+Executability                            : False

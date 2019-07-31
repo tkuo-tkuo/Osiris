@@ -1,0 +1,47 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+print(__doc__)
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import svm
+
+xx, yy = np.meshgrid(np.linspace(-3, 3, 500),
+                     np.linspace(-3, 3, 500))
+np.random.seed(0)
+X = np.random.randn(300, 2)
+Y = np.logical_xor(X[:, 0] > 0, X[:, 1] > 0)
+
+# fit the model
+clf = svm.NuSVC()
+clf.fit(X, Y)
+
+# plot the decision function for each datapoint on the grid
+Z = clf.decision_function(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+'''
+plt.imshow(Z, interpolation='nearest',
+           extent=(xx.min(), xx.max(), yy.min(), yy.max()), aspect='auto',
+           origin='lower', cmap=plt.cm.PuOr_r)
+contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2,
+                       linetypes='--')
+plt.scatter(X[:, 0], X[:, 1], s=30, c=Y, cmap=plt.cm.Paired,
+            edgecolors='k')
+plt.xticks(())
+plt.yticks(())
+plt.axis([-3, 3, -3, 3])
+plt.show()
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-7e98868a6639>"[0;36m, line [0;32m33[0m
+[0;31m    plt.show()[0m
+[0m              
+^[0m
+[0;31mSyntaxError[0m[0;31m:[0m EOF while scanning triple-quoted string literal
+
+SyntaxError: EOF while scanning triple-quoted string literal (<ipython-input-1-7e98868a6639>, line 33)
+
+Executability                            : False

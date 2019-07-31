@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Usando output_file para gravar as visualizações
+from bokeh.plotting import figure, output_file, show
+
+# Usando output_notebook para visualizar no iPython Notebook
+from bokeh.charts import Bar, output_notebook, show
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-7f1f73f61c9a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;31m# Usando output_notebook para visualizar no iPython Notebook[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mbokeh[0m[0;34m.[0m[0mcharts[0m [0;32mimport[0m [0mBar[0m[0;34m,[0m [0moutput_notebook[0m[0;34m,[0m [0mshow[0m[0;34m[0m[0m
+[0m
+[0;31mImportError[0m: No module named 'bokeh.charts'
+ImportError: No module named 'bokeh.charts'
+
+Executability                            : False

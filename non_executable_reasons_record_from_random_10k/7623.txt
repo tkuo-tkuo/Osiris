@@ -1,0 +1,45 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 6
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [0, 3, 5]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+v=tf.Variable([1,2,3],name='v')
+with tf.variable_scope('variable_scope'):
+    v1=tf.get_variable('v',[2,2,2])
+with tf.name_scope('name_socpe'):
+    v2=tf.get_variable('v',[3,3,3])
+v.name,v1.name,v2.name
+
+-----------------
+Original output:
+('v:0', 'variable_scope/v:0', 'v_1:0')
+Executed output:
+WARNING: Logging before flag parsing goes to stderr.
+W0731 16:28:49.027839 140406346168128 deprecation.py:506] From /home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+('v:0', 'variable_scope/v:0', 'v_1:0')
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+v=tf.Variable([123],name='v')
+v.name
+
+-----------------
+Original output:
+'v_4:0'
+Executed output:
+'v_2:0'
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+v=tf.Variable([123])
+v.name
+
+-----------------
+Original output:
+'Variable_1:0'
+Executed output:
+'Variable:0'

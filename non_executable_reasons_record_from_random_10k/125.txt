@@ -1,0 +1,24 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 9 ; number of cells: 11
+Reproducibility                          : matched ratio: 0.818 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+a.next_node
+
+-----------------
+Original output:
+<__main__.DoublyList at 0x233541f0390>
+Executed output:
+<__main__.DoublyList at 0x7f106c13e198>
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+b.prev_node
+
+-----------------
+Original output:
+<__main__.DoublyList at 0x233541f07f0>
+Executed output:
+<__main__.DoublyList at 0x7f106c13e358>

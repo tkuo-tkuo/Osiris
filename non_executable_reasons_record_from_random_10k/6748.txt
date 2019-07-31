@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+print ("REALGDB and REALINT stationatiry, AD Fuller test\n\n")
+print ("realgdp {0:.2f}".format(sm.tsa.adfuller(data['realgdp'])[1]), 
+       sm.tsa.adfuller(data['realgdp']))
+
+print ("realint {0:.2f}".format(sm.tsa.adfuller(data['realint'])[1]), 
+       sm.tsa.adfuller(data['realint']))
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-3aa311e36667>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mprint[0m [0;34m([0m[0;34m"REALGDB and REALINT stationatiry, AD Fuller test\n\n"[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m print ("realgdp {0:.2f}".format(sm.tsa.adfuller(data['realgdp'])[1]), 
+[0m[1;32m      5[0m        sm.tsa.adfuller(data['realgdp']))
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'sm' is not defined
+NameError: name 'sm' is not defined
+
+Executability                            : False

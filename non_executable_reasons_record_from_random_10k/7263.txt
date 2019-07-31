@@ -1,0 +1,52 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# special functions of mathematical physics: scipy.special
+# for a complete list
+help()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-3-dd5e33f73888>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# special functions of mathematical physics: scipy.special[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m# for a complete list[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mhelp[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/_sitebuiltins.py[0m in [0;36m__call__[0;34m(self, *args, **kwds)[0m
+[1;32m    101[0m     [0;32mdef[0m [0m__call__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    102[0m         [0;32mimport[0m [0mpydoc[0m[0;34m[0m[0m
+[0;32m--> 103[0;31m         [0;32mreturn[0m [0mpydoc[0m[0;34m.[0m[0mhelp[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/pydoc.py[0m in [0;36m__call__[0;34m(self, request)[0m
+[1;32m   1852[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1853[0m             [0mself[0m[0;34m.[0m[0mintro[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m-> 1854[0;31m             [0mself[0m[0;34m.[0m[0minteract[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1855[0m             self.output.write('''
+[1;32m   1856[0m [0mYou[0m [0mare[0m [0mnow[0m [0mleaving[0m [0mhelp[0m [0;32mand[0m [0mreturning[0m [0mto[0m [0mthe[0m [0mPython[0m [0minterpreter[0m[0;34m.[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/pydoc.py[0m in [0;36minteract[0;34m(self)[0m
+[1;32m   1864[0m         [0;32mwhile[0m [0;32mTrue[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1865[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1866[0;31m                 [0mrequest[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mgetline[0m[0;34m([0m[0;34m'help> '[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1867[0m                 [0;32mif[0m [0;32mnot[0m [0mrequest[0m[0;34m:[0m [0;32mbreak[0m[0;34m[0m[0m
+[1;32m   1868[0m             [0;32mexcept[0m [0;34m([0m[0mKeyboardInterrupt[0m[0;34m,[0m [0mEOFError[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/pydoc.py[0m in [0;36mgetline[0;34m(self, prompt)[0m
+[1;32m   1878[0m         [0;34m"""Read one line, using input() when appropriate."""[0m[0;34m[0m[0m
+[1;32m   1879[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0minput[0m [0;32mis[0m [0msys[0m[0;34m.[0m[0mstdin[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1880[0;31m             [0;32mreturn[0m [0minput[0m[0;34m([0m[0mprompt[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1881[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1882[0m             [0mself[0m[0;34m.[0m[0moutput[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mprompt[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

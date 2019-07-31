@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Fit regression model
+regr_1 = DecisionTreeRegressor(max_depth=5)
+regr_2 = AdaBoostRegressor(DecisionTreeRegressor(max_depth=5), n_estimators=100, random_state=rng)
+
+regr_1.fit(X, y)
+regr_2.fit(X, y)
+
+# Predict
+y_1 = regr_1.predict(X)
+y_2 = regr_2.predict(X)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-9daf7160381e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Fit regression model[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mregr_1[0m [0;34m=[0m [0mDecisionTreeRegressor[0m[0;34m([0m[0mmax_depth[0m[0;34m=[0m[0;36m5[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mregr_2[0m [0;34m=[0m [0mAdaBoostRegressor[0m[0;34m([0m[0mDecisionTreeRegressor[0m[0;34m([0m[0mmax_depth[0m[0;34m=[0m[0;36m5[0m[0;34m)[0m[0;34m,[0m [0mn_estimators[0m[0;34m=[0m[0;36m100[0m[0;34m,[0m [0mrandom_state[0m[0;34m=[0m[0mrng[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mregr_1[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'DecisionTreeRegressor' is not defined
+NameError: name 'DecisionTreeRegressor' is not defined
+
+Executability                            : False

@@ -1,0 +1,13 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Moview dtaset
+#download.file("https://ibm.box.com/shared/static/dn84btkn9gmxmdau32c5xb0vamie6jy4.dat", "/resources/data/movies.dat")
+movie_df <- read.csv("https://ibm.box.com/shared/static/dn84btkn9gmxmdau32c5xb0vamie6jy4.dat", header = FALSE, sep=":")
+------------------
+
+NameError: name 'movie_df' is not defined
+
+Executability                            : False

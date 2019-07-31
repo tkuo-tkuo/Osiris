@@ -1,0 +1,36 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import pandas as pd
+from pandas_datareader import data as web
+
+data = web.DataReader('^GSPC', data_source='yahoo', 
+                     end='2016-10-31')['Adj Close']
+data = pd.DataFrame(data)
+data.rename(columns={'Adj Close':'price'}, inplace=True)
+data['returns'] = np.log(data['price'] / data['price'].shift(1))
+data.dropna(inplace=True)
+
+lags = 3
+m = np.zeros((lags+1, len(data) - lags))
+
+for i in range(lags+1):
+    if i == lags:
+        m[i] = data.returns.values[i:]
+    else:
+        m[i] = data.returns.values[i:i-lags]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-21-e9693b73f5e9>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mpandas_datareader[0m [0;32mimport[0m [0mdata[0m [0;32mas[0m [0mweb[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m data = web.DataReader('^GSPC', data_source='yahoo', 
+[1;32m      5[0m                      end='2016-10-31')['Adj Close']
+
+[0;31mImportError[0m: No module named 'pandas_datareader'
+ImportError: No module named 'pandas_datareader'
+
+Executability                            : False

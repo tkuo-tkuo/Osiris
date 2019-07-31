@@ -1,0 +1,24 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [1, 2, 3]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import csv
+import nltk
+import random
+import numpy as np
+from sklearn.cross_validation import KFold
+from nltk import FreqDist
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer
+from variousLearnersOverall import fit_and_predict_multinomialNB, fit_and_predict_BernoulliNB, fit_and_predict_LR, fit_and_predict_KNN
+
+-----------------
+Original output:
+
+Executed output:
+/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sklearn/cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  "This module will be removed in 0.20.", DeprecationWarning)
+

@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+ax = data.resample("D").sum().rolling(365).sum().plot()
+ax.set_ylim(0,None)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-4cc774862af4>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0max[0m [0;34m=[0m [0mdata[0m[0;34m.[0m[0mresample[0m[0;34m([0m[0;34m"D"[0m[0;34m)[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrolling[0m[0;34m([0m[0;36m365[0m[0;34m)[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0max[0m[0;34m.[0m[0mset_ylim[0m[0;34m([0m[0;36m0[0m[0;34m,[0m[0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'data' is not defined
+NameError: name 'data' is not defined
+
+Executability                            : False

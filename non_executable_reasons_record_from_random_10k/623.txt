@@ -1,0 +1,16 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from ctypes import cdll, c_char_p, c_int, c_char_p, \
+                    c_void_p, c_size_t, c_ubyte, \
+                    POINTER, Structure
+import os, subprocess, socket, threading, time, json, sys, queue, uuid
+
+zmq = cdll.LoadLibrary("/usr/local/lib/libzmq.dylib")
+------------------
+
+OSError: /usr/local/lib/libzmq.dylib: cannot open shared object file: No such file or directory
+
+Executability                            : False

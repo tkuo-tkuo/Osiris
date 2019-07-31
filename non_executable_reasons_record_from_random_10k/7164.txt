@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from keras.models import Sequential
+from keras.layers import Activation
+from keras.layers.convolutional import Convolution2D, UpSampling2D
+
+model = Sequential()
+model.add(Convolution2D(16, 5, 5, activation="relu", border_mode='same', input_shape = (3,) + INPUT_SIZE))
+model.add(UpSampling2D())
+model.add(Convolution2D(16, 7, 7, activation="relu", border_mode='same'))
+model.add(UpSampling2D())
+model.add(Convolution2D(16, 7, 7, activation="relu", border_mode='same'))
+model.add(Convolution2D(3, 7, 7, activation="relu", border_mode='same'))
+model.add(Activation("tanh"))  # make sure all outputs are between 0 and 1
+model.summary()
+model.compile(loss='mse', optimizer='adam', metrics=['accuracy'])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-e280783d3b19>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mSequential[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mActivation[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m[0;34m.[0m[0mconvolutional[0m [0;32mimport[0m [0mConvolution2D[0m[0;34m,[0m [0mUpSampling2D[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mmodel[0m [0;34m=[0m [0mSequential[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import print_function
+import keras
+from keras.datasets import cifar100
+from keras.preprocessing.image import ImageDataGenerator
+# from sklearn.model_selection import train_test_split
+from keras.models import Sequential
+from keras.layers import Dense, Conv2D, MaxPooling2D, Flatten, Input, Activation, Dropout
+from keras.optimizers import Adam
+from keras.utils import plot_model
+from keras.preprocessing.image import ImageDataGenerator
+from keras.layers.normalization import BatchNormalization
+from keras.utils import np_utils
+from keras.utils import plot_model
+
+from IPython.display import SVG
+from keras.utils.vis_utils import model_to_dot
+
+import os
+import numpy as np
+
+import matplotlib.pyplot as plt
+from matplotlib import cm
+%matplotlib inline
+
+import random
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-b2b70f617667>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mprint_function[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mkeras[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mdatasets[0m [0;32mimport[0m [0mcifar100[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mpreprocessing[0m[0;34m.[0m[0mimage[0m [0;32mimport[0m [0mImageDataGenerator[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

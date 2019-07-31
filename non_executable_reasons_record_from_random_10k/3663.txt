@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+o.z
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-10-1ff05290c993>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mo[0m[0;34m.[0m[0mz[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: 'A' object has no attribute 'z'
+AttributeError: 'A' object has no attribute 'z'
+
+Executability                            : False

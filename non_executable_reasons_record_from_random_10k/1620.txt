@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+ggplot(aes(x = 'chr', y = '{}_estimate_dist'.format(param), colour='obs'), data = combined_PosteriorCharacteristics_observed_df) + \
+        geom_point() + \
+        geom_line() + \
+        theme(legend.position='none') + \
+        theme_bw()
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-725ffeddb170>"[0;36m, line [0;32m6[0m
+[0;31m    theme(legend.position='none') + \[0m
+[0m         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m keyword can't be an expression
+
+SyntaxError: keyword can't be an expression (<ipython-input-1-725ffeddb170>, line 6)
+
+Executability                            : False

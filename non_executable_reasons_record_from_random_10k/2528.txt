@@ -1,0 +1,43 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+
+M = imaplib.IMAP4_SSL("imap.umail.utah.edu",port=993)
+M.login('%s@umail.utah.edu'%getpass.getpass("Enter your University of Utah ID").strip(),
+        getpass.getpass("Enter your University of Utah password").strip())
+M.select()
+typ,data = M.search(None,"ALL")
+msgs = {}
+count = 0
+for num in data[0].split():
+    count += 1
+    # My inbox had around 12000 messages in it. 
+    # this was a way to keep my up to date on whether
+    # my program was really progressing
+    if count %500 == 0:
+        print (num),
+    typ,data = M.fetch(num,'(RFC822)')
+    msgs[num] = data
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-2-3f9b14a1667a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;34m[0m[0m
+[1;32m      2[0m [0mM[0m [0;34m=[0m [0mimaplib[0m[0;34m.[0m[0mIMAP4_SSL[0m[0;34m([0m[0;34m"imap.umail.utah.edu"[0m[0;34m,[0m[0mport[0m[0;34m=[0m[0;36m993[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m M.login('%s@umail.utah.edu'%getpass.getpass("Enter your University of Utah ID").strip(),
+[0m[1;32m      4[0m         getpass.getpass("Enter your University of Utah password").strip())
+[1;32m      5[0m [0mM[0m[0;34m.[0m[0mselect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mgetpass[0;34m(self, prompt, stream)[0m
+[1;32m    676[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    677[0m             raise StdinNotImplementedError(
+[0;32m--> 678[0;31m                 [0;34m"getpass was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    679[0m             )
+[1;32m    680[0m         [0;32mif[0m [0mstream[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mStdinNotImplementedError[0m: getpass was called, but this frontend does not support input requests.
+StdinNotImplementedError: getpass was called, but this frontend does not support input requests.
+
+Executability                            : False

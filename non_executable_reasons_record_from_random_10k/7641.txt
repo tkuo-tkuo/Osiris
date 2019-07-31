@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+tickers = ["F", "TM", "GM", "TSLA"]
+from pandas_datareader import data
+stock_panel =data.DataReader(tickers, "yahoo")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-20-894ae4da4a47>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mtickers[0m [0;34m=[0m [0;34m[[0m[0;34m"F"[0m[0;34m,[0m [0;34m"TM"[0m[0;34m,[0m [0;34m"GM"[0m[0;34m,[0m [0;34m"TSLA"[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mpandas_datareader[0m [0;32mimport[0m [0mdata[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mstock_panel[0m [0;34m=[0m[0mdata[0m[0;34m.[0m[0mDataReader[0m[0;34m([0m[0mtickers[0m[0;34m,[0m [0;34m"yahoo"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pandas_datareader'
+ModuleNotFoundError: No module named 'pandas_datareader'
+
+Executability                            : False

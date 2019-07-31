@@ -1,0 +1,15 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 14 ; number of cells: 15
+Reproducibility                          : matched ratio: 0.933 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+%timeit normalizer.normalize(delta, theta)
+
+-----------------
+Original output:
+
+Executed output:
+1.25 ms ± 21.6 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+

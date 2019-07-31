@@ -1,0 +1,56 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+with tf.variable_scope('xsj',):
+    tf.get_variable_scope().reuse_variables()
+    x=1.0+tf.get_variable('v',[1])
+    print(x.op.name)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-3-605fc836e852>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mwith[0m [0mtf[0m[0;34m.[0m[0mvariable_scope[0m[0;34m([0m[0;34m'xsj'[0m[0;34m,[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m     [0mtf[0m[0;34m.[0m[0mget_variable_scope[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mreuse_variables[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     [0mx[0m[0;34m=[0m[0;36m1.0[0m[0;34m+[0m[0mtf[0m[0;34m.[0m[0mget_variable[0m[0;34m([0m[0;34m'v'[0m[0;34m,[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mprint[0m[0;34m([0m[0mx[0m[0;34m.[0m[0mop[0m[0;34m.[0m[0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/variable_scope.py[0m in [0;36mget_variable[0;34m(name, shape, dtype, initializer, regularizer, trainable, collections, caching_device, partitioner, validate_shape, use_resource, custom_getter, constraint, synchronization, aggregation)[0m
+[1;32m   1494[0m       [0mconstraint[0m[0;34m=[0m[0mconstraint[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1495[0m       [0msynchronization[0m[0;34m=[0m[0msynchronization[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1496[0;31m       aggregation=aggregation)
+[0m[1;32m   1497[0m [0;34m[0m[0m
+[1;32m   1498[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/variable_scope.py[0m in [0;36mget_variable[0;34m(self, var_store, name, shape, dtype, initializer, regularizer, reuse, trainable, collections, caching_device, partitioner, validate_shape, use_resource, custom_getter, constraint, synchronization, aggregation)[0m
+[1;32m   1237[0m           [0mconstraint[0m[0;34m=[0m[0mconstraint[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1238[0m           [0msynchronization[0m[0;34m=[0m[0msynchronization[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1239[0;31m           aggregation=aggregation)
+[0m[1;32m   1240[0m [0;34m[0m[0m
+[1;32m   1241[0m   def _get_partitioned_variable(self,
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/variable_scope.py[0m in [0;36mget_variable[0;34m(self, name, shape, dtype, initializer, regularizer, reuse, trainable, collections, caching_device, partitioner, validate_shape, use_resource, custom_getter, constraint, synchronization, aggregation)[0m
+[1;32m    560[0m           [0mconstraint[0m[0;34m=[0m[0mconstraint[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    561[0m           [0msynchronization[0m[0;34m=[0m[0msynchronization[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 562[0;31m           aggregation=aggregation)
+[0m[1;32m    563[0m [0;34m[0m[0m
+[1;32m    564[0m   def _get_partitioned_variable(self,
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/variable_scope.py[0m in [0;36m_true_getter[0;34m(name, shape, dtype, initializer, regularizer, reuse, trainable, collections, caching_device, partitioner, validate_shape, use_resource, constraint, synchronization, aggregation)[0m
+[1;32m    512[0m           [0mconstraint[0m[0;34m=[0m[0mconstraint[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    513[0m           [0msynchronization[0m[0;34m=[0m[0msynchronization[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 514[0;31m           aggregation=aggregation)
+[0m[1;32m    515[0m [0;34m[0m[0m
+[1;32m    516[0m     synchronization, aggregation, trainable = (
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/variable_scope.py[0m in [0;36m_get_single_variable[0;34m(self, name, shape, dtype, initializer, regularizer, partition_info, reuse, trainable, collections, caching_device, validate_shape, use_resource, constraint, synchronization, aggregation)[0m
+[1;32m    880[0m       raise ValueError("Variable %s does not exist, or was not created with "
+[1;32m    881[0m                        [0;34m"tf.get_variable(). Did you mean to set "[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 882[0;31m                        "reuse=tf.AUTO_REUSE in VarScope?" % name)
+[0m[1;32m    883[0m [0;34m[0m[0m
+[1;32m    884[0m     [0;31m# Create the tensor to initialize the variable with default value.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: Variable xsj/v does not exist, or was not created with tf.get_variable(). Did you mean to set reuse=tf.AUTO_REUSE in VarScope?
+ValueError: Variable xsj/v does not exist, or was not created with tf.get_variable(). Did you mean to set reuse=tf.AUTO_REUSE in VarScope?
+
+Executability                            : False

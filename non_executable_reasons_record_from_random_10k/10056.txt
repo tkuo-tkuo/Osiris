@@ -1,0 +1,17 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+%matplotlib inline
+import matplotlib.pyplot as plt
+from acoustics import Signal
+from IPython.display import Audio
+import warnings
+warnings.filterwarnings('ignore')
+------------------
+
+ImportError: No module named 'acoustics'
+
+Executability                            : False

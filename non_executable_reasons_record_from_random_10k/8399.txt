@@ -1,0 +1,43 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+pd.DataFrame(hahow_data.json())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-11-10c7c1dcd549>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mhahow_data[0m[0;34m.[0m[0mjson[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/frame.py[0m in [0;36m__init__[0;34m(self, data, index, columns, dtype, copy)[0m
+[1;32m    390[0m                                  dtype=dtype, copy=copy)
+[1;32m    391[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mdict[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 392[0;31m             [0mmgr[0m [0;34m=[0m [0minit_dict[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mindex[0m[0;34m,[0m [0mcolumns[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mdtype[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    393[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mma[0m[0;34m.[0m[0mMaskedArray[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    394[0m             [0;32mimport[0m [0mnumpy[0m[0;34m.[0m[0mma[0m[0;34m.[0m[0mmrecords[0m [0;32mas[0m [0mmrecords[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/internals/construction.py[0m in [0;36minit_dict[0;34m(data, index, columns, dtype)[0m
+[1;32m    210[0m         [0marrays[0m [0;34m=[0m [0;34m[[0m[0mdata[0m[0;34m[[0m[0mk[0m[0;34m][0m [0;32mfor[0m [0mk[0m [0;32min[0m [0mkeys[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m    211[0m [0;34m[0m[0m
+[0;32m--> 212[0;31m     [0;32mreturn[0m [0marrays_to_mgr[0m[0;34m([0m[0marrays[0m[0;34m,[0m [0mdata_names[0m[0;34m,[0m [0mindex[0m[0;34m,[0m [0mcolumns[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mdtype[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    213[0m [0;34m[0m[0m
+[1;32m    214[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/internals/construction.py[0m in [0;36marrays_to_mgr[0;34m(arrays, arr_names, index, columns, dtype)[0m
+[1;32m     49[0m     [0;31m# figure out the index, if necessary[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     50[0m     [0;32mif[0m [0mindex[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 51[0;31m         [0mindex[0m [0;34m=[0m [0mextract_index[0m[0;34m([0m[0marrays[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     52[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     53[0m         [0mindex[0m [0;34m=[0m [0mensure_index[0m[0;34m([0m[0mindex[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/internals/construction.py[0m in [0;36mextract_index[0;34m(data)[0m
+[1;32m    318[0m [0;34m[0m[0m
+[1;32m    319[0m             [0;32mif[0m [0mhave_dicts[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 320[0;31m                 raise ValueError('Mixing dicts with non-Series may lead to '
+[0m[1;32m    321[0m                                  'ambiguous ordering.')
+[1;32m    322[0m [0;34m[0m[0m
+
+[0;31mValueError[0m: Mixing dicts with non-Series may lead to ambiguous ordering.
+ValueError: Mixing dicts with non-Series may lead to ambiguous ordering.
+
+Executability                            : False

@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+data = pd.read_csv('villes.csv', sep=';')
+X = data.ix[:,1:13].values
+labels = data.ix[:,0].values
+scaler = StandardScaler()
+scaler.fit(X)
+X_scaled = scaler.transform(X)
+res = []
+nb_component = 0
+while sum(res) < .7:
+    nb_component += 1
+    pca = PCA(n_components=nb_component)
+    pca.fit(X_scaled)
+    pca.transform(X_scaled)
+    res = pca.explained_variance_ratio_
+print(nb_component)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-9e4d4fbb2ddb>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mdata[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'villes.csv'[0m[0;34m,[0m [0msep[0m[0;34m=[0m[0;34m';'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mX[0m [0;34m=[0m [0mdata[0m[0;34m.[0m[0mix[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m[0;36m1[0m[0;34m:[0m[0;36m13[0m[0;34m][0m[0;34m.[0m[0mvalues[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mlabels[0m [0;34m=[0m [0mdata[0m[0;34m.[0m[0mix[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m[0;36m0[0m[0;34m][0m[0;34m.[0m[0mvalues[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

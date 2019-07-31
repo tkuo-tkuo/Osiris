@@ -1,0 +1,44 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Special module written for this class
+#This provides access to data and to helper functions from previous weeks
+import lucem_illud #pip install git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git
+
+#All these packages need to be installed from pip
+import requests #for http requests
+import bs4 #called `beautifulsoup4`, an html parser
+import pandas #gives us DataFrames
+import docx #reading MS doc files, install as `python-docx`
+
+#Stuff for pdfs
+#Install as `pdfminer2`
+import pdfminer.pdfinterp
+import pdfminer.converter
+import pdfminer.layout
+import pdfminer.pdfpage
+
+#These come with Python
+import re #for regexs
+import urllib.parse #For joining urls
+import io #for making http requests look like files
+import json #For Tumblr API responses
+import os.path #For checking if files exist
+import os #For making directories
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-3346a9a4f31c>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m#Special module written for this class[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;31m#This provides access to data and to helper functions from previous weeks[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mlucem_illud[0m [0;31m#pip install git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0;31m#All these packages need to be installed from pip[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'lucem_illud'
+ModuleNotFoundError: No module named 'lucem_illud'
+
+Executability                            : False

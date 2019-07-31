@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+def diffusion(graph, seed_set, thr=0.5):
+    active = seed_set
+    has_changed = False
+    
+    # TODO: loop through not active nodes and activate a node of more than "thr" percent of its neighbors are active
+    for n in ...:
+        if ... >= thr * len(list(graph.neighbors(n))):
+            active.add(n)
+            has_changed = True
+    if has_changed:
+        return diffusion(graph, active, thr) # union of two sets
+    return active
+
+diffusion(G, {0,1})
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-498d741649c9>[0m in [0;36m<module>[0;34m[0m
+[1;32m     14[0m     [0;32mreturn[0m [0mactive[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m [0;34m[0m[0m
+[0;32m---> 16[0;31m [0mdiffusion[0m[0;34m([0m[0mG[0m[0;34m,[0m [0;34m{[0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'G' is not defined
+NameError: name 'G' is not defined
+
+Executability                            : False

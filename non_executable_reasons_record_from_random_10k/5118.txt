@@ -1,0 +1,84 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 5
+Reproducibility                          : matched ratio: 0.6 ; index of matched cells: [1, 3, 4]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+
+
+-----------------
+Original output:
+Populating the interactive namespace from numpy and matplotlib
+
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+import pandas as pd     #serve per le colonne di dati
+from scipy.odr import * #serve per il fitting
+from scipy import stats #serve per la pdf del chi2#Definisco le variabili statistiche che userò poi
+resistenza       = 0
+sigma_resistenza = 0
+q                = 0 #parametro dell'intercetta
+sigma_q          = 0 
+dof              = 0
+chi2             = 0 #chi quadro
+chi2ridotto      = 0 #chi quadro ridotto
+prob             = 0 #probabilità dalla distribuzione del chi quadro
+
+df = pd.read_csv('misure_sonda_1.csv') #df = dataframe
+
+df.columns = ['I', 'V', 'sI', 'sV'] #Imposto il nome delle colonne
+
+#mi servono gli array con i dati
+x = df.I
+y = df.V
+sx = df.sI
+sy = df.sV
+
+#definisco la funzione di fit
+def f(p, x):
+    return p[0] + p[1]*x
+
+#ipotizzo il modello di fit lineare
+linear = Model(f)
+mydata = RealData(x, y, sx, sy) #includo anche gli errori, rispettivamente sx e sy
+myodr =  ODR(mydata, linear, beta0=[0., 5.]) #imposto anche dei parametri iniziali per indovinare il fit
+myoutput = myodr.run() #fit!
+myoutput.pprint() #prettyprint: stampo i risultati per sicurezza
+
+#salvo e calcolo i dati che uso poi per la legenda
+resistenza       = myoutput.beta[1]
+sigma_resistenza = myoutput.sd_beta[1]
+q                = myoutput.beta[0]
+sigma_q          = myoutput.sd_beta[0]
+
+#calcolo della probabilità del chi2
+chi2             = myoutput.sum_square
+chi2ridotto      = myoutput.res_var
+dof              = chi2 / chi2ridotto
+prob             = 1 - stats.chi2.cdf(chi2, dof) #cdf è la probabilità cumulativa
+
+-----------------
+Original output:
+Beta: [ -3.05846434e-04   5.02124486e-01]
+Beta Std Error: [  1.24745634e-04   1.94467023e-05]
+Beta Covariance: [[  1.65787075e-07  -2.26403964e-08]
+ [ -2.26403964e-08   4.02895010e-09]]
+Residual Variance: 0.09386421274513879
+Inverse Condition #: 0.0074716069700831575
+Reason(s) for Halting:
+  Sum of squares convergence
+
+Executed output:
+Beta: [-3.05814407e-04  5.02124481e-01]
+Beta Std Error: [1.24774785e-04 1.94508400e-05]
+Beta Covariance: [[ 1.65864568e-07 -2.26519656e-08]
+ [-2.26519656e-08  4.03066479e-09]]
+Residual Variance: 0.09386421287992919
+Inverse Condition #: 0.007469844486236205
+Reason(s) for Halting:
+  Sum of squares convergence
+

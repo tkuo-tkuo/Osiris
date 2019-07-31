@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+a = np.random.normal(1,2,(3,3))
+np.savetxt('savetext.txt', a, fmt='%.2f', delimiter=',')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-f6ea8bb0bfdb>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0ma[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mnormal[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;34m([0m[0;36m3[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mnp[0m[0;34m.[0m[0msavetxt[0m[0;34m([0m[0;34m'savetext.txt'[0m[0;34m,[0m [0ma[0m[0;34m,[0m [0mfmt[0m[0;34m=[0m[0;34m'%.2f'[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m','[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/numpy/lib/npyio.py[0m in [0;36msavetxt[0;34m(fname, X, fmt, delimiter, newline, header, footer, comments, encoding)[0m
+[1;32m   1357[0m     [0;32mif[0m [0m_is_string_like[0m[0;34m([0m[0mfname[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1358[0m         [0;31m# datasource doesn't support creating a new file ...[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1359[0;31m         [0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'wt'[0m[0;34m)[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1360[0m         [0mfh[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlib[0m[0;34m.[0m[0m_datasource[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'wt'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1361[0m         [0mown_fh[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'savetext.txt'
+PermissionError: [Errno 13] Permission denied: 'savetext.txt'
+
+Executability                            : False

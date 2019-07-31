@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from pyspark.ml.linalg import Vectors
+from pyspark.ml.feature import VectorAssembler, StandardScaler
+from pyspark.ml.feature import OneHotEncoder, StringIndexer
+from pyspark.ml import Pipeline, PipelineModel
+from pyspark.ml.regression import LinearRegression
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-e7015b8e2676>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0mml[0m[0;34m.[0m[0mlinalg[0m [0;32mimport[0m [0mVectors[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0mml[0m[0;34m.[0m[0mfeature[0m [0;32mimport[0m [0mVectorAssembler[0m[0;34m,[0m [0mStandardScaler[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0mml[0m[0;34m.[0m[0mfeature[0m [0;32mimport[0m [0mOneHotEncoder[0m[0;34m,[0m [0mStringIndexer[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0mml[0m [0;32mimport[0m [0mPipeline[0m[0;34m,[0m [0mPipelineModel[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0mml[0m[0;34m.[0m[0mregression[0m [0;32mimport[0m [0mLinearRegression[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pyspark'
+ImportError: No module named 'pyspark'
+
+Executability                            : False

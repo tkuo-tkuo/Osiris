@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+wdfrom20_2=make_withdraw2(20)
+wdfrom20_2(5)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mUnboundLocalError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-17-39b0739e45f1>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mwdfrom20_2[0m[0;34m=[0m[0mmake_withdraw2[0m[0;34m([0m[0;36m20[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mwdfrom20_2[0m[0;34m([0m[0;36m5[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-16-8739a06704fc>[0m in [0;36mwithdraw[0;34m(amount)[0m
+[1;32m      3[0m     [0;34m"""Return a withdraw function that draws down balance with each call."""[0m[0;34m[0m[0m
+[1;32m      4[0m     [0;32mdef[0m [0mwithdraw[0m[0;34m([0m[0mamount[0m[0;34m)[0m[0;34m:[0m[0;31m#you are ok if you use balance as a read-only property[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m         [0;32mif[0m [0mamount[0m [0;34m>[0m [0mbalance[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      6[0m             [0;32mreturn[0m [0;34m'Insufficient funds'[0m[0;34m[0m[0m
+[1;32m      7[0m         [0mbalance[0m [0;34m=[0m [0mbalance[0m [0;34m-[0m [0mamount[0m[0;34m[0m[0m
+
+[0;31mUnboundLocalError[0m: local variable 'balance' referenced before assignment
+UnboundLocalError: local variable 'balance' referenced before assignment
+
+Executability                            : False

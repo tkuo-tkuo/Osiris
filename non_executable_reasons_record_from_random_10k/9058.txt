@@ -1,0 +1,14 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+%time content,num_pages,tot_time = get_content("https://botlist.co/bots/filter?category=&platform=&order=date&page=")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<timed exec>[0m in [0;36m<module>[0;34m[0m
+
+[0;31mNameError[0m: name 'get_content' is not defined
+NameError: name 'get_content' is not defined
+
+Executability                            : False

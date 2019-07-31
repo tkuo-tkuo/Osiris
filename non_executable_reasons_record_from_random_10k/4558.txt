@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+titanic.head()
+------------------
+
+NameError: name 'titanic' is not defined
+
+Executability                            : False

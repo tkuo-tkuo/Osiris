@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+## Function that gets coordinates.
+def getcoordinates(user_location): 
+    url = 'https://maps.googleapis.com/maps/api/geocode/json'
+    options = {'address' : user_location ,'key' : 'AIzaSyBf6JMjuorNaxHvlkS4Es4TOaABbDAkh5s'}
+    requestpost = requests.get(url , params = options)
+    response_data = requestpost.json()
+    #print(response_data ['results'][0]['geometry']['location'])
+    location = response_data ['results'][0]['geometry']['location']
+    return(location)
+    #print(response_data ['results'][0]['long_name'])
+    #coords = response_data ['results'][0]['geometry']['location'])
+getcoordinates(user_location)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-51de4374254d>[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m     [0;31m#print(response_data ['results'][0]['long_name'])[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m     [0;31m#coords = response_data ['results'][0]['geometry']['location'])[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m [0mgetcoordinates[0m[0;34m([0m[0muser_location[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'user_location' is not defined
+NameError: name 'user_location' is not defined
+
+Executability                            : False

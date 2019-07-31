@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+def initialize_network(n_inputs, n_hidden, n_outputs):
+    network = list()
+    theta1 = 0.1 * np.random.random((n_hidden, n_inputs + 1))
+    network.append(theta1)
+    theta2 = 0.1 * np.random.random((n_outputs, n_hidden + 1))
+    network.append(theta2)
+    return network
+
+def activate(weights, inputs):
+    pass
+
+def forward_propagate(network, row):
+    inputs = row
+    for layer in network:
+        new_inputs = []
+        for 
+    
+------------------
+
+[0;36m  File [0;32m"<ipython-input-7-ca8514f22157>"[0;36m, line [0;32m16[0m
+[0;31m    for[0m
+[0m        ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-7-ca8514f22157>, line 16)
+
+Executability                            : False

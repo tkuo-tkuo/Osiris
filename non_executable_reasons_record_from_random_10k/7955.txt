@@ -1,0 +1,30 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+# # Making all corpora.
+def make_corpora(languages = None, **kwargs):
+    """Creates and saves corpora from different languages.  Pass a list of available
+    languages to `languages` or pass `None` to refresh all corpora.  Defaults to `None`."""
+    
+    if languages is None:
+        languages = LANGS # global, languages from above.
+    
+    for lang in languages:
+        print("Getting corpus for language: {}".format(lang))
+        corpus_from_wiki(language=lang, **kwargs) # Create Corpus.
+        print("Completed corpus for language: {}".format(lang))
+        time.sleep(2) #prevent max reached.
+    
+
+#make_corpora(languages = ["en"])
+    
+######
+# Loading all Corpora.
+######
+
+corps = {lang: corpus_from_file("{}_corpus.csv".format(lang)) for lang in LANGS}
+------------------
+
+FileNotFoundError: File b'en_corpus.csv' does not exist
+
+Executability                            : False

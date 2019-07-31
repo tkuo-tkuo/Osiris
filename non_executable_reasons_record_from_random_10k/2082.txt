@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+error_array
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-11-c8467b369a71>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0merror_array[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'error_array' is not defined
+NameError: name 'error_array' is not defined
+
+Executability                            : False

@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+alpha = 1.7
+xmin = 1
+dist = scipy.stats.pareto(b=alpha, scale=xmin)
+dist.median()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-f9e002c013db>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0malpha[0m [0;34m=[0m [0;36m1.7[0m[0;34m[0m[0m
+[1;32m      2[0m [0mxmin[0m [0;34m=[0m [0;36m1[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mdist[0m [0;34m=[0m [0mscipy[0m[0;34m.[0m[0mstats[0m[0;34m.[0m[0mpareto[0m[0;34m([0m[0mb[0m[0;34m=[0m[0malpha[0m[0;34m,[0m [0mscale[0m[0;34m=[0m[0mxmin[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mdist[0m[0;34m.[0m[0mmedian[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'scipy' is not defined
+NameError: name 'scipy' is not defined
+
+Executability                            : False

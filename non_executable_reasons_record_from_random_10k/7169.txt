@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+    print (liver_data.shape)
+    print(os.listdir('./liver/cls')[0])
+    plt.subplot(221)
+    plt.imshow(liver_data[0,:,:,0])
+    plt.axis('off')
+    plt.subplot(222)
+    plt.imshow(liver_data[459 ,:,:,0])
+    plt.axis('off')
+    plt.subplot(223)
+    plt.imshow(liver_label[0,:,:,0])
+    plt.axis('off')
+    plt.subplot(224)
+    plt.imshow(liver_label[459,:,:,0])
+    plt.axis('off')
+    plt.show()  
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-81550af0307d>"[0;36m, line [0;32m3[0m
+[0;31m    print (liver_data.shape)[0m
+[0m    ^[0m
+[0;31mIndentationError[0m[0;31m:[0m unexpected indent
+
+IndentationError: unexpected indent (<ipython-input-1-81550af0307d>, line 3)
+
+Executability                            : False

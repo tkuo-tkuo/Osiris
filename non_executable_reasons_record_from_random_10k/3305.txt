@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+# X and Y Values
+X = np.array([rm, lstat, ratio]).T
+Y = np.array(medv)
+# Model Intialization
+reg = LinearRegression()
+# Data Fitting
+reg = reg.fit(X, Y)
+# Y Prediction
+Y_pred = reg.predict(X)
+# Model Evaluation
+rmse = np.sqrt(mean_squared_error(Y, Y_pred))
+r2 = reg.score(X, Y)
+print("RMSE: ", rmse)
+print(reg.coef_)
+print("Variance: ", r2)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-c1f95147450a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmetrics[0m [0;32mimport[0m [0mmean_squared_error[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# X and Y Values[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mX[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0mrm[0m[0;34m,[0m [0mlstat[0m[0;34m,[0m [0mratio[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mT[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mY[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mmedv[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;31m# Model Intialization[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'rm' is not defined
+NameError: name 'rm' is not defined
+
+Executability                            : False

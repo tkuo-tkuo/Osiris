@@ -1,0 +1,18 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+from bs4 import BeautifulSoup
+
+def parse_html(html):
+    soup = BeautifulSoup(open(html), 'html.parser')
+    return str(soup.find_all("div", id="content")[0])
+
+-----------------
+Original output:
+[2, 5]
+Executed output:
+

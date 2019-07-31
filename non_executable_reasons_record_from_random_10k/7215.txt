@@ -1,0 +1,51 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Usage Example:
+
+# Set hyperparameters:
+sample_size = 1
+output_size = 1
+example_cnt = 300
+batch_size  = 10
+epoch_cnt   = 100
+report_freq = 10
+learn_rate  = 0.05
+
+# Construct MLP:
+mlp = Mlp( [ sample_size, 15, output_size ], "tanh" )
+
+# Construct dataset:
+#training_inputs  = np.random.uniform( 0.0, np.pi * 2.0, ( sample_size, example_cnt ) )
+#training_outputs = np.sin( training_inputs )
+
+# Train MLP:
+mlp.train( training_inputs, training_outputs, learn_rate, epoch_cnt, batch_size, report_freq )
+
+# Make predictions:
+#training_guesses = mlp.predict( training_inputs )
+
+# Print correct and predicted outputs:
+#print(( "Outputs: %s\nGuesses: %s\n" ) % ( training_outputs, training_guesses ))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-7-b26bbc52baaf>[0m in [0;36m<module>[0;34m[0m
+[1;32m     18[0m [0;34m[0m[0m
+[1;32m     19[0m [0;31m# Train MLP:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 20[0;31m [0mmlp[0m[0;34m.[0m[0mtrain[0m[0;34m([0m [0mtraining_inputs[0m[0;34m,[0m [0mtraining_outputs[0m[0;34m,[0m [0mlearn_rate[0m[0;34m,[0m [0mepoch_cnt[0m[0;34m,[0m [0mbatch_size[0m[0;34m,[0m [0mreport_freq[0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     21[0m [0;34m[0m[0m
+[1;32m     22[0m [0;31m# Make predictions:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-5-adb290ae30f9>[0m in [0;36mtrain[0;34m(self, input, target, learn_rate, epochs, batch_size, report_freq)[0m
+[1;32m     57[0m [0;34m[0m[0m
+[1;32m     58[0m     [0;32mdef[0m [0mtrain[0m[0;34m([0m[0mself[0m[0;34m,[0m[0minput[0m[0;34m,[0m[0mtarget[0m[0;34m,[0m[0mlearn_rate[0m[0;34m,[0m[0mepochs[0m[0;34m,[0m[0mbatch_size[0m [0;34m=[0m [0;36m10[0m[0;34m,[0m[0mreport_freq[0m [0;34m=[0m [0;36m10[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 59[0;31m         [0mnum_examples[0m [0;34m=[0m [0mtarget[0m[0;34m.[0m[0mshape[0m[0;34m[[0m [0;36m1[0m [0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     60[0m         [0;31m# Iterate over each training epoch:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     61[0m         [0;32mfor[0m [0mepoch[0m [0;32min[0m [0mrange[0m[0;34m([0m [0mepochs[0m [0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mIndexError[0m: tuple index out of range
+IndexError: tuple index out of range
+
+Executability                            : False

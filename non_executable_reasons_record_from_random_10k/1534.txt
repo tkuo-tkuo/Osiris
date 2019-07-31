@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# variables
+filename = 'CDT_2017_track.gpx'
+wp_counter_limit = 50
+wp_counter = 0
+file_counter = 0
+f = open(filename,'r')
+o = open('output.gpx', 'w+')
+comparison_text = '</trkpt>\n'
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-bb5c67284859>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0mfile_counter[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m[0;34m'r'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0mo[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'output.gpx'[0m[0;34m,[0m [0;34m'w+'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0mcomparison_text[0m [0;34m=[0m [0;34m'</trkpt>\n'[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'output.gpx'
+PermissionError: [Errno 13] Permission denied: 'output.gpx'
+
+Executability                            : False

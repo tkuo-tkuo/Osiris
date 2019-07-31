@@ -1,0 +1,41 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import csv
+import json
+a=[]
+b=[]
+index=0
+lid=0
+node=[]
+link=[]
+with open('data/initial data/pdz.csv','r') as f:
+    data = csv.reader(f)
+    for i in range(212):
+        node.append({'index':i,'degree':0}) 
+    for row in data:
+        link.append({'index':lid,'source':int(row[0])-1,'target':int(row[1])-1})
+        node[int(row[0])-1]['degree']+=1
+        node[int(row[1])-1]['degree']+=1
+        lid+=1
+d=[{'node':node,'link':link}]
+with  open ('data/pdz.json','w')as ff:
+    json.dump(d,ff)
+    
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-85ed7ffc8252>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m [0mnode[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0mlink[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'data/initial data/pdz.csv'[0m[0;34m,[0m[0;34m'r'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m     [0mdata[0m [0;34m=[0m [0mcsv[0m[0;34m.[0m[0mreader[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m     [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m212[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data/initial data/pdz.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'data/initial data/pdz.csv'
+
+Executability                            : False

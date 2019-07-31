@@ -1,0 +1,246 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 15 ; number of cells: 20
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13, 14, 15, 17, 18]
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+soup.findAll('h5', class_ = "title")
+
+-----------------
+Original output:
+[<h5 class="title">Holy Roller
+         <h5 class="artist">Thao and The Get Down Stay Down
+       </h5></h5>, <h5 class="title">Kingdom of Rust
+         <h5 class="artist">Doves
+       </h5></h5>, <h5 class="title">Black Dog
+         <h5 class="artist">Frankie Lee
+       </h5></h5>, <h5 class="title">Turn It Around
+         <h5 class="artist">Lucius
+       </h5></h5>, <h5 class="title">Flavor of the Month
+         <h5 class="artist">The Posies
+       </h5></h5>, <h5 class="title">Potential Wife
+         <h5 class="artist">Strange Names
+       </h5></h5>, <h5 class="title">24 Hours
+         <h5 class="artist">Sky Ferreira
+       </h5></h5>, <h5 class="title">Who's Gonna Shoe Your Pretty Little Feet?
+         <h5 class="artist">Billie Joe and Norah
+       </h5></h5>, <h5 class="title">Marigold
+         <h5 class="artist">J. Roddy Walston and The Business
+       </h5></h5>, <h5 class="title">High Road
+         <h5 class="artist">Cults
+       </h5></h5>, <h5 class="title">The Vampyre Of Time and Memory
+         <h5 class="artist">Queens of the Stone Age
+       </h5></h5>, <h5 class="title">Valerie Plame
+         <h5 class="artist">The Decemberists
+       </h5></h5>, <h5 class="title">Morning Song
+         <h5 class="artist">The Avett Brothers
+       </h5></h5>, <h5 class="title">(You Will) Set The World On Fire
+         <h5 class="artist">David Bowie
+       </h5></h5>, <h5 class="title">Sixteen Saltines
+         <h5 class="artist">Jack White
+       </h5></h5>, <h5 class="title">Wave of Mutilation
+         <h5 class="artist">Pixies
+       </h5></h5>]
+Executed output:
+[<h5 class="title">Holy Roller</h5>,
+ <h5 class="title">Kingdom of Rust</h5>,
+ <h5 class="title">Black Dog</h5>,
+ <h5 class="title">Turn It Around</h5>,
+ <h5 class="title">Flavor of the Month</h5>,
+ <h5 class="title">Potential Wife</h5>,
+ <h5 class="title">24 Hours</h5>,
+ <h5 class="title">Who's Gonna Shoe Your Pretty Little Feet?</h5>,
+ <h5 class="title">Marigold</h5>,
+ <h5 class="title">High Road</h5>,
+ <h5 class="title">The Vampyre Of Time and Memory</h5>,
+ <h5 class="title">Valerie Plame</h5>,
+ <h5 class="title">Morning Song</h5>,
+ <h5 class="title">(You Will) Set The World On Fire</h5>,
+ <h5 class="title">Sixteen Saltines</h5>,
+ <h5 class="title">Wave of Mutilation</h5>]
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+example_tag =  soup.findAll('h5', class_ = "title")[0]
+example_tag
+
+-----------------
+Original output:
+<h5 class="title">Holy Roller
+        <h5 class="artist">Thao and The Get Down Stay Down
+      </h5></h5>
+Executed output:
+<h5 class="title">Holy Roller</h5>
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+example_tag.next
+
+-----------------
+Original output:
+'Holy Roller\n        '
+Executed output:
+'Holy Roller'
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+get_song_info(example_url)
+
+-----------------
+Original output:
+Starting http://www.thecurrent.org/playlist/2014-01-01/01 urls
+/Users/tiverson/.pyenv/versions/anaconda3-4.1.0/lib/python3.5/site-packages/bs4/__init__.py:166: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+To get rid of this warning, change this:
+
+ BeautifulSoup([your markup])
+
+to this:
+
+ BeautifulSoup([your markup], "lxml")
+
+  markup_type=markup_type))
+[('Wednesday',
+  '2014-01-01',
+  '1:59',
+  'am',
+  'Holy Roller',
+  'Thao and The Get Down Stay Down'),
+ ('Wednesday', '2014-01-01', '1:54', 'am', 'Kingdom of Rust', 'Doves'),
+ ('Wednesday', '2014-01-01', '1:51', 'am', 'Black Dog', 'Frankie Lee'),
+ ('Wednesday', '2014-01-01', '1:46', 'am', 'Turn It Around', 'Lucius'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:44',
+  'am',
+  'Flavor of the Month',
+  'The Posies'),
+ ('Wednesday', '2014-01-01', '1:38', 'am', 'Potential Wife', 'Strange Names'),
+ ('Wednesday', '2014-01-01', '1:34', 'am', '24 Hours', 'Sky Ferreira'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:31',
+  'am',
+  "Who's Gonna Shoe Your Pretty Little Feet?",
+  'Billie Joe and Norah'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:27',
+  'am',
+  'Marigold',
+  'J. Roddy Walston and The Business'),
+ ('Wednesday', '2014-01-01', '1:23', 'am', 'High Road', 'Cults'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:19',
+  'am',
+  'The Vampyre Of Time and Memory',
+  'Queens of the Stone Age'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:13',
+  'am',
+  'Valerie Plame',
+  'The Decemberists'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:09',
+  'am',
+  'Morning Song',
+  'The Avett Brothers'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:05',
+  'am',
+  '(You Will) Set The World On Fire',
+  'David Bowie'),
+ ('Wednesday', '2014-01-01', '1:03', 'am', 'Sixteen Saltines', 'Jack White'),
+ ('Wednesday', '2014-01-01', '1:01', 'am', 'Wave of Mutilation', 'Pixies')]
+Executed output:
+Starting http://www.thecurrent.org/playlist/2014-01-01/01 urls
+[('Wednesday',
+  '2014-01-01',
+  '1:59',
+  'am',
+  'Holy Roller',
+  'Thao and The Get Down Stay Down'),
+ ('Wednesday', '2014-01-01', '1:54', 'am', 'Kingdom of Rust', 'Doves'),
+ ('Wednesday', '2014-01-01', '1:51', 'am', 'Black Dog', 'Frankie Lee'),
+ ('Wednesday', '2014-01-01', '1:46', 'am', 'Turn It Around', 'Lucius'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:44',
+  'am',
+  'Flavor of the Month',
+  'The Posies'),
+ ('Wednesday', '2014-01-01', '1:38', 'am', 'Potential Wife', 'Strange Names'),
+ ('Wednesday', '2014-01-01', '1:34', 'am', '24 Hours', 'Sky Ferreira'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:31',
+  'am',
+  "Who's Gonna Shoe Your Pretty Little Feet?",
+  'Billie Joe and Norah'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:27',
+  'am',
+  'Marigold',
+  'J. Roddy Walston and The Business'),
+ ('Wednesday', '2014-01-01', '1:23', 'am', 'High Road', 'Cults'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:19',
+  'am',
+  'The Vampyre Of Time and Memory',
+  'Queens of the Stone Age'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:13',
+  'am',
+  'Valerie Plame',
+  'The Decemberists'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:09',
+  'am',
+  'Morning Song',
+  'The Avett Brothers'),
+ ('Wednesday',
+  '2014-01-01',
+  '1:05',
+  'am',
+  '(You Will) Set The World On Fire',
+  'David Bowie'),
+ ('Wednesday', '2014-01-01', '1:03', 'am', 'Sixteen Saltines', 'Jack White'),
+ ('Wednesday', '2014-01-01', '1:01', 'am', 'Wave of Mutilation', 'Pixies')]
+-------------------------------------------
+Source Code of a Unmatched Cell 19
+-------------------------------------------
+urls = [output_address(d) for d in dts]
+urls[:10]
+
+-----------------
+Original output:
+['http://www.thecurrent.org/playlist/2017-05-14/18',
+ 'http://www.thecurrent.org/playlist/2017-05-14/17',
+ 'http://www.thecurrent.org/playlist/2017-05-14/16',
+ 'http://www.thecurrent.org/playlist/2017-05-14/15',
+ 'http://www.thecurrent.org/playlist/2017-05-14/14',
+ 'http://www.thecurrent.org/playlist/2017-05-14/13',
+ 'http://www.thecurrent.org/playlist/2017-05-14/12',
+ 'http://www.thecurrent.org/playlist/2017-05-14/11',
+ 'http://www.thecurrent.org/playlist/2017-05-14/10',
+ 'http://www.thecurrent.org/playlist/2017-05-14/09']
+Executed output:
+['http://www.thecurrent.org/playlist/2019-07-31/12',
+ 'http://www.thecurrent.org/playlist/2019-07-31/11',
+ 'http://www.thecurrent.org/playlist/2019-07-31/10',
+ 'http://www.thecurrent.org/playlist/2019-07-31/09',
+ 'http://www.thecurrent.org/playlist/2019-07-31/08',
+ 'http://www.thecurrent.org/playlist/2019-07-31/07',
+ 'http://www.thecurrent.org/playlist/2019-07-31/06',
+ 'http://www.thecurrent.org/playlist/2019-07-31/05',
+ 'http://www.thecurrent.org/playlist/2019-07-31/04',
+ 'http://www.thecurrent.org/playlist/2019-07-31/03']

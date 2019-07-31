@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# boilerplate code
+from __future__ import print_function
+import os
+from io import BytesIO
+import numpy as np
+from functools import partial
+import PIL.Image
+from IPython.display import clear_output, Image, display, HTML
+
+import tensorflow as tf
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-50d193189ecb>"[0;36m, line [0;32m7[0m
+[0;31m    import numpy as np[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-50d193189ecb>, line 7)
+
+Executability                            : False

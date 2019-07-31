@@ -1,0 +1,34 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Exercício 1 - Crie uma estrutura que pergunte ao usuário qual o dia da semana. Se o dia for igual a Domingo ou 
+# igual a sábado, imprima na tela "Hoje é dia de descanso", caso contrário imprima na tela "Você precisa trabalhar!"
+dia = input('Digite o dia da semana: ')
+if dia == 'Domingo' or dia == 'Sábado':
+    print("Hoje é dia de descanso")
+else:
+    print("Você precisa trabalhar!")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-1-960396009f9a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;31m# Exercício 1 - Crie uma estrutura que pergunte ao usuário qual o dia da semana. Se o dia for igual a Domingo ou[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;31m# igual a sábado, imprima na tela "Hoje é dia de descanso", caso contrário imprima na tela "Você precisa trabalhar!"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mdia[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m'Digite o dia da semana: '[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mif[0m [0mdia[0m [0;34m==[0m [0;34m'Domingo'[0m [0;32mor[0m [0mdia[0m [0;34m==[0m [0;34m'Sábado'[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      7[0m     [0mprint[0m[0;34m([0m[0;34m"Hoje é dia de descanso"[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+%%time
+J_TxJ_old = matrixProduct(J_T, J)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<timed exec>[0m in [0;36m<module>[0;34m[0m
+
+[0;32m<ipython-input-6-84dc0e937970>[0m in [0;36mmatrixProduct[0;34m(a, b)[0m
+[1;32m      3[0m     [0mn[0m [0;34m=[0m [0ma[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m1[0m[0;34m][0m [0;31m#a cols b rows[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mp[0m [0;34m=[0m [0mb[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m1[0m[0;34m][0m [0;31m#b cols[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m     [0mc[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mzeros[0m[0;34m([0m[0;34m([0m[0mm[0m[0;34m,[0m[0mq[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m     [0;32mfor[0m [0mj[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mn[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m         [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mm[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'q' is not defined
+NameError: name 'q' is not defined
+
+Executability                            : False

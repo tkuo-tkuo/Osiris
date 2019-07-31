@@ -1,0 +1,14 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 23 ; number of cells: 24
+Reproducibility                          : matched ratio: 0.958 ; index of matched cells: [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+df['col2'].unique()
+
+-----------------
+Original output:
+array([444, 555, 666], dtype=int64)
+Executed output:
+array([444, 555, 666])

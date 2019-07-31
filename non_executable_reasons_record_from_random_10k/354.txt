@@ -1,0 +1,75 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+from ExampleBoundaries import Square3D
+from AcousticProperties import *
+from RayleighSolver import *
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+def plotRadiationRatio(title, aK, aSigma):
+    plt.rcParams['figure.figsize'] = [15, 10]
+    plt.title(title + ' - Radiation Ratio')
+    plt.plot(aK, aSigma, '-', label='BEM')
+    plt.xlabel('Wavenumber k')
+    plt.ylabel('Radition Ratio')
+    plt.show()
+
+
+exteriorPoint = np.array([[0.5, 0.5, 0.1]], dtype=np.float32)
+
+# Test Problem 1
+
+solver = RayleighSolver3D(Square3D())
+
+boundaryCondition = solver.neumannBoundaryCondition()
+boundaryCondition.f.fill(1.0)
+
+aK = np.empty(100, dtype=np.float32)
+aSigma = np.empty(100, dtype=np.float32)
+for i in range(100):
+    f = 10 * (i+1)
+    k = frequencyToWavenumber(f)
+    solution = solver.solveBoundary(k, boundaryCondition)
+    aK[i] = k
+    aSigma[i] = solution.radiationRatio()
+
+plotRadiationRatio('Uniform Square', aK, aSigma)
+
+# Test Problem 2
+
+solver = RayleighSolver3D(Square3D())
+
+boundaryCondition = solver.neumannBoundaryCondition()
+boundaryCondition.f = np.sin(np.pi * solver.aCenters[:, 0]) * np.sin(np.pi * solver.aCenters[:, 1])
+
+aK = np.empty(100, dtype=np.float32)
+aSigma = np.empty(100, dtype=np.float32)
+for i in range(100):
+    f = 10 * (i+1)
+    k = frequencyToWavenumber(f)
+    solution = solver.solveBoundary(k, boundaryCondition)
+    aK[i] = k
+    aSigma[i] = solution.radiationRatio()
+
+plotRadiationRatio('sin-sin Square', aK, aSigma)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-7e4744efc177>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mExampleBoundaries[0m [0;32mimport[0m [0mSquare3D[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mAcousticProperties[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mRayleighSolver[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'ExampleBoundaries'
+ModuleNotFoundError: No module named 'ExampleBoundaries'
+
+Executability                            : False

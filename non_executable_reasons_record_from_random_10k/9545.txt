@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+def is_positive(f, x):
+    """
+    Check if the function value f(x) is positive
+    """"
+    if f(x) > 0:
+        return True
+    else:
+        return False
+    
+def f0(x):
+    """
+    Computes x^2 - 1
+    """
+    return x*x - 1
+
+
+def f1(x):
+    """
+    Computes -x^2 + 2x + 1
+    """
+    return -x*x + 2*x + 1
+
+    
+# Value of x to test
+x = 4.5
+
+# Test function f0
+print(is_positive(f0, x))
+
+# Test function f1
+print(is_positive(f1, x))
+------------------
+
+[0;36m  File [0;32m"<ipython-input-18-3af3dee47c93>"[0;36m, line [0;32m4[0m
+[0;31m    """"[0m
+[0m        
+^[0m
+[0;31mSyntaxError[0m[0;31m:[0m EOL while scanning string literal
+
+SyntaxError: EOL while scanning string literal (<ipython-input-18-3af3dee47c93>, line 4)
+
+Executability                            : False

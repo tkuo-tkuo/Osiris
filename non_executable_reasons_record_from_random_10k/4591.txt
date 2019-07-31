@@ -1,0 +1,42 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+#! /usr/bin/env python
+#"""Run a YOLO_v2 style detection model on test images."""
+import argparse
+import colorsys
+import imghdr
+import os
+import random
+
+import matplotlib.pyplot as plt
+from scipy.misc import imresize
+import numpy as np
+from keras import backend as K
+from keras.models import load_model
+from PIL import Image, ImageDraw, ImageFont
+import cv2
+import matplotlib.image as mpimg
+import glob
+import pickle
+
+from yad2k.models.keras_yolo import yolo_eval, yolo_head
+from lane_finding import *
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-c70881c04164>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     13[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mmisc[0m [0;32mimport[0m [0mimresize[0m[0;34m[0m[0m
+[1;32m     14[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m---> 15[0;31m [0;32mfrom[0m [0mkeras[0m [0;32mimport[0m [0mbackend[0m [0;32mas[0m [0mK[0m[0;34m[0m[0m
+[0m[1;32m     16[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mload_model[0m[0;34m[0m[0m
+[1;32m     17[0m [0;32mfrom[0m [0mPIL[0m [0;32mimport[0m [0mImage[0m[0;34m,[0m [0mImageDraw[0m[0;34m,[0m [0mImageFont[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

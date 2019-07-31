@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+plt.plot(x,y0)
+plt.plot(x,y1)
+plt.plot(x,y2)
+plt.set_xlim(0, xx.max())
+#plt.set_ylim(0, yy.max())
+plt.scatter(X0, X1, c=y, cmap=plt.cm.coolwarm_r, s=20, edgecolors='k')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-3cdd0b8133c9>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx[0m[0;34m,[0m[0my0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx[0m[0;34m,[0m[0my1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx[0m[0;34m,[0m[0my2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mset_xlim[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0mxx[0m[0;34m.[0m[0mmax[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#plt.set_ylim(0, yy.max())[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

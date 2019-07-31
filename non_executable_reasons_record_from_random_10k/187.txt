@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+l.append(2)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-15-a259b0cc52af>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0ml[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'l' is not defined
+NameError: name 'l' is not defined
+
+Executability                            : False

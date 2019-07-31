@@ -1,0 +1,85 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [0, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+YouTubeVideo("t8eVJ-o8dEc", width=700)
+
+-----------------
+Original output:
+<IPython.lib.display.YouTubeVideo at 0x7f08fed43080>
+Executed output:
+<IPython.lib.display.YouTubeVideo at 0x7f94ac6db128>
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+
+import mdcrc # NOTE: don't include the .py on the import statement
+print(mdcrc.__file__)
+print(mdcrc.__doc__)
+print(mdcrc.__name__)
+help(mdcrc)
+
+-----------------
+Original output:
+this is mdcrc.py
+/home/jovyan/work/6018_2017/modules/m8-modules/ClassPrep/mdcrc.py
+This module contains data and function relative to MDCRC 6521 course
+mdcrc
+Help on module mdcrc:
+
+NAME
+    mdcrc - This module contains data and function relative to MDCRC 6521 course
+
+FUNCTIONS
+    pair_groups(n_groups=6)
+        create a random pairing of the homework groups
+    
+    selectStudentWithReplacement(students)
+        randomly select student from list students
+    
+    shufflePopStudents(students)
+        randomly select and remove a student from the list of students
+
+DATA
+    Chapernowne_number = 0.12345678910111213
+    students = ['Samuel', 'Tyler', 'Helen', 'Nickolas', 'Matthew', 'Scott'...
+    teachers = ['Brian', 'Tom', 'Eric']
+
+FILE
+    /home/jovyan/work/6018_2017/modules/m8-modules/ClassPrep/mdcrc.py
+
+
+
+Executed output:
+this is mdcrc.py
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mwatkin8@class_repos/python_programming/mwatkin8_6018_2017/modules/m8-modules/ClassPrep/mdcrc.py
+This module contains data and function relative to MDCRC 6521 course
+mdcrc
+Help on module mdcrc:
+
+NAME
+    mdcrc - This module contains data and function relative to MDCRC 6521 course
+
+FUNCTIONS
+    pair_groups(n_groups=6)
+        create a random pairing of the homework groups
+    
+    selectStudentWithReplacement(students)
+        randomly select student from list students
+    
+    shufflePopStudents(students)
+        randomly select and remove a student from the list of students
+
+DATA
+    Chapernowne_number = 0.12345678910111213
+    students = ['Samuel', 'Tyler', 'Helen', 'Nickolas', 'Matthew', 'Scott'...
+    teachers = ['Brian', 'Tom', 'Eric']
+
+FILE
+    /mnt/fit-Knowledgezoo/Github_repos_download/data/mwatkin8@class_repos/python_programming/mwatkin8_6018_2017/modules/m8-modules/ClassPrep/mdcrc.py
+
+
+

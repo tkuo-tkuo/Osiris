@@ -1,0 +1,58 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Code to estimate number of moles, mass, and heat capacity of the working volume of air
+# DO NOT EDIT
+
+R = 8.3144598 # molar gas constant in joules / (mole kelvin)
+T0 = 273.15 # equivalent of 0°C in kelvin
+airmolmass = 28.950 # weighted average of molecular mass of air
+
+Tcold = float(input('What is the cooling jacket water temperature in °C? '))
+Vmax = 1E-6*float(input('What is the maximum volume in cm^3? ')) # convert to m^3
+proomSL = float(input('What is the current sea-level adjusted barometric pressure in mBar? '))
+h = float(input('What is the elevation of your location in meters?  '))
+
+# Now caculate the actual pressure for local altitude and current temperature.
+# See http://keisan.casio.com/exec/system/1224579725
+proom = 1.0E2*proomSL*(1-(0.0065*h)/(Tcold+T0+0.0065*h))**5.257 # formula for pressure conversion.
+print(' ') #leave a blank liine
+print('Predicted cold pressure at max volume is {0:.0f} Pa.'.format(proom))
+
+# Estimate the number of moles using the ideal gas law, maximum volume, 
+# pressure at point c equal to ambient room pressure, and cooling jacket water temperature.
+pc = proom
+nmoles = pc*Vmax/(R*(T0+Tcold))
+print('Number of moles of air is {0:0.6f} moles.'.format(nmoles))
+
+# Compute the corresponding mass
+airmass = nmoles*airmolmass
+print('Mass of air is {0:0.4f} grams.'.format(airmass))
+
+# Compute the heat capacity at constant volume (assuming all molecules are diatomic)
+Cvair = 5./2*nmoles*R
+print('Heat capacity of air at constant volume = {0:0.4f} joules/K.'.format(Cvair))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-1-9640cdfe92df>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      8[0m [0mairmolmass[0m [0;34m=[0m [0;36m28.950[0m [0;31m# weighted average of molecular mass of air[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+[0;32m---> 10[0;31m [0mTcold[0m [0;34m=[0m [0mfloat[0m[0;34m([0m[0minput[0m[0;34m([0m[0;34m'What is the cooling jacket water temperature in °C? '[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0mVmax[0m [0;34m=[0m [0;36m1E-6[0m[0;34m*[0m[0mfloat[0m[0;34m([0m[0minput[0m[0;34m([0m[0;34m'What is the maximum volume in cm^3? '[0m[0;34m)[0m[0;34m)[0m [0;31m# convert to m^3[0m[0;34m[0m[0m
+[1;32m     12[0m [0mproomSL[0m [0;34m=[0m [0mfloat[0m[0;34m([0m[0minput[0m[0;34m([0m[0;34m'What is the current sea-level adjusted barometric pressure in mBar? '[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

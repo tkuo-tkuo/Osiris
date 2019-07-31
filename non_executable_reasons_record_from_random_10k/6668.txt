@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import nibabel as nib
+import os.path as op
+import os
+from glob import glob
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-9c16f583bd32>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mnibabel[0m [0;32mas[0m [0mnib[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mos[0m[0;34m.[0m[0mpath[0m [0;32mas[0m [0mop[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mglob[0m [0;32mimport[0m [0mglob[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'nibabel'
+ImportError: No module named 'nibabel'
+
+Executability                            : False

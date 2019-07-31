@@ -1,0 +1,51 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+java_path = "C:/Program Files/Java/jdk1.8.0_161/bin/java.exe"
+os.environ['JAVAHOME'] = java_path
+
+#For NLP
+import nltk
+#nltk.internals.config_java('C:/Program Files/Java/jdk1.8.0_161/bin/java.exe') # fix my java problem
+
+#Special module written for this class
+#This provides access to data and to helper functions from previous weeks
+#Make sure you update it before starting this notebook
+import lucem_illud #pip install -U git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git
+
+#All these packages need to be installed from pip
+
+import numpy as np #For arrays
+import pandas #Gives us DataFrames
+import matplotlib.pyplot as plt #For graphics
+import seaborn #Makes the graphics look nicer
+
+#Displays the graphs
+import graphviz #You also need to install the command line graphviz
+
+#These are from the standard library
+import os.path
+import zipfile
+import subprocess
+import io
+import tempfile
+
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-26c205b2f2d7>[0m in [0;36m<module>[0;34m[0m
+[1;32m     12[0m [0;31m#This provides access to data and to helper functions from previous weeks[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0;31m#Make sure you update it before starting this notebook[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0;32mimport[0m [0mlucem_illud[0m [0;31m#pip install -U git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;34m[0m[0m
+[1;32m     16[0m [0;31m#All these packages need to be installed from pip[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'lucem_illud'
+ModuleNotFoundError: No module named 'lucem_illud'
+
+Executability                            : False

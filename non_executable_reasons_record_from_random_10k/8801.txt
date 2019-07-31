@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+filename = './info/celulas/2.jpg'
+cel = img_as_ubyte(rgb2gray(io.imread(filename)))
+T = buscaUmbral(cel, 180)
+plt.imshow(ubralizaImg(cel, T), cmap='gray')
+plt.show()
+print('Umbral: ', T)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-5873483034f5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mfilename[0m [0;34m=[0m [0;34m'./info/celulas/2.jpg'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mcel[0m [0;34m=[0m [0mimg_as_ubyte[0m[0;34m([0m[0mrgb2gray[0m[0;34m([0m[0mio[0m[0;34m.[0m[0mimread[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mT[0m [0;34m=[0m [0mbuscaUmbral[0m[0;34m([0m[0mcel[0m[0;34m,[0m [0;36m180[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mplt[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0mubralizaImg[0m[0;34m([0m[0mcel[0m[0;34m,[0m [0mT[0m[0;34m)[0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0;34m'gray'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'img_as_ubyte' is not defined
+NameError: name 'img_as_ubyte' is not defined
+
+Executability                            : False

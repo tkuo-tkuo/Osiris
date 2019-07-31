@@ -1,0 +1,39 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+import sys
+import scipy.io
+import scipy.misc
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import imshow
+from PIL import Image
+from nst_utils import *
+import numpy as np
+import tensorflow as tf
+
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-9ad1bc2da8f8>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;32mfrom[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mimport[0m [0mimshow[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0mPIL[0m [0;32mimport[0m [0mImage[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0;32mfrom[0m [0mnst_utils[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/mangohero1985@coursera_dl/4_convolutional_neural_networks/week4/Neural Style Transfer/nst_utils.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 13[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     14[0m [0;34m[0m[0m
+[1;32m     15[0m [0;32mclass[0m [0mCONFIG[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

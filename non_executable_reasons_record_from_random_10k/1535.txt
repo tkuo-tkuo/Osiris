@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+"""Example code for datamatrix library"""
+__revision__ = "$Revision$"
+
+from pystrich.datamatrix import DataMatrixEncoder
+import sys
+import logging
+import os.path
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
+
+logging.getLogger("datamatrix").setLevel(logging.DEBUG)
+logging.getLogger("datamatrix").addHandler(logging.StreamHandler(sys.stdout))
+
+if __name__ == "__main__":
+    encoder = DataMatrixEncoder(sys.argv[1])
+    encoder.save("test.png")
+    print(encoder.get_ascii())
+    with open("test.dxf", "w") as text_file:
+        text_file.write(encoder.get_dxf(inverse=True, cellsize=0.1))
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-b5394a94affa>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;32mimport[0m [0mlogging[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0msys[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mdirname[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mrealpath[0m[0;34m([0m[0m__file__[0m[0;34m)[0m[0;34m)[0m[0;34m,[0m [0mos[0m[0;34m.[0m[0mpardir[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;34m[0m[0m
+[1;32m     10[0m [0mlogging[0m[0;34m.[0m[0mgetLogger[0m[0;34m([0m[0;34m"datamatrix"[0m[0;34m)[0m[0;34m.[0m[0msetLevel[0m[0;34m([0m[0mlogging[0m[0;34m.[0m[0mDEBUG[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name '__file__' is not defined
+NameError: name '__file__' is not defined
+
+Executability                            : False

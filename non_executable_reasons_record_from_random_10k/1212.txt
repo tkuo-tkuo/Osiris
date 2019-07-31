@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Create a new object type called Sample
+class Sample(object):
+    pass
+
+# Instance of Sample
+x = Sample()
+
+print type(x)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-6392a1fa50f4>"[0;36m, line [0;32m8[0m
+[0;31m    print type(x)[0m
+[0m             ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-2-6392a1fa50f4>, line 8)
+
+Executability                            : False

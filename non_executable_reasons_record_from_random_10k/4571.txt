@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import mysql.connector
+import csv
+
+db1 = mysql.connector.connect(host="localhost",user="root",passwd="root", database="ejm1")
+cursor = db1.cursor(buffered=True)
+
+
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-da2a557e1ce5>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mmysql[0m[0;34m.[0m[0mconnector[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mcsv[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'mysql'
+ImportError: No module named 'mysql'
+
+Executability                            : False

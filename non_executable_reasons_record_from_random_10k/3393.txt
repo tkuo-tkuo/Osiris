@@ -1,0 +1,37 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 8 ; number of cells: 11
+Reproducibility                          : matched ratio: 0.727 ; index of matched cells: [0, 2, 3, 4, 5, 6, 9, 10]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+# Unindo as listas. Em Python3 retorna um iterator
+zip(x, y)
+
+-----------------
+Original output:
+<zip at 0x106858a48>
+Executed output:
+<zip at 0x7f0330a0af88>
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+# Zip vai unir as chaves
+list(zip(d1,d2))
+
+-----------------
+Original output:
+[('a', 'd'), ('b', 'c')]
+Executed output:
+[('b', 'c'), ('a', 'd')]
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+# Zip pode unir os valores (itens)
+list(zip(d1, d2.values()))
+
+-----------------
+Original output:
+[('a', 5), ('b', 4)]
+Executed output:
+[('b', 4), ('a', 5)]

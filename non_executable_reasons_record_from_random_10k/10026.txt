@@ -1,0 +1,57 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [1, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+'''JSON exercise
+Using data in file 'data/world_bank_projects.json' and the techniques demonstrated above,
+Find the 10 countries with most projects
+Find the top 10 major project themes (using column 'mjtheme_namecode')
+In 2. above you will notice that some entries have only the code and the name is missing. 
+Create a dataframe with the missing names filled in.'''
+
+
+import numpy as np
+import pandas as pd
+import json
+from pandas.io.json import json_normalize
+
+#load the data as a dataframe
+json_data = pd.read_json('world_bank_projects.json')
+
+#use value_counts to return top 10 countries 
+json_data['countryname'].value_counts()[:10]
+
+#Africa is not a country, so get next highest country and drop Africa
+top_countries = json_data['countryname'].value_counts()[:11].drop('Africa')
+print(top_countries)
+
+-----------------
+Original output:
+Republic of Indonesia              19
+People's Republic of China         19
+Socialist Republic of Vietnam      17
+Republic of India                  16
+Republic of Yemen                  13
+Nepal                              12
+People's Republic of Bangladesh    12
+Kingdom of Morocco                 12
+Republic of Mozambique             11
+Islamic Republic of Pakistan        9
+Name: countryname, dtype: int64
+
+Executed output:
+Republic of Indonesia              19
+People's Republic of China         19
+Socialist Republic of Vietnam      17
+Republic of India                  16
+Republic of Yemen                  13
+People's Republic of Bangladesh    12
+Nepal                              12
+Kingdom of Morocco                 12
+Republic of Mozambique             11
+Burkina Faso                        9
+Name: countryname, dtype: int64
+

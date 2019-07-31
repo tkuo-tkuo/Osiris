@@ -1,0 +1,42 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Basic packages
+import pandas as pd 
+import numpy as np
+import re
+import collections
+import matplotlib.pyplot as plt
+from pathlib import Path
+
+# Packages for data preparation
+from sklearn.model_selection import train_test_split
+from nltk.corpus import stopwords
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from keras.utils.np_utils import to_categorical
+from sklearn.preprocessing import LabelEncoder
+from sklearn.datasets import load_files
+import nltk
+
+# Packages for modeling
+from keras import models
+from keras import layers
+from keras import regularizers
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-0fb5aa52cc97>[0m in [0;36m<module>[0;34m[0m
+[1;32m     12[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmodel_selection[0m [0;32mimport[0m [0mtrain_test_split[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mcorpus[0m [0;32mimport[0m [0mstopwords[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mpreprocessing[0m[0;34m.[0m[0mtext[0m [0;32mimport[0m [0mTokenizer[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mpreprocessing[0m[0;34m.[0m[0msequence[0m [0;32mimport[0m [0mpad_sequences[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mutils[0m[0;34m.[0m[0mnp_utils[0m [0;32mimport[0m [0mto_categorical[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'keras'
+ModuleNotFoundError: No module named 'keras'
+
+Executability                            : False

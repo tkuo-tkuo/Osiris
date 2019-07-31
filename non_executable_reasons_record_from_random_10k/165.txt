@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Librairies utiles
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from IPython.core.display import Image, display
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import export_graphviz
+from sklearn.grid_search import GridSearchCV
+
+from sklearn.neural_network import MLPClassifier
+from sklearn.metrics import classification_report
+
+import warnings
+# suppression des messages d'erreurs
+warnings.filterwarnings('ignore')
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-b1840bcc7359>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mtree[0m [0;32mimport[0m [0mDecisionTreeClassifier[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mtree[0m [0;32mimport[0m [0mexport_graphviz[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mgrid_search[0m [0;32mimport[0m [0mGridSearchCV[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mneural_network[0m [0;32mimport[0m [0mMLPClassifier[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'sklearn.grid_search'
+ModuleNotFoundError: No module named 'sklearn.grid_search'
+
+Executability                            : False

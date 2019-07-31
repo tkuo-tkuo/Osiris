@@ -1,0 +1,79 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+__author__ = 'user'
+# http://pythonprogramming.net/support-vector-machine-svm-example-tutorial-scikit-learn-python/
+
+import matplotlib.pyplot as plt
+
+from sklearn import datasets
+from sklearn import svm
+from sklearn.model_selection import GridSearchCV
+digits = datasets.load_digits()
+
+classifier = svm.SVC(gamma=.01, C=10)
+
+print(len(digits.data))
+
+x, y = digits.data[:-1], digits.target[:-1]
+classifier.fit(x, y)
+
+print('Prediction:', classifier.predict(digits.data[-1]))
+
+plt.imshow(digits.images[-1], cmap=plt.cm.gray_r, interpolation='nearest')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-1-66223552ea17>[0m in [0;36m<module>[0;34m[0m
+[1;32m     18[0m [0mclassifier[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m [0;34m[0m[0m
+[0;32m---> 20[0;31m [0mprint[0m[0;34m([0m[0;34m'Prediction:'[0m[0;34m,[0m [0mclassifier[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mdigits[0m[0;34m.[0m[0mdata[0m[0;34m[[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     21[0m [0;34m[0m[0m
+[1;32m     22[0m [0mplt[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0mdigits[0m[0;34m.[0m[0mimages[0m[0;34m[[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0mplt[0m[0;34m.[0m[0mcm[0m[0;34m.[0m[0mgray_r[0m[0;34m,[0m [0minterpolation[0m[0;34m=[0m[0;34m'nearest'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/svm/base.py[0m in [0;36mpredict[0;34m(self, X)[0m
+[1;32m    572[0m             [0mClass[0m [0mlabels[0m [0;32mfor[0m [0msamples[0m [0;32min[0m [0mX[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    573[0m         """
+[0;32m--> 574[0;31m         [0my[0m [0;34m=[0m [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    575[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mclasses_[0m[0;34m.[0m[0mtake[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0masarray[0m[0;34m([0m[0my[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0mintp[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    576[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/svm/base.py[0m in [0;36mpredict[0;34m(self, X)[0m
+[1;32m    320[0m         [0my_pred[0m [0;34m:[0m [0marray[0m[0;34m,[0m [0mshape[0m [0;34m([0m[0mn_samples[0m[0;34m,[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    321[0m         """
+[0;32m--> 322[0;31m         [0mX[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_validate_for_predict[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    323[0m         [0mpredict[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_sparse_predict[0m [0;32mif[0m [0mself[0m[0;34m.[0m[0m_sparse[0m [0;32melse[0m [0mself[0m[0;34m.[0m[0m_dense_predict[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    324[0m         [0;32mreturn[0m [0mpredict[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/svm/base.py[0m in [0;36m_validate_for_predict[0;34m(self, X)[0m
+[1;32m    452[0m [0;34m[0m[0m
+[1;32m    453[0m         X = check_array(X, accept_sparse='csr', dtype=np.float64, order="C",
+[0;32m--> 454[0;31m                         accept_large_sparse=False)
+[0m[1;32m    455[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0m_sparse[0m [0;32mand[0m [0;32mnot[0m [0msp[0m[0;34m.[0m[0misspmatrix[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    456[0m             [0mX[0m [0;34m=[0m [0msp[0m[0;34m.[0m[0mcsr_matrix[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/utils/validation.py[0m in [0;36mcheck_array[0;34m(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, warn_on_dtype, estimator)[0m
+[1;32m    519[0m                     [0;34m"Reshape your data either using array.reshape(-1, 1) if "[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    520[0m                     [0;34m"your data has a single feature or array.reshape(1, -1) "[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 521[0;31m                     "if it contains a single sample.".format(array))
+[0m[1;32m    522[0m [0;34m[0m[0m
+[1;32m    523[0m         [0;31m# in the future np.flexible dtypes will be handled like object dtypes[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: Expected 2D array, got 1D array instead:
+array=[ 0.  0. 10. 14.  8.  1.  0.  0.  0.  2. 16. 14.  6.  1.  0.  0.  0.  0.
+ 15. 15.  8. 15.  0.  0.  0.  0.  5. 16. 16. 10.  0.  0.  0.  0. 12. 15.
+ 15. 12.  0.  0.  0.  4. 16.  6.  4. 16.  6.  0.  0.  8. 16. 10.  8. 16.
+  8.  0.  0.  1.  8. 12. 14. 12.  1.  0.].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+ValueError: Expected 2D array, got 1D array instead:
+array=[ 0.  0. 10. 14.  8.  1.  0.  0.  0.  2. 16. 14.  6.  1.  0.  0.  0.  0.
+ 15. 15.  8. 15.  0.  0.  0.  0.  5. 16. 16. 10.  0.  0.  0.  0. 12. 15.
+ 15. 12.  0.  0.  0.  4. 16.  6.  4. 16.  6.  0.  0.  8. 16. 10.  8. 16.
+  8.  0.  0.  1.  8. 12. 14. 12.  1.  0.].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+
+Executability                            : False

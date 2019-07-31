@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# create a loop to loop over the prediction function created in step 5 for all values of Petal Length in the original data set
+# put these expected/predicted values into an array to be mapped in step 7
+
+#initialize the array to use, 
+expected_Petal_Width = np.array([0,0])
+  
+for i in iris_petal['PetalLength']:
+    expected_value = prediction(beta, i)
+    expected_Petal_Width = np.vstack([expected_Petal_Width, [i, expected_value]])
+
+#delete the first observation in the array that we created to initialize
+expected_Petal_Width = np.delete(expected_Petal_Width, 0, 0)
+
+expected_Petal_Width
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-8cbcb3f17166>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0miris_petal[0m[0;34m[[0m[0;34m'PetalLength'[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m     [0mexpected_value[0m [0;34m=[0m [0mprediction[0m[0;34m([0m[0mbeta[0m[0;34m,[0m [0mi[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      9[0m     [0mexpected_Petal_Width[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mvstack[0m[0;34m([0m[0;34m[[0m[0mexpected_Petal_Width[0m[0;34m,[0m [0;34m[[0m[0mi[0m[0;34m,[0m [0mexpected_value[0m[0;34m][0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'prediction' is not defined
+NameError: name 'prediction' is not defined
+
+Executability                            : False

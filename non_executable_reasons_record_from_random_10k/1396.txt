@@ -1,0 +1,63 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#Building formal models
+df_predict = pd.read_csv("data/test.csv")
+df_predict['Survived'] = 1
+df_predict = df_predict.drop(['Ticket', 'Cabin', 'Name','Surname', 'S_Ticket'], axis = 1)
+df_predict = df_predict.sample(frac=1).reset_index(drop=True)
+df_predict = df_predict.fillna(method = 'pad')
+
+
+#training on the best models from above: RNN, SVM(poly), SVM(rbf), LogisticRegression
+
+#LogisticRegression
+y_predict,x_predict = dmatrices(formula, data=df_predict, return_type='dataframe')
+x_predict
+logistic = linear_model.LogisticRegression(C = 1, max_iter = 200, tol = 1e-5, class_weight = {1: 1})
+logistic.fit(x, y)
+y_predict = logistic.predict(x_predict)
+np.savetxt("prediction_lr.csv", y_predict.astype(int), delimiter=",")
+
+
+#RNN
+y_predict,x_predict = dmatrices(formula, data=df_predict, return_type='dataframe')
+
+y = np.asarray(y).ravel()
+y_predict = np.asarray(y_predict).ravel()
+rnn = ske.RandomForestClassifier(n_estimators=100).fit(x, y)
+y_predict = rnn.predict(x_predict)
+np.savetxt("prediction_rf.csv", y_predict.astype(int), delimiter=",")
+
+
+#SVM
+y_svm_p,x_svm_p = dmatrices(formula, data=df_predict, return_type='matrix')
+x_svm_p = np.asarray(x_svm_p)
+x_svm_p = x_svm_p[:,[feature_1, feature_2]]  
+
+y_svm_p = np.asarray(y_svm_p)
+y_svm_p = y_svm_p.flatten()
+
+rbf = svm.SVC(kernel='rbf', gamma=3).fit(x_svm, y_svm)
+poly = svm.SVC(kernel='poly', gamma=2).fit(x_svm, y_svm)
+
+y_rbf = rbf.predict(x_svm_p)
+y_poly = poly.predict(x_svm_p)
+
+np.savetxt("prediction_svm_rbf.csv", y_rbf.astype(int), delimiter=",")
+np.savetxt("prediction_svm_poly.csv", y_poly.astype(int), delimiter=",")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-4d900f14a82e>[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m [0;31m#LogisticRegression[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m [0my_predict[0m[0;34m,[0m[0mx_predict[0m [0;34m=[0m [0mdmatrices[0m[0;34m([0m[0mformula[0m[0;34m,[0m [0mdata[0m[0;34m=[0m[0mdf_predict[0m[0;34m,[0m [0mreturn_type[0m[0;34m=[0m[0;34m'dataframe'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0mx_predict[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m [0mlogistic[0m [0;34m=[0m [0mlinear_model[0m[0;34m.[0m[0mLogisticRegression[0m[0;34m([0m[0mC[0m [0;34m=[0m [0;36m1[0m[0;34m,[0m [0mmax_iter[0m [0;34m=[0m [0;36m200[0m[0;34m,[0m [0mtol[0m [0;34m=[0m [0;36m1e-5[0m[0;34m,[0m [0mclass_weight[0m [0;34m=[0m [0;34m{[0m[0;36m1[0m[0;34m:[0m [0;36m1[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'formula' is not defined
+NameError: name 'formula' is not defined
+
+Executability                            : False

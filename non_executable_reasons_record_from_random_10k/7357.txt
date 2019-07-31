@@ -1,0 +1,168 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+#Imported necessary software for calculations.
+import math
+import astropy.units as u
+from astropy.io import ascii
+import numpy as np
+
+#Imported data from experiment for calculations.
+data=ascii.read('lab10_data_ks_dja_jc.csv')
+
+
+#Defined and sorted the variables, according to the color of the light, to be used in the wavelength calculations.
+d=1/.0006
+v1=np.sin(np.deg2rad(data[0][5]))
+v2=np.sin(np.deg2rad(data[5][5]))
+v3=np.sin(np.deg2rad(data[10][5]))
+V=(data[0][5], data[5][5], data[10][5])
+
+b1=np.sin(np.deg2rad(data[1][5]))
+b2=np.sin(np.deg2rad(data[6][5]))
+b3=np.sin(np.deg2rad(data[11][5]))
+B=(data[1][5], data[6][5], data[11][5])
+
+g1=np.sin(np.deg2rad(data[2][5]))
+g2=np.sin(np.deg2rad(data[7][5]))
+g3=np.sin(np.deg2rad(data[12][5]))
+G=(data[2][5], data[7][5], data[12][5])
+
+o1=np.sin(np.deg2rad(data[3][5]))
+o2=np.sin(np.deg2rad(data[8][5]))
+o3=np.sin(np.deg2rad(data[13][5]))
+O=(data[3][5], data[8][5], data[13][5])
+
+r1=np.sin(np.deg2rad(data[4][5]))
+r2=np.sin(np.deg2rad(data[9][5]))
+r3=np.sin(np.deg2rad(data[14][5]))
+R=(data[4][5], data[9][5], data[14][5])
+
+#Calculated and printed the wavelengths for each of the measured spectral lines.
+HV=d*v1 #nm
+HeV=d*v2 #nm
+MV=d*v3 #nm
+Vm=(np.mean(V))
+Vsig=np.std(V)
+UVu=((np.sin(np.deg2rad(Vm+Vsig))*d)-(np.sin(np.deg2rad(Vm))*d))
+UVd=((np.sin(np.deg2rad(Vm))*d)-(np.sin(np.deg2rad(Vm-Vsig))*d))
+
+
+HB=d*b1 #nm
+HeB=d*b2 #nm
+MB=d*b3 #nm
+Bm=(np.mean(B))
+Bsig=np.std(B)
+UBu=((np.sin(np.deg2rad(Bm+Bsig))*d)-(np.sin(np.deg2rad(Bm))*d))
+UBd=((np.sin(np.deg2rad(Bm))*d)-(np.sin(np.deg2rad(Bm-Bsig))*d))
+
+HG=d*g1 #nm
+HeG=d*g2 #nm
+MG=d*g3 #nm
+Gm=(np.mean(G))
+Gsig=np.std(G)
+UGu=((np.sin(np.deg2rad(Gm+Gsig))*d)-(np.sin(np.deg2rad(Gm))*d))
+UGd=((np.sin(np.deg2rad(Gm))*d)-(np.sin(np.deg2rad(Gm-Gsig))*d))
+
+HO=d*o1 #nm
+HeO=d*o2 #nm
+MO=d*o3 #nm
+Om=(np.mean(O))
+Osig=np.std(O)
+UOu=((np.sin(np.deg2rad(Om+Osig))*d)-(np.sin(np.deg2rad(Om))*d))
+UOd=((np.sin(np.deg2rad(Om))*d)-(np.sin(np.deg2rad(Om-Osig))*d))
+
+HR=d*r1 #nm
+HeR=d*r2 #nm
+MR=d*r3 #nm
+Rm=(np.mean(R))
+Rsig=np.std(R)
+URu=((np.sin(np.deg2rad(Rm+Rsig))*d)-(np.sin(np.deg2rad(Rm))*d))
+URd=((np.sin(np.deg2rad(Rm))*d)-(np.sin(np.deg2rad(Rm-Rsig))*d))
+
+
+print('         Violet')
+print('Hydrogen:   ', HV, 'nm')
+print('Helium:     ', HeV, 'nm')
+print('Mystery:    ', MV, 'nm')
+print('Uncertainty= +', UVu, ',-', UVd, 'nm')
+print('          Blue')
+print('Hydrogen:   ', HB, 'nm')
+print('Helium:     ', HeB, 'nm')
+print('Mystery:    ', MB, 'nm')
+print('Uncertainty= +', UBu, ',-', UBd, 'nm')
+print('          Green')
+print('Hydrogen:   ', HG, 'nm')
+print('Helium:     ', HeG, 'nm')
+print('Mystery:    ', MG, 'nm')
+print('Uncertainty= +', UGu, ',-', UGd, 'nm')
+print('       Orange/Yellow')
+print('Hydrogen:   ', HO, 'nm')
+print('Helium:     ', HeO, 'nm')
+print('Mystery:    ', MO, 'nm')
+print('Uncertainty= +', UOu, ',-', UOd, 'nm')
+print('           Red')
+print('Hydrogen:   ', HR, 'nm')
+print('Helium:     ', HeR, 'nm')
+print('Mystery:    ', MR, 'nm')
+print('Uncertainty= +', URu, ',-', URd, 'nm')
+
+-----------------
+Original output:
+         Violet
+Hydrogen:    391.903521838 nm
+Helium:      406.871336947 nm
+Mystery:     416.73673588 nm
+Uncertainty= + 10.1991853103 ,- 10.2153374039 nm
+          Blue
+Hydrogen:    432.207945302 nm
+Helium:      452.400749775 nm
+Mystery:     451.56078716 nm
+Uncertainty= + 9.31455424376 ,- 9.32955994227 nm
+          Green
+Hydrogen:    519.729119196 nm
+Helium:      480.884176718 nm
+Mystery:     514.198300018 nm
+Uncertainty= + 17.108880986 ,- 17.1676744322 nm
+       Orange/Yellow
+Hydrogen:    574.1317966 nm
+Helium:      574.677929818 nm
+Mystery:     579.044469152 nm
+Uncertainty= + 2.19828121193 ,- 2.19941965487 nm
+           Red
+Hydrogen:    650.415166228 nm
+Helium:      669.113802945 nm
+Mystery:     626.231803888 nm
+Uncertainty= + 17.5055411328 ,- 17.5902816914 nm
+
+Executed output:
+         Violet
+Hydrogen:    391.90352183765003 nm
+Helium:      406.8713369471505 nm
+Mystery:     416.7367358798036 nm
+Uncertainty= + 10.199185310264511 ,- 10.215337403873093 nm
+          Blue
+Hydrogen:    432.20794530170093 nm
+Helium:      452.4007497751238 nm
+Mystery:     451.5607871604265 nm
+Uncertainty= + 9.314554243762245 ,- 9.329559942271885 nm
+          Green
+Hydrogen:    519.7291191962245 nm
+Helium:      480.8841767179295 nm
+Mystery:     514.1983000181056 nm
+Uncertainty= + 17.10888098597161 ,- 17.16767443219527 nm
+       Orange/Yellow
+Hydrogen:    574.1317965999615 nm
+Helium:      574.6779298177224 nm
+Mystery:     579.0444691523982 nm
+Uncertainty= + 2.198281211927565 ,- 2.19941965486737 nm
+           Red
+Hydrogen:    650.4151662275317 nm
+Helium:      669.1138029450034 nm
+Mystery:     626.2318038880724 nm
+Uncertainty= + 17.505541132836925 ,- 17.590281691418795 nm
+

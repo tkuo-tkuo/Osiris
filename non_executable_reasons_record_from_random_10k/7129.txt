@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from sklearn import datasets
+from sklearn.model_selection import ShuffleSplit
+from sklearn.metrics import classification_report
+import pandas as pd
+import xgboost as xgb
+import evaluation
+from sklearn.datasets import load_breast_cancer
+
+mySeed = 45
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-aa1372446a3c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmetrics[0m [0;32mimport[0m [0mclassification_report[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0mxgboost[0m [0;32mas[0m [0mxgb[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mimport[0m [0mevaluation[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mdatasets[0m [0;32mimport[0m [0mload_breast_cancer[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'xgboost'
+ImportError: No module named 'xgboost'
+
+Executability                            : False

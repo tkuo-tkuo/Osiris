@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from __future__ import unicode_literals, print_function, division
+from io import open
+import unicodedata
+import string
+import re
+import random
+
+import torch
+import torch.nn as nn
+from torch.autograd import Variable
+from torch import optim
+import torch.nn.functional as F
+
+use_cuda = torch.cuda.is_available()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-21e0f5f0c7c1>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;32mimport[0m [0mrandom[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mimport[0m [0mtorch[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mimport[0m [0mtorch[0m[0;34m.[0m[0mnn[0m [0;32mas[0m [0mnn[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mfrom[0m [0mtorch[0m[0;34m.[0m[0mautograd[0m [0;32mimport[0m [0mVariable[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'torch'
+ModuleNotFoundError: No module named 'torch'
+
+Executability                            : False

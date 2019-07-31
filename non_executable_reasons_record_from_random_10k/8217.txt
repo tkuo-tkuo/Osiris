@@ -1,0 +1,24 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+# spark configuration
+spark_home = os.environ.get('SPARK_HOME', None)
+sys.path.insert(0, spark_home + "/python")
+sys.path.insert(0, os.path.join(spark_home, 'python/lib/py4j-0.8.2.1-src.zip'))
+
+filename = os.path.join(spark_home, 'python/pyspark/shell.py')
+exec(compile(open(filename, "rb").read(), filename, 'exec'))
+
+spark_release_file = spark_home + "/RELEASE"
+
+if os.path.exists(spark_release_file) and "Spark 1.6" in open(spark_release_file).read():
+    pyspark_submit_args = os.environ.get("PYSPARK_SUBMIT_ARGS", "")
+    if not "pyspark-shell" in pyspark_submit_args: 
+        pyspark_submit_args += " pyspark-shell"
+        os.environ["PYSPARK_SUBMIT_ARGS"] = pyspark_submit_args
+
+------------------
+
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+
+Executability                            : False

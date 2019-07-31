@@ -1,0 +1,86 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 6 ; number of cells: 12
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [0, 1, 2, 3, 9, 10]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+# Aviso na divisão por zero, mas não um erro!
+# Apenas substituído por nan
+arr/arr
+
+-----------------
+Original output:
+C:\ProgramData\Anaconda3\lib\site-packages\ipykernel_launcher.py:3: RuntimeWarning: invalid value encountered in true_divide
+  This is separate from the ipykernel package so we can avoid doing imports until
+array([ nan,   1.,   1.,   1.,   1.,   1.,   1.,   1.,   1.,   1.])
+Executed output:
+array([nan,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.])
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+# Também aviso, mas não um erro, apenas infinito
+1/arr
+
+-----------------
+Original output:
+C:\ProgramData\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: RuntimeWarning: divide by zero encountered in true_divide
+  
+array([        inf,  1.        ,  0.5       ,  0.33333333,  0.25      ,
+        0.2       ,  0.16666667,  0.14285714,  0.125     ,  0.11111111])
+Executed output:
+array([       inf, 1.        , 0.5       , 0.33333333, 0.25      ,
+       0.2       , 0.16666667, 0.14285714, 0.125     , 0.11111111])
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+arr**3
+
+-----------------
+Original output:
+array([  0,   1,   8,  27,  64, 125, 216, 343, 512, 729], dtype=int32)
+Executed output:
+array([  0,   1,   8,  27,  64, 125, 216, 343, 512, 729])
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+# Tomando raízes quadradas
+np.sqrt(arr)
+
+-----------------
+Original output:
+array([ 0.        ,  1.        ,  1.41421356,  1.73205081,  2.        ,
+        2.23606798,  2.44948974,  2.64575131,  2.82842712,  3.        ])
+Executed output:
+array([0.        , 1.        , 1.41421356, 1.73205081, 2.        ,
+       2.23606798, 2.44948974, 2.64575131, 2.82842712, 3.        ])
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+# Calculando exponenciais (e^)
+np.exp(arr)
+
+-----------------
+Original output:
+array([  1.00000000e+00,   2.71828183e+00,   7.38905610e+00,
+         2.00855369e+01,   5.45981500e+01,   1.48413159e+02,
+         4.03428793e+02,   1.09663316e+03,   2.98095799e+03,
+         8.10308393e+03])
+Executed output:
+array([1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
+       5.45981500e+01, 1.48413159e+02, 4.03428793e+02, 1.09663316e+03,
+       2.98095799e+03, 8.10308393e+03])
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+np.log(arr)
+
+-----------------
+Original output:
+C:\ProgramData\Anaconda3\lib\site-packages\ipykernel_launcher.py:1: RuntimeWarning: divide by zero encountered in log
+  """Entry point for launching an IPython kernel.
+array([       -inf,  0.        ,  0.69314718,  1.09861229,  1.38629436,
+        1.60943791,  1.79175947,  1.94591015,  2.07944154,  2.19722458])
+Executed output:
+array([      -inf, 0.        , 0.69314718, 1.09861229, 1.38629436,
+       1.60943791, 1.79175947, 1.94591015, 2.07944154, 2.19722458])

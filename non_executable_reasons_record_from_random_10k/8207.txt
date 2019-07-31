@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+
+%run ./Geopandas-nvdb-eks-kunpython.py
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/LtGlahn@geopandas_ssb_nvdb_demo/Geopandas-nvdb-eks-kunpython.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     47[0m [0;31m# For å hente data fra NVDB api[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     48[0m [0;32mimport[0m [0mnvdbapi[0m      [0;31m# Fra https://github.com/LtGlahn/nvdbapi-V2[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 49[0;31m [0;32mimport[0m [0mnvdb2geojson[0m [0;31m# Fra https://github.com/LtGlahn/nvdbapi-V2[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     50[0m [0;34m[0m[0m
+[1;32m     51[0m [0;31m# For datakverning og analyse[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/LtGlahn@geopandas_ssb_nvdb_demo/nvdb2geojson.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m """ 
+[1;32m      9[0m [0;32mimport[0m [0mnvdbapi[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0;32mimport[0m [0mgeojson[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;32mimport[0m [0mjson[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0;32mimport[0m [0mcopy[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'geojson'
+ModuleNotFoundError: No module named 'geojson'
+
+Executability                            : False

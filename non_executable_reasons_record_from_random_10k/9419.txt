@@ -1,0 +1,665 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 45
+Reproducibility                          : matched ratio: 0.067 ; index of matched cells: [0, 42, 43]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+widgets.IntSlider(
+    value=7,
+    min=0,
+    max=10,
+    step=1,
+    description='Test:',
+    disabled=False,
+    continuous_update=False,
+    orientation='horizontal',
+    readout=True,
+    readout_format='d'
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+IntSlider(value=7, continuous_update=False, description='Test:', max=10)
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+widgets.FloatSlider(
+    value=7.5,
+    min=0,
+    max=10.0,
+    step=0.1,
+    description='Test:',
+    disabled=False,
+    continuous_update=False,
+    orientation='horizontal',
+    readout=True,
+    readout_format='.1f',
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+FloatSlider(value=7.5, continuous_update=False, description='Test:', max=10.0, readout_format='.1f')
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+widgets.FloatSlider(
+    value=7.5,
+    min=0,
+    max=10.0,
+    step=0.1,
+    description='Test:',
+    disabled=False,
+    continuous_update=False,
+    orientation='vertical',
+    readout=True,
+    readout_format='.1f',
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+FloatSlider(value=7.5, continuous_update=False, description='Test:', max=10.0, orientation='vertical', readout…
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+widgets.IntRangeSlider(
+    value=[5, 7],
+    min=0,
+    max=10,
+    step=1,
+    description='Test:',
+    disabled=False,
+    continuous_update=False,
+    orientation='horizontal',
+    readout=True,
+    readout_format='d',
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+IntRangeSlider(value=(5, 7), continuous_update=False, description='Test:', max=10)
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+widgets.FloatRangeSlider(
+    value=[5, 7.5],
+    min=0,
+    max=10.0,
+    step=0.1,
+    description='Test:',
+    disabled=False,
+    continuous_update=False,
+    orientation='horizontal',
+    readout=True,
+    readout_format='.1f',
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+FloatRangeSlider(value=(5.0, 7.5), continuous_update=False, description='Test:', max=10.0, readout_format='.1f…
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+widgets.IntProgress(
+    value=7,
+    min=0,
+    max=10,
+    step=1,
+    description='Loading:',
+    bar_style='', # 'success', 'info', 'warning', 'danger' or ''
+    orientation='horizontal'
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+IntProgress(value=7, description='Loading:', max=10)
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+widgets.FloatProgress(
+    value=7.5,
+    min=0,
+    max=10.0,
+    step=0.1,
+    description='Loading:',
+    bar_style='info',
+    orientation='horizontal'
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+FloatProgress(value=7.5, bar_style='info', description='Loading:', max=10.0)
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+widgets.BoundedIntText(
+    value=7,
+    min=0,
+    max=10,
+    step=1,
+    description='Text:',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+BoundedIntText(value=7, description='Text:', max=10)
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+widgets.BoundedFloatText(
+    value=7.5,
+    min=0,
+    max=10.0,
+    step=0.1,
+    description='Text:',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+BoundedFloatText(value=7.5, description='Text:', max=10.0, step=0.1)
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+widgets.IntText(
+    value=7,
+    description='Any:',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+IntText(value=7, description='Any:')
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+widgets.FloatText(
+    value=7.5,
+    description='Any:',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+FloatText(value=7.5, description='Any:')
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+widgets.ToggleButton(
+    value=False,
+    description='Click me',
+    disabled=False,
+    button_style='', # 'success', 'info', 'warning', 'danger' or ''
+    tooltip='Description',
+    icon='check'
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+ToggleButton(value=False, description='Click me', icon='check', tooltip='Description')
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+widgets.Checkbox(
+    value=False,
+    description='Check me',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Checkbox(value=False, description='Check me')
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+widgets.Valid(
+    value=False,
+    description='Valid!',
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Valid(value=False, description='Valid!')
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+widgets.Dropdown(
+    options=['1', '2', '3'],
+    value='2',
+    description='Number:',
+    disabled=False,
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Dropdown(description='Number:', index=1, options=('1', '2', '3'), value='2')
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+widgets.Dropdown(
+    options={'One': 1, 'Two': 2, 'Three': 3},
+    value=2,
+    description='Number:',
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Dropdown(description='Number:', index=1, options={'One': 1, 'Two': 2, 'Three': 3}, value=2)
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+widgets.RadioButtons(
+    options=['pepperoni', 'pineapple', 'anchovies'],
+#     value='pineapple',
+    description='Pizza topping:',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+RadioButtons(description='Pizza topping:', options=('pepperoni', 'pineapple', 'anchovies'), value='pepperoni')
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+widgets.Select(
+    options=['Linux', 'Windows', 'OSX'],
+    value='OSX',
+    # rows=10,
+    description='OS:',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Select(description='OS:', index=2, options=('Linux', 'Windows', 'OSX'), value='OSX')
+-------------------------------------------
+Source Code of a Unmatched Cell 19
+-------------------------------------------
+widgets.SelectionSlider(
+    options=['scrambled', 'sunny side up', 'poached', 'over easy'],
+    value='sunny side up',
+    description='I like my eggs ...',
+    disabled=False,
+    continuous_update=False,
+    orientation='horizontal',
+    readout=True
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+SelectionSlider(continuous_update=False, description='I like my eggs ...', index=1, options=('scrambled', 'sun…
+-------------------------------------------
+Source Code of a Unmatched Cell 20
+-------------------------------------------
+import datetime
+dates = [datetime.date(2015,i,1) for i in range(1,13)]
+options = [(i.strftime('%b'), i) for i in dates]
+widgets.SelectionRangeSlider(
+    options=options,
+    index=(0,11),
+    description='Months (2015)',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+SelectionRangeSlider(description='Months (2015)', index=(0, 11), options=(('Jan', datetime.date(2015, 1, 1)), …
+-------------------------------------------
+Source Code of a Unmatched Cell 21
+-------------------------------------------
+widgets.ToggleButtons(
+    options=['Slow', 'Regular', 'Fast'],
+    description='Speed:',
+    disabled=False,
+    button_style='', # 'success', 'info', 'warning', 'danger' or ''
+    tooltips=['Description of slow', 'Description of regular', 'Description of fast'],
+#     icons=['check'] * 3
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+ToggleButtons(description='Speed:', options=('Slow', 'Regular', 'Fast'), tooltips=('Description of slow', 'Des…
+-------------------------------------------
+Source Code of a Unmatched Cell 22
+-------------------------------------------
+widgets.SelectMultiple(
+    options=['Apples', 'Oranges', 'Pears'],
+    value=['Oranges'],
+    #rows=10,
+    description='Fruits',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+SelectMultiple(description='Fruits', index=(1,), options=('Apples', 'Oranges', 'Pears'), value=('Oranges',))
+-------------------------------------------
+Source Code of a Unmatched Cell 23
+-------------------------------------------
+widgets.Text(
+    value='Hello World',
+    placeholder='Type something',
+    description='String:',
+    disabled=False   
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Text(value='Hello World', description='String:', placeholder='Type something')
+-------------------------------------------
+Source Code of a Unmatched Cell 24
+-------------------------------------------
+widgets.Textarea(
+    value='Hello World',
+    placeholder='Type something',
+    description='String:',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Textarea(value='Hello World', description='String:', placeholder='Type something')
+-------------------------------------------
+Source Code of a Unmatched Cell 25
+-------------------------------------------
+widgets.HBox([widgets.Label(value="The $m$ in $E=mc^2$:"), widgets.FloatSlider()])
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+HBox(children=(Label(value='The $m$ in $E=mc^2$:'), FloatSlider(value=0.0)))
+-------------------------------------------
+Source Code of a Unmatched Cell 26
+-------------------------------------------
+widgets.HTML(
+    value="Hello <b>World</b>",
+    placeholder='Some HTML',
+    description='Some HTML',
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+HTML(value='Hello <b>World</b>', description='Some HTML', placeholder='Some HTML')
+-------------------------------------------
+Source Code of a Unmatched Cell 27
+-------------------------------------------
+widgets.HTMLMath(
+    value=r"Some math and <i>HTML</i>: \(x^2\) and $$\frac{x+1}{x-1}$$",
+    placeholder='Some HTML',
+    description='Some HTML',
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+HTMLMath(value='Some math and <i>HTML</i>: \\(x^2\\) and $$\\frac{x+1}{x-1}$$', description='Some HTML', place…
+-------------------------------------------
+Source Code of a Unmatched Cell 28
+-------------------------------------------
+file = open("images/WidgetArch.png", "rb")
+image = file.read()
+widgets.Image(
+    value=image,
+    format='png',
+    width=300,
+    height=400,
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Image(value=b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x012\x00\x00\x01\xb1\x08\x06\x00\x00\x00\xe1\xe2:\xb…
+-------------------------------------------
+Source Code of a Unmatched Cell 29
+-------------------------------------------
+widgets.Button(
+    description='Click me',
+    disabled=False,
+    button_style='', # 'success', 'info', 'warning', 'danger' or ''
+    tooltip='Click me',
+    icon='check'
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Button(description='Click me', icon='check', style=ButtonStyle(), tooltip='Click me')
+-------------------------------------------
+Source Code of a Unmatched Cell 30
+-------------------------------------------
+out = widgets.Output()
+out
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Output()
+-------------------------------------------
+Source Code of a Unmatched Cell 31
+-------------------------------------------
+with out:
+    for i in range(10):
+        print(i, 'Hello world!')
+
+-----------------
+Original output:
+
+Executed output:
+0 Hello world!
+1 Hello world!
+2 Hello world!
+3 Hello world!
+4 Hello world!
+5 Hello world!
+6 Hello world!
+7 Hello world!
+8 Hello world!
+9 Hello world!
+
+-------------------------------------------
+Source Code of a Unmatched Cell 32
+-------------------------------------------
+from IPython.display import YouTubeVideo
+with out:
+    display(YouTubeVideo('eWzY2nGfkXk'))
+
+-----------------
+Original output:
+
+Executed output:
+<IPython.lib.display.YouTubeVideo at 0x7f564417cef0>
+-------------------------------------------
+Source Code of a Unmatched Cell 33
+-------------------------------------------
+play = widgets.Play(
+#     interval=10,
+    value=50,
+    min=0,
+    max=100,
+    step=1,
+    description="Press play",
+    disabled=False
+)
+slider = widgets.IntSlider()
+widgets.jslink((play, 'value'), (slider, 'value'))
+widgets.HBox([play, slider])
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+HBox(children=(Play(value=50, description='Press play'), IntSlider(value=0)))
+-------------------------------------------
+Source Code of a Unmatched Cell 34
+-------------------------------------------
+widgets.DatePicker(
+    description='Pick a Date',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+DatePicker(value=None, description='Pick a Date')
+-------------------------------------------
+Source Code of a Unmatched Cell 35
+-------------------------------------------
+widgets.ColorPicker(
+    concise=False,
+    description='Pick a color',
+    value='blue',
+    disabled=False
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+ColorPicker(value='blue', description='Pick a color')
+-------------------------------------------
+Source Code of a Unmatched Cell 36
+-------------------------------------------
+widgets.Controller(
+    index=0,
+)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Controller()
+-------------------------------------------
+Source Code of a Unmatched Cell 37
+-------------------------------------------
+items = [widgets.Label(str(i)) for i in range(4)]
+widgets.Box(items)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Box(children=(Label(value='0'), Label(value='1'), Label(value='2'), Label(value='3')))
+-------------------------------------------
+Source Code of a Unmatched Cell 38
+-------------------------------------------
+items = [widgets.Label(str(i)) for i in range(4)]
+widgets.HBox(items)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+HBox(children=(Label(value='0'), Label(value='1'), Label(value='2'), Label(value='3')))
+-------------------------------------------
+Source Code of a Unmatched Cell 39
+-------------------------------------------
+items = [widgets.Label(str(i)) for i in range(4)]
+left_box = widgets.VBox([items[0], items[1]])
+right_box = widgets.VBox([items[2], items[3]])
+widgets.HBox([left_box, right_box])
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+HBox(children=(VBox(children=(Label(value='0'), Label(value='1'))), VBox(children=(Label(value='2'), Label(val…
+-------------------------------------------
+Source Code of a Unmatched Cell 40
+-------------------------------------------
+accordion = widgets.Accordion(children=[widgets.IntSlider(), widgets.Text()])
+accordion.set_title(0, 'Slider')
+accordion.set_title(1, 'Text')
+accordion
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Accordion(children=(IntSlider(value=0), Text(value='')), _titles={'0': 'Slider', '1': 'Text'})
+-------------------------------------------
+Source Code of a Unmatched Cell 41
+-------------------------------------------
+tab_contents = ['P0', 'P1', 'P2', 'P3', 'P4']
+children = [widgets.Text(description=name) for name in tab_contents]
+tab = widgets.Tab()
+tab.children = children
+for i in range(len(children)):
+    tab.set_title(i, str(i))
+tab
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Tab(children=(Text(value='', description='P0'), Text(value='', description='P1'), Text(value='', description='…
+-------------------------------------------
+Source Code of a Unmatched Cell 44
+-------------------------------------------
+tab_nest = widgets.Tab()
+tab_nest.children = [accordion, accordion]
+tab_nest.set_title(0, 'An accordion')
+tab_nest.set_title(1, 'Copy of the accordion')
+tab_nest
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+Tab(children=(Accordion(children=(IntSlider(value=0), Text(value='')), selected_index=None, _titles={'0': 'Sli…

@@ -1,0 +1,18 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 12 ; number of cells: 13
+Reproducibility                          : matched ratio: 0.923 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+main()
+
+-----------------
+Original output:
+Split 768 rows into train=514 and test=254 rows
+Accuracy: 77.16535433070865%
+
+Executed output:
+Split 768 rows into train=514 and test=254 rows
+Accuracy: 71.65354330708661%
+

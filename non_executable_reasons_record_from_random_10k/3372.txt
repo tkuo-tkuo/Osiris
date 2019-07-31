@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Abrindo arquivo para gravação
+arq2 = open("arquivo-dsc.txt", "w")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-6-b122ccf50775>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Abrindo arquivo para gravação[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0marq2[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m"arquivo-dsc.txt"[0m[0;34m,[0m [0;34m"w"[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'arquivo-dsc.txt'
+PermissionError: [Errno 13] Permission denied: 'arquivo-dsc.txt'
+
+Executability                            : False

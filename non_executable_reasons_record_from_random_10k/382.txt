@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+sns.pairplot(boston_df, vars=['CRIM','LSTAT','MEDV'])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-9c529d9d477c>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0msns[0m[0;34m.[0m[0mpairplot[0m[0;34m([0m[0mboston_df[0m[0;34m,[0m [0mvars[0m[0;34m=[0m[0;34m[[0m[0;34m'CRIM'[0m[0;34m,[0m[0;34m'LSTAT'[0m[0;34m,[0m[0;34m'MEDV'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'boston_df' is not defined
+NameError: name 'boston_df' is not defined
+
+Executability                            : False

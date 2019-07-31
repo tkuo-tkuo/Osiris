@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+bands = ['412','443','490','510','555','670']
+f,axs = pl.subplots(nrows=3,ncols=2,figsize=(10,12))
+for band,ax in zip(bands,axs.ravel()):
+    dfUncsStand.plot(kind='scatter',x='Matchup_Rrs_unc_'+band,y='Rrs_unc_'+band,
+                    ax=ax)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-8064231fd1f0>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mbands[0m [0;34m=[0m [0;34m[[0m[0;34m'412'[0m[0;34m,[0m[0;34m'443'[0m[0;34m,[0m[0;34m'490'[0m[0;34m,[0m[0;34m'510'[0m[0;34m,[0m[0;34m'555'[0m[0;34m,[0m[0;34m'670'[0m[0;34m][0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mf[0m[0;34m,[0m[0maxs[0m [0;34m=[0m [0mpl[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0mnrows[0m[0;34m=[0m[0;36m3[0m[0;34m,[0m[0mncols[0m[0;34m=[0m[0;36m2[0m[0;34m,[0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m10[0m[0;34m,[0m[0;36m12[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfor[0m [0mband[0m[0;34m,[0m[0max[0m [0;32min[0m [0mzip[0m[0;34m([0m[0mbands[0m[0;34m,[0m[0maxs[0m[0;34m.[0m[0mravel[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      4[0m     dfUncsStand.plot(kind='scatter',x='Matchup_Rrs_unc_'+band,y='Rrs_unc_'+band,
+[1;32m      5[0m                     ax=ax)
+
+[0;31mNameError[0m: name 'pl' is not defined
+NameError: name 'pl' is not defined
+
+Executability                            : False

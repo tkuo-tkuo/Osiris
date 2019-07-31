@@ -1,0 +1,64 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 11 ; number of cells: 13
+Reproducibility                          : matched ratio: 0.846 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+stats[stats.significance < 0.05].sort_values('diff',ascending=True).head(10)
+
+-----------------
+Original output:
+        portuguese_mean  english_mean      diff   significance
+assent         0.002881      0.002779  0.000102   8.559474e-18
+future         0.005890      0.005425  0.000465   8.880326e-17
+family         0.003254      0.004052  0.000798   1.107930e-76
+anx            0.004410      0.003039  0.001371  1.639316e-279
+death          0.002406      0.001021  0.001385   0.000000e+00
+home           0.005356      0.007147  0.001791  1.028044e-190
+filler         0.001459      0.003776  0.002318   0.000000e+00
+anger          0.007910      0.005589  0.002321   0.000000e+00
+we             0.004180      0.007415  0.003235   0.000000e+00
+i              0.031258      0.034960  0.003703   2.030210e-25
+Executed output:
+        portuguese_mean  english_mean      diff   significance
+assent         0.002881      0.002779  0.000101   1.495728e-15
+future         0.005890      0.005396  0.000493   2.088985e-19
+family         0.003254      0.004062  0.000808   3.495265e-72
+death          0.002406      0.001038  0.001368   0.000000e+00
+anx            0.004410      0.003008  0.001402  1.420889e-286
+home           0.005356      0.007234  0.001877  7.500917e-203
+filler         0.001459      0.003732  0.002273   0.000000e+00
+anger          0.007910      0.005631  0.002279   0.000000e+00
+we             0.004180      0.007461  0.003281   0.000000e+00
+i              0.031258      0.035258  0.004001   1.250304e-30
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+stats[stats.significance < 0.05].sort_values('diff',ascending=False).head(10)
+
+-----------------
+Original output:
+         portuguese_mean  english_mean      diff  significance
+cogmech         0.371560      0.150263  0.221297           0.0
+social          0.183999      0.070568  0.113431           0.0
+incl            0.135478      0.053676  0.081802           0.0
+ipron           0.116244      0.045323  0.070921           0.0
+tentat          0.091577      0.022600  0.068977           0.0
+relativ         0.210647      0.144416  0.066231           0.0
+pronoun         0.175190      0.114345  0.060846           0.0
+humans          0.066145      0.005807  0.060338           0.0
+you             0.064564      0.004524  0.060040           0.0
+ingest          0.064926      0.005943  0.058983           0.0
+Executed output:
+         portuguese_mean  english_mean      diff  significance
+cogmech         0.371560      0.149593  0.221967           0.0
+social          0.183999      0.070632  0.113367           0.0
+incl            0.135478      0.053726  0.081752           0.0
+ipron           0.116244      0.045349  0.070895           0.0
+tentat          0.091577      0.022339  0.069238           0.0
+relativ         0.210647      0.144698  0.065949           0.0
+pronoun         0.175190      0.114770  0.060420           0.0
+humans          0.066145      0.005847  0.060298           0.0
+you             0.064564      0.004481  0.060082           0.0
+ingest          0.064926      0.005834  0.059092           0.0

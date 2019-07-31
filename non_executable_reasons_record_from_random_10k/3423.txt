@@ -1,0 +1,45 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+clean_csv = data.fillna(0.0)
+#clean_csv
+clean_csv.replace(to_replace={'state':{0:'CA'}}, inplace = True) # Replacing 0 to CA since its only CA Data
+clean_csv.to_csv('RealState_Clean.csv', index= False) # Exporting clean data to new CSV
+new_data = pd.read_csv('RealState_clean.csv') # Importign CSV to new variable
+new_data.isnull().sum() # Checking if there any NULL Values
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-6-38cfa630b03b>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;31m#clean_csv[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mclean_csv[0m[0;34m.[0m[0mreplace[0m[0;34m([0m[0mto_replace[0m[0;34m=[0m[0;34m{[0m[0;34m'state'[0m[0;34m:[0m[0;34m{[0m[0;36m0[0m[0;34m:[0m[0;34m'CA'[0m[0;34m}[0m[0;34m}[0m[0;34m,[0m [0minplace[0m [0;34m=[0m [0;32mTrue[0m[0;34m)[0m [0;31m# Replacing 0 to CA since its only CA Data[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mclean_csv[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0;34m'RealState_Clean.csv'[0m[0;34m,[0m [0mindex[0m[0;34m=[0m [0;32mFalse[0m[0;34m)[0m [0;31m# Exporting clean data to new CSV[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mnew_data[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'RealState_clean.csv'[0m[0;34m)[0m [0;31m# Importign CSV to new variable[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mnew_data[0m[0;34m.[0m[0misnull[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m)[0m [0;31m# Checking if there any NULL Values[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36mto_csv[0;34m(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, tupleize_cols, date_format, doublequote, escapechar, decimal)[0m
+[1;32m   3018[0m                                  [0mdoublequote[0m[0;34m=[0m[0mdoublequote[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3019[0m                                  escapechar=escapechar, decimal=decimal)
+[0;32m-> 3020[0;31m         [0mformatter[0m[0;34m.[0m[0msave[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3021[0m [0;34m[0m[0m
+[1;32m   3022[0m         [0;32mif[0m [0mpath_or_buf[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/formats/csvs.py[0m in [0;36msave[0;34m(self)[0m
+[1;32m    155[0m             f, handles = _get_handle(self.path_or_buf, self.mode,
+[1;32m    156[0m                                      [0mencoding[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mencoding[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 157[0;31m                                      compression=self.compression)
+[0m[1;32m    158[0m             [0mclose[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    159[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/common.py[0m in [0;36m_get_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text)[0m
+[1;32m    422[0m         [0;32melif[0m [0mencoding[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    423[0m             [0;31m# Python 3 and encoding[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 424[0;31m             [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mpath_or_buf[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m,[0m [0mnewline[0m[0;34m=[0m[0;34m""[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    425[0m         [0;32melif[0m [0mis_text[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    426[0m             [0;31m# Python 3 and no explicit encoding[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'RealState_Clean.csv'
+PermissionError: [Errno 13] Permission denied: 'RealState_Clean.csv'
+
+Executability                            : False

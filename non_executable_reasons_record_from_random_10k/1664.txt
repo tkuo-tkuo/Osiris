@@ -1,0 +1,41 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import pymc3 as pm
+
+data_mu = [3e3, 12e3]
+
+data_std =  [5e2, 3e3] 
+
+mu_prior = 35e3
+std_prior =  75e2
+with pm.Model() as model:
+    true_price = pm.Normal("true_price", mu=mu_prior, sd=std_prior)
+    
+    prize_1 = pm.Normal("first_prize", mu=data_mu[0], sd=data_std[0])
+    prize_2 = pm.Normal("second_prize", mu=data_mu[1], sd=data_std[1])
+    price_estimate = prize_1 + prize_2
+    
+    logp = pm.Normal.dist(mu=price_estimate, sd=(3e3)).logp(true_price)
+    error = pm.Potential("error", logp)
+    
+
+    trace = pm.sample(50000, step=pm.Metropolis())
+    burned_trace = trace[10000:]
+
+price_trace = burned_trace["true_price"]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-a3d8e7b5655e>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mpymc3[0m [0;32mas[0m [0mpm[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mdata_mu[0m [0;34m=[0m [0;34m[[0m[0;36m3e3[0m[0;34m,[0m [0;36m12e3[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mdata_std[0m [0;34m=[0m  [0;34m[[0m[0;36m5e2[0m[0;34m,[0m [0;36m3e3[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pymc3'
+ImportError: No module named 'pymc3'
+
+Executability                            : False

@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+clusters = hierarchy.fcluster(Z_20ng, 3, criterion='maxclust')
+print(clusters.shape)
+clusters
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-9-38df45814bc7>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mclusters[0m [0;34m=[0m [0mhierarchy[0m[0;34m.[0m[0mfcluster[0m[0;34m([0m[0mZ_20ng[0m[0;34m,[0m [0;36m3[0m[0;34m,[0m [0mcriterion[0m[0;34m=[0m[0;34m'maxclust'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0mclusters[0m[0;34m.[0m[0mshape[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mclusters[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'Z_20ng' is not defined
+NameError: name 'Z_20ng' is not defined
+
+Executability                            : False

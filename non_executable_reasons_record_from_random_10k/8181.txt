@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+theta = trainLinReg(X_poly, y)
+print(X_poly.shape)
+print(theta.shape)
+
+#theta = np.array([11.2176,11.2813,14.7554,11.4739,-12.4539,-15.3507,7.6451,3.9019,-4.9419]) # octave fmincg
+
+plt.scatter(X, y, marker='x', color='r')
+x_lin = np.linspace(np.min(X) - 10, np.max(X) + 10, 100).reshape(-1,1)
+x_lin_poly = poly.fit_transform(x_lin)
+x_lin_poly = scaler.transform(subOnes(x_lin_poly))
+
+print(x_lin_poly.shape)
+
+plt.plot(x_lin, addOnes(x_lin_poly) @ theta.reshape(-1,1))
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-4da2aba4f030>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0mx_lin[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlinspace[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mmin[0m[0;34m([0m[0mX[0m[0;34m)[0m [0;34m-[0m [0;36m10[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mmax[0m[0;34m([0m[0mX[0m[0;34m)[0m [0;34m+[0m [0;36m10[0m[0;34m,[0m [0;36m100[0m[0;34m)[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0mx_lin_poly[0m [0;34m=[0m [0mpoly[0m[0;34m.[0m[0mfit_transform[0m[0;34m([0m[0mx_lin[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0mx_lin_poly[0m [0;34m=[0m [0mscaler[0m[0;34m.[0m[0mtransform[0m[0;34m([0m[0msubOnes[0m[0;34m([0m[0mx_lin_poly[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0mprint[0m[0;34m([0m[0mx_lin_poly[0m[0;34m.[0m[0mshape[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'scaler' is not defined
+NameError: name 'scaler' is not defined
+
+Executability                            : False

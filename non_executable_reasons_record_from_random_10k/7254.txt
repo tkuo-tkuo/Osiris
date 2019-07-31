@@ -1,0 +1,38 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import collections
+import pandas as pd
+import numpy as np
+
+import pylab
+import calendar
+import seaborn as sn
+from scipy import stats
+import missingno as msno
+from datetime import datetime
+import matplotlib
+import matplotlib.pyplot as plt
+from scipy.stats import kendalltau
+import warnings
+matplotlib.style.use('ggplot')
+pd.options.mode.chained_assignment = None
+warnings.filterwarnings("ignore")
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-8580fd7d229c>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msn[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0mstats[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0;32mimport[0m [0mmissingno[0m [0;32mas[0m [0mmsno[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;32mfrom[0m [0mdatetime[0m [0;32mimport[0m [0mdatetime[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'missingno'
+ModuleNotFoundError: No module named 'missingno'
+
+Executability                            : False

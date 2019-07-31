@@ -1,0 +1,52 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+fig = plt.figure(figsize=(7, 7))
+ax = fig.gca(projection="3d")
+ax.set_aspect("equal")
+
+X_inside = np.array([[0, 0, 0], [0.2, 0.2, 0.2], [0.1, -0.1, -0.3]])
+
+X_outside = np.array([[-1.2,0.3,-0.3],[0.8,-0.82,-0.9],[1, 0.6, -0.7],
+                      [0.8,0.7,0.2],[0.7,-0.8,-0.45],[-0.3, 0.6, 0.9],
+                      [0.7,-0.6,-0.8]])
+
+for row in X_inside:
+    ax.scatter(row[0], row[1], row[2], color="r", s=50, marker='^')
+
+for row in X_outside:    
+    ax.scatter(row[0], row[1], row[2], color="k", s=50)
+
+# Plot Cube
+h = [-0.5, 0.5]
+for s, e in combinations(np.array(list(product(h,h,h))), 2):
+    if np.sum(np.abs(s-e)) == h[1]-h[0]:
+        ax.plot3D(*zip(s,e), color="g")
+        
+ax.set_xlim(-1.5, 1.5)
+ax.set_ylim(-1.5, 1.5)
+ax.set_zlim(-1.5, 1.5)
+
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNotImplementedError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-22-0cad063f3105>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mfig[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m7[0m[0;34m,[0m [0;36m7[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0max[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0mgca[0m[0;34m([0m[0mprojection[0m[0;34m=[0m[0;34m"3d"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0max[0m[0;34m.[0m[0mset_aspect[0m[0;34m([0m[0;34m"equal"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mX_inside[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0;36m0[0m[0;34m][0m[0;34m,[0m [0;34m[[0m[0;36m0.2[0m[0;34m,[0m [0;36m0.2[0m[0;34m,[0m [0;36m0.2[0m[0;34m][0m[0;34m,[0m [0;34m[[0m[0;36m0.1[0m[0;34m,[0m [0;34m-[0m[0;36m0.1[0m[0;34m,[0m [0;34m-[0m[0;36m0.3[0m[0;34m][0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_base.py[0m in [0;36mset_aspect[0;34m(self, aspect, adjustable, anchor, share)[0m
+[1;32m   1279[0m         [0;32mif[0m [0;34m([0m[0;32mnot[0m [0mcbook[0m[0;34m.[0m[0m_str_equal[0m[0;34m([0m[0maspect[0m[0;34m,[0m [0;34m'auto'[0m[0;34m)[0m[0;34m)[0m [0;32mand[0m [0mself[0m[0;34m.[0m[0mname[0m [0;34m==[0m [0;34m'3d'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1280[0m             raise NotImplementedError(
+[0;32m-> 1281[0;31m                 [0;34m'It is not currently possible to manually set the aspect '[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1282[0m                 'on 3D axes')
+[1;32m   1283[0m [0;34m[0m[0m
+
+[0;31mNotImplementedError[0m: It is not currently possible to manually set the aspect on 3D axes
+NotImplementedError: It is not currently possible to manually set the aspect on 3D axes
+
+Executability                            : False

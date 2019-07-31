@@ -1,0 +1,40 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 8
+Reproducibility                          : matched ratio: 0.625 ; index of matched cells: [0, 1, 2, 4, 5]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+add(3,4)
+
+-----------------
+Original output:
+Total time elapsed :  1.9073486328125e-06
+7
+Executed output:
+Total time elapsed :  1.1920928955078125e-06
+7
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+add(10, 23)
+
+-----------------
+Original output:
+Total time elapsed :  2.86102294921875e-06
+33
+Executed output:
+Total time elapsed :  2.384185791015625e-06
+33
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+subtract(10, 23)
+
+-----------------
+Original output:
+Total time elapsed :  5.0067901611328125e-06
+-13
+Executed output:
+Total time elapsed :  2.384185791015625e-06
+-13

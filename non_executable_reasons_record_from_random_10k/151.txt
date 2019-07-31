@@ -1,0 +1,20 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 9 ; number of cells: 10
+Reproducibility                          : matched ratio: 0.9 ; index of matched cells: [0, 1, 2, 3, 5, 6, 7, 8, 9]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+pd.Series(arr,labels)
+
+-----------------
+Original output:
+A    10
+B    20
+C    30
+dtype: int32
+Executed output:
+A    10
+B    20
+C    30
+dtype: int64

@@ -1,0 +1,44 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import random
+
+def calc_bmi(h, w):
+    bmi = w / (h/100) ** 2
+    if bmi < 18.5: return "thin"
+    if bmi < 25: return "normal"
+    return "fat"
+
+
+fp = open('bmi.csv', 'w', encoding='utf-8')
+fp.write('height,weight,label\r\n')
+
+cnt = {"thin":0, "normal":0, "fat":0}
+
+for i in range(20000):
+    h = random.randint(120,200)
+    w = random.randint(35,80)
+    label = calc_bmi(h, w)
+    cnt[label] += 1
+    fp.write('{0},{1},{2}\r\n'.format(h,w,label))
+fp.close()
+print('ok',cnt)
+
+    
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-bd183c1eb8d7>[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[0;32m---> 12[0;31m [0mfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'bmi.csv'[0m[0;34m,[0m [0;34m'w'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'utf-8'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0mfp[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m'height,weight,label\r\n'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m [0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'bmi.csv'
+PermissionError: [Errno 13] Permission denied: 'bmi.csv'
+
+Executability                            : False

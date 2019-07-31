@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+df_pollution.dt = pd.to_datetime(df_pollution.dt)
+df_pollution.index = pd.DatetimeIndex(df_pollution.dt)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-7-8b68a77a61d9>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdf_pollution[0m[0;34m.[0m[0mdt[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mto_datetime[0m[0;34m([0m[0mdf_pollution[0m[0;34m.[0m[0mdt[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mdf_pollution[0m[0;34m.[0m[0mindex[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDatetimeIndex[0m[0;34m([0m[0mdf_pollution[0m[0;34m.[0m[0mdt[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/tools/datetimes.py[0m in [0;36mto_datetime[0;34m(arg, errors, dayfirst, yearfirst, utc, box, format, exact, unit, infer_datetime_format, origin, cache)[0m
+[1;32m    452[0m             [0mresult[0m [0;34m=[0m [0mSeries[0m[0;34m([0m[0mvalues[0m[0;34m,[0m [0mindex[0m[0;34m=[0m[0marg[0m[0;34m.[0m[0mindex[0m[0;34m,[0m [0mname[0m[0;34m=[0m[0marg[0m[0;34m.[0m[0mname[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    453[0m     [0;32melif[0m [0misinstance[0m[0;34m([0m[0marg[0m[0;34m,[0m [0;34m([0m[0mABCDataFrame[0m[0;34m,[0m [0mMutableMapping[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 454[0;31m         [0mresult[0m [0;34m=[0m [0m_assemble_from_unit_mappings[0m[0;34m([0m[0marg[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    455[0m     [0;32melif[0m [0misinstance[0m[0;34m([0m[0marg[0m[0;34m,[0m [0mABCIndexClass[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    456[0m         [0mcache_array[0m [0;34m=[0m [0m_maybe_cache[0m[0;34m([0m[0marg[0m[0;34m,[0m [0mformat[0m[0;34m,[0m [0mcache[0m[0;34m,[0m [0mtz[0m[0;34m,[0m [0m_convert_listlike[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/tools/datetimes.py[0m in [0;36m_assemble_from_unit_mappings[0;34m(arg, errors)[0m
+[1;32m    531[0m         [0;32mreturn[0m [0mvalue[0m[0;34m[0m[0m
+[1;32m    532[0m [0;34m[0m[0m
+[0;32m--> 533[0;31m     [0munit[0m [0;34m=[0m [0;34m{[0m[0mk[0m[0;34m:[0m [0mf[0m[0;34m([0m[0mk[0m[0;34m)[0m [0;32mfor[0m [0mk[0m [0;32min[0m [0marg[0m[0;34m.[0m[0mkeys[0m[0;34m([0m[0;34m)[0m[0;34m}[0m[0;34m[0m[0m
+[0m[1;32m    534[0m     [0munit_rev[0m [0;34m=[0m [0;34m{[0m[0mv[0m[0;34m:[0m [0mk[0m [0;32mfor[0m [0mk[0m[0;34m,[0m [0mv[0m [0;32min[0m [0munit[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m    535[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/tools/datetimes.py[0m in [0;36m<dictcomp>[0;34m(.0)[0m
+[1;32m    531[0m         [0;32mreturn[0m [0mvalue[0m[0;34m[0m[0m
+[1;32m    532[0m [0;34m[0m[0m
+[0;32m--> 533[0;31m     [0munit[0m [0;34m=[0m [0;34m{[0m[0mk[0m[0;34m:[0m [0mf[0m[0;34m([0m[0mk[0m[0;34m)[0m [0;32mfor[0m [0mk[0m [0;32min[0m [0marg[0m[0;34m.[0m[0mkeys[0m[0;34m([0m[0;34m)[0m[0;34m}[0m[0;34m[0m[0m
+[0m[1;32m    534[0m     [0munit_rev[0m [0;34m=[0m [0;34m{[0m[0mv[0m[0;34m:[0m [0mk[0m [0;32mfor[0m [0mk[0m[0;34m,[0m [0mv[0m [0;32min[0m [0munit[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m    535[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/tools/datetimes.py[0m in [0;36mf[0;34m(value)[0m
+[1;32m    526[0m [0;34m[0m[0m
+[1;32m    527[0m         [0;31m# m is case significant[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 528[0;31m         [0;32mif[0m [0mvalue[0m[0;34m.[0m[0mlower[0m[0;34m([0m[0;34m)[0m [0;32min[0m [0m_unit_map[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m    529[0m             [0;32mreturn[0m [0m_unit_map[0m[0;34m[[0m[0mvalue[0m[0;34m.[0m[0mlower[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[1;32m    530[0m [0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'tuple' object has no attribute 'lower'
+AttributeError: 'tuple' object has no attribute 'lower'
+
+Executability                            : False

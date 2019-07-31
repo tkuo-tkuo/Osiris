@@ -1,0 +1,79 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+HIV = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='HIV-AIDS & tuberculosis',header=1)
+Diarrhea = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Diarrhea, lower respiratory',header=1)
+Tropical = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Neglected tropical diseases',header=1)
+Maternal = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Maternal disorders',header=1)
+Nutritional= pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Nutritional deficiencies',header=1)
+Other_Comm= pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Other communicable, maternal, ',header=1)
+Neoplasm = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Neoplasms',header=1)
+Cardio = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Cardiovascular diseases',header=1)
+Chronic = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Chronic respiratory diseases',header=1)
+Cirhossis = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Cirrhosis & other chronic ',header=1)
+Digestive_Diseases = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Digestive diseases',header=1)
+Mental = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Mental & substance use ',header=1)
+Diabetes = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Diabetes, urogenital, blood',header=1)
+Musculoskeletal = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Musculoskeletal disorders',header=1)
+NonCommunicable = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Other non-communicable ',header=1)
+Transport_Injuries = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Transport injuries',header=1)
+Unintentional_Injuries = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Unintentional injuries',header=1)
+Self_harm= pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Self-harm & interpersonal ',header=1)
+Natural_Forces = pd.read_excel('IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX',sheetname='Forces of nature, war, & legal ',header=1)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-ca0dbd2e6873>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mHIV[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m'IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX'[0m[0;34m,[0m[0msheetname[0m[0;34m=[0m[0;34m'HIV-AIDS & tuberculosis'[0m[0;34m,[0m[0mheader[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mDiarrhea[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m'IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX'[0m[0;34m,[0m[0msheetname[0m[0;34m=[0m[0;34m'Diarrhea, lower respiratory'[0m[0;34m,[0m[0mheader[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mTropical[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m'IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX'[0m[0;34m,[0m[0msheetname[0m[0;34m=[0m[0;34m'Neglected tropical diseases'[0m[0;34m,[0m[0mheader[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mMaternal[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m'IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX'[0m[0;34m,[0m[0msheetname[0m[0;34m=[0m[0;34m'Maternal disorders'[0m[0;34m,[0m[0mheader[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mNutritional[0m[0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m'IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX'[0m[0;34m,[0m[0msheetname[0m[0;34m=[0m[0;34m'Nutritional deficiencies'[0m[0;34m,[0m[0mheader[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, parse_cols, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, verbose, parse_dates, date_parser, thousands, comment, skip_footer, skipfooter, convert_float, mangle_dupe_cols, **kwds)[0m
+[1;32m    348[0m [0;34m[0m[0m
+[1;32m    349[0m     [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mExcelFile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 350[0;31m         [0mio[0m [0;34m=[0m [0mExcelFile[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    351[0m [0;34m[0m[0m
+[1;32m    352[0m     return io.parse(
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, io, engine)[0m
+[1;32m    651[0m         [0mself[0m[0;34m.[0m[0m_io[0m [0;34m=[0m [0m_stringify_path[0m[0;34m([0m[0mio[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    652[0m [0;34m[0m[0m
+[0;32m--> 653[0;31m         [0mself[0m[0;34m.[0m[0m_reader[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_engines[0m[0;34m[[0m[0mengine[0m[0;34m][0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_io[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    654[0m [0;34m[0m[0m
+[1;32m    655[0m     [0;32mdef[0m [0m__fspath__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, filepath_or_buffer)[0m
+[1;32m    422[0m             [0mself[0m[0;34m.[0m[0mbook[0m [0;34m=[0m [0mxlrd[0m[0;34m.[0m[0mopen_workbook[0m[0;34m([0m[0mfile_contents[0m[0;34m=[0m[0mdata[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    423[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m,[0m [0mcompat[0m[0;34m.[0m[0mstring_types[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 424[0;31m             [0mself[0m[0;34m.[0m[0mbook[0m [0;34m=[0m [0mxlrd[0m[0;34m.[0m[0mopen_workbook[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    425[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    426[0m             raise ValueError('Must explicitly set engine if not passing in'
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/xlrd/__init__.py[0m in [0;36mopen_workbook[0;34m(filename, logfile, verbosity, use_mmap, file_contents, encoding_override, formatting_info, on_demand, ragged_rows)[0m
+[1;32m    109[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    110[0m         [0mfilename[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexpanduser[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 111[0;31m         [0;32mwith[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"rb"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    112[0m             [0mpeek[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0mpeeksz[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    113[0m     [0;32mif[0m [0mpeek[0m [0;34m==[0m [0;34mb"PK\x03\x04"[0m[0;34m:[0m [0;31m# a ZIP file[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX'
+FileNotFoundError: [Errno 2] No such file or directory: 'IHME_USA_COUNTY_MORTALITY_RATES_1980_2014_NATIONAL_Y2016M12D13.XLSX'
+
+Executability                            : False

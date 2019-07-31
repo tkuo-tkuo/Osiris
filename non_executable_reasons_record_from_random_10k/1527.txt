@@ -1,0 +1,25 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 34 ; number of cells: 36
+Reproducibility                          : matched ratio: 0.944 ; index of matched cells: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+# Your answer is probably different
+(20000 - (10 ** 2) / 12 * 34) - 19627.75
+
+-----------------
+Original output:
+100.25
+Executed output:
+88.91666666666788
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+2/3
+
+-----------------
+Original output:
+0
+Executed output:
+0.6666666666666666

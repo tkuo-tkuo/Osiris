@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+corr_starwars.sort_values('Correlation',ascending=False).head(10)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-16-d89f1f023bce>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mcorr_starwars[0m[0;34m.[0m[0msort_values[0m[0;34m([0m[0;34m'Correlation'[0m[0;34m,[0m[0mascending[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;36m10[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'corr_starwars' is not defined
+NameError: name 'corr_starwars' is not defined
+
+Executability                            : False

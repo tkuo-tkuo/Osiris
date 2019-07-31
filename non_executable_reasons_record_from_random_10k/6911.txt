@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+mean = 20
+sd = 15
+
+# z = (x-mean) / sd
+# x = z*sd + mean
+z1 = -2.575 # p = .5%
+x1 = cal_x(z1, mean, sd)
+print(x1)
+
+z2 = 2.575 # p = 99.5%
+x2 = cal_x(z2, mean, sd)
+print(x2)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-91bff9248009>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;31m# x = z*sd + mean[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mz1[0m [0;34m=[0m [0;34m-[0m[0;36m2.575[0m [0;31m# p = .5%[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0mx1[0m [0;34m=[0m [0mcal_x[0m[0;34m([0m[0mz1[0m[0;34m,[0m [0mmean[0m[0;34m,[0m [0msd[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mprint[0m[0;34m([0m[0mx1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'cal_x' is not defined
+NameError: name 'cal_x' is not defined
+
+Executability                            : False

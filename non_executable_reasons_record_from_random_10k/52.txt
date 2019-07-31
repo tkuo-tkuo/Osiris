@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import csv
+import nltk
+import re
+from nltk.tokenize import StanfordTokenizer
+from nltk.tag import StanfordNERTagger
+from nltk.tag import StanfordPOSTagger
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-68bf58d4d419>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mnltk[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mre[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtokenize[0m [0;32mimport[0m [0mStanfordTokenizer[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtag[0m [0;32mimport[0m [0mStanfordNERTagger[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtag[0m [0;32mimport[0m [0mStanfordPOSTagger[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: cannot import name 'StanfordTokenizer'
+ImportError: cannot import name 'StanfordTokenizer'
+
+Executability                            : False

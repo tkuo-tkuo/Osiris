@@ -1,0 +1,145 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 18
+Reproducibility                          : matched ratio: 0.278 ; index of matched cells: [0, 1, 12, 13, 14]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+interact(func,x="Hello")
+
+-----------------
+Original output:
+A Jupyter Widget<function __main__.func>
+Executed output:
+'Hello'<function __main__.func(x)>
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+interact(func,x=True)
+
+-----------------
+Original output:
+A Jupyter Widget<function __main__.func>
+Executed output:
+True<function __main__.func(x)>
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+interact(func,x=10)
+
+-----------------
+Original output:
+A Jupyter Widget<function __main__.func>
+Executed output:
+10<function __main__.func(x)>
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+@interact(x=True,y=fixed(1.0))
+def g(x,y):
+    return (x,y)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+(True, 1.0)
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+@interact(x=True,y=1.0)
+def g(x,y):
+    return (x,y)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+(True, 1.0)
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+#Custom settings
+interact(func,x=widgets.IntSlider(min=-100,max=100,step=10,value=0))
+
+-----------------
+Original output:
+A Jupyter Widget<function __main__.func>
+Executed output:
+0<function __main__.func(x)>
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+interact(func,x=(-10.0,10.0,.1))
+
+-----------------
+Original output:
+A Jupyter Widget<function __main__.func>
+Executed output:
+0.0<function __main__.func(x)>
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+@interact(x=(0.0,20.0,0.5))
+def h(x=5.0):
+    return x
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+5.0
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+interact(func,x=["Option 1",'Option 2','Option 3'])
+
+-----------------
+Original output:
+A Jupyter Widget<function __main__.func>
+Executed output:
+'Option 1'<function __main__.func(x)>
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+interact(func,x={'One':10,'Two':20,'Three':30})
+
+-----------------
+Original output:
+A Jupyter Widget<function __main__.func>
+Executed output:
+10<function __main__.func(x)>
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+w
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+30
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+w.children
+
+-----------------
+Original output:
+(IntSlider(value=27, description='a', max=30, min=-10),
+ IntSlider(value=4, description='b', max=60, min=-20),
+ Output(outputs=({'output_type': 'display_data', 'data': {'text/plain': '31'}, 'metadata': {}},)))
+Executed output:
+(IntSlider(value=10, description='a', max=30, min=-10),
+ IntSlider(value=20, description='b', max=60, min=-20),
+ Output())
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+display(w)
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+30

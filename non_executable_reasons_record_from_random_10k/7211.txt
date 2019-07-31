@@ -1,0 +1,55 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+# Test the NN
+# load the mnist test data CSV file into a list
+test_data_file = open("data/mnist_test_10.csv", 'r')
+test_data_list = test_data_file.readlines()
+test_data_file.close()
+
+# scorecard for how well the network performs, initially empty
+scorecard = []
+
+# go through all the records in the test data set
+for record in test_data_list:
+    # split the record by the ',' commas
+    all_values = record.split(',')
+    # correct answer is first value
+    correct_label = int(all_values[0])
+    # scale and shift the inputs
+    inputs = (numpy.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
+    # query the network
+    outputs = n.query(inputs)
+    # the index of the highest value corresponds to the label
+    label = numpy.argmax(outputs)
+    # append correct or incorrect to list
+    if (label == correct_label):
+        # network's answer matches correct answer, add 1 to scorecard
+        scorecard.append(1)
+    else:
+        # network's answer doesn't match correct answer, add 0 to scorecard
+        scorecard.append(0)
+        pass
+    
+    pass
+
+# calculate the performance score
+scorecard_array = numpy.asarray(scorecard)
+print("performace = ", scorecard_array.sum()/scorecard_array.size)
+
+
+# draw the number
+#image_array = numpy.asfarray(all_values[1:]).reshape((28,28))
+#matplotlib.pyplot.imshow(image_array, cmap='Greys', interpolation='None')
+
+-----------------
+Original output:
+performace =  0.6
+
+Executed output:
+performace =  0.7
+

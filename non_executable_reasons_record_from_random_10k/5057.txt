@@ -1,0 +1,1376 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 13 ; number of cells: 34
+Reproducibility                          : matched ratio: 0.382 ; index of matched cells: [1, 7, 8, 9, 11, 12, 15, 21, 27, 29, 30, 31, 32]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import pandas as pd
+import numpy as np
+
+idnumber  = {
+            'Carlos Goes': '06/99209',
+            "Nicolas Powidayko": '10/22290',
+            "Alexander Rabbat": '08/21346',
+            "Dani Alaino": '07/20345',
+            "Lya Nikate": '09/23567',
+            "Niz Borroz": '11/22035',
+            "Tom Rundal": "98/20145"
+            }
+
+# Transform it into a Pandas Series
+
+idnumber = pd.Series(idnumber)
+idnumber
+
+-----------------
+Original output:
+Alexander Rabbat     08/21346
+Carlos Goes          06/99209
+Dani Alaino          07/20345
+Lya Nikate           09/23567
+Nicolas Powidayko    10/22290
+Niz Borroz           11/22035
+Tom Rundal           98/20145
+dtype: object
+Executed output:
+Carlos Goes          06/99209
+Nicolas Powidayko    10/22290
+Alexander Rabbat     08/21346
+Dani Alaino          07/20345
+Lya Nikate           09/23567
+Niz Borroz           11/22035
+Tom Rundal           98/20145
+dtype: object
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+idnumber.iloc[1]
+
+-----------------
+Original output:
+'06/99209'
+Executed output:
+'10/22290'
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+major = pd.Series({
+        'Carlos Goes': 'Economics',
+        "Nicolas Powidayko": 'Economics',
+        "Alexander Rabbat": 'International Affairs',
+        "Dani Alaino": 'International Affairs',
+        "Lya Nikate": 'International Affairs',
+        "Niz Borroz": 'International Affairs',
+        "Tom Rundal": "Economics"
+        })
+
+major
+
+-----------------
+Original output:
+Alexander Rabbat     International Affairs
+Carlos Goes                      Economics
+Dani Alaino          International Affairs
+Lya Nikate           International Affairs
+Nicolas Powidayko                Economics
+Niz Borroz           International Affairs
+Tom Rundal                       Economics
+dtype: object
+Executed output:
+Carlos Goes                      Economics
+Nicolas Powidayko                Economics
+Alexander Rabbat     International Affairs
+Dani Alaino          International Affairs
+Lya Nikate           International Affairs
+Niz Borroz           International Affairs
+Tom Rundal                       Economics
+dtype: object
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+gpa = pd.Series({
+        'Carlos Goes': 4.0,
+        "Nicolas Powidayko": 3.8,
+        "Alexander Rabbat": 2.8,
+        "Dani Alaino": 3.4,
+        "Lya Nikate": 3.3,
+        "Niz Borroz": 2.0,
+        "Tom Rundal": 3.0
+        })
+
+gpa
+
+-----------------
+Original output:
+Alexander Rabbat     2.8
+Carlos Goes          4.0
+Dani Alaino          3.4
+Lya Nikate           3.3
+Nicolas Powidayko    3.8
+Niz Borroz           2.0
+Tom Rundal           3.0
+dtype: float64
+Executed output:
+Carlos Goes          4.0
+Nicolas Powidayko    3.8
+Alexander Rabbat     2.8
+Dani Alaino          3.4
+Lya Nikate           3.3
+Niz Borroz           2.0
+Tom Rundal           3.0
+dtype: float64
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+data = [idnumber, major, gpa]
+
+df = pd.DataFrame(data, index=['idnumber','major', 'gpa'])
+df
+
+-----------------
+Original output:
+               Alexander Rabbat Carlos Goes            Dani Alaino  \
+idnumber               08/21346    06/99209               07/20345   
+major     International Affairs   Economics  International Affairs   
+gpa                         2.8           4                    3.4   
+
+                     Lya Nikate Nicolas Powidayko             Niz Borroz  \
+idnumber               09/23567          10/22290               11/22035   
+major     International Affairs         Economics  International Affairs   
+gpa                         3.3               3.8                      2   
+
+         Tom Rundal  
+idnumber   98/20145  
+major     Economics  
+gpa               3  
+Executed output:
+         Carlos Goes Nicolas Powidayko       Alexander Rabbat  \
+idnumber    06/99209          10/22290               08/21346   
+major      Economics         Economics  International Affairs   
+gpa                4               3.8                    2.8   
+
+                    Dani Alaino             Lya Nikate             Niz Borroz  \
+idnumber               07/20345               09/23567               11/22035   
+major     International Affairs  International Affairs  International Affairs   
+gpa                         3.4                    3.3                      2   
+
+         Tom Rundal  
+idnumber   98/20145  
+major     Economics  
+gpa               3  
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+df = df.T
+df
+
+-----------------
+Original output:
+                   idnumber                  major  gpa
+Alexander Rabbat   08/21346  International Affairs  2.8
+Carlos Goes        06/99209              Economics    4
+Dani Alaino        07/20345  International Affairs  3.4
+Lya Nikate         09/23567  International Affairs  3.3
+Nicolas Powidayko  10/22290              Economics  3.8
+Niz Borroz         11/22035  International Affairs    2
+Tom Rundal         98/20145              Economics    3
+Executed output:
+                   idnumber                  major  gpa
+Carlos Goes        06/99209              Economics    4
+Nicolas Powidayko  10/22290              Economics  3.8
+Alexander Rabbat   08/21346  International Affairs  2.8
+Dani Alaino        07/20345  International Affairs  3.4
+Lya Nikate         09/23567  International Affairs  3.3
+Niz Borroz         11/22035  International Affairs    2
+Tom Rundal         98/20145              Economics    3
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+# Boolean masking
+
+(df['major'] == 'Economics')
+
+-----------------
+Original output:
+Alexander Rabbat     False
+Carlos Goes           True
+Dani Alaino          False
+Lya Nikate           False
+Nicolas Powidayko     True
+Niz Borroz           False
+Tom Rundal            True
+Name: major, dtype: bool
+Executed output:
+Carlos Goes           True
+Nicolas Powidayko     True
+Alexander Rabbat     False
+Dani Alaino          False
+Lya Nikate           False
+Niz Borroz           False
+Tom Rundal            True
+Name: major, dtype: bool
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+df['gpa'] *= 2
+df
+
+-----------------
+Original output:
+                   idnumber                  major  gpa
+Alexander Rabbat   08/21346  International Affairs  5.6
+Carlos Goes        06/99209              Economics    8
+Dani Alaino        07/20345  International Affairs  6.8
+Lya Nikate         09/23567  International Affairs  6.6
+Nicolas Powidayko  10/22290              Economics  7.6
+Niz Borroz         11/22035  International Affairs    4
+Tom Rundal         98/20145              Economics    6
+Executed output:
+                   idnumber                  major  gpa
+Carlos Goes        06/99209              Economics    8
+Nicolas Powidayko  10/22290              Economics  7.6
+Alexander Rabbat   08/21346  International Affairs  5.6
+Dani Alaino        07/20345  International Affairs  6.8
+Lya Nikate         09/23567  International Affairs  6.6
+Niz Borroz         11/22035  International Affairs    4
+Tom Rundal         98/20145              Economics    6
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+df['gpa'] /= 2
+df
+
+-----------------
+Original output:
+                   idnumber                  major  gpa
+Alexander Rabbat   08/21346  International Affairs  2.8
+Carlos Goes        06/99209              Economics    4
+Dani Alaino        07/20345  International Affairs  3.4
+Lya Nikate         09/23567  International Affairs  3.3
+Nicolas Powidayko  10/22290              Economics  3.8
+Niz Borroz         11/22035  International Affairs    2
+Tom Rundal         98/20145              Economics    3
+Executed output:
+                   idnumber                  major  gpa
+Carlos Goes        06/99209              Economics    4
+Nicolas Powidayko  10/22290              Economics  3.8
+Alexander Rabbat   08/21346  International Affairs  2.8
+Dani Alaino        07/20345  International Affairs  3.4
+Lya Nikate         09/23567  International Affairs  3.3
+Niz Borroz         11/22035  International Affairs    2
+Tom Rundal         98/20145              Economics    3
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+np.mean(df['gpa'])
+
+-----------------
+Original output:
+3.1857142857142859
+Executed output:
+3.185714285714286
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+df = df.drop('Carlos Goes')
+df
+
+-----------------
+Original output:
+                   idnumber                  major  gpa
+Alexander Rabbat   08/21346  International Affairs  2.8
+Dani Alaino        07/20345  International Affairs  3.4
+Lya Nikate         09/23567  International Affairs  3.3
+Nicolas Powidayko  10/22290              Economics  3.8
+Niz Borroz         11/22035  International Affairs    2
+Tom Rundal         98/20145              Economics    3
+Executed output:
+                   idnumber                  major  gpa
+Nicolas Powidayko  10/22290              Economics  3.8
+Alexander Rabbat   08/21346  International Affairs  2.8
+Dani Alaino        07/20345  International Affairs  3.4
+Lya Nikate         09/23567  International Affairs  3.3
+Niz Borroz         11/22035  International Affairs    2
+Tom Rundal         98/20145              Economics    3
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+df = df.append(
+        pd.Series(
+                data = { 'major': 'Economics',
+                        'idnumber': '06/99209',
+                        'gpa': 4.0  },
+                name=('Carlos Goes')
+                )
+            )
+
+df
+
+-----------------
+Original output:
+                   idnumber                  major  gpa
+Alexander Rabbat   08/21346  International Affairs  2.8
+Dani Alaino        07/20345  International Affairs  3.4
+Lya Nikate         09/23567  International Affairs  3.3
+Nicolas Powidayko  10/22290              Economics  3.8
+Niz Borroz         11/22035  International Affairs    2
+Tom Rundal         98/20145              Economics    3
+Carlos Goes        06/99209              Economics    4
+Executed output:
+                   idnumber                  major  gpa
+Nicolas Powidayko  10/22290              Economics  3.8
+Alexander Rabbat   08/21346  International Affairs  2.8
+Dani Alaino        07/20345  International Affairs  3.4
+Lya Nikate         09/23567  International Affairs  3.3
+Niz Borroz         11/22035  International Affairs    2
+Tom Rundal         98/20145              Economics    3
+Carlos Goes        06/99209              Economics    4
+-------------------------------------------
+Source Code of a Unmatched Cell 19
+-------------------------------------------
+names = ['Carlos Goes', 
+        "Nicolas Powidayko",
+        "Nick Borroz",
+        "Michel Tomer",
+        "Dilm Rusef"]
+
+extracurricular = pd.DataFrame([
+        {'Model UN': True, 'Teaching Assistant': True, "Dean's List": True},
+        {'Model UN': False, 'Teaching Assistant': False, "Dean's List": True},
+        {'Model UN': True, 'Teaching Assistant': True, "Dean's List": False},
+        {'Model UN': True, 'Teaching Assistant': True, "Dean's List": True},
+        {'Model UN': True, 'Teaching Assistant': True, "Dean's List": True},
+        ], index=names)
+
+extracurricular
+
+-----------------
+Original output:
+                  Dean's List Model UN Teaching Assistant
+Carlos Goes              True     True               True
+Nicolas Powidayko        True    False              False
+Nick Borroz             False     True               True
+Michel Tomer             True     True               True
+Dilm Rusef               True     True               True
+Executed output:
+                   Dean's List  Model UN  Teaching Assistant
+Carlos Goes               True      True                True
+Nicolas Powidayko         True     False               False
+Nick Borroz              False      True                True
+Michel Tomer              True      True                True
+Dilm Rusef                True      True                True
+-------------------------------------------
+Source Code of a Unmatched Cell 20
+-------------------------------------------
+inner = pd.merge(df, extracurricular,
+                  left_index=True, right_index=True, how='inner')
+inner
+
+-----------------
+Original output:
+                   idnumber      major  gpa Dean's List Model UN  \
+Carlos Goes        06/99209  Economics    4        True     True   
+Nicolas Powidayko  10/22290  Economics  3.8        True    False   
+
+                  Teaching Assistant  
+Carlos Goes                     True  
+Nicolas Powidayko              False  
+Executed output:
+                   idnumber      major  gpa  Dean's List  Model UN  \
+Nicolas Powidayko  10/22290  Economics  3.8         True     False   
+Carlos Goes        06/99209  Economics    4         True      True   
+
+                   Teaching Assistant  
+Nicolas Powidayko               False  
+Carlos Goes                      True  
+-------------------------------------------
+Source Code of a Unmatched Cell 22
+-------------------------------------------
+left = pd.merge(df, extracurricular,
+                  left_index=True, right_index=True, how='left')
+left
+
+-----------------
+Original output:
+                   idnumber                  major  gpa Dean's List Model UN  \
+Alexander Rabbat   08/21346  International Affairs  2.8         NaN      NaN   
+Dani Alaino        07/20345  International Affairs  3.4         NaN      NaN   
+Lya Nikate         09/23567  International Affairs  3.3         NaN      NaN   
+Nicolas Powidayko  10/22290              Economics  3.8        True    False   
+Niz Borroz         11/22035  International Affairs    2         NaN      NaN   
+Tom Rundal         98/20145              Economics    3         NaN      NaN   
+Carlos Goes        06/99209              Economics    4        True     True   
+
+                  Teaching Assistant  
+Alexander Rabbat                 NaN  
+Dani Alaino                      NaN  
+Lya Nikate                       NaN  
+Nicolas Powidayko              False  
+Niz Borroz                       NaN  
+Tom Rundal                       NaN  
+Carlos Goes                     True  
+Executed output:
+                   idnumber                  major  gpa Dean's List Model UN  \
+Nicolas Powidayko  10/22290              Economics  3.8        True    False   
+Alexander Rabbat   08/21346  International Affairs  2.8         NaN      NaN   
+Dani Alaino        07/20345  International Affairs  3.4         NaN      NaN   
+Lya Nikate         09/23567  International Affairs  3.3         NaN      NaN   
+Niz Borroz         11/22035  International Affairs    2         NaN      NaN   
+Tom Rundal         98/20145              Economics    3         NaN      NaN   
+Carlos Goes        06/99209              Economics    4        True     True   
+
+                  Teaching Assistant  
+Nicolas Powidayko              False  
+Alexander Rabbat                 NaN  
+Dani Alaino                      NaN  
+Lya Nikate                       NaN  
+Niz Borroz                       NaN  
+Tom Rundal                       NaN  
+Carlos Goes                     True  
+-------------------------------------------
+Source Code of a Unmatched Cell 23
+-------------------------------------------
+left = left.fillna(False)
+left
+
+-----------------
+Original output:
+                   idnumber                  major  gpa Dean's List Model UN  \
+Alexander Rabbat   08/21346  International Affairs  2.8       False    False   
+Dani Alaino        07/20345  International Affairs  3.4       False    False   
+Lya Nikate         09/23567  International Affairs  3.3       False    False   
+Nicolas Powidayko  10/22290              Economics  3.8        True    False   
+Niz Borroz         11/22035  International Affairs  2.0       False    False   
+Tom Rundal         98/20145              Economics  3.0       False    False   
+Carlos Goes        06/99209              Economics  4.0        True     True   
+
+                  Teaching Assistant  
+Alexander Rabbat               False  
+Dani Alaino                    False  
+Lya Nikate                     False  
+Nicolas Powidayko              False  
+Niz Borroz                     False  
+Tom Rundal                     False  
+Carlos Goes                     True  
+Executed output:
+                   idnumber                  major  gpa  Dean's List  \
+Nicolas Powidayko  10/22290              Economics  3.8         True   
+Alexander Rabbat   08/21346  International Affairs  2.8        False   
+Dani Alaino        07/20345  International Affairs  3.4        False   
+Lya Nikate         09/23567  International Affairs  3.3        False   
+Niz Borroz         11/22035  International Affairs  2.0        False   
+Tom Rundal         98/20145              Economics  3.0        False   
+Carlos Goes        06/99209              Economics  4.0         True   
+
+                   Model UN  Teaching Assistant  
+Nicolas Powidayko     False               False  
+Alexander Rabbat      False               False  
+Dani Alaino           False               False  
+Lya Nikate            False               False  
+Niz Borroz            False               False  
+Tom Rundal            False               False  
+Carlos Goes            True                True  
+-------------------------------------------
+Source Code of a Unmatched Cell 24
+-------------------------------------------
+right = pd.merge(df, extracurricular,
+                  left_index=True, right_index=True, how='right')
+right
+
+-----------------
+Original output:
+                   idnumber      major  gpa Dean's List Model UN  \
+Carlos Goes        06/99209  Economics    4        True     True   
+Nicolas Powidayko  10/22290  Economics  3.8        True    False   
+Nick Borroz             NaN        NaN  NaN       False     True   
+Michel Tomer            NaN        NaN  NaN        True     True   
+Dilm Rusef              NaN        NaN  NaN        True     True   
+
+                  Teaching Assistant  
+Carlos Goes                     True  
+Nicolas Powidayko              False  
+Nick Borroz                     True  
+Michel Tomer                    True  
+Dilm Rusef                      True  
+Executed output:
+                   idnumber      major  gpa  Dean's List  Model UN  \
+Carlos Goes        06/99209  Economics    4         True      True   
+Nicolas Powidayko  10/22290  Economics  3.8         True     False   
+Nick Borroz             NaN        NaN  NaN        False      True   
+Michel Tomer            NaN        NaN  NaN         True      True   
+Dilm Rusef              NaN        NaN  NaN         True      True   
+
+                   Teaching Assistant  
+Carlos Goes                      True  
+Nicolas Powidayko               False  
+Nick Borroz                      True  
+Michel Tomer                     True  
+Dilm Rusef                       True  
+-------------------------------------------
+Source Code of a Unmatched Cell 25
+-------------------------------------------
+%timeit 10
+
+# Iterable
+
+for name in df['major'].unique():
+    avg = np.mean(df['gpa'][df['major'] == name])
+    print('Mean GPA, ' + name + ': ' + str(avg))
+
+-----------------
+Original output:
+100000000 loops, best of 3: 6.78 ns per loop
+Mean GPA, International Affairs: 2.875
+Mean GPA, Economics: 3.6
+
+Executed output:
+4.67 ns ± 0.00109 ns per loop (mean ± std. dev. of 7 runs, 100000000 loops each)
+Mean GPA, Economics: 3.6
+Mean GPA, International Affairs: 2.875
+
+-------------------------------------------
+Source Code of a Unmatched Cell 26
+-------------------------------------------
+%timeit 10
+
+# Using groups by
+
+for name, table in df.groupby('major'):
+    avg = np.mean(table['gpa'])
+    print('Mean GPA, ' + name + ': ' + str(avg))
+
+-----------------
+Original output:
+100000000 loops, best of 3: 6.79 ns per loop
+Mean GPA, Economics: 3.6
+Mean GPA, International Affairs: 2.875
+
+Executed output:
+4.67 ns ± 0.00483 ns per loop (mean ± std. dev. of 7 runs, 100000000 loops each)
+Mean GPA, Economics: 3.6
+Mean GPA, International Affairs: 2.875
+
+-------------------------------------------
+Source Code of a Unmatched Cell 28
+-------------------------------------------
+## Working with a csv file
+
+url = "https://raw.githubusercontent.com/omercadopopular/cgoes/master/piketty/fdatabasetax.csv"
+
+piketty = pd.read_csv(url)
+piketty
+
+-----------------
+Original output:
+           country  year  top10   top5   top1      short     tshort  \
+0        Australia  1980  25.39  15.31   4.79  10.667500        NaN   
+1        Australia  1981  25.31  15.15   4.61  13.250833   7.155450   
+2        Australia  1982  25.82  15.44   4.67  14.642497   7.906948   
+3        Australia  1983  25.32  15.16   4.68  12.225000   6.601500   
+4        Australia  1984  25.50  15.25   4.75  10.985000   5.931900   
+5        Australia  1985  25.93  15.63   5.02  15.336663   8.281798   
+6        Australia  1986  26.61  16.17   5.39  15.386665   7.847199   
+7        Australia  1987  28.66  17.94   6.67  12.798332   6.527149   
+8        Australia  1988  30.28  19.84   8.41  15.400000   9.394000   
+9        Australia  1989  27.64  17.46   6.43  17.550000  10.705500   
+10       Australia  1990  27.66  17.37   6.34  12.100000   7.381000   
+11       Australia  1991  28.22  17.70   6.41   7.600000   4.636000   
+12       Australia  1992  28.52  17.95   6.55   5.940000   3.623400   
+13       Australia  1993  29.40  18.66   6.96   4.840000   3.242800   
+14       Australia  1994  29.42  18.87   7.13   8.270000   5.540900   
+15       Australia  1995  29.13  18.76   7.23   7.440000   4.761600   
+16       Australia  1996  29.16  18.77   7.24   5.980000   3.827200   
+17       Australia  1997  30.41  19.73   7.81   5.050000   3.232000   
+18       Australia  1998  30.11  19.63   7.84   4.810000   3.078400   
+19       Australia  1999  31.48  20.95   8.84   5.570000   3.564800   
+20       Australia  2000  31.28  20.98   9.03   6.130000   4.045800   
+21       Australia  2001  30.61  20.33   8.31   4.250000   2.975000   
+22       Australia  2002  31.34  20.90   8.79   4.790000   3.353000   
+23       Australia  2003  32.04  21.49   9.18   5.520000   3.864000   
+24       Australia  2004  30.08  20.32   8.89   5.430000   3.801000   
+25       Australia  2005  30.54  20.72   9.12   5.640000   3.948000   
+26       Australia  2006  31.81  21.91  10.06   6.440000   4.508000   
+27       Australia  2007  31.51  21.61   9.84   7.200000   5.040000   
+28       Australia  2008  29.34  19.85   8.59   4.080000   2.856000   
+29       Australia  2009  30.56  20.69   8.88   4.210000   2.947000   
+..             ...   ...    ...    ...    ...        ...        ...   
+550  United States  1983  33.69  21.79   8.59   8.944167   4.486931   
+551  United States  1984  33.95  22.10   8.89   9.897500   4.969990   
+552  United States  1985  34.25  22.38   9.09   7.730833   3.882007   
+553  United States  1986  34.57  22.59   9.13   6.155000   3.088382   
+554  United States  1987  36.48  24.49  10.75   5.962500   3.328506   
+555  United States  1988  38.63  26.95  13.17   6.884167   4.227319   
+556  United States  1989  38.47  26.66  12.61   8.393333   5.147950   
+557  United States  1990  38.84  27.05  12.98   7.742500   4.749791   
+558  United States  1991  38.38  26.43  12.17   5.538333   3.386635   
+559  United States  1992  39.82  27.88  13.48   3.515833   2.149433   
+560  United States  1993  39.48  27.41  12.82   3.065000   1.846617   
+561  United States  1994  39.60  27.50  12.85   4.365833   2.633187   
+562  United States  1995  40.54  28.46  13.53   5.660000   3.418159   
+563  United States  1996  41.16  29.16  14.11   5.145000   3.111156   
+564  United States  1997  41.73  29.85  14.77   5.200000   3.148470   
+565  United States  1998  42.12  30.36  15.29   4.906667   2.971502   
+566  United States  1999  42.67  30.97  15.87   4.777500   2.895452   
+567  United States  2000  43.11  31.51  16.49   5.995833   3.637072   
+568  United States  2001  42.23  30.40  15.37   3.469167   2.106825   
+569  United States  2002  42.36  30.36  14.99   1.633333   0.991433   
+570  United States  2003  42.76  30.66  15.21   1.030000   0.625004   
+571  United States  2004  43.64  31.71  16.34   1.395000   0.846486   
+572  United States  2005  44.94  33.12  17.68   3.213333   1.950815   
+573  United States  2006  45.50  33.59  18.06   4.848333   2.942938   
+574  United States  2007  45.67  33.84  18.33   4.471667   2.715643   
+575  United States  2008  45.96  33.78  17.89   1.391667   0.845437   
+576  United States  2009  45.47  32.81  16.68   0.150833   0.091767   
+577  United States  2010  46.35  33.73  17.45   0.136667   0.083080   
+578  United States  2011  46.63  33.98  17.47   0.052500   0.031925   
+579  United States  2012  48.16  35.76  19.34   0.085833   0.052247   
+
+          long     tlong   deflator    ...       growth       rg1       rg2  \
+0    11.651666       NaN   9.799431    ...     2.893709 -2.025640 -1.041474   
+1    13.987500  7.553250  10.112331    ...     4.127127 -0.988626 -0.251958   
+2    15.345829  8.286748  12.080141    ...     0.062726  2.499629  3.202961   
+3    14.112500  7.620750   8.696501    ...    -0.473595  4.002095  5.889595   
+4    13.833333  7.470000   5.962292    ...     6.346048 -1.323340  1.524993   
+5    14.104165  7.616249   5.280455    ...     5.456397  4.599811  3.367313   
+6    13.558331  6.914749   6.111641    ...     2.448094  6.826930  4.998596   
+7    13.466667  6.868000   7.158711    ...     4.892633  0.746989  1.415324   
+8    12.950000  7.899500   9.068585    ...     4.253262  2.078153 -0.371847   
+9    12.900000  7.869000   7.498348    ...     4.569199  5.482453  0.832453   
+10   12.070000  7.362700   5.033114    ...     1.502580  5.564305  5.534305   
+11    9.390000  5.727900   1.618239    ...    -1.112748  7.094509  8.884509   
+12    8.940000  5.453400   1.199299    ...     2.654565  2.086137  5.086137   
+13    6.680000  4.475600   1.227720    ...     3.899857 -0.287577  1.552423   
+14   10.040000  6.726800   1.073971    ...     4.901374  2.294655  4.064655   
+15    8.180000  5.235200   3.093712    ...     2.955487  1.390801  2.130801   
+16    7.370000  4.716800   1.718858    ...     4.298257 -0.037116  1.352884   
+17    6.050000  3.872000   1.331466    ...     4.164025 -0.445491  0.554509   
+18    5.010000  3.206400   0.625728    ...     4.866077 -0.681806 -0.481806   
+19    6.960000  4.454400   1.074690    ...     4.243811  0.251498  1.641498   
+20    5.460000  3.603600   4.322023    ...     3.085010 -1.277032 -1.947032   
+21    6.010000  4.207000   3.502399    ...     2.577170 -1.829568 -0.069568   
+22    5.160000  3.612000   3.064757    ...     3.995218 -2.269975 -1.899975   
+23    5.600000  3.920000   3.181852    ...     3.021015 -0.682867 -0.602867   
+24    5.330000  3.731000   3.414135    ...     4.035961 -2.020096 -2.120096   
+25    5.200000  3.640000   4.438343    ...     3.213558 -2.011902 -2.451902   
+26    5.890000  4.123000   5.155750    ...     2.654242 -1.369992 -1.919992   
+27    6.330000  4.431000   4.343298    ...     4.519407 -1.662705 -2.532705   
+28    3.990000  2.793000   6.314457    ...     2.677017 -4.911474 -5.001474   
+29    5.650000  3.955000   0.322558    ...     1.563143  2.324298  3.764298   
+..         ...       ...        ...    ...          ...       ...       ...   
+550  11.105000  5.570934   3.947447    ...     4.632757  0.363963  2.524796   
+551  12.438333  6.245859   3.548931    ...     7.258908 -0.910339  1.630494   
+552  10.623333  5.334464   3.200059    ...     4.238489  0.292285  3.184785   
+553   7.682500  3.854833   2.016127    ...     3.512076  0.626797  2.154297   
+554   8.384167  4.680377   2.552269    ...     3.461612 -0.051381  2.370286   
+555   8.845833  5.431908   3.500560    ...     4.204068 -0.820461  1.141206   
+556   8.499167  5.212862   3.888594    ...     3.680158  0.824581  0.930415   
+557   8.550000  5.245169   3.698705    ...     1.919449  2.124345  2.931845   
+558   7.858333  4.805292   3.328476    ...    -0.073702  2.283559  4.603559   
+559   7.010000  4.285620   2.279748    ...     3.555095 -2.319009  1.175157   
+560   5.873333  3.538595   2.378937    ...     2.745898 -2.059835  0.748499   
+561   7.080000  4.270196   2.128412    ...     4.037916 -1.800495  0.913672   
+562   6.580000  3.973761   2.085533    ...     2.718705  0.855762  1.775762   
+563   6.438333  3.893228   1.825084    ...     3.796162 -0.476246  0.817087   
+564   6.352500  3.846280   1.712177    ...     4.486791 -0.998969  0.153531   
+565   5.264167  3.188006   1.085079    ...     4.449766 -0.628178 -0.270678   
+566   5.636667  3.416158   1.530409    ...     4.685328 -1.438237 -0.579070   
+567   6.029167  3.657293   2.275285    ...     4.092111 -0.371563 -0.338229   
+568   5.017500  3.047128   2.279037    ...     0.976142  0.213988  1.762321   
+569   4.610833  2.798776   1.535187    ...     1.786158 -1.688011  1.289489   
+570   4.015000  2.436302   1.993963    ...     2.806812 -3.770775 -0.785775   
+571   4.274167  2.593564   2.749910    ...     3.785481 -5.140392 -2.261225   
+572   4.290000  2.604459   3.217295    ...     3.345379 -3.349341 -2.272675   
+573   4.791667  2.908542   3.072731    ...     2.666456 -0.890854 -0.947520   
+574   4.629167  2.811293   2.660947    ...     1.778798  0.031922  0.189422   
+575   3.666667  2.227500   1.961634    ...    -0.291621 -0.278346  1.996654   
+576   3.256667  1.981356   0.759410    ...    -2.775554  2.166977  5.272811   
+577   3.214167  1.953892   1.221783    ...     2.531773 -3.616889 -0.539389   
+578   2.785833  1.694065   2.064300    ...     1.601584 -3.613384 -0.880051   
+579   1.802500  1.097182   1.795448    ...     2.320817 -4.030431 -2.313764   
+
+           rg3        rg4       rg5  ctxrate     kshare       rimp     delta  
+0          NaN        NaN       NaN      NaN  22.781307   7.143823  4.372757  
+1   -10.375515 -10.160703 -4.548147  46.0000  22.992748   7.116895  4.264144  
+2    -7.873116  -7.668024 -0.387324  46.0000  24.848551   7.272948  4.251989  
+3    -4.658095  -4.107700  0.526811  46.0000  26.956326   7.994036  4.263564  
+4    -9.105114  -8.274540 -6.093940  46.0000  27.437305   8.234032  4.194270  
+5    -6.264681  -6.624078 -5.167578  46.0000  27.803844   8.398011  4.246107  
+6    -4.557664  -5.033214 -2.377699  49.0000  29.045123   8.697203  4.365178  
+7    -8.722497  -8.548663 -4.428184  49.0000  30.865788   9.409619  4.334457  
+8    -7.591507  -8.503152 -2.752238  39.0000  30.706412   9.332893  4.192040  
+9    -5.537192  -7.267457 -1.403170  39.0000  39.471942  11.967970  4.134433  
+10   -2.033285  -2.044448  1.267054  39.0000  38.648278  11.374377  4.168736  
+11    2.322469   2.988528  3.825925  39.0000  39.283425  11.363328  4.218454  
+12   -1.643589  -0.527289  0.257537  39.0000  40.069735  11.778655  4.272878  
+13   -2.954901  -2.128925 -0.064921  33.0000  40.691477  12.130551  4.292533  
+14   -2.262942  -1.468389 -0.953323  33.0000  40.406108  12.142597  4.187489  
+15   -3.001775  -2.698671  0.615518  36.0000  39.766490  12.060660  4.147816  
+16   -3.567708  -2.998364 -0.717828  36.0000  39.108557  11.939323  4.060737  
+17   -3.427011  -3.017411 -0.487195  36.0000  39.355123  12.127869  4.085006  
+18   -3.521630  -3.439710 -1.154545  36.0000  39.198452  12.244674  4.125059  
+19   -3.037030  -2.467686 -0.295058  36.0000  40.002674  12.500292  4.051433  
+20   -4.736804  -5.028656  1.058265  34.0000  40.051138  12.406828  4.045232  
+21   -3.997068  -3.134668  2.229875  30.0000  40.711647  12.692868  4.077963  
+22   -4.712875  -4.531575  0.857931  30.0000  40.762812  12.620984  3.981540  
+23   -3.498067  -3.458867  2.101612  30.0000  41.242969  12.767035  3.814298  
+24   -4.789396  -4.838396  1.088343  30.0000  41.310185  12.660201  3.737837  
+25   -4.888302  -5.103902  1.940464  30.0000  41.816020  12.635522  3.690843  
+26   -4.654392  -4.923892  2.480075  30.0000  41.841656  12.568084  3.663342  
+27   -5.334705  -5.761005  0.764272  30.0000  42.348117  12.603646  3.538873  
+28   -6.992274  -7.036374  2.346032  30.0000  42.782533  12.365476  3.632784  
+29    0.177198   0.882798  3.290767  30.0000  42.782533  12.126245  3.634461  
+..         ...        ...       ...      ...        ...        ...       ...  
+550  -6.329290  -5.785489 -3.129056  49.8340  36.220944  10.623248  3.825557  
+551  -8.312178  -7.671506 -5.497860  49.7854  36.373425  11.101173  3.813362  
+552  -5.489214  -4.759869 -2.447973  49.7854  36.429292  11.224792  3.845968  
+553  -3.978552  -3.593971 -1.776360  49.8232  36.236578  11.220634  3.894439  
+554  -4.155776  -3.401107 -1.214923  44.1760  35.539335  11.047359  3.920389  
+555  -5.108783  -4.369088 -1.337692  38.5936  35.103440  11.058576  3.924298  
+556  -4.411318  -4.371506 -0.564331  38.6662  36.180097  11.497419  3.935976  
+557  -2.704300  -2.400401  1.083427  38.6530  35.990918  11.377557  3.976914  
+558  -1.183881  -0.316386  2.843698  38.8510  35.947359  11.128864  4.035192  
+559  -4.520770  -3.214795 -0.730433  38.8642  35.785723  11.233581  4.043077  
+560  -4.012276  -2.992884  0.075158  39.7515  35.966307  11.357884  4.021899  
+561  -4.578161  -3.590823 -1.020486  39.6865  36.364216  11.662802  4.016814  
+562  -2.739961  -2.404425  0.268317  39.6085  36.184728  11.592238  4.013704  
+563  -3.739946  -3.267031 -0.684700  39.5305  36.533493  11.799203  4.023457  
+564  -4.292649  -3.870142 -1.264478  39.4525  36.529076  11.959037  4.018585  
+565  -3.735288  -3.604173 -1.435520  39.4395  35.053098  11.594438  4.007403  
+566  -4.460920  -4.145340 -1.656345  39.3940  34.816396  11.668833  4.043030  
+567  -4.161148  -4.148883 -1.328449  39.3400  33.636129  11.346480  4.119113  
+568  -1.975704  -1.404658  1.613573  39.2700  33.567560  11.122801  4.165163  
+569  -2.719545  -1.622488  0.946763  39.3000  34.472531  11.361515  4.163519  
+570  -4.421522  -3.322427  0.037684  39.3200  34.636515  11.436527  4.095189  
+571  -6.021744  -4.961617 -0.635526  39.3200  35.297692  11.758980  3.985394  
+572  -5.378335  -4.981508  0.096294  39.2900  36.017263  12.045333  3.871048  
+573  -3.952823  -3.973702  0.893310  39.3000  36.116236  12.091968  3.780059  
+574  -2.790535  -2.732447  1.845069  39.2700  36.571825  12.204612  3.787994  
+575  -1.156410  -0.316807  3.644916  39.2500  36.161852  11.823449  3.829451  
+576   2.071975   3.221601  5.999226  39.1600  37.445313  11.777189  3.941569  
+577  -3.703052  -2.565785  0.904324  39.2100  37.956351  12.141440  3.944685  
+578  -3.646470  -2.635723  1.917809  39.1900  37.801415  12.216007  3.909161  
+579  -4.084462  -3.448410       NaN  39.1300        NaN        NaN       NaN  
+
+[580 rows x 22 columns]
+Executed output:
+           country  year  top10   top5   top1      short     tshort  \
+0        Australia  1980  25.39  15.31   4.79  10.667500        NaN   
+1        Australia  1981  25.31  15.15   4.61  13.250833   7.155450   
+2        Australia  1982  25.82  15.44   4.67  14.642497   7.906948   
+3        Australia  1983  25.32  15.16   4.68  12.225000   6.601500   
+4        Australia  1984  25.50  15.25   4.75  10.985000   5.931900   
+5        Australia  1985  25.93  15.63   5.02  15.336663   8.281798   
+6        Australia  1986  26.61  16.17   5.39  15.386665   7.847199   
+7        Australia  1987  28.66  17.94   6.67  12.798332   6.527149   
+8        Australia  1988  30.28  19.84   8.41  15.400000   9.394000   
+9        Australia  1989  27.64  17.46   6.43  17.550000  10.705500   
+10       Australia  1990  27.66  17.37   6.34  12.100000   7.381000   
+11       Australia  1991  28.22  17.70   6.41   7.600000   4.636000   
+12       Australia  1992  28.52  17.95   6.55   5.940000   3.623400   
+13       Australia  1993  29.40  18.66   6.96   4.840000   3.242800   
+14       Australia  1994  29.42  18.87   7.13   8.270000   5.540900   
+15       Australia  1995  29.13  18.76   7.23   7.440000   4.761600   
+16       Australia  1996  29.16  18.77   7.24   5.980000   3.827200   
+17       Australia  1997  30.41  19.73   7.81   5.050000   3.232000   
+18       Australia  1998  30.11  19.63   7.84   4.810000   3.078400   
+19       Australia  1999  31.48  20.95   8.84   5.570000   3.564800   
+20       Australia  2000  31.28  20.98   9.03   6.130000   4.045800   
+21       Australia  2001  30.61  20.33   8.31   4.250000   2.975000   
+22       Australia  2002  31.34  20.90   8.79   4.790000   3.353000   
+23       Australia  2003  32.04  21.49   9.18   5.520000   3.864000   
+24       Australia  2004  30.08  20.32   8.89   5.430000   3.801000   
+25       Australia  2005  30.54  20.72   9.12   5.640000   3.948000   
+26       Australia  2006  31.81  21.91  10.06   6.440000   4.508000   
+27       Australia  2007  31.51  21.61   9.84   7.200000   5.040000   
+28       Australia  2008  29.34  19.85   8.59   4.080000   2.856000   
+29       Australia  2009  30.56  20.69   8.88   4.210000   2.947000   
+..             ...   ...    ...    ...    ...        ...        ...   
+550  United States  1983  33.69  21.79   8.59   8.944167   4.486931   
+551  United States  1984  33.95  22.10   8.89   9.897500   4.969990   
+552  United States  1985  34.25  22.38   9.09   7.730833   3.882007   
+553  United States  1986  34.57  22.59   9.13   6.155000   3.088382   
+554  United States  1987  36.48  24.49  10.75   5.962500   3.328506   
+555  United States  1988  38.63  26.95  13.17   6.884167   4.227319   
+556  United States  1989  38.47  26.66  12.61   8.393333   5.147950   
+557  United States  1990  38.84  27.05  12.98   7.742500   4.749791   
+558  United States  1991  38.38  26.43  12.17   5.538333   3.386635   
+559  United States  1992  39.82  27.88  13.48   3.515833   2.149433   
+560  United States  1993  39.48  27.41  12.82   3.065000   1.846617   
+561  United States  1994  39.60  27.50  12.85   4.365833   2.633187   
+562  United States  1995  40.54  28.46  13.53   5.660000   3.418159   
+563  United States  1996  41.16  29.16  14.11   5.145000   3.111156   
+564  United States  1997  41.73  29.85  14.77   5.200000   3.148470   
+565  United States  1998  42.12  30.36  15.29   4.906667   2.971502   
+566  United States  1999  42.67  30.97  15.87   4.777500   2.895452   
+567  United States  2000  43.11  31.51  16.49   5.995833   3.637072   
+568  United States  2001  42.23  30.40  15.37   3.469167   2.106825   
+569  United States  2002  42.36  30.36  14.99   1.633333   0.991433   
+570  United States  2003  42.76  30.66  15.21   1.030000   0.625004   
+571  United States  2004  43.64  31.71  16.34   1.395000   0.846486   
+572  United States  2005  44.94  33.12  17.68   3.213333   1.950815   
+573  United States  2006  45.50  33.59  18.06   4.848333   2.942938   
+574  United States  2007  45.67  33.84  18.33   4.471667   2.715643   
+575  United States  2008  45.96  33.78  17.89   1.391667   0.845437   
+576  United States  2009  45.47  32.81  16.68   0.150833   0.091767   
+577  United States  2010  46.35  33.73  17.45   0.136667   0.083080   
+578  United States  2011  46.63  33.98  17.47   0.052500   0.031925   
+579  United States  2012  48.16  35.76  19.34   0.085833   0.052247   
+
+          long     tlong   deflator  ...    growth       rg1       rg2  \
+0    11.651666       NaN   9.799431  ...  2.893709 -2.025640 -1.041474   
+1    13.987500  7.553250  10.112331  ...  4.127127 -0.988626 -0.251958   
+2    15.345829  8.286748  12.080141  ...  0.062726  2.499629  3.202961   
+3    14.112500  7.620750   8.696501  ... -0.473595  4.002095  5.889595   
+4    13.833333  7.470000   5.962292  ...  6.346048 -1.323340  1.524993   
+5    14.104165  7.616249   5.280455  ...  5.456397  4.599811  3.367313   
+6    13.558331  6.914749   6.111641  ...  2.448094  6.826930  4.998596   
+7    13.466667  6.868000   7.158711  ...  4.892633  0.746989  1.415324   
+8    12.950000  7.899500   9.068585  ...  4.253262  2.078153 -0.371847   
+9    12.900000  7.869000   7.498348  ...  4.569199  5.482453  0.832453   
+10   12.070000  7.362700   5.033114  ...  1.502580  5.564305  5.534305   
+11    9.390000  5.727900   1.618239  ... -1.112748  7.094509  8.884509   
+12    8.940000  5.453400   1.199299  ...  2.654565  2.086137  5.086137   
+13    6.680000  4.475600   1.227720  ...  3.899857 -0.287577  1.552423   
+14   10.040000  6.726800   1.073971  ...  4.901374  2.294655  4.064655   
+15    8.180000  5.235200   3.093712  ...  2.955487  1.390801  2.130801   
+16    7.370000  4.716800   1.718858  ...  4.298257 -0.037116  1.352884   
+17    6.050000  3.872000   1.331466  ...  4.164025 -0.445491  0.554509   
+18    5.010000  3.206400   0.625728  ...  4.866077 -0.681806 -0.481806   
+19    6.960000  4.454400   1.074690  ...  4.243811  0.251498  1.641498   
+20    5.460000  3.603600   4.322023  ...  3.085010 -1.277032 -1.947032   
+21    6.010000  4.207000   3.502399  ...  2.577170 -1.829568 -0.069568   
+22    5.160000  3.612000   3.064757  ...  3.995218 -2.269975 -1.899975   
+23    5.600000  3.920000   3.181852  ...  3.021015 -0.682867 -0.602867   
+24    5.330000  3.731000   3.414135  ...  4.035961 -2.020096 -2.120096   
+25    5.200000  3.640000   4.438343  ...  3.213558 -2.011902 -2.451902   
+26    5.890000  4.123000   5.155750  ...  2.654242 -1.369992 -1.919992   
+27    6.330000  4.431000   4.343298  ...  4.519407 -1.662705 -2.532705   
+28    3.990000  2.793000   6.314457  ...  2.677017 -4.911474 -5.001474   
+29    5.650000  3.955000   0.322558  ...  1.563143  2.324298  3.764298   
+..         ...       ...        ...  ...       ...       ...       ...   
+550  11.105000  5.570934   3.947447  ...  4.632757  0.363963  2.524796   
+551  12.438333  6.245859   3.548931  ...  7.258908 -0.910339  1.630494   
+552  10.623333  5.334464   3.200059  ...  4.238489  0.292285  3.184785   
+553   7.682500  3.854833   2.016127  ...  3.512076  0.626797  2.154297   
+554   8.384167  4.680377   2.552269  ...  3.461612 -0.051381  2.370286   
+555   8.845833  5.431908   3.500560  ...  4.204068 -0.820461  1.141206   
+556   8.499167  5.212862   3.888594  ...  3.680158  0.824581  0.930415   
+557   8.550000  5.245169   3.698705  ...  1.919449  2.124345  2.931845   
+558   7.858333  4.805292   3.328476  ... -0.073702  2.283559  4.603559   
+559   7.010000  4.285620   2.279748  ...  3.555095 -2.319009  1.175157   
+560   5.873333  3.538595   2.378937  ...  2.745898 -2.059835  0.748499   
+561   7.080000  4.270196   2.128412  ...  4.037916 -1.800495  0.913672   
+562   6.580000  3.973761   2.085533  ...  2.718705  0.855762  1.775762   
+563   6.438333  3.893228   1.825084  ...  3.796162 -0.476246  0.817087   
+564   6.352500  3.846280   1.712177  ...  4.486791 -0.998969  0.153531   
+565   5.264167  3.188006   1.085079  ...  4.449766 -0.628178 -0.270678   
+566   5.636667  3.416158   1.530409  ...  4.685328 -1.438237 -0.579070   
+567   6.029167  3.657293   2.275285  ...  4.092111 -0.371563 -0.338229   
+568   5.017500  3.047128   2.279037  ...  0.976142  0.213988  1.762321   
+569   4.610833  2.798776   1.535187  ...  1.786158 -1.688011  1.289489   
+570   4.015000  2.436302   1.993963  ...  2.806812 -3.770775 -0.785775   
+571   4.274167  2.593564   2.749910  ...  3.785481 -5.140392 -2.261225   
+572   4.290000  2.604459   3.217295  ...  3.345379 -3.349341 -2.272675   
+573   4.791667  2.908542   3.072731  ...  2.666456 -0.890854 -0.947520   
+574   4.629167  2.811293   2.660947  ...  1.778798  0.031922  0.189422   
+575   3.666667  2.227500   1.961634  ... -0.291621 -0.278346  1.996654   
+576   3.256667  1.981356   0.759410  ... -2.775554  2.166977  5.272811   
+577   3.214167  1.953892   1.221783  ...  2.531773 -3.616889 -0.539389   
+578   2.785833  1.694065   2.064300  ...  1.601584 -3.613384 -0.880051   
+579   1.802500  1.097182   1.795448  ...  2.320817 -4.030431 -2.313764   
+
+           rg3        rg4       rg5  ctxrate     kshare       rimp     delta  
+0          NaN        NaN       NaN      NaN  22.781307   7.143823  4.372757  
+1   -10.375515 -10.160703 -4.548147  46.0000  22.992748   7.116895  4.264144  
+2    -7.873116  -7.668024 -0.387324  46.0000  24.848551   7.272948  4.251989  
+3    -4.658095  -4.107700  0.526811  46.0000  26.956326   7.994036  4.263564  
+4    -9.105114  -8.274540 -6.093940  46.0000  27.437305   8.234032  4.194270  
+5    -6.264681  -6.624078 -5.167578  46.0000  27.803844   8.398011  4.246107  
+6    -4.557664  -5.033214 -2.377699  49.0000  29.045123   8.697203  4.365178  
+7    -8.722497  -8.548663 -4.428184  49.0000  30.865788   9.409619  4.334457  
+8    -7.591507  -8.503152 -2.752238  39.0000  30.706412   9.332893  4.192040  
+9    -5.537192  -7.267457 -1.403170  39.0000  39.471942  11.967970  4.134433  
+10   -2.033285  -2.044448  1.267054  39.0000  38.648278  11.374377  4.168736  
+11    2.322469   2.988528  3.825925  39.0000  39.283425  11.363328  4.218454  
+12   -1.643589  -0.527289  0.257537  39.0000  40.069735  11.778655  4.272878  
+13   -2.954901  -2.128925 -0.064921  33.0000  40.691477  12.130551  4.292533  
+14   -2.262942  -1.468389 -0.953323  33.0000  40.406108  12.142597  4.187489  
+15   -3.001775  -2.698671  0.615518  36.0000  39.766490  12.060660  4.147816  
+16   -3.567708  -2.998364 -0.717828  36.0000  39.108557  11.939323  4.060737  
+17   -3.427011  -3.017411 -0.487195  36.0000  39.355123  12.127869  4.085006  
+18   -3.521630  -3.439710 -1.154545  36.0000  39.198452  12.244674  4.125059  
+19   -3.037030  -2.467686 -0.295058  36.0000  40.002674  12.500292  4.051433  
+20   -4.736804  -5.028656  1.058265  34.0000  40.051138  12.406828  4.045232  
+21   -3.997068  -3.134668  2.229875  30.0000  40.711647  12.692868  4.077963  
+22   -4.712875  -4.531575  0.857931  30.0000  40.762812  12.620984  3.981540  
+23   -3.498067  -3.458867  2.101612  30.0000  41.242969  12.767035  3.814298  
+24   -4.789396  -4.838396  1.088343  30.0000  41.310185  12.660201  3.737837  
+25   -4.888302  -5.103902  1.940464  30.0000  41.816020  12.635522  3.690843  
+26   -4.654392  -4.923892  2.480075  30.0000  41.841656  12.568084  3.663342  
+27   -5.334705  -5.761005  0.764272  30.0000  42.348117  12.603646  3.538873  
+28   -6.992274  -7.036374  2.346032  30.0000  42.782533  12.365476  3.632784  
+29    0.177198   0.882798  3.290767  30.0000  42.782533  12.126245  3.634461  
+..         ...        ...       ...      ...        ...        ...       ...  
+550  -6.329290  -5.785489 -3.129056  49.8340  36.220944  10.623248  3.825557  
+551  -8.312178  -7.671506 -5.497860  49.7854  36.373425  11.101173  3.813362  
+552  -5.489214  -4.759869 -2.447973  49.7854  36.429292  11.224792  3.845968  
+553  -3.978552  -3.593971 -1.776360  49.8232  36.236578  11.220634  3.894439  
+554  -4.155776  -3.401107 -1.214923  44.1760  35.539335  11.047359  3.920389  
+555  -5.108783  -4.369088 -1.337692  38.5936  35.103440  11.058576  3.924298  
+556  -4.411318  -4.371506 -0.564331  38.6662  36.180097  11.497419  3.935976  
+557  -2.704300  -2.400401  1.083427  38.6530  35.990918  11.377557  3.976914  
+558  -1.183881  -0.316386  2.843698  38.8510  35.947359  11.128864  4.035192  
+559  -4.520770  -3.214795 -0.730433  38.8642  35.785723  11.233581  4.043077  
+560  -4.012276  -2.992884  0.075158  39.7515  35.966307  11.357884  4.021899  
+561  -4.578161  -3.590823 -1.020486  39.6865  36.364216  11.662802  4.016814  
+562  -2.739961  -2.404425  0.268317  39.6085  36.184728  11.592238  4.013704  
+563  -3.739946  -3.267031 -0.684700  39.5305  36.533493  11.799203  4.023457  
+564  -4.292649  -3.870142 -1.264478  39.4525  36.529076  11.959037  4.018585  
+565  -3.735288  -3.604173 -1.435520  39.4395  35.053098  11.594438  4.007403  
+566  -4.460920  -4.145340 -1.656345  39.3940  34.816396  11.668833  4.043030  
+567  -4.161148  -4.148883 -1.328449  39.3400  33.636129  11.346480  4.119113  
+568  -1.975704  -1.404658  1.613573  39.2700  33.567560  11.122801  4.165163  
+569  -2.719545  -1.622488  0.946763  39.3000  34.472531  11.361515  4.163519  
+570  -4.421522  -3.322427  0.037684  39.3200  34.636515  11.436527  4.095189  
+571  -6.021744  -4.961617 -0.635526  39.3200  35.297692  11.758980  3.985394  
+572  -5.378335  -4.981508  0.096294  39.2900  36.017263  12.045333  3.871048  
+573  -3.952823  -3.973702  0.893310  39.3000  36.116236  12.091968  3.780059  
+574  -2.790535  -2.732447  1.845069  39.2700  36.571825  12.204612  3.787994  
+575  -1.156410  -0.316807  3.644916  39.2500  36.161852  11.823449  3.829451  
+576   2.071975   3.221601  5.999226  39.1600  37.445313  11.777189  3.941569  
+577  -3.703052  -2.565785  0.904324  39.2100  37.956351  12.141440  3.944685  
+578  -3.646470  -2.635723  1.917809  39.1900  37.801415  12.216007  3.909161  
+579  -4.084462  -3.448410       NaN  39.1300        NaN        NaN       NaN  
+
+[580 rows x 22 columns]
+-------------------------------------------
+Source Code of a Unmatched Cell 33
+-------------------------------------------
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+fig = sns.regplot(x=mean['rg1'], y=mean['top1'])
+fig.set(xlabel='$r-g$: real return on capital to real growth differential',
+        ylabel='Share of the Top 1\%',
+        title='Developed Countries: Share of the Top 1\% and $r-g$')
+plt.show()
+
+-----------------
+Original output:
+iVBORw0KGgoAAAANSUhEUgAAAe0AAAFtCAYAAAAqBDIjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xl4XGXZ+PHvmX3N2mxdku62BcpipSAosr1FoKxVedEq
+iwjqhQKiUEoBgaoIClgVtIILAoLwU8orF76Cr4VWWkCgrKV0SdKkSZp99u2c8/vjTCZJm0nSNrMk
+c3+ui4vOycycZ54zM/c8y/08iq7rOkIIIYTIe6ZcF0AIIYQQoyNBWwghhBgnJGgLIYQQ44QEbSGE
+EGKckKAthBBCjBMStIUQQohxQoK2EEIIMU5I0BZCCCHGCQnaQgghxDghQXuCa2pqYv78+Zx77rmc
+e+65LF26lAsuuIC//vWvGTnf5s2bOfvsszPy3AM9//zzLF++fMi/qarKb3/7Wy644ALOPfdczjzz
+TO6++25isVjGynPZZZfR1dW13/F33nmHb33rWxk551tvvcXy5ctZunQpZ599Nl/96lf56KOPgOxd
+h9G49dZbOeWUU7j33nv3+1tfvY1Fee+8887U+/zwww9nyZIlqduRSOSQnnsgXde58cYbeeihh1LH
+zj///EHnWLFiBeeccw7f+MY3iMfjAPT29vKFL3who+/D4T4X+1JVNWPlEJljyXUBROY5HA6eeeaZ
+1O3m5mYuueQSnE4nS5YsyWHJMuO2226jt7eX3//+93i9XkKhENdffz0rV67k7rvvzsg5N27cOOTx
+I444gp/97Gdjfr5YLMaVV17Jww8/zGGHHQbAM888wxVXXMGLL7445uc7FE888QT/+te/qK6u3u9v
+6ertYNx8882pf59yyincc889HHHEEWP2/AA7duzg+9//Plu2bGHOnDmp45/85CfZsGEDp512Glu3
+bmXv3r2sW7eOW265hQ0bNnDyySdz//33c9VVV2Gz2ca0TKP15z//meeee46amhr+8Y9/cOWVV/LV
+r371oJ9P0zR++ctf8sgjj2C1Wrnxxhu58cYb2bhxI8XFxWNYcjGQBO0CNGXKFL71rW/x0EMPsWTJ
+Ev75z3/ywAMPEI/HcTgc3HDDDRx99NF85zvfYcGCBVx++eUAPP7442zevJn77rsv7WMGeuKJJ3jk
+kUcwmUxMmjSJVatWMWPGDDZv3syPf/xjqqqq2L17Nw6Hgx/96EfMmjULIO1z33///Tz77LOUlJRQ
+V1c35GvbvXs3zz77LBs2bMDj8QDgcrn4/ve/z5tvvjmqst1xxx38z//8D0Dq9qpVq7j33nuZNm0a
+H330EbFYjFtuuYXjjjuOFStWAPCVr3yFyy+/nIcffhiXy0UoFOK73/0ud911V+r50r22YDDIihUr
+aGhowGQycdhhh3H77bdjMpm44ooruOiiizj11FNT5Q+Hw/j9fkKhUOrYOeecg8fjSbWgQqEQ1157
+LTt37iQajXLnnXeyaNEiNE3jBz/4AVu2bCEYDKLrOnfeeScf//jH2bx5M6tXr06V/6mnnmLDhg0j
+Xut0dbpy5Up0XeeKK67g1ltvZdGiRan771tv6co7XL0diIN9Pw706KOPcsEFFzB58uRBx0877TSe
+fPJJTjvtNGw2G7FYDF3XCYfDWK1Wtm7dSktLCyeffHLa8o10XdK9/0bzuQD48MMPeeutt/jSl77E
+nXfeSSKROKD629eaNWt49dVXWbduHU6nk8svv5zy8nIJ2Jmmiwlt9+7d+lFHHbXf8W3btulHHnmk
+vmvXLv3ss8/Wu7q6UsdPOOEEPRgM6q+88op+9tlnpx6zbNkyfePGjcM+ZtOmTfpZZ52l//vf/9ZP
+O+00vbOzU9d1XX/66af1z372s7qmafqmTZv0efPm6a+99pqu67r+2GOP6eeff76u63ra5/7HP/6h
+n3nmmbrf79fj8bj+ta99Tf/Sl7603+t6/vnn9QsvvHDYOhmpbGeddVbqvn23N23apM+fP19///33
+dV3X9Yceekj/4he/mLrf3Llz9c7OztRra2pqGvT44V5bMBjU//KXv+iXXXaZruu6nkgk9JUrV+r1
+9fXDvo6HH35YX7hwoX7KKafo119/vf7nP/9ZD4VCqfPOnz9ff+utt3Rd1/Xf/va3+pe//GVd13X9
+jTfe0K+++mpdVVVd13X9V7/6lX7llVemHjew/MOVebR12lc3QxlYb+nKO9oyDHTyySfrb7/99qjK
+N9z7MZ0bbrhB/81vfpO6raqqfvbZZ+uJRELXdV3/6U9/qp9zzjn6qlWrdFVV9UsuuWTE6znSdRnq
+/Tfaz4Wu6/oXv/hFfc2aNcOWYbQ6Ozv1o48+etBruv/++/WvfvWrY/L8Ij1paRcoRVFwOBxs3LiR
+vXv3cskllwz6W2NjI4sXLyYajfLOO+/gdDrp6uri+OOP57HHHkv7mD4vv/wyZ555JmVlZQBccMEF
+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
+
+Executed output:
+<Figure size 640x480 with 1 Axes>

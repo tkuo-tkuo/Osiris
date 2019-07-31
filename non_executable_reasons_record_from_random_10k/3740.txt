@@ -1,0 +1,53 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import json
+import pandas as pd
+import requests
+import warnings
+warnings.filterwarnings('ignore')
+
+user_location = input('enter any location you want to travel to: ')
+
+
+url = 'https://maps.googleapis.com/maps/api/geocode/json?'
+options = {'address' : user_location ,'key' : 'AIzaSyBf6JMjuorNaxHvlkS4Es4TOaABbDAkh5s'}
+requestpost = requests.get(url , params = options)
+response_data = requestpost.json()
+#print(response_data ['results'][0]['geometry']['location'])
+location = response_data ['results'][0]['geometry']['location']
+print(location)
+#print(response_data ['results'][0]['long_name'])
+#coords = response_data ['results'][0]['geometry']['location'])
+    
+url = ('http://api.wunderground.com/api/23eadba58d579395/forecast10day/settings/q/query.json')
+options = {'query' : location }
+requestweather = requests.get(url , params = options)
+weather_response_data = requestweather.json()
+print(weather_response_data)
+
+        
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-1-3fc9421bafa0>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[0;32m----> 9[0;31m [0muser_location[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m'enter any location you want to travel to: '[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    853[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    854[0m             raise StdinNotImplementedError(
+[0;32m--> 855[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    856[0m             )
+[1;32m    857[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

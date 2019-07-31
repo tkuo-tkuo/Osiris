@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# A bit of setup
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+from cs231n.classifiers.neural_net import TwoLayerNet
+
+from __future__ import print_function
+
+%matplotlib inline
+plt.rcParams['figure.figsize'] = (10.0, 8.0) # set default size of plots
+plt.rcParams['image.interpolation'] = 'nearest'
+plt.rcParams['image.cmap'] = 'gray'
+
+# for auto-reloading external modules
+# see http://stackoverflow.com/questions/1907993/autoreload-of-modules-in-ipython
+%load_ext autoreload
+%autoreload 2
+
+def rel_error(x, y):
+    """ returns relative error """
+    return np.max(np.abs(x - y) / (np.maximum(1e-8, np.abs(x) + np.abs(y))))
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-efe409475a0d>"[0;36m, line [0;32m13[0m
+[0;31m    plt.rcParams['figure.figsize'] = (10.0, 8.0) # set default size of plots[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-efe409475a0d>, line 13)
+
+Executability                            : False

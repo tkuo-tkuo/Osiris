@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# help(pd.read_csv)
+url_to_data = 'data/data2508_fromAug2017.csv'
+data = pd.read_csv(url_to_data, names=f_names.keys(), na_values='0', delimiter=';', skiprows=[0])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-fffe51de2a5e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# help(pd.read_csv)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0murl_to_data[0m [0;34m=[0m [0;34m'data/data2508_fromAug2017.csv'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mdata[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0murl_to_data[0m[0;34m,[0m [0mnames[0m[0;34m=[0m[0mf_names[0m[0;34m.[0m[0mkeys[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mna_values[0m[0;34m=[0m[0;34m'0'[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m';'[0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'f_names' is not defined
+NameError: name 'f_names' is not defined
+
+Executability                            : False

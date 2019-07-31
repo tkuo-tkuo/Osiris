@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+lat_mode = tract.latitude.mode().values[0]
+lon_mode = tract.longitude.mode().values[0]
+
+tract = tract[(tract.latitude != 0) | (tract.longitude != 0)]
+tract = tract[(tract.latitude != lat_mode) | (tract.longitude != lon_mode)]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-f25a363ec280>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mlat_mode[0m [0;34m=[0m [0mtract[0m[0;34m.[0m[0mlatitude[0m[0;34m.[0m[0mmode[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mvalues[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mlon_mode[0m [0;34m=[0m [0mtract[0m[0;34m.[0m[0mlongitude[0m[0;34m.[0m[0mmode[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mvalues[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mtract[0m [0;34m=[0m [0mtract[0m[0;34m[[0m[0;34m([0m[0mtract[0m[0;34m.[0m[0mlatitude[0m [0;34m!=[0m [0;36m0[0m[0;34m)[0m [0;34m|[0m [0;34m([0m[0mtract[0m[0;34m.[0m[0mlongitude[0m [0;34m!=[0m [0;36m0[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      5[0m [0mtract[0m [0;34m=[0m [0mtract[0m[0;34m[[0m[0;34m([0m[0mtract[0m[0;34m.[0m[0mlatitude[0m [0;34m!=[0m [0mlat_mode[0m[0;34m)[0m [0;34m|[0m [0;34m([0m[0mtract[0m[0;34m.[0m[0mlongitude[0m [0;34m!=[0m [0mlon_mode[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'tract' is not defined
+NameError: name 'tract' is not defined
+
+Executability                            : False

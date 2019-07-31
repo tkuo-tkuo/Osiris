@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import argparse
+import os
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import imshow
+import scipy.io
+import scipy.misc
+import numpy as np
+import pandas as pd
+import PIL
+import tensorflow as tf
+from keras import backend as K
+from keras.layers import Input, Lambda, Conv2D
+from keras.models import load_model, Model
+from yolo_utils import read_classes, read_anchors, generate_colors, preprocess_image, draw_boxes, scale_boxes
+from yad2k.models.keras_yolo import yolo_head, yolo_boxes_to_corners, preprocess_true_boxes, yolo_loss, yolo_body
+
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-944fa3564f4d>[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mimport[0m [0mPIL[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0;32mfrom[0m [0mkeras[0m [0;32mimport[0m [0mbackend[0m [0;32mas[0m [0mK[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mInput[0m[0;34m,[0m [0mLambda[0m[0;34m,[0m [0mConv2D[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

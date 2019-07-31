@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+sample_user_movies = ratings_df [ratings_df.user_id ==sample_user].movie_title.tolist()
+recommendation = get_movie_recommendations(sample_user_movies)
+
+recommendation.movie_title.head(20)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-18-df8eaae8bb5a>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0msample_user_movies[0m [0;34m=[0m [0mratings_df[0m [0;34m[[0m[0mratings_df[0m[0;34m.[0m[0muser_id[0m [0;34m==[0m[0msample_user[0m[0;34m][0m[0;34m.[0m[0mmovie_title[0m[0;34m.[0m[0mtolist[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mrecommendation[0m [0;34m=[0m [0mget_movie_recommendations[0m[0;34m([0m[0msample_user_movies[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mrecommendation[0m[0;34m.[0m[0mmovie_title[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;36m20[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'sample_user' is not defined
+NameError: name 'sample_user' is not defined
+
+Executability                            : False

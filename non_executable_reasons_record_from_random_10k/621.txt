@@ -1,0 +1,54 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [1, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+%connect_info
+
+-----------------
+Original output:
+{
+  "ip": "127.0.0.1",
+  "iopub_port": 58191,
+  "signature_scheme": "hmac-sha256",
+  "key": "fdecb40f-2642-4bd2-b216-fe225aa91d08",
+  "control_port": 58193,
+  "stdin_port": 58192,
+  "shell_port": 58190,
+  "hb_port": 58194,
+  "kernel_name": "",
+  "transport": "tcp"
+}
+
+Paste the above JSON into a file, and connect with:
+    $> jupyter <app> --existing <file>
+or, if you are local, you can connect with just:
+    $> jupyter <app> --existing kernel-ed836139-24a3-44f7-877e-42957cb76991.json
+or even just:
+    $> jupyter <app> --existing
+if this is the most recent Jupyter kernel you have started.
+
+Executed output:
+{
+  "shell_port": 60417,
+  "ip": "127.0.0.1",
+  "stdin_port": 37531,
+  "signature_scheme": "hmac-sha256",
+  "key": "066145c3-fe0c702325d2f95da161627a",
+  "hb_port": 55763,
+  "kernel_name": "",
+  "transport": "tcp",
+  "control_port": 47631,
+  "iopub_port": 38331
+}
+
+Paste the above JSON into a file, and connect with:
+    $> jupyter <app> --existing <file>
+or, if you are local, you can connect with just:
+    $> jupyter <app> --existing /tmp/tmp9h6pe1xc.json
+or even just:
+    $> jupyter <app> --existing
+if this is the most recent Jupyter kernel you have started.
+

@@ -1,0 +1,18 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# check MNIST training images matrix data
+sample_img = mnist.train.images[5].reshape(28, 28)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-0488bfb0e092>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# check MNIST training images matrix data[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0msample_img[0m [0;34m=[0m [0mmnist[0m[0;34m.[0m[0mtrain[0m[0;34m.[0m[0mimages[0m[0;34m[[0m[0;36m5[0m[0;34m][0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0;36m28[0m[0;34m,[0m [0;36m28[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'mnist' is not defined
+NameError: name 'mnist' is not defined
+
+Executability                            : False

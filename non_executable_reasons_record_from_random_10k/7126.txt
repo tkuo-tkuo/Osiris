@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%capture
+
+#Instalando o tweepy
+!pip install tweepy
+------------------
+
+
+UsageError: Line magic function `%%capture` not found.
+
+Executability                            : False

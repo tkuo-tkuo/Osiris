@@ -1,0 +1,34 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+image_size = 28
+num_labels = 10
+
+def reformat(dataset, labels):
+  dataset = dataset.reshape((-1, image_size * image_size)).astype(np.float32)
+  # Map 0 to [1.0, 0.0, 0.0 ...], 1 to [0.0, 1.0, 0.0 ...]
+  labels = (np.arange(num_labels) == labels[:,None]).astype(np.float32)
+  return dataset, labels
+train_dataset, train_labels = reformat(train_dataset, train_labels)
+valid_dataset, valid_labels = reformat(valid_dataset, valid_labels)
+test_dataset, test_labels = reformat(test_dataset, test_labels)
+print('Training set', train_dataset.shape, train_labels.shape)
+print('Validation set', valid_dataset.shape, valid_labels.shape)
+print('Test set', test_dataset.shape, test_labels.shape)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-03026e6665f7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m   [0mlabels[0m [0;34m=[0m [0;34m([0m[0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0mnum_labels[0m[0;34m)[0m [0;34m==[0m [0mlabels[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m[0;32mNone[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mastype[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mfloat32[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m   [0;32mreturn[0m [0mdataset[0m[0;34m,[0m [0mlabels[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0mtrain_dataset[0m[0;34m,[0m [0mtrain_labels[0m [0;34m=[0m [0mreformat[0m[0;34m([0m[0mtrain_dataset[0m[0;34m,[0m [0mtrain_labels[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0mvalid_dataset[0m[0;34m,[0m [0mvalid_labels[0m [0;34m=[0m [0mreformat[0m[0;34m([0m[0mvalid_dataset[0m[0;34m,[0m [0mvalid_labels[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0mtest_dataset[0m[0;34m,[0m [0mtest_labels[0m [0;34m=[0m [0mreformat[0m[0;34m([0m[0mtest_dataset[0m[0;34m,[0m [0mtest_labels[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'train_dataset' is not defined
+NameError: name 'train_dataset' is not defined
+
+Executability                            : False

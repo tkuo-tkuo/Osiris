@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+### One reason why we use "numpy" instead of "math" in Deep Learning ###
+x = [1, 2, 3]
+basic_sigmoid(x) # you will see this give an error when you run it, because x is a vector.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-8ccefa5bf989>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m### One reason why we use "numpy" instead of "math" in Deep Learning ###[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mx[0m [0;34m=[0m [0;34m[[0m[0;36m1[0m[0;34m,[0m [0;36m2[0m[0;34m,[0m [0;36m3[0m[0;34m][0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mbasic_sigmoid[0m[0;34m([0m[0mx[0m[0;34m)[0m [0;31m# you will see this give an error when you run it, because x is a vector.[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'basic_sigmoid' is not defined
+NameError: name 'basic_sigmoid' is not defined
+
+Executability                            : False

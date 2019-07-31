@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+df.to_csv('exemplo.csv',index=False)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-eab34ffeda3e>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdf[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0;34m'exemplo.csv'[0m[0;34m,[0m[0mindex[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36mto_csv[0;34m(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, tupleize_cols, date_format, doublequote, escapechar, decimal)[0m
+[1;32m   3018[0m                                  [0mdoublequote[0m[0;34m=[0m[0mdoublequote[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3019[0m                                  escapechar=escapechar, decimal=decimal)
+[0;32m-> 3020[0;31m         [0mformatter[0m[0;34m.[0m[0msave[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3021[0m [0;34m[0m[0m
+[1;32m   3022[0m         [0;32mif[0m [0mpath_or_buf[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/formats/csvs.py[0m in [0;36msave[0;34m(self)[0m
+[1;32m    155[0m             f, handles = _get_handle(self.path_or_buf, self.mode,
+[1;32m    156[0m                                      [0mencoding[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mencoding[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 157[0;31m                                      compression=self.compression)
+[0m[1;32m    158[0m             [0mclose[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    159[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/common.py[0m in [0;36m_get_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text)[0m
+[1;32m    422[0m         [0;32melif[0m [0mencoding[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    423[0m             [0;31m# Python 3 and encoding[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 424[0;31m             [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mpath_or_buf[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m,[0m [0mnewline[0m[0;34m=[0m[0;34m""[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    425[0m         [0;32melif[0m [0mis_text[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    426[0m             [0;31m# Python 3 and no explicit encoding[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'exemplo.csv'
+PermissionError: [Errno 13] Permission denied: 'exemplo.csv'
+
+Executability                            : False

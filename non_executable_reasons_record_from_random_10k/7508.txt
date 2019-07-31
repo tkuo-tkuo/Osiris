@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from utils import load_data, get_current_time, create_dirs, \
+    create_minibatches, write_to_tensorboard, \
+    create_summary_and_projector, create_evaluation_tensor
+import tensorflow as tf
+import os
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-27106b4a5a57>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mutils[0m [0;32mimport[0m [0mload_data[0m[0;34m,[0m [0mget_current_time[0m[0;34m,[0m [0mcreate_dirs[0m[0;34m,[0m[0;31m [0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mcreate_minibatches[0m[0;34m,[0m [0mwrite_to_tensorboard[0m[0;34m,[0m[0;31m [0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mcreate_summary_and_projector[0m[0;34m,[0m [0mcreate_evaluation_tensor[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/frolovconst@AML_labs/lab13/utils.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mdatetime[0m [0;32mimport[0m [0mdatetime[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mcontrib[0m[0;34m.[0m[0mtensorboard[0m[0;34m.[0m[0mplugins[0m [0;32mimport[0m [0mprojector[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mp[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

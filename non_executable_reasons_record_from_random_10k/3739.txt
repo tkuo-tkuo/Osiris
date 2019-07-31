@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import  pywapi
+import string
+
+weather_com_result = pywapi.get_weather_from_weather_com('10001')
+yahoo_result = pywapi.get_weather_from_yahoo('10001')
+noaa_result = pywapi.get_weather_from_noaa('KJFK')
+
+print "Weather.com says: It is " + string.lower(weather_com_result['current_conditions']['text']) + " and " + weather_com_result['current_conditions']['temperature'] + "C now in New York.\n\n"
+
+print "Yahoo says: It is " + string.lower(yahoo_result['condition']['text']) + " and " + yahoo_result['condition']['temp'] + "C now in New York.\n\n"
+
+print "NOAA says: It is " + string.lower(noaa_result['weather']) + " and " + noaa_result['temp_c'] + "C now in New York.\n"
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-b3fe42b79e66>"[0;36m, line [0;32m10[0m
+[0;31m    print "Weather.com says: It is " + string.lower(weather_com_result['current_conditions']['text']) + " and " + weather_com_result['current_conditions']['temperature'] + "C now in New York.\n\n"[0m
+[0m                                   ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-b3fe42b79e66>, line 10)
+
+Executability                            : False

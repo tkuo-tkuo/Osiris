@@ -1,0 +1,100 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+ols = sm.OLS(train[LAG+1:], sm.add_constant(ts_train)[:-1], )
+ols = ols.fit()
+display(ols.summary())
+
+def predict_with_ols(ols, x, length):
+    h = np.ones(x.shape[0] + 1)
+    h[1:] = x
+    
+    response = list()
+    for _ in range(length):
+        p = ols.predict(h)
+        h[1:-1] = h[2:]
+        h[-1] = p
+        response.append(p)
+    response = np.array(response)
+    return response
+
+train_pred = ols.predict(sm.add_constant(ts_train))
+test_pred = predict_with_ols(ols, ts_train[-1], length=len(test))
+
+show_result(train, test, train_pred, test_pred, lag=LAG)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-5-1df392a0d386>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mols[0m [0;34m=[0m [0msm[0m[0;34m.[0m[0mOLS[0m[0;34m([0m[0mtrain[0m[0;34m[[0m[0mLAG[0m[0;34m+[0m[0;36m1[0m[0;34m:[0m[0;34m][0m[0;34m,[0m [0msm[0m[0;34m.[0m[0madd_constant[0m[0;34m([0m[0mts_train[0m[0;34m)[0m[0;34m[[0m[0;34m:[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mols[0m [0;34m=[0m [0mols[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mdisplay[0m[0;34m([0m[0mols[0m[0;34m.[0m[0msummary[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mdef[0m [0mpredict_with_ols[0m[0;34m([0m[0mols[0m[0;34m,[0m [0mx[0m[0;34m,[0m [0mlength[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/statsmodels/regression/linear_model.py[0m in [0;36m__init__[0;34m(self, endog, exog, missing, hasconst, **kwargs)[0m
+[1;32m    836[0m                  **kwargs):
+[1;32m    837[0m         super(OLS, self).__init__(endog, exog, missing=missing,
+[0;32m--> 838[0;31m                                   hasconst=hasconst, **kwargs)
+[0m[1;32m    839[0m         [0;32mif[0m [0;34m"weights"[0m [0;32min[0m [0mself[0m[0;34m.[0m[0m_init_keys[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    840[0m             [0mself[0m[0;34m.[0m[0m_init_keys[0m[0;34m.[0m[0mremove[0m[0;34m([0m[0;34m"weights"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/statsmodels/regression/linear_model.py[0m in [0;36m__init__[0;34m(self, endog, exog, weights, missing, hasconst, **kwargs)[0m
+[1;32m    682[0m             [0mweights[0m [0;34m=[0m [0mweights[0m[0;34m.[0m[0msqueeze[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    683[0m         super(WLS, self).__init__(endog, exog, missing=missing,
+[0;32m--> 684[0;31m                                   weights=weights, hasconst=hasconst, **kwargs)
+[0m[1;32m    685[0m         [0mnobs[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mexog[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m    686[0m         [0mweights[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mweights[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/statsmodels/regression/linear_model.py[0m in [0;36m__init__[0;34m(self, endog, exog, **kwargs)[0m
+[1;32m    194[0m     """
+[1;32m    195[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mendog[0m[0;34m,[0m [0mexog[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 196[0;31m         [0msuper[0m[0;34m([0m[0mRegressionModel[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mendog[0m[0;34m,[0m [0mexog[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    197[0m         [0mself[0m[0;34m.[0m[0m_data_attr[0m[0;34m.[0m[0mextend[0m[0;34m([0m[0;34m[[0m[0;34m'pinv_wexog'[0m[0;34m,[0m [0;34m'wendog'[0m[0;34m,[0m [0;34m'wexog'[0m[0;34m,[0m [0;34m'weights'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    198[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/statsmodels/base/model.py[0m in [0;36m__init__[0;34m(self, endog, exog, **kwargs)[0m
+[1;32m    214[0m [0;34m[0m[0m
+[1;32m    215[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mendog[0m[0;34m,[0m [0mexog[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 216[0;31m         [0msuper[0m[0;34m([0m[0mLikelihoodModel[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mendog[0m[0;34m,[0m [0mexog[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    217[0m         [0mself[0m[0;34m.[0m[0minitialize[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    218[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/statsmodels/base/model.py[0m in [0;36m__init__[0;34m(self, endog, exog, **kwargs)[0m
+[1;32m     66[0m         [0mhasconst[0m [0;34m=[0m [0mkwargs[0m[0;34m.[0m[0mpop[0m[0;34m([0m[0;34m'hasconst'[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     67[0m         self.data = self._handle_data(endog, exog, missing, hasconst,
+[0;32m---> 68[0;31m                                       **kwargs)
+[0m[1;32m     69[0m         [0mself[0m[0;34m.[0m[0mk_constant[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mk_constant[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     70[0m         [0mself[0m[0;34m.[0m[0mexog[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mexog[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/statsmodels/base/model.py[0m in [0;36m_handle_data[0;34m(self, endog, exog, missing, hasconst, **kwargs)[0m
+[1;32m     89[0m [0;34m[0m[0m
+[1;32m     90[0m     [0;32mdef[0m [0m_handle_data[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mendog[0m[0;34m,[0m [0mexog[0m[0;34m,[0m [0mmissing[0m[0;34m,[0m [0mhasconst[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 91[0;31m         [0mdata[0m [0;34m=[0m [0mhandle_data[0m[0;34m([0m[0mendog[0m[0;34m,[0m [0mexog[0m[0;34m,[0m [0mmissing[0m[0;34m,[0m [0mhasconst[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     92[0m         [0;31m# kwargs arrays could have changed, easier to just attach here[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     93[0m         [0;32mfor[0m [0mkey[0m [0;32min[0m [0mkwargs[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/statsmodels/base/data.py[0m in [0;36mhandle_data[0;34m(endog, exog, missing, hasconst, **kwargs)[0m
+[1;32m    633[0m     [0mklass[0m [0;34m=[0m [0mhandle_data_class_factory[0m[0;34m([0m[0mendog[0m[0;34m,[0m [0mexog[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    634[0m     return klass(endog, exog=exog, missing=missing, hasconst=hasconst,
+[0;32m--> 635[0;31m                  **kwargs)
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/statsmodels/base/data.py[0m in [0;36m__init__[0;34m(self, endog, exog, missing, hasconst, **kwargs)[0m
+[1;32m     79[0m         [0mself[0m[0;34m.[0m[0mk_constant[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     80[0m         [0mself[0m[0;34m.[0m[0m_handle_constant[0m[0;34m([0m[0mhasconst[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 81[0;31m         [0mself[0m[0;34m.[0m[0m_check_integrity[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     82[0m         [0mself[0m[0;34m.[0m[0m_cache[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     83[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/statsmodels/base/data.py[0m in [0;36m_check_integrity[0;34m(self)[0m
+[1;32m    405[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mexog[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    406[0m             [0;32mif[0m [0mlen[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mexog[0m[0;34m)[0m [0;34m!=[0m [0mlen[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mendog[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 407[0;31m                 [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"endog and exog matrices are different sizes"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    408[0m [0;34m[0m[0m
+[1;32m    409[0m     [0;32mdef[0m [0mwrap_output[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mobj[0m[0;34m,[0m [0mhow[0m[0;34m=[0m[0;34m'columns'[0m[0;34m,[0m [0mnames[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: endog and exog matrices are different sizes
+ValueError: endog and exog matrices are different sizes
+
+Executability                            : False

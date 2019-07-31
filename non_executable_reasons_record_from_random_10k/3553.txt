@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+x[0]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-13-2f755f117ac9>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mx[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: 'set' object does not support indexing
+TypeError: 'set' object does not support indexing
+
+Executability                            : False

@@ -1,0 +1,31 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+mean, var = 163, 52.8
+std = math.sqrt(var)
+pdf = thinkstats2.NormalPdf(mean, std)
+pdf.Density(mean + std)
+thinkplot.Pdf(pdf, label='normal')
+thinkplot.Show()
+
+pmf = pdf.MakePmf()
+thinkplot.Pmf(pmf, label='normal')
+thinkplot.Show()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-fd0d0e65c4ce>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mmean[0m[0;34m,[0m [0mvar[0m [0;34m=[0m [0;36m163[0m[0;34m,[0m [0;36m52.8[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mstd[0m [0;34m=[0m [0mmath[0m[0;34m.[0m[0msqrt[0m[0;34m([0m[0mvar[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mpdf[0m [0;34m=[0m [0mthinkstats2[0m[0;34m.[0m[0mNormalPdf[0m[0;34m([0m[0mmean[0m[0;34m,[0m [0mstd[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0mpdf[0m[0;34m.[0m[0mDensity[0m[0;34m([0m[0mmean[0m [0;34m+[0m [0mstd[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'math' is not defined
+NameError: name 'math' is not defined
+
+Executability                            : False

@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+K = 10
+n = X_train.shape[1]
+
+theta_all = np.zeros((K, n + 1))
+for k in range(K):
+    print(k)
+    y_k = (y_train == k).astype('int')
+    #print(y_k)
+    #theta_k = optimize.fmin_l_bfgs_b(computeCostLog, initial_theta, args = (X_train, y_k),fprime=computeGradLog)[0]
+    #theta_k = optimize.fmin_bfgs(computeCostLog, initial_theta, args = (X_train, y_k),fprime=computeGradLog)[0]
+    (thetha_k, _, _) = gradientDescentLog(X, y, alpha=0.05, numIter=5000, seed =42)
+    theta_all[k] = theta_k
+    
+
+print("done")
+
+file = 'theta_all_gd.txt'
+np.savetxt(file, theta_all, fmt='%f')
+print(theta_all.shape)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-2ba8222b7ce4>[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m     [0;31m#theta_k = optimize.fmin_bfgs(computeCostLog, initial_theta, args = (X_train, y_k),fprime=computeGradLog)[0][0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m     [0;34m([0m[0mthetha_k[0m[0;34m,[0m [0m_[0m[0;34m,[0m [0m_[0m[0;34m)[0m [0;34m=[0m [0mgradientDescentLog[0m[0;34m([0m[0mX[0m[0;34m,[0m [0my[0m[0;34m,[0m [0malpha[0m[0;34m=[0m[0;36m0.05[0m[0;34m,[0m [0mnumIter[0m[0;34m=[0m[0;36m5000[0m[0;34m,[0m [0mseed[0m [0;34m=[0m[0;36m42[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m     [0mtheta_all[0m[0;34m[[0m[0mk[0m[0;34m][0m [0;34m=[0m [0mtheta_k[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0;34m[0m[0m
+[1;32m     14[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'theta_k' is not defined
+NameError: name 'theta_k' is not defined
+
+Executability                            : False

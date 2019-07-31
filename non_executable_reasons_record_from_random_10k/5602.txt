@@ -1,0 +1,26 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from keras.models import Model
+from keras.layers import Dense, Input
+from keras.datasets import mnist
+import numpy as np
+
+# Hyper parameters
+batch_size = 128
+nb_epoch = 100
+
+# Parameters for MNIST dataset
+img_rows, img_cols = 28, 28
+
+# Parameters for denoising autoencoder
+nb_visible = img_rows * img_cols
+nb_hidden = 500
+corruption_level = 0.3
+------------------
+
+ImportError: No module named 'keras'
+
+Executability                            : False

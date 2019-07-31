@@ -1,0 +1,153 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.333 ; index of matched cells: [0]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+!pipeline
+
+-----------------
+Original output:
+Type:        PipelineCli
+String form: <cli_pipeline.__init__.PipelineCli object at 0x7f49eae21dd8>
+File:        /opt/conda/lib/python3.5/site-packages/cli_pipeline/__init__.py
+
+Usage:       pipeline 
+             pipeline cluster-describe
+             pipeline cluster-logs
+             pipeline cluster-proxy
+             pipeline cluster-quarantine
+             pipeline cluster-rollback
+             pipeline cluster-route
+             pipeline cluster-scale
+             pipeline cluster-shell
+             pipeline cluster-start
+             pipeline cluster-stop
+             pipeline cluster-upgrade
+             pipeline optimize-model
+             pipeline predict-model
+             pipeline server-build
+             pipeline server-logs
+             pipeline server-shell
+             pipeline server-start
+             pipeline server-stop
+             pipeline train-model
+             pipeline version
+
+Executed output:
+Type:        PipelineCli
+String form: <cli_pipeline.__init__.PipelineCli object at 0x7f3c9f48af28>
+File:        ~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/cli_pipeline/__init__.py
+
+Usage:       pipeline 
+             pipeline cluster-describe
+             pipeline cluster-logs
+             pipeline cluster-proxy
+             pipeline cluster-quarantine
+             pipeline cluster-rollback
+             pipeline cluster-route
+             pipeline cluster-scale
+             pipeline cluster-shell
+             pipeline cluster-start
+             pipeline cluster-stop
+             pipeline cluster-upgrade
+             pipeline optimize-model
+             pipeline predict-model
+             pipeline server-build
+             pipeline server-logs
+             pipeline server-shell
+             pipeline server-start
+             pipeline server-stop
+             pipeline train-model
+             pipeline version
+
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+!pip install cli-pipeline==1.3.0
+
+-----------------
+Original output:
+Collecting cli-pipeline==1.3.0
+  Downloading cli_pipeline-1.3.0-py3-none-any.whl
+Requirement already satisfied: tabulate==0.7.7 in /opt/conda/lib/python3.5/site-packages (from cli-pipeline==1.3.0)
+Requirement already satisfied: pyyaml==3.12 in /opt/conda/lib/python3.5/site-packages (from cli-pipeline==1.3.0)
+Collecting kubernetes==3.0.0 (from cli-pipeline==1.3.0)
+  Using cached kubernetes-3.0.0-py2.py3-none-any.whl
+Requirement already satisfied: requests==2.18.1 in /opt/conda/lib/python3.5/site-packages (from cli-pipeline==1.3.0)
+Requirement already satisfied: fire==0.1.1 in /opt/conda/lib/python3.5/site-packages (from cli-pipeline==1.3.0)
+Requirement already satisfied: futures==3.1.1 in /opt/conda/lib/python3.5/site-packages (from cli-pipeline==1.3.0)
+Requirement already satisfied: jinja2==2.9.6 in /opt/conda/lib/python3.5/site-packages (from cli-pipeline==1.3.0)
+Requirement already satisfied: setuptools>=21.0.0 in /opt/conda/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: google-auth>=1.0.1 in /opt/conda/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: python-dateutil>=2.5.3 in /opt/conda/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: six>=1.9.0 in /opt/conda/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: ipaddress>=1.0.17 in /opt/conda/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: certifi>=14.05.14 in /opt/conda/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: urllib3!=1.21,>=1.19.1 in /opt/conda/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: websocket-client<=0.40.0,>=0.32.0 in /opt/conda/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: idna<2.6,>=2.5 in /opt/conda/lib/python3.5/site-packages (from requests==2.18.1->cli-pipeline==1.3.0)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /opt/conda/lib/python3.5/site-packages (from requests==2.18.1->cli-pipeline==1.3.0)
+Requirement already satisfied: ipython<6.0 in /opt/conda/lib/python3.5/site-packages (from fire==0.1.1->cli-pipeline==1.3.0)
+Requirement already satisfied: MarkupSafe>=0.23 in /opt/conda/lib/python3.5/site-packages (from jinja2==2.9.6->cli-pipeline==1.3.0)
+Requirement already satisfied: cachetools>=2.0.0 in /opt/conda/lib/python3.5/site-packages (from google-auth>=1.0.1->kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: rsa>=3.1.4 in /opt/conda/lib/python3.5/site-packages (from google-auth>=1.0.1->kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: pyasn1-modules>=0.0.5 in /opt/conda/lib/python3.5/site-packages (from google-auth>=1.0.1->kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: pyasn1>=0.1.7 in /opt/conda/lib/python3.5/site-packages (from google-auth>=1.0.1->kubernetes==3.0.0->cli-pipeline==1.3.0)
+Requirement already satisfied: simplegeneric>0.8 in /opt/conda/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0)
+Requirement already satisfied: traitlets>=4.2 in /opt/conda/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0)
+Requirement already satisfied: pygments in /opt/conda/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0)
+Requirement already satisfied: prompt-toolkit<2.0.0,>=1.0.4 in /opt/conda/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0)
+Requirement already satisfied: decorator in /opt/conda/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0)
+Requirement already satisfied: pexpect; sys_platform != "win32" in /opt/conda/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0)
+Requirement already satisfied: pickleshare in /opt/conda/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0)
+Requirement already satisfied: wcwidth in /opt/conda/lib/python3.5/site-packages (from prompt-toolkit<2.0.0,>=1.0.4->ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0)
+Installing collected packages: kubernetes, cli-pipeline
+  Found existing installation: kubernetes 3.0.0a1
+    Uninstalling kubernetes-3.0.0a1:
+      Successfully uninstalled kubernetes-3.0.0a1
+Successfully installed cli-pipeline-1.3.0 kubernetes-3.0.0
+
+Executed output:
+Requirement already satisfied: cli-pipeline==1.3.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (1.3.0)
+Requirement already satisfied: pyyaml==3.12 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from cli-pipeline==1.3.0) (3.12)
+Requirement already satisfied: kubernetes==3.0.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from cli-pipeline==1.3.0) (3.0.0)
+Requirement already satisfied: jinja2==2.9.6 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from cli-pipeline==1.3.0) (2.9.6)
+Requirement already satisfied: requests==2.18.1 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from cli-pipeline==1.3.0) (2.18.1)
+Requirement already satisfied: futures==3.1.1 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from cli-pipeline==1.3.0) (3.1.1)
+Requirement already satisfied: tabulate==0.7.7 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from cli-pipeline==1.3.0) (0.7.7)
+Requirement already satisfied: fire==0.1.1 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from cli-pipeline==1.3.0) (0.1.1)
+Requirement already satisfied: setuptools>=21.0.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0) (39.1.0)
+Requirement already satisfied: ipaddress>=1.0.17 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0) (1.0.22)
+Requirement already satisfied: python-dateutil>=2.5.3 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0) (2.7.3)
+Requirement already satisfied: six>=1.9.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0) (1.11.0)
+Requirement already satisfied: websocket-client<=0.40.0,>=0.32.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0) (0.40.0)
+Requirement already satisfied: urllib3!=1.21,>=1.19.1 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0) (1.22)
+Requirement already satisfied: certifi>=14.05.14 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0) (2018.4.16)
+Requirement already satisfied: google-auth>=1.0.1 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from kubernetes==3.0.0->cli-pipeline==1.3.0) (1.6.3)
+Requirement already satisfied: MarkupSafe>=0.23 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from jinja2==2.9.6->cli-pipeline==1.3.0) (1.0)
+Requirement already satisfied: idna<2.6,>=2.5 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from requests==2.18.1->cli-pipeline==1.3.0) (2.5)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from requests==2.18.1->cli-pipeline==1.3.0) (3.0.4)
+Requirement already satisfied: ipython<6.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from fire==0.1.1->cli-pipeline==1.3.0) (5.8.0)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from google-auth>=1.0.1->kubernetes==3.0.0->cli-pipeline==1.3.0) (0.2.5)
+Requirement already satisfied: rsa>=3.1.4 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from google-auth>=1.0.1->kubernetes==3.0.0->cli-pipeline==1.3.0) (4.0)
+Requirement already satisfied: cachetools>=2.0.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from google-auth>=1.0.1->kubernetes==3.0.0->cli-pipeline==1.3.0) (3.1.1)
+Requirement already satisfied: pickleshare in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (0.7.4)
+Requirement already satisfied: traitlets>=4.2 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (4.3.2)
+Requirement already satisfied: pygments in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (2.2.0)
+Requirement already satisfied: decorator in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (4.3.0)
+Requirement already satisfied: pexpect; sys_platform != "win32" in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (4.5.0)
+Requirement already satisfied: simplegeneric>0.8 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (0.8.1)
+Requirement already satisfied: prompt-toolkit<2.0.0,>=1.0.4 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (1.0.15)
+Requirement already satisfied: pyasn1<0.5.0,>=0.4.1 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from pyasn1-modules>=0.2.1->google-auth>=1.0.1->kubernetes==3.0.0->cli-pipeline==1.3.0) (0.4.5)
+Requirement already satisfied: ipython_genutils in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from traitlets>=4.2->ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (0.2.0)
+Requirement already satisfied: ptyprocess>=0.5 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from pexpect; sys_platform != "win32"->ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (0.5.2)
+Requirement already satisfied: wcwidth in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from prompt-toolkit<2.0.0,>=1.0.4->ipython<6.0->fire==0.1.1->cli-pipeline==1.3.0) (0.1.7)
+[31mdistributed 1.21.8 requires msgpack, which is not installed.[0m
+[31mflask 1.0.2 has requirement Jinja2>=2.10, but you'll have jinja2 2.9.6 which is incompatible.[0m
+[31mwatson-developer-cloud 2.10.1 has requirement websocket-client==0.48.0, but you'll have websocket-client 0.40.0 which is incompatible.[0m
+[31mrequests 2.18.1 has requirement urllib3<1.22,>=1.21.1, but you'll have urllib3 1.22 which is incompatible.[0m
+[33mYou are using pip version 10.0.1, however version 19.2.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+

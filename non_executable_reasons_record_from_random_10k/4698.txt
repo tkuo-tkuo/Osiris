@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+penguin_problem = GraphProblem('Start', 'Penguin', museum_graph)
+penguin_ucs_node = uniform_cost_search(penguin_problem)
+penguin_ucs_node.solution()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-9-cae8d8e3bcf2>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mpenguin_problem[0m [0;34m=[0m [0mGraphProblem[0m[0;34m([0m[0;34m'Start'[0m[0;34m,[0m [0;34m'Penguin'[0m[0;34m,[0m [0mmuseum_graph[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mpenguin_ucs_node[0m [0;34m=[0m [0muniform_cost_search[0m[0;34m([0m[0mpenguin_problem[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mpenguin_ucs_node[0m[0;34m.[0m[0msolution[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'museum_graph' is not defined
+NameError: name 'museum_graph' is not defined
+
+Executability                            : False

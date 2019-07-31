@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# just to show how many Higgs there are in each dataset
+# split data into 8 group
+split_train = split.split(y_full, x_full, method='mass')
+for num, i in enumerate(split_train):
+    y, x, id_ = i
+    n = np.count_nonzero(y == 1)
+    print("Set",num,"  size",len(y), "  percent of Higgs", float(n) / float(len(y)))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-7cf7587eb0c7>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;31m# just to show how many Higgs there are in each dataset[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;31m# split data into 8 group[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0msplit_train[0m [0;34m=[0m [0msplit[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0my_full[0m[0;34m,[0m [0mx_full[0m[0;34m,[0m [0mmethod[0m[0;34m=[0m[0;34m'mass'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfor[0m [0mnum[0m[0;34m,[0m [0mi[0m [0;32min[0m [0menumerate[0m[0;34m([0m[0msplit_train[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      7[0m     [0my[0m[0;34m,[0m [0mx[0m[0;34m,[0m [0mid_[0m [0;34m=[0m [0mi[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'split' is not defined
+NameError: name 'split' is not defined
+
+Executability                            : False

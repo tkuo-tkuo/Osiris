@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import thinkstats2
+live = preg[preg.outcome == 1]
+firsts = live[live.birthord == 1]
+others = live[live.birthord != 1]
+cdf = thinkstats2.Cdf(live.totalwgt_lb)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-7811ad7520de>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mthinkstats2[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mlive[0m [0;34m=[0m [0mpreg[0m[0;34m[[0m[0mpreg[0m[0;34m.[0m[0moutcome[0m [0;34m==[0m [0;36m1[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mfirsts[0m [0;34m=[0m [0mlive[0m[0;34m[[0m[0mlive[0m[0;34m.[0m[0mbirthord[0m [0;34m==[0m [0;36m1[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      6[0m [0mothers[0m [0;34m=[0m [0mlive[0m[0;34m[[0m[0mlive[0m[0;34m.[0m[0mbirthord[0m [0;34m!=[0m [0;36m1[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'preg' is not defined
+NameError: name 'preg' is not defined
+
+Executability                            : False

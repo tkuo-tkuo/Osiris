@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+p.y
+------------------
+
+AttributeError: 'function' object has no attribute 'y'
+
+Executability                            : False

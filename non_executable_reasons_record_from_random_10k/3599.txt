@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+demet3.index("AngularJS")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-12-915c665c9750>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdemet3[0m[0;34m.[0m[0mindex[0m[0;34m([0m[0;34m"AngularJS"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: tuple.index(x): x not in tuple
+ValueError: tuple.index(x): x not in tuple
+
+Executability                            : False

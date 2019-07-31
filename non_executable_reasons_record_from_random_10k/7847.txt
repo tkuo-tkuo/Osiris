@@ -1,0 +1,13 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+corr_exp <- function(x, phi){
+    return(exp(-phi * x))
+}
+------------------
+
+SyntaxError: invalid syntax (<ipython-input-1-b24c3b3b75f8>, line 3)
+
+Executability                            : False

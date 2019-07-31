@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+df.to_csv("kbfintech.csv", mode='w')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-7-381a06e6b2aa>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdf[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0;34m"kbfintech.csv"[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'w'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
+
+Executability                            : False

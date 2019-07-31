@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+b = get_building_by_coords(53.665475, 23.835301)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-0920daf49d72>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mb[0m [0;34m=[0m [0mget_building_by_coords[0m[0;34m([0m[0;36m53.665475[0m[0;34m,[0m [0;36m23.835301[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'get_building_by_coords' is not defined
+NameError: name 'get_building_by_coords' is not defined
+
+Executability                            : False

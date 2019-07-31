@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+terscevir(35)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-22-2d810582b320>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mterscevir[0m[0;34m([0m[0;36m35[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-21-f784389e32c2>[0m in [0;36mterscevir[0;34m(s)[0m
+[1;32m      1[0m [0;32mdef[0m [0mterscevir[0m[0;34m([0m[0ms[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m     [0;32mif[0m [0;34m([0m[0mtype[0m[0;34m([0m[0ms[0m[0;34m)[0m [0;34m==[0m [0mint[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m         [0;32mraise[0m [0mTypeError[0m[0;34m([0m[0;34m"Lütfen string bir değer girin."[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: Lütfen string bir değer girin.
+TypeError: Lütfen string bir değer girin.
+
+Executability                            : False

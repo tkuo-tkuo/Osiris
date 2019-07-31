@@ -1,0 +1,105 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+from HelmholtzSolver3D import *
+from ExampleBoundaries import Sphere
+
+frequency = 20.0 # frequency [Hz]
+k = frequencyToWavenumber(frequency)
+
+interiorPoints = np.array([[0.500, 0.000, 0.000],
+                           [0.000, 0.000, 0.010],
+                           [0.000, 0.000, 0.250],
+                           [0.000, 0.000, 0.500],
+                           [0.000, 0.000, 0.750]], dtype=np.float32)
+
+# Test Problem 1
+# Dirichlet boundary condition with phi = sin(k*z)
+#
+solver = InteriorHelmholtzSolver3D(Sphere())
+
+boundaryCondition = solver.dirichletBoundaryCondition()
+boundaryCondition.f[:] = np.sin(k * solver.aCenters[:,2])
+
+boundaryIncidence = BoundaryIncidence(solver.numberOfElements())
+boundaryIncidence.phi.fill(0.0)
+boundaryIncidence.v.fill(0.0)
+
+interiorIncidentPhi = np.zeros(interiorPoints.shape[0], dtype=np.complex64)
+
+boundarySolution = solver.solveBoundary(k, boundaryCondition, boundaryIncidence)
+sampleSolution = boundarySolution.solveSamples(interiorIncidentPhi, interiorPoints)
+
+print("Test Problem 1")
+print("==============\n")
+print(boundarySolution)
+print(sampleSolution)
+
+
+# Test Problem 2
+# Neumann boundary condition with v = cos(k*z)
+#
+boundaryCondition = solver.neumannBoundaryCondition()
+
+for i in range(solver.numberOfElements()):
+    a, b, c = solver.oGeometry.triangleVertices(i)
+    normal = Normal3D(a, b, c)
+    boundaryCondition.f[i] = k * np.cos(k * solver.aCenters[i,2]) * normal[2]
+
+boundarySolution = solver.solveBoundary(k, boundaryCondition, boundaryIncidence)
+sampleSolution = boundarySolution.solveSamples(interiorIncidentPhi, interiorPoints)
+
+print("\n\nTest Problem 2")
+print("==============\n")
+print(boundarySolution)
+print(sampleSolution)
+
+
+# Test Problem 3
+# Neumann boundary condition with v = cos(k*z)
+#
+boundaryCondition = solver.neumannBoundaryCondition()
+
+p = np.array([0.0, 0.0, 0.0], dtype=np.float32)
+for i in range(solver.numberOfElements()):
+    q = solver.aCenters[i, :]
+    r = p - q
+    R = norm(r)
+    boundaryIncidence.phi[i] = np.exp(1.0j * k * R) / (4.0 * np.pi * R)
+    a, b, c = solver.oGeometry.triangleVertices(i)
+    drbdn = -np.dot(r, normal) / R
+    boundaryIncidence.v[i] = drbdn * np.exp(1.0j * k * R)*(1.0j * k * R - 1.0) / \
+            (4.0 * np.pi * R * R)
+
+for i in range(interiorPoints.shape[0]):
+    q = interiorPoints[i, :]
+    r = p - q
+    R = norm(r)
+    interiorIncidentPhi[i] = np.exp(1.0j * k * R) / (4.0 * np.pi * R)
+
+boundarySolution = solver.solveBoundary(k, boundaryCondition, boundaryIncidence)
+sampleSolution = boundarySolution.solveSamples(interiorIncidentPhi, interiorPoints)
+
+print("==============\n")
+print(boundarySolution)
+print(sampleSolution)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-afb877ab85d6>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mHelmholtzSolver3D[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0mExampleBoundaries[0m [0;32mimport[0m [0mSphere[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'HelmholtzSolver3D'
+ModuleNotFoundError: No module named 'HelmholtzSolver3D'
+
+Executability                            : False

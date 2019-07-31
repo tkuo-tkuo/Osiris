@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+if os.path.exists(dic_file)        :
+    word_dic = json.load(open(dic_file))
+    
+else:
+    register_dic()
+    json.dump(word_dic, open(dic_file.'w'))
+    
+X, Y = count_freq(20)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-d0eedcdccc2a>"[0;36m, line [0;32m8[0m
+[0;31m    json.dump(word_dic, open(dic_file.'w'))[0m
+[0m                                        ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-d0eedcdccc2a>, line 8)
+
+Executability                            : False

@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+plt.scatter(deg,pr)
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-07b16c031a3e>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mplt[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mdeg[0m[0;34m,[0m[0mpr[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'deg' is not defined
+NameError: name 'deg' is not defined
+
+Executability                            : False

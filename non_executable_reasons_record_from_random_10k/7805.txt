@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+if __name__ == '__main__':
+    k=5
+    InputData= sortOrginalData('a1_va3.csv')
+    InputLabel = getLabel(InputData) # get the orginal label of data(by orders)
+    OrginalLabel= []
+    for data in InputLabel:
+        OrginalLabel.append(int(data))
+    result = K_means(InputData,k)
+    num = countNum(result,OrginalLabel,k)
+    print(num)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-11-b017f76fa668>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mif[0m [0m__name__[0m [0;34m==[0m [0;34m'__main__'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m     [0mk[0m[0;34m=[0m[0;36m5[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     [0mInputData[0m[0;34m=[0m [0msortOrginalData[0m[0;34m([0m[0;34m'a1_va3.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mInputLabel[0m [0;34m=[0m [0mgetLabel[0m[0;34m([0m[0mInputData[0m[0;34m)[0m [0;31m# get the orginal label of data(by orders)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mOrginalLabel[0m[0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-4-20c6ceb9482f>[0m in [0;36msortOrginalData[0;34m(filename)[0m
+[1;32m     33[0m [0;32mdef[0m [0msortOrginalData[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     34[0m     [0mresult[0m [0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 35[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m [0;32mas[0m [0mfile[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     36[0m         [0mcsv_reader[0m [0;34m=[0m [0mcsv[0m[0;34m.[0m[0mreader[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     37[0m         [0mdata[0m [0;34m=[0m [0mlist[0m[0;34m([0m[0mcsv_reader[0m[0;34m)[0m[0;31m# get a list of all values[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'a1_va3.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'a1_va3.csv'
+
+Executability                            : False

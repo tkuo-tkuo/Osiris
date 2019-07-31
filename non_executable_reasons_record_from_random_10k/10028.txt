@@ -1,0 +1,39 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+plt.figure()
+ax = plt.gca()
+points_plot_prob(ax, Xtrain_l, Xtest_l, ytrain_l, ytest_l, clf_l, psize=20, alpha=0.1);
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-17-4623a93fcfe6>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0max[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mgca[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mpoints_plot_prob[0m[0;34m([0m[0max[0m[0;34m,[0m [0mXtrain_l[0m[0;34m,[0m [0mXtest_l[0m[0;34m,[0m [0mytrain_l[0m[0;34m,[0m [0mytest_l[0m[0;34m,[0m [0mclf_l[0m[0;34m,[0m [0mpsize[0m[0;34m=[0m[0;36m20[0m[0;34m,[0m [0malpha[0m[0;34m=[0m[0;36m0.1[0m[0;34m)[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-1-db35323d5701>[0m in [0;36mpoints_plot_prob[0;34m(ax, Xtr, Xte, ytr, yte, clf, colorscale, cdiscrete, ccolor, psize, alpha)[0m
+[1;32m     69[0m     [0mplt[0m[0;34m.[0m[0mcontourf[0m[0;34m([0m[0mxx[0m[0;34m,[0m [0myy[0m[0;34m,[0m [0mZ[0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0mccolor[0m[0;34m,[0m [0malpha[0m[0;34m=[0m[0;36m.2[0m[0;34m,[0m [0maxes[0m[0;34m=[0m[0max[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     70[0m     [0mcs2[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mcontour[0m[0;34m([0m[0mxx[0m[0;34m,[0m [0myy[0m[0;34m,[0m [0mZ[0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0mccolor[0m[0;34m,[0m [0malpha[0m[0;34m=[0m[0;36m.6[0m[0;34m,[0m [0maxes[0m[0;34m=[0m[0max[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 71[0;31m     [0mplt[0m[0;34m.[0m[0mclabel[0m[0;34m([0m[0mcs2[0m[0;34m,[0m [0mfmt[0m [0;34m=[0m [0;34m'%2.1f'[0m[0;34m,[0m [0mcolors[0m [0;34m=[0m [0;34m'k'[0m[0;34m,[0m [0mfontsize[0m[0;34m=[0m[0;36m14[0m[0;34m,[0m [0maxes[0m[0;34m=[0m[0max[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     72[0m     [0;32mreturn[0m [0max[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/pyplot.py[0m in [0;36mclabel[0;34m(CS, *args, **kwargs)[0m
+[1;32m   2491[0m [0;34m@[0m[0mdocstring[0m[0;34m.[0m[0mcopy[0m[0;34m([0m[0mAxes[0m[0;34m.[0m[0mclabel[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2492[0m [0;32mdef[0m [0mclabel[0m[0;34m([0m[0mCS[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2493[0;31m     [0;32mreturn[0m [0mgca[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mclabel[0m[0;34m([0m[0mCS[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2494[0m [0;34m[0m[0m
+[1;32m   2495[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_axes.py[0m in [0;36mclabel[0;34m(self, CS, *args, **kwargs)[0m
+[1;32m   6412[0m [0;34m[0m[0m
+[1;32m   6413[0m     [0;32mdef[0m [0mclabel[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mCS[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 6414[0;31m         [0;32mreturn[0m [0mCS[0m[0;34m.[0m[0mclabel[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   6415[0m     [0mclabel[0m[0;34m.[0m[0m__doc__[0m [0;34m=[0m [0mmcontour[0m[0;34m.[0m[0mContourSet[0m[0;34m.[0m[0mclabel[0m[0;34m.[0m[0m__doc__[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   6416[0m [0;34m[0m[0m
+
+[0;31mTypeError[0m: clabel() got an unexpected keyword argument 'axes'
+TypeError: clabel() got an unexpected keyword argument 'axes'
+
+Executability                            : False

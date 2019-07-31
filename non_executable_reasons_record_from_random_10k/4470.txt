@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+newsgroups_train.filenames.item()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-8-ab492f9ff56c>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mnewsgroups_train[0m[0;34m.[0m[0mfilenames[0m[0;34m.[0m[0mitem[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: can only convert an array of size 1 to a Python scalar
+ValueError: can only convert an array of size 1 to a Python scalar
+
+Executability                            : False

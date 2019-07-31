@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from glove import Corpus, Glove
+model_glove = Glove.load('post_glove.dic')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-107ac9e446ab>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mglove[0m [0;32mimport[0m [0mCorpus[0m[0;34m,[0m [0mGlove[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mmodel_glove[0m [0;34m=[0m [0mGlove[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34m'post_glove.dic'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'glove'
+ModuleNotFoundError: No module named 'glove'
+
+Executability                            : False

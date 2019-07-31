@@ -1,0 +1,46 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 11 ; number of cells: 13
+Reproducibility                          : matched ratio: 0.846 ; index of matched cells: [0, 1, 2, 3, 5, 6, 7, 8, 9, 11, 12]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+print(d1_dict)
+print(d2_dict)
+
+-----------------
+Original output:
+{'the': 0, 'covering': 0, 'this': 1, 'are': 0, 'scientific': 0, 'web': 1, 'to': 0, 'corpora': 0, 'webpages': 0, 'methods': 0, 'about': 1, 'analysis': 0, 'analyze': 0, 'is': 1, 'a': 1, 'science': 1, 'used': 0, 'text': 1, 'of': 0}
+{'the': 1, 'covering': 1, 'this': 0, 'are': 0, 'scientific': 0, 'web': 1, 'to': 0, 'corpora': 1, 'webpages': 0, 'methods': 0, 'about': 0, 'analysis': 1, 'analyze': 0, 'is': 1, 'a': 0, 'science': 1, 'used': 0, 'text': 1, 'of': 1}
+
+Executed output:
+{'scientific': 0, 'text': 1, 'of': 0, 'this': 1, 'are': 0, 'web': 1, 'webpages': 0, 'analyze': 0, 'to': 0, 'science': 1, 'about': 1, 'the': 0, 'methods': 0, 'used': 0, 'analysis': 0, 'is': 1, 'corpora': 0, 'covering': 0, 'a': 1}
+{'scientific': 0, 'text': 1, 'of': 1, 'this': 0, 'are': 0, 'web': 1, 'webpages': 0, 'analyze': 0, 'to': 0, 'science': 1, 'about': 0, 'the': 1, 'methods': 0, 'used': 0, 'analysis': 1, 'is': 1, 'corpora': 1, 'covering': 1, 'a': 0}
+
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+df.head()
+
+-----------------
+Original output:
+                                             article
+0  april is the fourth month of the year, and com...
+1  august is the eighth month of the year in the ...
+2  art is an activity or creation by people that ...
+3  a is the first letter of the english alphabet....
+4  air is the earth's atmosphere. air around us i...
+Executed output:
+                                             article  \
+0  april is the fourth month of the year and come...   
+1  august is the eighth month of the year in the ...   
+2  art is an activity or creation by people that ...   
+3  a is the first letter of the english alphabet ...   
+4  air is the earths atmosphere air around us is ...   
+
+                                              counts  char_count  
+0  {'j': 7, ' ': 382, 'h': 86, 'p': 37, 'i': 104,...        1993  
+1  {'j': 8, ' ': 273, 'h': 78, 'l': 28, 'i': 67, ...        1454  
+2  {'j': 6, ' ': 644, 'h': 150, 'l': 119, 'i': 27...        3812  
+3  {' ': 270, 'h': 76, 'l': 69, 'i': 70, 'b': 24,...        1411  
+4  {' ': 200, 'h': 43, 'p': 13, 'i': 72, 'b': 15,...        1028  

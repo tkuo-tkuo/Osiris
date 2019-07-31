@@ -1,0 +1,24 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Definimos "maximo" como o primeiro valor da lista "dados" 
+maximo = dados[0]
+#Se maximo for menor do que o valor de temp na lista, ele assume o valor deste, até que no final a variável "maximo" terá o maior valor da lista
+for temp in dados:
+    if maximo < temp:
+        maximo = temp
+print(maximo)
+
+#Mesma logica do comando de cima, trocando apenas o sinal no if. Se minimo for maior que temp, este assumirá seu valor.
+minimo = dados[0]
+for temp in dados:
+    if minimo > temp:
+        minimo = temp
+print(minimo)
+------------------
+
+NameError: name 'dados' is not defined
+
+Executability                            : False

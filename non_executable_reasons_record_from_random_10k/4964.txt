@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Necessary libraries imported
+
+import numpy as np                                  # Imported for linear algebra
+import pandas as pd                                 # Imported for data processing
+import matplotlib.pyplot as plt                     # Imported for plotting library
+from mpl_toolkits.basemap import Basemap            # Imported for plotting maps
+import seaborn as sns                               # Imported for prettier figures
+from matplotlib.ticker import *                     # Imported for axis manipulation
+from scipy.stats import gaussian_kde                # Imported for density mapping
+import statsmodels.formula.api as smf               # Imported for linear regression
+import statsmodels.api as sm                        # Imported for linear regression
+from sklearn.cluster import KMeans                  # Imported for K-means clustering
+import pylab as plt                                 # Imported for x-tics manipulation
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-e64c142e843b>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m                                 [0;31m# Imported for data processing[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m                     [0;31m# Imported for plotting library[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mfrom[0m [0mmpl_toolkits[0m[0;34m.[0m[0mbasemap[0m [0;32mimport[0m [0mBasemap[0m            [0;31m# Imported for plotting maps[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m                               [0;31m# Imported for prettier figures[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mfrom[0m [0mmatplotlib[0m[0;34m.[0m[0mticker[0m [0;32mimport[0m [0;34m*[0m                     [0;31m# Imported for axis manipulation[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'mpl_toolkits.basemap'
+ModuleNotFoundError: No module named 'mpl_toolkits.basemap'
+
+Executability                            : False

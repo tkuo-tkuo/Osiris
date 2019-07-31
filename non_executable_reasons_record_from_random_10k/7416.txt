@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#rotate and resize
+im.resize((100,100))
+im.rotate(10)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-2e3f0456189c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m#rotate and resize[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mim[0m[0;34m.[0m[0mresize[0m[0;34m([0m[0;34m([0m[0;36m100[0m[0;34m,[0m[0;36m100[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mim[0m[0;34m.[0m[0mrotate[0m[0;34m([0m[0;36m10[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'im' is not defined
+NameError: name 'im' is not defined
+
+Executability                            : False

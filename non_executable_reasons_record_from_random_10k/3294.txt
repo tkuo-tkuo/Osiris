@@ -1,0 +1,50 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+cdict = {'red':   ((0.0, 0.0, 0.0),
+                   (1.0, 1.0, 1.0)),
+         'green': ((0.0, 0.0, 0.0),
+                   (1.0, 0.0, 0.0)),
+         'blue':  ((0.0, 1.0, 1.0),
+                   (1.0, 0.0, 0.0))}
+BinaryRdBu = matplotlib.colors.LinearSegmentedColormap('BinaryRdBu', cdict, 2)
+cdict = {'red':   ((0.0, 0.9, 0.9),
+                   (1.0, 1.0, 1.0)),
+         'green': ((0.0, 0.9, 0.9),
+                   (1.0, 0.9, 0.9)),
+         'blue':  ((0.0, 1.0, 1.0),
+                   (1.0, 0.9, 0.9))}
+LightRdBu = matplotlib.colors.LinearSegmentedColormap('LightRdBu', cdict)
+cdict = {'red':   ((0.0, 1.0, 1.0),
+                   (0.4, 0.7, 0.7),
+                   (0.5, 0.0, 0.0),
+                   (0.6, 0.7, 0.7),
+                   (1.0, 1.0, 1.0)),
+         'green': ((0.0, 1.0, 1.0),
+                   (0.4, 0.7, 0.7),
+                   (0.5, 0.0, 0.0),
+                   (0.6, 0.7, 0.7),
+                   (1.0, 1.0, 1.0)),
+         'blue':  ((0.0, 1.0, 1.0),
+                   (0.4, 0.7, 0.7),
+                   (0.5, 0.0, 0.0),
+                   (0.6, 0.7, 0.7),
+                   (1.0, 1.0, 1.0))}
+HalfContour = matplotlib.colors.LinearSegmentedColormap('HalfContour', cdict)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-ede98e873151>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m          'blue':  ((0.0, 1.0, 1.0),
+[1;32m      8[0m                    (1.0, 0.0, 0.0))}
+[0;32m----> 9[0;31m [0mBinaryRdBu[0m [0;34m=[0m [0mmatplotlib[0m[0;34m.[0m[0mcolors[0m[0;34m.[0m[0mLinearSegmentedColormap[0m[0;34m([0m[0;34m'BinaryRdBu'[0m[0;34m,[0m [0mcdict[0m[0;34m,[0m [0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m cdict = {'red':   ((0.0, 0.9, 0.9),
+[1;32m     11[0m                    (1.0, 1.0, 1.0)),
+
+[0;31mNameError[0m: name 'matplotlib' is not defined
+NameError: name 'matplotlib' is not defined
+
+Executability                            : False

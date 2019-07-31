@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+data[numerical_columns].corr() # matrix of correlations
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-a8db67f2b3fa>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdata[0m[0;34m[[0m[0mnumerical_columns[0m[0;34m][0m[0;34m.[0m[0mcorr[0m[0;34m([0m[0;34m)[0m [0;31m# matrix of correlations[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'data' is not defined
+NameError: name 'data' is not defined
+
+Executability                            : False

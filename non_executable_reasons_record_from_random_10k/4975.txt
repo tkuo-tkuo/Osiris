@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Example of a picture
+index = 25
+example = train_set_x_orig[index]
+plt.imshow(train_set_x_orig[index])
+print ("y = " + str(train_set_y[:, index]) + ", it's a '" + classes[np.squeeze(train_set_y[:, index])].decode("utf-8") +  "' picture.")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-81f1a4662590>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Example of a picture[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mindex[0m [0;34m=[0m [0;36m25[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mexample[0m [0;34m=[0m [0mtrain_set_x_orig[0m[0;34m[[0m[0mindex[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0mtrain_set_x_orig[0m[0;34m[[0m[0mindex[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mprint[0m [0;34m([0m[0;34m"y = "[0m [0;34m+[0m [0mstr[0m[0;34m([0m[0mtrain_set_y[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m [0mindex[0m[0;34m][0m[0;34m)[0m [0;34m+[0m [0;34m", it's a '"[0m [0;34m+[0m [0mclasses[0m[0;34m[[0m[0mnp[0m[0;34m.[0m[0msqueeze[0m[0;34m([0m[0mtrain_set_y[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m [0mindex[0m[0;34m][0m[0;34m)[0m[0;34m][0m[0;34m.[0m[0mdecode[0m[0;34m([0m[0;34m"utf-8"[0m[0;34m)[0m [0;34m+[0m  [0;34m"' picture."[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'train_set_x_orig' is not defined
+NameError: name 'train_set_x_orig' is not defined
+
+Executability                            : False

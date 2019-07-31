@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+r = req.get( full_url ) 
+soup = bes(r.text, 'lxml') #applies beautifulSoup on the HTML
+#print (soup.prettify())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-36129050d964>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mr[0m [0;34m=[0m [0mreq[0m[0;34m.[0m[0mget[0m[0;34m([0m [0mfull_url[0m [0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0msoup[0m [0;34m=[0m [0mbes[0m[0;34m([0m[0mr[0m[0;34m.[0m[0mtext[0m[0;34m,[0m [0;34m'lxml'[0m[0;34m)[0m [0;31m#applies beautifulSoup on the HTML[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#print (soup.prettify())[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'req' is not defined
+NameError: name 'req' is not defined
+
+Executability                            : False

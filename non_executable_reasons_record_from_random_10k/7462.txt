@@ -1,0 +1,28 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas
+import numpy
+import re
+
+data_files = [
+    "ap_2010.csv",
+    "class_size.csv",
+    "demographics.csv",
+    "graduation.csv",
+    "hs_directory.csv",
+    "sat_results.csv"
+]
+
+data = {}
+
+for f in data_files:
+    d = pandas.read_csv("schools/{0}".format(f))
+    data[f.replace(".csv", "")] = d
+------------------
+
+FileNotFoundError: File b'schools/ap_2010.csv' does not exist
+
+Executability                            : False

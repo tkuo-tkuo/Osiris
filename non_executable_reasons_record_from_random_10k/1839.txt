@@ -1,0 +1,55 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+def download(url, file):
+    """
+    Download file from <url>
+    :param url: URL to file
+    :param file: Local file path
+    """
+    if not os.path.isfile(file):
+        print('Downloading ' + file + '...')
+        urlretrieve(url, file)
+        print('Download Finished')
+
+# Download the training and test dataset.
+download('https://s3.amazonaws.com/udacity-sdc/notMNIST_train.zip', 'notMNIST_train.zip')
+download('https://s3.amazonaws.com/udacity-sdc/notMNIST_test.zip', 'notMNIST_test.zip')
+
+# Make sure the files aren't corrupted
+assert hashlib.md5(open('notMNIST_train.zip', 'rb').read()).hexdigest() == 'c8673b3f28f489e9cdf3a3d74e2ac8fa',\
+        'notMNIST_train.zip file is corrupted.  Remove the file and try again.'
+assert hashlib.md5(open('notMNIST_test.zip', 'rb').read()).hexdigest() == '5d3c7e653e63471c88df796156a9dfa9',\
+        'notMNIST_test.zip file is corrupted.  Remove the file and try again.'
+
+# Wait until you see that all files have been downloaded.
+print('All files downloaded.')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-eae37ae0231d>[0m in [0;36m<module>[0;34m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0;31m# Download the training and test dataset.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 13[0;31m [0mdownload[0m[0;34m([0m[0;34m'https://s3.amazonaws.com/udacity-sdc/notMNIST_train.zip'[0m[0;34m,[0m [0;34m'notMNIST_train.zip'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     14[0m [0mdownload[0m[0;34m([0m[0;34m'https://s3.amazonaws.com/udacity-sdc/notMNIST_test.zip'[0m[0;34m,[0m [0;34m'notMNIST_test.zip'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-2-eae37ae0231d>[0m in [0;36mdownload[0;34m(url, file)[0m
+[1;32m      7[0m     [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0misfile[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m         [0mprint[0m[0;34m([0m[0;34m'Downloading '[0m [0;34m+[0m [0mfile[0m [0;34m+[0m [0;34m'...'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m         [0murlretrieve[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mfile[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m         [0mprint[0m[0;34m([0m[0;34m'Download Finished'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/urllib/request.py[0m in [0;36murlretrieve[0;34m(url, filename, reporthook, data)[0m
+[1;32m    256[0m         [0;31m# Handle temporary file setup.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    257[0m         [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 258[0;31m             [0mtfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    259[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    260[0m             [0mtfp[0m [0;34m=[0m [0mtempfile[0m[0;34m.[0m[0mNamedTemporaryFile[0m[0;34m([0m[0mdelete[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'notMNIST_train.zip'
+PermissionError: [Errno 13] Permission denied: 'notMNIST_train.zip'
+
+Executability                            : False

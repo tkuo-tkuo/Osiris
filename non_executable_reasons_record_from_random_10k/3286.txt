@@ -1,0 +1,16 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+diff(1/(1+exp(-x)), x)
+
+-----------------
+Original output:
+iVBORw0KGgoAAAANSUhEUgAAAEYAAAAkCAYAAAA0EkzVAAAABHNCSVQICAgIfAhkiAAAAudJREFUaIHt2VGIFVUcx/HPppK1QbgJlUuXZOlBWGNlrSRakchYerbHwHdfYt9KkJ6U6C2IFGXb8imxkp5USFS0JLJ2o4RgIXxYUzbXUlFoQXv4z4Vpuneau/fO3t2YLxzunP89/3P+858z58z8hoqGrOh2AAU5j58xg3Gsx4UyB1wuibmCN9GPx7C77AF7yh6gIJNY2cD+qkgKXMQfGMX8IsVVOv34BNfFyX2Gx1vwfw6/4vPOh9Y91uMa9mEDhnAGXxT078dU0s/3GCwhxq5wAnsztldws4DvQ/gaW5P66/i0c6E1p+w1pobLuIt7KfsK3BEL6ZKk0YLXSYbEzBhu8N9fJY/dFmUnZh69uIrbJY+1rFiDWbHQbsIAtuMDPNDFuJYEm3FKbNO3xA7zVlcjqqioqOgy9Qe8+12NomLJ8BRO4xJ+FK8aFXhSPJXDE0IA681zWCPehAfKjas0zuOF5HhciFtwFGM5flNiFjXlPXyUqm/FlyKj97Gz9VgXlVHxlD2Ggyn7Rszh0QY+w/gpr9OHcQMvpWyvCclgh3gb3tlioBN4p0WfZkyKE8iWdZl2F/EVVmXs32FXxtYntOQX8wbeIRS2ZlLEbeUmpl2Vj3ylbw/OpeoP4izeaNRR+kVuRGS7G1t3XZ2bETN2G9Zifwt99OMQXsbT/q30fYvnhfjVIy7aKRz+r46P4eOc/8ucMe2ofBRT+p4VF31AJP+euD3rZWNecAdyBi+SmLeTdvUyLwSptG0k41NLAr6TaXdX3Fad4plknEKacVqo+l1s1+2wH0dS9XfF7fF+yjaT8Vksla8v+Z0t0jidmB+0vx3PJaXOraQ+neOzWCrfoPhGda1I4/Tie0J83kgL1I+IKzqUtK0lx7VORJpwQTwmHFauyjeC4wt1/sY/9/pt4r7MlomC/U0otviWrfKtxp/YstAORvGL5fNNuyi7cLIVh2wCpsX0/U1k+P/CJnyos7tcRUVFxYL5G3aWrcaU3lWbAAAAAElFTkSuQmCC
+
+Executed output:
+iVBORw0KGgoAAAANSUhEUgAAAEYAAAAkCAYAAAA0EkzVAAAABHNCSVQICAgIfAhkiAAAAtZJREFUaIHt2U+IVWUYx/GPFsrIQExZUJMZDhJB/glGEHMmQfy3THIZtE9aRKC4qUUY0U4wcxCayDYyLrSNuggVZjBETBGFSAJtipiybMIooWnxnItnDvfezp3buWdmOF94mfM+c573ee9z3/O87/ldKuryUNkTyMkoruN7DOE5jBUZcK4k5ge8hcfRiz1FB1xQdICcXGtg3yqSApcwmdj+7sSkOsHT+Bx38BuO44kW/NfhO5z8/6dWHivwE97H81iLcxjJ6d+LK8k4FxP/ecEZ7M/YtuHXHL5dosi+nPRfEattzrMcU7iHP1LtT7GKZi0PFzz+GtxFf53//VVw7LYoOjH30S1Wx2TBseYUPZjACbyIPmzBQbPnqFAa/fhSbNOT+Bp7S51RRUVFRcnUdoapUmdRMWtYhrNC47mCnaXOZhbxpDiVE2/5t7GkmUOPOKX2FTuvwhjF+uR6CG8n1yNC6GrEVTzTbOAP8WmqP4gvhFg0hVdnMNlOsl1oNm/ik5R9tdCCHqnj048bmpzEl4jT6UDKtgPviWdwJokZxrst+jTiWoP2VOa+S6J+LKpjfyNje0zUmQ3NAu8SWW2UuaIT067KR3Ol7x3xqNVYjPN4rd5AC1PXG0VWy9i6VySxb+ElbMJSfNTCGL04gs2iuGaVvq9E4rrElz8s3uE++6+BT5heX7IUuWLaUfnIp/StFp+hTyyCf8QLba2tajT4aRxuEjxPYvaZrtTdF4p+2jaQ8emUyrcyifNCnpvTQtXPYrtuh49xLNX/AOM4kLKNZ3w6pfI9mvydyHNzOjGX8Xqbwe8krcZk0v+2iU+nVL5V4tiRaxWmi+9p8fPG0pStWxSxWiF7NrluehhqkQuilhxVrMo3iFMzdR7D7lR/k3gus20453jD8hXfolW+Lvzuwam4ZbbhG3PnN+287BY7X26yCbgplu+PoiDOF9biEH4peyIVFRUV8C+MQ7Cck7cpPAAAAABJRU5ErkJggg==
+

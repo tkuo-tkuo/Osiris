@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#for root,dirs,files in os.walk('C:\Users\Inance\Documents\Thesis\Experiments\Tensile_Tests\Trial_Round\Tensile_test_mts\Inance_pp_mts\8_5_2016_300mm_min_GREEN\WAR'):
+   # for file in files:
+tensile=pd.read_csv(r'C:\Users\Inance\Documents\Thesis\Experiments\Tensile_Tests\Trial_Round\Tensile_test_mts\Inance_pp_mts\8_5_2016_300mm_min_GREEN\WARP\specimen1.1.txt',header=None,names=['Time','Load','Extension','Strain','Crosshead','Extensometer'])
+load=np.array(tensile.Load)
+crosshead=np.array(tensile.Crosshead)
+sig=load*70*0.4*10**3
+eps=((90-crosshead)/90)*10**-3
+#print(sig,eps)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-7d426497c9de>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;31m#for root,dirs,files in os.walk('C:\Users\Inance\Documents\Thesis\Experiments\Tensile_Tests\Trial_Round\Tensile_test_mts\Inance_pp_mts\8_5_2016_300mm_min_GREEN\WAR'):[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m    [0;31m# for file in files:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mtensile[0m[0;34m=[0m[0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34mr'C:\Users\Inance\Documents\Thesis\Experiments\Tensile_Tests\Trial_Round\Tensile_test_mts\Inance_pp_mts\8_5_2016_300mm_min_GREEN\WARP\specimen1.1.txt'[0m[0;34m,[0m[0mheader[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0mnames[0m[0;34m=[0m[0;34m[[0m[0;34m'Time'[0m[0;34m,[0m[0;34m'Load'[0m[0;34m,[0m[0;34m'Extension'[0m[0;34m,[0m[0;34m'Strain'[0m[0;34m,[0m[0;34m'Crosshead'[0m[0;34m,[0m[0;34m'Extensometer'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mload[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mtensile[0m[0;34m.[0m[0mLoad[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      7[0m [0mcrosshead[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mtensile[0m[0;34m.[0m[0mCrosshead[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

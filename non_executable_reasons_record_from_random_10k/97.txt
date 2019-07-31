@@ -1,0 +1,38 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# 再び、客室の種類別で人数を数えます。
+sns.countplot('Pclass',data=titanic_df,hue='person')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-7-8957df325ed1>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# 再び、客室の種類別で人数を数えます。[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0msns[0m[0;34m.[0m[0mcountplot[0m[0;34m([0m[0;34m'Pclass'[0m[0;34m,[0m[0mdata[0m[0;34m=[0m[0mtitanic_df[0m[0;34m,[0m[0mhue[0m[0;34m=[0m[0;34m'person'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/seaborn/categorical.py[0m in [0;36mcountplot[0;34m(x, y, hue, data, order, hue_order, orient, color, palette, saturation, dodge, ax, **kwargs)[0m
+[1;32m   3357[0m                           [0mestimator[0m[0;34m,[0m [0mci[0m[0;34m,[0m [0mn_boot[0m[0;34m,[0m [0munits[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m   3358[0m                           [0morient[0m[0;34m,[0m [0mcolor[0m[0;34m,[0m [0mpalette[0m[0;34m,[0m [0msaturation[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m-> 3359[0;31m                           errcolor, errwidth, capsize, dodge)
+[0m[1;32m   3360[0m [0;34m[0m[0m
+[1;32m   3361[0m     [0mplotter[0m[0;34m.[0m[0mvalue_label[0m [0;34m=[0m [0;34m"count"[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/seaborn/categorical.py[0m in [0;36m__init__[0;34m(self, x, y, hue, data, order, hue_order, estimator, ci, n_boot, units, orient, color, palette, saturation, errcolor, errwidth, capsize, dodge)[0m
+[1;32m   1594[0m         [0;34m"""Initialize the plotter."""[0m[0;34m[0m[0m
+[1;32m   1595[0m         self.establish_variables(x, y, hue, data, orient,
+[0;32m-> 1596[0;31m                                  order, hue_order, units)
+[0m[1;32m   1597[0m         [0mself[0m[0;34m.[0m[0mestablish_colors[0m[0;34m([0m[0mcolor[0m[0;34m,[0m [0mpalette[0m[0;34m,[0m [0msaturation[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1598[0m         [0mself[0m[0;34m.[0m[0mestimate_statistic[0m[0;34m([0m[0mestimator[0m[0;34m,[0m [0mci[0m[0;34m,[0m [0mn_boot[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/seaborn/categorical.py[0m in [0;36mestablish_variables[0;34m(self, x, y, hue, data, orient, order, hue_order, units)[0m
+[1;32m    149[0m                 [0;32mif[0m [0misinstance[0m[0;34m([0m[0minput[0m[0;34m,[0m [0mstring_types[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    150[0m                     [0merr[0m [0;34m=[0m [0;34m"Could not interpret input '{}'"[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0minput[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 151[0;31m                     [0;32mraise[0m [0mValueError[0m[0;34m([0m[0merr[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    152[0m [0;34m[0m[0m
+[1;32m    153[0m             [0;31m# Figure out the plotting orientation[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: Could not interpret input 'person'
+ValueError: Could not interpret input 'person'
+
+Executability                            : False

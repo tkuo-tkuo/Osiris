@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+train_df = pd.read_csv('train_w_poster.csv', encoding = "ISO-8859-1")
+test_df = pd.read_csv('test_w_poster.csv', encoding = "ISO-8859-1")
+
+train_df = train_df[train_df['poster_path'].notnull()]
+test_df = test_df[test_df['poster_path'].notnull()]
+#change poster path accordingly
+poster_prefix_path = 'poster_images/'
+
+train_df['poster_path'] = train_df['poster_path'].apply(lambda path: poster_prefix_path + path)
+test_df['poster_path'] = test_df['poster_path'].apply(lambda path: poster_prefix_path + path)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-3be6d00881cc>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mtrain_df[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'train_w_poster.csv'[0m[0;34m,[0m [0mencoding[0m [0;34m=[0m [0;34m"ISO-8859-1"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mtest_df[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'test_w_poster.csv'[0m[0;34m,[0m [0mencoding[0m [0;34m=[0m [0;34m"ISO-8859-1"[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

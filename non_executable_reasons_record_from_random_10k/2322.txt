@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np  
+import datetime
+
+# matplotlib
+# ライブラリーのインポート
+import matplotlib.pyplot as plt
+# インライン表示
+%matplotlib inline
+
+# 日本語フォント
+import pylab
+from matplotlib.font_manager import FontProperties
+fp = FontProperties(fname='C:\WINDOWS\Fonts\msgothic.ttc', size = 12)
+
+# ipynbのインポート
+import nbimporter
+import common_data as CD
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-c9a1f3ce7530>[0m in [0;36m<module>[0;34m[0m
+[1;32m     16[0m [0;34m[0m[0m
+[1;32m     17[0m [0;31m# ipynbのインポート[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 18[0;31m [0;32mimport[0m [0mnbimporter[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     19[0m [0;32mimport[0m [0mcommon_data[0m [0;32mas[0m [0mCD[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'nbimporter'
+ModuleNotFoundError: No module named 'nbimporter'
+
+Executability                            : False

@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#parallel processing'
+#https://ipyparallel.readthedocs.io/en/latest/demos.html
+import ipyparallel as ipp
+import os
+# os.system("ipcluster stop --profile=home &")
+# os.system("ipcluster start --profile=home &")
+
+c = ipp.Client(profile='default')
+v = c[:]
+c.ids
+
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-6-8abceff0d57c>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#parallel processing'[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m#https://ipyparallel.readthedocs.io/en/latest/demos.html[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mipyparallel[0m [0;32mas[0m [0mipp[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m# os.system("ipcluster stop --profile=home &")[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'ipyparallel'
+ModuleNotFoundError: No module named 'ipyparallel'
+
+Executability                            : False

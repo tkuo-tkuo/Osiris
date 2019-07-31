@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+
+# Manage Authorization in Client Credentials mode
+client_credentials_manager = SpotifyClientCredentials(client_id='', \
+                                                      client_secret='', \
+                                                      proxies=None)
+sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-3d01b511fc74>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mspotipy[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mspotipy[0m[0;34m.[0m[0moauth2[0m [0;32mimport[0m [0mSpotifyClientCredentials[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;31m# Manage Authorization in Client Credentials mode[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mclient_credentials_manager[0m [0;34m=[0m [0mSpotifyClientCredentials[0m[0;34m([0m[0mclient_id[0m[0;34m=[0m[0;34m''[0m[0;34m,[0m                                                       [0mclient_secret[0m[0;34m=[0m[0;34m''[0m[0;34m,[0m                                                       [0mproxies[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'spotipy'
+ImportError: No module named 'spotipy'
+
+Executability                            : False

@@ -1,0 +1,14 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+print('exporting json')
+json_dump = json.dumps(db, sort_keys=True, indent=2, ensure_ascii=False)
+f = open('xinwenlianbo_text_' + min_date + '-' + max_date + '.json', 'w', encoding='utf-8')
+f.write(json_dump)
+f.close()
+print('finished exporting')
+------------------
+
+TypeError: Can't convert 'NoneType' object to str implicitly
+
+Executability                            : False

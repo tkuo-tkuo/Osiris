@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+with open('data/christ-and-satan.txt', 'r') as f:
+    christ_and_satan = f.read()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-15-48adf0a372df>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'data/christ-and-satan.txt'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0mchrist_and_satan[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data/christ-and-satan.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'data/christ-and-satan.txt'
+
+Executability                            : False

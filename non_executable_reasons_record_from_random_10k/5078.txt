@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%pylab inline
+
+from xgboost.sklearn import XGBClassifier
+from typing import Tuple
+import xgboost as xgb
+import pandas as pd
+import json
+import sklearn
+
+dataset = pd.read_csv('data2/multisession-eeg.csv')
+fromstring = lambda array_str: np.fromstring(array_str, dtype=float, sep=',')
+dataset.raw_fft = dataset.raw_fft.apply(fromstring)
+# dataset.raw_fft.iloc[0]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-b612477e6f23>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'pylab'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mxgboost[0m[0;34m.[0m[0msklearn[0m [0;32mimport[0m [0mXGBClassifier[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mtyping[0m [0;32mimport[0m [0mTuple[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mxgboost[0m [0;32mas[0m [0mxgb[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'xgboost'
+ModuleNotFoundError: No module named 'xgboost'
+
+Executability                            : False

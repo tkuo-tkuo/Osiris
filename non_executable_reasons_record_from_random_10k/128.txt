@@ -1,0 +1,120 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 35 ; number of cells: 42
+Reproducibility                          : matched ratio: 0.833 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 19, 20, 21, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41]
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+map(fahrenheit,[0,32,100])
+
+-----------------
+Original output:
+<map at 0x1ffe21be4a8>
+Executed output:
+<map at 0x7f36acc6f390>
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+map(f2,[0,32,100])
+
+-----------------
+Original output:
+<map at 0x1ffe21bb048>
+Executed output:
+<map at 0x7f36acc6f278>
+-------------------------------------------
+Source Code of a Unmatched Cell 22
+-------------------------------------------
+import random
+lis = [random.randint(1,1000) for i in range(0,10)]
+print(lis)
+
+-----------------
+Original output:
+[752, 840, 830, 673, 669, 518, 224, 586, 23, 742]
+
+Executed output:
+[854, 932, 392, 280, 593, 419, 351, 784, 11, 669]
+
+-------------------------------------------
+Source Code of a Unmatched Cell 23
+-------------------------------------------
+print(reduce(maxfind,lis))
+print(reduce(minfind,lis))
+
+-----------------
+Original output:
+840
+23
+
+Executed output:
+932
+11
+
+-------------------------------------------
+Source Code of a Unmatched Cell 24
+-------------------------------------------
+print(reduce(max,lis))
+print(reduce(min,lis))
+
+-----------------
+Original output:
+840
+23
+
+Executed output:
+932
+11
+
+-------------------------------------------
+Source Code of a Unmatched Cell 25
+-------------------------------------------
+sorte = []
+lis3 = [random.randint(1,50) for i in range(0,5)]
+print(lis3)
+lis2 = [i for i in lis3]
+"""for i in range(0,len(lis2)):
+    smallest = reduce(minfind,lis2)
+    index = lis2.index(smallest)
+    sorte.append(lis2[index])
+    lis2.pop(index)
+"""
+print(sorte)
+
+-----------------
+Original output:
+[21, 5, 14, 9, 25]
+[]
+
+Executed output:
+[38, 10, 40, 36, 49]
+[]
+
+-------------------------------------------
+Source Code of a Unmatched Cell 26
+-------------------------------------------
+sorte2 = []
+lis1 = [random.randint(1,50) for i in range(0,5)]
+lis4 = [i for i in lis3]
+def sorter(lis,sorte):
+    smallest = reduce(minfind,lis)
+    index = lis.index(smallest)
+    sorte.append(lis[index])
+    lis.pop(index)
+    if len(lis) == 0:   
+        return sorte
+    else:
+        return sorter(lis,sorte)
+sorte2 = sorter(lis4,sorte2)
+print("Original list: "+str(lis3))
+print("Final sorted list: "+str(sorte2))
+
+-----------------
+Original output:
+Original list: [21, 5, 14, 9, 25]
+Final sorted list: [5, 9, 14, 21, 25]
+
+Executed output:
+Original list: [38, 10, 40, 36, 49]
+Final sorted list: [10, 36, 38, 40, 49]
+

@@ -1,0 +1,321 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+'''
+Convolutional Autoencoder
+Adapted from tutorial: https://github.com/pkmital/tensorflow_tutorials/
+'''
+
+import sys
+sys.path.append('../utils/')
+
+import tensorflow as tf
+import numpy as np
+import scipy
+import matplotlib.pyplot as plt
+from load_data import ArtData
+from dist import cos_sim
+
+LEARNING_RATE = 0.005
+STRIDE_SIZE = 2
+POOL_SIZE = 2
+POOL_STRIDE_SIZE = 2
+BATCH_SIZE = 256
+EPOCHS = 600
+
+filters = [3, 32, 16]
+filter_maps = [2, 2]
+
+x = tf.placeholder(tf.float32, [None, 16, 16, filters[0]])
+x_mean = tf.placeholder(tf.float32, [16, 16, filters[0]])
+
+# Encode images
+layer_in = x
+encode_params = []
+encode_shapes = []
+
+for i, output_len in enumerate(filters[1:]):
+	encode_shapes.append(layer_in.get_shape().as_list())
+	input_len = layer_in.get_shape().as_list()[3]
+
+	weights = tf.Variable(tf.random_normal([
+		filter_maps[i], filter_maps[i], input_len, output_len]))
+	bias = tf.Variable(tf.random_normal([output_len]))
+	encode_params.append(weights)
+
+	layer_in = tf.nn.sigmoid(tf.add(tf.nn.conv2d(
+		layer_in, weights, strides=[1, STRIDE_SIZE, STRIDE_SIZE, 1], padding='SAME'), bias))
+
+	# layer_in = tf.nn.max_pool(layer_in, ksize=[1, POOL_SIZE, POOL_SIZE, 1],
+	#                        strides=[1, POOL_STRIDE_SIZE, POOL_STRIDE_SIZE, 1], padding='SAME')
+
+print(layer_in)
+layer_in = tf.contrib.layers.flatten(layer_in)
+layer_in = tf.layers.dense(inputs=layer_in, units=256, activation=tf.nn.sigmoid)
+layer_in = tf.layers.dense(inputs=layer_in, units=128)
+
+# Latent representation of input images
+latent_rep_shape = layer_in.get_shape().as_list()
+#latent_rep = tf.reshape(layer_in, [-1, latent_rep_shape[1], latent_rep_shape[2], latent_rep_shape[3]])
+latent_rep = layer_in
+
+layer_in = tf.layers.dense(inputs=layer_in, units=256, activation=tf.nn.sigmoid)
+layer_in = tf.reshape(layer_in, (-1, 4, 4, 16))
+
+# Decode latent representation
+encode_params.reverse()
+encode_shapes.reverse()
+
+for i, shape in enumerate(encode_shapes):
+	weights = encode_params[i]
+	bias = tf.Variable(tf.zeros([weights.get_shape().as_list()[2]]))
+
+	#layer_in = tf.image.resize_images(layer_in, size=(shape[1], shape[2]), method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
+
+	if i + 1 == len(encode_shapes):
+		layer_in = tf.add(tf.nn.conv2d_transpose(
+			layer_in, weights, tf.stack([tf.shape(x)[0], shape[1], shape[2], shape[3]]), strides=[1, STRIDE_SIZE, STRIDE_SIZE, 1], padding='SAME'), bias)
+	else:
+		layer_in = tf.nn.sigmoid(tf.add(tf.nn.conv2d_transpose(
+			layer_in, weights, tf.stack([tf.shape(x)[0], shape[1], shape[2], shape[3]]), strides=[1, STRIDE_SIZE, STRIDE_SIZE, 1], padding='SAME'), bias))
+
+# Reconstruction of input images
+y = tf.nn.sigmoid(layer_in)
+
+#cost = tf.reduce_mean(tf.square(y - x))
+cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=x, logits=layer_in))
+cost_2 = tf.reduce_sum(tf.pow(x - y, 2)) / tf.reduce_sum(tf.pow(x - x_mean, 2))
+optimizer = tf.train.AdamOptimizer(LEARNING_RATE).minimize(cost)
+
+# Initializing variables
+init = tf.global_variables_initializer()
+
+with tf.Session() as sess:
+
+	ad = ArtData('../data/')
+	ad.load_images_and_pairs()
+
+	# Extract training set
+	train_data = ad.train_images.values()
+	x_train = []
+	y_train = []
+	for d in train_data:
+		x_train.append(d[0])
+		y_train.append(d[1])
+	x_train = np.array(x_train)
+	y_train = np.array(y_train)
+
+	# Extract alpha set of pairs
+	alpha = ad.alpha_pairs
+
+	first_images_same = []
+	second_images_same = []
+	cosine_sim_same = []
+	percent_correct_same = []
+	for d in alpha['same']:
+		first_images_same.append(d[0])
+		second_images_same.append(d[1])
+		cosine_sim_same.append(d[2])
+		percent_correct_same.append(d[3])
+	first_images_same = np.array(first_images_same)
+	second_images_same = np.array(second_images_same)
+	cosine_sim_same = np.array(cosine_sim_same)
+	percent_correct_same = np.array(percent_correct_same)
+	prob_saying_same_same = percent_correct_same / 100.0
+
+	corr, p_value = scipy.stats.spearmanr(cosine_sim_same, percent_correct_same)
+	print('Same class correlation = {:.6f}'.format(corr))
+
+	first_images_diff = []
+	second_images_diff = []
+	cosine_sim_diff = []
+	neg_cosine_sim_diff = []
+	percent_correct_diff = []
+	for d in alpha['diff']:
+		first_images_diff.append(d[0])
+		second_images_diff.append(d[1])
+		cosine_sim_diff.append(d[2])
+		percent_correct_diff.append(d[3])
+		neg_cosine_sim_diff.append(d[6])
+	first_images_diff = np.array(first_images_diff)
+	second_images_diff = np.array(second_images_diff)
+	cosine_sim_diff = np.array(cosine_sim_diff)
+	neg_cosine_sim_diff = np.array(neg_cosine_sim_diff)
+	percent_correct_diff = np.array(percent_correct_diff)
+	prob_saying_same_diff = 1.0 - (percent_correct_diff / 100.0)
+
+	corr, p_value = scipy.stats.spearmanr(cosine_sim_diff, percent_correct_diff)
+	print('Different class correlation = {:.6f}'.format(corr))
+
+	all_cosine_sim = np.concatenate((cosine_sim_same, cosine_sim_diff), axis=0)
+	all_prob_same = np.concatenate((prob_saying_same_same, prob_saying_same_diff), axis=0)
+
+	alpha_corr, p_value = scipy.stats.spearmanr(all_cosine_sim, all_prob_same)
+	print('All class correlation = {:.6f}'.format(alpha_corr))
+
+	# plt.scatter(cosine_sim_same, prob_saying_same_same, color='b', label='Same Style')
+	# plt.scatter(cosine_sim_diff, prob_saying_same_diff, color='r', label='Different Style')
+	# plt.xlabel('Cosine Similarity')
+	# plt.ylabel('Probability Human Judges as Same')
+	# plt.title('Human Judgements vs. Cosine Similarity for Raw Pixel Art Image Styles (corr = {:.6f})'.format(corr))
+	# plt.legend(loc='upper left')
+	# plt.show()
+
+	# Extract beta set of pairs
+	beta = ad.beta_pairs
+
+	beta_first_images_same = []
+	beta_second_images_same = []
+	beta_cosine_sim_same = []
+	beta_percent_correct_same = []
+	for d in beta['same']:
+		beta_first_images_same.append(d[0])
+		beta_second_images_same.append(d[1])
+		beta_cosine_sim_same.append(d[2])
+		beta_percent_correct_same.append(d[3])
+	beta_first_images_same = np.array(beta_first_images_same)
+	beta_second_images_same = np.array(beta_second_images_same)
+	beta_cosine_sim_same = np.array(beta_cosine_sim_same)
+	beta_percent_correct_same = np.array(beta_percent_correct_same)
+	beta_prob_saying_same_same = beta_percent_correct_same / 100.0
+
+	corr, p_value = scipy.stats.spearmanr(beta_cosine_sim_same, beta_percent_correct_same)
+	print('Beta Same class correlation = {:.6f}'.format(corr))
+
+	beta_first_images_diff = []
+	beta_second_images_diff = []
+	beta_cosine_sim_diff = []
+	beta_neg_cosine_sim_diff = []
+	beta_percent_correct_diff = []
+	for d in beta['diff']:
+		beta_first_images_diff.append(d[0])
+		beta_second_images_diff.append(d[1])
+		beta_cosine_sim_diff.append(d[2])
+		beta_percent_correct_diff.append(d[3])
+		beta_neg_cosine_sim_diff.append(d[6])
+	beta_first_images_diff = np.array(beta_first_images_diff)
+	beta_second_images_diff = np.array(beta_second_images_diff)
+	beta_cosine_sim_diff = np.array(beta_cosine_sim_diff)
+	beta_neg_cosine_sim_diff = np.array(beta_neg_cosine_sim_diff)
+	beta_percent_correct_diff = np.array(beta_percent_correct_diff)
+	beta_prob_saying_same_diff = 1.0 - (beta_percent_correct_diff / 100.0)
+
+	corr, p_value = scipy.stats.spearmanr(beta_cosine_sim_diff, beta_percent_correct_diff)
+	print('Beta Different class correlation = {:.6f}'.format(corr))
+
+	beta_all_cosine_sim = np.concatenate((beta_cosine_sim_same, beta_cosine_sim_diff), axis=0)
+	beta_all_prob_same = np.concatenate((beta_prob_saying_same_same, beta_prob_saying_same_diff), axis=0)
+
+	beta_corr, p_value = scipy.stats.spearmanr(beta_all_cosine_sim, beta_all_prob_same)
+	print('Beta all class correlation = {:.6f}'.format(beta_corr), '\n')
+
+	replications = 20
+	cae_alpha_results = []
+	cae_beta_results = []
+	cae_mean_loss = []
+	cae_cross_entropy_loss = []
+	for i in range(replications):
+
+		sess.run(init)
+
+		best_results = {
+			'all_corr': -1,
+			'same_dist': None,
+			'diff_dist': None,
+			'beta_all_corr': -1,
+			'mean_loss': 0,
+			'cross_entropy_loss': 0
+		}
+
+		for epoch in range(1, EPOCHS + 1):
+			shuffle = np.random.permutation(len(y_train))
+			x_train, y_train = x_train[shuffle], y_train[shuffle]
+
+			for i in range(0, len(y_train), BATCH_SIZE):
+				x_train_mb, y_train_mb = x_train[i:i + BATCH_SIZE], y_train[i:i + BATCH_SIZE]
+
+				sess.run(optimizer, feed_dict={x: x_train_mb, x_mean: np.mean(x_train_mb, axis=0)})
+
+			c, c2 = sess.run([cost, cost_2], feed_dict={x: x_train, x_mean: np.mean(x_train, axis=0)})
+
+			first_images_same_latent = sess.run(latent_rep, feed_dict={x: first_images_same})
+			second_images_same_latent = sess.run(latent_rep, feed_dict={x: second_images_same})
+			same_dist = [cos_sim(a, b) for a, b in zip(first_images_same_latent, second_images_same_latent)]
+
+			first_images_diff_latent = sess.run(latent_rep, feed_dict={x: first_images_diff})
+			second_images_diff_latent = sess.run(latent_rep, feed_dict={x: second_images_diff})
+			diff_dist = [cos_sim(a, b) for a, b in zip(first_images_diff_latent, second_images_diff_latent)]
+
+			alpha_all_corr, _ = scipy.stats.spearmanr(np.concatenate((same_dist, diff_dist), axis=0), np.concatenate((prob_saying_same_same, prob_saying_same_diff), axis=0))
+
+			beta_first_images_same_latent = sess.run(latent_rep, feed_dict={x: beta_first_images_same})
+			beta_second_images_same_latent = sess.run(latent_rep, feed_dict={x: beta_second_images_same})
+			beta_same_dist = [cos_sim(a, b) for a, b in zip(beta_first_images_same_latent, beta_second_images_same_latent)]
+
+			beta_first_images_diff_latent = sess.run(latent_rep, feed_dict={x: beta_first_images_diff})
+			beta_second_images_diff_latent = sess.run(latent_rep, feed_dict={x: beta_second_images_diff})
+			beta_diff_dist = [cos_sim(a, b) for a, b in zip(beta_first_images_diff_latent, beta_second_images_diff_latent)]
+
+			beta_all_corr, _ = scipy.stats.spearmanr(np.concatenate((beta_same_dist, beta_diff_dist), axis=0), np.concatenate((beta_prob_saying_same_same, beta_prob_saying_same_diff), axis=0))
+
+			if alpha_all_corr > best_results['all_corr']:
+				best_results['all_corr'] = alpha_all_corr
+				best_results['same_dist'] = np.copy(same_dist)
+				print(alpha_all_corr)
+				best_results['diff_dist'] = np.copy(diff_dist)
+				best_results['beta_all_corr'] = beta_all_corr
+				best_results['mean_loss'] = c2,
+				best_results['cross_entropy_loss'] = c
+
+			if epoch % 10 == 0 or epoch == 1:
+				c, c2 = sess.run([cost, cost_2], feed_dict={x: x_train, x_mean: np.mean(x_train, axis=0)})
+
+				print("Epoch " + str(epoch) + ", Cost = " + "{:.6f}".format(c) + ", Cost 2 = " + "{:.6f}".format(c2))
+
+				corr, p_value = scipy.stats.spearmanr(same_dist, percent_correct_same)
+
+				print("Epoch " + str(epoch) + ", Same Correlation = " + "{:.6f}".format(corr))
+
+				corr, p_value = scipy.stats.spearmanr(diff_dist, percent_correct_diff)
+
+				print("Epoch " + str(epoch) + ", Diff Correlation = " + "{:.6f}".format(corr))
+
+				print("Epoch " + str(epoch) + ", All Correlation = " + "{:.6f}".format(alpha_all_corr) + '\n')
+
+		cae_alpha_results.append(best_results['all_corr'])
+		cae_beta_results.append(best_results['beta_all_corr'])
+		cae_mean_loss.append(best_results['mean_loss'])
+		cae_cross_entropy_loss.append(best_results['cross_entropy_loss'])
+
+	print(alpha_corr)
+	print(beta_corr)
+	print(cae_alpha_results)
+	print(cae_beta_results)
+	print(cae_mean_loss)
+	print(cae_cross_entropy_loss)
+
+	# plt.scatter(best_results['same_dist'], prob_saying_same_same, color='b', label='Same Style')
+	# plt.scatter(best_results['diff_dist'], prob_saying_same_diff, color='r', label='Different Style')
+	# plt.xlabel('Cosine Similarity')
+	# plt.ylabel('Probability Human Judges as Same')
+	# plt.title('Human Judgements vs. Cosine Similarity for Embedded Art Image Styles (corr = {:.6f})'.format(best_results['all_corr']))
+	# plt.legend(loc='upper left')
+	# plt.show()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-0ca1cdce4992>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m [0msys[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m'../utils/'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mimport[0m [0mscipy[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

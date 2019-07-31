@@ -1,0 +1,56 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import pubchempy as pcp
+from rdkit import Chem
+import molvs as mv
+
+def get_parent_smile(cid):
+    try:
+        cpd = pcp.Compound.from_cid(int(cid))
+        smi = cpd.isomeric_smiles
+        st = mv.Standardizer()
+        mol = Chem.MolFromSmiles(smi)
+        smts = Chem.MolFromSmarts("[!#1&!#5&!#6&!#7&!#8&!#9&!#14&!#15&!#16&!#17&!#34&!#35&!#53]~*")
+        if mol.HasSubstructMatch(smts) == False:
+            mols = st.charge_parent(mol)
+            return Chem.MolToSmiles(mols)
+    except:
+        return 'NaN'
+
+#Generate InchiKey
+def inchikey_gen(smile):
+    try:
+        m = Chem.MolFromSmiles(smile)
+        m_ = Chem.MolToInchi(m)
+        m__ = Chem.InchiToInchiKey(m_)
+        return m__
+    except:
+        return 'NaN'
+    
+#Clean and standardize the data
+def clean_data(data):
+    #Standardize and get parent with molvs
+    data["smiles_parent"] = data['CID'].apply(get_parent_smile)
+    #data = data[data['smiles_parent'].notnull()]
+    data = data[~(data['smiles_parent'] == "NaN")]
+    
+    data["inchi"] = data['smiles_parent'].apply(inchikey_gen)
+    data = data[~(data['inchi'] == "NaN")]
+    #data = data.drop('CID', axis = 1)
+    return data
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-752a1998ea15>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mpubchempy[0m [0;32mas[0m [0mpcp[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mrdkit[0m [0;32mimport[0m [0mChem[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mmolvs[0m [0;32mas[0m [0mmv[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mdef[0m [0mget_parent_smile[0m[0;34m([0m[0mcid[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pubchempy'
+ImportError: No module named 'pubchempy'
+
+Executability                            : False

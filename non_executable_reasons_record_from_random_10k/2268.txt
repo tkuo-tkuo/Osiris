@@ -1,0 +1,79 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+H0 = (50000, 90, 0)
+
+# Create a mesh
+dx = 5.
+
+hxind = [(dx, 5, -1.3), (dx, 10), (dx, 5, 1.3)]
+hyind = [(dx, 5, -1.3), (dx, 10), (dx, 5, 1.3)]
+hzind = [(dx, 5, -1.3), (dx, 10)]
+
+mesh = Mesh.TensorMesh([hxind, hyind, hzind], 'CCC')
+
+# Get index of the center
+midx = int(mesh.nCx/2)
+midy = int(mesh.nCy/2)
+
+# Lets create a simple Gaussian topo and set the active cells
+[xx, yy] = np.meshgrid(mesh.vectorNx, mesh.vectorNy)
+zz = -np.exp((xx**2 + yy**2) / 75**2) + mesh.vectorNz[-1]
+
+# We would usually load a topofile
+topo = np.c_[Utils.mkvc(xx), Utils.mkvc(yy), Utils.mkvc(zz)]
+
+# Go from topo to actv cells
+actv = Utils.surface2ind_topo(mesh, topo, 'N')
+actv = np.asarray([inds for inds, elem in enumerate(actv, 1) if elem],
+                  dtype=int) - 1
+
+# Create active map to go from reduce space to full
+actvMap = Maps.InjectActiveCells(mesh, actv, -100)
+nC = len(actv)
+
+# Create and array of observation points
+xr = np.linspace(-20., 20., 20)
+yr = np.linspace(-20., 20., 20)
+X, Y = np.meshgrid(xr, yr)
+
+# Move the observation points 5m above the topo
+Z = -np.exp((X**2 + Y**2) / 75**2) + mesh.vectorNz[-1] + 5.
+
+# Create a MAGsurvey
+rxLoc = np.c_[Utils.mkvc(X.T), Utils.mkvc(Y.T), Utils.mkvc(Z.T)]
+rxLoc = PF.BaseMag.RxObs(rxLoc)
+srcField = PF.BaseMag.SrcField([rxLoc], param=H0)
+survey = PF.BaseMag.LinearSurvey(srcField)
+
+# We can now create a susceptibility model and generate data
+model = np.zeros(mesh.nC)
+
+# Change values in half the domain
+model[mesh.gridCC[:,0] < 0] = 0.01
+
+# Add a block in half-space
+model = Utils.ModelBuilder.addBlock(mesh.gridCC, model, np.r_[-10,-10,20], np.r_[10,10,40], 0.05)
+
+model = Utils.mkvc(model)
+model = model[actv]
+
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-2eb07bf2744d>[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m [0mhzind[0m [0;34m=[0m [0;34m[[0m[0;34m([0m[0mdx[0m[0;34m,[0m [0;36m5[0m[0;34m,[0m [0;34m-[0m[0;36m1.3[0m[0;34m)[0m[0;34m,[0m [0;34m([0m[0mdx[0m[0;34m,[0m [0;36m10[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[0;32m---> 12[0;31m [0mmesh[0m [0;34m=[0m [0mMesh[0m[0;34m.[0m[0mTensorMesh[0m[0;34m([0m[0;34m[[0m[0mhxind[0m[0;34m,[0m [0mhyind[0m[0;34m,[0m [0mhzind[0m[0;34m][0m[0;34m,[0m [0;34m'CCC'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0;34m[0m[0m
+[1;32m     14[0m [0;31m# Get index of the center[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'Mesh' is not defined
+NameError: name 'Mesh' is not defined
+
+Executability                            : False

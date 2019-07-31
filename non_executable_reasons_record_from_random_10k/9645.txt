@@ -1,0 +1,33 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import print_function, division
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+
+num_epochs = 100
+total_series_length = 50000
+truncated_backprop_length = 15
+state_size = 4
+num_classes = 2
+echo_step = 3
+batch_size = 5
+num_batches = total_series_length//batch_size//truncated_backprop_length
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-7a405cc1315e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mprint_function[0m[0;34m,[0m [0mdivision[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

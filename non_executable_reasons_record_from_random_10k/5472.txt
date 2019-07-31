@@ -1,0 +1,18 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+for tok in ["IFC", "developing", "income", "European", "HIPC", "classified", 
+    "Least", "Other", "small states", "cone", "world", "baltics"]:
+    ii = [i for i in data.index if tok.lower() in data.loc[i, "Country Name"].lower()]
+    print "\n".join(data.loc[ii, "Country Name"])
+    data = data.drop(ii)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-3-4d1a984be1da>"[0;36m, line [0;32m4[0m
+[0;31m    print "\n".join(data.loc[ii, "Country Name"])[0m
+[0m             ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-3-4d1a984be1da>, line 4)
+
+Executability                            : False

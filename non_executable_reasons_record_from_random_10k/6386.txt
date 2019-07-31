@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# подгрузим один из методов этой библиотеки
+from fake_useragent import UserAgent
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-5-15953de16b97>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# подгрузим один из методов этой библиотеки[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mfake_useragent[0m [0;32mimport[0m [0mUserAgent[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mModuleNotFoundError[0m: No module named 'fake_useragent'
+ModuleNotFoundError: No module named 'fake_useragent'
+
+Executability                            : False

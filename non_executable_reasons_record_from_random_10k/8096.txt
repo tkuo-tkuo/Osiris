@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+setwd('C:/Users/User/Desktop/마이닝/exam')
+------------------
+
+NameError: name 'setwd' is not defined
+
+Executability                            : False

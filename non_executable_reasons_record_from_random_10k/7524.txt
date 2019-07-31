@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# use this as a benchmark. Your algorithm (on categorical features) should reach the same accuracy
+X_dummy = DataFrame.as_matrix(get_dummies(DataFrame(X_cat)))
+scores = cross_val_score(MultinomialNB(), X_dummy, Y.ravel(), cv=KFold(n_splits=15, shuffle=True), scoring='accuracy')
+print("Categorical Accuracy of Standard NB: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-a843d83843ee>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# use this as a benchmark. Your algorithm (on categorical features) should reach the same accuracy[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mX_dummy[0m [0;34m=[0m [0mDataFrame[0m[0;34m.[0m[0mas_matrix[0m[0;34m([0m[0mget_dummies[0m[0;34m([0m[0mDataFrame[0m[0;34m([0m[0mX_cat[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mscores[0m [0;34m=[0m [0mcross_val_score[0m[0;34m([0m[0mMultinomialNB[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mX_dummy[0m[0;34m,[0m [0mY[0m[0;34m.[0m[0mravel[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mcv[0m[0;34m=[0m[0mKFold[0m[0;34m([0m[0mn_splits[0m[0;34m=[0m[0;36m15[0m[0;34m,[0m [0mshuffle[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m,[0m [0mscoring[0m[0;34m=[0m[0;34m'accuracy'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mprint[0m[0;34m([0m[0;34m"Categorical Accuracy of Standard NB: %0.2f (+/- %0.2f)"[0m [0;34m%[0m [0;34m([0m[0mscores[0m[0;34m.[0m[0mmean[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mscores[0m[0;34m.[0m[0mstd[0m[0;34m([0m[0;34m)[0m [0;34m*[0m [0;36m2[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'DataFrame' is not defined
+NameError: name 'DataFrame' is not defined
+
+Executability                            : False

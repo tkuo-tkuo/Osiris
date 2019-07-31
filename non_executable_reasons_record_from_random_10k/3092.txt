@@ -1,0 +1,48 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+"""
+Author: Bryan Bo Cao
+Email: boca7588@colorado.edu or bo.cao-1@colorado.edu
+Github Repo: https://github.com/BryanBo-Cao/neuralnets-deeplearning
+Reference:
+    https://github.com/tylersco/deep-neural-networks-art-images
+    http://www.scipy-lectures.org/advanced/image_processing/
+"""
+from scipy import misc
+import scipy
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+import os, sys
+import glob
+import pandas as pd
+import csv
+import math
+from __future__ import division, print_function, absolute_import
+from data.img.ArtDataLoader import ArtData
+import Plotter
+from Plotter import plot_acc_distance
+from Plotter import plot_acc_cosine
+from Plotter import plot_prob_distance
+from Plotter import plot_prob_cosine
+from Plotter import plot_2lists
+from Plotter import plot_4lists
+from MySpearman import get_distance_prob_correlation
+from MySpearman import get_cosine_prob_correlation
+from MySpearman import get_distance_acc_correlation
+from MySpearman import get_cosine_acc_correlation
+
+from scipy.stats import spearmanr
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-569d5c591457>"[0;36m, line [0;32m24[0m
+[0;31m    from Plotter import plot_acc_distance[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-569d5c591457>, line 24)
+
+Executability                            : False

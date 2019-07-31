@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import net, data
+import importlib
+importlib.reload(net)
+------------------
+
+Traceback [0;36m(most recent call last)[0m:
+
+  File [1;32m"/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m2963[0m, in [1;35mrun_code[0m
+    exec(code_obj, self.user_global_ns, self.user_ns)
+
+[0;36m  File [0;32m"<ipython-input-2-3bee92ae6d0f>"[0;36m, line [0;32m1[0;36m, in [0;35m<module>[0;36m[0m
+[0;31m    import net, data[0m
+
+[0;36m  File [0;32m"/mnt/fit-Knowledgezoo/Github_repos_download/data/tiancaomei088@test2/mnist-cae-with-pooling/net.py"[0;36m, line [0;32m39[0m
+[0;31m    with chainer.using_config('train', True):[0m
+[0m                                             ^[0m
+[0;31mTabError[0m[0;31m:[0m inconsistent use of tabs and spaces in indentation
+
+TabError: inconsistent use of tabs and spaces in indentation (net.py, line 39)
+
+Executability                            : False

@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+dffastfoodz.sort('Fat', ascending=False)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-13-619309fe8147>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdffastfoodz[0m[0;34m.[0m[0msort[0m[0;34m([0m[0;34m'Fat'[0m[0;34m,[0m [0mascending[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/generic.py[0m in [0;36m__getattr__[0;34m(self, name)[0m
+[1;32m   4370[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0m_info_axis[0m[0;34m.[0m[0m_can_hold_identifiers_and_holds_name[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   4371[0m                 [0;32mreturn[0m [0mself[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0m
+[0;32m-> 4372[0;31m             [0;32mreturn[0m [0mobject[0m[0;34m.[0m[0m__getattribute__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   4373[0m [0;34m[0m[0m
+[1;32m   4374[0m     [0;32mdef[0m [0m__setattr__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'DataFrame' object has no attribute 'sort'
+AttributeError: 'DataFrame' object has no attribute 'sort'
+
+Executability                            : False

@@ -1,0 +1,64 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+%%time
+import warnings
+filename = './Set2_imagenes/Angios/1.png'
+img = img_as_ubyte(rgb2gray(io.imread(filename)))
+img2 = dilation(img, getDiamondSE(8))
+f, (ax1, ax2) = plt.subplots(1, 2, figsize=(20,8))
+ax1.imshow(img , cmap='gray')
+ax2.imshow(img2, cmap='gray')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<timed exec>[0m in [0;36m<module>[0;34m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/skimage/io/_io.py[0m in [0;36mimread[0;34m(fname, as_gray, plugin, flatten, **plugin_args)[0m
+[1;32m     59[0m [0;34m[0m[0m
+[1;32m     60[0m     [0;32mwith[0m [0mfile_or_url_context[0m[0;34m([0m[0mfname[0m[0;34m)[0m [0;32mas[0m [0mfname[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 61[0;31m         [0mimg[0m [0;34m=[0m [0mcall_plugin[0m[0;34m([0m[0;34m'imread'[0m[0;34m,[0m [0mfname[0m[0;34m,[0m [0mplugin[0m[0;34m=[0m[0mplugin[0m[0;34m,[0m [0;34m**[0m[0mplugin_args[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     62[0m [0;34m[0m[0m
+[1;32m     63[0m     [0;32mif[0m [0;32mnot[0m [0mhasattr[0m[0;34m([0m[0mimg[0m[0;34m,[0m [0;34m'ndim'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/skimage/io/manage_plugins.py[0m in [0;36mcall_plugin[0;34m(kind, *args, **kwargs)[0m
+[1;32m    208[0m                                (plugin, kind))
+[1;32m    209[0m [0;34m[0m[0m
+[0;32m--> 210[0;31m     [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    211[0m [0;34m[0m[0m
+[1;32m    212[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/imageio/core/functions.py[0m in [0;36mimread[0;34m(uri, format, **kwargs)[0m
+[1;32m    219[0m [0;34m[0m[0m
+[1;32m    220[0m     [0;31m# Get reader and read first[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 221[0;31m     [0mreader[0m [0;34m=[0m [0mread[0m[0;34m([0m[0muri[0m[0;34m,[0m [0mformat[0m[0;34m,[0m [0;34m"i"[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    222[0m     [0;32mwith[0m [0mreader[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    223[0m         [0;32mreturn[0m [0mreader[0m[0;34m.[0m[0mget_data[0m[0;34m([0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/imageio/core/functions.py[0m in [0;36mget_reader[0;34m(uri, format, mode, **kwargs)[0m
+[1;32m    128[0m [0;34m[0m[0m
+[1;32m    129[0m     [0;31m# Create request object[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 130[0;31m     [0mrequest[0m [0;34m=[0m [0mRequest[0m[0;34m([0m[0muri[0m[0;34m,[0m [0;34m"r"[0m [0;34m+[0m [0mmode[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    131[0m [0;34m[0m[0m
+[1;32m    132[0m     [0;31m# Get format[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/imageio/core/request.py[0m in [0;36m__init__[0;34m(self, uri, mode, **kwargs)[0m
+[1;32m    124[0m [0;34m[0m[0m
+[1;32m    125[0m         [0;31m# Parse what was given[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 126[0;31m         [0mself[0m[0;34m.[0m[0m_parse_uri[0m[0;34m([0m[0muri[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    127[0m [0;34m[0m[0m
+[1;32m    128[0m         [0;31m# Set extension[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/imageio/core/request.py[0m in [0;36m_parse_uri[0;34m(self, uri)[0m
+[1;32m    276[0m                 [0;31m# Reading: check that the file exists (but is allowed a dir)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    277[0m                 [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mfn[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 278[0;31m                     [0;32mraise[0m [0mFileNotFoundError[0m[0;34m([0m[0;34m"No such file: '%s'"[0m [0;34m%[0m [0mfn[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    279[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    280[0m                 [0;31m# Writing: check that the directory to write to does exist[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: No such file: '/mnt/fit-Knowledgezoo/Github_repos_download/data/nottu@nottu-notes/Imágenes/Set2_imagenes/Angios/1.png'
+FileNotFoundError: No such file: '/mnt/fit-Knowledgezoo/Github_repos_download/data/nottu@nottu-notes/Imágenes/Set2_imagenes/Angios/1.png'
+
+Executability                            : False

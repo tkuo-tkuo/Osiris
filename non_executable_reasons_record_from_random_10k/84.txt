@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#  サンプルになるDataFrameを作ります。
+dframe1 = DataFrame({'key':['X','Z','Y','Z','X','X'],'data_set_1': np.arange(6)})
+dframe1
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-819bbb7fc485>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m#  サンプルになるDataFrameを作ります。[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mdframe1[0m [0;34m=[0m [0mDataFrame[0m[0;34m([0m[0;34m{[0m[0;34m'key'[0m[0;34m:[0m[0;34m[[0m[0;34m'X'[0m[0;34m,[0m[0;34m'Z'[0m[0;34m,[0m[0;34m'Y'[0m[0;34m,[0m[0;34m'Z'[0m[0;34m,[0m[0;34m'X'[0m[0;34m,[0m[0;34m'X'[0m[0;34m][0m[0;34m,[0m[0;34m'data_set_1'[0m[0;34m:[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0;36m6[0m[0;34m)[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mdframe1[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'DataFrame' is not defined
+NameError: name 'DataFrame' is not defined
+
+Executability                            : False

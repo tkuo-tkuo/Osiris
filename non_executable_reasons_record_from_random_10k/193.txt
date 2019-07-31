@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+if 2>1
+    print('Yes, 2 is still greater than 1')
+------------------
+
+[0;36m  File [0;32m"<ipython-input-4-a0bf5c01fbc0>"[0;36m, line [0;32m1[0m
+[0;31m    if 2>1[0m
+[0m          ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-4-a0bf5c01fbc0>, line 1)
+
+Executability                            : False

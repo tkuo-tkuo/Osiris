@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+array(['Yes', 'No'], dtype=object)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-103fc0abebd3>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0marray[0m[0;34m([0m[0;34m[[0m[0;34m'Yes'[0m[0;34m,[0m [0;34m'No'[0m[0;34m][0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mobject[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'array' is not defined
+NameError: name 'array' is not defined
+
+Executability                            : False

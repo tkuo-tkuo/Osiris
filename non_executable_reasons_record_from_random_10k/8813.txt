@@ -1,0 +1,13 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+data <- read.table("data_banknote_authentication.txt", header=FALSE, sep=",")
+colnames(data) <- c("Variance", "Skewness", "Kurtosis", "Entropy", "Label")
+head(data)
+------------------
+
+NameError: name 'data' is not defined
+
+Executability                            : False

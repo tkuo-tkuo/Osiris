@@ -1,0 +1,62 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 13 ; number of cells: 17
+Reproducibility                          : matched ratio: 0.765 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16]
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+df
+
+-----------------
+Original output:
+          1         2
+A  2.706850  0.628133
+B  0.651118 -0.319318
+C -2.018168  0.740122
+D  0.188695 -0.758872
+Executed output:
+          1         2         3
+A  2.706850  0.628133  2.706850
+B  0.651118 -0.319318  0.651118
+C -2.018168  0.740122 -2.018168
+D  0.188695 -0.758872  0.188695
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+df.shape
+
+-----------------
+Original output:
+(4, 2)
+Executed output:
+(4, 3)
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+df.iloc[3]
+
+-----------------
+Original output:
+1    0.188695
+2   -0.758872
+Name: D, dtype: float64
+Executed output:
+1    0.188695
+2   -0.758872
+3    0.188695
+Name: D, dtype: float64
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+df.loc['B']
+
+-----------------
+Original output:
+1    0.651118
+2   -0.319318
+Name: B, dtype: float64
+Executed output:
+1    0.651118
+2   -0.319318
+3    0.651118
+Name: B, dtype: float64

@@ -1,0 +1,73 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from keras.layers import Bidirectional
+
+def bd_model(input_shape, output_sequence_length, english_vocab_size, french_vocab_size):
+    """
+    Build and train a bidirectional RNN model on x and y
+    :param input_shape: Tuple of input shape
+    :param output_sequence_length: Length of output sequence
+    :param english_vocab_size: Number of unique English words in the dataset
+    :param french_vocab_size: Number of unique French words in the dataset
+    :return: Keras model built, but not trained
+    """
+    # TODO: Implement
+    learning_rate = 0.002
+    model = Sequential()
+    model.add(Bidirectional(
+        GRU(output_sequence_length, return_sequences=True),
+        input_shape=input_shape[1:]
+    ))
+    model.add(Dropout(0.4))
+    model.add(TimeDistributed(Dense(2*french_vocab_size, activation='relu')))
+    model.add(Dropout(0.2))
+    model.add(TimeDistributed(Dense(french_vocab_size, activation='softmax')))
+    model.compile(loss=sparse_categorical_crossentropy,
+                  optimizer=Adam(learning_rate),
+                  metrics=['accuracy'])
+    return model
+tests.test_bd_model(bd_model)
+
+tmp_x = pad(preproc_english_sentences, preproc_french_sentences.shape[1])
+tmp_x = tmp_x.reshape((-1, preproc_french_sentences.shape[-2], 1))
+
+# Train the neural network
+bd_rnn_model = bd_model(
+    tmp_x.shape,
+    preproc_french_sentences.shape[1],
+    len(english_tokenizer.word_index)+1,
+    len(french_tokenizer.word_index)+1)
+bd_rnn_model.fit(tmp_x, preproc_french_sentences, batch_size=1024, epochs=10, validation_split=0.2)
+
+# Print prediction(s)
+print(logits_to_text(bd_rnn_model.predict(tmp_x[:1])[0], french_tokenizer))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-38b532421235>[0m in [0;36m<module>[0;34m[0m
+[1;32m     25[0m                   metrics=['accuracy'])
+[1;32m     26[0m     [0;32mreturn[0m [0mmodel[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 27[0;31m [0mtests[0m[0;34m.[0m[0mtest_bd_model[0m[0;34m([0m[0mbd_model[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     28[0m [0;34m[0m[0m
+[1;32m     29[0m [0mtmp_x[0m [0;34m=[0m [0mpad[0m[0;34m([0m[0mpreproc_english_sentences[0m[0;34m,[0m [0mpreproc_french_sentences[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/YungChunLu@AIND-NLP-Capstone/project_tests.py[0m in [0;36mtest_bd_model[0;34m(bd_model)[0m
+[1;32m     90[0m     [0mfrench_vocab_size[0m [0;34m=[0m [0;36m344[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     91[0m [0;34m[0m[0m
+[0;32m---> 92[0;31m     [0mmodel[0m [0;34m=[0m [0mbd_model[0m[0;34m([0m[0minput_shape[0m[0;34m,[0m [0moutput_sequence_length[0m[0;34m,[0m [0menglish_vocab_size[0m[0;34m,[0m [0mfrench_vocab_size[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     93[0m     [0m_test_model[0m[0;34m([0m[0mmodel[0m[0;34m,[0m [0minput_shape[0m[0;34m,[0m [0moutput_sequence_length[0m[0;34m,[0m [0mfrench_vocab_size[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     94[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-8-38b532421235>[0m in [0;36mbd_model[0;34m(input_shape, output_sequence_length, english_vocab_size, french_vocab_size)[0m
+[1;32m     12[0m     [0;31m# TODO: Implement[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m     [0mlearning_rate[0m [0;34m=[0m [0;36m0.002[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m     [0mmodel[0m [0;34m=[0m [0mSequential[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m     model.add(Bidirectional(
+[1;32m     16[0m         [0mGRU[0m[0;34m([0m[0moutput_sequence_length[0m[0;34m,[0m [0mreturn_sequences[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'Sequential' is not defined
+NameError: name 'Sequential' is not defined
+
+Executability                            : False

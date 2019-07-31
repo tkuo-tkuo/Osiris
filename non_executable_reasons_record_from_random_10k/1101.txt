@@ -1,0 +1,55 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Defining structures and getting the data
+# We will create two dictionaries to store all data (allmen and allwomen)
+
+# Base URL for the data store
+url = "http://cosmo.nyu.edu/~fb55/PUI2016/data/"
+
+# File Coding
+# 08_2 are male,
+# 08_3 are female,
+# _1_1 is all ethnicities
+# _1_4 is white
+# _1_6 is black
+# _1_8 is asian
+# _1_9 is hispanic
+
+# Using the pandas read from excel method to create the dataframes
+# Will read directly the xls files, skipping the first eight rows
+
+dfMenAll = pd.read_excel(url + 'pinc08_2_1_1.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+dfMenWhite = pd.read_excel(url + 'pinc08_2_1_4.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+dfMenBlack = pd.read_excel(url + 'pinc08_2_1_6.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+dfMenHispanic = pd.read_excel(url + 'pinc08_2_1_8.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+dfMenAsian = pd.read_excel(url + 'pinc08_2_1_9.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+
+dfWomenAll = pd.read_excel(url + 'pinc08_3_1_1.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+dfWomenWhite = pd.read_excel(url + 'pinc08_3_1_4.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+dfWomenBlack = pd.read_excel(url + 'pinc08_3_1_6.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+dfWomenHispanic = pd.read_excel(url + 'pinc08_3_1_8.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+dfWomenAsian= pd.read_excel(url + 'pinc08_3_1_9.xls', skiprows=[0,1,2,3,4,5,6,7,8])
+
+allmales = {'all':dfMenAll, 'white':dfMenWhite, 'black':dfMenBlack, 'hispanic':dfMenHispanic, 'asian':dfMenAsian}
+allfemales = {'all':dfWomenAll, 'white':dfWomenWhite, 'black':dfWomenBlack, 
+             'hispanic':dfWomenHispanic, 'asian':dfWomenAsian}
+
+allfemales['all'].head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-42f01f56003a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     19[0m [0;31m# Will read directly the xls files, skipping the first eight rows[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     20[0m [0;34m[0m[0m
+[0;32m---> 21[0;31m [0mdfMenAll[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0murl[0m [0;34m+[0m [0;34m'pinc08_2_1_1.xls'[0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m[0;36m4[0m[0;34m,[0m[0;36m5[0m[0;34m,[0m[0;36m6[0m[0;34m,[0m[0;36m7[0m[0;34m,[0m[0;36m8[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     22[0m [0mdfMenWhite[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0murl[0m [0;34m+[0m [0;34m'pinc08_2_1_4.xls'[0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m[0;36m4[0m[0;34m,[0m[0;36m5[0m[0;34m,[0m[0;36m6[0m[0;34m,[0m[0;36m7[0m[0;34m,[0m[0;36m8[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     23[0m [0mdfMenBlack[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0murl[0m [0;34m+[0m [0;34m'pinc08_2_1_6.xls'[0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m[0;36m4[0m[0;34m,[0m[0;36m5[0m[0;34m,[0m[0;36m6[0m[0;34m,[0m[0;36m7[0m[0;34m,[0m[0;36m8[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

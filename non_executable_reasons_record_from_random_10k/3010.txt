@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+messy.to_csv(path_or_buf='datasets/messy.csv',sep=',',index=False)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-94efbd34ff18>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mmessy[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0mpath_or_buf[0m[0;34m=[0m[0;34m'datasets/messy.csv'[0m[0;34m,[0m[0msep[0m[0;34m=[0m[0;34m','[0m[0;34m,[0m[0mindex[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'messy' is not defined
+NameError: name 'messy' is not defined
+
+Executability                            : False

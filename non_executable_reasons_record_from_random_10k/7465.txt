@@ -1,0 +1,20 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import matplotlib as plt
+%matplotlib inline
+
+recent_grads = pd.read_csv("recent-grads.csv")
+
+raw_data_count = recent_grads.shape[0]
+recent_grads = recent_grads.dropna()
+cleaned_data_count = recent_grads.shape[0]
+raw_data_count, cleaned_data_count
+------------------
+
+FileNotFoundError: File b'recent-grads.csv' does not exist
+
+Executability                            : False

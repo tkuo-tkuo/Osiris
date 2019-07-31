@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+mut_orig_cols = ['patient', 'Chromosome', 'Start_position', 'Reference_Allele', 'Tumor_Seq_Allele2']
+mut_rename_cols = {
+    "Chromosome":"chr", 
+    'Start_position':"pos", 
+    'Reference_Allele':"ref", 
+    'Tumor_Seq_Allele2':"alt"
+}
+muts = muts[muts['Variant_Type']=="SNP"][mut_orig_cols].rename(columns=mut_rename_cols)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-8c67f06c811a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      8[0m     [0;34m'Tumor_Seq_Allele2'[0m[0;34m:[0m[0;34m"alt"[0m[0;34m[0m[0m
+[1;32m      9[0m }
+[0;32m---> 10[0;31m [0mmuts[0m [0;34m=[0m [0mmuts[0m[0;34m[[0m[0mmuts[0m[0;34m[[0m[0;34m'Variant_Type'[0m[0;34m][0m[0;34m==[0m[0;34m"SNP"[0m[0;34m][0m[0;34m[[0m[0mmut_orig_cols[0m[0;34m][0m[0;34m.[0m[0mrename[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0mmut_rename_cols[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'muts' is not defined
+NameError: name 'muts' is not defined
+
+Executability                            : False

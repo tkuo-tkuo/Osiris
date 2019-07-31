@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+net.to(device)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-aa464e9d90d3>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mnet[0m[0;34m.[0m[0mto[0m[0;34m([0m[0mdevice[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'net' is not defined
+NameError: name 'net' is not defined
+
+Executability                            : False

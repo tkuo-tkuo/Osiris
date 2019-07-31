@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+model = ExtraTreesClassifier(n_estimators=30)
+model.fit(X,y)
+print(model.feature_importances_)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-d28ffcbb3f4e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mmodel[0m [0;34m=[0m [0mExtraTreesClassifier[0m[0;34m([0m[0mn_estimators[0m[0;34m=[0m[0;36m30[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mmodel[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX[0m[0;34m,[0m[0my[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0mmodel[0m[0;34m.[0m[0mfeature_importances_[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'X' is not defined
+NameError: name 'X' is not defined
+
+Executability                            : False

@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# opening the file
+df_masters = pickle.load( open( "df_masters.p", "rb" ) )
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-576a5b3d273c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# opening the file[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdf_masters[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m [0mopen[0m[0;34m([0m [0;34m"df_masters.p"[0m[0;34m,[0m [0;34m"rb"[0m [0;34m)[0m [0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mImportError[0m: No module named 'pandas.indexes'
+ImportError: No module named 'pandas.indexes'
+
+Executability                            : False

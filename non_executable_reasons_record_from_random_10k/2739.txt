@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+import warnings
+warnings.filterwarnings("ignore")
+
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath('__file__'))))
+from src import EDA
+%load_ext autoreload
+%autoreload 2
+
+import pyspark
+from pyspark.sql import SparkSession
+spark_session = SparkSession.builder.getOrCreate()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-65541ef322be>[0m in [0;36m<module>[0;34m[0m
+[1;32m     15[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'autoreload'[0m[0;34m,[0m [0;34m'2'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m [0;34m[0m[0m
+[0;32m---> 17[0;31m [0;32mimport[0m [0mpyspark[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     18[0m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0msql[0m [0;32mimport[0m [0mSparkSession[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m [0mspark_session[0m [0;34m=[0m [0mSparkSession[0m[0;34m.[0m[0mbuilder[0m[0;34m.[0m[0mgetOrCreate[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pyspark'
+ModuleNotFoundError: No module named 'pyspark'
+
+Executability                            : False

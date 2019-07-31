@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+boston=datasets.load_boston()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-7c2471067fe8>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mboston[0m[0;34m=[0m[0mdatasets[0m[0;34m.[0m[0mload_boston[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'datasets' is not defined
+NameError: name 'datasets' is not defined
+
+Executability                            : False

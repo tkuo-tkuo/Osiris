@@ -1,0 +1,107 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+c_range = np.logspace(-3,3,7)
+param_grid = [
+    {'kernel': ['rbf', 'linear'], 'C': c_range},
+]
+grid_search = GridSearchCV(svm.SVC(), param_grid, cv=10, verbose=3, n_jobs=10)
+grid_search.fit(data, target)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31m_RemoteTraceback[0m                          Traceback (most recent call last)
+[0;31m_RemoteTraceback[0m: 
+"""
+Traceback (most recent call last):
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/joblib/externals/loky/process_executor.py", line 418, in _process_worker
+    r = call_item()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/joblib/externals/loky/process_executor.py", line 272, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/joblib/_parallel_backends.py", line 567, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/joblib/parallel.py", line 225, in __call__
+    for func, args, kwargs in self.items]
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/joblib/parallel.py", line 225, in <listcomp>
+    for func, args, kwargs in self.items]
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/model_selection/_validation.py", line 514, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/svm/base.py", line 146, in fit
+    accept_large_sparse=False)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/utils/validation.py", line 719, in check_X_y
+    estimator=estimator)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/utils/validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/utils/validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+"""
+
+The above exception was the direct cause of the following exception:
+
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-5-d803fae45c62>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m ]
+[1;32m      5[0m [0mgrid_search[0m [0;34m=[0m [0mGridSearchCV[0m[0;34m([0m[0msvm[0m[0;34m.[0m[0mSVC[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mparam_grid[0m[0;34m,[0m [0mcv[0m[0;34m=[0m[0;36m10[0m[0;34m,[0m [0mverbose[0m[0;34m=[0m[0;36m3[0m[0;34m,[0m [0mn_jobs[0m[0;34m=[0m[0;36m10[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0mgrid_search[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mtarget[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/model_selection/_search.py[0m in [0;36mfit[0;34m(self, X, y, groups, **fit_params)[0m
+[1;32m    685[0m                 [0;32mreturn[0m [0mresults[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    686[0m [0;34m[0m[0m
+[0;32m--> 687[0;31m             [0mself[0m[0;34m.[0m[0m_run_search[0m[0;34m([0m[0mevaluate_candidates[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    688[0m [0;34m[0m[0m
+[1;32m    689[0m         [0;31m# For multi-metric evaluation, store the best_index_, best_params_ and[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/model_selection/_search.py[0m in [0;36m_run_search[0;34m(self, evaluate_candidates)[0m
+[1;32m   1146[0m     [0;32mdef[0m [0m_run_search[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mevaluate_candidates[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1147[0m         [0;34m"""Search all candidates in param_grid"""[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1148[0;31m         [0mevaluate_candidates[0m[0;34m([0m[0mParameterGrid[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mparam_grid[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1149[0m [0;34m[0m[0m
+[1;32m   1150[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/model_selection/_search.py[0m in [0;36mevaluate_candidates[0;34m(candidate_params)[0m
+[1;32m    664[0m                                [0;32mfor[0m [0mparameters[0m[0;34m,[0m [0;34m([0m[0mtrain[0m[0;34m,[0m [0mtest[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    665[0m                                in product(candidate_params,
+[0;32m--> 666[0;31m                                           cv.split(X, y, groups)))
+[0m[1;32m    667[0m [0;34m[0m[0m
+[1;32m    668[0m                 [0;32mif[0m [0mlen[0m[0;34m([0m[0mout[0m[0;34m)[0m [0;34m<[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/joblib/parallel.py[0m in [0;36m__call__[0;34m(self, iterable)[0m
+[1;32m    932[0m [0;34m[0m[0m
+[1;32m    933[0m             [0;32mwith[0m [0mself[0m[0;34m.[0m[0m_backend[0m[0;34m.[0m[0mretrieval_context[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 934[0;31m                 [0mself[0m[0;34m.[0m[0mretrieve[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    935[0m             [0;31m# Make sure that we get a last message telling us we are done[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    936[0m             [0melapsed_time[0m [0;34m=[0m [0mtime[0m[0;34m.[0m[0mtime[0m[0;34m([0m[0;34m)[0m [0;34m-[0m [0mself[0m[0;34m.[0m[0m_start_time[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/joblib/parallel.py[0m in [0;36mretrieve[0;34m(self)[0m
+[1;32m    831[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    832[0m                 [0;32mif[0m [0mgetattr[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_backend[0m[0;34m,[0m [0;34m'supports_timeout'[0m[0;34m,[0m [0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 833[0;31m                     [0mself[0m[0;34m.[0m[0m_output[0m[0;34m.[0m[0mextend[0m[0;34m([0m[0mjob[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mtimeout[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mtimeout[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    834[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    835[0m                     [0mself[0m[0;34m.[0m[0m_output[0m[0;34m.[0m[0mextend[0m[0;34m([0m[0mjob[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/joblib/_parallel_backends.py[0m in [0;36mwrap_future_result[0;34m(future, timeout)[0m
+[1;32m    519[0m         AsyncResults.get from multiprocessing."""
+[1;32m    520[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 521[0;31m             [0;32mreturn[0m [0mfuture[0m[0;34m.[0m[0mresult[0m[0;34m([0m[0mtimeout[0m[0;34m=[0m[0mtimeout[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    522[0m         [0;32mexcept[0m [0mLokyTimeoutError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    523[0m             [0;32mraise[0m [0mTimeoutError[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/concurrent/futures/_base.py[0m in [0;36mresult[0;34m(self, timeout)[0m
+[1;32m    430[0m                 [0;32mraise[0m [0mCancelledError[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    431[0m             [0;32melif[0m [0mself[0m[0;34m.[0m[0m_state[0m [0;34m==[0m [0mFINISHED[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 432[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m__get_result[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    433[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    434[0m                 [0;32mraise[0m [0mTimeoutError[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/concurrent/futures/_base.py[0m in [0;36m__get_result[0;34m(self)[0m
+[1;32m    382[0m     [0;32mdef[0m [0m__get_result[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    383[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0m_exception[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 384[0;31m             [0;32mraise[0m [0mself[0m[0;34m.[0m[0m_exception[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    385[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    386[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_result[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: Input contains NaN, infinity or a value too large for dtype('float64').
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+
+Executability                            : False

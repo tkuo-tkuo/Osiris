@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+G=nx.karate_club_graph()
+G = nx.Graph(G)
+np.random.seed(2)
+pos = nx.spring_layout(G)
+print('G has {} nodes and maximum degree {}'.format(len(G), max(nx.degree(G).values())))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-3-f091492309b8>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mseed[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mpos[0m [0;34m=[0m [0mnx[0m[0;34m.[0m[0mspring_layout[0m[0;34m([0m[0mG[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mprint[0m[0;34m([0m[0;34m'G has {} nodes and maximum degree {}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mG[0m[0;34m)[0m[0;34m,[0m [0mmax[0m[0;34m([0m[0mnx[0m[0;34m.[0m[0mdegree[0m[0;34m([0m[0mG[0m[0;34m)[0m[0;34m.[0m[0mvalues[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: 'DegreeView' object has no attribute 'values'
+AttributeError: 'DegreeView' object has no attribute 'values'
+
+Executability                            : False

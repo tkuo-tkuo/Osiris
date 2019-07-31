@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+# numpy.whereを使う
+answer2 = np.where(condition,A,B)
+answer2
+------------------
+
+NameError: name 'condition' is not defined
+
+Executability                            : False

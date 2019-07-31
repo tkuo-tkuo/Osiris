@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+db.get('kobe')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-33-dfe9b1122ac6>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdb[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m'kobe'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-28-eaf7b90469b8>[0m in [0;36mget[0;34m(self, x)[0m
+[1;32m     54[0m             [0;32mreturn[0m [0mreadit[0m[0;34m[0m[0m
+[1;32m     55[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 56[0;31m             [0;32mraise[0m [0mIndexError[0m[0;34m([0m[0;34m'Entry has already been deleted'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     57[0m [0;34m[0m[0m
+[1;32m     58[0m     [0;32mdef[0m [0mdelete[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mx[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mIndexError[0m: Entry has already been deleted
+IndexError: Entry has already been deleted
+
+Executability                            : False

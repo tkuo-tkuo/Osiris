@@ -1,0 +1,151 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import turtle
+import datetime
+import random
+from time import sleep
+
+# create the points for displaying the time
+secondpoint = turtle.Turtle()
+minutepoint = turtle.Turtle()
+hourpoint = turtle.Turtle()
+secondT = turtle.Turtle()
+minuteT = turtle.Turtle()
+hourT = turtle.Turtle()
+endline = turtle.Turtle()
+
+# set the shape and size of all points
+secondpoint.shape('turtle')
+secondpoint.shapesize(0.5,0.5,0.5)
+
+minutepoint.shape('turtle')
+minutepoint.shapesize(1,1,1)
+
+hourpoint.shape('turtle')
+hourpoint.shapesize(2,2,2)
+
+endline.shape('circle')
+endline.shapesize(0.5,0.5,0.5)
+
+secondT.shape('circle')
+secondT.shapesize(0.5,0.5,0.5)
+
+minuteT.shape('circle')
+minuteT.shapesize(0.5,0.5,0.5)
+
+hourT.shape('circle')
+hourT.shapesize(0.5,0.5,0.5)
+
+# get the current time
+currentTime=datetime.datetime.now().time()
+
+# raise pens for all points
+secondpoint.penup()
+minutepoint.penup()
+hourpoint.penup()
+secondT.penup()
+minuteT.penup()
+hourT.penup()
+endline.penup()
+
+# move the points to different locations on the screen
+secondpoint.goto(-200,-20)
+minutepoint.goto(-200,-100)
+hourpoint.goto(-200,-180)
+
+secondT.goto(-250,-20)
+secondT.pencolor('red')
+secondT.write("S", move=False, align="center", font=("Arial", 20, "normal"))
+
+minuteT.goto(-250,-100)
+minuteT.pencolor('blue')
+minuteT.write("M", move=False, align="center", font=("Arial", 20, "normal"))
+        
+hourT.goto(-250,-180)
+hourT.pencolor('green')
+hourT.write("H", move=False, align="center", font=("Arial", 20, "normal"))
+
+endline.goto(390,50)
+endline.pendown()
+endline.pencolor('pink')
+endline.pensize(5)
+endline.rt(90)
+endline.forward(280)
+
+# define the previous value of time as the currentTime
+prevSecond=currentTime.second
+prevMinute=currentTime.minute
+prevHour=currentTime.hour
+
+# in each second change the location of points
+for i in range(0,36000):
+    currentTime=datetime.datetime.now().time()
+    currentSecond=currentTime.second
+    currentMinute=currentTime.minute
+    currentHour=currentTime.hour
+    
+    if (currentSecond != prevSecond):
+        secondpoint.pendown()
+        secondpoint.pencolor('red')
+        secondpoint.goto((-200+(currentSecond*10),-20))
+        
+        minutepoint.pendown()
+        minutepoint.pencolor('blue')
+        minutepoint.goto(-200+(currentMinute*10),-100)
+        
+        hourpoint.pendown()
+        hourpoint.pencolor('green')
+        hourpoint.goto(-200+(currentHour*25),-180)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTclError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-1-1fac9481020f>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;31m# create the points for displaying the time[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0msecondpoint[0m [0;34m=[0m [0mturtle[0m[0;34m.[0m[0mTurtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0mminutepoint[0m [0;34m=[0m [0mturtle[0m[0;34m.[0m[0mTurtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0mhourpoint[0m [0;34m=[0m [0mturtle[0m[0;34m.[0m[0mTurtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self, shape, undobuffersize, visible)[0m
+[1;32m   3810[0m                  visible=_CFG["visible"]):
+[1;32m   3811[0m         [0;32mif[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3812[0;31m             [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;34m=[0m [0mScreen[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3813[0m         RawTurtle.__init__(self, Turtle._screen,
+[1;32m   3814[0m                            [0mshape[0m[0;34m=[0m[0mshape[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36mScreen[0;34m()[0m
+[1;32m   3660[0m     else return the existing one."""
+[1;32m   3661[0m     [0;32mif[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3662[0;31m         [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;34m=[0m [0m_Screen[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3663[0m     [0;32mreturn[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3664[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m   3676[0m         [0;31m# preserved (perhaps by passing it as an optional parameter)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3677[0m         [0;32mif[0m [0m_Screen[0m[0;34m.[0m[0m_root[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3678[0;31m             [0m_Screen[0m[0;34m.[0m[0m_root[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_root[0m [0;34m=[0m [0m_Root[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3679[0m             [0mself[0m[0;34m.[0m[0m_root[0m[0;34m.[0m[0mtitle[0m[0;34m([0m[0m_Screen[0m[0;34m.[0m[0m_title[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3680[0m             [0mself[0m[0;34m.[0m[0m_root[0m[0;34m.[0m[0mondestroy[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_destroy[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m    432[0m     [0;34m"""Root class for Screen based on Tkinter."""[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    433[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 434[0;31m         [0mTK[0m[0;34m.[0m[0mTk[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    435[0m [0;34m[0m[0m
+[1;32m    436[0m     [0;32mdef[0m [0msetupcanvas[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mwidth[0m[0;34m,[0m [0mheight[0m[0;34m,[0m [0mcwidth[0m[0;34m,[0m [0mcheight[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/tkinter/__init__.py[0m in [0;36m__init__[0;34m(self, screenName, baseName, className, useTk, sync, use)[0m
+[1;32m   2021[0m                 [0mbaseName[0m [0;34m=[0m [0mbaseName[0m [0;34m+[0m [0mext[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2022[0m         [0minteractive[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2023[0;31m         [0mself[0m[0;34m.[0m[0mtk[0m [0;34m=[0m [0m_tkinter[0m[0;34m.[0m[0mcreate[0m[0;34m([0m[0mscreenName[0m[0;34m,[0m [0mbaseName[0m[0;34m,[0m [0mclassName[0m[0;34m,[0m [0minteractive[0m[0;34m,[0m [0mwantobjects[0m[0;34m,[0m [0museTk[0m[0;34m,[0m [0msync[0m[0;34m,[0m [0muse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2024[0m         [0;32mif[0m [0museTk[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2025[0m             [0mself[0m[0;34m.[0m[0m_loadtk[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTclError[0m: no display name and no $DISPLAY environment variable
+TclError: no display name and no $DISPLAY environment variable
+
+Executability                            : False

@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# new in pandas 0.18
+df = pd.DataFrame({'year':[2015, 2016], 'month':[2,3], 'day':[4,5], 'hour':[12, 13]})
+df
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-b6806dc1227a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# new in pandas 0.18[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0;34m{[0m[0;34m'year'[0m[0;34m:[0m[0;34m[[0m[0;36m2015[0m[0;34m,[0m [0;36m2016[0m[0;34m][0m[0;34m,[0m [0;34m'month'[0m[0;34m:[0m[0;34m[[0m[0;36m2[0m[0;34m,[0m[0;36m3[0m[0;34m][0m[0;34m,[0m [0;34m'day'[0m[0;34m:[0m[0;34m[[0m[0;36m4[0m[0;34m,[0m[0;36m5[0m[0;34m][0m[0;34m,[0m [0;34m'hour'[0m[0;34m:[0m[0;34m[[0m[0;36m12[0m[0;34m,[0m [0;36m13[0m[0;34m][0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mdf[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

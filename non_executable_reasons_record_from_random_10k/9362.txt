@@ -1,0 +1,20 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+# Tensorflow AI - Tensorflow Serving - Simple 
+!kubectl create --context=awsdemo -f /root/pipeline/loadtest.ml/loadtest-aws-minimal-rc.yaml
+!kubectl create --context=awsdemo -f /root/pipeline/loadtest.ml/loadtest-gcp-minimal-rc.yaml
+
+-----------------
+Original output:
+replicationcontroller "loadtest-aws-minimal" created
+replicationcontroller "loadtest-gcp-minimal" created
+
+Executed output:
+/bin/sh: 1: kubectl: not found
+/bin/sh: 1: kubectl: not found
+

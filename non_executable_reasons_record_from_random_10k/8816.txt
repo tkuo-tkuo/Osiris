@@ -1,0 +1,15 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+d <- read.table("heptatlon")
+d.noscore <- d[-8]
+d.noscore_scaled <- scale(d.noscore)
+head(d.noscore_scaled, n = 3) #mejores tres
+tail(d.noscore_scaled, n = 3) #peores tres
+------------------
+
+NameError: name 'd' is not defined
+
+Executability                            : False

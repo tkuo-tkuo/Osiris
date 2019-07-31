@@ -1,0 +1,43 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+import math
+import glob
+import time
+import cv2
+from collections import deque
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+from skimage.feature import hog
+from skimage.color.adapt_rgb import adapt_rgb, each_channel, hsv_value
+from skimage import filters
+
+from sklearn.model_selection import train_test_split
+from sklearn import svm
+from sklearn.preprocessing import StandardScaler
+from sklearn import tree
+
+from scipy.ndimage.measurements import label
+
+from moviepy.editor import VideoFileClip
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-1977d04e7344>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mimport[0m [0mglob[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mtime[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0mcollections[0m [0;32mimport[0m [0mdeque[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

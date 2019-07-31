@@ -1,0 +1,77 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+kelly_colors_hex = [
+    '#FFB300', # Vivid Yellow
+    '#803E75', # Strong Purple
+    '#FF6800', # Vivid Orange
+    '#A6BDD7', # Very Light Blue
+    '#C10020', # Vivid Red
+    '#CEA262', # Grayish Yellow
+    '#817066', # Medium Gray
+    '#007D34', # Vivid Green
+    '#F6768E', # Strong Purplish Pink
+    '#00538A', # Strong Blue
+    '#FF7A5C', # Strong Yellowish Pink
+    '#53377A', # Strong Violet
+    '#FF8E00', # Vivid Orange Yellow
+    '#B32851', # Strong Purplish Red
+    '#F4C800', # Vivid Greenish Yellow
+    '#7F180D', # Strong Reddish Brown
+    '#93AA00', # Vivid Yellowish Green
+    '#593315', # Deep Yellowish Brown
+    '#F13A13', # Vivid Reddish Orange
+    '#232C16', # Dark Olive Green
+    ]
+
+newparams = {
+  "lines.linewidth": 2.0,
+  "axes.edgecolor": "#aaaaaa",
+  "patch.linewidth": 1.0,
+  "legend.fancybox": 'false',
+  "axes.color_cycle": kelly_colors_hex,
+  "axes.facecolor": "#ffffff",
+  "axes.labelsize": "large",
+  "axes.grid": 'false',
+  "patch.edgecolor": "#555555",
+  "axes.titlesize": "x-large",
+  "svg.embed_char_paths": "path",
+}
+pl.rcParams.update(newparams)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/__init__.py[0m in [0;36m__setitem__[0;34m(self, key, val)[0m
+[1;32m    921[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 922[0;31m                 [0mcval[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mvalidate[0m[0;34m[[0m[0mkey[0m[0;34m][0m[0;34m([0m[0mval[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    923[0m             [0;32mexcept[0m [0mValueError[0m [0;32mas[0m [0mve[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: 'axes.color_cycle'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-14-1f8ed61c9ed2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     35[0m   [0;34m"svg.embed_char_paths"[0m[0;34m:[0m [0;34m"path"[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m     36[0m }
+[0;32m---> 37[0;31m [0mpl[0m[0;34m.[0m[0mrcParams[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0mnewparams[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/_collections_abc.py[0m in [0;36mupdate[0;34m(*args, **kwds)[0m
+[1;32m    773[0m             [0;32mif[0m [0misinstance[0m[0;34m([0m[0mother[0m[0;34m,[0m [0mMapping[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    774[0m                 [0;32mfor[0m [0mkey[0m [0;32min[0m [0mother[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 775[0;31m                     [0mself[0m[0;34m[[0m[0mkey[0m[0;34m][0m [0;34m=[0m [0mother[0m[0;34m[[0m[0mkey[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m    776[0m             [0;32melif[0m [0mhasattr[0m[0;34m([0m[0mother[0m[0;34m,[0m [0;34m"keys"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    777[0m                 [0;32mfor[0m [0mkey[0m [0;32min[0m [0mother[0m[0;34m.[0m[0mkeys[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/__init__.py[0m in [0;36m__setitem__[0;34m(self, key, val)[0m
+[1;32m    927[0m             raise KeyError(
+[1;32m    928[0m                 [0;34m'%s is not a valid rc parameter. See rcParams.keys() for a '[0m[0;34m[0m[0m
+[0;32m--> 929[0;31m                 'list of valid parameters.' % (key,))
+[0m[1;32m    930[0m [0;34m[0m[0m
+[1;32m    931[0m     [0;32mdef[0m [0m__getitem__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: 'axes.color_cycle is not a valid rc parameter. See rcParams.keys() for a list of valid parameters.'
+KeyError: 'axes.color_cycle is not a valid rc parameter. See rcParams.keys() for a list of valid parameters.'
+
+Executability                            : False

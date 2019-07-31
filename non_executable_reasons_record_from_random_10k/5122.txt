@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+
+from geopy.distance import vincenty
+
+import datadotworld as dw
+
+import numpy as np
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-20332ff2a9db>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mgeopy[0m[0;34m.[0m[0mdistance[0m [0;32mimport[0m [0mvincenty[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mdatadotworld[0m [0;32mas[0m [0mdw[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'geopy'
+ModuleNotFoundError: No module named 'geopy'
+
+Executability                            : False

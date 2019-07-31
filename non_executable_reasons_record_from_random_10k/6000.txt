@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+fig.savefig('my_picture.png',dpi = 200)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-54ee6abe0dce>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mfig[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m'my_picture.png'[0m[0;34m,[0m[0mdpi[0m [0;34m=[0m [0;36m200[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'fig' is not defined
+NameError: name 'fig' is not defined
+
+Executability                            : False

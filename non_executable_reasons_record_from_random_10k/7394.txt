@@ -1,0 +1,96 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+RIGHT = 20
+
+fig = plt.figure()
+
+
+
+
+a3 = plt.subplot(133)
+a3.set_title('Zmq Sobel tracker')
+la = a3.plot(x_py,y1_py, 'b', label="zmq server")
+lb = a3.plot(ms, kb, 'b--', label="zmq client")
+lc = a3.plot(CoX, Co, 'b-*', label="zmq total")
+
+a3.set_xlim([0, RIGHT])
+lgd = plt.legend(bbox_to_anchor=(1, 1), loc=2, borderaxespad=0.)
+
+
+#plt.ylabel('Consumed heap memory in MB')
+
+a1 = plt.subplot(132, sharex=a3, sharey=a3)
+a1.plot(x,y1, 'r', label="no tracker")
+a1.set_xlim([0, RIGHT])
+
+a1.set_title('no tracker')
+
+plt.xlabel('elapsed time in 1000ms')
+a2 = plt.subplot(131, sharex=a3, sharey=a3)
+a2.plot(x_c,y1_c, 'g', label='Sobel (C++)')
+a2.set_xlim([0, RIGHT])
+a2.set_title('C++ Sobel tracker')
+a2.set_ylabel('Consumed heap memory in MB')
+
+
+
+#plt.show()
+#plt.show()
+plt.tight_layout()
+plt.savefig('mem.eps', format='eps', bbox_extra_artists=(lgd,), bbox_inches='tight')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-5-64e95319bd96>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     36[0m [0;31m#plt.show()[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     37[0m [0mplt[0m[0;34m.[0m[0mtight_layout[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 38[0;31m [0mplt[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m'mem.eps'[0m[0;34m,[0m [0mformat[0m[0;34m=[0m[0;34m'eps'[0m[0;34m,[0m [0mbbox_extra_artists[0m[0;34m=[0m[0;34m([0m[0mlgd[0m[0;34m,[0m[0;34m)[0m[0;34m,[0m [0mbbox_inches[0m[0;34m=[0m[0;34m'tight'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/pyplot.py[0m in [0;36msavefig[0;34m(*args, **kwargs)[0m
+[1;32m    708[0m [0;32mdef[0m [0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    709[0m     [0mfig[0m [0;34m=[0m [0mgcf[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 710[0;31m     [0mres[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    711[0m     [0mfig[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mdraw_idle[0m[0;34m([0m[0;34m)[0m   [0;31m# need this if 'transparent=True' to reset colors[0m[0;34m[0m[0m
+[1;32m    712[0m     [0;32mreturn[0m [0mres[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/figure.py[0m in [0;36msavefig[0;34m(self, fname, **kwargs)[0m
+[1;32m   2033[0m             [0mself[0m[0;34m.[0m[0mset_frameon[0m[0;34m([0m[0mframeon[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2034[0m [0;34m[0m[0m
+[0;32m-> 2035[0;31m         [0mself[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2036[0m [0;34m[0m[0m
+[1;32m   2037[0m         [0;32mif[0m [0mframeon[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, **kwargs)[0m
+[1;32m   2261[0m                 [0morientation[0m[0;34m=[0m[0morientation[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m   2262[0m                 [0mbbox_inches_restore[0m[0;34m=[0m[0m_bbox_inches_restore[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m-> 2263[0;31m                 **kwargs)
+[0m[1;32m   2264[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   2265[0m             [0;32mif[0m [0mbbox_inches[0m [0;32mand[0m [0mrestore_bbox[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/backends/backend_ps.py[0m in [0;36mprint_eps[0;34m(self, outfile, *args, **kwargs)[0m
+[1;32m    929[0m [0;34m[0m[0m
+[1;32m    930[0m     [0;32mdef[0m [0mprint_eps[0m[0;34m([0m[0mself[0m[0;34m,[0m [0moutfile[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 931[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_print_ps[0m[0;34m([0m[0moutfile[0m[0;34m,[0m [0;34m'eps'[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    932[0m [0;34m[0m[0m
+[1;32m    933[0m     [0;32mdef[0m [0m_print_ps[0m[0;34m([0m[0mself[0m[0;34m,[0m [0moutfile[0m[0;34m,[0m [0mformat[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/backends/backend_ps.py[0m in [0;36m_print_ps[0;34m(self, outfile, format, *args, **kwargs)[0m
+[1;32m    957[0m             self._print_figure(outfile, format, imagedpi, facecolor, edgecolor,
+[1;32m    958[0m                                [0morientation[0m[0;34m,[0m [0misLandscape[0m[0;34m,[0m [0mpapertype[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m--> 959[0;31m                                **kwargs)
+[0m[1;32m    960[0m [0;34m[0m[0m
+[1;32m    961[0m     def _print_figure(self, outfile, format, dpi=72, facecolor='w', edgecolor='w',
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/backends/backend_ps.py[0m in [0;36m_print_figure[0;34m(self, outfile, format, dpi, facecolor, edgecolor, orientation, isLandscape, papertype, metadata, **kwargs)[0m
+[1;32m   1196[0m                 [0mprint_figure_impl[0m[0;34m([0m[0mfh[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1197[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1198[0;31m                 [0;32mwith[0m [0mio[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0moutfile[0m[0;34m,[0m [0;34m'w'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'latin-1'[0m[0;34m)[0m [0;32mas[0m [0mfh[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m   1199[0m                     [0mprint_figure_impl[0m[0;34m([0m[0mfh[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1200[0m [0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'mem.eps'
+PermissionError: [Errno 13] Permission denied: 'mem.eps'
+
+Executability                            : False

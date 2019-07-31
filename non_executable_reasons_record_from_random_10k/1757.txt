@@ -1,0 +1,98 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+import keras
+from keras.datasets import mnist
+import matplotlib.pyplot as plt
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation
+from keras.optimizers import RMSprop
+from keras.callbacks import EarlyStopping, CSVLogger
+
+batch_size = 128
+epochs = 20
+num_classes = 10
+
+#Kerasの関数でデータの読み込み。データをシャッフルして学習データと訓練データに分割してくれる
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+#MNISTデータの表示
+fig = plt.figure(figsize=(9, 9))
+fig.subplots_adjust(left=0, right=1, bottom=0, top=0.5, hspace=0.05, wspace=0.05)
+for i in range(81):
+    ax = fig.add_subplot(9, 9, i + 1, xticks=[], yticks=[])
+    ax.imshow(x_train[i].reshape((28, 28)), cmap='gray')
+
+#データの前処理
+x_train = x_train.reshape(60000, 784)
+x_test = x_test.reshape(10000, 784)
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+x_train /= 255
+x_test /= 255
+
+y_train = y_train.astype('int32')
+y_test = y_test.astype('int32')
+y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
+y_test =  keras.utils.np_utils.to_categorical(y_test, num_classes)
+
+print(x_train.shape[0], 'train samples')
+print(x_test.shape[0], 'test samples')
+
+
+model = Sequential()
+model.add(Dense(512, activation='relu', input_shape=(784,)))
+model.add(Dropout(0.2))
+model.add(Dense(512, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(10, activation='softmax'))
+
+model.summary()
+
+model.compile(loss='categorical_crossentropy',
+              optimizer=RMSprop(),
+              metrics=['accuracy'])
+
+es = EarlyStopping(monitor='val_loss', patience=2)
+csv_logger = CSVLogger('training.log')
+history = model.fit(x_train, y_train,
+                    batch_size=batch_size,
+                    epochs=epochs,
+                    verbose=1,
+                    validation_data=(x_test, y_test),
+                    callbacks=[es, csv_logger])
+
+#正答率の表示
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+#loss
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-23a380df94bc>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mkeras[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mdatasets[0m [0;32mimport[0m [0mmnist[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

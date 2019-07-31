@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+## Need to be on \pf\dev branch !!!
+%pylab inline 
+import SimPEG.PF as PF
+from SimPEG import *
+from SimPEG.Utils import io_utils
+import matplotlib
+import matplotlib.colors as colors
+import scipy as sp
+import time as tm
+import os
+from ipywidgets.widgets import interact, IntSlider
+psep = os.path.sep #hide
+input_file = ".." + psep + "docs" + psep + "content" + psep + "stories"+ psep + "files" + psep + "SimPEG_Grav_Input.inp" #hide
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-55f073bac4df>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m## Need to be on \pf\dev branch !!![0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'pylab'[0m[0;34m,[0m [0;34m'inline '[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mSimPEG[0m[0;34m.[0m[0mPF[0m [0;32mas[0m [0mPF[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mSimPEG[0m[0;34m.[0m[0mUtils[0m [0;32mimport[0m [0mio_utils[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'SimPEG'
+ModuleNotFoundError: No module named 'SimPEG'
+
+Executability                            : False

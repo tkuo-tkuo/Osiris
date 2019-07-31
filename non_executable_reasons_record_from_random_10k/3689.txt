@@ -1,0 +1,68 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import csv
+f = open('gg.csv',  encoding ='cp949')
+data = csv.reader(f)
+
+Origin = []
+chulsae = 0
+wild = 0
+master = 0
+feed = 0
+move = 0
+
+#원인 분석
+#철새, 야생조수류. 축주, 사료차량, 가축이동
+
+for row in data :
+    Origin.append(row[-1])
+
+for res in Origin:
+    if '철새' in res:
+        chulsae += 1
+    if '야생조수류' in res:
+        wild += 1
+    if '축주' in res:
+        master += 1
+    if '사료차량' in res:
+        feed += 1
+    if '가축이동' in res:
+        move += 1
+print(chulsae , wild, master, feed, move)
+
+
+
+
+           
+import matplotlib.pyplot as plt
+plt.rc('font', family = 'AppleGothic')
+plt.figure(figsize=(5,3), dpi=300)
+
+size = [chulsae , wild, master, feed, move]  
+labels = '철새', '야생조수류', '축주', '사료차량', '가축이동'
+colors = ['yellowgreen', 'gold', 'lightskyblue', 'lightcoral','blue']  
+
+plt.title('조류 AI의 주 농장 내 유입경로 파악')
+plt.pie(size, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+
+plt.axis('equal')
+plt.show()
+f.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-0fa810cf3a31>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mcsv[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'gg.csv'[0m[0;34m,[0m  [0mencoding[0m [0;34m=[0m[0;34m'cp949'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mdata[0m [0;34m=[0m [0mcsv[0m[0;34m.[0m[0mreader[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'gg.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'gg.csv'
+
+Executability                            : False

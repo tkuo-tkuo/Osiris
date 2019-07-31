@@ -1,0 +1,19 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+#find all csv files in a directory
+csv_df =[]
+for file in glob.glob("resources/*.csv"):
+    csv = pd.read_csv(file, header=0)
+    csv_df.append(csv)
+    #print (files) 
+    
+train_df = pd.concat(csv_df)
+print(train_df.shape)
+train_df.head()
+------------------
+
+CParserError: Error tokenizing data. C error: Expected 2 fields in line 4, saw 14
+
+
+Executability                            : False

@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import string
+import re
+import itertools
+
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+import numpy as np
+np.random.seed(10)
+
+import matplotlib.pyplot as plt
+from matplotlib.colors import LogNorm, rgb2hex
+%matplotlib inline
+%config InlineBackend.figure_format = 'retina'
+
+import seaborn as sns
+sns.set_style('whitegrid')
+
+from sklearn.preprocessing import MultiLabelBinarizer
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans, DBSCAN
+
+from wordcloud import WordCloud, ImageColorGenerator
+
+import networkx as nx
+
+from circos import CircosPlot
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-7dbe10365723>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     27[0m [0;32mimport[0m [0mnetworkx[0m [0;32mas[0m [0mnx[0m[0;34m[0m[0m
+[1;32m     28[0m [0;34m[0m[0m
+[0;32m---> 29[0;31m [0;32mfrom[0m [0mcircos[0m [0;32mimport[0m [0mCircosPlot[0m[0;34m[0m[0m
+[0m
+[0;31mImportError[0m: No module named 'circos'
+ImportError: No module named 'circos'
+
+Executability                            : False

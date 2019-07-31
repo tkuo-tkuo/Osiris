@@ -1,0 +1,37 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from skimage.feature import hog
+from sklearn.svm import LinearSVC
+from sklearn.preprocessing import StandardScaler
+# for scikit-learn >= 0.18 use:
+from sklearn.model_selection import train_test_split
+# from sklearn.cross_validation import train_test_split
+from scipy.ndimage.measurements import label
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+from moviepy.editor import VideoFileClip
+from IPython.display import HTML
+import numpy as np
+import pickle
+import cv2
+import glob
+import time
+from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-e5700cb46d80>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     10[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mimage[0m [0;32mas[0m [0mmpimg[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m [0;32mfrom[0m [0mmoviepy[0m[0;34m.[0m[0meditor[0m [0;32mimport[0m [0mVideoFileClip[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0;32mfrom[0m [0mIPython[0m[0;34m.[0m[0mdisplay[0m [0;32mimport[0m [0mHTML[0m[0;34m[0m[0m
+[1;32m     14[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'moviepy'
+ImportError: No module named 'moviepy'
+
+Executability                            : False

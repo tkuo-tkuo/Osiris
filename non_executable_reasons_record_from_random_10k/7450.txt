@@ -1,0 +1,43 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Load pickled data
+import pickle
+import numpy as np
+
+# TODO: Fill this in based on where you saved the training and testing data
+
+training_file = 'data/train.p'
+validation_file='data/valid.p'
+testing_file = 'data/test.p'
+
+with open(training_file, mode='rb') as f:
+    train = pickle.load(f)
+with open(validation_file, mode='rb') as f:
+    valid = pickle.load(f)
+with open(testing_file, mode='rb') as f:
+    test = pickle.load(f)
+    
+X_train, y_train = train['features'], train['labels']
+X_valid, y_valid = valid['features'], valid['labels']
+X_test, y_test = test['features'], test['labels']
+
+print(X_train.shape)
+print(X_test.shape)
+print(X_valid.shape)
+print(y_train.shape)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-5-53d1cb6d101c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m [0mtesting_file[0m [0;34m=[0m [0;34m'data/test.p'[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mtraining_file[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     12[0m     [0mtrain[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mvalidation_file[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data/train.p'
+FileNotFoundError: [Errno 2] No such file or directory: 'data/train.p'
+
+Executability                            : False

@@ -1,0 +1,49 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os, glob
+import io
+import csv
+import requests
+import datetime as dt
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import psycopg2
+import math
+import seaborn as sns
+import pyflux as pf
+import peakutils
+import warnings
+from pandas import datetime, DataFrame
+from datetime import timedelta
+from sqlalchemy import create_engine
+from sqlalchemy_utils import database_exists, create_database
+from keras.models import Sequential
+from keras.layers import Dense, LSTM
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_squared_error
+from numpy import log
+from pandas.plotting import autocorrelation_plot, lag_plot
+from peakutils.plot import plot as pplot
+from sklearn.model_selection import TimeSeriesSplit
+from statsmodels.graphics.tsaplots import plot_pacf
+from statsmodels.tsa.arima_model import ARIMA
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-02da51f53e41>[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m [0;32mimport[0m [0mpsycopg2[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0;32mimport[0m [0mmath[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'psycopg2'
+ModuleNotFoundError: No module named 'psycopg2'
+
+Executability                            : False

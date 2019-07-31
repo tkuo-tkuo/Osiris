@@ -1,0 +1,55 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from scipy.optimize import fsolve
+
+def g(t):
+    return 5*np.exp(-t) + t -5
+x = fsolve(g,2)
+x = 6.63E-34*3.00E8/1.38E-23/x
+print("Wien's displacement constant is {:.2e}".format(x[0]))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-e7dc790f0739>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mdef[0m [0mg[0m[0;34m([0m[0mt[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m     [0;32mreturn[0m [0;36m5[0m[0;34m*[0m[0mnp[0m[0;34m.[0m[0mexp[0m[0;34m([0m[0;34m-[0m[0mt[0m[0;34m)[0m [0;34m+[0m [0mt[0m [0;34m-[0m[0;36m5[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0mx[0m [0;34m=[0m [0mfsolve[0m[0;34m([0m[0mg[0m[0;34m,[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mx[0m [0;34m=[0m [0;36m6.63E-34[0m[0;34m*[0m[0;36m3.00E8[0m[0;34m/[0m[0;36m1.38E-23[0m[0;34m/[0m[0mx[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0mprint[0m[0;34m([0m[0;34m"Wien's displacement constant is {:.2e}"[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mx[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/scipy/optimize/minpack.py[0m in [0;36mfsolve[0;34m(func, x0, args, fprime, full_output, col_deriv, xtol, maxfev, band, epsfcn, factor, diag)[0m
+[1;32m    145[0m                'diag': diag}
+[1;32m    146[0m [0;34m[0m[0m
+[0;32m--> 147[0;31m     [0mres[0m [0;34m=[0m [0m_root_hybr[0m[0;34m([0m[0mfunc[0m[0;34m,[0m [0mx0[0m[0;34m,[0m [0margs[0m[0;34m,[0m [0mjac[0m[0;34m=[0m[0mfprime[0m[0;34m,[0m [0;34m**[0m[0moptions[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    148[0m     [0;32mif[0m [0mfull_output[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    149[0m         [0mx[0m [0;34m=[0m [0mres[0m[0;34m[[0m[0;34m'x'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/scipy/optimize/minpack.py[0m in [0;36m_root_hybr[0;34m(func, x0, args, jac, col_deriv, xtol, maxfev, band, eps, factor, diag, **unknown_options)[0m
+[1;32m    211[0m     [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0margs[0m[0;34m,[0m [0mtuple[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    212[0m         [0margs[0m [0;34m=[0m [0;34m([0m[0margs[0m[0;34m,[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 213[0;31m     [0mshape[0m[0;34m,[0m [0mdtype[0m [0;34m=[0m [0m_check_func[0m[0;34m([0m[0;34m'fsolve'[0m[0;34m,[0m [0;34m'func'[0m[0;34m,[0m [0mfunc[0m[0;34m,[0m [0mx0[0m[0;34m,[0m [0margs[0m[0;34m,[0m [0mn[0m[0;34m,[0m [0;34m([0m[0mn[0m[0;34m,[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    214[0m     [0;32mif[0m [0mepsfcn[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    215[0m         [0mepsfcn[0m [0;34m=[0m [0mfinfo[0m[0;34m([0m[0mdtype[0m[0;34m)[0m[0;34m.[0m[0meps[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/scipy/optimize/minpack.py[0m in [0;36m_check_func[0;34m(checker, argname, thefunc, x0, args, numinputs, output_shape)[0m
+[1;32m     24[0m def _check_func(checker, argname, thefunc, x0, args, numinputs,
+[1;32m     25[0m                 output_shape=None):
+[0;32m---> 26[0;31m     [0mres[0m [0;34m=[0m [0matleast_1d[0m[0;34m([0m[0mthefunc[0m[0;34m([0m[0;34m*[0m[0;34m([0m[0;34m([0m[0mx0[0m[0;34m[[0m[0;34m:[0m[0mnuminputs[0m[0;34m][0m[0;34m,[0m[0;34m)[0m [0;34m+[0m [0margs[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     27[0m     [0;32mif[0m [0;34m([0m[0moutput_shape[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m)[0m [0;32mand[0m [0;34m([0m[0mshape[0m[0;34m([0m[0mres[0m[0;34m)[0m [0;34m!=[0m [0moutput_shape[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     28[0m         [0;32mif[0m [0;34m([0m[0moutput_shape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m!=[0m [0;36m1[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-e7dc790f0739>[0m in [0;36mg[0;34m(t)[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mdef[0m [0mg[0m[0;34m([0m[0mt[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0;32mreturn[0m [0;36m5[0m[0;34m*[0m[0mnp[0m[0;34m.[0m[0mexp[0m[0;34m([0m[0;34m-[0m[0mt[0m[0;34m)[0m [0;34m+[0m [0mt[0m [0;34m-[0m[0;36m5[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0mx[0m [0;34m=[0m [0mfsolve[0m[0;34m([0m[0mg[0m[0;34m,[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0mx[0m [0;34m=[0m [0;36m6.63E-34[0m[0;34m*[0m[0;36m3.00E8[0m[0;34m/[0m[0;36m1.38E-23[0m[0;34m/[0m[0mx[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

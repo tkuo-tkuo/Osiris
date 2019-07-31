@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+liste[50]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-39-621e5ad1f358>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mliste[0m[0;34m[[0m[0;36m50[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mIndexError[0m: list index out of range
+IndexError: list index out of range
+
+Executability                            : False

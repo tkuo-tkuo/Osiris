@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+data = pd.read_csv(os.getenv("PUIDATA") + '/311_Service_Requests_from_2010_to_Present.csv')
+data.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-10ab02577e84>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdata[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mgetenv[0m[0;34m([0m[0;34m"PUIDATA"[0m[0;34m)[0m [0;34m+[0m [0;34m'/311_Service_Requests_from_2010_to_Present.csv'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mdata[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: unsupported operand type(s) for +: 'NoneType' and 'str'
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+
+Executability                            : False

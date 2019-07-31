@@ -1,0 +1,98 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+from collections import defaultdict
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.preprocessing import LabelEncoder
+from nltk.corpus import stopwords
+import numpy as np 
+
+import pandas as pd 
+import matplotlib.pyplot as plt
+import re
+import seaborn as sns
+
+tweet=pd.read_csv("https://s3.amazonaws.com/refactored/lab_data/genderclassification.csv",encoding='latin1')
+tweet.head(3)
+
+-----------------
+Original output:
+    _unit_id _golden _unit_state  _trusted_judgments _last_judgment_at gender  \
+0  815719226   False   finalized                   3    10/26/15 23:24   male   
+1  815719227   False   finalized                   3    10/26/15 23:30   male   
+2  815719228   False   finalized                   3    10/26/15 23:33   male   
+
+   gender:confidence profile_yn  profile_yn:confidence         created  \
+0             1.0000        yes                    1.0    12/5/13 1:48   
+1             1.0000        yes                    1.0   10/1/12 13:51   
+2             0.6625        yes                    1.0  11/28/14 11:30   
+
+              ...              \
+0             ...               
+1             ...               
+2             ...               
+
+                                        profileimage  retweet_count  \
+0  https://pbs.twimg.com/profile_images/414342229...              0   
+1  https://pbs.twimg.com/profile_images/539604221...              0   
+2  https://pbs.twimg.com/profile_images/657330418...              1   
+
+  sidebar_color                                               text  \
+0        FFFFFF  Robbie E Responds To Critics After Win Against...   
+1        C0DEED  ÂÃÃIt felt like they were my friends and I ...   
+2        C0DEED  i absolutely adore when louis starts the songs...   
+
+  tweet_coord tweet_count   tweet_created      tweet_id   tweet_location  \
+0         NaN      110964  10/26/15 12:40  6.587300e+17  main; @Kan1shk3   
+1         NaN        7471  10/26/15 12:40  6.587300e+17              NaN   
+2         NaN        5617  10/26/15 12:40  6.587300e+17           clcncl   
+
+                user_timezone  
+0                     Chennai  
+1  Eastern Time (US & Canada)  
+2                    Belgrade  
+
+[3 rows x 26 columns]
+Executed output:
+    _unit_id  _golden _unit_state  _trusted_judgments _last_judgment_at  \
+0  815719226    False   finalized                   3    10/26/15 23:24   
+1  815719227    False   finalized                   3    10/26/15 23:30   
+2  815719228    False   finalized                   3    10/26/15 23:33   
+
+  gender  gender:confidence profile_yn  profile_yn:confidence         created  \
+0   male             1.0000        yes                    1.0    12/5/13 1:48   
+1   male             1.0000        yes                    1.0   10/1/12 13:51   
+2   male             0.6625        yes                    1.0  11/28/14 11:30   
+
+              ...              \
+0             ...               
+1             ...               
+2             ...               
+
+                                        profileimage  retweet_count  \
+0  https://pbs.twimg.com/profile_images/414342229...              0   
+1  https://pbs.twimg.com/profile_images/539604221...              0   
+2  https://pbs.twimg.com/profile_images/657330418...              1   
+
+  sidebar_color                                               text  \
+0        FFFFFF  Robbie E Responds To Critics After Win Against...   
+1        C0DEED  ÛÏIt felt like they were my friends and I was...   
+2        C0DEED  i absolutely adore when louis starts the songs...   
+
+  tweet_coord tweet_count   tweet_created      tweet_id   tweet_location  \
+0         NaN      110964  10/26/15 12:40  6.587300e+17  main; @Kan1shk3   
+1         NaN        7471  10/26/15 12:40  6.587300e+17              NaN   
+2         NaN        5617  10/26/15 12:40  6.587300e+17           clcncl   
+
+                user_timezone  
+0                     Chennai  
+1  Eastern Time (US & Canada)  
+2                    Belgrade  
+
+[3 rows x 26 columns]

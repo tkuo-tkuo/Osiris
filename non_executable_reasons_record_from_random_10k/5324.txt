@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+line_generator=open("C:\\Users\\sriram\\Downloads\\tweets-1.txt")
+textArray=[]
+for line in line_generator:
+    line_object = json.loads(line)
+    try:
+        text=line_object['text']
+    except:
+        continue
+    textArray.append(text)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-2-df0b3aeda1c5>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mline_generator[0m[0;34m=[0m[0mopen[0m[0;34m([0m[0;34m"C:\\Users\\sriram\\Downloads\\tweets-1.txt"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mtextArray[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mline_generator[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mline_object[0m [0;34m=[0m [0mjson[0m[0;34m.[0m[0mloads[0m[0;34m([0m[0mline[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mOSError[0m: [Errno 22] Invalid argument: 'C:\\Users\\sriram\\Downloads\\tweets-1.txt'
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\sriram\\Downloads\\tweets-1.txt'
+
+Executability                            : False

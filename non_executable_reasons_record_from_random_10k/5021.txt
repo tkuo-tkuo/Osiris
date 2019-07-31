@@ -1,0 +1,20 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+home_dir = "/Users/alanzhou/Documents/Physics_201/final_project/"
+trajectory_dataframe = pd.read_pickle('/Users/alanzhou/Documents/Physics_201/final_project/160408,_e_coli_and_tracers_in_droplets_viva_pickled,_tracked_by_ZCC,_filtered_data_with_drift_subtracted_pickled.pkl')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-bac528e755a3>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mhome_dir[0m [0;34m=[0m [0;34m"/Users/alanzhou/Documents/Physics_201/final_project/"[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mtrajectory_dataframe[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_pickle[0m[0;34m([0m[0;34m'/Users/alanzhou/Documents/Physics_201/final_project/160408,_e_coli_and_tracers_in_droplets_viva_pickled,_tracked_by_ZCC,_filtered_data_with_drift_subtracted_pickled.pkl'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

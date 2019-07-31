@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Connect to ArcGIS Online (AGOL) as an anonymous user
+from arcgis.gis import GIS
+
+gis = GIS()
+
+print("Username: " + str(gis.properties.name))
+print("Portal: " + gis.properties.portalName)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-7d37a7f9d56d>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# Connect to ArcGIS Online (AGOL) as an anonymous user[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0marcgis[0m[0;34m.[0m[0mgis[0m [0;32mimport[0m [0mGIS[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0mgis[0m [0;34m=[0m [0mGIS[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'arcgis'
+ImportError: No module named 'arcgis'
+
+Executability                            : False

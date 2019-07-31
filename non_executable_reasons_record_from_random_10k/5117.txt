@@ -1,0 +1,47 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.333 ; index of matched cells: [0]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+d = soup.find(text="P/E")
+d_ = d.find_next(class_='snapshot-td2').text
+print(d_)
+
+
+-----------------
+Original output:
+50.19
+
+Executed output:
+37.44
+
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+from urllib.request import urlopen, Request
+from bs4 import BeautifulSoup as bs
+
+def getFinancialRatioUS(symbol, item):
+    try:
+        url = r'http://finviz.com/quote.ashx?t={}'.format(symbol.lower())
+        req = Request(url)
+        html = urlopen(req).read()
+        soup = bs(html, 'lxml')
+        pb = soup.find(text=item)
+        pb_ = pb.find_next(class_='snapshot-td2').text
+        return pb_
+    except Exception as e:
+        print(e)
+
+psr = getFinancialRatioUS("NVDA","P/S")
+print(psr)
+
+-----------------
+Original output:
+14.97
+
+Executed output:
+9.86
+

@@ -1,0 +1,198 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import division
+from tkinter import filedialog
+import numpy
+from numpy.random import *
+
+#Kmeans ++ Centroid Initialization
+import random
+def initializeCentriods(Data, K):
+    #Taking the random data point as the first centroid using a uniformly random variable
+    Centroids = [Data[random.randint(0,len(Data)-1)]]
+    #Finding the next K-1 centroids using a probability distribution of distance between data point and the centroid
+    #with minimum distance
+    for _ in range(K-1):
+        DistanceSq = numpy.array([min([numpy.inner(numpy.array(Centroid)-numpy.array(row),numpy.array(Centroid)-numpy.array(row))**0.5 for Centroid in Centroids]) for row in Data])
+        individualProbabilities = DistanceSq/DistanceSq.sum()
+        cumulativeprobabilities= individualProbabilities.cumsum()
+        randVar = rand()
+        FinalIndex=-1
+        for index,probability in enumerate(cumulativeprobabilities):
+            if randVar<probability:
+                FinalIndex=index
+                break
+        Centroids.append(Data[numpy.argmax(individualProbabilities)])
+    return Centroids
+
+#Reading the content from the file and separting the attributes and the class variable C
+def readfile(filename):
+  lines=[line for line in open(filename)]
+  lines.pop(0)
+  rownames=[]
+  data=[]
+  classVar=[]
+  for line in lines:
+    p=line.strip().replace("?","0").split(',')
+    rownames.append(p[0])
+    data.append([float(x) for x in p[1:len(p)-1]])
+    #data.append([float(x) for x in p])
+    classVar.append(int(p[9]))
+  return rownames,data,classVar
+
+#For finding the Total Error rate of all the Clusters created
+def totalErrorRate(CentriodIndex,classVar,K):
+    CentError=[]
+    TotalError=0
+    #A Dictionary of count of benign and malignant patients is initialized along with
+    #the type of the cluster and the error
+    for i in range(K):
+        CentError.append({'2':0,'4':0,'type':0,'error':0})
+    #Count of benign and malignant patients is updated for each cluster
+    for i in range(numRows):
+        if classVar[i]==2:
+            CentError[CentriodIndex[i]]['2'] +=1
+        else:
+            CentError[CentriodIndex[i]]['4'] +=1
+    #Type and Error rate of each cluster is identified    
+    for i in range(K):
+        Total=CentError[i]['2']+CentError[i]['4']
+        CentError[i]['type']= 2 if CentError[i]['2']>=CentError[i]['4'] else 4
+        CentError[i]['error']= 1.00*CentError[i]['4']/Total if CentError[i]['2']>=CentError[i]['4'] else 1.00*CentError[i]['2']/Total
+        TotalError+=CentError[i]['error']
+    return CentError,TotalError
+
+#For getting the file
+Filename=filedialog.askopenfile(mode='r')
+rows,data,classVar=readfile(Filename.name)
+k = Filename.name.rfind("/")
+Path=Filename.name[:k+1]
+numRows,numCols=numpy.array(data).shape
+
+#Number of rows and columns in the data
+print (numRows,numCols)
+
+#Number of iterations if the threshold condition is not satisfied is set to 10
+itermax=10
+loopiter=0
+outputFile=open(Path+"KmeansOutput.csv","w")
+outputFile.write("K,Iteration,BestTauLimit,ErrorRate\n")
+BestCentroidIndex=[]
+#Algorithm is run for K=2...5 20 Iterations each and for threshold limit 0 to 4
+for K in range(100,200):
+    for ITER in range(1,2):
+        BestError=9999999999999
+        for tau in range (0,1):
+
+            Centroids = initializeCentriods(data,K)
+            loopiter=0
+            while True:
+                less2Count=0
+                loopiter=loopiter+1
+                CentriodIndex=[]
+                CentroidValue=[]
+                for row in data: 
+                    CentroidDiff = [numpy.inner(numpy.array(centroid)-numpy.array(row),numpy.array(centroid)-numpy.array(row))**0.5 for centroid in Centroids]
+                    min_value,min_index = (min(CentroidDiff),CentroidDiff.index(min(CentroidDiff)))
+                    CentriodIndex.append(min_index)
+                    CentroidValue.append(min_value)
+                    
+                CentriodIndex=numpy.array(CentriodIndex)
+                dataIndex=numpy.array(range(numRows))
+                newCentroids=numpy.empty([K, numCols])
+                for i in range(K):
+                    sumCentroid=numpy.array([float(0)]*numCols)
+                    num=dataIndex[CentriodIndex==i]
+                    for index in num:
+                        row=numpy.array(data[index])
+                        sumCentroid+=row
+                    if(len(num)<2):
+                        less2Count+=1
+                    if(len(num)==0): print("Empty Cluster")
+                    sumCentroid=[x/len(num) for x in sumCentroid]
+                    newCentroids[i]=sumCentroid
+    
+                thresh=Centroids-newCentroids
+                taucheck=(1/K)*sum([(numpy.inner(x,x))**0.5 for x in thresh])
+                CentError,error=totalErrorRate(CentriodIndex,classVar,K)
+                if taucheck<=tau or loopiter>=itermax:
+                    #print ("K : ",K, "Iteration : ", loopiter ,"OverallIteration : ",ITER, "Tau : " ,tau, "Error : ",error)
+                    break
+                else:
+                    Centroids=newCentroids
+                print(less2Count)
+            CentError,error=totalErrorRate(CentriodIndex,classVar,K)
+            
+            #To get the best error among the different threshold limits tau for a particular Iteration
+            if BestError>error:
+                BestError=error
+                BestCentroidIndex=CentriodIndex
+                BestK=K
+                BestTau=tau
+                BestCentError=CentError
+                BestCentroids=newCentroids
+        print ("K : ",K,"OverallIteration : ",ITER, "Best Tau : " ,BestTau, "Error : ",BestError)
+        #print(BestCentError)
+        outputFile.write(str(K)+","+str(ITER)+","+str(BestTau)+","+str(BestError)+"\n")
+
+outputFile.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTclError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-1-c3f6528820fc>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     64[0m [0;34m[0m[0m
+[1;32m     65[0m [0;31m#For getting the file[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 66[0;31m [0mFilename[0m[0;34m=[0m[0mfiledialog[0m[0;34m.[0m[0maskopenfile[0m[0;34m([0m[0mmode[0m[0;34m=[0m[0;34m'r'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     67[0m [0mrows[0m[0;34m,[0m[0mdata[0m[0;34m,[0m[0mclassVar[0m[0;34m=[0m[0mreadfile[0m[0;34m([0m[0mFilename[0m[0;34m.[0m[0mname[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     68[0m [0mk[0m [0;34m=[0m [0mFilename[0m[0;34m.[0m[0mname[0m[0;34m.[0m[0mrfind[0m[0;34m([0m[0;34m"/"[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/tkinter/filedialog.py[0m in [0;36maskopenfile[0;34m(mode, **options)[0m
+[1;32m    394[0m     [0;34m"Ask for a filename to open, and returned the opened file"[0m[0;34m[0m[0m
+[1;32m    395[0m [0;34m[0m[0m
+[0;32m--> 396[0;31m     [0mfilename[0m [0;34m=[0m [0mOpen[0m[0;34m([0m[0;34m**[0m[0moptions[0m[0;34m)[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    397[0m     [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    398[0m         [0;32mreturn[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmode[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/tkinter/commondialog.py[0m in [0;36mshow[0;34m(self, **options)[0m
+[1;32m     42[0m         [0;31m# we need a dummy widget to properly process the options[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     43[0m         [0;31m# (at least as long as we use Tkinter 1.63)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 44[0;31m         [0mw[0m [0;34m=[0m [0mFrame[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mmaster[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     45[0m [0;34m[0m[0m
+[1;32m     46[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/tkinter/__init__.py[0m in [0;36m__init__[0;34m(self, master, cnf, **kw)[0m
+[1;32m   2590[0m             [0mextra[0m [0;34m=[0m [0;34m([0m[0;34m'-class'[0m[0;34m,[0m [0mcnf[0m[0;34m[[0m[0;34m'class'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2591[0m             [0;32mdel[0m [0mcnf[0m[0;34m[[0m[0;34m'class'[0m[0;34m][0m[0;34m[0m[0m
+[0;32m-> 2592[0;31m         [0mWidget[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mmaster[0m[0;34m,[0m [0;34m'frame'[0m[0;34m,[0m [0mcnf[0m[0;34m,[0m [0;34m{[0m[0;34m}[0m[0;34m,[0m [0mextra[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2593[0m [0;34m[0m[0m
+[1;32m   2594[0m [0;32mclass[0m [0mLabel[0m[0;34m([0m[0mWidget[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/tkinter/__init__.py[0m in [0;36m__init__[0;34m(self, master, widgetName, cnf, kw, extra)[0m
+[1;32m   2138[0m             [0mcnf[0m [0;34m=[0m [0m_cnfmerge[0m[0;34m([0m[0;34m([0m[0mcnf[0m[0;34m,[0m [0mkw[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2139[0m         [0mself[0m[0;34m.[0m[0mwidgetName[0m [0;34m=[0m [0mwidgetName[0m[0;34m[0m[0m
+[0;32m-> 2140[0;31m         [0mBaseWidget[0m[0;34m.[0m[0m_setup[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mmaster[0m[0;34m,[0m [0mcnf[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2141[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0m_tclCommands[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   2142[0m             [0mself[0m[0;34m.[0m[0m_tclCommands[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/tkinter/__init__.py[0m in [0;36m_setup[0;34m(self, master, cnf)[0m
+[1;32m   2113[0m             [0;32mif[0m [0;32mnot[0m [0mmaster[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   2114[0m                 [0;32mif[0m [0;32mnot[0m [0m_default_root[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 2115[0;31m                     [0m_default_root[0m [0;34m=[0m [0mTk[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2116[0m                 [0mmaster[0m [0;34m=[0m [0m_default_root[0m[0;34m[0m[0m
+[1;32m   2117[0m         [0mself[0m[0;34m.[0m[0mmaster[0m [0;34m=[0m [0mmaster[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/tkinter/__init__.py[0m in [0;36m__init__[0;34m(self, screenName, baseName, className, useTk, sync, use)[0m
+[1;32m   1874[0m                 [0mbaseName[0m [0;34m=[0m [0mbaseName[0m [0;34m+[0m [0mext[0m[0;34m[0m[0m
+[1;32m   1875[0m         [0minteractive[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0m
+[0;32m-> 1876[0;31m         [0mself[0m[0;34m.[0m[0mtk[0m [0;34m=[0m [0m_tkinter[0m[0;34m.[0m[0mcreate[0m[0;34m([0m[0mscreenName[0m[0;34m,[0m [0mbaseName[0m[0;34m,[0m [0mclassName[0m[0;34m,[0m [0minteractive[0m[0;34m,[0m [0mwantobjects[0m[0;34m,[0m [0museTk[0m[0;34m,[0m [0msync[0m[0;34m,[0m [0muse[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1877[0m         [0;32mif[0m [0museTk[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1878[0m             [0mself[0m[0;34m.[0m[0m_loadtk[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mTclError[0m: no display name and no $DISPLAY environment variable
+TclError: no display name and no $DISPLAY environment variable
+
+Executability                            : False

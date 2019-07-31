@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# import all the necessary libraries to make the script work
+from pystrich.datamatrix import DataMatrixEncoder
+from PIL import Image
+from PIL import ImageFont
+from PIL import ImageDraw
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-4e165b6ba7ee>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# import all the necessary libraries to make the script work[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mpystrich[0m[0;34m.[0m[0mdatamatrix[0m [0;32mimport[0m [0mDataMatrixEncoder[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfrom[0m [0mPIL[0m [0;32mimport[0m [0mImage[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mPIL[0m [0;32mimport[0m [0mImageFont[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mPIL[0m [0;32mimport[0m [0mImageDraw[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pystrich'
+ModuleNotFoundError: No module named 'pystrich'
+
+Executability                            : False

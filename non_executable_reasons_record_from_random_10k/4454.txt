@@ -1,0 +1,153 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+#######lr on all datasets#######
+import baseline_only
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn
+
+import os
+import uti_func
+
+League = ["France","England","Germany","Italy","Spain"]
+league_res =np.zeros((4,5))
+
+# loop nation
+for n,nation in enumerate(League):
+    
+    # load data
+    DataPath = nation
+    
+    os.chdir(DataPath)
+    
+    league_datasets= os.listdir()
+    league_datasets = sorted(league_datasets)
+    
+    back_k_runs =5
+    
+    evaluation_matrices = np.zeros((4,len(league_datasets)))
+    
+    # For Germany League only, it is 9 matches per round
+    # For others, it is 10 matches per round
+    if nation !="Germany":
+        matches_per_round = 10
+    else:
+        matches_per_round = 9
+    
+    total_rounds=2*(matches_per_round*2-1)
+    total_matches=2*(matches_per_round*2-1)*matches_per_round
+    
+    # loop year
+    for i,l in enumerate(league_datasets):
+        
+        print(i,l)
+        data = pd.read_csv(l)
+        
+        # data check
+        if len(data.iloc[:,1])!=total_matches:
+            print("the current dataset is: {}".format(l))
+            print("human check required")
+            break
+        
+        # load the features needed
+        inputs = data[['HomeTeam','AwayTeam','FTHG','FTAG']]
+        inputs['y'] = data['FTHG'] - data['FTAG']
+        inputs = inputs.rename(columns={'FTHG': 'HomeGoals', 'FTAG': 'AwayGoals'})   
+        
+        # create label
+        result = []
+        for r in range(inputs.shape[0]):
+            if inputs.iloc[r,-1] > 0:
+                result.append('H')
+            elif inputs.iloc[r,-1] == 0:
+                result.append('D')
+            else:
+                result.append('A')
+        inputs['label'] = result
+             
+        # transform data to indicator format
+        list_file = [(inputs['HomeTeam'][k], inputs['AwayTeam'][k]) for k in range(len(inputs['HomeTeam']))]
+        v = DictVectorizer()
+        # discover corpus and vectorize file word frequencies in a single pass
+        X = v.fit_transform(Counter(f) for f in list_file)
+        X = X.A
+        for ind in range(inputs.shape[0]):
+            X[i][v.vocabulary_[inputs['AwayTeam'][i]]] = -1;
+         
+        # initial evaluation matrics
+        brier_score_mat = np.zeros((back_k_runs,matches_per_round))
+        accuracy_list = np.zeros((back_k_runs))
+        cross_entropy_list = np.zeros((back_k_runs))
+        probability_loss = np.zeros((back_k_runs))
+        real_probability = uti_func.odds_transfer(data[['PSCH','PSCD','PSCA']])
+        
+        # for each league and each year, loop last k runs
+        for j in range(back_k_runs,0,-1): 
+            # hold out the last m run as test data
+            X_train = X[:-matches_per_round*j,:]
+            X_test = pd.DataFrame(X).tail(matches_per_round*j)[:matches_per_round]
+            y_train = inputs['y'][:-matches_per_round*j]
+            y_test = inputs['label'].tail(matches_per_round*j)[:matches_per_round]
+            
+            # fit linear regression model with l2 regularization
+            reg = linear_model.Ridge(alpha =0.01)
+            reg.fit(X_train, y_train)
+            y_preds = reg.predict(X_test)
+            
+            # turn the diff prediction to three probabilities
+            y_probH = []
+            y_probD = []
+            y_probA = []
+            for pr in range(len(y_preds)):
+                y_probH.append(sigmoid(y_preds[pr]))
+                y_probD.append(prob_draw_lose(y_preds[pr])*(1-y_probH[pr]))
+                y_probA.append(1 - y_probH[pr] - y_probD[pr])
+
+            # compute evaluation matric value for every road
+            real_probability_mat =  real_probability.iloc[total_matches-matches_per_round*(back_k_runs-k):total_matches-matches_per_round*(back_k_runs-k-1),:]
+            brier_score_mat[back_k_runs-j,] = uti_func.Brier_Score(y_test, y_probH, y_probD, y_probA)
+            accuracy_list[back_k_runs-j] = uti_func.Accuracy(y_test, y_probH, y_probD, y_probA)
+            cross_entropy_list[back_k_runs-j] = uti_func.Cross_Entropy(y_test, y_probH, y_probD, y_probA)
+            probability_loss[back_k_runs-j] = uti_func.Probability_Difference(real_probability_mat, y_probH, y_probD, y_probA)
+
+        # Column year, row match round
+        evaluation_matrices[0,i]= np.mean (brier_score_mat)#sum(brier_score_mat.T)/matches_per_round
+        evaluation_matrices[1,i]= np.mean (accuracy_list)
+        evaluation_matrices[2,i]= np.mean (cross_entropy_list)
+        evaluation_matrices[3,i]= np.mean (probability_loss)
+        
+    
+        
+    os.chdir("../")
+    league_res[:,n] = np.mean(evaluation_matrices,axis=1)
+
+league_res.T
+pd.DataFrame(league_res.T,index=League,columns=['brier_score','accuracy','cross-entropy','probability l1 loss']).to_csv("linear_reg_results.csv")
+
+#rounds = range(total_rounds-back_k_runs+1,total_rounds+1)
+#plt.plot(rounds,brier_score_mat_league)
+#plt.ylabel('Median Brier Score per round')
+#plt.xlabel('Rounds')
+#plt.legend(('2012 - 2013', '2013 - 2014', '2014 - 2015','2015 - 2016','2016 - 2017'),
+#           loc='upper right')
+#
+#league_title = l[:-6] + " Football League from 2012 -  2017"
+#plt.title(league_title)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-ad875bcb863f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m#######lr on all datasets#######[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mbaseline_only[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'baseline_only'
+ImportError: No module named 'baseline_only'
+
+Executability                            : False

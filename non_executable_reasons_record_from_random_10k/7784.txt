@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+plt.hist(df['Age'])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-4beddf2ded2a>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mplt[0m[0;34m.[0m[0mhist[0m[0;34m([0m[0mdf[0m[0;34m[[0m[0;34m'Age'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
+
+Executability                            : False

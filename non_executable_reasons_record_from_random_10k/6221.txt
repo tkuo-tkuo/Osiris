@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from distutils.version import LooseVersion
+import tensorflow as tf
+
+# Check TensorFlow Version
+assert LooseVersion(tf.__version__) >= LooseVersion('1.0'), 'Please use TensorFlow version 1.0 or newer'
+print('TensorFlow Version: {}'.format(tf.__version__))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-6-117e57a223f2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mfrom[0m [0mdistutils[0m[0;34m.[0m[0mversion[0m [0;32mimport[0m [0mLooseVersion[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;31m# Check TensorFlow Version[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32massert[0m [0mLooseVersion[0m[0;34m([0m[0mtf[0m[0;34m.[0m[0m__version__[0m[0;34m)[0m [0;34m>=[0m [0mLooseVersion[0m[0;34m([0m[0;34m'1.0'[0m[0;34m)[0m[0;34m,[0m [0;34m'Please use TensorFlow version 1.0 or newer'[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

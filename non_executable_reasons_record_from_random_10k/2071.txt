@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+#instantiate the model
+vec=CountVectorizer()
+
+#fit model with data
+vec.fit(simple_train)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-2d4bf6d21092>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;31m#fit model with data[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mvec[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0msimple_train[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'simple_train' is not defined
+NameError: name 'simple_train' is not defined
+
+Executability                            : False

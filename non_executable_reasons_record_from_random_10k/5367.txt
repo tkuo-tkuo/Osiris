@@ -1,0 +1,75 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Import the necessary methods from tweepy library
+from tweepy.streaming import StreamListener
+from tweepy import OAuthHandler
+from tweepy import Stream
+
+OutFile = "F:\\Election-Data\\Election-New4\\Election2016-"
+Count=0
+Fileno=65
+TweetCount=0
+out=open(OutFile+str(Fileno)+".txt","w")
+
+#Variables that contains the user credentials to access Twitter API 
+access_token = "141817420-ViMO9ic2MuVmjw4u04CACINnCA0MIJEs2uaPbkYX"
+access_token_secret = "LWNQKJYkHJnrAjNsH7LnrkKWmnf5qZ9akizidiWjbLhOy"
+consumer_key = "SyLwuJP6pzy4FevmLMOmcWdpf"
+consumer_secret = "XfZkuRRj5yqVmReRkAVvVFm9t6vaPHVeoXEdg85Iuqb8k524pU"
+
+
+#This is a basic listener that just prints received tweets to stdout.
+class StdOutListener(StreamListener):
+
+    def on_data(self, data):
+        #print (data)
+        global Count
+        global TweetCount
+        global Fileno
+        global out
+        Count+=1
+        TweetCount+=1
+        if Count%30000==0:
+            #print (Count)
+            out.close()
+            Count=0
+            Fileno+=1
+            out=open(OutFile+str(Fileno)+".txt","w")
+        if TweetCount%500==0:
+            print (TweetCount, " tweets received")
+        out.write(data)
+        return True
+
+    def on_error(self, status):
+        print (status)
+
+
+if __name__ == '__main__':
+
+    #This handles Twitter authetification and the connection to Twitter Streaming API
+    l = StdOutListener()
+    out=open(OutFile+str(Fileno)+".txt","w")
+    auth = OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    stream = Stream(auth, l)
+
+    #This line filter Twitter Streams to capture data by the keywords: 'python', 'javascript', 'ruby'
+    stream.filter(languages=["en"],track=['election2016', 'hilary', 'hillary','trump','republican','democrat','clinton'])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-d01a00f7fd0a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m#Import the necessary methods from tweepy library[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mtweepy[0m[0;34m.[0m[0mstreaming[0m [0;32mimport[0m [0mStreamListener[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mtweepy[0m [0;32mimport[0m [0mOAuthHandler[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mtweepy[0m [0;32mimport[0m [0mStream[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tweepy'
+ImportError: No module named 'tweepy'
+
+Executability                            : False

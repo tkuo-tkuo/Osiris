@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+ser2
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-f56f156a3149>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mser2[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'ser2' is not defined
+NameError: name 'ser2' is not defined
+
+Executability                            : False

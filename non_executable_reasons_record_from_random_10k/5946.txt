@@ -1,0 +1,55 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Special module written for this class
+#This provides access to data and to helper functions from previous weeks
+#Make sure you update it before starting this notebook
+import lucem_illud #pip install -U git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git
+
+
+#All these packages need to be installed from pip
+#These are all for the cluster detection
+import sklearn
+import sklearn.feature_extraction.text
+import sklearn.pipeline
+import sklearn.preprocessing
+import sklearn.datasets
+import sklearn.cluster
+import sklearn.decomposition
+import sklearn.metrics
+
+import scipy #For hierarchical clustering and some visuals
+#import scipy.cluster.hierarchy
+import gensim#For topic modeling
+import nltk #the Natural Language Toolkit
+import requests #For downloading our datasets
+import numpy as np #for arrays
+import pandas #gives us DataFrames
+import matplotlib.pyplot as plt #For graphics
+import matplotlib.cm #Still for graphics
+import seaborn as sns #Makes the graphics look nicer
+
+#This 'magic' command makes the plots work better
+#in the notebook, don't use it outside of a notebook.
+#Also you can ignore the warning, it
+%matplotlib inline
+
+import itertools
+import json
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-2d8889449045>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;31m#This provides access to data and to helper functions from previous weeks[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#Make sure you update it before starting this notebook[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mlucem_illud[0m [0;31m#pip install -U git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'lucem_illud'
+ModuleNotFoundError: No module named 'lucem_illud'
+
+Executability                            : False

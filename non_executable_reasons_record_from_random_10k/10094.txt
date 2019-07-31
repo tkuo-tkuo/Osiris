@@ -1,0 +1,53 @@
+3.6
+Device mapping:
+/job:localhost/replica:0/task:0/device:XLA_CPU:0 -> device: XLA_CPU device
+Reshape: (Reshape): /job:localhost/replica:0/task:0/device:CPU:0
+resize/ResizeBilinear: (ResizeBilinear): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape/tensor: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape/shape: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+resize/size: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape: (Reshape): /job:localhost/replica:0/task:0/device:CPU:0
+resize/ResizeBilinear: (ResizeBilinear): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape_1: (Reshape): /job:localhost/replica:0/task:0/device:CPU:0
+resize_1/ResizeBilinear: (ResizeBilinear): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape/tensor: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape/shape: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+resize/size: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape_1/tensor: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape_1/shape: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+resize_1/size: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape: (Reshape): /job:localhost/replica:0/task:0/device:CPU:0
+resize/ResizeBilinear: (ResizeBilinear): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape_1: (Reshape): /job:localhost/replica:0/task:0/device:CPU:0
+resize_1/ResizeBilinear: (ResizeBilinear): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape_2: (Reshape): /job:localhost/replica:0/task:0/device:CPU:0
+resize_2/ResizeBilinear: (ResizeBilinear): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape/tensor: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape/shape: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+resize/size: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape_1/tensor: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape_1/shape: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+resize_1/size: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape_2/tensor: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+Reshape_2/shape: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+resize_2/size: (Const): /job:localhost/replica:0/task:0/device:CPU:0
+An error occurred while executing the following cell:
+------------------
+# from tensorflow.contrib.slim.nets import resnet_v2
+# from tensorflow.contrib.slim.nets import inception
+from research.slim.nets import inception_resnet_v2
+import tensorflow.contrib.slim as slim
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-16-451d1884a882>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# from tensorflow.contrib.slim.nets import resnet_v2[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m# from tensorflow.contrib.slim.nets import inception[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mresearch[0m[0;34m.[0m[0mslim[0m[0;34m.[0m[0mnets[0m [0;32mimport[0m [0minception_resnet_v2[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mtensorflow[0m[0;34m.[0m[0mcontrib[0m[0;34m.[0m[0mslim[0m [0;32mas[0m [0mslim[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'research'
+ModuleNotFoundError: No module named 'research'
+
+Executability                            : False

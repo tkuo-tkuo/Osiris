@@ -1,0 +1,44 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import os
+
+import poppy
+import dms # modified gpipsfs DM module (https://github.com/geminiplanetimager/gpipsfs/blob/master/gpipsfs/dms.py)
+import pdb
+
+import matplotlib
+import matplotlib.pyplot as plt
+%matplotlib inline
+matplotlib.rcParams['image.origin'] = 'lower'
+matplotlib.rcParams['image.interpolation'] = 'nearest'
+
+matplotlib.rcParams['font.size'] = 9
+
+import astropy.io
+import astropy.units as u
+
+import scipy.interpolate
+import scipy.signal
+import scipy.optimize
+
+#print("Imported Poppy module ({0}) from {1:s}".format(poppy.__version__, os.path.abspath(poppy.__file__)))
+print("Poppy version {0}".format(poppy.__version__))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-410e3461f266>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mpoppy[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mimport[0m [0mdms[0m [0;31m# modified gpipsfs DM module (https://github.com/geminiplanetimager/gpipsfs/blob/master/gpipsfs/dms.py)[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mpdb[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'poppy'
+ImportError: No module named 'poppy'
+
+Executability                            : False

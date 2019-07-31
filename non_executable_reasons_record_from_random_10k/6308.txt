@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+mn.mean
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-eeeee88bc542>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mmn[0m[0;34m.[0m[0mmean[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'mn' is not defined
+NameError: name 'mn' is not defined
+
+Executability                            : False

@@ -1,0 +1,36 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+dfSwfVal.to_pickle('dfMatchUpSWF.pkl')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-7-de171fd639fe>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdfSwfVal[0m[0;34m.[0m[0mto_pickle[0m[0;34m([0m[0;34m'dfMatchUpSWF.pkl'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/generic.py[0m in [0;36mto_pickle[0;34m(self, path, compression, protocol)[0m
+[1;32m   2187[0m         [0;32mfrom[0m [0mpandas[0m[0;34m.[0m[0mio[0m[0;34m.[0m[0mpickle[0m [0;32mimport[0m [0mto_pickle[0m[0;34m[0m[0m
+[1;32m   2188[0m         return to_pickle(self, path, compression=compression,
+[0;32m-> 2189[0;31m                          protocol=protocol)
+[0m[1;32m   2190[0m [0;34m[0m[0m
+[1;32m   2191[0m     [0;32mdef[0m [0mto_clipboard[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mexcel[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0msep[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/pickle.py[0m in [0;36mto_pickle[0;34m(obj, path, compression, protocol)[0m
+[1;32m     71[0m     f, fh = _get_handle(path, 'wb',
+[1;32m     72[0m                         [0mcompression[0m[0;34m=[0m[0minferred_compression[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m---> 73[0;31m                         is_text=False)
+[0m[1;32m     74[0m     [0;32mif[0m [0mprotocol[0m [0;34m<[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     75[0m         [0mprotocol[0m [0;34m=[0m [0mpkl[0m[0;34m.[0m[0mHIGHEST_PROTOCOL[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/common.py[0m in [0;36m_get_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text)[0m
+[1;32m    404[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    405[0m             [0;31m# Python 3 and binary mode[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 406[0;31m             [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mpath_or_buf[0m[0;34m,[0m [0mmode[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    407[0m         [0mhandles[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    408[0m [0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'dfMatchUpSWF.pkl'
+PermissionError: [Errno 13] Permission denied: 'dfMatchUpSWF.pkl'
+
+Executability                            : False

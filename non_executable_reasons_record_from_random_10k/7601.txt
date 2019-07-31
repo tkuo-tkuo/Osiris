@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Importing hourly Air pollution and weather data of Delhi (India) for month of November, 2015. 
+# Data is sourced from the website Central Pollution Control Board of India (http://www.cpcb.gov.in/CAAQM/frmUserCompReportCriteria.aspx)
+# Data was collected, cleaned and written on to a csv file, which is stored in HW7_as10724 folder and is being recalled here.
+
+data1 = pd.read_csv('PollutionData_Delhi_Nov_2015.csv')
+data1.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-3228eb9c6142>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;31m# Data was collected, cleaned and written on to a csv file, which is stored in HW7_as10724 folder and is being recalled here.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0mdata1[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'PollutionData_Delhi_Nov_2015.csv'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mdata1[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

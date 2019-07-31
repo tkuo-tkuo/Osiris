@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+vectorizer.transform(["food was good"]).toarray()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-b85f509be947>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mvectorizer[0m[0;34m.[0m[0mtransform[0m[0;34m([0m[0;34m[[0m[0;34m"food was good"[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mtoarray[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'vectorizer' is not defined
+NameError: name 'vectorizer' is not defined
+
+Executability                            : False

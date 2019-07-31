@@ -1,0 +1,19 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Verifying that all src IPs are distinct...
+def anydup(thelist):
+  seen = set()
+  for x in thelist:
+    if x in seen: return True
+    seen.add(x)
+  return False
+
+print(anydup(ddos_df.total_src))
+------------------
+
+NameError: name 'ddos_df' is not defined
+
+Executability                            : False

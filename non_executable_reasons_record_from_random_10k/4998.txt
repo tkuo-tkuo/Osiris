@@ -1,0 +1,29 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+G.nodes(data=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-2-af9b96288895>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mG[0m[0;34m.[0m[0mnodes[0m[0;34m([0m[0mdata[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/networkx/classes/graph.py[0m in [0;36mnodes[0;34m(self)[0m
+[1;32m    752[0m [0;34m[0m[0m
+[1;32m    753[0m         """
+[0;32m--> 754[0;31m         [0mnodes[0m [0;34m=[0m [0mNodeView[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    755[0m         [0;31m# Lazy View creation: overload the (class) property on the instance[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    756[0m         [0;31m# Then future G.nodes use the existing View[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/networkx/classes/reportviews.py[0m in [0;36m__init__[0;34m(self, graph)[0m
+[1;32m    166[0m [0;34m[0m[0m
+[1;32m    167[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mgraph[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 168[0;31m         [0mself[0m[0;34m.[0m[0m_nodes[0m [0;34m=[0m [0mgraph[0m[0;34m.[0m[0m_node[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    169[0m [0;34m[0m[0m
+[1;32m    170[0m     [0;31m# Mapping methods[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'Graph' object has no attribute '_node'
+AttributeError: 'Graph' object has no attribute '_node'
+
+Executability                            : False

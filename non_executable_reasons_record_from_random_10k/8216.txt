@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+os.chdir('./data')
+------------------
+
+FileNotFoundError: [Errno 2] No such file or directory: './data'
+
+Executability                            : False

@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+assert meses_e_anos_para_anos_decimais(5, 2015) == 2015,'Valor de mês ou ano errado.'
+
+#utilizamos teste para saber que fizemos estava certo, igualando a um valor que já conhecemos
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAssertionError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-7-5db6d8544410>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32massert[0m [0mmeses_e_anos_para_anos_decimais[0m[0;34m([0m[0;36m5[0m[0;34m,[0m [0;36m2015[0m[0;34m)[0m [0;34m==[0m [0;36m2015[0m[0;34m,[0m[0;34m'Valor de mês ou ano errado.'[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m#utilizamos teste para saber que fizemos estava certo, igualando a um valor que já conhecemos[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAssertionError[0m: Valor de mês ou ano errado.
+AssertionError: Valor de mês ou ano errado.
+
+Executability                            : False

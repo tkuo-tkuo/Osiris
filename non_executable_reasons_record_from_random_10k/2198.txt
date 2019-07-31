@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# These are all the modules we'll be using later. Make sure you can import them
+# before proceeding further.
+from __future__ import print_function
+import imageio
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+import sys
+import tarfile
+from IPython.display import display, Image
+from sklearn.linear_model import LogisticRegression
+from six.moves.urllib.request import urlretrieve
+from six.moves import cPickle as pickle
+
+# Config the matplotlib backend as plotting inline in IPython
+%matplotlib inline
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-99abc8639ec1>"[0;36m, line [0;32m8[0m
+[0;31m    import numpy as np[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-99abc8639ec1>, line 8)
+
+Executability                            : False

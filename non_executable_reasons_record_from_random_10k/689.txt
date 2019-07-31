@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from umeyama import umeyama
+import mtcnn_detect_face
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-1dca46b4f6af>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mumeyama[0m [0;32mimport[0m [0mumeyama[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mmtcnn_detect_face[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/shaoanlu@faceswap-GAN/mtcnn_detect_face.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     32[0m [0;34m[0m[0m
+[1;32m     33[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 34[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     35[0m [0;31m#from math import floor[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     36[0m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

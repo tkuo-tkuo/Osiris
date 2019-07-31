@@ -1,0 +1,34 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+data = []
+elements = doc.find_all('tr')
+for element in elements:
+    datapoint = {}
+    if element.find('h3') or element.find('bgcolor_' == '#FFFFFF'):
+        continue
+    else:
+        datapoint['City'] = element.find(width='40%').text
+        datapoint['Club'] = element.text
+        datapoint['Link'] = element.find('a')['href']
+        data.append(datapoint)
+
+df = pd.DataFrame(data)
+df.to_csv("test.csv", index=False)    
+# it did not work. 
+#here I have questions about indention with continue; it does not populate the data set.  
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-dcb6716601e2>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mdata[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0melements[0m [0;34m=[0m [0mdoc[0m[0;34m.[0m[0mfind_all[0m[0;34m([0m[0;34m'tr'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfor[0m [0melement[0m [0;32min[0m [0melements[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mdatapoint[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0;32mif[0m [0melement[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'h3'[0m[0;34m)[0m [0;32mor[0m [0melement[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'bgcolor_'[0m [0;34m==[0m [0;34m'#FFFFFF'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'doc' is not defined
+NameError: name 'doc' is not defined
+
+Executability                            : False

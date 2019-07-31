@@ -1,0 +1,396 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+foreign = complete[complete['US or Foreign'] == 'FOREIGN'][complete['Code'] != '']
+
+foreign
+
+-----------------
+Original output:
+C:\Users\Carlos\Anaconda3\lib\site-packages\ipykernel\__main__.py:1: UserWarning: Boolean Series key will be reindexed to match DataFrame index.
+  if __name__ == '__main__':
+    Code     Design      Plant    Reissue State, Territory, or Country  \
+56   ALX          0          0          0                      ALBANIA   
+57   AGX          0          0          0          ANTIGUA AND BARBUDA   
+58   ARX          5          0          0                    ARGENTINA   
+59   AMX          1          0          0                      ARMENIA   
+60   AWX          0          0          0                        ARUBA   
+61   AUX        269         17          7                    AUSTRALIA   
+62   ATX        117          0         10                      AUSTRIA   
+63   AZX          0          0          0                   AZERBAIJAN   
+64   BSX          1          0          0                  THE BAHAMAS   
+65   BHX          0          0          0                      BAHRAIN   
+66   BDX          0          0          0                   BANGLADESH   
+67   BYX          3          0          0                      BELARUS   
+68   BEX         71         13          2                      BELGIUM   
+69   BMX          0          0          0                      BERMUDA   
+70   BOX          0          0          0                      BOLIVIA   
+71   BRX         32          0          0                       BRAZIL   
+72   VGX          2          0          0       BRITISH VIRGIN ISLANDS   
+73   BGX          1          0          0                     BULGARIA   
+74   CMX          0          0          0                     CAMEROON   
+75   CAX        701          4         20                       CANADA   
+76   KYX          3          0          0               CAYMAN ISLANDS   
+77   CLX          1          2          0                        CHILE   
+78   HKX        216          0          0      CHINA, HONG KONG S.A.R.   
+79   MOX          1          0          0          CHINA, MACAU S.A.R.   
+80   CNX        661          1          7  CHINA, PEOPLE'S REPUBLIC OF   
+81   COX          5          0          0                     COLOMBIA   
+82   CRX          0          0          0                   COSTA RICA   
+83   HRX          1          0          0                      CROATIA   
+84   CUX          0          0          0                         CUBA   
+85   CYX          0          0          0                       CYPRUS   
+..   ...        ...        ...        ...                          ...   
+506  QAX          1          0          1                        QATAR   
+507  ROX          3          0          0                      ROMANIA   
+508  RUX         41          1          1           RUSSIAN FEDERATION   
+509  BLX          1          0          0             SAINT BARTHELEMY   
+510  SAX          4          0          0                 SAUDI ARABIA   
+511  RSX          0          0          0                       SERBIA   
+512  SCX          2          0          0                   SEYCHELLES   
+513  SGX         82          0          0                    SINGAPORE   
+514  SKX          2          0          0                     SLOVAKIA   
+515  SIX          4          0          0                     SLOVENIA   
+516  ZAX         29          4          0                 SOUTH AFRICA   
+517  ESX         88          5          1                        SPAIN   
+518  LKX          3          0          0                    SRI LANKA   
+519  SEX        225          0          4                       SWEDEN   
+520  CHX        283          1          4                  SWITZERLAND   
+521  SYX          0          0          0                        SYRIA   
+522  TWX        877          1          7                       TAIWAN   
+523  THX         20          7          0                     THAILAND   
+524  TTX          1          0          0          TRINIDAD AND TOBAGO   
+525  TNX          0          0          0                      TUNISIA   
+526  TRX         18          0          2                       TURKEY   
+527  TMX          0          0          0                 TURKMENISTAN   
+528  UAX          2          0          1                      UKRAINE   
+529  AEX         11          0          0         UNITED ARAB EMIRATES   
+530  GBX        702         32         16               UNITED KINGDOM   
+531  UYX          0          0          0                      URUGUAY   
+532  UZX          0          0          0                   UZBEKISTAN   
+533  VEX          8          0          0                    VENEZUELA   
+534  VNX          0          0          0                     VIET NAM   
+535  PSX          0          0          0               WEST BANK/GAZA   
+
+    Statutory Invention Registration (SIR)      Total Total (less SIRs)  \
+56                                       0        NaN                 1   
+57                                       0        NaN                 1   
+58                                       0        NaN                80   
+59                                       0        NaN                 4   
+60                                       0        NaN                 2   
+61                                       0        NaN              1924   
+62                                       0        NaN              1135   
+63                                       0        NaN                 1   
+64                                       0        NaN                 6   
+65                                       0        NaN                 2   
+66                                       0        NaN                 3   
+67                                       0        NaN                 9   
+68                                       0        NaN              1148   
+69                                       0        NaN                 3   
+70                                       0        NaN                 2   
+71                                       0        NaN               286   
+72                                       0        NaN                 2   
+73                                       0        NaN                30   
+74                                       0        NaN                 4   
+75                                       0        NaN              7272   
+76                                       0        NaN                15   
+77                                       0        NaN                57   
+78                                       0        NaN               756   
+79                                       0        NaN                11   
+80                                       0        NaN              6597   
+81                                       0        NaN                21   
+82                                       0        NaN                 9   
+83                                       0        NaN                18   
+84                                       0        NaN                13   
+85                                       0        NaN                 8   
+..                                     ...        ...               ...   
+506                                    NaN          8               NaN   
+507                                    NaN         74               NaN   
+508                                    NaN        483               NaN   
+509                                    NaN          1               NaN   
+510                                    NaN        364               NaN   
+511                                    NaN          6               NaN   
+512                                    NaN          3               NaN   
+513                                    NaN       1048               NaN   
+514                                    NaN         28               NaN   
+515                                    NaN         42               NaN   
+516                                    NaN        199               NaN   
+517                                    NaN        912               NaN   
+518                                    NaN          7               NaN   
+519                                    NaN       2862               NaN   
+520                                    NaN       2841               NaN   
+521                                    NaN          2               NaN   
+522                                    NaN      12575               NaN   
+523                                    NaN        116               NaN   
+524                                    NaN          7               NaN   
+525                                    NaN          6               NaN   
+526                                    NaN        136               NaN   
+527                                    NaN          1               NaN   
+528                                    NaN         64               NaN   
+529                                    NaN         56               NaN   
+530                                    NaN       7167               NaN   
+531                                    NaN          5               NaN   
+532                                    NaN          1               NaN   
+533                                    NaN         30               NaN   
+534                                    NaN          5               NaN   
+535                                    NaN          1               NaN   
+
+    US or Foreign    Utility year  
+56        FOREIGN          1   13  
+57        FOREIGN          1   13  
+58        FOREIGN         75   13  
+59        FOREIGN          3   13  
+60        FOREIGN          2   13  
+61        FOREIGN       1631   13  
+62        FOREIGN       1008   13  
+63        FOREIGN          1   13  
+64        FOREIGN          5   13  
+65        FOREIGN          2   13  
+66        FOREIGN          3   13  
+67        FOREIGN          6   13  
+68        FOREIGN       1062   13  
+69        FOREIGN          3   13  
+70        FOREIGN          2   13  
+71        FOREIGN        254   13  
+72        FOREIGN          0   13  
+73        FOREIGN         29   13  
+74        FOREIGN          4   13  
+75        FOREIGN       6547   13  
+76        FOREIGN         12   13  
+77        FOREIGN         54   13  
+78        FOREIGN        540   13  
+79        FOREIGN         10   13  
+80        FOREIGN       5928   13  
+81        FOREIGN         16   13  
+82        FOREIGN          9   13  
+83        FOREIGN         17   13  
+84        FOREIGN         13   13  
+85        FOREIGN          8   13  
+..            ...        ...  ...  
+506       FOREIGN          6   15  
+507       FOREIGN         71   15  
+508       FOREIGN        440   15  
+509       FOREIGN          0   15  
+510       FOREIGN        360   15  
+511       FOREIGN          6   15  
+512       FOREIGN          1   15  
+513       FOREIGN        966   15  
+514       FOREIGN         26   15  
+515       FOREIGN         38   15  
+516       FOREIGN        166   15  
+517       FOREIGN        818   15  
+518       FOREIGN          4   15  
+519       FOREIGN       2633   15  
+520       FOREIGN       2553   15  
+521       FOREIGN          2   15  
+522       FOREIGN      11690   15  
+523       FOREIGN         89   15  
+524       FOREIGN          6   15  
+525       FOREIGN          6   15  
+526       FOREIGN        116   15  
+527       FOREIGN          1   15  
+528       FOREIGN         61   15  
+529       FOREIGN         45   15  
+530       FOREIGN       6417   15  
+531       FOREIGN          5   15  
+532       FOREIGN          1   15  
+533       FOREIGN         22   15  
+534       FOREIGN          5   15  
+535       FOREIGN          1   15  
+
+[365 rows x 11 columns]
+Executed output:
+    Code     Design      Plant    Reissue State, Territory, or Country  \
+56   ALX          0          0          0                      ALBANIA   
+57   AGX          0          0          0          ANTIGUA AND BARBUDA   
+58   ARX          5          0          0                    ARGENTINA   
+59   AMX          1          0          0                      ARMENIA   
+60   AWX          0          0          0                        ARUBA   
+61   AUX        269         17          7                    AUSTRALIA   
+62   ATX        117          0         10                      AUSTRIA   
+63   AZX          0          0          0                   AZERBAIJAN   
+64   BSX          1          0          0                  THE BAHAMAS   
+65   BHX          0          0          0                      BAHRAIN   
+66   BDX          0          0          0                   BANGLADESH   
+67   BYX          3          0          0                      BELARUS   
+68   BEX         71         13          2                      BELGIUM   
+69   BMX          0          0          0                      BERMUDA   
+70   BOX          0          0          0                      BOLIVIA   
+71   BRX         32          0          0                       BRAZIL   
+72   VGX          2          0          0       BRITISH VIRGIN ISLANDS   
+73   BGX          1          0          0                     BULGARIA   
+74   CMX          0          0          0                     CAMEROON   
+75   CAX        701          4         20                       CANADA   
+76   KYX          3          0          0               CAYMAN ISLANDS   
+77   CLX          1          2          0                        CHILE   
+78   HKX        216          0          0      CHINA, HONG KONG S.A.R.   
+79   MOX          1          0          0          CHINA, MACAU S.A.R.   
+80   CNX        661          1          7  CHINA, PEOPLE'S REPUBLIC OF   
+81   COX          5          0          0                     COLOMBIA   
+82   CRX          0          0          0                   COSTA RICA   
+83   HRX          1          0          0                      CROATIA   
+84   CUX          0          0          0                         CUBA   
+85   CYX          0          0          0                       CYPRUS   
+..   ...        ...        ...        ...                          ...   
+506  QAX          1          0          1                        QATAR   
+507  ROX          3          0          0                      ROMANIA   
+508  RUX         41          1          1           RUSSIAN FEDERATION   
+509  BLX          1          0          0             SAINT BARTHELEMY   
+510  SAX          4          0          0                 SAUDI ARABIA   
+511  RSX          0          0          0                       SERBIA   
+512  SCX          2          0          0                   SEYCHELLES   
+513  SGX         82          0          0                    SINGAPORE   
+514  SKX          2          0          0                     SLOVAKIA   
+515  SIX          4          0          0                     SLOVENIA   
+516  ZAX         29          4          0                 SOUTH AFRICA   
+517  ESX         88          5          1                        SPAIN   
+518  LKX          3          0          0                    SRI LANKA   
+519  SEX        225          0          4                       SWEDEN   
+520  CHX        283          1          4                  SWITZERLAND   
+521  SYX          0          0          0                        SYRIA   
+522  TWX        877          1          7                       TAIWAN   
+523  THX         20          7          0                     THAILAND   
+524  TTX          1          0          0          TRINIDAD AND TOBAGO   
+525  TNX          0          0          0                      TUNISIA   
+526  TRX         18          0          2                       TURKEY   
+527  TMX          0          0          0                 TURKMENISTAN   
+528  UAX          2          0          1                      UKRAINE   
+529  AEX         11          0          0         UNITED ARAB EMIRATES   
+530  GBX        702         32         16               UNITED KINGDOM   
+531  UYX          0          0          0                      URUGUAY   
+532  UZX          0          0          0                   UZBEKISTAN   
+533  VEX          8          0          0                    VENEZUELA   
+534  VNX          0          0          0                     VIET NAM   
+535  PSX          0          0          0               WEST BANK/GAZA   
+
+    Statutory Invention Registration (SIR)      Total Total (less SIRs)  \
+56                                       0        NaN                 1   
+57                                       0        NaN                 1   
+58                                       0        NaN                80   
+59                                       0        NaN                 4   
+60                                       0        NaN                 2   
+61                                       0        NaN              1924   
+62                                       0        NaN              1135   
+63                                       0        NaN                 1   
+64                                       0        NaN                 6   
+65                                       0        NaN                 2   
+66                                       0        NaN                 3   
+67                                       0        NaN                 9   
+68                                       0        NaN              1148   
+69                                       0        NaN                 3   
+70                                       0        NaN                 2   
+71                                       0        NaN               286   
+72                                       0        NaN                 2   
+73                                       0        NaN                30   
+74                                       0        NaN                 4   
+75                                       0        NaN              7272   
+76                                       0        NaN                15   
+77                                       0        NaN                57   
+78                                       0        NaN               756   
+79                                       0        NaN                11   
+80                                       0        NaN              6597   
+81                                       0        NaN                21   
+82                                       0        NaN                 9   
+83                                       0        NaN                18   
+84                                       0        NaN                13   
+85                                       0        NaN                 8   
+..                                     ...        ...               ...   
+506                                    NaN          8               NaN   
+507                                    NaN         74               NaN   
+508                                    NaN        483               NaN   
+509                                    NaN          1               NaN   
+510                                    NaN        364               NaN   
+511                                    NaN          6               NaN   
+512                                    NaN          3               NaN   
+513                                    NaN       1048               NaN   
+514                                    NaN         28               NaN   
+515                                    NaN         42               NaN   
+516                                    NaN        199               NaN   
+517                                    NaN        912               NaN   
+518                                    NaN          7               NaN   
+519                                    NaN       2862               NaN   
+520                                    NaN       2841               NaN   
+521                                    NaN          2               NaN   
+522                                    NaN      12575               NaN   
+523                                    NaN        116               NaN   
+524                                    NaN          7               NaN   
+525                                    NaN          6               NaN   
+526                                    NaN        136               NaN   
+527                                    NaN          1               NaN   
+528                                    NaN         64               NaN   
+529                                    NaN         56               NaN   
+530                                    NaN       7167               NaN   
+531                                    NaN          5               NaN   
+532                                    NaN          1               NaN   
+533                                    NaN         30               NaN   
+534                                    NaN          5               NaN   
+535                                    NaN          1               NaN   
+
+    US or Foreign    Utility year  
+56        FOREIGN          1   13  
+57        FOREIGN          1   13  
+58        FOREIGN         75   13  
+59        FOREIGN          3   13  
+60        FOREIGN          2   13  
+61        FOREIGN       1631   13  
+62        FOREIGN       1008   13  
+63        FOREIGN          1   13  
+64        FOREIGN          5   13  
+65        FOREIGN          2   13  
+66        FOREIGN          3   13  
+67        FOREIGN          6   13  
+68        FOREIGN       1062   13  
+69        FOREIGN          3   13  
+70        FOREIGN          2   13  
+71        FOREIGN        254   13  
+72        FOREIGN          0   13  
+73        FOREIGN         29   13  
+74        FOREIGN          4   13  
+75        FOREIGN       6547   13  
+76        FOREIGN         12   13  
+77        FOREIGN         54   13  
+78        FOREIGN        540   13  
+79        FOREIGN         10   13  
+80        FOREIGN       5928   13  
+81        FOREIGN         16   13  
+82        FOREIGN          9   13  
+83        FOREIGN         17   13  
+84        FOREIGN         13   13  
+85        FOREIGN          8   13  
+..            ...        ...  ...  
+506       FOREIGN          6   15  
+507       FOREIGN         71   15  
+508       FOREIGN        440   15  
+509       FOREIGN          0   15  
+510       FOREIGN        360   15  
+511       FOREIGN          6   15  
+512       FOREIGN          1   15  
+513       FOREIGN        966   15  
+514       FOREIGN         26   15  
+515       FOREIGN         38   15  
+516       FOREIGN        166   15  
+517       FOREIGN        818   15  
+518       FOREIGN          4   15  
+519       FOREIGN       2633   15  
+520       FOREIGN       2553   15  
+521       FOREIGN          2   15  
+522       FOREIGN      11690   15  
+523       FOREIGN         89   15  
+524       FOREIGN          6   15  
+525       FOREIGN          6   15  
+526       FOREIGN        116   15  
+527       FOREIGN          1   15  
+528       FOREIGN         61   15  
+529       FOREIGN         45   15  
+530       FOREIGN       6417   15  
+531       FOREIGN          5   15  
+532       FOREIGN          1   15  
+533       FOREIGN         22   15  
+534       FOREIGN          5   15  
+535       FOREIGN          1   15  
+
+[365 rows x 11 columns]

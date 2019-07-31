@@ -1,0 +1,38 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 10 ; number of cells: 13
+Reproducibility                          : matched ratio: 0.769 ; index of matched cells: [0, 1, 3, 4, 6, 8, 9, 10, 11, 12]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+# Aplicando a função a cada elemento da lista de temperaturas. 
+# Em Python 3, a funçãp map() retornar um iterator
+map(fahrenheit, temperaturas)
+
+-----------------
+Original output:
+<map at 0x1062a7550>
+Executed output:
+<map at 0x7f23083f6358>
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+# Convertendo para Celsius
+map(celsius, temperaturas)
+
+-----------------
+Original output:
+<map at 0x1062a7828>
+Executed output:
+<map at 0x7f23083f66d8>
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+# Usando lambda
+map(lambda x: (5.0/9)*(x - 32), temperaturas)
+
+-----------------
+Original output:
+<map at 0x1062a72b0>
+Executed output:
+<map at 0x7f23083f6e80>

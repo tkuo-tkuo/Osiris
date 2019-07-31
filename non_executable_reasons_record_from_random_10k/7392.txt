@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+M[0,0] = "hello"
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-13-e1f336250f69>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mM[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m0[0m[0;34m][0m [0;34m=[0m [0;34m"hello"[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: invalid literal for int() with base 10: 'hello'
+ValueError: invalid literal for int() with base 10: 'hello'
+
+Executability                            : False

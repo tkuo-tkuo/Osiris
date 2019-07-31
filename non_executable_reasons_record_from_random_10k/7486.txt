@@ -1,0 +1,17 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from glob import glob
+from urllib.parse import unquote
+import json
+
+f = open('xinwenlianbo_text_20110406-20151031.json')
+db = json.load(f)
+f.close()
+------------------
+
+FileNotFoundError: [Errno 2] No such file or directory: 'xinwenlianbo_text_20110406-20151031.json'
+
+Executability                            : False

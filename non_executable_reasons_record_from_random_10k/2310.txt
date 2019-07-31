@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import h5py
+import numpy as np
+import ipywidgets as widgets
+from SimPEG import Utils
+from library import Mag
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-7a2285561b17>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mipywidgets[0m [0;32mas[0m [0mwidgets[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0mUtils[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0mlibrary[0m [0;32mimport[0m [0mMag[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;31m#!/usr/bin/env python[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'SimPEG'
+ModuleNotFoundError: No module named 'SimPEG'
+
+Executability                            : False

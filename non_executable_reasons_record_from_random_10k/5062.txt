@@ -1,0 +1,36 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import random
+import numpy as np
+from cs231n.data_utils import load_CIFAR10
+import matplotlib.pyplot as plt
+
+from __future__ import print_function
+
+%matplotlib inline
+plt.rcParams['figure.figsize'] = (10.0, 8.0) # set default size of plots
+plt.rcParams['image.interpolation'] = 'nearest'
+plt.rcParams['image.cmap'] = 'gray'
+
+# for auto-reloading extenrnal modules
+# see http://stackoverflow.com/questions/1907993/autoreload-of-modules-in-ipython
+%load_ext autoreload
+%autoreload 2
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-e18deda4910f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;32mimport[0m [0mrandom[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mcs231n[0m[0;34m.[0m[0mdata_utils[0m [0;32mimport[0m [0mload_CIFAR10[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cs231n'
+ImportError: No module named 'cs231n'
+
+Executability                            : False

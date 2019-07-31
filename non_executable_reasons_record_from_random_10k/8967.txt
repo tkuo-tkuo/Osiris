@@ -1,0 +1,106 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Kugelplot
+%matplotlib notebook
+from pylab import * # Importtiert pylab.
+from mpl_toolkits.mplot3d import Axes3D # Importiert 3D PLots als Axes3D.
+
+
+p = np.linspace(0,pi,100)# Setzt das Intervall von 0 bis Pi für p fest.
+q = np.linspace(0,2*pi,100)# Setzt das Intervall von 0 bis zwei Pi für q fest.
+P,Q = np.meshgrid(p,q) # (P[i,j],Q[i,j]) = (p[i],q[j]) # Macht p,q voneinadner abhängig.
+
+x = sin(P)*sin(Q) # x[i,j] = x(p[i],q[j]) Formel für die x-Achse.
+y = sin(P)*cos(Q) # y[i,j] = y(p[i],q[j]) Formel für die y-Achse.
+z = cos(P) # Formel für die z-Achse.
+
+
+fig = figure() # Erstellt eine Figur.
+ax3d = fig.add_subplot(111,projection = '3d',aspect = 1) # Fügt einen Subplot hinzu der ax3d genannt wird.
+ax3d.plot_wireframe(x,y,z,rstride = 5,cstride = 5,alpha = 0.75,color = 'blue')    # Legt das Erscheinungsbild der Figur fest.
+
+
+ax3d.set_xlim(-1.5,1.5) # Legt den Bereich der x-Achse fest.
+ax3d.set_ylim(-1.5,1.5) # Legt den Bereich der y-Achse fest.
+ax3d.set_zlim(-1.5,1.5) # Legt den Bereich der z-Achse fest.
+
+
+ax3d.set_xlabel('$x$',fontsize=16)# Betitelt die x-Achse.
+ax3d.set_ylabel('$y$',fontsize=16)# Betitelt die y-Achse.
+ax3d.set_zlabel('$z$',fontsize=16)# Betitelt die z-Achse.
+ax3d.set_title('Kugel') # Setzt den Titel.
+show() # Zeigt die Grafik.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNotImplementedError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-ccc5fbd88a37>[0m in [0;36m<module>[0;34m[0m
+[1;32m     17[0m [0;34m[0m[0m
+[1;32m     18[0m [0mfig[0m [0;34m=[0m [0mfigure[0m[0;34m([0m[0;34m)[0m [0;31m# Erstellt eine Figur.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 19[0;31m [0max3d[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0madd_subplot[0m[0;34m([0m[0;36m111[0m[0;34m,[0m[0mprojection[0m [0;34m=[0m [0;34m'3d'[0m[0;34m,[0m[0maspect[0m [0;34m=[0m [0;36m1[0m[0;34m)[0m [0;31m# Fügt einen Subplot hinzu der ax3d genannt wird.[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     20[0m [0max3d[0m[0;34m.[0m[0mplot_wireframe[0m[0;34m([0m[0mx[0m[0;34m,[0m[0my[0m[0;34m,[0m[0mz[0m[0;34m,[0m[0mrstride[0m [0;34m=[0m [0;36m5[0m[0;34m,[0m[0mcstride[0m [0;34m=[0m [0;36m5[0m[0;34m,[0m[0malpha[0m [0;34m=[0m [0;36m0.75[0m[0;34m,[0m[0mcolor[0m [0;34m=[0m [0;34m'blue'[0m[0;34m)[0m    [0;31m# Legt das Erscheinungsbild der Figur fest.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     21[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/figure.py[0m in [0;36madd_subplot[0;34m(self, *args, **kwargs)[0m
+[1;32m   1412[0m                     [0mself[0m[0;34m.[0m[0m_axstack[0m[0;34m.[0m[0mremove[0m[0;34m([0m[0max[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1413[0m [0;34m[0m[0m
+[0;32m-> 1414[0;31m             [0ma[0m [0;34m=[0m [0msubplot_class_factory[0m[0;34m([0m[0mprojection_class[0m[0;34m)[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1415[0m [0;34m[0m[0m
+[1;32m   1416[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_add_axes_internal[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0ma[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_subplots.py[0m in [0;36m__init__[0;34m(self, fig, *args, **kwargs)[0m
+[1;32m     67[0m [0;34m[0m[0m
+[1;32m     68[0m         [0;31m# _axes_class is set in the subplot_class_factory[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 69[0;31m         [0mself[0m[0;34m.[0m[0m_axes_class[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mfig[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mfigbox[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     70[0m         [0;31m# add a layout box to this, for both the full axis, and the poss[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     71[0m         [0;31m# of the axis.  We need both because the axes may become smaller[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/mpl_toolkits/mplot3d/axes3d.py[0m in [0;36m__init__[0;34m(self, fig, rect, azim, elev, zscale, sharez, proj_type, *args, **kwargs)[0m
+[1;32m     99[0m             [0mself[0m[0;34m.[0m[0m_adjustable[0m [0;34m=[0m [0;34m'datalim'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    100[0m [0;34m[0m[0m
+[0;32m--> 101[0;31m         [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mfig[0m[0;34m,[0m [0mrect[0m[0;34m,[0m [0mframeon[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    102[0m         [0;31m# Disable drawing of axes by base class[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    103[0m         [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mset_axis_off[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_base.py[0m in [0;36m__init__[0;34m(self, fig, rect, facecolor, frameon, sharex, sharey, label, xscale, yscale, **kwargs)[0m
+[1;32m    507[0m             [0mself[0m[0;34m.[0m[0mset_yscale[0m[0;34m([0m[0myscale[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    508[0m [0;34m[0m[0m
+[0;32m--> 509[0;31m         [0mself[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    510[0m [0;34m[0m[0m
+[1;32m    511[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mxaxis[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/artist.py[0m in [0;36mupdate[0;34m(self, props)[0m
+[1;32m    955[0m [0;34m[0m[0m
+[1;32m    956[0m         [0;32mwith[0m [0mcbook[0m[0;34m.[0m[0m_setattr_cm[0m[0;34m([0m[0mself[0m[0;34m,[0m [0meventson[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 957[0;31m             [0mret[0m [0;34m=[0m [0;34m[[0m[0m_update_property[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mk[0m[0;34m,[0m [0mv[0m[0;34m)[0m [0;32mfor[0m [0mk[0m[0;34m,[0m [0mv[0m [0;32min[0m [0mprops[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    958[0m [0;34m[0m[0m
+[1;32m    959[0m         [0;32mif[0m [0mlen[0m[0;34m([0m[0mret[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/artist.py[0m in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m    955[0m [0;34m[0m[0m
+[1;32m    956[0m         [0;32mwith[0m [0mcbook[0m[0;34m.[0m[0m_setattr_cm[0m[0;34m([0m[0mself[0m[0;34m,[0m [0meventson[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 957[0;31m             [0mret[0m [0;34m=[0m [0;34m[[0m[0m_update_property[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mk[0m[0;34m,[0m [0mv[0m[0;34m)[0m [0;32mfor[0m [0mk[0m[0;34m,[0m [0mv[0m [0;32min[0m [0mprops[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    958[0m [0;34m[0m[0m
+[1;32m    959[0m         [0;32mif[0m [0mlen[0m[0;34m([0m[0mret[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/artist.py[0m in [0;36m_update_property[0;34m(self, k, v)[0m
+[1;32m    952[0m                     raise AttributeError('{!r} object has no property {!r}'
+[1;32m    953[0m                                          .format(type(self).__name__, k))
+[0;32m--> 954[0;31m                 [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0mv[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    955[0m [0;34m[0m[0m
+[1;32m    956[0m         [0;32mwith[0m [0mcbook[0m[0;34m.[0m[0m_setattr_cm[0m[0;34m([0m[0mself[0m[0;34m,[0m [0meventson[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_base.py[0m in [0;36mset_aspect[0;34m(self, aspect, adjustable, anchor, share)[0m
+[1;32m   1279[0m         [0;32mif[0m [0;34m([0m[0;32mnot[0m [0mcbook[0m[0;34m.[0m[0m_str_equal[0m[0;34m([0m[0maspect[0m[0;34m,[0m [0;34m'auto'[0m[0;34m)[0m[0;34m)[0m [0;32mand[0m [0mself[0m[0;34m.[0m[0mname[0m [0;34m==[0m [0;34m'3d'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1280[0m             raise NotImplementedError(
+[0;32m-> 1281[0;31m                 [0;34m'It is not currently possible to manually set the aspect '[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1282[0m                 'on 3D axes')
+[1;32m   1283[0m [0;34m[0m[0m
+
+[0;31mNotImplementedError[0m: It is not currently possible to manually set the aspect on 3D axes
+NotImplementedError: It is not currently possible to manually set the aspect on 3D axes
+
+Executability                            : False

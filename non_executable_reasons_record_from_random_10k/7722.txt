@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# coding: utf-8
+import json
+import lightgbm as lgb
+import pandas as pd
+import numpy as np
+from sklearn.metrics import mean_squared_error
+import pickle
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-c9a2794edc2a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m# coding: utf-8[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mjson[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mlightgbm[0m [0;32mas[0m [0mlgb[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'lightgbm'
+ModuleNotFoundError: No module named 'lightgbm'
+
+Executability                            : False

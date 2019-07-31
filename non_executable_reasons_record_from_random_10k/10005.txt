@@ -1,0 +1,57 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#梯度下降
+def grad_des(X,label,X_test,Y_test,alpha=0.02, max_iter_count=1000):
+    ''''
+    alpha是学习率
+    ''''
+    labelMat = label.T
+    print(X.shape)
+    m,n = X.shape  #(339, 13)
+    #一开始竟然漏了BIAS=_= ，查了N久=_=
+    x = scipy.sparse.csr.csr_matrix(ones((m,n+1)))
+    print(x.shape)
+    x[:,1:n+1] = X
+    #print(x[:,:n].shape)
+    X = x
+    print(X.shape)
+    x = scipy.sparse.csr.csr_matrix(ones((X_test.shape[0],n+1)))
+    x[:,1:n+1] = X_test
+    X_test = x
+    
+    delta = 100
+    
+    weights = zeros(n+1)
+    iter_list=[]  
+    loss_train_list=[]
+    loss_test_list=[]
+    y = X * weights # shape(339,0)
+    #要给出画出随迭代次数的变化图的数据
+    for k in range(max_iter_count):
+        #weights[1:] = delta * weights[1:]
+        #测试过正则化
+        grad = (y-label) *X  /m  #+delta * sum(norm(weights[1:]))/m
+        #更新梯度
+        weights = weights - (alpha * grad)
+        
+        y = X * weights # shape(339,0)
+        y_test = X_test * weights
+        #计算损失
+        loss_train= loss(y,label,weights)
+        loss_test = loss(y_test , Y_test,weights)
+        iter_list.append(k)
+        loss_train_list.append(loss_train)
+        loss_test_list.append(loss_test)
+    return weights,iter_list,loss_train_list,loss_test_list
+------------------
+
+[0;36m  File [0;32m"<ipython-input-8-1ee24d15a002>"[0;36m, line [0;32m5[0m
+[0;31m    ''''[0m
+[0m        
+^[0m
+[0;31mSyntaxError[0m[0;31m:[0m EOL while scanning string literal
+
+SyntaxError: EOL while scanning string literal (<ipython-input-8-1ee24d15a002>, line 5)
+
+Executability                            : False

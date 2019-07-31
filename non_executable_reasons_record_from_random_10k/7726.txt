@@ -1,0 +1,35 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 7
+Reproducibility                          : matched ratio: 0.714 ; index of matched cells: [0, 1, 2, 3, 4]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+%logstart
+
+-----------------
+Original output:
+Activating auto-logging. Current session state plus future input saved.
+Filename       : ipython_log.py
+Mode           : rotate
+Output logging : False
+Raw input log  : False
+Timestamping   : False
+State          : active
+
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+a=np.random.randn(10,10)
+%timeit np.dot(a,a)
+
+-----------------
+Original output:
+The slowest run took 216.45 times longer than the fastest. This could mean that an intermediate result is being cached.
+1000000 loops, best of 3: 1.14 µs per loop
+
+Executed output:
+949 ns ± 99.5 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+

@@ -1,0 +1,112 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from datetime import datetime
+from turtle import Turtle, Screen
+import time
+import turtle
+
+
+turtle.screensize(2000,500)
+
+
+
+carol = []
+numt = 10
+
+
+
+
+def shape(size, sides):
+    for i in range(sides):
+        turtle.forward(size)
+        turtle.left(360/sides)
+
+        
+    
+
+def picture():
+    while True:        
+        #for turtle in carol:
+            ti = datetime.today()  
+            se = ti.second
+            if se >= 40:
+                sides = 6
+                turtle.pencolor('yellow')
+                shape(10, sides)
+                #turtle.fillcolor('yellow')
+                
+                turtle.fd(20)  
+            elif se >=  20:
+                #for i in range(se):
+                sides = 5
+                turtle.pencolor('red')
+                shape(10, sides)
+                #turtle.fillcolor('violet')
+                turtle.fd(20)
+            else:
+                sides = 4
+                turtle.pencolor('blue')
+                shape(10, sides)
+                #turtle.fillcolor('blue')
+                
+                turtle.fd(20)
+
+            time.sleep(1)
+            
+
+
+
+turtle.Turtle()
+
+picture()
+
+turtle.exitonclick()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTclError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-1-4ebb50fc1af7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[0;32m----> 9[0;31m [0mturtle[0m[0;34m.[0m[0mscreensize[0m[0;34m([0m[0;36m2000[0m[0;34m,[0m[0;36m500[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36mscreensize[0;34m(canvwidth, canvheight, bg)[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36mScreen[0;34m()[0m
+[1;32m   3660[0m     else return the existing one."""
+[1;32m   3661[0m     [0;32mif[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3662[0;31m         [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;34m=[0m [0m_Screen[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3663[0m     [0;32mreturn[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3664[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m   3676[0m         [0;31m# preserved (perhaps by passing it as an optional parameter)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3677[0m         [0;32mif[0m [0m_Screen[0m[0;34m.[0m[0m_root[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3678[0;31m             [0m_Screen[0m[0;34m.[0m[0m_root[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_root[0m [0;34m=[0m [0m_Root[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3679[0m             [0mself[0m[0;34m.[0m[0m_root[0m[0;34m.[0m[0mtitle[0m[0;34m([0m[0m_Screen[0m[0;34m.[0m[0m_title[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3680[0m             [0mself[0m[0;34m.[0m[0m_root[0m[0;34m.[0m[0mondestroy[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_destroy[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m    432[0m     [0;34m"""Root class for Screen based on Tkinter."""[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    433[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 434[0;31m         [0mTK[0m[0;34m.[0m[0mTk[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    435[0m [0;34m[0m[0m
+[1;32m    436[0m     [0;32mdef[0m [0msetupcanvas[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mwidth[0m[0;34m,[0m [0mheight[0m[0;34m,[0m [0mcwidth[0m[0;34m,[0m [0mcheight[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/tkinter/__init__.py[0m in [0;36m__init__[0;34m(self, screenName, baseName, className, useTk, sync, use)[0m
+[1;32m   2021[0m                 [0mbaseName[0m [0;34m=[0m [0mbaseName[0m [0;34m+[0m [0mext[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2022[0m         [0minteractive[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2023[0;31m         [0mself[0m[0;34m.[0m[0mtk[0m [0;34m=[0m [0m_tkinter[0m[0;34m.[0m[0mcreate[0m[0;34m([0m[0mscreenName[0m[0;34m,[0m [0mbaseName[0m[0;34m,[0m [0mclassName[0m[0;34m,[0m [0minteractive[0m[0;34m,[0m [0mwantobjects[0m[0;34m,[0m [0museTk[0m[0;34m,[0m [0msync[0m[0;34m,[0m [0muse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2024[0m         [0;32mif[0m [0museTk[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2025[0m             [0mself[0m[0;34m.[0m[0m_loadtk[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTclError[0m: no display name and no $DISPLAY environment variable
+TclError: no display name and no $DISPLAY environment variable
+
+Executability                            : False

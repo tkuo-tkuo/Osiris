@@ -1,0 +1,44 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+def cosine_similarity(v1,v2):
+    """TODO: compute cosine similarity"""
+    sumxx, sumxy, sumyy = 0, 0, 0
+    
+    for i in range(len(v1)):
+        x = v1[i]; y = v2[i]
+        if np.isnan(x) or np.isnan(y): continue
+        sumxx += x*x
+        sumyy += y*y
+        sumxy += x*y
+    result = sumxy/math.sqrt(sumxx*sumyy)
+    
+    return result
+
+def search_vec(query, k, vocabulary, stemmer, document_vectors, original_documents):
+    q = query.split()
+    q = [stemmer.stem(w) for w in q]
+    query_vector = vectorize(q, vocabulary, idf)
+    
+    # TODO: rank the documents by cosine similarity
+    scores = [[document] for document in document_vectors][cosine_similarity(query, document)]
+    
+    print('Top-{0} documents'.format(k))
+    for i in range(k):
+        print(i, original_documents[scores[i][1]])
+
+query = "tesla nasa"
+search_vec(query, 5, vocabulary, stemmer, document_vectors, original_documents)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-1b623954a412>[0m in [0;36m<module>[0;34m[0m
+[1;32m     26[0m [0;34m[0m[0m
+[1;32m     27[0m [0mquery[0m [0;34m=[0m [0;34m"tesla nasa"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 28[0;31m [0msearch_vec[0m[0;34m([0m[0mquery[0m[0;34m,[0m [0;36m5[0m[0;34m,[0m [0mvocabulary[0m[0;34m,[0m [0mstemmer[0m[0;34m,[0m [0mdocument_vectors[0m[0;34m,[0m [0moriginal_documents[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'vocabulary' is not defined
+NameError: name 'vocabulary' is not defined
+
+Executability                            : False

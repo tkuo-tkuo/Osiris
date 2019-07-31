@@ -1,0 +1,52 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from ipythonblocks import BlockGrid
+from agents import *
+
+color = {"Breeze": (225, 225, 225),
+        "Pit": (0,0,0),
+        "Gold": (253, 208, 23),
+        "Glitter": (253, 208, 23),
+        "Wumpus": (43, 27, 23),
+        "Stench": (128, 128, 128),
+        "Explorer": (0, 0, 255),
+        "Wall": (44, 53, 57)
+        }
+
+def program(percepts):
+    '''Returns an action based on it's percepts'''
+    print(percepts)
+    return input()
+
+w = WumpusEnvironment(program, 7, 7)         
+grid = BlockGrid(w.width, w.height, fill=(123, 234, 123))
+
+def draw_grid(world):
+    global grid
+    grid[:] = (123, 234, 123)
+    for x in range(0, len(world)):
+        for y in range(0, len(world[x])):
+            if len(world[x][y]):
+                grid[y, x] = color[world[x][y][-1].__class__.__name__]
+
+def step():
+    global grid, w
+    draw_grid(w.get_world())
+    grid.show()
+    w.step()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-8b11820fd1b5>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mipythonblocks[0m [0;32mimport[0m [0mBlockGrid[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0magents[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m color = {"Breeze": (225, 225, 225),
+[1;32m      5[0m         [0;34m"Pit"[0m[0;34m:[0m [0;34m([0m[0;36m0[0m[0;34m,[0m[0;36m0[0m[0;34m,[0m[0;36m0[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'ipythonblocks'
+ImportError: No module named 'ipythonblocks'
+
+Executability                            : False

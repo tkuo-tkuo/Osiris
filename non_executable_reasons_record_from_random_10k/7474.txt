@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import sqlite3
+
+conn = sqlite3.connect('crunchbase.db')
+cur = conn.cursor()
+cur.execute('DROP TABLE IF EXISTS crunchbase')
+
+chunk_iter = pd.read_csv('crunchbase-investments.csv', chunksize = 5000, encoding='iso-8859-1',
+                          usecols=keep_cols, parse_dates=['funded_at'], dtype=convert_col_dtypes)
+
+for chunk in chunk_iter:
+    chunk.to_sql("crunchbase", conn, if_exists='append', index=False)
+    
+results_df = pd.read_sql('PRAGMA table_info(crunchbase);', conn)
+print(results_df)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-13-186bf233f569>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mconn[0m [0;34m=[0m [0msqlite3[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m'crunchbase.db'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mcur[0m [0;34m=[0m [0mconn[0m[0;34m.[0m[0mcursor[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mcur[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0;34m'DROP TABLE IF EXISTS crunchbase'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m chunk_iter = pd.read_csv('crunchbase-investments.csv', chunksize = 5000, encoding='iso-8859-1',
+
+[0;31mOperationalError[0m: attempt to write a readonly database
+OperationalError: attempt to write a readonly database
+
+Executability                            : False

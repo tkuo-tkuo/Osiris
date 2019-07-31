@@ -1,0 +1,46 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 10 ; number of cells: 14
+Reproducibility                          : matched ratio: 0.714 ; index of matched cells: [0, 1, 2, 3, 4, 5, 7, 9, 11, 12]
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+blender
+
+-----------------
+Original output:
+array([1, 0, 2, 3])
+Executed output:
+array([0, 2, 1, 3])
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+box
+
+-----------------
+Original output:
+array(['a', 'b', 'c'],
+      dtype='<U1')
+Executed output:
+array(['a', 'b', 'c'], dtype='<U1')
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+shaker
+
+-----------------
+Original output:
+array([0, 0, 2, 1, 0, 2, 1, 2, 2, 1])
+Executed output:
+array([2, 2, 1, 1, 0, 2, 0, 1, 2, 2])
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+hand_grabs
+
+-----------------
+Original output:
+array(['a', 'a', 'c', 'b', 'a', 'c', 'b', 'c', 'c', 'b'],
+      dtype='<U1')
+Executed output:
+array(['c', 'c', 'b', 'b', 'a', 'c', 'a', 'b', 'c', 'c'], dtype='<U1')

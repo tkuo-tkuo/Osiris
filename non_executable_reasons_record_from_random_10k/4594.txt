@@ -1,0 +1,37 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from tensorflow.examples.tutorials.mnist import input_data
+
+mnist = input_data.read_data_sets("MNIST_data/", reshape=False)
+X_train, y_train           = mnist.train.images, mnist.train.labels
+X_validation, y_validation = mnist.validation.images, mnist.validation.labels
+X_test, y_test             = mnist.test.images, mnist.test.labels
+
+assert(len(X_train) == len(y_train))
+assert(len(X_validation) == len(y_validation))
+assert(len(X_test) == len(y_test))
+
+print()
+print("Image Shape: {}".format(X_train[0].shape))
+print()
+print("Training Set:   {} samples".format(len(X_train)))
+print("Validation Set: {} samples".format(len(X_validation)))
+print("Test Set:       {} samples".format(len(X_test)))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-e4ea24b42fa9>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mexamples[0m[0;34m.[0m[0mtutorials[0m[0;34m.[0m[0mmnist[0m [0;32mimport[0m [0minput_data[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mmnist[0m [0;34m=[0m [0minput_data[0m[0;34m.[0m[0mread_data_sets[0m[0;34m([0m[0;34m"MNIST_data/"[0m[0;34m,[0m [0mreshape[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

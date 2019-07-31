@@ -1,0 +1,18 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# nba_season_data = pd.read_csv('data/used/nba_season_data.csv', low_memory=False)
+# basketball_players = pd.read_csv('data/used/basketball_players.csv').rename(columns={'playerID':'player_id'})
+# all_players = pd.merge(basketball_players, nba_season_data, on='player_id')
+
+grouped = = pd.read_csv('players_dates_normalized.csv')
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-26c7209bc34d>"[0;36m, line [0;32m5[0m
+[0;31m    grouped = = pd.read_csv('players_dates_normalized.csv')[0m
+[0m              ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-2-26c7209bc34d>, line 5)
+
+Executability                            : False

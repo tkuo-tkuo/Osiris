@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import time
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-b60358b7c862>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mtime[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mselenium[0m [0;32mimport[0m [0mwebdriver[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mselenium[0m[0;34m.[0m[0mwebdriver[0m[0;34m.[0m[0mcommon[0m[0;34m.[0m[0mkeys[0m [0;32mimport[0m [0mKeys[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'selenium'
+ModuleNotFoundError: No module named 'selenium'
+
+Executability                            : False

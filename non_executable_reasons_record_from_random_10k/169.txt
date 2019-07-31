@@ -1,0 +1,73 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+x = []
+for n in range(1995,2018):
+        if n < 2000:
+            skip = 3
+        else:
+            skip = 2            
+        nombre_archivo = 'Precio_Bolsa_Nacional_($kwh)_' + str(n)
+        if n >= 2016:
+            nombre_archivo += '.xls'
+        else:
+            nombre_archivo += '.xlsx'
+        y = pd.read_excel(nombre_archivo, skiprows=skip, parse_cols=24)
+        x.append(y)
+z = pd.concat(x)
+print(z.head())
+print(z.tail())
+#print(y.head())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-1886363a21b6>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     13[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     14[0m             [0mnombre_archivo[0m [0;34m+=[0m [0;34m'.xlsx'[0m[0;34m[0m[0m
+[0;32m---> 15[0;31m         [0my[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0mnombre_archivo[0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0mskip[0m[0;34m,[0m [0mparse_cols[0m[0;34m=[0m[0;36m24[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     16[0m         [0mx[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0my[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     17[0m [0mz[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mconcat[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    175[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    176[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0m
+[0;32m--> 177[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    178[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0m
+[1;32m    179[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    175[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    176[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0m
+[0;32m--> 177[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    178[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0m
+[1;32m    179[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/excel.py[0m in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, **kwds)[0m
+[1;32m    305[0m [0;34m[0m[0m
+[1;32m    306[0m     [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mExcelFile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 307[0;31m         [0mio[0m [0;34m=[0m [0mExcelFile[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    308[0m [0;34m[0m[0m
+[1;32m    309[0m     return io.parse(
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, io, **kwds)[0m
+[1;32m    392[0m             [0mself[0m[0;34m.[0m[0mbook[0m [0;34m=[0m [0mxlrd[0m[0;34m.[0m[0mopen_workbook[0m[0;34m([0m[0mfile_contents[0m[0;34m=[0m[0mdata[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    393[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_io[0m[0;34m,[0m [0mcompat[0m[0;34m.[0m[0mstring_types[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 394[0;31m             [0mself[0m[0;34m.[0m[0mbook[0m [0;34m=[0m [0mxlrd[0m[0;34m.[0m[0mopen_workbook[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_io[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    395[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    396[0m             raise ValueError('Must explicitly set engine if not passing in'
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/xlrd/__init__.py[0m in [0;36mopen_workbook[0;34m(filename, logfile, verbosity, use_mmap, file_contents, encoding_override, formatting_info, on_demand, ragged_rows)[0m
+[1;32m    114[0m         [0mpeek[0m [0;34m=[0m [0mfile_contents[0m[0;34m[[0m[0;34m:[0m[0mpeeksz[0m[0;34m][0m[0;34m[0m[0m
+[1;32m    115[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 116[0;31m         [0;32mwith[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"rb"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m    117[0m             [0mpeek[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0mpeeksz[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    118[0m     [0;32mif[0m [0mpeek[0m [0;34m==[0m [0;34mb"PK\x03\x04"[0m[0;34m:[0m [0;31m# a ZIP file[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'Precio_Bolsa_Nacional_($kwh)_1995.xlsx'
+FileNotFoundError: [Errno 2] No such file or directory: 'Precio_Bolsa_Nacional_($kwh)_1995.xlsx'
+
+Executability                            : False

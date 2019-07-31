@@ -1,0 +1,4 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 30 ; number of cells: 30
+Reproducibility                          : matched ratio: 1.0 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]

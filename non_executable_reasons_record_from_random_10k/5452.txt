@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#generates erdos reny random graph
+G = nx.fast_gnp_random_graph(1000,0.009)
+nodes = G.nodes()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-f9afc2595f50>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m#generates erdos reny random graph[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mG[0m [0;34m=[0m [0mnx[0m[0;34m.[0m[0mfast_gnp_random_graph[0m[0;34m([0m[0;36m1000[0m[0;34m,[0m[0;36m0.009[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mnodes[0m [0;34m=[0m [0mG[0m[0;34m.[0m[0mnodes[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'nx' is not defined
+NameError: name 'nx' is not defined
+
+Executability                            : False

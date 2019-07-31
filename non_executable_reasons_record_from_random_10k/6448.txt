@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Load the data.
+(train_x, train_y), (test_x, test_y) = load_data()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-7-6d9d6e17414b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Load the data.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;34m([0m[0mtrain_x[0m[0;34m,[0m [0mtrain_y[0m[0;34m)[0m[0;34m,[0m [0;34m([0m[0mtest_x[0m[0;34m,[0m [0mtest_y[0m[0;34m)[0m [0;34m=[0m [0mload_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-2-481c79a5a9f9>[0m in [0;36mload_data[0;34m(y_name)[0m
+[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m     [0;31m# Create the dataframes.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     train = pd.read_csv(
+[0m[1;32m     10[0m         [0mtrain_path[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m     11[0m         [0mnames[0m[0;34m=[0m[0mCSV_COLUMN_NAMES[0m[0;34m,[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

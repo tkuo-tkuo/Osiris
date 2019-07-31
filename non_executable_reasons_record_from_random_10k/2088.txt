@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+with open('../../output/cv_df_list_prospective.pkl', 'rb') as file:
+    data_file = pickle.load(file)
+
+k = 6
+prov = 10
+
+input_data = data_file[k]
+input_data['year_biweek'] = (input_data['year']-2006)*26 + (input_data['biweek'])
+
+df = input_data.loc[input_data['province'] == prov]
+df.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-23524efe438f>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'../../output/cv_df_list_prospective.pkl'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mfile[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0mdata_file[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mk[0m [0;34m=[0m [0;36m6[0m[0;34m[0m[0m
+[1;32m      5[0m [0mprov[0m [0;34m=[0m [0;36m10[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../output/cv_df_list_prospective.pkl'
+FileNotFoundError: [Errno 2] No such file or directory: '../../output/cv_df_list_prospective.pkl'
+
+Executability                            : False

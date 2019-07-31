@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+dot_data = tree.export_graphviz(dtc, out_file=None,
+                         feature_names=['X','Y'],
+                         class_names=['Red','Green'],
+                         filled=True, rounded=True,  
+                         special_characters=True) 
+import pydotplus
+graph = pydotplus.graph_from_dot_data(dot_data) 
+# graph.write_pdf("dt.pdf") 
+Image(graph.create_png())  
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-17-d5f47fd28789>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m                          [0mfilled[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0mrounded[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m      5[0m                          special_characters=True) 
+[0;32m----> 6[0;31m [0;32mimport[0m [0mpydotplus[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0mgraph[0m [0;34m=[0m [0mpydotplus[0m[0;34m.[0m[0mgraph_from_dot_data[0m[0;34m([0m[0mdot_data[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      8[0m [0;31m# graph.write_pdf("dt.pdf")[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pydotplus'
+ImportError: No module named 'pydotplus'
+
+Executability                            : False

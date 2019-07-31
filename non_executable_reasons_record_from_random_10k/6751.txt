@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+!head apidef.json
+json_data = open("apidef.json").read()
+myAPI = json.loads(json_data)
+myAPI["myAPI"]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-3-9cd033bb417f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0msystem[0m[0;34m([0m[0;34m'head apidef.json'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mjson_data[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m"apidef.json"[0m[0;34m)[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mmyAPI[0m [0;34m=[0m [0mjson[0m[0;34m.[0m[0mloads[0m[0;34m([0m[0mjson_data[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mmyAPI[0m[0;34m[[0m[0;34m"myAPI"[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'apidef.json'
+FileNotFoundError: [Errno 2] No such file or directory: 'apidef.json'
+
+Executability                            : False

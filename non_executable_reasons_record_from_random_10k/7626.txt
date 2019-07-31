@@ -1,0 +1,251 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+with tf.Session() as sess:
+    sess.run(init_op)
+    p=saver.save(sess,'save/mode1.ckpt')
+    print(p)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionDeniedError[0m                     Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_do_call[0;34m(self, fn, *args)[0m
+[1;32m   1355[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1356[0;31m       [0;32mreturn[0m [0mfn[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1357[0m     [0;32mexcept[0m [0merrors[0m[0;34m.[0m[0mOpError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_run_fn[0;34m(feed_dict, fetch_list, target_list, options, run_metadata)[0m
+[1;32m   1340[0m       return self._call_tf_sessionrun(
+[0;32m-> 1341[0;31m           options, feed_dict, fetch_list, target_list, run_metadata)
+[0m[1;32m   1342[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_call_tf_sessionrun[0;34m(self, options, feed_dict, fetch_list, target_list, run_metadata)[0m
+[1;32m   1428[0m         [0mself[0m[0;34m.[0m[0m_session[0m[0;34m,[0m [0moptions[0m[0;34m,[0m [0mfeed_dict[0m[0;34m,[0m [0mfetch_list[0m[0;34m,[0m [0mtarget_list[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1429[0;31m         run_metadata)
+[0m[1;32m   1430[0m [0;34m[0m[0m
+
+[0;31mPermissionDeniedError[0m: save/mode1.ckpt.data-00000-of-00001.tempstate2121094232472487821; Permission denied
+	 [[{{node save/SaveV2}}]]
+
+During handling of the above exception, another exception occurred:
+
+[0;31mPermissionDeniedError[0m                     Traceback (most recent call last)
+[0;32m<ipython-input-8-830175bd38fd>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mwith[0m [0mtf[0m[0;34m.[0m[0mSession[0m[0;34m([0m[0;34m)[0m [0;32mas[0m [0msess[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m     [0msess[0m[0;34m.[0m[0mrun[0m[0;34m([0m[0minit_op[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     [0mp[0m[0;34m=[0m[0msaver[0m[0;34m.[0m[0msave[0m[0;34m([0m[0msess[0m[0;34m,[0m[0;34m'save/mode1.ckpt'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mprint[0m[0;34m([0m[0mp[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py[0m in [0;36msave[0;34m(self, sess, save_path, global_step, latest_filename, meta_graph_suffix, write_meta_graph, write_state, strip_default_attrs, save_debug_info)[0m
+[1;32m   1171[0m           model_checkpoint_path = sess.run(
+[1;32m   1172[0m               [0mself[0m[0;34m.[0m[0msaver_def[0m[0;34m.[0m[0msave_tensor_name[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1173[0;31m               {self.saver_def.filename_tensor_name: checkpoint_file})
+[0m[1;32m   1174[0m [0;34m[0m[0m
+[1;32m   1175[0m         [0mmodel_checkpoint_path[0m [0;34m=[0m [0mcompat[0m[0;34m.[0m[0mas_str[0m[0;34m([0m[0mmodel_checkpoint_path[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36mrun[0;34m(self, fetches, feed_dict, options, run_metadata)[0m
+[1;32m    948[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    949[0m       result = self._run(None, fetches, feed_dict, options_ptr,
+[0;32m--> 950[0;31m                          run_metadata_ptr)
+[0m[1;32m    951[0m       [0;32mif[0m [0mrun_metadata[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    952[0m         [0mproto_data[0m [0;34m=[0m [0mtf_session[0m[0;34m.[0m[0mTF_GetBuffer[0m[0;34m([0m[0mrun_metadata_ptr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_run[0;34m(self, handle, fetches, feed_dict, options, run_metadata)[0m
+[1;32m   1171[0m     [0;32mif[0m [0mfinal_fetches[0m [0;32mor[0m [0mfinal_targets[0m [0;32mor[0m [0;34m([0m[0mhandle[0m [0;32mand[0m [0mfeed_dict_tensor[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1172[0m       results = self._do_run(handle, final_targets, final_fetches,
+[0;32m-> 1173[0;31m                              feed_dict_tensor, options, run_metadata)
+[0m[1;32m   1174[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1175[0m       [0mresults[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_do_run[0;34m(self, handle, target_list, fetch_list, feed_dict, options, run_metadata)[0m
+[1;32m   1348[0m     [0;32mif[0m [0mhandle[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1349[0m       return self._do_call(_run_fn, feeds, fetches, targets, options,
+[0;32m-> 1350[0;31m                            run_metadata)
+[0m[1;32m   1351[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1352[0m       [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_do_call[0m[0;34m([0m[0m_prun_fn[0m[0;34m,[0m [0mhandle[0m[0;34m,[0m [0mfeeds[0m[0;34m,[0m [0mfetches[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_do_call[0;34m(self, fn, *args)[0m
+[1;32m   1368[0m           [0;32mpass[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1369[0m       [0mmessage[0m [0;34m=[0m [0merror_interpolation[0m[0;34m.[0m[0minterpolate[0m[0;34m([0m[0mmessage[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m_graph[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1370[0;31m       [0;32mraise[0m [0mtype[0m[0;34m([0m[0me[0m[0;34m)[0m[0;34m([0m[0mnode_def[0m[0;34m,[0m [0mop[0m[0;34m,[0m [0mmessage[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1371[0m [0;34m[0m[0m
+[1;32m   1372[0m   [0;32mdef[0m [0m_extend_graph[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionDeniedError[0m: save/mode1.ckpt.data-00000-of-00001.tempstate2121094232472487821; Permission denied
+	 [[node save/SaveV2 (defined at <ipython-input-7-b93e567ca968>:1) ]]
+
+Errors may have originated from an input operation.
+Input Source operations connected to node save/SaveV2:
+ weights (defined at <ipython-input-2-89f37bb72d80>:2)	
+ biases (defined at <ipython-input-2-89f37bb72d80>:3)
+
+Original stack trace for 'save/SaveV2':
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel_launcher.py", line 16, in <module>
+    app.launch_new_instance()
+  File "/home/dabao/.local/lib/python3.6/site-packages/traitlets/config/application.py", line 658, in launch_instance
+    app.start()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 505, in start
+    self.io_loop.start()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/platform/asyncio.py", line 148, in start
+    self.asyncio_loop.run_forever()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/asyncio/base_events.py", line 438, in run_forever
+    self._run_once()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/asyncio/base_events.py", line 1451, in _run_once
+    handle._run()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/ioloop.py", line 690, in <lambda>
+    lambda f: self._run_callback(functools.partial(callback, future))
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/ioloop.py", line 743, in _run_callback
+    ret = callback()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 787, in inner
+    self.run()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 748, in run
+    yielded = self.gen.send(value)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 365, in process_one
+    yield gen.maybe_future(dispatch(*args))
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 209, in wrapper
+    yielded = next(result)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 272, in dispatch_shell
+    yield gen.maybe_future(handler(stream, idents, msg))
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 209, in wrapper
+    yielded = next(result)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 542, in execute_request
+    user_expressions, allow_stdin,
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 209, in wrapper
+    yielded = next(result)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/ipkernel.py", line 294, in do_execute
+    res = shell.run_cell(code, store_history=store_history, silent=silent)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/zmqshell.py", line 536, in run_cell
+    return super(ZMQInteractiveShell, self).run_cell(*args, **kwargs)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 2854, in run_cell
+    raw_cell, store_history, silent, shell_futures)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 2880, in _run_cell
+    return runner(coro)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/async_helpers.py", line 68, in _pseudo_sync_runner
+    coro.send(None)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 3057, in run_cell_async
+    interactivity=interactivity, compiler=compiler, result=result)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 3248, in run_ast_nodes
+    if (await self.run_code(code, result,  async_=asy)):
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 3325, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-7-b93e567ca968>", line 1, in <module>
+    saver=tf.train.Saver()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 825, in __init__
+    self.build()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 837, in build
+    self._build(self._filename, build_save=True, build_restore=True)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 875, in _build
+    build_restore=build_restore)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 505, in _build_internal
+    save_tensor = self._AddSaveOps(filename_tensor, saveables)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 206, in _AddSaveOps
+    save = self.save_op(filename_tensor, saveables)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 122, in save_op
+    tensors)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/gen_io_ops.py", line 1946, in save_v2
+    name=name)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 788, in _apply_op_helper
+    op_def=op_def)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py", line 507, in new_func
+    return func(*args, **kwargs)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3616, in create_op
+    op_def=op_def)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 2005, in __init__
+    self._traceback = tf_stack.extract_stack()
+
+PermissionDeniedError: save/mode1.ckpt.data-00000-of-00001.tempstate2121094232472487821; Permission denied
+	 [[node save/SaveV2 (defined at <ipython-input-7-b93e567ca968>:1) ]]
+
+Errors may have originated from an input operation.
+Input Source operations connected to node save/SaveV2:
+ weights (defined at <ipython-input-2-89f37bb72d80>:2)	
+ biases (defined at <ipython-input-2-89f37bb72d80>:3)
+
+Original stack trace for 'save/SaveV2':
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel_launcher.py", line 16, in <module>
+    app.launch_new_instance()
+  File "/home/dabao/.local/lib/python3.6/site-packages/traitlets/config/application.py", line 658, in launch_instance
+    app.start()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 505, in start
+    self.io_loop.start()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/platform/asyncio.py", line 148, in start
+    self.asyncio_loop.run_forever()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/asyncio/base_events.py", line 438, in run_forever
+    self._run_once()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/asyncio/base_events.py", line 1451, in _run_once
+    handle._run()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/ioloop.py", line 690, in <lambda>
+    lambda f: self._run_callback(functools.partial(callback, future))
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/ioloop.py", line 743, in _run_callback
+    ret = callback()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 787, in inner
+    self.run()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 748, in run
+    yielded = self.gen.send(value)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 365, in process_one
+    yield gen.maybe_future(dispatch(*args))
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 209, in wrapper
+    yielded = next(result)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 272, in dispatch_shell
+    yield gen.maybe_future(handler(stream, idents, msg))
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 209, in wrapper
+    yielded = next(result)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 542, in execute_request
+    user_expressions, allow_stdin,
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tornado/gen.py", line 209, in wrapper
+    yielded = next(result)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/ipkernel.py", line 294, in do_execute
+    res = shell.run_cell(code, store_history=store_history, silent=silent)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/zmqshell.py", line 536, in run_cell
+    return super(ZMQInteractiveShell, self).run_cell(*args, **kwargs)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 2854, in run_cell
+    raw_cell, store_history, silent, shell_futures)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 2880, in _run_cell
+    return runner(coro)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/async_helpers.py", line 68, in _pseudo_sync_runner
+    coro.send(None)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 3057, in run_cell_async
+    interactivity=interactivity, compiler=compiler, result=result)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 3248, in run_ast_nodes
+    if (await self.run_code(code, result,  async_=asy)):
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 3325, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-7-b93e567ca968>", line 1, in <module>
+    saver=tf.train.Saver()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 825, in __init__
+    self.build()
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 837, in build
+    self._build(self._filename, build_save=True, build_restore=True)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 875, in _build
+    build_restore=build_restore)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 505, in _build_internal
+    save_tensor = self._AddSaveOps(filename_tensor, saveables)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 206, in _AddSaveOps
+    save = self.save_op(filename_tensor, saveables)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 122, in save_op
+    tensors)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/ops/gen_io_ops.py", line 1946, in save_v2
+    name=name)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 788, in _apply_op_helper
+    op_def=op_def)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py", line 507, in new_func
+    return func(*args, **kwargs)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3616, in create_op
+    op_def=op_def)
+  File "/home/dabao/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 2005, in __init__
+    self._traceback = tf_stack.extract_stack()
+
+
+Executability                            : False

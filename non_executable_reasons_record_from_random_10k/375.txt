@@ -1,0 +1,29 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+predictions = dtree.predict(X_test)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNotFittedError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-18-a654eebc021b>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mpredictions[0m [0;34m=[0m [0mdtree[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mX_test[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/tree/tree.py[0m in [0;36mpredict[0;34m(self, X, check_input)[0m
+[1;32m    427[0m             [0mThe[0m [0mpredicted[0m [0mclasses[0m[0;34m,[0m [0;32mor[0m [0mthe[0m [0mpredict[0m [0mvalues[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    428[0m         """
+[0;32m--> 429[0;31m         [0mcheck_is_fitted[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m'tree_'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    430[0m         [0mX[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_validate_X_predict[0m[0;34m([0m[0mX[0m[0;34m,[0m [0mcheck_input[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    431[0m         [0mproba[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mtree_[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/utils/validation.py[0m in [0;36mcheck_is_fitted[0;34m(estimator, attributes, msg, all_or_any)[0m
+[1;32m    912[0m [0;34m[0m[0m
+[1;32m    913[0m     [0;32mif[0m [0;32mnot[0m [0mall_or_any[0m[0;34m([0m[0;34m[[0m[0mhasattr[0m[0;34m([0m[0mestimator[0m[0;34m,[0m [0mattr[0m[0;34m)[0m [0;32mfor[0m [0mattr[0m [0;32min[0m [0mattributes[0m[0;34m][0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 914[0;31m         [0;32mraise[0m [0mNotFittedError[0m[0;34m([0m[0mmsg[0m [0;34m%[0m [0;34m{[0m[0;34m'name'[0m[0;34m:[0m [0mtype[0m[0;34m([0m[0mestimator[0m[0;34m)[0m[0;34m.[0m[0m__name__[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    915[0m [0;34m[0m[0m
+[1;32m    916[0m [0;34m[0m[0m
+
+[0;31mNotFittedError[0m: This DecisionTreeClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this method.
+NotFittedError: This DecisionTreeClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this method.
+
+Executability                            : False

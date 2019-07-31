@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+iterator = iter(generator)
+
+print(next(iterator)) # 1 değeri üretildi
+print(next(iterator)) # 4 değeri üretildi 1 değeri tarihe karıştı.
+print(next(iterator)) # 9 değeri üretildi 4 değeri tarihe karıştı.
+print(next(iterator)) # 16 değeri üretildi 9 değeri tarihe karıştı
+print(next(iterator)) # 25 değeri üretildi 16 değeri tarihe karıştı.
+print(next(iterator)) # Üretilecek değer kalmadı.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStopIteration[0m                             Traceback (most recent call last)
+[0;32m<ipython-input-4-abd14718e805>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0mprint[0m[0;34m([0m[0mnext[0m[0;34m([0m[0miterator[0m[0;34m)[0m[0;34m)[0m [0;31m# 16 değeri üretildi 9 değeri tarihe karıştı[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0mprint[0m[0;34m([0m[0mnext[0m[0;34m([0m[0miterator[0m[0;34m)[0m[0;34m)[0m [0;31m# 25 değeri üretildi 16 değeri tarihe karıştı.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0mprint[0m[0;34m([0m[0mnext[0m[0;34m([0m[0miterator[0m[0;34m)[0m[0;34m)[0m [0;31m# Üretilecek değer kalmadı.[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mStopIteration[0m: 
+StopIteration: 
+
+Executability                            : False

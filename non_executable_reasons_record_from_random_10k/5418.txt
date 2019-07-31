@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+fetch_pretrained_inception_v3()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-5-042685f2417c>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mfetch_pretrained_inception_v3[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-4-509e952f4342>[0m in [0;36mfetch_pretrained_inception_v3[0;34m(url, path)[0m
+[1;32m     16[0m     [0;32mif[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mINCEPTION_V3_CHECKPOINT_PATH[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     17[0m         [0;32mreturn[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 18[0;31m     [0mos[0m[0;34m.[0m[0mmakedirs[0m[0;34m([0m[0mpath[0m[0;34m,[0m [0mexist_ok[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     19[0m     [0mtgz_path[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mpath[0m[0;34m,[0m [0;34m"inception_v3.tgz"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     20[0m     [0murllib[0m[0;34m.[0m[0mrequest[0m[0;34m.[0m[0murlretrieve[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mtgz_path[0m[0;34m,[0m [0mreporthook[0m[0;34m=[0m[0mdownload_progress[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/os.py[0m in [0;36mmakedirs[0;34m(name, mode, exist_ok)[0m
+[1;32m    208[0m     [0;32mif[0m [0mhead[0m [0;32mand[0m [0mtail[0m [0;32mand[0m [0;32mnot[0m [0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mhead[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    209[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 210[0;31m             [0mmakedirs[0m[0;34m([0m[0mhead[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0mexist_ok[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    211[0m         [0;32mexcept[0m [0mFileExistsError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    212[0m             [0;31m# Defeats race condition when another thread created the path[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/os.py[0m in [0;36mmakedirs[0;34m(name, mode, exist_ok)[0m
+[1;32m    218[0m             [0;32mreturn[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    219[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 220[0;31m         [0mmkdir[0m[0;34m([0m[0mname[0m[0;34m,[0m [0mmode[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    221[0m     [0;32mexcept[0m [0mOSError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    222[0m         [0;31m# Cannot rely on checking for EEXIST, since the operating system[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'datasets'
+PermissionError: [Errno 13] Permission denied: 'datasets'
+
+Executability                            : False

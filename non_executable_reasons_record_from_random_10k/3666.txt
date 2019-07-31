@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+x = np.arange(0, 25, 0.5).reshape((5, 10))
+
+# Сохраняем в файл example.txt данные x в формате с двумя точками после запятой и разделителем ';'
+np.savetxt('example.txt', x, fmt='%.2f', delimiter=';')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-125-633b3d3a79db>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# Сохраняем в файл example.txt данные x в формате с двумя точками после запятой и разделителем ';'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mnp[0m[0;34m.[0m[0msavetxt[0m[0;34m([0m[0;34m'example.txt'[0m[0;34m,[0m [0mx[0m[0;34m,[0m [0mfmt[0m[0;34m=[0m[0;34m'%.2f'[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m';'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/numpy/lib/npyio.py[0m in [0;36msavetxt[0;34m(fname, X, fmt, delimiter, newline, header, footer, comments, encoding)[0m
+[1;32m   1305[0m     [0;32mif[0m [0m_is_string_like[0m[0;34m([0m[0mfname[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1306[0m         [0;31m# datasource doesn't support creating a new file ...[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1307[0;31m         [0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'wt'[0m[0;34m)[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1308[0m         [0mfh[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlib[0m[0;34m.[0m[0m_datasource[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'wt'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1309[0m         [0mown_fh[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'example.txt'
+PermissionError: [Errno 13] Permission denied: 'example.txt'
+
+Executability                            : False

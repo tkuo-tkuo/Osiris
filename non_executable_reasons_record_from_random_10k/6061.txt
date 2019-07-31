@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# What are some kinds of errors we can raise?
+1 / 0
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mZeroDivisionError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-8-36bcc6d3a6a1>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# What are some kinds of errors we can raise?[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;36m1[0m [0;34m/[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mZeroDivisionError[0m: division by zero
+ZeroDivisionError: division by zero
+
+Executability                            : False

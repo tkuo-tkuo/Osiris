@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+model = load_model(model_path, custom_objects={'coeff_determination': coeff_determination})
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-7a90d0b04c25>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mmodel[0m [0;34m=[0m [0mload_model[0m[0;34m([0m[0mmodel_path[0m[0;34m,[0m [0mcustom_objects[0m[0;34m=[0m[0;34m{[0m[0;34m'coeff_determination'[0m[0;34m:[0m [0mcoeff_determination[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'load_model' is not defined
+NameError: name 'load_model' is not defined
+
+Executability                            : False

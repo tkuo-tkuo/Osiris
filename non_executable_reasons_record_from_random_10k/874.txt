@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from sklearn.cross_validation import train_test_split
+
+# Crear data sets de entrenamiento y testeo
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3) # TODO
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-4-f51f674722cd>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mcross_validation[0m [0;32mimport[0m [0mtrain_test_split[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# Crear data sets de entrenamiento y testeo[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mX_train[0m[0;34m,[0m [0mX_test[0m[0;34m,[0m [0mY_train[0m[0;34m,[0m [0mY_test[0m [0;34m=[0m [0mtrain_test_split[0m[0;34m([0m[0mX[0m[0;34m,[0m [0mY[0m[0;34m,[0m [0mtest_size[0m[0;34m=[0m[0;36m0.3[0m[0;34m)[0m [0;31m# TODO[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'sklearn.cross_validation'
+ModuleNotFoundError: No module named 'sklearn.cross_validation'
+
+Executability                            : False

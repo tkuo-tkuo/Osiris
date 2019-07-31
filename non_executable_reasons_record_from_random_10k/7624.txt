@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Create two variables.
+weights = tf.Variable(tf.random_normal([784, 200], stddev=0.35),
+                      name="weights")
+biases = tf.Variable(tf.zeros([200]), name="biases")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-ba1261f8f0e8>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# Create two variables.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m weights = tf.Variable(tf.random_normal([784, 200], stddev=0.35),
+[0m[1;32m      5[0m                       name="weights")
+[1;32m      6[0m [0mbiases[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mVariable[0m[0;34m([0m[0mtf[0m[0;34m.[0m[0mzeros[0m[0;34m([0m[0;34m[[0m[0;36m200[0m[0;34m][0m[0;34m)[0m[0;34m,[0m [0mname[0m[0;34m=[0m[0;34m"biases"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'tf' is not defined
+NameError: name 'tf' is not defined
+
+Executability                            : False

@@ -1,0 +1,68 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import gaussElimin as gE
+
+#Problem Sheet 1 Question 2b
+
+#Defining the values and constructing arrays for mass and coefficients of friction.
+g=9.82
+S=np.sin(np.pi/4)
+C=np.cos(np.pi/4)
+M=np.array([10,4,5,6])
+mu=np.array([0.25,0.3,0.2])
+
+#constructing the array of coeffiecients and the vector b 
+a=np.c_[(np.array([[1,0,0],[-1,1,0],[0,-1,1],[0,0,-1]])),M]#I am concatenating the array "M" to an array of the coefficients of the tensions. The values in "M" are the coefficients of the unknown acceleration, a value.
+b=g*M*np.array([(S-C*mu[0]),(S-C*mu[1]), (S-C*mu[2]), -1])
+
+gE.gaussElimin(a,b)
+print ('T1=',b[0], ' T2=', b[1], ' T3=', b[2],' a=',b[3])
+
+#Problem Sheet 1 Question 2c
+
+#Want a to equal -9.82 then m4 will be in freefall.
+
+#All the tensions found in part 2b can be used.
+
+#Let a be set to -g and use Equations 3 and 4 to solve for sin(Theta) and cos(Theta).
+
+#Rearrange the equations so sin and cos are in a matrix and use Gauss elim.
+
+#Create another a and b; a is just the right hand side and b the left. Use -g as acceleration.
+a1=g*np.array([[(M[1]),(M[1]*mu[1])], [(M[2]),(M[2]*mu[2])]]).astype(np.float)
+# I am using specific values for the 2nd & 3rd equations of mass & coefficients of friction from the "M" & "mu" arrays defined in part 1b.
+
+b=np.array([(-b[0]+b[1]+M[1]*-g),(-b[1]+b[2]+M[2]*-g)]).astype(np.float)
+#I am calling back to the values of T for Eqn 2 & Eqn 3, T2=b[1] & T3=b[2]
+
+gE.gaussElimin(a1,b)
+
+print ('sin(Theta)=',b[0], '  cos(Theta)=',b[1])
+if abs(b[0])>1 or abs(b[1])>1: #1st logical argument. If either sin theta or cos theta are over 1 or under -1 then its obvious there is not solution.
+    print ('Neither sin(Theta) or cos(Theta) can take values above or below 1 or -1. Hence there is not solution where Mass 4 is in freefall. ')
+
+if abs(b[0])<=1 and abs(b[1])<=1: #2nd logical argument. Since sin theta & cos theta do not exceed their limits and as they are dependant on the same theta so taking the inverse of both should yeild the same result.
+    if round(np.arcsin(b[0]),20)==round(np.arccos(b[1]),20):
+        print ('When Mass 4 is in freefall; Theta=',np.arcsin(b[0])*180/np.pi, ' degrees.')
+    else:
+        print('There is not solution where Mass 4 is in freefall.')
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-d727753a81a3>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mgaussElimin[0m [0;32mas[0m [0mgE[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;31m#Problem Sheet 1 Question 2b[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'gaussElimin'
+ModuleNotFoundError: No module named 'gaussElimin'
+
+Executability                            : False

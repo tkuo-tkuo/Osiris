@@ -1,0 +1,19 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import flowMapLayout as fml
+from IPython.display import Image
+info = {}
+G = fml.newGraph(fml.inferno)
+fml.randWeight(G)
+info['tspawn'] = fml.getTSpawn(G)
+info['ctspawn'] = fml.getCTSpawn(G,info)
+fml.drawGraph(G, info, 'jraf')
+Image('jraf.png')
+------------------
+
+ImportError: No module named 'pygraphviz'
+
+Executability                            : False

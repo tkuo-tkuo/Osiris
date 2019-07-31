@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Exercício 7 - Crie um arquivo chamado nomes.txt no diretório onde está este notebook, grave 5 nomes no arquivo e 
+# feche-o.
+arq1 = open("nomes.txt", "w")
+arq1.write('Brian, Peter, John, Eric, Bernard')
+arq1.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-7-cc2931f01e14>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Exercício 7 - Crie um arquivo chamado nomes.txt no diretório onde está este notebook, grave 5 nomes no arquivo e[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m# feche-o.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0marq1[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m"nomes.txt"[0m[0;34m,[0m [0;34m"w"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0marq1[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m'Brian, Peter, John, Eric, Bernard'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0marq1[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'nomes.txt'
+PermissionError: [Errno 13] Permission denied: 'nomes.txt'
+
+Executability                            : False

@@ -1,0 +1,57 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Special module written for this class
+#This provides access to data and to helper functions from previous weeks
+#Make sure you update it before starting this notebook
+import lucem_illud #pip install -U git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git
+
+#All these packages need to be installed from pip
+#For ML
+import sklearn
+import sklearn.naive_bayes
+import sklearn.tree
+import sklearn.ensemble
+import sklearn.neural_network
+import sklearn.decomposition
+
+import nltk #For tokenizing and normalizing
+import numpy as np #arrays
+import matplotlib.pyplot as plt #Plots
+import matplotlib.colors # For nice colours
+import seaborn #Makes plots look nice, also heatmaps
+import scipy as sp #for interp
+
+#These are from the standard library
+import collections
+import os
+import os.path
+import random
+import re
+import glob
+import pandas
+import requests
+import json
+import math
+
+#This 'magic' command makes the plots work better
+#in the notebook, don't use it outside of a notebook.
+#Also you can ignore the warning
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-615e5d3e0655>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;31m#This provides access to data and to helper functions from previous weeks[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#Make sure you update it before starting this notebook[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mlucem_illud[0m [0;31m#pip install -U git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;31m#All these packages need to be installed from pip[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'lucem_illud'
+ModuleNotFoundError: No module named 'lucem_illud'
+
+Executability                            : False

@@ -1,0 +1,77 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 8 ; number of cells: 13
+Reproducibility                          : matched ratio: 0.615 ; index of matched cells: [0, 1, 3, 5, 7, 8, 10, 11]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+sample = text_cleaner('http://www.indeed.com/viewjob?jk=5505e59f8e5a32a4&q=%22data+scientist%22&tk=19ftfgsmj19ti0l3&from=web&advn=1855944161169178&sjdu=QwrRXKrqZ3CNX5W-O9jEvWC1RT2wMYkGnZrqGdrncbKqQ7uwTLXzT1_ME9WQ4M-7om7mrHAlvyJT8cA_14IV5w&pub=pub-indeed')
+
+-----------------
+Original output:
+C:\Users\sriram\Anaconda3\lib\site-packages\bs4\__init__.py:166: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+To get rid of this warning, change this:
+
+ BeautifulSoup([your markup])
+
+to this:
+
+ BeautifulSoup([your markup], "lxml")
+
+  markup_type=markup_type))
+
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+html = urlopen(final_site).read()
+soup = BeautifulSoup(html)
+
+-----------------
+Original output:
+C:\Users\sriram\Anaconda3\lib\site-packages\bs4\__init__.py:166: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+To get rid of this warning, change this:
+
+ BeautifulSoup([your markup])
+
+to this:
+
+ BeautifulSoup([your markup], "lxml")
+
+  markup_type=markup_type))
+
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+num_jobs_area
+
+-----------------
+Original output:
+b'Jobs 1 to 10 of 3,365'
+Executed output:
+b'\n            Page 1 of 5,678 jobs'
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+total_num_jobs
+
+-----------------
+Original output:
+3365
+Executed output:
+678
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+
+
+-----------------
+Original output:
+0
+Executed output:
+

@@ -1,0 +1,45 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import tarfile,sys
+tar = tarfile.open('../input/review_polarity_competition.tgz')
+tar.extractall()
+tar.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-e765f6ee02a9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mtarfile[0m[0;34m,[0m[0msys[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mtar[0m [0;34m=[0m [0mtarfile[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0;34m'../input/review_polarity_competition.tgz'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mtar[0m[0;34m.[0m[0mextractall[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mtar[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/tarfile.py[0m in [0;36mopen[0;34m(cls, name, mode, fileobj, bufsize, **kwargs)[0m
+[1;32m   1569[0m                     [0msaved_pos[0m [0;34m=[0m [0mfileobj[0m[0;34m.[0m[0mtell[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1570[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1571[0;31m                     [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0mname[0m[0;34m,[0m [0;34m"r"[0m[0;34m,[0m [0mfileobj[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1572[0m                 [0;32mexcept[0m [0;34m([0m[0mReadError[0m[0;34m,[0m [0mCompressionError[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1573[0m                     [0;32mif[0m [0mfileobj[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/tarfile.py[0m in [0;36mgzopen[0;34m(cls, name, mode, fileobj, compresslevel, **kwargs)[0m
+[1;32m   1634[0m [0;34m[0m[0m
+[1;32m   1635[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1636[0;31m             [0mfileobj[0m [0;34m=[0m [0mgzip[0m[0;34m.[0m[0mGzipFile[0m[0;34m([0m[0mname[0m[0;34m,[0m [0mmode[0m [0;34m+[0m [0;34m"b"[0m[0;34m,[0m [0mcompresslevel[0m[0;34m,[0m [0mfileobj[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1637[0m         [0;32mexcept[0m [0mOSError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1638[0m             [0;32mif[0m [0mfileobj[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m [0;32mand[0m [0mmode[0m [0;34m==[0m [0;34m'r'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/gzip.py[0m in [0;36m__init__[0;34m(self, filename, mode, compresslevel, fileobj, mtime)[0m
+[1;32m    161[0m             [0mmode[0m [0;34m+=[0m [0;34m'b'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    162[0m         [0;32mif[0m [0mfileobj[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 163[0;31m             [0mfileobj[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mmyfileobj[0m [0;34m=[0m [0mbuiltins[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmode[0m [0;32mor[0m [0;34m'rb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    164[0m         [0;32mif[0m [0mfilename[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    165[0m             [0mfilename[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mfileobj[0m[0;34m,[0m [0;34m'name'[0m[0;34m,[0m [0;34m''[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../input/review_polarity_competition.tgz'
+FileNotFoundError: [Errno 2] No such file or directory: '../input/review_polarity_competition.tgz'
+
+Executability                            : False

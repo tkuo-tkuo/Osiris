@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# dependencies
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import json
+import requests as req
+from citipy import citipy
+from random import uniform
+import openweathermapy.core as ow
+import urllib.request
+import apikeys
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-22154b021ead>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0;32mimport[0m [0mjson[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mrequests[0m [0;32mas[0m [0mreq[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mfrom[0m [0mcitipy[0m [0;32mimport[0m [0mcitipy[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;32mfrom[0m [0mrandom[0m [0;32mimport[0m [0muniform[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mimport[0m [0mopenweathermapy[0m[0;34m.[0m[0mcore[0m [0;32mas[0m [0mow[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'citipy'
+ModuleNotFoundError: No module named 'citipy'
+
+Executability                            : False

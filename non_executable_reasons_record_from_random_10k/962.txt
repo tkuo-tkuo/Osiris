@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+pressure_max = 2 #edit y-axis max
+fig, ax = plt.subplots(1)
+ax.scatter(time, np.minimum(pressure, pressure_max)) #create a scatter plot
+axis_font = {'fontname':'Constantia', 'size':'12'} #customize graph
+plt.ylabel("Pressure",**axis_font),plt.xlabel("Time",**axis_font) #name axes
+plt.show() #show graph
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-3e1f99a5b6ed>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mpressure_max[0m [0;34m=[0m [0;36m2[0m [0;31m#edit y-axis max[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mfig[0m[0;34m,[0m [0max[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0max[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mtime[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mminimum[0m[0;34m([0m[0mpressure[0m[0;34m,[0m [0mpressure_max[0m[0;34m)[0m[0;34m)[0m [0;31m#create a scatter plot[0m[0;34m[0m[0m
+[1;32m      6[0m [0maxis_font[0m [0;34m=[0m [0;34m{[0m[0;34m'fontname'[0m[0;34m:[0m[0;34m'Constantia'[0m[0;34m,[0m [0;34m'size'[0m[0;34m:[0m[0;34m'12'[0m[0;34m}[0m [0;31m#customize graph[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

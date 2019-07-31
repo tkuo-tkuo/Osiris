@@ -1,0 +1,107 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# %load model_weights_cv.py
+#!/usr/bin/env python3
+"""
+Created on Sun May 14 17:08:27 2017
+
+@author: meiyi
+"""
+
+import platform
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+
+
+def setPath():
+    if platform.system() == 'Darwin':
+        path_w2v = '/Volumes/MyPassport/kaggle_quora/w2v_pretrained/'
+        path_data= '/Volumes/MyPassport/kaggle_quora/data/'
+        path_feature = '/Volumes/MyPassport/kaggle_quora/features/'
+ 
+        return path_w2v,path_data,path_feature 
+    elif platform.system() == 'Windows':
+        path_w2v = 'D:\\kaggle_quora\\w2v_pretrained\\'
+        path_data= 'D:\\kaggle_quora\\data\\'
+        path_feature = 'D:\\kaggle_quora\\features\\'
+        return path_w2v,path_data,path_feature 
+        
+path_w2v,path_data,path_feature  = setPath()
+
+
+# basic features ---- features engineering
+
+test_data = pd.DataFrame()
+
+for i in range(0,10):
+    filename = 'test_'+str(i)+'_quora_features.pkl'
+    data = pd.read_pickle(path_feature+filename)
+    test_data = test_data.append(data)
+    
+    
+train_data = pd.read_pickle(path_feature + 'train_quora_features.pkl')
+
+
+
+train_porter_intersec = pd.DataFrame(pd.read_pickle(path_feature+'train_porter_interaction.pkl'),
+                                     columns = ['porter_intersec'])
+test_porter_intersec = pd.DataFrame(pd.read_pickle(path_feature+'test_porter_interaction.pkl'),
+                                     columns = ['porter_intersec'])
+
+
+
+train_intersec = pd.read_pickle(path_feature + 'train_intersect.pkl')
+test_intersec = pd.read_pickle(path_feature + 'test_intersect.pkl')
+
+
+train_angle = pd.DataFrame(pd.read_pickle(path_feature+'train_q1_q2_angle.pickle'),
+                                     columns = ['angle'])
+
+test_angle = pd.DataFrame(pd.read_pickle(path_feature+'test_q1_q2_angle.pickle'),columns = ['angle'])
+
+
+# magic features 
+
+train_comb = pd.read_pickle(path_feature+'magic_feature_train.pkl')
+test_comb = pd.read_pickle(path_feature+'magic_feature_test.pkl')
+
+
+# features stacking
+ 
+
+train_data['weights']= [ np.random.uniform(0.2,0.21) if x == 1 else
+                         np.random.uniform(0.8,0.81) for x in train_data['is_duplicate']]
+
+
+train_features = pd.concat([train_data[train_data.columns.difference(['question1', 'question2'])],
+                                       train_porter_intersec,
+                                       train_intersec,
+                                       train_angle,
+                             train_comb[train_comb.columns.difference(['id','is_duplicate','q1_hash', 'q2_hash'])]], axis=1)
+  
+    
+
+test_features = pd.concat([test_data[test_data.columns.difference(['question1', 'question2'])],
+                                     test_porter_intersec,
+                                     test_intersec,
+                                     test_angle,
+                            test_comb[test_comb.columns.difference(['q1_hash', 'q2_hash','id'])]],axis=1)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-6f4644e0a1b5>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     27[0m         [0;32mreturn[0m [0mpath_w2v[0m[0;34m,[0m[0mpath_data[0m[0;34m,[0m[0mpath_feature[0m[0;34m[0m[0m
+[1;32m     28[0m [0;34m[0m[0m
+[0;32m---> 29[0;31m [0mpath_w2v[0m[0;34m,[0m[0mpath_data[0m[0;34m,[0m[0mpath_feature[0m  [0;34m=[0m [0msetPath[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     30[0m [0;34m[0m[0m
+[1;32m     31[0m [0;34m[0m[0m
+
+[0;31mTypeError[0m: 'NoneType' object is not iterable
+TypeError: 'NoneType' object is not iterable
+
+Executability                            : False

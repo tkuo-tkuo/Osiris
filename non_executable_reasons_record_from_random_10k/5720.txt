@@ -1,0 +1,141 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from librosa import logamplitude
+from librosa.feature import melspectrogram
+from multiprocessing import Pool
+import numpy as np
+import os
+import pandas as pd
+from scipy.io import wavfile
+from torch.utils.data import Dataset
+from tqdm import *
+
+root_dir = ''
+train_audio = 'train/audio'
+test_audio = 'test/audio'
+df = {}
+calc_mels = True
+
+# create list of classes
+classes = os.listdir(os.path.join(root_dir, train_audio))
+classes.remove('_background_noise_')
+#         self.classes.append('silence')
+
+# create dataframe of training meta data
+tr_f_l = []
+for c in classes:
+    files_cl = os.listdir(os.path.join(root_dir, train_audio, c))
+    for f in files_cl:
+        speaker, _, utter_no = f[:-4].split('_')
+        path_file = os.path.join(root_dir, train_audio, c, f)
+        tr_f_l.append((speaker, int(utter_no), 1, c, path_file))
+columns = 'speaker utter_no label class_name file'.split()
+df['train_all'] = pd.DataFrame(tr_f_l, columns=columns)
+cl_map = lambda x: classes.index(x['class_name'])
+df['train_all'].label = df['train_all'].apply(cl_map, axis=1)
+df['train_all']['idx'] = df['train_all'].index
+
+# split training data into training and validation, done on a speaker basis to
+# avoid having samples from the same speaker in different sets
+val_pct=0.20
+
+speakers = df['train_all'].speaker.unique()
+
+if calc_mels:
+    idx = np.load('idx.npy')
+else:
+    idx = np.random.randint(len(speakers), size = int((len(speakers) * val_pct)))
+    np.save('idx.npy', idx)
+
+val = speakers[idx]
+df['val'] = df['train_all'][df['train_all'].speaker.isin(val)]
+df['train'] = df['train_all'][~df['train_all'].speaker.isin(val)]
+
+# create dataframe of test file names
+test_files  = os.listdir(os.path.join(root_dir, test_audio))
+test_files = list(map(lambda x: os.path.join(test_audio, x), test_files))
+                         
+# test_files = map(lambda x: os.path.join(test_audio, x), test_files)
+df['test'] = pd.DataFrame(test_files)
+df['test'].columns = ['file']
+df['test']['label'] = -1
+
+# specify mel spectrogram function
+n_fft=500
+hop_length=161
+n_mels=100
+fmax=8000
+
+def mel_spec(samples, rate):
+    S = melspectrogram(samples, rate, power=1, n_fft=n_fft,
+                       hop_length=hop_length, n_mels=n_mels, fmax=8000)
+    log_S = logamplitude(S, ref_power=np.max)
+    return log_S, rate
+
+# create mel spectrograms for each set, adding zeros at the end of any
+# wav file less than 16k samples
+
+def get_mel(f, i):
+    samp_arr = np.zeros(16000, dtype=np.float32)
+    rate, samples = wavfile.read(f)
+    samp_arr[:len(samples)] = samples
+    m_samp, _ = mel_spec(samp_arr, rate)
+    mels[i] = m_samp
+
+ms = {}
+if not calc_mels:
+    for split in ['train_all', 'test']:
+        ms[split] = np.load('{}.npy'.format(split))
+
+class AudioData(Dataset):
+    def __init__(self, split, transform=None):
+        self.split = split
+        self.transform = transform
+        self.labels = df[split].label
+        self.idxs = df[split].index
+
+    def __len__(self):
+        return len(df[split])
+
+    def __getitem__(self, idx):
+        if split == 'test':
+            data = ms['test'][idx]
+        else:
+            data = ms['train_all'][self.idxs[idx]]
+            
+        label = self.labels[idx]
+        
+        if self.transform:
+            data = self.transform(data)
+
+        return data, label, idx
+
+if __name__ == '__main__':
+     if calc_mels:
+        for split in ['train_all', 'test']:
+            with Pool(processes=2) as p:
+                max_ = len(df[split])
+                with tqdm(total=max_) as pbar:
+                    for i, _ in tqdm(
+                        (p.starmap(get_mel,zip(df[split].file, df[split].index)))):
+                        pbar.update()
+                ms[split] = mels
+                np.save('{}.npy', mels)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-61798a01c03b>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mlibrosa[0m [0;32mimport[0m [0mlogamplitude[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mlibrosa[0m[0;34m.[0m[0mfeature[0m [0;32mimport[0m [0mmelspectrogram[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mmultiprocessing[0m [0;32mimport[0m [0mPool[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'librosa'
+ModuleNotFoundError: No module named 'librosa'
+
+Executability                            : False

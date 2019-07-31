@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import utils
+import mysql_utils
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-55e42e5e620e>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mutils[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mmysql_utils[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'utils'
+ImportError: No module named 'utils'
+
+Executability                            : False

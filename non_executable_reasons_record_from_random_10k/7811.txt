@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+revenue_proportions = filtered_pixar[['']]
+revenue_proportions.plot(kind = 'bar', stacked = True)
+plt.show()
+------------------
+
+KeyError: "[''] not in index"
+
+Executability                            : False

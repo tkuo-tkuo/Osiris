@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+b.title
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-1519eae23ca0>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mb[0m[0;34m.[0m[0mtitle[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'b' is not defined
+NameError: name 'b' is not defined
+
+Executability                            : False

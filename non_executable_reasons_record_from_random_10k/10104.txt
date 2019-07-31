@@ -1,0 +1,36 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import re
+from bigdl.util.common import * 
+from bigdl.transform.vision.image import *
+from bigdl.transform.vision import image
+from pyspark.sql.functions import col, udf
+from pyspark.sql.types import DoubleType, StringType
+from bigdl.nn.layer import *
+from bigdl.nn.criterion import *
+from pyspark import SparkConf
+from pyspark.ml import Pipeline
+from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+
+from zoo.common.nncontext import *
+from zoo.pipeline.nnframes.nn_classifier import *
+from zoo.pipeline.nnframes.nn_image_reader import *
+from zoo.pipeline.nnframes.nn_image_transformer import *
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-4d3ec7bff9e5>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mre[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mbigdl[0m[0;34m.[0m[0mutil[0m[0;34m.[0m[0mcommon[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mbigdl[0m[0;34m.[0m[0mtransform[0m[0;34m.[0m[0mvision[0m[0;34m.[0m[0mimage[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mbigdl[0m[0;34m.[0m[0mtransform[0m[0;34m.[0m[0mvision[0m [0;32mimport[0m [0mimage[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'bigdl'
+ImportError: No module named 'bigdl'
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+print(monte_carlo_barrier_price(years = 1, num_simulations = 5000, initial_price = 100, strike_price = 100, barrier = 1000, volatility = 0.01, risk_free_rate = 0.05))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-90874b5555f4>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mprint[0m[0;34m([0m[0mmonte_carlo_barrier_price[0m[0;34m([0m[0myears[0m [0;34m=[0m [0;36m1[0m[0;34m,[0m [0mnum_simulations[0m [0;34m=[0m [0;36m5000[0m[0;34m,[0m [0minitial_price[0m [0;34m=[0m [0;36m100[0m[0;34m,[0m [0mstrike_price[0m [0;34m=[0m [0;36m100[0m[0;34m,[0m [0mbarrier[0m [0;34m=[0m [0;36m1000[0m[0;34m,[0m [0mvolatility[0m [0;34m=[0m [0;36m0.01[0m[0;34m,[0m [0mrisk_free_rate[0m [0;34m=[0m [0;36m0.05[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'monte_carlo_barrier_price' is not defined
+NameError: name 'monte_carlo_barrier_price' is not defined
+
+Executability                            : False

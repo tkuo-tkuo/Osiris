@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+
+
+while True: # Sonsuz döngü. Nasıl sonlandırabiliriz ? 
+    isim = input("İsminiz(Çıkmak için q tuşuna basın.):")
+    if (isim == "q"): # break ile tabii ki.
+        print("Çıkış yapılıyor...")
+        break
+    print(isim)
+    
+    
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-2-ab127019e807>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mwhile[0m [0;32mTrue[0m[0;34m:[0m [0;31m# Sonsuz döngü. Nasıl sonlandırabiliriz ?[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m     [0misim[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m"İsminiz(Çıkmak için q tuşuna basın.):"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0;32mif[0m [0;34m([0m[0misim[0m [0;34m==[0m [0;34m"q"[0m[0;34m)[0m[0;34m:[0m [0;31m# break ile tabii ki.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m         [0mprint[0m[0;34m([0m[0;34m"Çıkış yapılıyor..."[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m         [0;32mbreak[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    853[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    854[0m             raise StdinNotImplementedError(
+[0;32m--> 855[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    856[0m             )
+[1;32m    857[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

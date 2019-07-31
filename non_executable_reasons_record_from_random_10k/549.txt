@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+'''
+Solution
+'''
+# split into training and testing sets
+from sklearn.cross_validation import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(df['sms_message'], 
+                                                    df['label'], 
+                                                    random_state=1)
+
+print('Number of rows in the total set: {}'.format(df.shape[0]))
+print('Number of rows in the training set: {}'.format(X_train.shape[0]))
+print('Number of rows in the test set: {}'.format(X_test.shape[0]))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-19-cc355de30946>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m '''
+[1;32m      4[0m [0;31m# split into training and testing sets[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mcross_validation[0m [0;32mimport[0m [0mtrain_test_split[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m X_train, X_test, y_train, y_test = train_test_split(df['sms_message'], 
+
+[0;31mModuleNotFoundError[0m: No module named 'sklearn.cross_validation'
+ModuleNotFoundError: No module named 'sklearn.cross_validation'
+
+Executability                            : False

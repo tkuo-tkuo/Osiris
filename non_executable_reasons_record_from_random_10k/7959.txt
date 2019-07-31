@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+b = sig.remez(31, np.array([0, 0.15, 0.6, fs/2]), [1, 0], fs=fs)
+fig, axs = plt.subplots()
+w, h = sig.freqz(b)
+axs.plot(w*fs/2/np.pi, abs(h))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-ce16f6f4fb05>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mb[0m [0;34m=[0m [0msig[0m[0;34m.[0m[0mremez[0m[0;34m([0m[0;36m31[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0;36m0[0m[0;34m,[0m [0;36m0.15[0m[0;34m,[0m [0;36m0.6[0m[0;34m,[0m [0mfs[0m[0;34m/[0m[0;36m2[0m[0;34m][0m[0;34m)[0m[0;34m,[0m [0;34m[[0m[0;36m1[0m[0;34m,[0m [0;36m0[0m[0;34m][0m[0;34m,[0m [0mfs[0m[0;34m=[0m[0mfs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mfig[0m[0;34m,[0m [0maxs[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mw[0m[0;34m,[0m [0mh[0m [0;34m=[0m [0msig[0m[0;34m.[0m[0mfreqz[0m[0;34m([0m[0mb[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0maxs[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mw[0m[0;34m*[0m[0mfs[0m[0;34m/[0m[0;36m2[0m[0;34m/[0m[0mnp[0m[0;34m.[0m[0mpi[0m[0;34m,[0m [0mabs[0m[0;34m([0m[0mh[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'fs' is not defined
+NameError: name 'fs' is not defined
+
+Executability                            : False

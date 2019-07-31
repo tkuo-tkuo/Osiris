@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+print(d**2)
+print(d**2+d)
+print(d**2+c)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-5-dc21244ce145>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mprint[0m[0;34m([0m[0md[0m[0;34m**[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      2[0m [0mprint[0m[0;34m([0m[0md[0m[0;34m**[0m[0;36m2[0m[0;34m+[0m[0md[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mprint[0m[0;34m([0m[0md[0m[0;34m**[0m[0;36m2[0m[0;34m+[0m[0mc[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: operands could not be broadcast together with shapes (3,3,3) (2,2) 
+ValueError: operands could not be broadcast together with shapes (3,3,3) (2,2) 
+
+Executability                            : False

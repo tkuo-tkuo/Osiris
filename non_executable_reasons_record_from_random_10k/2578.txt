@@ -1,0 +1,40 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+def get_pos_integer(prompt="Enter a positive integer"):
+    while True:
+        num = input(prompt)
+        try:
+            num = int(num)
+            if num > 0:
+                return num
+        except ValueError:
+            pass
+get_pos_integer()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-2-bb380cb99fc9>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      8[0m         [0;32mexcept[0m [0mValueError[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      9[0m             [0;32mpass[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0mget_pos_integer[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-2-bb380cb99fc9>[0m in [0;36mget_pos_integer[0;34m(prompt)[0m
+[1;32m      1[0m [0;32mdef[0m [0mget_pos_integer[0m[0;34m([0m[0mprompt[0m[0;34m=[0m[0;34m"Enter a positive integer"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      2[0m     [0;32mwhile[0m [0;32mTrue[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m         [0mnum[0m [0;34m=[0m [0minput[0m[0;34m([0m[0mprompt[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      5[0m             [0mnum[0m [0;34m=[0m [0mint[0m[0;34m([0m[0mnum[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

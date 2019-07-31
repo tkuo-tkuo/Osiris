@@ -1,0 +1,90 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+df.loc['A']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   2656[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2657[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2658[0m             [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;31mKeyError[0m: 'A'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-46-8c52da9151eb>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdf[0m[0;34m.[0m[0mloc[0m[0;34m[[0m[0;34m'A'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexing.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   1498[0m [0;34m[0m[0m
+[1;32m   1499[0m             [0mmaybe_callable[0m [0;34m=[0m [0mcom[0m[0;34m.[0m[0mapply_if_callable[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mobj[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1500[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_axis[0m[0;34m([0m[0mmaybe_callable[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1501[0m [0;34m[0m[0m
+[1;32m   1502[0m     [0;32mdef[0m [0m_is_scalar_access[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexing.py[0m in [0;36m_getitem_axis[0;34m(self, key, axis)[0m
+[1;32m   1911[0m         [0;31m# fall thru to straight lookup[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1912[0m         [0mself[0m[0;34m.[0m[0m_validate_key[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1913[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_get_label[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1914[0m [0;34m[0m[0m
+[1;32m   1915[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexing.py[0m in [0;36m_get_label[0;34m(self, label, axis)[0m
+[1;32m    139[0m             [0;32mraise[0m [0mIndexingError[0m[0;34m([0m[0;34m'no slices here, handle elsewhere'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    140[0m [0;34m[0m[0m
+[0;32m--> 141[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mobj[0m[0;34m.[0m[0m_xs[0m[0;34m([0m[0mlabel[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    142[0m [0;34m[0m[0m
+[1;32m    143[0m     [0;32mdef[0m [0m_get_loc[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36mxs[0;34m(self, key, axis, level, drop_level)[0m
+[1;32m   3581[0m         [0;32mif[0m [0misinstance[0m[0;34m([0m[0mindex[0m[0;34m,[0m [0mMultiIndex[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3582[0m             loc, new_index = self.index.get_loc_level(key,
+[0;32m-> 3583[0;31m                                                       drop_level=drop_level)
+[0m[1;32m   3584[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3585[0m             [0mloc[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mindex[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexes/multi.py[0m in [0;36mget_loc_level[0;34m(self, key, level, drop_level)[0m
+[1;32m   2569[0m                 [0;32mreturn[0m [0mindexer[0m[0;34m,[0m [0mmaybe_droplevels[0m[0;34m([0m[0mindexer[0m[0;34m,[0m [0milevels[0m[0;34m,[0m [0mdrop_level[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2570[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2571[0;31m             [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_get_level_indexer[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mlevel[0m[0;34m=[0m[0mlevel[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2572[0m             [0;32mreturn[0m [0mindexer[0m[0;34m,[0m [0mmaybe_droplevels[0m[0;34m([0m[0mindexer[0m[0;34m,[0m [0;34m[[0m[0mlevel[0m[0;34m][0m[0;34m,[0m [0mdrop_level[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2573[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexes/multi.py[0m in [0;36m_get_level_indexer[0;34m(self, key, level, indexer)[0m
+[1;32m   2650[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2651[0m [0;34m[0m[0m
+[0;32m-> 2652[0;31m             [0mcode[0m [0;34m=[0m [0mlevel_index[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2653[0m [0;34m[0m[0m
+[1;32m   2654[0m             [0;32mif[0m [0mlevel[0m [0;34m>[0m [0;36m0[0m [0;32mor[0m [0mself[0m[0;34m.[0m[0mlexsort_depth[0m [0;34m==[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   2657[0m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2658[0m             [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2659[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_maybe_cast_indexer[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2660[0m         [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_indexer[0m[0;34m([0m[0;34m[[0m[0mkey[0m[0;34m][0m[0;34m,[0m [0mmethod[0m[0;34m=[0m[0mmethod[0m[0;34m,[0m [0mtolerance[0m[0;34m=[0m[0mtolerance[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2661[0m         [0;32mif[0m [0mindexer[0m[0;34m.[0m[0mndim[0m [0;34m>[0m [0;36m1[0m [0;32mor[0m [0mindexer[0m[0;34m.[0m[0msize[0m [0;34m>[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;31mKeyError[0m: 'A'
+KeyError: 'A'
+
+Executability                            : False

@@ -1,0 +1,38 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Load pickled data
+#import cv2
+import pickle
+import tensorflow
+
+# TODO: fill this in based on where you saved the training and testing data
+# docker run -it -p 8888:8888 -v c:/Users/user_name/Documents/project/github/nd013/tensorflow:/data udacity/carnd-tensorflow-lab
+training_file = '/data/train.p'
+testing_file = '/data/test.p'
+
+with open(training_file, mode='rb') as f:
+    train = pickle.load(f)
+with open(testing_file, mode='rb') as f:
+    test = pickle.load(f)
+    
+X_train, y_train = train['features'], train['labels']
+X_test, y_test = test['features'], test['labels']
+print(X_train[0].shape)
+#for i in range(500,1000):
+#    print(y_train[i])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-3e013d8c17dd>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;31m#import cv2[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mpickle[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mtensorflow[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;31m# TODO: fill this in based on where you saved the training and testing data[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

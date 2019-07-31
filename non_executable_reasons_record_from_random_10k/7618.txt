@@ -1,0 +1,128 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+def load_data(filename='all_songs.csv',
+              col='album',
+              col_value='In the Aeroplane Over the Sea'):
+    
+    df    = pd.read_csv('all_songs.csv')
+    df    = df.loc[df[col] == col_value]
+    songs = df['lyrics'].values
+    return songs
+
+def lyric_cleaner(songs):
+    lyric_tokens = []
+    for song in songs:
+        text = song.lower().replace(' n ', ' eol ').replace('[verse ', '[verse')
+        text = text.replace("'", '').replace('-', ' ')
+        tokens = text.split()
+        table = str.maketrans('', '', string.punctuation)
+        tokens = [word.translate(table) for word in tokens]
+        lyric_tokens.append(tokens)
+    
+    return lyric_tokens
+
+def join_song_lyrics(lyric_tokens):
+    
+    joined_songs = []
+    
+    for song in lyric_tokens:
+        lyrics = ' '.join(song)
+        joined_songs.append(lyrics)
+        
+    return joined_songs
+
+def tokenizer(list_of_songs, tokenizer=Tokenizer()):
+    tokenizer = tokenizer
+    tokenizer.fit_on_texts(list_of_songs)
+    encoded_songs = tokenizer.texts_to_sequences(list_of_songs)
+    
+    return encoded_songs, tokenizer
+
+def find_longest_song(encoded_songs):
+    longest_song_size = 0
+    for song in encoded_songs:
+        if len(song) > longest_song_size:
+            longest_song_size = len(song)
+    return longest_song_size
+
+def index_to_word(tokenizer):
+    vocab_size = len(tokenizer.word_index) + 1
+    index_to_word_dict =  dict([(index, word) for word, index in tokenizer.word_index.items()])
+    return vocab_size, index_to_word_dict
+
+def pad_data(encoded_songs, max_length):
+    padded_songs = pad_sequences(encoded_songs, maxlen=max_length, padding='post', truncating='post')
+    return padded_songs
+
+def seqeuncer(padded_songs, length=seq_length):
+    sequences = []
+    output = []
+
+    for song in padded_songs:
+        for i in range(length, (len(song))):
+            seq = song[i - length: i]
+            out = song[i]
+            sequences.append(seq)
+            output.append(out)
+            
+    return np.array(sequences), output
+
+def establish_model(vocab_size=vocab_size, seq_length=seq_length):
+    model = Sequential()
+    model.add(Embedding(vocab_size, 50, input_length=seq_length))
+    model.add(LSTM(100, return_sequences=True))
+    model.add(Dropout(0.2))
+    model.add(LSTM(100, return_sequences=False))
+    model.add(Dropout(0.2))
+    model.add(Dense(100, activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(100, activation='relu'))
+    model.add(Dense(vocab_size, activation='softmax'))
+    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    return model
+
+def gen_seed(seqs=sequences):
+    seed_text = seqs[np.random.randint(0,len(seqs))]
+    while seed_text.all() == np.array([  0, 0,  0, 0, 0, 0, 0, 0, 0, 0]).all():
+        seed_text = seqs[np.random.randint(0,len(seqs))]
+    return seed_text
+
+def generate_seq(model,
+                 tokenizer,
+                 seq_length,
+                 seqs=sequences,
+                 n_words=1000):
+    
+    seed_text = gen_seed()
+    start = [reverse_dict[index] for index in seed_text]
+    print('start: ', start)
+    
+    result = []
+    
+    for _ in range(n_words):
+        encoded = pad_sequences([seed_text], maxlen=seq_length, truncating='pre')
+        yhat = model.predict_classes(encoded, verbose=0)
+        if yhat == 0:
+            pass
+        else:
+            word = reverse_dict[yhat[0]]
+        seed_text = np.append(seed_text, yhat)
+        seed_text = seed_text[-10:]
+        result.append(word)
+    return ' '.join(result)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-404e9712ea9b>[0m in [0;36m<module>[0;34m[0m
+[1;32m     53[0m     [0;32mreturn[0m [0mpadded_songs[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     54[0m [0;34m[0m[0m
+[0;32m---> 55[0;31m [0;32mdef[0m [0mseqeuncer[0m[0;34m([0m[0mpadded_songs[0m[0;34m,[0m [0mlength[0m[0;34m=[0m[0mseq_length[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     56[0m     [0msequences[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     57[0m     [0moutput[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'seq_length' is not defined
+NameError: name 'seq_length' is not defined
+
+Executability                            : False

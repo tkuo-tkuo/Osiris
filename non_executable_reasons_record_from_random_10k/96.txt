@@ -1,0 +1,15 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# 英語のページですが・・・
+url = 'http://en.wikipedia.org/wiki/Box_plot#mediaviewer/File:Boxplot_vs_PDF.svg'
+
+data1 = randn(100)
+data2 = randn(100) + 2 # Off set the mean
+------------------
+
+NameError: name 'randn' is not defined
+
+Executability                            : False

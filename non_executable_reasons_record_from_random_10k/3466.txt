@@ -1,0 +1,237 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 10 ; number of cells: 30
+Reproducibility                          : matched ratio: 0.333 ; index of matched cells: [0, 1, 2, 5, 12, 20, 21, 23, 24, 25]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+print(şu_an)
+
+-----------------
+Original output:
+2017-07-11 17:01:36.472991
+
+Executed output:
+2019-07-31 13:50:38.507004
+
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+şu_an.year # Yılı alıyoruz.
+
+-----------------
+Original output:
+2017
+Executed output:
+2019
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+şu_an.day # Temmuzun  11'i
+
+-----------------
+Original output:
+11
+Executed output:
+31
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+şu_an.hour # Saat 5 
+
+-----------------
+Original output:
+17
+Executed output:
+13
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+şu_an.minute # 5'i 1 geçiyor.
+
+-----------------
+Original output:
+1
+Executed output:
+50
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+şu_an.second # Saniye 36
+
+-----------------
+Original output:
+36
+Executed output:
+38
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+şu_an.microsecond # Milisaniye 472991
+
+-----------------
+Original output:
+472991
+Executed output:
+507004
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+print(datetime.ctime(şu_an)) 
+
+-----------------
+Original output:
+Tue Jul 11 17:01:36 2017
+
+Executed output:
+Wed Jul 31 13:50:38 2019
+
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+print(datetime.strftime(şu_an,"%Y"))
+
+print(datetime.strftime(şu_an,"%B"))
+
+print(datetime.strftime(şu_an,"%A"))
+
+print(datetime.strftime(şu_an,"%X"))
+
+print(datetime.strftime(şu_an,"%D"))
+
+-----------------
+Original output:
+2017
+July
+Tuesday
+17:10:14
+07/11/17
+
+Executed output:
+2019
+July
+Wednesday
+13:50:38
+07/31/19
+
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+print(datetime.strftime(şu_an,"%Y %B"))
+
+-----------------
+Original output:
+2017 July
+
+Executed output:
+2019 July
+
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+print(datetime.strftime(şu_an,"%Y %B %A"))
+
+-----------------
+Original output:
+2017 July Tuesday
+
+Executed output:
+2019 July Wednesday
+
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+import locale
+print(locale.setlocale(locale.LC_ALL,""))
+
+-----------------
+Original output:
+Turkish_Turkey.1254
+
+Executed output:
+C.UTF-8
+
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+print(datetime.strftime(şu_an,"%Y %B %A")) # locale ile bulunduğumuz yerin diline çevirebiliyoruz.
+
+-----------------
+Original output:
+2017 Temmuz Salı
+
+Executed output:
+2019 July Wednesday
+
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+şu_an
+
+-----------------
+Original output:
+datetime.datetime(2017, 7, 11, 17, 10, 14, 253746)
+Executed output:
+datetime.datetime(2019, 7, 31, 13, 50, 38, 659132)
+-------------------------------------------
+Source Code of a Unmatched Cell 19
+-------------------------------------------
+datetime.timestamp(şu_an)
+
+-----------------
+Original output:
+1499782214.253746
+Executed output:
+1564545038.659132
+-------------------------------------------
+Source Code of a Unmatched Cell 22
+-------------------------------------------
+print(zaman)
+
+-----------------
+Original output:
+2017-07-11 17:10:14.253746
+
+Executed output:
+2019-07-31 13:50:38.659132
+
+-------------------------------------------
+Source Code of a Unmatched Cell 26
+-------------------------------------------
+fark
+
+-----------------
+Original output:
+datetime.timedelta(872, 23304, 341519)
+Executed output:
+datetime.timedelta(122, 36561, 168266)
+-------------------------------------------
+Source Code of a Unmatched Cell 27
+-------------------------------------------
+fark.days # 872 gün kalmış
+
+-----------------
+Original output:
+872
+Executed output:
+122
+-------------------------------------------
+Source Code of a Unmatched Cell 28
+-------------------------------------------
+fark.seconds # 23304 gün kalmış
+
+-----------------
+Original output:
+23304
+Executed output:
+36561
+-------------------------------------------
+Source Code of a Unmatched Cell 29
+-------------------------------------------
+fark.microseconds # 341519
+
+-----------------
+Original output:
+341519
+Executed output:
+168266

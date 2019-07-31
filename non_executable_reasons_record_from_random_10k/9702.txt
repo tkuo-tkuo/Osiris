@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#1b
+from newtonRaphson import * #The only module needed. Note to self, Takes for args. The function, the differential, at start point and end point
+
+G,M,m,R,omega=6.674e-11, 5.974e24, 7.348e22, 3.844e8, 2.662e-6
+
+def f(r):
+    return G*M/r**2 - G*m/(R-r)**2 - r*omega**2
+def df(r):
+    return -2*G*M/r**3 - (2*G*m)/(R-r)**3 - omega**2
+
+print ('The L1 Legrange point is located at: '"{:.3e}".format(newtonRaphson(f,df,R/2,R-1.74e6)),'meters from the Earth') #1.74e6 is the radius of the moon sourced from Principles of Physics (10th Ed), Appendix C
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-8bdee61c98c9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m#1b[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mnewtonRaphson[0m [0;32mimport[0m [0;34m*[0m [0;31m#The only module needed. Note to self, Takes for args. The function, the differential, at start point and end point[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0mG[0m[0;34m,[0m[0mM[0m[0;34m,[0m[0mm[0m[0;34m,[0m[0mR[0m[0;34m,[0m[0momega[0m[0;34m=[0m[0;36m6.674e-11[0m[0;34m,[0m [0;36m5.974e24[0m[0;34m,[0m [0;36m7.348e22[0m[0;34m,[0m [0;36m3.844e8[0m[0;34m,[0m [0;36m2.662e-6[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'newtonRaphson'
+ModuleNotFoundError: No module named 'newtonRaphson'
+
+Executability                            : False

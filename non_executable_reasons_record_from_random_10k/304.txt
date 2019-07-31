@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+%matplotlib inline
+%reset -f
+
+from __future__ import print_function
+from ipywidgets import interact, interactive, fixed, interact_manual
+import ipywidgets as widgets
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+from scipy import stats
+import statsmodels.api as sm
+------------------
+
+[0;36m  File [0;32m"<ipython-input-9-07391d5c94fb>"[0;36m, line [0;32m7[0m
+[0;31m    [0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-9-07391d5c94fb>, line 7)
+
+Executability                            : False

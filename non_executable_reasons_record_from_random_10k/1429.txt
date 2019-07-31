@@ -1,0 +1,300 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+from __future__ import print_function
+from ipywidgets import interact, interactive, fixed
+import ipywidgets as widgets
+from IPython.display import clear_output
+from IPython.display import display
+import tarfile
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import normalize
+from sklearn.preprocessing import scale
+import time
+import random
+import math
+import itertools as it
+
+# ********************************************************************* #
+# This block handles the UI of this notebook
+band = widgets.IntSlider(
+    value=3,
+    min=1,
+    max=8,
+    step=1,
+    description='Number of Band',
+)
+
+row = widgets.IntSlider(
+    value=64,
+    min=20,
+    max=128,
+    step=1,
+    description='Number of row in a band',
+)
+
+cosine_sel=widgets.RadioButtons(
+    value=('cosine-angle'),
+    options=['cosine-angle','cosine-distance'],
+    description='Value selection',
+    disabled=False
+)
+
+sigma_angle = widgets.FloatSlider(
+    value=2.0,
+    min=1.0,
+    max=10.0,
+    step=0.5,
+    description='Value of cos-angle',
+)
+
+sigma_distance=widgets.BoundedFloatText(
+    value=0.0006092,
+    min=0.0000001,
+    max=0.0009999,
+    description='Value of cos-dist',
+    disabled=False,
+    color='black'
+)
+
+
+feature_list = widgets.SelectMultiple(
+    description="Feature List",
+    value=('duration', 'end_of_fade_in', 'key', 'loudness', 'mode', 'start_of_fade_out', 'tempo', 'time_signature'),
+    options=['analysis_sample_rate', 'audio_md5', 'danceability', 'duration', 'end_of_fade_in', 'energy', 'idx_bars_confidence', 'idx_bars_start', 'idx_beats_confidence', 'idx_beats_start', 'idx_sections_confidence', 'idx_sections_start', 'idx_segments_confidence', 'idx_segments_loudness_max', 'idx_segments_loudness_max_time', 'idx_segments_loudness_start', 'idx_segments_pitches', 'idx_segments_start', 'idx_segments_timbre', 'idx_tatums_confidence', 'idx_tatums_start', 'key',  'key_confidence', 'loudness', 'mode', 'mode_confidence', 'start_of_fade_out', 'tempo', 'time_signature', 'time_signature_confidence', 'track_id']
+)
+
+display(band)
+display(row)
+display(cosine_sel)
+display(sigma_angle)
+display(sigma_distance)
+display(feature_list)
+
+button = widgets.Button(description="Execute!")
+display(button)
+
+def on_button_clicked(b):
+    vs_flag=0 #value selection flag : cosine angle or cosine distance
+    clear_output()
+    print("Checking parameters...")
+    if not feature_list.value:
+        print("Feature list cannont be empty. Please recheck.")
+        print("Program Exiting...")
+    else:
+        print("Parameter check complete. Executing Duplicate Detection")
+        if (cosine_sel.value=='cosine-angle'):
+            vs_flag=1
+            print("You are using cosine angle ", sigma_angle.value)
+            main_func_backend(band.value, row.value, sigma_angle.value, vs_flag, feature_list.value)
+        else:
+            vs_flag=0
+            print("You are using cosine distance ", sigma_distance.value)
+            main_func_backend(band.value, row.value, sigma_distance.value, vs_flag, feature_list.value)
+
+button.on_click(on_button_clicked)
+# ********** UI Block ending ******************* #
+
+# ************* Main Code Block starting ************* #
+
+# Edit this variable to the directory where the Dataset is stored.
+path_to_million_song_dataset = "millionsongsubset_full.tar.gz"
+
+# This is a hash vector used to compute the Decimal equivalent of Column Vector of a song in each band.
+hash_vector = np.array([2**i for i in range(64)])
+
+
+duplicate_songs = dict()
+
+#
+#   Returns a matrix which columns corresponds to a specific feature:
+#   Each row corresponds to a song
+#   Each field a for the moment floats
+#
+#   features:A list containing features
+#   dataframe: frame containing all feature data
+#   n: number of songs
+#
+#   returns: Numpy.Matrix(col=feature,row=songs)
+#
+def extract_fields(features, dataframe, n):
+    number_of_features = len(features)
+    feature_data_matrix = np.empty((n, number_of_features))
+    for i in range(n):
+        col_index = 0
+        for feature in features:
+            feature_data_matrix[i][col_index] = dataframe.iloc[i][feature]
+            col_index += 1
+
+    feature_data_matrix = scale(feature_data_matrix)
+    return feature_data_matrix
+
+#
+#   Generates a "random vector" matrix
+#
+def generate_random_v(rows, cols):
+    v = np.random.choice([-1,1], (rows, cols))
+    return v
+
+#
+#   Performs Banding according to Step (5) mentioned in "Approach used" section.
+#
+def banding(signature_matrix, num_bands, rows_in_band, num_RV, sigma):
+    band_start_index = 0
+    band_end_index = rows_in_band - 1 
+    index = 0
+   
+    while(band_end_index <= num_RV):
+        
+        #print("starting index: ",  band_start_index, " and band end index: ", band_end_index)
+        #print("sigma ", sigma)
+        index += 1
+        #print("Index: ", index)
+        band = signature_matrix[band_start_index:band_end_index+1]
+        hashing(band, sigma, index)
+        band_start_index = band_end_index + 1
+        band_end_index += rows_in_band
+
+    duplicates = 0
+    for song,similiarity_list in duplicate_songs.items():
+        if len(similiarity_list) > 0:
+            duplicates += (len(similiarity_list))
+            #print("Duplicate pairs: ", song, " and ", similiarity_list)
+
+    print("Found: ", duplicates, " duplicates")
+
+#
+#   Convert all the column vectors in a given band into corresponding decimal bucket
+#
+def hashing(band, sigma, index):
+    candidate_pairs = 0
+ 
+    hash_buckets = dict()
+    
+    for j in range(band.shape[1]):
+        local_song_signature = band[:, j]
+        hash_value = getHashValue(local_song_signature)
+        if hash_value not in hash_buckets: 
+            hash_buckets[hash_value] = [j]
+        else:
+            hash_buckets[hash_value].append(j) 
+    
+    for bucket in hash_buckets.items():
+        if len(bucket[1]) > 1:
+            candidate_pairs += len(bucket[1])
+        
+    find_exact_cosine_distance(hash_buckets, sigma)
+
+    print("Candidate pairs on ", index  , " band: ", candidate_pairs)
+
+def find_exact_cosine_distance(hash_buckets, sigma):
+    global feature_data_matrix
+
+    for bucket in hash_buckets.items():
+        for (i,j) in it.combinations(bucket[1], 2):
+
+            if i not in duplicate_songs:
+                duplicate_songs[i] = set([])
+             
+            if j not in duplicate_songs[i]:
+                cosine_value = cosine_similarity(feature_data_matrix[i], feature_data_matrix[j]) 
+                if cosine_value < sigma:
+                    duplicate_songs[i].update([j])
+
+def cosine_similarity(song1, song2):
+    mag1 = np.linalg.norm(song1)
+    mag2 = np.linalg.norm(song2)
+
+    cos_angle = np.dot(song1, song2)/(mag1*mag2)
+
+    return 1 - cos_angle
+
+def getHashValue(local_song_signature):
+    hashValue = 0
+    
+    #   print("local song signature shape after transpose: ", local_song_signature.shape)
+    hashValue = np.dot(local_song_signature, hash_vector)
+    return hashValue
+        
+def find_duplicates(feature_data_matrix, r, b, sigma):
+    dimensions = feature_data_matrix.shape
+
+    time1 = time.time()
+    num_of_RV = r*b
+    print("number of Random Vectors : ", num_of_RV)
+    v = generate_random_v(num_of_RV, dimensions[1])
+    time2 = time.time()
+    print("Time taken to generate Random Vectors: ", time2-time1)
+ 
+    #print("Rank of matrix: ", np.linalg.matrix_rank(v))
+    
+    v = v.transpose()
+    
+    signature_matrix = np.dot(feature_data_matrix, v)
+    
+    for i in range(signature_matrix.shape[0]):
+        for j in range(signature_matrix.shape[1]):
+            if signature_matrix[i][j] > 0:
+                signature_matrix[i][j] = 1
+            else:
+                signature_matrix[i][j] = 0
+    
+    time1 = time.time()
+    banding(signature_matrix.transpose(), b, r, num_of_RV, sigma)
+    time2 = time.time()
+    print("Time taken to find duplicates: ", time2 - time1)
+    
+    return 0
+
+
+#
+#   This is the main function which is executed when "Execute" button is clicked.
+#
+def main_func_backend(num_band, num_row, sigma, vs_flag, feature_list):
+    global feature_data_matrix
+    print("Number of bands: ", num_band)
+    print("Number of rows per band: ", num_row)
+    print("Sigma: ", sigma)
+    print("Selected features: ", feature_list)
+    
+    if(vs_flag == 1):
+        distance = 1 - math.cos(math.radians(sigma))
+    else:
+        distance = sigma
+    #print("Distance: ", distance)
+    
+    print("Extracting the tarfile...")
+    t = tarfile.open(path_to_million_song_dataset, "r:gz")
+    members = t.getmembers()
+
+    print("Extracting the summary...")
+    t.extract(members[5].name)
+    summary = pd.HDFStore(members[5].name)
+
+    print("Extracting the features...")
+    time1 = time.time()
+    feature_data_matrix = extract_fields(feature_list, summary['analysis/songs'], 9999)
+    
+
+    time2 = time.time()
+    print("Real time elapsed for extract fields: ", time2-time1)
+
+    time1 = time.time()
+
+    find_duplicates(feature_data_matrix, num_row, num_band, distance)
+    time2 = time.time()
+
+    print("Time taken to find duplicates with generation of random vectors and preprocessing of the data: ", time2-time1)
+    print("Exiting the program")
+    t.close()
+
+-----------------
+Original output:
+
+Executed output:
+IntSlider(value=3, description='Number of Band', max=8, min=1)IntSlider(value=64, description='Number of row in a band', max=128, min=20)RadioButtons(description='Value selection', options=('cosine-angle', 'cosine-distance'), value='cosine-angle')FloatSlider(value=2.0, description='Value of cos-angle', max=10.0, min=1.0, step=0.5)BoundedFloatText(value=0.0006092, description='Value of cos-dist', max=0.0009999, min=1e-07)SelectMultiple(description='Feature List', index=(3, 4, 21, 23, 24, 26, 27, 28), options=('analysis_sample_rat…Button(description='Execute!', style=ButtonStyle())

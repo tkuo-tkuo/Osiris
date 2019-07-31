@@ -1,0 +1,111 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy
+from matplotlib import pyplot as plt
+
+m = 43.34
+g = 3.71
+p0 = 600
+R = 8.3147
+T_konst = 234.0
+H_konst = R*T_konst/(m*g)
+
+def H(z):
+    T = 234.0 - 2.25*z + 14*numpy.exp(-2*z)
+    H = R*T/(m*g)
+    return H
+
+def integral(a, b, n):
+    h = (b-a)/n
+    S = 0
+    for i in range(n):
+        S += 1/H(i*h) + 1/H((i+1)*h)    
+    S *= h/2
+    return S
+
+def integral_konst(a, b, n):
+    h = (b-a)/n
+    S = 0
+    for i in range(n):
+        S += 1/H_konst + 1/H_konst    
+    S *= h/2
+    return S
+
+def p(z):
+    p = p0*numpy.exp(-integral(0, z, 1000))
+    return p
+
+def p_konst(z):
+    return p0*numpy.exp(-integral_konst(0, z, 1000))
+
+z = numpy.linspace(0,16,200)
+
+plt.figure(figsize = (12,8))
+plt.plot(z, p(z), label=r"Varierende temperatur")
+plt.plot(z, p_konst(z), label = r"Konstant temperatur")
+plt.title(r"Atmosfæretrykk på mars som funksjon av høyde")
+plt.xlabel(r"$z$(km)", fontsize = 18)
+plt.ylabel(r"$p(z)$(Pa)", fontsize = 18)
+plt.ylim(0, 600)
+plt.legend()
+plt.savefig("oving1.pdf")
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-4e2903a644ee>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     49[0m [0mplt[0m[0;34m.[0m[0mylim[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;36m600[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     50[0m [0mplt[0m[0;34m.[0m[0mlegend[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 51[0;31m [0mplt[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m"oving1.pdf"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     52[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/pyplot.py[0m in [0;36msavefig[0;34m(*args, **kwargs)[0m
+[1;32m    708[0m [0;32mdef[0m [0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    709[0m     [0mfig[0m [0;34m=[0m [0mgcf[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 710[0;31m     [0mres[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    711[0m     [0mfig[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mdraw_idle[0m[0;34m([0m[0;34m)[0m   [0;31m# need this if 'transparent=True' to reset colors[0m[0;34m[0m[0m
+[1;32m    712[0m     [0;32mreturn[0m [0mres[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/figure.py[0m in [0;36msavefig[0;34m(self, fname, **kwargs)[0m
+[1;32m   2033[0m             [0mself[0m[0;34m.[0m[0mset_frameon[0m[0;34m([0m[0mframeon[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2034[0m [0;34m[0m[0m
+[0;32m-> 2035[0;31m         [0mself[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2036[0m [0;34m[0m[0m
+[1;32m   2037[0m         [0;32mif[0m [0mframeon[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, **kwargs)[0m
+[1;32m   2261[0m                 [0morientation[0m[0;34m=[0m[0morientation[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m   2262[0m                 [0mbbox_inches_restore[0m[0;34m=[0m[0m_bbox_inches_restore[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m-> 2263[0;31m                 **kwargs)
+[0m[1;32m   2264[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   2265[0m             [0;32mif[0m [0mbbox_inches[0m [0;32mand[0m [0mrestore_bbox[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/backends/backend_pdf.py[0m in [0;36mprint_pdf[0;34m(self, filename, **kwargs)[0m
+[1;32m   2576[0m             [0mfile[0m [0;34m=[0m [0mfilename[0m[0;34m.[0m[0m_file[0m[0;34m[0m[0m
+[1;32m   2577[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 2578[0;31m             [0mfile[0m [0;34m=[0m [0mPdfFile[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmetadata[0m[0;34m=[0m[0mkwargs[0m[0;34m.[0m[0mpop[0m[0;34m([0m[0;34m"metadata"[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2579[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   2580[0m             [0mfile[0m[0;34m.[0m[0mnewPage[0m[0;34m([0m[0mwidth[0m[0;34m,[0m [0mheight[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/backends/backend_pdf.py[0m in [0;36m__init__[0;34m(self, filename, metadata)[0m
+[1;32m    436[0m         [0mself[0m[0;34m.[0m[0moriginal_file_like[0m [0;34m=[0m [0;32mNone[0m[0;34m[0m[0m
+[1;32m    437[0m         [0mself[0m[0;34m.[0m[0mtell_base[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0m
+[0;32m--> 438[0;31m         [0mfh[0m[0;34m,[0m [0mopened[0m [0;34m=[0m [0mcbook[0m[0;34m.[0m[0mto_filehandle[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"wb"[0m[0;34m,[0m [0mreturn_opened[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    439[0m         [0;32mif[0m [0;32mnot[0m [0mopened[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    440[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/cbook/__init__.py[0m in [0;36mto_filehandle[0;34m(fname, flag, return_opened, encoding)[0m
+[1;32m    607[0m             [0mfh[0m [0;34m=[0m [0mbz2[0m[0;34m.[0m[0mBZ2File[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0mflag[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    608[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 609[0;31m             [0mfh[0m [0;34m=[0m [0mio[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0mflag[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    610[0m         [0mopened[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0m
+[1;32m    611[0m     [0;32melif[0m [0mhasattr[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'seek'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'oving1.pdf'
+PermissionError: [Errno 13] Permission denied: 'oving1.pdf'
+
+Executability                            : False

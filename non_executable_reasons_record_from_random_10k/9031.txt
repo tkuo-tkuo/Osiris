@@ -1,0 +1,150 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 12 ; number of cells: 24
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [0, 1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 13]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+
+
+-----------------
+Original output:
+The diameter of Earth is 12742 kilometers.
+
+Executed output:
+'The diameter of Earth is 12742 kilometers'
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+'The diameter of {} is {} kilometers'.format('Earth', 12742)
+
+-----------------
+Original output:
+'The diameter of Earth is 12742 kilometers'
+Executed output:
+The diameter of Earth is 12742 kilometers.
+
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+
+
+-----------------
+Original output:
+['soup', 'salad']
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+def findDog(sen):
+    return 'dog' in sen.lower().split()
+
+-----------------
+Original output:
+
+Executed output:
+True
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+findDog('Is there a dog here?')
+
+-----------------
+Original output:
+True
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+def countDog(sen):
+    return sen.split().count('dog')
+
+-----------------
+Original output:
+
+Executed output:
+2
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+countDog('This dog runs faster than the other dog dude!')
+
+-----------------
+Original output:
+2
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 19
+-------------------------------------------
+seq = ['soup','dog','salad','cat','great']
+seq[0][0]
+def s(sen):
+    filtered = list()
+    for i in range(len(seq)):
+        if sen[i][0]== 's':
+            filtered.append(sen[i]) 
+        else: 
+            ;
+    return filtered
+    
+
+-----------------
+Original output:
+
+Executed output:
+['soup', 'salad']
+-------------------------------------------
+Source Code of a Unmatched Cell 20
+-------------------------------------------
+list(filter(lambda x: x[0]=='s', seq))
+
+-----------------
+Original output:
+['soup', 'salad']
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 21
+-------------------------------------------
+def caught_speeding(speed, is_birthday):
+    if is_birthday == True:
+        speed = speed -5
+    else:
+        speed = speed
+        
+    if speed <= 60:
+        return 'No ticket'
+    elif speed <= 80:
+        return 'Small Ticket'
+    else:
+        return 'Big Ticket'
+    pass
+
+-----------------
+Original output:
+
+Executed output:
+'Small Ticket'
+-------------------------------------------
+Source Code of a Unmatched Cell 22
+-------------------------------------------
+caught_speeding(81,True)
+
+-----------------
+Original output:
+'Small Ticket'
+Executed output:
+'Big Ticket'
+-------------------------------------------
+Source Code of a Unmatched Cell 23
+-------------------------------------------
+caught_speeding(81,False)
+
+-----------------
+Original output:
+'Big Ticket'
+Executed output:
+['soup', 'salad']

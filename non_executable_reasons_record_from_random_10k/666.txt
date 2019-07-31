@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+tag['id']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-7-b7d877d82646>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mtag[0m[0;34m[[0m[0;34m'id'[0m[0;34m][0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/bs4/element.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   1009[0m         """tag[key] returns the value of the 'key' attribute for the tag,
+[1;32m   1010[0m         and throws an exception if it's not there."""
+[0;32m-> 1011[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mattrs[0m[0;34m[[0m[0mkey[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m   1012[0m [0;34m[0m[0m
+[1;32m   1013[0m     [0;32mdef[0m [0m__iter__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: 'id'
+KeyError: 'id'
+
+Executability                            : False

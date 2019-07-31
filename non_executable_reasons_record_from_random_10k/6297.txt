@@ -1,0 +1,41 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from tensorflow.examples.tutorials.mnist import input_data
+from sklearn.model_selection import train_test_split
+import pickle
+import pdb
+import numpy as np
+# pickle file locations
+training_file = 'train.p'
+testing_file = 'test.p'
+
+# load pickle data
+with open(training_file, mode='rb') as f:
+    train = pickle.load(f)
+with open(testing_file, mode='rb') as f:
+    test = pickle.load(f)
+    
+X_train, y_train = train['features'], train['labels']
+X_test, y_test = test['features'], test['labels']
+
+assert(len(X_train) == len(y_train))
+assert(len(X_test) == len(y_test))
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-c87e8d8391c8>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mexamples[0m[0;34m.[0m[0mtutorials[0m[0;34m.[0m[0mmnist[0m [0;32mimport[0m [0minput_data[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmodel_selection[0m [0;32mimport[0m [0mtrain_test_split[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mpickle[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

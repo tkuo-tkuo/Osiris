@@ -1,0 +1,1346 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 6 ; number of cells: 9
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 4, 5, 6, 7, 8]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+the_data = json.load(open('data/world_bank_projects.json'))
+the_data[0]
+
+                     
+
+-----------------
+Original output:
+{'_id': {'$oid': '52b213b38594d8a2be17c780'},
+ 'approvalfy': 1999,
+ 'board_approval_month': 'November',
+ 'boardapprovaldate': '2013-11-12T00:00:00Z',
+ 'borrower': 'FEDERAL DEMOCRATIC REPUBLIC OF ETHIOPIA',
+ 'closingdate': '2018-07-07T00:00:00Z',
+ 'country_namecode': 'Federal Democratic Republic of Ethiopia!$!ET',
+ 'countrycode': 'ET',
+ 'countryname': 'Federal Democratic Republic of Ethiopia',
+ 'countryshortname': 'Ethiopia',
+ 'docty': 'Project Information Document,Indigenous Peoples Plan,Project Information Document',
+ 'envassesmentcategorycode': 'C',
+ 'grantamt': 0,
+ 'ibrdcommamt': 0,
+ 'id': 'P129828',
+ 'idacommamt': 130000000,
+ 'impagency': 'MINISTRY OF EDUCATION',
+ 'lendinginstr': 'Investment Project Financing',
+ 'lendinginstrtype': 'IN',
+ 'lendprojectcost': 550000000,
+ 'majorsector_percent': [{'Name': 'Education', 'Percent': 46},
+  {'Name': 'Education', 'Percent': 26},
+  {'Name': 'Public Administration, Law, and Justice', 'Percent': 16},
+  {'Name': 'Education', 'Percent': 12}],
+ 'mjsector_namecode': [{'code': 'EX', 'name': 'Education'},
+  {'code': 'EX', 'name': 'Education'},
+  {'code': 'BX', 'name': 'Public Administration, Law, and Justice'},
+  {'code': 'EX', 'name': 'Education'}],
+ 'mjtheme': ['Human development'],
+ 'mjtheme_namecode': [{'code': '8', 'name': 'Human development'},
+  {'code': '11', 'name': ''}],
+ 'mjthemecode': '8,11',
+ 'prodline': 'PE',
+ 'prodlinetext': 'IBRD/IDA',
+ 'productlinetype': 'L',
+ 'project_abstract': {'cdata': 'The development objective of the Second Phase of General Education Quality Improvement Project for Ethiopia is to improve learning conditions in primary and secondary schools and strengthen institutions at different levels of educational administration. The project has six components. The first component is curriculum, textbooks, assessment, examinations, and inspection. This component will support improvement of learning conditions in grades KG-12 by providing increased access to teaching and learning materials and through improvements to the curriculum by assessing the strengths and weaknesses of the current curriculum. This component has following four sub-components: (i) curriculum reform and implementation; (ii) teaching and learning materials; (iii) assessment and examinations; and (iv) inspection. The second component is teacher development program (TDP). This component will support improvements in learning conditions in both primary and secondary schools by advancing the quality of teaching in general education through: (a) enhancing the training of pre-service teachers in teacher education institutions; and (b) improving the quality of in-service teacher training. This component has following three sub-components: (i) pre-service teacher training; (ii) in-service teacher training; and (iii) licensing and relicensing of teachers and school leaders. The third component is school improvement plan. This component will support the strengthening of school planning in order to improve learning outcomes, and to partly fund the school improvement plans through school grants. It has following two sub-components: (i) school improvement plan; and (ii) school grants. The fourth component is management and capacity building, including education management information systems (EMIS). This component will support management and capacity building aspect of the project. This component has following three sub-components: (i) capacity building for education planning and management; (ii) capacity building for school planning and management; and (iii) EMIS. The fifth component is improving the quality of learning and teaching in secondary schools and universities through the use of information and communications technology (ICT). It has following five sub-components: (i) national policy and institution for ICT in general education; (ii) national ICT infrastructure improvement plan for general education; (iii) develop an integrated monitoring, evaluation, and learning system specifically for the ICT component; (iv) teacher professional development in the use of ICT; and (v) provision of limited number of e-Braille display readers with the possibility to scale up to all secondary education schools based on the successful implementation and usage of the readers. The sixth component is program coordination, monitoring and evaluation, and communication. It will support institutional strengthening by developing capacities in all aspects of program coordination, monitoring and evaluation; a new sub-component on communications will support information sharing for better management and accountability. It has following three sub-components: (i) program coordination; (ii) monitoring and evaluation (M and E); and (iii) communication.'},
+ 'project_name': 'Ethiopia General Education Quality Improvement Project II',
+ 'projectdocs': [{'DocDate': '28-AUG-2013',
+   'DocType': 'PID',
+   'DocTypeDesc': 'Project Information Document (PID),  Vol.',
+   'DocURL': 'http://www-wds.worldbank.org/servlet/WDSServlet?pcont=details&eid=090224b081e545fb_1_0',
+   'EntityID': '090224b081e545fb_1_0'},
+  {'DocDate': '01-JUL-2013',
+   'DocType': 'IP',
+   'DocTypeDesc': 'Indigenous Peoples Plan (IP),  Vol.1 of 1',
+   'DocURL': 'http://www-wds.worldbank.org/servlet/WDSServlet?pcont=details&eid=000442464_20130920111729',
+   'EntityID': '000442464_20130920111729'},
+  {'DocDate': '22-NOV-2012',
+   'DocType': 'PID',
+   'DocTypeDesc': 'Project Information Document (PID),  Vol.',
+   'DocURL': 'http://www-wds.worldbank.org/servlet/WDSServlet?pcont=details&eid=090224b0817b19e2_1_0',
+   'EntityID': '090224b0817b19e2_1_0'}],
+ 'projectfinancialtype': 'IDA',
+ 'projectstatusdisplay': 'Active',
+ 'regionname': 'Africa',
+ 'sector': [{'Name': 'Primary education'},
+  {'Name': 'Secondary education'},
+  {'Name': 'Public administration- Other social services'},
+  {'Name': 'Tertiary education'}],
+ 'sector1': {'Name': 'Primary education', 'Percent': 46},
+ 'sector2': {'Name': 'Secondary education', 'Percent': 26},
+ 'sector3': {'Name': 'Public administration- Other social services',
+  'Percent': 16},
+ 'sector4': {'Name': 'Tertiary education', 'Percent': 12},
+ 'sector_namecode': [{'code': 'EP', 'name': 'Primary education'},
+  {'code': 'ES', 'name': 'Secondary education'},
+  {'code': 'BS', 'name': 'Public administration- Other social services'},
+  {'code': 'ET', 'name': 'Tertiary education'}],
+ 'sectorcode': 'ET,BS,ES,EP',
+ 'source': 'IBRD',
+ 'status': 'Active',
+ 'supplementprojectflg': 'N',
+ 'theme1': {'Name': 'Education for all', 'Percent': 100},
+ 'theme_namecode': [{'code': '65', 'name': 'Education for all'}],
+ 'themecode': '65',
+ 'totalamt': 130000000,
+ 'totalcommamt': 130000000,
+ 'url': 'http://www.worldbank.org/projects/P129828/ethiopia-general-education-quality-improvement-project-ii?lang=en'}
+Executed output:
+{'sector': [{'Name': 'Primary education'},
+  {'Name': 'Secondary education'},
+  {'Name': 'Public administration- Other social services'},
+  {'Name': 'Tertiary education'}],
+ 'supplementprojectflg': 'N',
+ 'projectfinancialtype': 'IDA',
+ 'prodline': 'PE',
+ 'mjtheme': ['Human development'],
+ 'idacommamt': 130000000,
+ 'impagency': 'MINISTRY OF EDUCATION',
+ 'project_name': 'Ethiopia General Education Quality Improvement Project II',
+ 'mjthemecode': '8,11',
+ 'closingdate': '2018-07-07T00:00:00Z',
+ 'totalcommamt': 130000000,
+ 'id': 'P129828',
+ 'mjsector_namecode': [{'code': 'EX', 'name': 'Education'},
+  {'code': 'EX', 'name': 'Education'},
+  {'code': 'BX', 'name': 'Public Administration, Law, and Justice'},
+  {'code': 'EX', 'name': 'Education'}],
+ 'docty': 'Project Information Document,Indigenous Peoples Plan,Project Information Document',
+ 'sector1': {'Percent': 46, 'Name': 'Primary education'},
+ 'lendinginstr': 'Investment Project Financing',
+ 'countrycode': 'ET',
+ 'sector2': {'Percent': 26, 'Name': 'Secondary education'},
+ 'totalamt': 130000000,
+ 'mjtheme_namecode': [{'code': '8', 'name': 'Human development'},
+  {'code': '11', 'name': ''}],
+ 'boardapprovaldate': '2013-11-12T00:00:00Z',
+ 'countryshortname': 'Ethiopia',
+ 'sector4': {'Percent': 12, 'Name': 'Tertiary education'},
+ 'prodlinetext': 'IBRD/IDA',
+ 'productlinetype': 'L',
+ 'regionname': 'Africa',
+ 'status': 'Active',
+ 'country_namecode': 'Federal Democratic Republic of Ethiopia!$!ET',
+ 'envassesmentcategorycode': 'C',
+ 'project_abstract': {'cdata': 'The development objective of the Second Phase of General Education Quality Improvement Project for Ethiopia is to improve learning conditions in primary and secondary schools and strengthen institutions at different levels of educational administration. The project has six components. The first component is curriculum, textbooks, assessment, examinations, and inspection. This component will support improvement of learning conditions in grades KG-12 by providing increased access to teaching and learning materials and through improvements to the curriculum by assessing the strengths and weaknesses of the current curriculum. This component has following four sub-components: (i) curriculum reform and implementation; (ii) teaching and learning materials; (iii) assessment and examinations; and (iv) inspection. The second component is teacher development program (TDP). This component will support improvements in learning conditions in both primary and secondary schools by advancing the quality of teaching in general education through: (a) enhancing the training of pre-service teachers in teacher education institutions; and (b) improving the quality of in-service teacher training. This component has following three sub-components: (i) pre-service teacher training; (ii) in-service teacher training; and (iii) licensing and relicensing of teachers and school leaders. The third component is school improvement plan. This component will support the strengthening of school planning in order to improve learning outcomes, and to partly fund the school improvement plans through school grants. It has following two sub-components: (i) school improvement plan; and (ii) school grants. The fourth component is management and capacity building, including education management information systems (EMIS). This component will support management and capacity building aspect of the project. This component has following three sub-components: (i) capacity building for education planning and management; (ii) capacity building for school planning and management; and (iii) EMIS. The fifth component is improving the quality of learning and teaching in secondary schools and universities through the use of information and communications technology (ICT). It has following five sub-components: (i) national policy and institution for ICT in general education; (ii) national ICT infrastructure improvement plan for general education; (iii) develop an integrated monitoring, evaluation, and learning system specifically for the ICT component; (iv) teacher professional development in the use of ICT; and (v) provision of limited number of e-Braille display readers with the possibility to scale up to all secondary education schools based on the successful implementation and usage of the readers. The sixth component is program coordination, monitoring and evaluation, and communication. It will support institutional strengthening by developing capacities in all aspects of program coordination, monitoring and evaluation; a new sub-component on communications will support information sharing for better management and accountability. It has following three sub-components: (i) program coordination; (ii) monitoring and evaluation (M and E); and (iii) communication.'},
+ 'approvalfy': 1999,
+ 'projectdocs': [{'DocDate': '28-AUG-2013',
+   'EntityID': '090224b081e545fb_1_0',
+   'DocURL': 'http://www-wds.worldbank.org/servlet/WDSServlet?pcont=details&eid=090224b081e545fb_1_0',
+   'DocType': 'PID',
+   'DocTypeDesc': 'Project Information Document (PID),  Vol.'},
+  {'DocDate': '01-JUL-2013',
+   'EntityID': '000442464_20130920111729',
+   'DocURL': 'http://www-wds.worldbank.org/servlet/WDSServlet?pcont=details&eid=000442464_20130920111729',
+   'DocType': 'IP',
+   'DocTypeDesc': 'Indigenous Peoples Plan (IP),  Vol.1 of 1'},
+  {'DocDate': '22-NOV-2012',
+   'EntityID': '090224b0817b19e2_1_0',
+   'DocURL': 'http://www-wds.worldbank.org/servlet/WDSServlet?pcont=details&eid=090224b0817b19e2_1_0',
+   'DocType': 'PID',
+   'DocTypeDesc': 'Project Information Document (PID),  Vol.'}],
+ 'lendprojectcost': 550000000,
+ 'lendinginstrtype': 'IN',
+ 'theme1': {'Percent': 100, 'Name': 'Education for all'},
+ 'grantamt': 0,
+ 'themecode': '65',
+ 'borrower': 'FEDERAL DEMOCRATIC REPUBLIC OF ETHIOPIA',
+ 'sectorcode': 'ET,BS,ES,EP',
+ 'sector3': {'Percent': 16,
+  'Name': 'Public administration- Other social services'},
+ 'majorsector_percent': [{'Percent': 46, 'Name': 'Education'},
+  {'Percent': 26, 'Name': 'Education'},
+  {'Percent': 16, 'Name': 'Public Administration, Law, and Justice'},
+  {'Percent': 12, 'Name': 'Education'}],
+ 'board_approval_month': 'November',
+ 'theme_namecode': [{'code': '65', 'name': 'Education for all'}],
+ 'countryname': 'Federal Democratic Republic of Ethiopia',
+ 'url': 'http://www.worldbank.org/projects/P129828/ethiopia-general-education-quality-improvement-project-ii?lang=en',
+ 'source': 'IBRD',
+ 'projectstatusdisplay': 'Active',
+ 'ibrdcommamt': 0,
+ 'sector_namecode': [{'code': 'EP', 'name': 'Primary education'},
+  {'code': 'ES', 'name': 'Secondary education'},
+  {'code': 'BS', 'name': 'Public administration- Other social services'},
+  {'code': 'ET', 'name': 'Tertiary education'}],
+ '_id': {'$oid': '52b213b38594d8a2be17c780'}}
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+projects = pd.read_json('data/world_bank_projects.json')
+projects.countryshortname.value_counts().head(10)
+
+-----------------
+Original output:
+Indonesia             19
+China                 19
+Vietnam               17
+India                 16
+Yemen, Republic of    13
+Nepal                 12
+Bangladesh            12
+Morocco               12
+Africa                11
+Mozambique            11
+Name: countryshortname, dtype: int64
+Executed output:
+Indonesia             19
+China                 19
+Vietnam               17
+India                 16
+Yemen, Republic of    13
+Morocco               12
+Bangladesh            12
+Nepal                 12
+Africa                11
+Mozambique            11
+Name: countryshortname, dtype: int64
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+projects
+
+-----------------
+Original output:
+                                      _id  approvalfy board_approval_month  \
+0    {'$oid': '52b213b38594d8a2be17c780'}        1999             November   
+1    {'$oid': '52b213b38594d8a2be17c781'}        2015             November   
+2    {'$oid': '52b213b38594d8a2be17c782'}        2014             November   
+3    {'$oid': '52b213b38594d8a2be17c783'}        2014              October   
+4    {'$oid': '52b213b38594d8a2be17c784'}        2014              October   
+5    {'$oid': '52b213b38594d8a2be17c785'}        2014              October   
+6    {'$oid': '52b213b38594d8a2be17c786'}        2014              October   
+7    {'$oid': '52b213b38594d8a2be17c787'}        2014              October   
+8    {'$oid': '52b213b38594d8a2be17c788'}        2014              October   
+9    {'$oid': '52b213b38594d8a2be17c789'}        2014              October   
+10   {'$oid': '52b213b38594d8a2be17c78a'}        2014              October   
+11   {'$oid': '52b213b38594d8a2be17c78b'}        2014              October   
+12   {'$oid': '52b213b38594d8a2be17c78c'}        2014              October   
+13   {'$oid': '52b213b38594d8a2be17c78d'}        2014              October   
+14   {'$oid': '52b213b38594d8a2be17c78e'}        2014              October   
+15   {'$oid': '52b213b38594d8a2be17c78f'}        2014              October   
+16   {'$oid': '52b213b38594d8a2be17c790'}        2014              October   
+17   {'$oid': '52b213b38594d8a2be17c791'}        2014              October   
+18   {'$oid': '52b213b38594d8a2be17c792'}        2014              October   
+19   {'$oid': '52b213b38594d8a2be17c793'}        2014              October   
+20   {'$oid': '52b213b38594d8a2be17c794'}        2014              October   
+21   {'$oid': '52b213b38594d8a2be17c795'}        2014              October   
+22   {'$oid': '52b213b38594d8a2be17c796'}        2014              October   
+23   {'$oid': '52b213b38594d8a2be17c797'}        2014              October   
+24   {'$oid': '52b213b38594d8a2be17c798'}        2014            September   
+25   {'$oid': '52b213b38594d8a2be17c799'}        2014            September   
+26   {'$oid': '52b213b38594d8a2be17c79a'}        2014            September   
+27   {'$oid': '52b213b38594d8a2be17c79b'}        2014            September   
+28   {'$oid': '52b213b38594d8a2be17c79c'}        2014            September   
+29   {'$oid': '52b213b38594d8a2be17c79d'}        2014            September   
+..                                    ...         ...                  ...   
+470  {'$oid': '52b213b38594d8a2be17c956'}        2013            September   
+471  {'$oid': '52b213b38594d8a2be17c957'}        2013            September   
+472  {'$oid': '52b213b38594d8a2be17c958'}        2013            September   
+473  {'$oid': '52b213b38594d8a2be17c959'}        2013            September   
+474  {'$oid': '52b213b38594d8a2be17c95a'}        2013            September   
+475  {'$oid': '52b213b38594d8a2be17c95b'}        2013            September   
+476  {'$oid': '52b213b38594d8a2be17c95c'}        2013            September   
+477  {'$oid': '52b213b38594d8a2be17c95d'}        2013            September   
+478  {'$oid': '52b213b38594d8a2be17c95e'}        2013            September   
+479  {'$oid': '52b213b38594d8a2be17c95f'}        2013            September   
+480  {'$oid': '52b213b38594d8a2be17c960'}        2013            September   
+481  {'$oid': '52b213b38594d8a2be17c961'}        2013            September   
+482  {'$oid': '52b213b38594d8a2be17c962'}        2013            September   
+483  {'$oid': '52b213b38594d8a2be17c963'}        2013            September   
+484  {'$oid': '52b213b38594d8a2be17c964'}        2013            September   
+485  {'$oid': '52b213b38594d8a2be17c965'}        2013            September   
+486  {'$oid': '52b213b38594d8a2be17c966'}        2013            September   
+487  {'$oid': '52b213b38594d8a2be17c967'}        2013               August   
+488  {'$oid': '52b213b38594d8a2be17c968'}        2013               August   
+489  {'$oid': '52b213b38594d8a2be17c969'}        2013               August   
+490  {'$oid': '52b213b38594d8a2be17c96a'}        2013               August   
+491  {'$oid': '52b213b38594d8a2be17c96b'}        2013               August   
+492  {'$oid': '52b213b38594d8a2be17c96c'}        2013               August   
+493  {'$oid': '52b213b38594d8a2be17c96d'}        2013               August   
+494  {'$oid': '52b213b38594d8a2be17c96e'}        2013               August   
+495  {'$oid': '52b213b38594d8a2be17c96f'}        2013               August   
+496  {'$oid': '52b213b38594d8a2be17c970'}        2013               August   
+497  {'$oid': '52b213b38594d8a2be17c971'}        2013               August   
+498  {'$oid': '52b213b38594d8a2be17c972'}        2013               August   
+499  {'$oid': '52b213b38594d8a2be17c973'}        2013               August   
+
+        boardapprovaldate                                  borrower  \
+0    2013-11-12T00:00:00Z   FEDERAL DEMOCRATIC REPUBLIC OF ETHIOPIA   
+1    2013-11-04T00:00:00Z                     GOVERNMENT OF TUNISIA   
+2    2013-11-01T00:00:00Z    MINISTRY OF FINANCE AND ECONOMIC DEVEL   
+3    2013-10-31T00:00:00Z    MIN. OF PLANNING AND INT'L COOPERATION   
+4    2013-10-31T00:00:00Z                       MINISTRY OF FINANCE   
+5    2013-10-31T00:00:00Z                         REPUBLIC OF KENYA   
+6    2013-10-29T00:00:00Z                       GOVERNMENT OF INDIA   
+7    2013-10-29T00:00:00Z                PEOPLE'S REPUBLIC OF CHINA   
+8    2013-10-29T00:00:00Z                   THE GOVERNMENT OF INDIA   
+9    2013-10-29T00:00:00Z                    THE KINGDOM OF MOROCCO   
+10   2013-10-25T00:00:00Z                 GOVERNMENT OF SOUTH SUDAN   
+11   2013-10-25T00:00:00Z                                       NaN   
+12   2013-10-24T00:00:00Z                       GOVERNMENT OF GHANA   
+13   2013-10-22T00:00:00Z                 GOVERNMENT OF TIMOR LESTE   
+14   2013-10-22T00:00:00Z                      GOVERNMENT OF JORDAN   
+15   2013-10-17T00:00:00Z                       MINISTRY OF FINANCE   
+16   2013-10-17T00:00:00Z                       MINISTRY OF FINANCE   
+17   2013-10-16T00:00:00Z      MINISTRY OF FINANCE AND BUDGET (MFB)   
+18   2013-10-16T00:00:00Z              ROYAL GOVERNMENT OF CAMBODIA   
+19   2013-10-10T00:00:00Z                       MINISTRY OF FINANCE   
+20   2013-10-09T00:00:00Z       AGA KHAN DEVELOPMENT NETWORK (AKDN)   
+21   2013-10-07T00:00:00Z                                     NEPAL   
+22   2013-10-07T00:00:00Z  MINISTRY OF PLANNING AND INTERNATIONAL C   
+23   2013-10-03T00:00:00Z                    REPUBLIC OF TAJIKISTAN   
+24   2013-09-30T00:00:00Z                    REPUBLIC OF AZERBAIJAN   
+25   2013-09-30T00:00:00Z                  UNIVERSITY OF QUEENSLAND   
+26   2013-09-30T00:00:00Z           LAO PEOPLES DEMOCRATIC REPUBLIC   
+27   2013-09-30T00:00:00Z          PACIFIC AVIATION SECURITY OFFICE   
+28   2013-09-30T00:00:00Z                SOLOMON ISLANDS GOVERNMENT   
+29   2013-09-27T00:00:00Z                  GOVERNMENT OF MOZAMBIQUE   
+..                    ...                                       ...   
+470  2012-09-20T00:00:00Z                     GOVERNMENT OF LIBERIA   
+471  2012-09-20T00:00:00Z                  GOVERNMENT OF BANGLADESH   
+472  2012-09-13T00:00:00Z             MINISTRY OF NATURE PROTECTION   
+473  2012-09-13T00:00:00Z   MINISTRY OF ENVIRONMENT, FORESTS, WATER   
+474  2012-09-11T00:00:00Z                    GOVERNMENT OF PAKISTAN   
+475  2012-09-11T00:00:00Z                   GOVERNMENT OF INDONESIA   
+476  2012-09-11T00:00:00Z             SOCIALIST REPUBLIC OF VIETNAM   
+477  2012-09-11T00:00:00Z                    REPUBLIC OF UZBEKISTAN   
+478  2012-09-11T00:00:00Z              ISLAMIC REPUBLIC OF PAKISTAN   
+479  2012-09-10T00:00:00Z                                  UT'Z CHE   
+480  2012-09-10T00:00:00Z                      GOVERNMENT OF ZAMBIA   
+481  2012-09-06T00:00:00Z                       GOVERNMENT OF INDIA   
+482  2012-09-06T00:00:00Z                       GOVERNMENT OF INDIA   
+483  2012-09-06T00:00:00Z                       GOVERNMENT OF INDIA   
+484  2012-09-06T00:00:00Z                ILO, MINLAND & CFSI & BANK   
+485  2012-09-05T00:00:00Z                    GOVERNMENT OF MONGOLIA   
+486  2012-09-01T00:00:00Z            GOVERNMENT OF LEBANON & JORDAN   
+487  2012-08-30T00:00:00Z                     UNITED MEXICAN STATES   
+488  2012-08-30T00:00:00Z               THE STATE OF RIO DE JANEIRO   
+489  2012-08-30T00:00:00Z                                UN-HABITAT   
+490  2012-08-29T00:00:00Z                       GOVERNMENT OF NEPAL   
+491  2012-08-24T00:00:00Z               PALESTINIAN WATER AUTHORITY   
+492  2012-08-21T00:00:00Z                    GOVERNMENT OF PAKISTAN   
+493  2012-08-21T00:00:00Z                  GOVERNMENT OF BANGLADESH   
+494  2012-08-17T00:00:00Z                     MINISTRY OF EDUCATION   
+495  2012-08-10T00:00:00Z               THE COMPETITIVENESS COMPANY   
+496  2012-08-09T00:00:00Z           LAO PEOPLES DEMOCRATIC REPUBLIC   
+497  2012-08-03T00:00:00Z      GOVERNMENT OF THE REPUBLIC OF GUINEA   
+498  2012-08-02T00:00:00Z                     REPUBLIC OF INDONESIA   
+499  2012-08-02T00:00:00Z                        GOVERMENT OF KENYA   
+
+              closingdate                               country_namecode  \
+0    2018-07-07T00:00:00Z   Federal Democratic Republic of Ethiopia!$!ET   
+1                     NaN                       Republic of Tunisia!$!TN   
+2                     NaN                                    Tuvalu!$!TV   
+3                     NaN                         Republic of Yemen!$!RY   
+4    2019-04-30T00:00:00Z                        Kingdom of Lesotho!$!LS   
+5                     NaN                         Republic of Kenya!$!KE   
+6    2019-06-30T00:00:00Z                         Republic of India!$!IN   
+7                     NaN                People's Republic of China!$!CN   
+8    2018-12-31T00:00:00Z                         Republic of India!$!IN   
+9    2014-12-31T00:00:00Z                        Kingdom of Morocco!$!MA   
+10                    NaN                   Republic of South Sudan!$!SS   
+11   2017-12-31T00:00:00Z                         Republic of India!$!IN   
+12   2019-06-30T00:00:00Z                         Republic of Ghana!$!GH   
+13                    NaN        Democratic Republic of Timor-Leste!$!TP   
+14                    NaN               Hashemite Kingdom of Jordan!$!JO   
+15   2019-04-30T00:00:00Z                                     Samoa!$!WS   
+16   2015-12-31T00:00:00Z                                     Samoa!$!WS   
+17                    NaN                    Republic of Madagascar!$!MG   
+18                    NaN                       Kingdom of Cambodia!$!KH   
+19                    NaN                        Kingdom of Morocco!$!MA   
+20                    NaN                           Kyrgyz Republic!$!KG   
+21                    NaN                                     Nepal!$!NP   
+22                    NaN               Hashemite Kingdom of Jordan!$!JO   
+23                    NaN                    Republic of Tajikistan!$!TJ   
+24   2018-12-31T00:00:00Z                    Republic of Azerbaijan!$!AZ   
+25                    NaN                     East Asia and Pacific!$!4E   
+26   2014-03-31T00:00:00Z          Lao People's Democratic Republic!$!LA   
+27   2018-12-31T00:00:00Z                           Pacific Islands!$!4P   
+28                    NaN                           Solomon Islands!$!SB   
+29                    NaN                    Republic of Mozambique!$!MZ   
+..                    ...                                            ...   
+470                   NaN                       Republic of Liberia!$!LR   
+471  2018-12-31T00:00:00Z           People's Republic of Bangladesh!$!BD   
+472  2014-09-30T00:00:00Z                       Republic of Armenia!$!AM   
+473                   NaN                       Republic of Albania!$!AL   
+474  2017-06-30T00:00:00Z              Islamic Republic of Pakistan!$!PK   
+475  2018-03-31T00:00:00Z                     Republic of Indonesia!$!ID   
+476  2018-12-31T00:00:00Z             Socialist Republic of Vietnam!$!VN   
+477                   NaN                    Republic of Uzbekistan!$!UZ   
+478                   NaN              Islamic Republic of Pakistan!$!PK   
+479  2016-05-07T00:00:00Z                     Republic of Guatemala!$!GT   
+480  2014-12-31T00:00:00Z                        Republic of Zambia!$!ZM   
+481  2015-12-31T00:00:00Z                         Republic of India!$!IN   
+482  2018-12-31T00:00:00Z                         Republic of India!$!IN   
+483  2013-09-30T00:00:00Z                         Republic of India!$!IN   
+484  2015-12-31T00:00:00Z               Republic of the Philippines!$!PH   
+485  2013-12-31T00:00:00Z                                  Mongolia!$!MN   
+486  2015-01-31T00:00:00Z              Middle East and North Africa!$!5M   
+487  2017-08-31T00:00:00Z                     United Mexican States!$!MX   
+488  2014-01-31T00:00:00Z             Federative Republic of Brazil!$!BR   
+489  2015-06-30T00:00:00Z  The Independent State of Papua New Guine!$!PG   
+490  2014-06-30T00:00:00Z                                     Nepal!$!NP   
+491  2014-03-31T00:00:00Z                        West Bank and Gaza!$!GZ   
+492  2015-06-30T00:00:00Z              Islamic Republic of Pakistan!$!PK   
+493  2015-04-30T00:00:00Z           People's Republic of Bangladesh!$!BD   
+494  2014-06-30T00:00:00Z                                     Nepal!$!NP   
+495  2013-08-31T00:00:00Z                                   Jamaica!$!JM   
+496  2012-12-31T00:00:00Z          Lao People's Democratic Republic!$!LA   
+497  2014-12-31T00:00:00Z                        Republic of Guinea!$!GN   
+498  2017-09-30T00:00:00Z                     Republic of Indonesia!$!ID   
+499  2018-12-31T00:00:00Z                         Republic of Kenya!$!KE   
+
+    countrycode                               countryname  \
+0            ET   Federal Democratic Republic of Ethiopia   
+1            TN                       Republic of Tunisia   
+2            TV                                    Tuvalu   
+3            RY                         Republic of Yemen   
+4            LS                        Kingdom of Lesotho   
+5            KE                         Republic of Kenya   
+6            IN                         Republic of India   
+7            CN                People's Republic of China   
+8            IN                         Republic of India   
+9            MA                        Kingdom of Morocco   
+10           SS                   Republic of South Sudan   
+11           IN                         Republic of India   
+12           GH                         Republic of Ghana   
+13           TP        Democratic Republic of Timor-Leste   
+14           JO               Hashemite Kingdom of Jordan   
+15           WS                                     Samoa   
+16           WS                                     Samoa   
+17           MG                    Republic of Madagascar   
+18           KH                       Kingdom of Cambodia   
+19           MA                        Kingdom of Morocco   
+20           KG                           Kyrgyz Republic   
+21           NP                                     Nepal   
+22           JO               Hashemite Kingdom of Jordan   
+23           TJ                    Republic of Tajikistan   
+24           AZ                    Republic of Azerbaijan   
+25           4E                     East Asia and Pacific   
+26           LA          Lao People's Democratic Republic   
+27           4P                           Pacific Islands   
+28           SB                           Solomon Islands   
+29           MZ                    Republic of Mozambique   
+..          ...                                       ...   
+470          LR                       Republic of Liberia   
+471          BD           People's Republic of Bangladesh   
+472          AM                       Republic of Armenia   
+473          AL                       Republic of Albania   
+474          PK              Islamic Republic of Pakistan   
+475          ID                     Republic of Indonesia   
+476          VN             Socialist Republic of Vietnam   
+477          UZ                    Republic of Uzbekistan   
+478          PK              Islamic Republic of Pakistan   
+479          GT                     Republic of Guatemala   
+480          ZM                        Republic of Zambia   
+481          IN                         Republic of India   
+482          IN                         Republic of India   
+483          IN                         Republic of India   
+484          PH               Republic of the Philippines   
+485          MN                                  Mongolia   
+486          5M              Middle East and North Africa   
+487          MX                     United Mexican States   
+488          BR             Federative Republic of Brazil   
+489          PG  The Independent State of Papua New Guine   
+490          NP                                     Nepal   
+491          GZ                        West Bank and Gaza   
+492          PK              Islamic Republic of Pakistan   
+493          BD           People's Republic of Bangladesh   
+494          NP                                     Nepal   
+495          JM                                   Jamaica   
+496          LA          Lao People's Democratic Republic   
+497          GN                        Republic of Guinea   
+498          ID                     Republic of Indonesia   
+499          KE                         Republic of Kenya   
+
+                     countryshortname  \
+0                            Ethiopia   
+1                             Tunisia   
+2                              Tuvalu   
+3                  Yemen, Republic of   
+4                             Lesotho   
+5                               Kenya   
+6                               India   
+7                               China   
+8                               India   
+9                             Morocco   
+10                        South Sudan   
+11                              India   
+12                              Ghana   
+13                        Timor-Leste   
+14                             Jordan   
+15                              Samoa   
+16                              Samoa   
+17                         Madagascar   
+18                           Cambodia   
+19                            Morocco   
+20                    Kyrgyz Republic   
+21                              Nepal   
+22                             Jordan   
+23                         Tajikistan   
+24                         Azerbaijan   
+25              East Asia and Pacific   
+26   Lao People's Democratic Republic   
+27                    Pacific Islands   
+28                    Solomon Islands   
+29                         Mozambique   
+..                                ...   
+470                           Liberia   
+471                        Bangladesh   
+472                           Armenia   
+473                           Albania   
+474                          Pakistan   
+475                         Indonesia   
+476                           Vietnam   
+477                        Uzbekistan   
+478                          Pakistan   
+479                         Guatemala   
+480                            Zambia   
+481                             India   
+482                             India   
+483                             India   
+484                       Philippines   
+485                          Mongolia   
+486      Middle East and North Africa   
+487                            Mexico   
+488                            Brazil   
+489                  Papua New Guinea   
+490                             Nepal   
+491                West Bank and Gaza   
+492                          Pakistan   
+493                        Bangladesh   
+494                             Nepal   
+495                           Jamaica   
+496  Lao People's Democratic Republic   
+497                            Guinea   
+498                         Indonesia   
+499                             Kenya   
+
+                           ...                              sectorcode source  \
+0                          ...                             ET,BS,ES,EP   IBRD   
+1                          ...                                   BZ,BS   IBRD   
+2                          ...                                      TI   IBRD   
+3                          ...                                      JB   IBRD   
+4                          ...                                FH,YW,YZ   IBRD   
+5                          ...                                      JB   IBRD   
+6                          ...                                      TI   IBRD   
+7                          ...                                      LR   IBRD   
+8                          ...                                      TI   IBRD   
+9                          ...                                BM,BC,BZ   IBRD   
+10                         ...                                AZ,JB,AH   IBRD   
+11                         ...                             JB,YC,WD,TI   IBRD   
+12                         ...                                      CZ   IBRD   
+13                         ...                                   BV,TI   IBRD   
+14                         ...                                      JB   IBRD   
+15                         ...                                      TI   IBRD   
+16                         ...                                AZ,AJ,AH   IBRD   
+17                         ...                                      EP   IBRD   
+18                         ...                          BK,JB,BH,BC,JA   IBRD   
+19                         ...                                BH,BC,BZ   IBRD   
+20                         ...                                      JB   IBRD   
+21                         ...                                BH,YW,JB   IBRD   
+22                         ...                          WC,BS,BH,TZ,WB   IBRD   
+23                         ...                                      JA   IBRD   
+24                         ...                                AB,AZ,YA   IBRD   
+25                         ...                                   AB,AZ   IBRD   
+26                         ...                          LG,FB,EZ,YZ,BC   IBRD   
+27                         ...                                   BV,TV   IBRD   
+28                         ...                                   BZ,AZ   IBRD   
+29                         ...                             JB,BW,WZ,WD   IBRD   
+..                         ...                                     ...    ...   
+470                        ...                                   BV,TI   IBRD   
+471                        ...                                BU,LA,LR   IBRD   
+472                        ...                                      BC   IBRD   
+473                        ...                                      BC   IBRD   
+474                        ...                                   BM,BH   IBRD   
+475                        ...                          BO,BH,LZ,TZ,WZ   IBRD   
+476                        ...                                BU,LT,LA   IBRD   
+477                        ...                                      FH   IBRD   
+478                        ...                                      BH   IBRD   
+479                        ...                                      AZ   IBRD   
+480                        ...                                      LS   IBRD   
+481                        ...                             BC,EC,BQ,BH   IBRD   
+482                        ...                          AI,YA,AH,BL,AB   IBRD   
+483                        ...                          CZ,AH,LA,AI,LH   IBRD   
+484                        ...                             EV,FH,BZ,JB   IBRD   
+485                        ...                                BZ,JA,AJ   IBRD   
+486                        ...                             BZ,BS,BQ,BN   IBRD   
+487                        ...                                YA,BL,AB   IBRD   
+488                        ...                                JA,EZ,BH   IBRD   
+489                        ...                                      BW   IBRD   
+490                        ...                                      BZ   IBRD   
+491                        ...                                   WC,WA   IBRD   
+492                        ...                                      EP   IBRD   
+493                        ...                                      BC   IBRD   
+494                        ...                                      EZ   IBRD   
+495                        ...                                   EV,AZ   IBRD   
+496                        ...                          YZ,JA,EZ,FZ,BC   IBRD   
+497                        ...                                AB,AH,AI   IBRD   
+498                        ...                                YA,BL,AB   IBRD   
+499                        ...                                   BV,TC   IBRD   
+
+     status  supplementprojectflg  \
+0    Active                     N   
+1    Active                     N   
+2    Active                     Y   
+3    Active                     N   
+4    Active                     N   
+5    Active                     Y   
+6    Active                     N   
+7    Active                     N   
+8    Active                     N   
+9    Active                     N   
+10   Active                     Y   
+11   Active                     N   
+12   Active                     N   
+13   Active                     Y   
+14   Active                     N   
+15   Active                     N   
+16   Active                     N   
+17   Active                     N   
+18   Active                     Y   
+19   Active                     N   
+20   Active                     N   
+21   Active                     N   
+22   Active                     N   
+23   Active                     N   
+24   Active                     N   
+25   Active                     N   
+26   Closed                     N   
+27   Active                     N   
+28   Active                     Y   
+29   Active                     Y   
+..      ...                   ...   
+470  Active                     Y   
+471  Active                     N   
+472  Active                     N   
+473  Active                     N   
+474  Active                     N   
+475  Active                     N   
+476  Active                     N   
+477  Active                     Y   
+478  Active                     Y   
+479  Active                     N   
+480  Active                     N   
+481  Active                     N   
+482  Active                     N   
+483  Closed                     N   
+484  Active                     Y   
+485  Active                     N   
+486  Active                     N   
+487  Active                     N   
+488  Closed                     N   
+489  Closed                     N   
+490  Active                     N   
+491  Active                     N   
+492  Active                     N   
+493  Active                     N   
+494  Active                     N   
+495  Closed                     N   
+496  Closed                     N   
+497  Active                     N   
+498  Active                     N   
+499  Active                     N   
+
+                                                theme1  \
+0        {'Percent': 100, 'Name': 'Education for all'}   
+1    {'Percent': 30, 'Name': 'Other economic manage...   
+2      {'Percent': 46, 'Name': 'Regional integration'}   
+3    {'Percent': 50, 'Name': 'Participation and civ...   
+4    {'Percent': 30, 'Name': 'Export development an...   
+5       {'Percent': 100, 'Name': 'Social safety nets'}   
+6    {'Percent': 20, 'Name': 'Administrative and ci...   
+7           {'Percent': 100, 'Name': 'Climate change'}   
+8    {'Percent': 87, 'Name': 'Other rural developme...   
+9    {'Percent': 33, 'Name': 'Other accountability/...   
+10   {'Percent': 100, 'Name': 'Global food crisis r...   
+11   {'Percent': 60, 'Name': 'Rural services and in...   
+12                          {'Percent': 0, 'Name': ''}   
+13     {'Percent': 20, 'Name': 'Regional integration'}   
+14       {'Percent': 50, 'Name': 'Social safety nets'}   
+15   {'Percent': 60, 'Name': 'Rural services and in...   
+16   {'Percent': 100, 'Name': 'Other rural developm...   
+17       {'Percent': 100, 'Name': 'Education for all'}   
+18             {'Percent': 17, 'Name': 'Child health'}   
+19   {'Percent': 40, 'Name': 'Public expenditure, f...   
+20   {'Percent': 50, 'Name': 'Conflict prevention a...   
+21   {'Percent': 30, 'Name': 'Urban services and ho...   
+22   {'Percent': 25, 'Name': 'Other social developm...   
+23   {'Percent': 60, 'Name': 'Nutrition and food se...   
+24            {'Percent': 30, 'Name': 'Rural markets'}   
+25   {'Percent': 40, 'Name': 'Other environment and...   
+26   {'Percent': 14, 'Name': 'Regulation and compet...   
+27            {'Percent': 5, 'Name': 'Climate change'}   
+28   {'Percent': 30, 'Name': 'Rural policies and in...   
+29   {'Percent': 4, 'Name': 'Other social developme...   
+..                                                 ...   
+470  {'Percent': 40, 'Name': 'Trade facilitation an...   
+471  {'Percent': 45, 'Name': 'Rural services and in...   
+472  {'Percent': 100, 'Name': 'Other environment an...   
+473  {'Percent': 100, 'Name': 'Other environment an...   
+474       {'Percent': 34, 'Name': 'Municipal finance'}   
+475  {'Percent': 25, 'Name': 'Infrastructure servic...   
+476  {'Percent': 100, 'Name': 'Rural services and i...   
+477  {'Percent': 40, 'Name': 'Micro, Small and Medi...   
+478  {'Percent': 10, 'Name': 'Administrative and ci...   
+479  {'Percent': 100, 'Name': 'Other social develop...   
+480  {'Percent': 100, 'Name': 'Other public sector ...   
+481            {'Percent': 23, 'Name': 'Child health'}   
+482  {'Percent': 10, 'Name': 'Rural services and in...   
+483  {'Percent': 19, 'Name': 'Pollution management ...   
+484  {'Percent': 9, 'Name': 'Rural non-farm income ...   
+485  {'Percent': 100, 'Name': 'Other communicable d...   
+486  {'Percent': 25, 'Name': 'Other public sector g...   
+487            {'Percent': 20, 'Name': 'Biodiversity'}   
+488  {'Percent': 20, 'Name': 'Health system perform...   
+489  {'Percent': 50, 'Name': 'Urban services and ho...   
+490  {'Percent': 80, 'Name': 'Public expenditure, f...   
+491  {'Percent': 100, 'Name': 'Rural services and i...   
+492       {'Percent': 70, 'Name': 'Education for all'}   
+493  {'Percent': 100, 'Name': 'Other environment an...   
+494  {'Percent': 100, 'Name': 'Natural disaster man...   
+495  {'Percent': 50, 'Name': 'Regulation and compet...   
+496            {'Percent': 14, 'Name': 'Child health'}   
+497  {'Percent': 100, 'Name': 'Global food crisis r...   
+498  {'Percent': 85, 'Name': 'Rural services and in...   
+499  {'Percent': 1, 'Name': 'Municipal governance a...   
+
+                                        theme_namecode       themecode  \
+0        [{'code': '65', 'name': 'Education for all'}]              65   
+1    [{'code': '24', 'name': 'Other economic manage...           54,24   
+2    [{'code': '47', 'name': 'Regional integration'...     52,81,25,47   
+3    [{'code': '57', 'name': 'Participation and civ...           59,57   
+4    [{'code': '45', 'name': 'Export development an...           41,45   
+5       [{'code': '54', 'name': 'Social safety nets'}]              54   
+6    [{'code': '25', 'name': 'Administrative and ci...           39,25   
+7           [{'code': '81', 'name': 'Climate change'}]              81   
+8    [{'code': '79', 'name': 'Other rural developme...              79   
+9    [{'code': '29', 'name': 'Other accountability/...        27,30,29   
+10   [{'code': '91', 'name': 'Global food crisis re...              91   
+11   [{'code': '78', 'name': 'Rural services and in...     81,87,52,78   
+12                                                 NaN             NaN   
+13   [{'code': '47', 'name': 'Regional integration'...        78,81,47   
+14   [{'code': '54', 'name': 'Social safety nets'},...        53,56,54   
+15   [{'code': '78', 'name': 'Rural services and in...        49,81,78   
+16   [{'code': '79', 'name': 'Other rural developme...              79   
+17       [{'code': '65', 'name': 'Education for all'}]              65   
+18   [{'code': '63', 'name': 'Child health'}, {'cod...  69,57,25,67,63   
+19   [{'code': '27', 'name': 'Public expenditure, f...        25,26,27   
+20   [{'code': '58', 'name': 'Conflict prevention a...           57,58   
+21   [{'code': '71', 'name': 'Urban services and ho...           57,71   
+22   [{'code': '62', 'name': 'Other social developm...           58,62   
+23   [{'code': '68', 'name': 'Nutrition and food se...           63,68   
+24   [{'code': '75', 'name': 'Rural markets'}, {'co...     56,78,76,75   
+25   [{'code': '86', 'name': 'Other environment and...        80,81,86   
+26   [{'code': '40', 'name': 'Regulation and compet...     67,27,49,40   
+27   [{'code': '81', 'name': 'Climate change'}, {'c...     52,47,25,81   
+28   [{'code': '77', 'name': 'Rural policies and in...        57,78,77   
+29   [{'code': '62', 'name': 'Other social developm...           85,62   
+..                                                 ...             ...   
+470  [{'code': '49', 'name': 'Trade facilitation an...           78,49   
+471  [{'code': '78', 'name': 'Rural services and in...     59,81,57,78   
+472  [{'code': '86', 'name': 'Other environment and...              86   
+473  [{'code': '86', 'name': 'Other environment and...              86   
+474  [{'code': '72', 'name': 'Municipal finance'}, ...           73,72   
+475  [{'code': '39', 'name': 'Infrastructure servic...           72,39   
+476  [{'code': '78', 'name': 'Rural services and in...              78   
+477  [{'code': '41', 'name': 'Micro, Small and Medi...           75,41   
+478  [{'code': '25', 'name': 'Administrative and ci...        83,36,25   
+479  [{'code': '62', 'name': 'Other social developm...              62   
+480  [{'code': '30', 'name': 'Other public sector g...              30   
+481  [{'code': '63', 'name': 'Child health'}, {'cod...     68,59,57,63   
+482  [{'code': '78', 'name': 'Rural services and in...     79,85,86,78   
+483  [{'code': '84', 'name': 'Pollution management ...     82,78,81,84   
+484  [{'code': '76', 'name': 'Rural non-farm income...     78,58,41,76   
+485  [{'code': '64', 'name': 'Other communicable di...              64   
+486  [{'code': '30', 'name': 'Other public sector g...     54,55,56,30   
+487  [{'code': '80', 'name': 'Biodiversity'}, {'cod...     82,79,77,80   
+488  [{'code': '67', 'name': 'Health system perform...     65,28,27,67   
+489  [{'code': '71', 'name': 'Urban services and ho...     73,55,52,71   
+490  [{'code': '27', 'name': 'Public expenditure, f...           29,27   
+491  [{'code': '78', 'name': 'Rural services and in...              78   
+492  [{'code': '65', 'name': 'Education for all'}, ...           59,65   
+493  [{'code': '86', 'name': 'Other environment and...              86   
+494  [{'code': '52', 'name': 'Natural disaster mana...              52   
+495  [{'code': '40', 'name': 'Regulation and compet...           62,40   
+496  [{'code': '63', 'name': 'Child health'}, {'cod...     65,27,49,63   
+497  [{'code': '91', 'name': 'Global food crisis re...              91   
+498  [{'code': '78', 'name': 'Rural services and in...        77,91,78   
+499  [{'code': '73', 'name': 'Municipal governance ...     39,49,88,73   
+
+      totalamt totalcommamt                                                url  
+0    130000000    130000000  http://www.worldbank.org/projects/P129828/ethi...  
+1            0      4700000  http://www.worldbank.org/projects/P144674?lang=en  
+2      6060000      6060000  http://www.worldbank.org/projects/P145310?lang=en  
+3            0      1500000  http://www.worldbank.org/projects/P144665?lang=en  
+4     13100000     13100000  http://www.worldbank.org/projects/P144933/seco...  
+5     10000000     10000000  http://www.worldbank.org/projects/P146161?lang=en  
+6    500000000    500000000  http://www.worldbank.org/projects/P121185/firs...  
+7            0     27280000  http://www.worldbank.org/projects/P127033/chin...  
+8    160000000    160000000  http://www.worldbank.org/projects/P130164/raja...  
+9    200000000    200000000  http://www.worldbank.org/projects/P130903?lang=en  
+10           0      7530000  http://www.worldbank.org/projects/P145339?lang=en  
+11   250000000    250000000  http://www.worldbank.org/projects/P146653?lang=en  
+12    97000000     97000000  http://www.worldbank.org/projects/P144140/gh-e...  
+13    40000000     40000000  http://www.worldbank.org/projects/P130975/timo...  
+14           0      9500000  http://www.worldbank.org/projects/P144832?lang=en  
+15    20000000     20000000  http://www.worldbank.org/projects/P145545?lang=en  
+16     5000000      5000000  http://www.worldbank.org/projects/P145938?lang=en  
+17           0     85400000  http://www.worldbank.org/projects/P132616?lang=en  
+18           0     13450000  http://www.worldbank.org/projects/P146271?lang=en  
+19           0      4350000  http://www.worldbank.org/projects/P143979?lang=en  
+20           0      2000000  http://www.worldbank.org/projects/P132577?lang=en  
+21           0      2750000  http://www.worldbank.org/projects/P145359?lang=en  
+22           0     50000000  http://www.worldbank.org/projects/P147689?lang=en  
+23           0      2800000  http://www.worldbank.org/projects/P146109?lang=en  
+24    34500000     34500000  http://www.worldbank.org/projects/P122812/thir...  
+25           0      4500000  http://www.worldbank.org/projects/P123933/capt...  
+26    20000000     20000000  http://www.worldbank.org/projects/P143025/lao-...  
+27     2150000      2150000  http://www.worldbank.org/projects/P145057/paci...  
+28     3000000      3000000  http://www.worldbank.org/projects/P146021?lang=en  
+29    32000000     32000000  http://www.worldbank.org/projects/P146098?lang=en  
+..         ...          ...                                                ...  
+470   50000000     50000000  http://www.worldbank.org/projects/P129654/libe...  
+471  155000000    155000000  http://www.worldbank.org/projects/P131263/rura...  
+472          0       150000  http://www.worldbank.org/projects/P131631/repo...  
+473          0       150000  http://www.worldbank.org/projects/P132679/land...  
+474  150000000    150000000  http://www.worldbank.org/projects/P112901/pk-p...  
+475   29600000     29600000  http://www.worldbank.org/projects/P118916/infr...  
+476  448900000    448900000  http://www.worldbank.org/projects/P125996/dist...  
+477   40000000     40000000  http://www.worldbank.org/projects/P126962/addi...  
+478   70000000     70000000  http://www.worldbank.org/projects/P131266/punj...  
+479          0      2510000  http://www.worldbank.org/projects/P130412/stre...  
+480          0       350000  http://www.worldbank.org/projects/P131881/zamb...  
+481  106000000    106000000  http://www.worldbank.org/projects/P121731/icds...  
+482   60000000     60000000  http://www.worldbank.org/projects/P122486/karn...  
+483  100000000    100000000  http://www.worldbank.org/projects/P124041/hima...  
+484          0      5570000  http://www.worldbank.org/projects/P132238/mult...  
+485          0      2900000  http://www.worldbank.org/projects/P131204/capa...  
+486          0      2400000  http://www.worldbank.org/projects/P132097/5m-d...  
+487          0     11690000  http://www.worldbank.org/projects/P121116/sust...  
+488  300000000    300000000  http://www.worldbank.org/projects/P126465/rio-...  
+489          0       350000  http://www.worldbank.org/projects/P128763/papu...  
+490          0       800000  http://www.worldbank.org/projects/P131860/stre...  
+491          0      3650000  http://www.worldbank.org/projects/P123322/wate...  
+492          0     10000000  http://www.worldbank.org/projects/P128096/paki...  
+493          0       150000  http://www.worldbank.org/projects/P132138/revi...  
+494          0      1510000  http://www.worldbank.org/projects/P129177/nepa...  
+495          0        50000  http://www.worldbank.org/projects/P127299/tech...  
+496   20000000     20000000  http://www.worldbank.org/projects/P125298/lao-...  
+497          0     20000000  http://www.worldbank.org/projects/P128309/seco...  
+498   80000000     80000000  http://www.worldbank.org/projects/P117243/sust...  
+499  300000000    300000000  http://www.worldbank.org/projects/P126321/keny...  
+
+[500 rows x 50 columns]
+Executed output:
+                                      _id  approvalfy board_approval_month  \
+0    {'$oid': '52b213b38594d8a2be17c780'}        1999             November   
+1    {'$oid': '52b213b38594d8a2be17c781'}        2015             November   
+2    {'$oid': '52b213b38594d8a2be17c782'}        2014             November   
+3    {'$oid': '52b213b38594d8a2be17c783'}        2014              October   
+4    {'$oid': '52b213b38594d8a2be17c784'}        2014              October   
+5    {'$oid': '52b213b38594d8a2be17c785'}        2014              October   
+6    {'$oid': '52b213b38594d8a2be17c786'}        2014              October   
+7    {'$oid': '52b213b38594d8a2be17c787'}        2014              October   
+8    {'$oid': '52b213b38594d8a2be17c788'}        2014              October   
+9    {'$oid': '52b213b38594d8a2be17c789'}        2014              October   
+10   {'$oid': '52b213b38594d8a2be17c78a'}        2014              October   
+11   {'$oid': '52b213b38594d8a2be17c78b'}        2014              October   
+12   {'$oid': '52b213b38594d8a2be17c78c'}        2014              October   
+13   {'$oid': '52b213b38594d8a2be17c78d'}        2014              October   
+14   {'$oid': '52b213b38594d8a2be17c78e'}        2014              October   
+15   {'$oid': '52b213b38594d8a2be17c78f'}        2014              October   
+16   {'$oid': '52b213b38594d8a2be17c790'}        2014              October   
+17   {'$oid': '52b213b38594d8a2be17c791'}        2014              October   
+18   {'$oid': '52b213b38594d8a2be17c792'}        2014              October   
+19   {'$oid': '52b213b38594d8a2be17c793'}        2014              October   
+20   {'$oid': '52b213b38594d8a2be17c794'}        2014              October   
+21   {'$oid': '52b213b38594d8a2be17c795'}        2014              October   
+22   {'$oid': '52b213b38594d8a2be17c796'}        2014              October   
+23   {'$oid': '52b213b38594d8a2be17c797'}        2014              October   
+24   {'$oid': '52b213b38594d8a2be17c798'}        2014            September   
+25   {'$oid': '52b213b38594d8a2be17c799'}        2014            September   
+26   {'$oid': '52b213b38594d8a2be17c79a'}        2014            September   
+27   {'$oid': '52b213b38594d8a2be17c79b'}        2014            September   
+28   {'$oid': '52b213b38594d8a2be17c79c'}        2014            September   
+29   {'$oid': '52b213b38594d8a2be17c79d'}        2014            September   
+..                                    ...         ...                  ...   
+470  {'$oid': '52b213b38594d8a2be17c956'}        2013            September   
+471  {'$oid': '52b213b38594d8a2be17c957'}        2013            September   
+472  {'$oid': '52b213b38594d8a2be17c958'}        2013            September   
+473  {'$oid': '52b213b38594d8a2be17c959'}        2013            September   
+474  {'$oid': '52b213b38594d8a2be17c95a'}        2013            September   
+475  {'$oid': '52b213b38594d8a2be17c95b'}        2013            September   
+476  {'$oid': '52b213b38594d8a2be17c95c'}        2013            September   
+477  {'$oid': '52b213b38594d8a2be17c95d'}        2013            September   
+478  {'$oid': '52b213b38594d8a2be17c95e'}        2013            September   
+479  {'$oid': '52b213b38594d8a2be17c95f'}        2013            September   
+480  {'$oid': '52b213b38594d8a2be17c960'}        2013            September   
+481  {'$oid': '52b213b38594d8a2be17c961'}        2013            September   
+482  {'$oid': '52b213b38594d8a2be17c962'}        2013            September   
+483  {'$oid': '52b213b38594d8a2be17c963'}        2013            September   
+484  {'$oid': '52b213b38594d8a2be17c964'}        2013            September   
+485  {'$oid': '52b213b38594d8a2be17c965'}        2013            September   
+486  {'$oid': '52b213b38594d8a2be17c966'}        2013            September   
+487  {'$oid': '52b213b38594d8a2be17c967'}        2013               August   
+488  {'$oid': '52b213b38594d8a2be17c968'}        2013               August   
+489  {'$oid': '52b213b38594d8a2be17c969'}        2013               August   
+490  {'$oid': '52b213b38594d8a2be17c96a'}        2013               August   
+491  {'$oid': '52b213b38594d8a2be17c96b'}        2013               August   
+492  {'$oid': '52b213b38594d8a2be17c96c'}        2013               August   
+493  {'$oid': '52b213b38594d8a2be17c96d'}        2013               August   
+494  {'$oid': '52b213b38594d8a2be17c96e'}        2013               August   
+495  {'$oid': '52b213b38594d8a2be17c96f'}        2013               August   
+496  {'$oid': '52b213b38594d8a2be17c970'}        2013               August   
+497  {'$oid': '52b213b38594d8a2be17c971'}        2013               August   
+498  {'$oid': '52b213b38594d8a2be17c972'}        2013               August   
+499  {'$oid': '52b213b38594d8a2be17c973'}        2013               August   
+
+        boardapprovaldate                                  borrower  \
+0    2013-11-12T00:00:00Z   FEDERAL DEMOCRATIC REPUBLIC OF ETHIOPIA   
+1    2013-11-04T00:00:00Z                     GOVERNMENT OF TUNISIA   
+2    2013-11-01T00:00:00Z    MINISTRY OF FINANCE AND ECONOMIC DEVEL   
+3    2013-10-31T00:00:00Z    MIN. OF PLANNING AND INT'L COOPERATION   
+4    2013-10-31T00:00:00Z                       MINISTRY OF FINANCE   
+5    2013-10-31T00:00:00Z                         REPUBLIC OF KENYA   
+6    2013-10-29T00:00:00Z                       GOVERNMENT OF INDIA   
+7    2013-10-29T00:00:00Z                PEOPLE'S REPUBLIC OF CHINA   
+8    2013-10-29T00:00:00Z                   THE GOVERNMENT OF INDIA   
+9    2013-10-29T00:00:00Z                    THE KINGDOM OF MOROCCO   
+10   2013-10-25T00:00:00Z                 GOVERNMENT OF SOUTH SUDAN   
+11   2013-10-25T00:00:00Z                                       NaN   
+12   2013-10-24T00:00:00Z                       GOVERNMENT OF GHANA   
+13   2013-10-22T00:00:00Z                 GOVERNMENT OF TIMOR LESTE   
+14   2013-10-22T00:00:00Z                      GOVERNMENT OF JORDAN   
+15   2013-10-17T00:00:00Z                       MINISTRY OF FINANCE   
+16   2013-10-17T00:00:00Z                       MINISTRY OF FINANCE   
+17   2013-10-16T00:00:00Z      MINISTRY OF FINANCE AND BUDGET (MFB)   
+18   2013-10-16T00:00:00Z              ROYAL GOVERNMENT OF CAMBODIA   
+19   2013-10-10T00:00:00Z                       MINISTRY OF FINANCE   
+20   2013-10-09T00:00:00Z       AGA KHAN DEVELOPMENT NETWORK (AKDN)   
+21   2013-10-07T00:00:00Z                                     NEPAL   
+22   2013-10-07T00:00:00Z  MINISTRY OF PLANNING AND INTERNATIONAL C   
+23   2013-10-03T00:00:00Z                    REPUBLIC OF TAJIKISTAN   
+24   2013-09-30T00:00:00Z                    REPUBLIC OF AZERBAIJAN   
+25   2013-09-30T00:00:00Z                  UNIVERSITY OF QUEENSLAND   
+26   2013-09-30T00:00:00Z           LAO PEOPLES DEMOCRATIC REPUBLIC   
+27   2013-09-30T00:00:00Z          PACIFIC AVIATION SECURITY OFFICE   
+28   2013-09-30T00:00:00Z                SOLOMON ISLANDS GOVERNMENT   
+29   2013-09-27T00:00:00Z                  GOVERNMENT OF MOZAMBIQUE   
+..                    ...                                       ...   
+470  2012-09-20T00:00:00Z                     GOVERNMENT OF LIBERIA   
+471  2012-09-20T00:00:00Z                  GOVERNMENT OF BANGLADESH   
+472  2012-09-13T00:00:00Z             MINISTRY OF NATURE PROTECTION   
+473  2012-09-13T00:00:00Z   MINISTRY OF ENVIRONMENT, FORESTS, WATER   
+474  2012-09-11T00:00:00Z                    GOVERNMENT OF PAKISTAN   
+475  2012-09-11T00:00:00Z                   GOVERNMENT OF INDONESIA   
+476  2012-09-11T00:00:00Z             SOCIALIST REPUBLIC OF VIETNAM   
+477  2012-09-11T00:00:00Z                    REPUBLIC OF UZBEKISTAN   
+478  2012-09-11T00:00:00Z              ISLAMIC REPUBLIC OF PAKISTAN   
+479  2012-09-10T00:00:00Z                                  UT'Z CHE   
+480  2012-09-10T00:00:00Z                      GOVERNMENT OF ZAMBIA   
+481  2012-09-06T00:00:00Z                       GOVERNMENT OF INDIA   
+482  2012-09-06T00:00:00Z                       GOVERNMENT OF INDIA   
+483  2012-09-06T00:00:00Z                       GOVERNMENT OF INDIA   
+484  2012-09-06T00:00:00Z                ILO, MINLAND & CFSI & BANK   
+485  2012-09-05T00:00:00Z                    GOVERNMENT OF MONGOLIA   
+486  2012-09-01T00:00:00Z            GOVERNMENT OF LEBANON & JORDAN   
+487  2012-08-30T00:00:00Z                     UNITED MEXICAN STATES   
+488  2012-08-30T00:00:00Z               THE STATE OF RIO DE JANEIRO   
+489  2012-08-30T00:00:00Z                                UN-HABITAT   
+490  2012-08-29T00:00:00Z                       GOVERNMENT OF NEPAL   
+491  2012-08-24T00:00:00Z               PALESTINIAN WATER AUTHORITY   
+492  2012-08-21T00:00:00Z                    GOVERNMENT OF PAKISTAN   
+493  2012-08-21T00:00:00Z                  GOVERNMENT OF BANGLADESH   
+494  2012-08-17T00:00:00Z                     MINISTRY OF EDUCATION   
+495  2012-08-10T00:00:00Z               THE COMPETITIVENESS COMPANY   
+496  2012-08-09T00:00:00Z           LAO PEOPLES DEMOCRATIC REPUBLIC   
+497  2012-08-03T00:00:00Z      GOVERNMENT OF THE REPUBLIC OF GUINEA   
+498  2012-08-02T00:00:00Z                     REPUBLIC OF INDONESIA   
+499  2012-08-02T00:00:00Z                        GOVERMENT OF KENYA   
+
+              closingdate                               country_namecode  \
+0    2018-07-07T00:00:00Z   Federal Democratic Republic of Ethiopia!$!ET   
+1                     NaN                       Republic of Tunisia!$!TN   
+2                     NaN                                    Tuvalu!$!TV   
+3                     NaN                         Republic of Yemen!$!RY   
+4    2019-04-30T00:00:00Z                        Kingdom of Lesotho!$!LS   
+5                     NaN                         Republic of Kenya!$!KE   
+6    2019-06-30T00:00:00Z                         Republic of India!$!IN   
+7                     NaN                People's Republic of China!$!CN   
+8    2018-12-31T00:00:00Z                         Republic of India!$!IN   
+9    2014-12-31T00:00:00Z                        Kingdom of Morocco!$!MA   
+10                    NaN                   Republic of South Sudan!$!SS   
+11   2017-12-31T00:00:00Z                         Republic of India!$!IN   
+12   2019-06-30T00:00:00Z                         Republic of Ghana!$!GH   
+13                    NaN        Democratic Republic of Timor-Leste!$!TP   
+14                    NaN               Hashemite Kingdom of Jordan!$!JO   
+15   2019-04-30T00:00:00Z                                     Samoa!$!WS   
+16   2015-12-31T00:00:00Z                                     Samoa!$!WS   
+17                    NaN                    Republic of Madagascar!$!MG   
+18                    NaN                       Kingdom of Cambodia!$!KH   
+19                    NaN                        Kingdom of Morocco!$!MA   
+20                    NaN                           Kyrgyz Republic!$!KG   
+21                    NaN                                     Nepal!$!NP   
+22                    NaN               Hashemite Kingdom of Jordan!$!JO   
+23                    NaN                    Republic of Tajikistan!$!TJ   
+24   2018-12-31T00:00:00Z                    Republic of Azerbaijan!$!AZ   
+25                    NaN                     East Asia and Pacific!$!4E   
+26   2014-03-31T00:00:00Z          Lao People's Democratic Republic!$!LA   
+27   2018-12-31T00:00:00Z                           Pacific Islands!$!4P   
+28                    NaN                           Solomon Islands!$!SB   
+29                    NaN                    Republic of Mozambique!$!MZ   
+..                    ...                                            ...   
+470                   NaN                       Republic of Liberia!$!LR   
+471  2018-12-31T00:00:00Z           People's Republic of Bangladesh!$!BD   
+472  2014-09-30T00:00:00Z                       Republic of Armenia!$!AM   
+473                   NaN                       Republic of Albania!$!AL   
+474  2017-06-30T00:00:00Z              Islamic Republic of Pakistan!$!PK   
+475  2018-03-31T00:00:00Z                     Republic of Indonesia!$!ID   
+476  2018-12-31T00:00:00Z             Socialist Republic of Vietnam!$!VN   
+477                   NaN                    Republic of Uzbekistan!$!UZ   
+478                   NaN              Islamic Republic of Pakistan!$!PK   
+479  2016-05-07T00:00:00Z                     Republic of Guatemala!$!GT   
+480  2014-12-31T00:00:00Z                        Republic of Zambia!$!ZM   
+481  2015-12-31T00:00:00Z                         Republic of India!$!IN   
+482  2018-12-31T00:00:00Z                         Republic of India!$!IN   
+483  2013-09-30T00:00:00Z                         Republic of India!$!IN   
+484  2015-12-31T00:00:00Z               Republic of the Philippines!$!PH   
+485  2013-12-31T00:00:00Z                                  Mongolia!$!MN   
+486  2015-01-31T00:00:00Z              Middle East and North Africa!$!5M   
+487  2017-08-31T00:00:00Z                     United Mexican States!$!MX   
+488  2014-01-31T00:00:00Z             Federative Republic of Brazil!$!BR   
+489  2015-06-30T00:00:00Z  The Independent State of Papua New Guine!$!PG   
+490  2014-06-30T00:00:00Z                                     Nepal!$!NP   
+491  2014-03-31T00:00:00Z                        West Bank and Gaza!$!GZ   
+492  2015-06-30T00:00:00Z              Islamic Republic of Pakistan!$!PK   
+493  2015-04-30T00:00:00Z           People's Republic of Bangladesh!$!BD   
+494  2014-06-30T00:00:00Z                                     Nepal!$!NP   
+495  2013-08-31T00:00:00Z                                   Jamaica!$!JM   
+496  2012-12-31T00:00:00Z          Lao People's Democratic Republic!$!LA   
+497  2014-12-31T00:00:00Z                        Republic of Guinea!$!GN   
+498  2017-09-30T00:00:00Z                     Republic of Indonesia!$!ID   
+499  2018-12-31T00:00:00Z                         Republic of Kenya!$!KE   
+
+    countrycode                               countryname  \
+0            ET   Federal Democratic Republic of Ethiopia   
+1            TN                       Republic of Tunisia   
+2            TV                                    Tuvalu   
+3            RY                         Republic of Yemen   
+4            LS                        Kingdom of Lesotho   
+5            KE                         Republic of Kenya   
+6            IN                         Republic of India   
+7            CN                People's Republic of China   
+8            IN                         Republic of India   
+9            MA                        Kingdom of Morocco   
+10           SS                   Republic of South Sudan   
+11           IN                         Republic of India   
+12           GH                         Republic of Ghana   
+13           TP        Democratic Republic of Timor-Leste   
+14           JO               Hashemite Kingdom of Jordan   
+15           WS                                     Samoa   
+16           WS                                     Samoa   
+17           MG                    Republic of Madagascar   
+18           KH                       Kingdom of Cambodia   
+19           MA                        Kingdom of Morocco   
+20           KG                           Kyrgyz Republic   
+21           NP                                     Nepal   
+22           JO               Hashemite Kingdom of Jordan   
+23           TJ                    Republic of Tajikistan   
+24           AZ                    Republic of Azerbaijan   
+25           4E                     East Asia and Pacific   
+26           LA          Lao People's Democratic Republic   
+27           4P                           Pacific Islands   
+28           SB                           Solomon Islands   
+29           MZ                    Republic of Mozambique   
+..          ...                                       ...   
+470          LR                       Republic of Liberia   
+471          BD           People's Republic of Bangladesh   
+472          AM                       Republic of Armenia   
+473          AL                       Republic of Albania   
+474          PK              Islamic Republic of Pakistan   
+475          ID                     Republic of Indonesia   
+476          VN             Socialist Republic of Vietnam   
+477          UZ                    Republic of Uzbekistan   
+478          PK              Islamic Republic of Pakistan   
+479          GT                     Republic of Guatemala   
+480          ZM                        Republic of Zambia   
+481          IN                         Republic of India   
+482          IN                         Republic of India   
+483          IN                         Republic of India   
+484          PH               Republic of the Philippines   
+485          MN                                  Mongolia   
+486          5M              Middle East and North Africa   
+487          MX                     United Mexican States   
+488          BR             Federative Republic of Brazil   
+489          PG  The Independent State of Papua New Guine   
+490          NP                                     Nepal   
+491          GZ                        West Bank and Gaza   
+492          PK              Islamic Republic of Pakistan   
+493          BD           People's Republic of Bangladesh   
+494          NP                                     Nepal   
+495          JM                                   Jamaica   
+496          LA          Lao People's Democratic Republic   
+497          GN                        Republic of Guinea   
+498          ID                     Republic of Indonesia   
+499          KE                         Republic of Kenya   
+
+                     countryshortname  ...      sectorcode source  status  \
+0                            Ethiopia  ...     ET,BS,ES,EP   IBRD  Active   
+1                             Tunisia  ...           BZ,BS   IBRD  Active   
+2                              Tuvalu  ...              TI   IBRD  Active   
+3                  Yemen, Republic of  ...              JB   IBRD  Active   
+4                             Lesotho  ...        FH,YW,YZ   IBRD  Active   
+5                               Kenya  ...              JB   IBRD  Active   
+6                               India  ...              TI   IBRD  Active   
+7                               China  ...              LR   IBRD  Active   
+8                               India  ...              TI   IBRD  Active   
+9                             Morocco  ...        BM,BC,BZ   IBRD  Active   
+10                        South Sudan  ...        AZ,JB,AH   IBRD  Active   
+11                              India  ...     JB,YC,WD,TI   IBRD  Active   
+12                              Ghana  ...              CZ   IBRD  Active   
+13                        Timor-Leste  ...           BV,TI   IBRD  Active   
+14                             Jordan  ...              JB   IBRD  Active   
+15                              Samoa  ...              TI   IBRD  Active   
+16                              Samoa  ...        AZ,AJ,AH   IBRD  Active   
+17                         Madagascar  ...              EP   IBRD  Active   
+18                           Cambodia  ...  BK,JB,BH,BC,JA   IBRD  Active   
+19                            Morocco  ...        BH,BC,BZ   IBRD  Active   
+20                    Kyrgyz Republic  ...              JB   IBRD  Active   
+21                              Nepal  ...        BH,YW,JB   IBRD  Active   
+22                             Jordan  ...  WC,BS,BH,TZ,WB   IBRD  Active   
+23                         Tajikistan  ...              JA   IBRD  Active   
+24                         Azerbaijan  ...        AB,AZ,YA   IBRD  Active   
+25              East Asia and Pacific  ...           AB,AZ   IBRD  Active   
+26   Lao People's Democratic Republic  ...  LG,FB,EZ,YZ,BC   IBRD  Closed   
+27                    Pacific Islands  ...           BV,TV   IBRD  Active   
+28                    Solomon Islands  ...           BZ,AZ   IBRD  Active   
+29                         Mozambique  ...     JB,BW,WZ,WD   IBRD  Active   
+..                                ...  ...             ...    ...     ...   
+470                           Liberia  ...           BV,TI   IBRD  Active   
+471                        Bangladesh  ...        BU,LA,LR   IBRD  Active   
+472                           Armenia  ...              BC   IBRD  Active   
+473                           Albania  ...              BC   IBRD  Active   
+474                          Pakistan  ...           BM,BH   IBRD  Active   
+475                         Indonesia  ...  BO,BH,LZ,TZ,WZ   IBRD  Active   
+476                           Vietnam  ...        BU,LT,LA   IBRD  Active   
+477                        Uzbekistan  ...              FH   IBRD  Active   
+478                          Pakistan  ...              BH   IBRD  Active   
+479                         Guatemala  ...              AZ   IBRD  Active   
+480                            Zambia  ...              LS   IBRD  Active   
+481                             India  ...     BC,EC,BQ,BH   IBRD  Active   
+482                             India  ...  AI,YA,AH,BL,AB   IBRD  Active   
+483                             India  ...  CZ,AH,LA,AI,LH   IBRD  Closed   
+484                       Philippines  ...     EV,FH,BZ,JB   IBRD  Active   
+485                          Mongolia  ...        BZ,JA,AJ   IBRD  Active   
+486      Middle East and North Africa  ...     BZ,BS,BQ,BN   IBRD  Active   
+487                            Mexico  ...        YA,BL,AB   IBRD  Active   
+488                            Brazil  ...        JA,EZ,BH   IBRD  Closed   
+489                  Papua New Guinea  ...              BW   IBRD  Closed   
+490                             Nepal  ...              BZ   IBRD  Active   
+491                West Bank and Gaza  ...           WC,WA   IBRD  Active   
+492                          Pakistan  ...              EP   IBRD  Active   
+493                        Bangladesh  ...              BC   IBRD  Active   
+494                             Nepal  ...              EZ   IBRD  Active   
+495                           Jamaica  ...           EV,AZ   IBRD  Closed   
+496  Lao People's Democratic Republic  ...  YZ,JA,EZ,FZ,BC   IBRD  Closed   
+497                            Guinea  ...        AB,AH,AI   IBRD  Active   
+498                         Indonesia  ...        YA,BL,AB   IBRD  Active   
+499                             Kenya  ...           BV,TC   IBRD  Active   
+
+     supplementprojectflg                                             theme1  \
+0                       N      {'Percent': 100, 'Name': 'Education for all'}   
+1                       N  {'Percent': 30, 'Name': 'Other economic manage...   
+2                       Y    {'Percent': 46, 'Name': 'Regional integration'}   
+3                       N  {'Percent': 50, 'Name': 'Participation and civ...   
+4                       N  {'Percent': 30, 'Name': 'Export development an...   
+5                       Y     {'Percent': 100, 'Name': 'Social safety nets'}   
+6                       N  {'Percent': 20, 'Name': 'Administrative and ci...   
+7                       N         {'Percent': 100, 'Name': 'Climate change'}   
+8                       N  {'Percent': 87, 'Name': 'Other rural developme...   
+9                       N  {'Percent': 33, 'Name': 'Other accountability/...   
+10                      Y  {'Percent': 100, 'Name': 'Global food crisis r...   
+11                      N  {'Percent': 60, 'Name': 'Rural services and in...   
+12                      N                         {'Percent': 0, 'Name': ''}   
+13                      Y    {'Percent': 20, 'Name': 'Regional integration'}   
+14                      N      {'Percent': 50, 'Name': 'Social safety nets'}   
+15                      N  {'Percent': 60, 'Name': 'Rural services and in...   
+16                      N  {'Percent': 100, 'Name': 'Other rural developm...   
+17                      N      {'Percent': 100, 'Name': 'Education for all'}   
+18                      Y            {'Percent': 17, 'Name': 'Child health'}   
+19                      N  {'Percent': 40, 'Name': 'Public expenditure, f...   
+20                      N  {'Percent': 50, 'Name': 'Conflict prevention a...   
+21                      N  {'Percent': 30, 'Name': 'Urban services and ho...   
+22                      N  {'Percent': 25, 'Name': 'Other social developm...   
+23                      N  {'Percent': 60, 'Name': 'Nutrition and food se...   
+24                      N           {'Percent': 30, 'Name': 'Rural markets'}   
+25                      N  {'Percent': 40, 'Name': 'Other environment and...   
+26                      N  {'Percent': 14, 'Name': 'Regulation and compet...   
+27                      N           {'Percent': 5, 'Name': 'Climate change'}   
+28                      Y  {'Percent': 30, 'Name': 'Rural policies and in...   
+29                      Y  {'Percent': 4, 'Name': 'Other social developme...   
+..                    ...                                                ...   
+470                     Y  {'Percent': 40, 'Name': 'Trade facilitation an...   
+471                     N  {'Percent': 45, 'Name': 'Rural services and in...   
+472                     N  {'Percent': 100, 'Name': 'Other environment an...   
+473                     N  {'Percent': 100, 'Name': 'Other environment an...   
+474                     N       {'Percent': 34, 'Name': 'Municipal finance'}   
+475                     N  {'Percent': 25, 'Name': 'Infrastructure servic...   
+476                     N  {'Percent': 100, 'Name': 'Rural services and i...   
+477                     Y  {'Percent': 40, 'Name': 'Micro, Small and Medi...   
+478                     Y  {'Percent': 10, 'Name': 'Administrative and ci...   
+479                     N  {'Percent': 100, 'Name': 'Other social develop...   
+480                     N  {'Percent': 100, 'Name': 'Other public sector ...   
+481                     N            {'Percent': 23, 'Name': 'Child health'}   
+482                     N  {'Percent': 10, 'Name': 'Rural services and in...   
+483                     N  {'Percent': 19, 'Name': 'Pollution management ...   
+484                     Y  {'Percent': 9, 'Name': 'Rural non-farm income ...   
+485                     N  {'Percent': 100, 'Name': 'Other communicable d...   
+486                     N  {'Percent': 25, 'Name': 'Other public sector g...   
+487                     N            {'Percent': 20, 'Name': 'Biodiversity'}   
+488                     N  {'Percent': 20, 'Name': 'Health system perform...   
+489                     N  {'Percent': 50, 'Name': 'Urban services and ho...   
+490                     N  {'Percent': 80, 'Name': 'Public expenditure, f...   
+491                     N  {'Percent': 100, 'Name': 'Rural services and i...   
+492                     N       {'Percent': 70, 'Name': 'Education for all'}   
+493                     N  {'Percent': 100, 'Name': 'Other environment an...   
+494                     N  {'Percent': 100, 'Name': 'Natural disaster man...   
+495                     N  {'Percent': 50, 'Name': 'Regulation and compet...   
+496                     N            {'Percent': 14, 'Name': 'Child health'}   
+497                     N  {'Percent': 100, 'Name': 'Global food crisis r...   
+498                     N  {'Percent': 85, 'Name': 'Rural services and in...   
+499                     N  {'Percent': 1, 'Name': 'Municipal governance a...   
+
+                                        theme_namecode       themecode  \
+0        [{'code': '65', 'name': 'Education for all'}]              65   
+1    [{'code': '24', 'name': 'Other economic manage...           54,24   
+2    [{'code': '47', 'name': 'Regional integration'...     52,81,25,47   
+3    [{'code': '57', 'name': 'Participation and civ...           59,57   
+4    [{'code': '45', 'name': 'Export development an...           41,45   
+5       [{'code': '54', 'name': 'Social safety nets'}]              54   
+6    [{'code': '25', 'name': 'Administrative and ci...           39,25   
+7           [{'code': '81', 'name': 'Climate change'}]              81   
+8    [{'code': '79', 'name': 'Other rural developme...              79   
+9    [{'code': '29', 'name': 'Other accountability/...        27,30,29   
+10   [{'code': '91', 'name': 'Global food crisis re...              91   
+11   [{'code': '78', 'name': 'Rural services and in...     81,87,52,78   
+12                                                 NaN             NaN   
+13   [{'code': '47', 'name': 'Regional integration'...        78,81,47   
+14   [{'code': '54', 'name': 'Social safety nets'},...        53,56,54   
+15   [{'code': '78', 'name': 'Rural services and in...        49,81,78   
+16   [{'code': '79', 'name': 'Other rural developme...              79   
+17       [{'code': '65', 'name': 'Education for all'}]              65   
+18   [{'code': '63', 'name': 'Child health'}, {'cod...  69,57,25,67,63   
+19   [{'code': '27', 'name': 'Public expenditure, f...        25,26,27   
+20   [{'code': '58', 'name': 'Conflict prevention a...           57,58   
+21   [{'code': '71', 'name': 'Urban services and ho...           57,71   
+22   [{'code': '62', 'name': 'Other social developm...           58,62   
+23   [{'code': '68', 'name': 'Nutrition and food se...           63,68   
+24   [{'code': '75', 'name': 'Rural markets'}, {'co...     56,78,76,75   
+25   [{'code': '86', 'name': 'Other environment and...        80,81,86   
+26   [{'code': '40', 'name': 'Regulation and compet...     67,27,49,40   
+27   [{'code': '81', 'name': 'Climate change'}, {'c...     52,47,25,81   
+28   [{'code': '77', 'name': 'Rural policies and in...        57,78,77   
+29   [{'code': '62', 'name': 'Other social developm...           85,62   
+..                                                 ...             ...   
+470  [{'code': '49', 'name': 'Trade facilitation an...           78,49   
+471  [{'code': '78', 'name': 'Rural services and in...     59,81,57,78   
+472  [{'code': '86', 'name': 'Other environment and...              86   
+473  [{'code': '86', 'name': 'Other environment and...              86   
+474  [{'code': '72', 'name': 'Municipal finance'}, ...           73,72   
+475  [{'code': '39', 'name': 'Infrastructure servic...           72,39   
+476  [{'code': '78', 'name': 'Rural services and in...              78   
+477  [{'code': '41', 'name': 'Micro, Small and Medi...           75,41   
+478  [{'code': '25', 'name': 'Administrative and ci...        83,36,25   
+479  [{'code': '62', 'name': 'Other social developm...              62   
+480  [{'code': '30', 'name': 'Other public sector g...              30   
+481  [{'code': '63', 'name': 'Child health'}, {'cod...     68,59,57,63   
+482  [{'code': '78', 'name': 'Rural services and in...     79,85,86,78   
+483  [{'code': '84', 'name': 'Pollution management ...     82,78,81,84   
+484  [{'code': '76', 'name': 'Rural non-farm income...     78,58,41,76   
+485  [{'code': '64', 'name': 'Other communicable di...              64   
+486  [{'code': '30', 'name': 'Other public sector g...     54,55,56,30   
+487  [{'code': '80', 'name': 'Biodiversity'}, {'cod...     82,79,77,80   
+488  [{'code': '67', 'name': 'Health system perform...     65,28,27,67   
+489  [{'code': '71', 'name': 'Urban services and ho...     73,55,52,71   
+490  [{'code': '27', 'name': 'Public expenditure, f...           29,27   
+491  [{'code': '78', 'name': 'Rural services and in...              78   
+492  [{'code': '65', 'name': 'Education for all'}, ...           59,65   
+493  [{'code': '86', 'name': 'Other environment and...              86   
+494  [{'code': '52', 'name': 'Natural disaster mana...              52   
+495  [{'code': '40', 'name': 'Regulation and compet...           62,40   
+496  [{'code': '63', 'name': 'Child health'}, {'cod...     65,27,49,63   
+497  [{'code': '91', 'name': 'Global food crisis re...              91   
+498  [{'code': '78', 'name': 'Rural services and in...        77,91,78   
+499  [{'code': '73', 'name': 'Municipal governance ...     39,49,88,73   
+
+      totalamt totalcommamt                                                url  
+0    130000000    130000000  http://www.worldbank.org/projects/P129828/ethi...  
+1            0      4700000  http://www.worldbank.org/projects/P144674?lang=en  
+2      6060000      6060000  http://www.worldbank.org/projects/P145310?lang=en  
+3            0      1500000  http://www.worldbank.org/projects/P144665?lang=en  
+4     13100000     13100000  http://www.worldbank.org/projects/P144933/seco...  
+5     10000000     10000000  http://www.worldbank.org/projects/P146161?lang=en  
+6    500000000    500000000  http://www.worldbank.org/projects/P121185/firs...  
+7            0     27280000  http://www.worldbank.org/projects/P127033/chin...  
+8    160000000    160000000  http://www.worldbank.org/projects/P130164/raja...  
+9    200000000    200000000  http://www.worldbank.org/projects/P130903?lang=en  
+10           0      7530000  http://www.worldbank.org/projects/P145339?lang=en  
+11   250000000    250000000  http://www.worldbank.org/projects/P146653?lang=en  
+12    97000000     97000000  http://www.worldbank.org/projects/P144140/gh-e...  
+13    40000000     40000000  http://www.worldbank.org/projects/P130975/timo...  
+14           0      9500000  http://www.worldbank.org/projects/P144832?lang=en  
+15    20000000     20000000  http://www.worldbank.org/projects/P145545?lang=en  
+16     5000000      5000000  http://www.worldbank.org/projects/P145938?lang=en  
+17           0     85400000  http://www.worldbank.org/projects/P132616?lang=en  
+18           0     13450000  http://www.worldbank.org/projects/P146271?lang=en  
+19           0      4350000  http://www.worldbank.org/projects/P143979?lang=en  
+20           0      2000000  http://www.worldbank.org/projects/P132577?lang=en  
+21           0      2750000  http://www.worldbank.org/projects/P145359?lang=en  
+22           0     50000000  http://www.worldbank.org/projects/P147689?lang=en  
+23           0      2800000  http://www.worldbank.org/projects/P146109?lang=en  
+24    34500000     34500000  http://www.worldbank.org/projects/P122812/thir...  
+25           0      4500000  http://www.worldbank.org/projects/P123933/capt...  
+26    20000000     20000000  http://www.worldbank.org/projects/P143025/lao-...  
+27     2150000      2150000  http://www.worldbank.org/projects/P145057/paci...  
+28     3000000      3000000  http://www.worldbank.org/projects/P146021?lang=en  
+29    32000000     32000000  http://www.worldbank.org/projects/P146098?lang=en  
+..         ...          ...                                                ...  
+470   50000000     50000000  http://www.worldbank.org/projects/P129654/libe...  
+471  155000000    155000000  http://www.worldbank.org/projects/P131263/rura...  
+472          0       150000  http://www.worldbank.org/projects/P131631/repo...  
+473          0       150000  http://www.worldbank.org/projects/P132679/land...  
+474  150000000    150000000  http://www.worldbank.org/projects/P112901/pk-p...  
+475   29600000     29600000  http://www.worldbank.org/projects/P118916/infr...  
+476  448900000    448900000  http://www.worldbank.org/projects/P125996/dist...  
+477   40000000     40000000  http://www.worldbank.org/projects/P126962/addi...  
+478   70000000     70000000  http://www.worldbank.org/projects/P131266/punj...  
+479          0      2510000  http://www.worldbank.org/projects/P130412/stre...  
+480          0       350000  http://www.worldbank.org/projects/P131881/zamb...  
+481  106000000    106000000  http://www.worldbank.org/projects/P121731/icds...  
+482   60000000     60000000  http://www.worldbank.org/projects/P122486/karn...  
+483  100000000    100000000  http://www.worldbank.org/projects/P124041/hima...  
+484          0      5570000  http://www.worldbank.org/projects/P132238/mult...  
+485          0      2900000  http://www.worldbank.org/projects/P131204/capa...  
+486          0      2400000  http://www.worldbank.org/projects/P132097/5m-d...  
+487          0     11690000  http://www.worldbank.org/projects/P121116/sust...  
+488  300000000    300000000  http://www.worldbank.org/projects/P126465/rio-...  
+489          0       350000  http://www.worldbank.org/projects/P128763/papu...  
+490          0       800000  http://www.worldbank.org/projects/P131860/stre...  
+491          0      3650000  http://www.worldbank.org/projects/P123322/wate...  
+492          0     10000000  http://www.worldbank.org/projects/P128096/paki...  
+493          0       150000  http://www.worldbank.org/projects/P132138/revi...  
+494          0      1510000  http://www.worldbank.org/projects/P129177/nepa...  
+495          0        50000  http://www.worldbank.org/projects/P127299/tech...  
+496   20000000     20000000  http://www.worldbank.org/projects/P125298/lao-...  
+497          0     20000000  http://www.worldbank.org/projects/P128309/seco...  
+498   80000000     80000000  http://www.worldbank.org/projects/P117243/sust...  
+499  300000000    300000000  http://www.worldbank.org/projects/P126321/keny...  
+
+[500 rows x 50 columns]

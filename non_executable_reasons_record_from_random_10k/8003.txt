@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#exponentially weighted
+pd.ewma(df, span = 15, min_periods = 2)[1:10]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-5-4cc67746dcc2>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#exponentially weighted[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mpd[0m[0;34m.[0m[0mewma[0m[0;34m([0m[0mdf[0m[0;34m,[0m [0mspan[0m [0;34m=[0m [0;36m15[0m[0;34m,[0m [0mmin_periods[0m [0;34m=[0m [0;36m2[0m[0;34m)[0m[0;34m[[0m[0;36m1[0m[0;34m:[0m[0;36m10[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: module 'pandas' has no attribute 'ewma'
+AttributeError: module 'pandas' has no attribute 'ewma'
+
+Executability                            : False

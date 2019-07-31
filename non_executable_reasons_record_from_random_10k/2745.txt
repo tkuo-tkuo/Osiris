@@ -1,0 +1,43 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import random
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import time
+%matplotlib inline
+
+import warnings
+warnings.filterwarnings("ignore")
+
+import pyspark
+from pyspark.sql import SparkSession
+from pyspark.ml.recommendation import ALS
+from pyspark.ml.evaluation import RegressionEvaluator
+
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath('__file__'))))
+# can alternatively use addfiles to spark init in nb_spark
+from src import EDA, ModelEvaluation, Preprocess, Split, TimeDecorator
+%load_ext autoreload
+%autoreload 2
+
+spark_session = SparkSession.builder.getOrCreate()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-3983e8190569>[0m in [0;36m<module>[0;34m[0m
+[1;32m     11[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m"ignore"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0;34m[0m[0m
+[0;32m---> 13[0;31m [0;32mimport[0m [0mpyspark[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     14[0m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0msql[0m [0;32mimport[0m [0mSparkSession[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0mml[0m[0;34m.[0m[0mrecommendation[0m [0;32mimport[0m [0mALS[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pyspark'
+ModuleNotFoundError: No module named 'pyspark'
+
+Executability                            : False

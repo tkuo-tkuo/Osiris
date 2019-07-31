@@ -1,0 +1,14 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+library(pdftools)
+pdfpages <- pdf_text("_bentrevino_files/HotelReview12.31.17.pdf")
+length(pdfpages)
+typeof(pdfpages)
+------------------
+
+NameError: name 'library' is not defined
+
+Executability                            : False

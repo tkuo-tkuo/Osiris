@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+df = pd.DataFrame(all_data)
+
+df.groupby("grade")["loan_status"].apply(lambda x: x[x=="Charged Off"].count()).plot(kind="bar", figsize=(10,5))
+plt.ylabel("Number of Charge Offs")
+plt.xlabel("Investment Grade")
+
+new_dataframe = pd.DataFrame()
+new_dataframe["Number of Charge Offs"] = df.groupby("grade")["loan_status"].apply(lambda x: x[x=="Charged Off"].count())
+print(new_dataframe["Number of Charge Offs"])
+                                                                                            
+#create a new data frame with just charge off loans.
+    
+message = "Key Takeaway: This chart indicates that the highest number of laon charge offs occured for people of the \"B\" investment grade."
+print(message)
+
+#QUESTION: How do I add another graph that shows the ratio of total charge offs in each investment grade 
+#  by the amount of loans made in each of those investment grade categories??  ********
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-f063388b1d28>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mall_data[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mdf[0m[0;34m.[0m[0mgroupby[0m[0;34m([0m[0;34m"grade"[0m[0;34m)[0m[0;34m[[0m[0;34m"loan_status"[0m[0;34m][0m[0;34m.[0m[0mapply[0m[0;34m([0m[0;32mlambda[0m [0mx[0m[0;34m:[0m [0mx[0m[0;34m[[0m[0mx[0m[0;34m==[0m[0;34m"Charged Off"[0m[0;34m][0m[0;34m.[0m[0mcount[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mkind[0m[0;34m=[0m[0;34m"bar"[0m[0;34m,[0m [0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m10[0m[0;34m,[0m[0;36m5[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mylabel[0m[0;34m([0m[0;34m"Number of Charge Offs"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m"Investment Grade"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'all_data' is not defined
+NameError: name 'all_data' is not defined
+
+Executability                            : False

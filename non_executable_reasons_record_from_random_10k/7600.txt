@@ -1,0 +1,184 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+dff = pd.read_excel(url + "pinc08_2_1_1.xls", header=9) #reading CSV using pandas
+#Displaying the top few rows of the DF 
+dff.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mSSLError[0m                                  Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mdo_open[0;34m(self, http_class, req, **http_conn_args)[0m
+[1;32m   1253[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1254[0;31m                 [0mh[0m[0;34m.[0m[0mrequest[0m[0;34m([0m[0mreq[0m[0;34m.[0m[0mget_method[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mselector[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mdata[0m[0;34m,[0m [0mheaders[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1255[0m             [0;32mexcept[0m [0mOSError[0m [0;32mas[0m [0merr[0m[0;34m:[0m [0;31m# timeout error[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36mrequest[0;34m(self, method, url, body, headers)[0m
+[1;32m   1106[0m         [0;34m"""Send a complete request to the server."""[0m[0;34m[0m[0m
+[0;32m-> 1107[0;31m         [0mself[0m[0;34m.[0m[0m_send_request[0m[0;34m([0m[0mmethod[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0mbody[0m[0;34m,[0m [0mheaders[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1108[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36m_send_request[0;34m(self, method, url, body, headers)[0m
+[1;32m   1151[0m             [0mbody[0m [0;34m=[0m [0m_encode[0m[0;34m([0m[0mbody[0m[0;34m,[0m [0;34m'body'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m-> 1152[0;31m         [0mself[0m[0;34m.[0m[0mendheaders[0m[0;34m([0m[0mbody[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1153[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36mendheaders[0;34m(self, message_body)[0m
+[1;32m   1102[0m             [0;32mraise[0m [0mCannotSendHeader[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m-> 1103[0;31m         [0mself[0m[0;34m.[0m[0m_send_output[0m[0;34m([0m[0mmessage_body[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1104[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36m_send_output[0;34m(self, message_body)[0m
+[1;32m    933[0m [0;34m[0m[0m
+[0;32m--> 934[0;31m         [0mself[0m[0;34m.[0m[0msend[0m[0;34m([0m[0mmsg[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    935[0m         [0;32mif[0m [0mmessage_body[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36msend[0;34m(self, data)[0m
+[1;32m    876[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mauto_open[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 877[0;31m                 [0mself[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    878[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36mconnect[0;34m(self)[0m
+[1;32m   1260[0m             self.sock = self._context.wrap_socket(self.sock,
+[0;32m-> 1261[0;31m                                                   server_hostname=server_hostname)
+[0m[1;32m   1262[0m             [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_context[0m[0;34m.[0m[0mcheck_hostname[0m [0;32mand[0m [0mself[0m[0;34m.[0m[0m_check_hostname[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/ssl.py[0m in [0;36mwrap_socket[0;34m(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname)[0m
+[1;32m    384[0m                          [0mserver_hostname[0m[0;34m=[0m[0mserver_hostname[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m--> 385[0;31m                          _context=self)
+[0m[1;32m    386[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/ssl.py[0m in [0;36m__init__[0;34m(self, sock, keyfile, certfile, server_side, cert_reqs, ssl_version, ca_certs, do_handshake_on_connect, family, type, proto, fileno, suppress_ragged_eofs, npn_protocols, ciphers, server_hostname, _context)[0m
+[1;32m    759[0m                         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"do_handshake_on_connect should not be specified for non-blocking sockets"[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 760[0;31m                     [0mself[0m[0;34m.[0m[0mdo_handshake[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    761[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/ssl.py[0m in [0;36mdo_handshake[0;34m(self, block)[0m
+[1;32m    995[0m                 [0mself[0m[0;34m.[0m[0msettimeout[0m[0;34m([0m[0;32mNone[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 996[0;31m             [0mself[0m[0;34m.[0m[0m_sslobj[0m[0;34m.[0m[0mdo_handshake[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    997[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/ssl.py[0m in [0;36mdo_handshake[0;34m(self)[0m
+[1;32m    640[0m         [0;34m"""Start the SSL/TLS handshake."""[0m[0;34m[0m[0m
+[0;32m--> 641[0;31m         [0mself[0m[0;34m.[0m[0m_sslobj[0m[0;34m.[0m[0mdo_handshake[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    642[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mcontext[0m[0;34m.[0m[0mcheck_hostname[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mSSLError[0m: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:719)
+
+During handling of the above exception, another exception occurred:
+
+[0;31mURLError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-4-9ae8241b7873>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdff[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0murl[0m [0;34m+[0m [0;34m"pinc08_2_1_1.xls"[0m[0;34m,[0m [0mheader[0m[0;34m=[0m[0;36m9[0m[0;34m)[0m [0;31m#reading CSV using pandas[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;31m#Displaying the top few rows of the DF[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mdff[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    175[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    176[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0m
+[0;32m--> 177[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    178[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0m
+[1;32m    179[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    175[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    176[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0m
+[0;32m--> 177[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    178[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0m
+[1;32m    179[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/excel.py[0m in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, **kwds)[0m
+[1;32m    305[0m [0;34m[0m[0m
+[1;32m    306[0m     [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mExcelFile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 307[0;31m         [0mio[0m [0;34m=[0m [0mExcelFile[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    308[0m [0;34m[0m[0m
+[1;32m    309[0m     return io.parse(
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, io, **kwds)[0m
+[1;32m    372[0m         [0;31m# to get_filepath_or_buffer()[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    373[0m         [0;32mif[0m [0m_is_url[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_io[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 374[0;31m             [0mio[0m [0;34m=[0m [0m_urlopen[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_io[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    375[0m         [0;32melif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mio[0m[0;34m,[0m [0;34m([0m[0mExcelFile[0m[0;34m,[0m [0mxlrd[0m[0;34m.[0m[0mBook[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    376[0m             [0mio[0m[0;34m,[0m [0m_[0m[0;34m,[0m [0m_[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0mget_filepath_or_buffer[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_io[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36murlopen[0;34m(url, data, timeout, cafile, capath, cadefault, context)[0m
+[1;32m    161[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    162[0m         [0mopener[0m [0;34m=[0m [0m_opener[0m[0;34m[0m[0m
+[0;32m--> 163[0;31m     [0;32mreturn[0m [0mopener[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mdata[0m[0;34m,[0m [0mtimeout[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    164[0m [0;34m[0m[0m
+[1;32m    165[0m [0;32mdef[0m [0minstall_opener[0m[0;34m([0m[0mopener[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mopen[0;34m(self, fullurl, data, timeout)[0m
+[1;32m    470[0m         [0;32mfor[0m [0mprocessor[0m [0;32min[0m [0mself[0m[0;34m.[0m[0mprocess_response[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mprotocol[0m[0;34m,[0m [0;34m[[0m[0;34m][0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    471[0m             [0mmeth[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mprocessor[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 472[0;31m             [0mresponse[0m [0;34m=[0m [0mmeth[0m[0;34m([0m[0mreq[0m[0;34m,[0m [0mresponse[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    473[0m [0;34m[0m[0m
+[1;32m    474[0m         [0;32mreturn[0m [0mresponse[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mhttp_response[0;34m(self, request, response)[0m
+[1;32m    580[0m         [0;32mif[0m [0;32mnot[0m [0;34m([0m[0;36m200[0m [0;34m<=[0m [0mcode[0m [0;34m<[0m [0;36m300[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    581[0m             response = self.parent.error(
+[0;32m--> 582[0;31m                 'http', request, response, code, msg, hdrs)
+[0m[1;32m    583[0m [0;34m[0m[0m
+[1;32m    584[0m         [0;32mreturn[0m [0mresponse[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36merror[0;34m(self, proto, *args)[0m
+[1;32m    502[0m             [0mhttp_err[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0m
+[1;32m    503[0m         [0margs[0m [0;34m=[0m [0;34m([0m[0mdict[0m[0;34m,[0m [0mproto[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m [0;34m+[0m [0margs[0m[0;34m[0m[0m
+[0;32m--> 504[0;31m         [0mresult[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_call_chain[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    505[0m         [0;32mif[0m [0mresult[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    506[0m             [0;32mreturn[0m [0mresult[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36m_call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
+[1;32m    442[0m         [0;32mfor[0m [0mhandler[0m [0;32min[0m [0mhandlers[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    443[0m             [0mfunc[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mhandler[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 444[0;31m             [0mresult[0m [0;34m=[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    445[0m             [0;32mif[0m [0mresult[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    446[0m                 [0;32mreturn[0m [0mresult[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mhttp_error_302[0;34m(self, req, fp, code, msg, headers)[0m
+[1;32m    694[0m         [0mfp[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    695[0m [0;34m[0m[0m
+[0;32m--> 696[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mparent[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mnew[0m[0;34m,[0m [0mtimeout[0m[0;34m=[0m[0mreq[0m[0;34m.[0m[0mtimeout[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    697[0m [0;34m[0m[0m
+[1;32m    698[0m     [0mhttp_error_301[0m [0;34m=[0m [0mhttp_error_303[0m [0;34m=[0m [0mhttp_error_307[0m [0;34m=[0m [0mhttp_error_302[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mopen[0;34m(self, fullurl, data, timeout)[0m
+[1;32m    464[0m             [0mreq[0m [0;34m=[0m [0mmeth[0m[0;34m([0m[0mreq[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    465[0m [0;34m[0m[0m
+[0;32m--> 466[0;31m         [0mresponse[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_open[0m[0;34m([0m[0mreq[0m[0;34m,[0m [0mdata[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    467[0m [0;34m[0m[0m
+[1;32m    468[0m         [0;31m# post-process response[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36m_open[0;34m(self, req, data)[0m
+[1;32m    482[0m         [0mprotocol[0m [0;34m=[0m [0mreq[0m[0;34m.[0m[0mtype[0m[0;34m[0m[0m
+[1;32m    483[0m         result = self._call_chain(self.handle_open, protocol, protocol +
+[0;32m--> 484[0;31m                                   '_open', req)
+[0m[1;32m    485[0m         [0;32mif[0m [0mresult[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    486[0m             [0;32mreturn[0m [0mresult[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36m_call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
+[1;32m    442[0m         [0;32mfor[0m [0mhandler[0m [0;32min[0m [0mhandlers[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    443[0m             [0mfunc[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mhandler[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 444[0;31m             [0mresult[0m [0;34m=[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    445[0m             [0;32mif[0m [0mresult[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    446[0m                 [0;32mreturn[0m [0mresult[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mhttps_open[0;34m(self, req)[0m
+[1;32m   1295[0m         [0;32mdef[0m [0mhttps_open[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mreq[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1296[0m             return self.do_open(http.client.HTTPSConnection, req,
+[0;32m-> 1297[0;31m                 context=self._context, check_hostname=self._check_hostname)
+[0m[1;32m   1298[0m [0;34m[0m[0m
+[1;32m   1299[0m         [0mhttps_request[0m [0;34m=[0m [0mAbstractHTTPHandler[0m[0;34m.[0m[0mdo_request_[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mdo_open[0;34m(self, http_class, req, **http_conn_args)[0m
+[1;32m   1254[0m                 [0mh[0m[0;34m.[0m[0mrequest[0m[0;34m([0m[0mreq[0m[0;34m.[0m[0mget_method[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mselector[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mdata[0m[0;34m,[0m [0mheaders[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1255[0m             [0;32mexcept[0m [0mOSError[0m [0;32mas[0m [0merr[0m[0;34m:[0m [0;31m# timeout error[0m[0;34m[0m[0m
+[0;32m-> 1256[0;31m                 [0;32mraise[0m [0mURLError[0m[0;34m([0m[0merr[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1257[0m             [0mr[0m [0;34m=[0m [0mh[0m[0;34m.[0m[0mgetresponse[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1258[0m         [0;32mexcept[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mURLError[0m: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:719)>
+URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:719)>
+
+Executability                            : False

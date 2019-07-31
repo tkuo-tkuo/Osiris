@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# функция без NumPy
+def stupid_sec_av(A):
+    S = [0 for i in range(len(A))]
+    for i in range(len(A)):
+        # Ваш код здесь
+    for i in range(len(A)):
+        # Ваш код здесь
+    return S
+
+# зададим некоторую последовательность и проверим ее на ваших функциях. 
+# Первая функция должна работать ~ в 50 раз быстрее
+A = sps.uniform.rvs(size=10 ** 7) 
+
+%time S1 = sec_av(A)
+%time S2 = stupid_sec_av(A)
+#проверим корректность:
+np.abs(S1 - S2).sum()
+------------------
+
+[0;36m  File [0;32m"<ipython-input-7-08d6a94636f4>"[0;36m, line [0;32m6[0m
+[0;31m    for i in range(len(A)):[0m
+[0m      ^[0m
+[0;31mIndentationError[0m[0;31m:[0m expected an indented block
+
+IndentationError: expected an indented block (<ipython-input-7-08d6a94636f4>, line 6)
+
+Executability                            : False

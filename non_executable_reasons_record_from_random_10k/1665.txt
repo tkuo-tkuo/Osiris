@@ -1,0 +1,44 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import pymc as pm
+
+data_mu = [3e3, 12e3]
+
+data_std = [5e2, 3e3]
+
+mu_prior = 35e3
+std_prior = 75e2
+
+true_price = pm.Normal("true_price", mu_prior, 1.0 / std_prior ** 2)
+
+
+prize_1 = pm.Normal("first_prize", data_mu[0], 1.0 / data_std[0] ** 2)
+prize_2 = pm.Normal("second_prize", data_mu[1], 1.0 / data_std[1] ** 2)
+price_estimate = prize_1 + prize_2
+
+
+@pm.potential
+def error(true_price=true_price, price_estimate=price_estimate):
+        return pm.normal_like(true_price, price_estimate, 1 / (3e3) ** 2)
+
+
+mcmc = pm.MCMC([true_price, prize_1, prize_2, price_estimate, error])
+mcmc.sample(50000, 10000)
+
+price_trace = mcmc.trace("true_price")[:]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-0bf2f069ba67>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mpymc[0m [0;32mas[0m [0mpm[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mdata_mu[0m [0;34m=[0m [0;34m[[0m[0;36m3e3[0m[0;34m,[0m [0;36m12e3[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mdata_std[0m [0;34m=[0m [0;34m[[0m[0;36m5e2[0m[0;34m,[0m [0;36m3e3[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pymc'
+ImportError: No module named 'pymc'
+
+Executability                            : False

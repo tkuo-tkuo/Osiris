@@ -1,0 +1,45 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#Create mean table
+grouped = X.groupby(['playerID', 'year'])
+grouped.agg([np.mean]).to_csv('results/player_year_mean.csv')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-5-deb2bb6028cc>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#Create mean table[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mgrouped[0m [0;34m=[0m [0mX[0m[0;34m.[0m[0mgroupby[0m[0;34m([0m[0;34m[[0m[0;34m'playerID'[0m[0;34m,[0m [0;34m'year'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mgrouped[0m[0;34m.[0m[0magg[0m[0;34m([0m[0;34m[[0m[0mnp[0m[0;34m.[0m[0mmean[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0;34m'results/player_year_mean.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36mgroupby[0;34m(self, by, axis, level, as_index, sort, group_keys, squeeze, observed, **kwargs)[0m
+[1;32m   7630[0m         return groupby(self, by=by, axis=axis, level=level, as_index=as_index,
+[1;32m   7631[0m                        [0msort[0m[0;34m=[0m[0msort[0m[0;34m,[0m [0mgroup_keys[0m[0;34m=[0m[0mgroup_keys[0m[0;34m,[0m [0msqueeze[0m[0;34m=[0m[0msqueeze[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 7632[0;31m                        observed=observed, **kwargs)
+[0m[1;32m   7633[0m [0;34m[0m[0m
+[1;32m   7634[0m     def asfreq(self, freq, method=None, how=None, normalize=False,
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/groupby/groupby.py[0m in [0;36mgroupby[0;34m(obj, by, **kwds)[0m
+[1;32m   2108[0m         [0;32mraise[0m [0mTypeError[0m[0;34m([0m[0;34m'invalid type: {}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mobj[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2109[0m [0;34m[0m[0m
+[0;32m-> 2110[0;31m     [0;32mreturn[0m [0mklass[0m[0;34m([0m[0mobj[0m[0;34m,[0m [0mby[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/groupby/groupby.py[0m in [0;36m__init__[0;34m(self, obj, keys, axis, level, grouper, exclusions, selection, as_index, sort, group_keys, squeeze, observed, **kwargs)[0m
+[1;32m    358[0m                                                     [0msort[0m[0;34m=[0m[0msort[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    359[0m                                                     [0mobserved[0m[0;34m=[0m[0mobserved[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 360[0;31m                                                     mutated=self.mutated)
+[0m[1;32m    361[0m [0;34m[0m[0m
+[1;32m    362[0m         [0mself[0m[0;34m.[0m[0mobj[0m [0;34m=[0m [0mobj[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/groupby/grouper.py[0m in [0;36m_get_grouper[0;34m(obj, key, axis, level, sort, observed, mutated, validate)[0m
+[1;32m    576[0m                 [0min_axis[0m[0;34m,[0m [0mname[0m[0;34m,[0m [0mlevel[0m[0;34m,[0m [0mgpr[0m [0;34m=[0m [0;32mFalse[0m[0;34m,[0m [0;32mNone[0m[0;34m,[0m [0mgpr[0m[0;34m,[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    577[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 578[0;31m                 [0;32mraise[0m [0mKeyError[0m[0;34m([0m[0mgpr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    579[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mgpr[0m[0;34m,[0m [0mGrouper[0m[0;34m)[0m [0;32mand[0m [0mgpr[0m[0;34m.[0m[0mkey[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    580[0m             [0;31m# Add key to exclusions[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: 'playerID'
+KeyError: 'playerID'
+
+Executability                            : False

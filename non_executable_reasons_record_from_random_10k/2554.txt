@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from textblob import TextBlob
+import numpy as np
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-273e99b3e1b7>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mtextblob[0m [0;32mimport[0m [0mTextBlob[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'textblob'
+ImportError: No module named 'textblob'
+
+Executability                            : False

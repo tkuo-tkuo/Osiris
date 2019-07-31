@@ -1,0 +1,111 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+### The graph ###
+
+# Keep the FTE style
+
+# Generate a figure with 2 axes (1 row by 2 columns)
+fig = plt.figure(figsize = (17.5, 7))
+ax1 = fig.add_subplot(1,2,1)
+ax2 = fig.add_subplot(1,2,2)
+
+# Plot the lines (consider colorblindness when choosing colors)
+# FTE dataset
+ax1.plot(fte_fdg.index, fte_fdg.values, c = (230/255, 159/255, 0))
+ax1.plot(fte_ms.index, fte_ms.values, c = (0, 114/255, 178/255))
+ax1.plot(fte_imdb.index, fte_imdb.values, c = (240/255, 228/255, 66/255))
+ax1.plot(fte_tmeter.index, fte_tmeter.values, c = (0, 158/255, 115/255))
+
+# New dataset
+ax2.plot(fdg_vals.index, fdg_vals.values, c = (230/255, 159/255, 0))
+ax2.plot(ms_vals.index, ms_vals.values, c = (0, 114/255, 178/255))
+ax2.plot(imdb_vals.index, imdb_vals.values, c = (240/255, 228/255, 66/255))
+ax2.plot(tmeter_vals.index, tmeter_vals.values, c = (0, 158/255, 115/255))
+
+# Tweak the axes
+# Ax1
+# Ticks
+ax1.set_yticks([0,10,20,30,40,50])
+ax1.set_xticks([0,1,2,3,4,5])
+ax1.set_yticklabels(['', '10%', '', '', '40%', '']) # Had to do it this way to keep the gridlines for 0,20, and 30
+ax1.set_xticklabels(['0 stars', '1', '2', '3', '4', '5 stars', ])
+ax1.tick_params(labelsize = 14) # font size for tick labels
+# Legend
+ax1.text(3.25,44, 'IMDB', color = (220/255, 208/255, 46/255), fontsize = 16, weight = 'bold')
+ax1.text(4.1,39.5, 'Fandango', color = (230/255, 159/255, 0), fontsize = 16, weight = 'bold')
+ax1.text(1.05,15.1, 'Metacritic', color = (0, 114/255, 178/255), fontsize = 16, weight = 'bold')
+ax1.text(2.7, 4, 'RottenTomatoes', color = (0, 158/255, 115/255), fontsize = 16, weight = 'bold')
+ax1.text(-0.3, 33, 'From 146 movies', fontsize = 12, weight = 'bold', rotation = 'vertical')
+
+# Ax2
+# Ticksb
+ax2.yaxis.tick_right() # moves the y-axis to the right
+ax2.set_yticks([0,10,20,30,40,50])
+ax2.set_xticks([0,1,2,3,4,5])
+ax2.set_yticklabels(['', '10%', '', '', '40%', ''])
+ax2.set_xticklabels(['0 stars', '1', '2', '3', '4', '5 stars'])
+ax2.tick_params(labelsize = 14)
+# Legend
+ax2.text(2.8,37, 'IMDB', color = (220/255, 208/255, 46/255), fontsize = 16, weight = 'bold')
+ax2.text(3.6,40, 'Fandango', color = (230/255, 159/255, 0), fontsize = 16, weight = 'bold')
+ax2.text(1.5,20.2, 'Metacritic', color = (0, 114/255, 178/255), fontsize = 16, weight = 'bold')
+ax2.text(-0.1,13.5, 'RottenTomatoes', color = (0, 158/255, 115/255), fontsize = 16, weight = 'bold')
+ax2.text(5.4, 33, 'From 214 movies', fontsize = 12, weight = 'bold', rotation = 270)
+
+# Titles & Subtitles
+fig.suptitle('Different Movie, Same Story', fontsize = 34, weight = 'bold')
+ax1.set_title('October 2015', loc = 'left', weight = 'bold')
+ax2.set_title('March 2017', loc = 'right', weight = 'bold')
+ax1.text(2.5, -17, 'Walt Hickey From FTE Was \n Puzzled By Fandango\'s Skewed Distribution', fontsize = 21, 
+         weight = 'bold', ha = 'center')
+ax2.text(2.5, -17, 'We Could Name This Kind Of Distribution \n "The Fandango Distribution"', fontsize = 21, weight = 'bold', ha = 'center')
+ax1.text(-0.5, -38, 'Author: Alex Olteanu', fontsize = 11)
+ax2.text(0, -38, 'Source: Walt Hickey\'s Dataset; Fandango, Metacritic, IMDB, and Rotten Tomatoes (Websites)', 
+         fontsize = 11)
+plt.tight_layout(pad = 7) # increases the padding btw the fig title and the axes objects
+
+
+plt.show()
+fig.savefig('small_multiple_fdg.jpg')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-8-81bab851522a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     65[0m [0;34m[0m[0m
+[1;32m     66[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 67[0;31m [0mfig[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m'small_multiple_fdg.jpg'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/figure.py[0m in [0;36msavefig[0;34m(self, fname, **kwargs)[0m
+[1;32m   2033[0m             [0mself[0m[0;34m.[0m[0mset_frameon[0m[0;34m([0m[0mframeon[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2034[0m [0;34m[0m[0m
+[0;32m-> 2035[0;31m         [0mself[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2036[0m [0;34m[0m[0m
+[1;32m   2037[0m         [0;32mif[0m [0mframeon[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, **kwargs)[0m
+[1;32m   2261[0m                 [0morientation[0m[0;34m=[0m[0morientation[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m   2262[0m                 [0mbbox_inches_restore[0m[0;34m=[0m[0m_bbox_inches_restore[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m-> 2263[0;31m                 **kwargs)
+[0m[1;32m   2264[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   2265[0m             [0;32mif[0m [0mbbox_inches[0m [0;32mand[0m [0mrestore_bbox[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/matplotlib/backends/backend_agg.py[0m in [0;36mprint_jpg[0;34m(self, filename_or_obj, *args, **kwargs)[0m
+[1;32m    582[0m                 [0moptions[0m[0;34m[[0m[0;34m'dpi'[0m[0;34m][0m [0;34m=[0m [0;34m([0m[0moptions[0m[0;34m[[0m[0;34m'dpi'[0m[0;34m][0m[0;34m,[0m [0moptions[0m[0;34m[[0m[0;34m'dpi'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    583[0m [0;34m[0m[0m
+[0;32m--> 584[0;31m             [0;32mreturn[0m [0mbackground[0m[0;34m.[0m[0msave[0m[0;34m([0m[0mfilename_or_obj[0m[0;34m,[0m [0mformat[0m[0;34m=[0m[0;34m'jpeg'[0m[0;34m,[0m [0;34m**[0m[0moptions[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    585[0m         [0mprint_jpeg[0m [0;34m=[0m [0mprint_jpg[0m[0;34m[0m[0m
+[1;32m    586[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/PIL/Image.py[0m in [0;36msave[0;34m(self, fp, format, **params)[0m
+[1;32m   1930[0m                 [0;31m# Open also for reading ("+"), because TIFF save_all[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1931[0m                 [0;31m# writer needs to go back and edit the written data.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1932[0;31m                 [0mfp[0m [0;34m=[0m [0mbuiltins[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"w+b"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1933[0m [0;34m[0m[0m
+[1;32m   1934[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'small_multiple_fdg.jpg'
+PermissionError: [Errno 13] Permission denied: 'small_multiple_fdg.jpg'
+
+Executability                            : False

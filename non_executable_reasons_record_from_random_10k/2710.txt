@@ -1,0 +1,33 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+sl.hide_code_in_slideshow()
+import pandas as pd
+import pandas_datareader.data as web
+
+stocks = ['TSLA', 'YELP']
+attr = 'Close'
+data_source = 'yahoo'
+df = web.DataReader(stocks, 
+                    data_source,                               
+                    start=datetime(2014, 1, 1), 
+                    end=datetime(2014, 12, 31))[attr]
+rets = df.pct_change(30)
+rets.TSLA.plot(label = 'tesla',lw=2)
+rets.YELP.plot(label = 'yelp',lw=2)
+plt.legend(loc='best')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-10-5d7a6862efb6>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0msl[0m[0;34m.[0m[0mhide_code_in_slideshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mpandas_datareader[0m[0;34m.[0m[0mdata[0m [0;32mas[0m [0mweb[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mstocks[0m [0;34m=[0m [0;34m[[0m[0;34m'TSLA'[0m[0;34m,[0m [0;34m'YELP'[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pandas_datareader'
+ImportError: No module named 'pandas_datareader'
+
+Executability                            : False

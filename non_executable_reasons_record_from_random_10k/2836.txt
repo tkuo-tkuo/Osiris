@@ -1,0 +1,40 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import json
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import plotly.offline as pyo
+pyo.init_notebook_mode()
+from plotly.graph_objs import *
+import plotly.graph_objs as go
+import numpy as np
+import seaborn as sns
+import math, nltk, warnings
+from nltk.corpus import wordnet
+from sklearn import linear_model
+from sklearn.neighbors import NearestNeighbors
+from fuzzywuzzy import fuzz
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+from IPython.core.interactiveshell import InteractiveShell
+from PIL import *
+from collections import Counter
+from subprocess import check_output
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-9de8e58ecbc8>[0m in [0;36m<module>[0;34m[0m
+[1;32m     15[0m [0;32mfrom[0m [0msklearn[0m [0;32mimport[0m [0mlinear_model[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mneighbors[0m [0;32mimport[0m [0mNearestNeighbors[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 17[0;31m [0;32mfrom[0m [0mfuzzywuzzy[0m [0;32mimport[0m [0mfuzz[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     18[0m [0;32mfrom[0m [0mwordcloud[0m [0;32mimport[0m [0mWordCloud[0m[0;34m,[0m [0mSTOPWORDS[0m[0;34m,[0m [0mImageColorGenerator[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m [0;32mfrom[0m [0mIPython[0m[0;34m.[0m[0mcore[0m[0;34m.[0m[0minteractiveshell[0m [0;32mimport[0m [0mInteractiveShell[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'fuzzywuzzy'
+ModuleNotFoundError: No module named 'fuzzywuzzy'
+
+Executability                            : False

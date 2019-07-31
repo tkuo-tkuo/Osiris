@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%time
+
+import numpy as np
+import pandas as pd
+
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+from ml.visualization import plot_confusion_matrix, classifier_boundary, plot_learning_curve
+
+from sklearn.linear_model import LinearRegression, LogisticRegression, Perceptron, Ridge
+from sklearn.metrics import accuracy_score, confusion_matrix, mean_squared_error
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import PolynomialFeatures
+
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+
+from sklearn.metrics import classification_report
+
+from sklearn.metrics import roc_curve, auc
+
+
+
+np.random.seed(0)  # Para mayor determinismo
+------------------
+
+
+UsageError: Line magic function `%%time` not found.
+
+Executability                            : False

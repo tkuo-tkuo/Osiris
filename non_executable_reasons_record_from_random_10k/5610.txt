@@ -1,0 +1,17 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from keras.models import Sequential
+from keras.layers import Dense, Flatten, Convolution2D, MaxPooling2D, Dropout
+from keras.optimizers import RMSprop
+from keras.datasets import mnist
+from keras.utils import np_utils
+from keras import initializations
+from keras import backend as K
+------------------
+
+ImportError: No module named 'keras'
+
+Executability                            : False

@@ -1,0 +1,29 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#Horizontal
+moon = io.imread(filename)
+camera_moon = np.zeros_like(moon[:,:-1], dtype = np.uint16)
+a = 100
+for i in range(camera_moon.shape[0]) :
+    for j in range(camera_moon.shape[1]) :
+        camera_moon[i, j] = int(moon[i, j]) - int(moon[i, j+1])
+
+camera_moon2 = reajuste(camera_moon, 255, 0, max_v, min_v)
+plt.imshow(camera_moon, cmap='gray')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-7-1f34eede31d9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m         [0mcamera_moon[0m[0;34m[[0m[0mi[0m[0;34m,[0m [0mj[0m[0;34m][0m [0;34m=[0m [0mint[0m[0;34m([0m[0mmoon[0m[0;34m[[0m[0mi[0m[0;34m,[0m [0mj[0m[0;34m][0m[0;34m)[0m [0;34m-[0m [0mint[0m[0;34m([0m[0mmoon[0m[0;34m[[0m[0mi[0m[0;34m,[0m [0mj[0m[0;34m+[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[0;32m----> 9[0;31m [0mcamera_moon2[0m [0;34m=[0m [0mreajuste[0m[0;34m([0m[0mcamera_moon[0m[0;34m,[0m [0;36m255[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0mmax_v[0m[0;34m,[0m [0mmin_v[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0mplt[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0mcamera_moon[0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0;34m'gray'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'max_v' is not defined
+NameError: name 'max_v' is not defined
+
+Executability                            : False

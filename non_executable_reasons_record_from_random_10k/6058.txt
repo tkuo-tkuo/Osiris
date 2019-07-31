@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+temperature = float( input('What is the temperature in F? ') )
+
+if temperature > 100:
+    print("Don't go outside!")
+elif temperature > 70:
+    print("Wear shorts.")
+else:
+    print('Wear pants.')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-26-6628b14e3b78>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mtemperature[0m [0;34m=[0m [0mfloat[0m[0;34m([0m [0minput[0m[0;34m([0m[0;34m'What is the temperature in F? '[0m[0;34m)[0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;32mif[0m [0mtemperature[0m [0;34m>[0m [0;36m100[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mprint[0m[0;34m([0m[0;34m"Don't go outside!"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32melif[0m [0mtemperature[0m [0;34m>[0m [0;36m70[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    853[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    854[0m             raise StdinNotImplementedError(
+[0;32m--> 855[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    856[0m             )
+[1;32m    857[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

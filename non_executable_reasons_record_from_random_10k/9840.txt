@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from nilearn import datasets
+
+adhd_dataset = datasets.fetch_adhd(n_subjects=20)
+func_filenames = adhd_dataset.func
+confounds = adhd_dataset.confounds
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-c4762da7c119>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mnilearn[0m [0;32mimport[0m [0mdatasets[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0madhd_dataset[0m [0;34m=[0m [0mdatasets[0m[0;34m.[0m[0mfetch_adhd[0m[0;34m([0m[0mn_subjects[0m[0;34m=[0m[0;36m20[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'nilearn'
+ImportError: No module named 'nilearn'
+
+Executability                            : False

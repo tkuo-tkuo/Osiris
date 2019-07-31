@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+#Training a logistic regression model for document classification
+X_train = df.ix[:,0:2]
+y_train = df['Stance']
+X_test = dfTest.ix[:,0:2]
+y_test = dfTest['Stance']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-cdb2d114d9cf>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m#Training a logistic regression model for document classification[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mX_train[0m [0;34m=[0m [0mdf[0m[0;34m.[0m[0mix[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m[0;36m0[0m[0;34m:[0m[0;36m2[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0my_train[0m [0;34m=[0m [0mdf[0m[0;34m[[0m[0;34m'Stance'[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      4[0m [0mX_test[0m [0;34m=[0m [0mdfTest[0m[0;34m.[0m[0mix[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m[0;36m0[0m[0;34m:[0m[0;36m2[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      5[0m [0my_test[0m [0;34m=[0m [0mdfTest[0m[0;34m[[0m[0;34m'Stance'[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
+
+Executability                            : False

@@ -1,0 +1,101 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 1]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+data = load_boston()
+X_ = data['data']
+y_ = data['target']
+
+# Normalize data
+X_ = (X_ - np.mean(X_, axis = 0)) / np.std(X_, axis = 0)
+
+n_features = X_.shape[1]
+n_hidden = 10
+
+W1_ = np.random.randn(n_features, n_hidden)
+b1_ = np.zeros(n_hidden)
+W2_ = np.random.randn(n_hidden, 1)
+b2_ = np.zeros(1)
+
+# Inputs
+X, y = Input(), Input()
+W1, b1 = Input(), Input()
+W2, b2 = Input(), Input()
+
+feed_dict = {
+    X: X_,
+    y: y_,
+    W1: W1_,
+    b1: b1_,
+    W2: W2_,
+    b2: b2_
+}
+
+# Hyperparameters
+epochs = 1000
+m = X_.shape[0]
+batch_size = 11
+steps_per_epoch = m // batch_size
+
+# Required operations
+l1 = Linear(X, W1, b1)
+s1 = Sigmoid(l1)
+l2 = Linear(s1, W2, b2)
+cost = MSE(y, l2)
+
+graph = topological_sort(feed_dict)
+trainables = [W1, b1, W2, b2]
+
+print("Total number of examples = {}".format(m))
+
+# Calculate
+for i in range(epochs):
+    loss = 0
+    for j in range(steps_per_epoch):
+        # Randomly sample a batch of examples
+        X_batch, y_batch = resample(X_, y_, n_samples=batch_size)
+
+        # Reset value of X and y Inputs
+        X.value = X_batch
+        y.value = y_batch
+
+        forward_and_backward(graph)
+        sgd_update(trainables)
+        loss += graph[-1].value
+        
+    if i % (10 * epochs / 100) == 0 or i == range(epochs).stop - 1:
+        print("Epoch: {}, Loss: {:.3f}".format(i + 1, loss / steps_per_epoch))
+
+
+-----------------
+Original output:
+Total number of examples = 506
+Epoch: 1, Loss: 121.250
+Epoch: 101, Loss: 6.429
+Epoch: 201, Loss: 5.195
+Epoch: 301, Loss: 4.016
+Epoch: 401, Loss: 4.715
+Epoch: 501, Loss: 3.711
+Epoch: 601, Loss: 3.759
+Epoch: 701, Loss: 3.740
+Epoch: 801, Loss: 4.150
+Epoch: 901, Loss: 4.285
+Epoch: 1000, Loss: 3.663
+
+Executed output:
+Total number of examples = 506
+Epoch: 1, Loss: 143.195
+Epoch: 101, Loss: 7.225
+Epoch: 201, Loss: 5.738
+Epoch: 301, Loss: 7.083
+Epoch: 401, Loss: 5.808
+Epoch: 501, Loss: 5.330
+Epoch: 601, Loss: 5.068
+Epoch: 701, Loss: 4.684
+Epoch: 801, Loss: 3.948
+Epoch: 901, Loss: 4.361
+Epoch: 1000, Loss: 4.314
+

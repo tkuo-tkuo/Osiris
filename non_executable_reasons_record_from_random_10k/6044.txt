@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+arr1 = np.ones( (2, 3) )
+arr2 = np.ones( (1, 2) )
+
+arr1 + arr2
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-8-a477996c44ca>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0marr2[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mones[0m[0;34m([0m [0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m2[0m[0;34m)[0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0marr1[0m [0;34m+[0m [0marr2[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: operands could not be broadcast together with shapes (2,3) (1,2) 
+ValueError: operands could not be broadcast together with shapes (2,3) (1,2) 
+
+Executability                            : False

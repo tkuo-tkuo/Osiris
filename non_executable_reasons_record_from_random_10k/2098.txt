@@ -1,0 +1,25 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+cap = cv2.VideoCapture(input_vidpath)
+ret, img = cap.read()
+
+## Select ROI on image and press enter (roi is a tuple of format: x0, y0, width, height)
+roi = cv2.selectROI('test', img)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-ad0ce184615a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mcap[0m [0;34m=[0m [0mcv2[0m[0;34m.[0m[0mVideoCapture[0m[0;34m([0m[0minput_vidpath[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mret[0m[0;34m,[0m [0mimg[0m [0;34m=[0m [0mcap[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'cv2' is not defined
+NameError: name 'cv2' is not defined
+
+Executability                            : False

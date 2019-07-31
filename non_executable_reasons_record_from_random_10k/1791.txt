@@ -1,0 +1,49 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import Utils as utl
+import numpy as np
+from keras.callbacks import TensorBoard
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation, Flatten
+from keras.layers import Convolution2D, MaxPooling2D
+from keras.utils.vis_utils import plot_model
+from keras.utils import np_utils
+from matplotlib import pyplot as plt
+from sklearn.metrics import f1_score
+import time
+import os
+os.environ["PATH"] += os.pathsep + 'E:\miniconda\envs\tensorflow\Library\bin\graphviz'
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-7c638b2f14a8>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mUtils[0m [0;32mas[0m [0mutl[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mcallbacks[0m [0;32mimport[0m [0mTensorBoard[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/PaulRps@CNN-for-Fingerprints/Utils/__init__.py[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0;34m.[0m[0mIO[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0;34m.[0m[0mSingularity[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0;34m.[0m[0mDataAugmentation[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0;34m.[0m[0mEncoder[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0;34m.[0m[0mDataSplitter[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/PaulRps@CNN-for-Fingerprints/Utils/IO.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;34m[0m[0m
+[1;32m      2[0m [0;32mimport[0m [0mglob[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

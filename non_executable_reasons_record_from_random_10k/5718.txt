@@ -1,0 +1,15 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import nglview
+from mdtraj import load
+from numpy.random import randn
+from matplotlib import pylab as plt
+%matplotlib notebook 
+------------------
+
+ImportError: No module named 'nglview'
+
+Executability                            : False

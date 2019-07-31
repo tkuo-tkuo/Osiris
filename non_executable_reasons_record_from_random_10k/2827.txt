@@ -1,0 +1,71 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#this part aims to create the data visualization to show the distribution of population of china 
+
+import numpy as np
+import matplotlib
+matplotlib.rcParams['toolbar'] = 'None'
+import matplotlib.pyplot as plt
+from mpl_toolkits.basemap import Basemap
+from  matplotlib.animation import FuncAnimation
+import pandas as pd
+import seaborn as sns
+
+fig = plt.figure(figsize=(20, 14))
+posi=pd.read_excel("E:\\Cities-CHINA.xlsx")
+
+#get the value of latitude, longitude and population
+lat = np.array(posi["lat"][0:120])                        
+lon = np.array(posi["lon"][0:120])                        
+pop = np.array(posi["pop"][0:120],dtype=float)    
+gdp = np.array(posi["GDP"][0:120],dtype=float)    
+
+size=(pop/np.max(pop))*100    
+
+map = Basemap(projection='stere', 
+              lat_0=35, lon_0=110,
+              llcrnrlon=82.33, 
+              llcrnrlat=3.01, 
+              urcrnrlon=138.16, 
+              urcrnrlat=53.123,resolution='l',area_thresh=10000,rsphere=6371200.)
+
+
+map.drawcoastlines()   
+map.drawcountries()    
+map.drawcounties()
+map.readshapefile("E:\\CHN\\CHN_adm1",'states',drawbounds=True)
+map.drawmapboundary()
+
+#plot the latitude line
+parallels = np.arange(0.,90,10.) 
+map.drawparallels(parallels,labels=[1,0,0,0],fontsize=10) 
+
+#plot the longitude line
+meridians = np.arange(80.,140.,10.)
+map.drawmeridians(meridians,labels=[0,0,0,1],fontsize=10) 
+
+x,y = map(lon,lat)
+
+map.scatter(x,y,s=size)
+
+plt.title("Population Distribution in China")
+plt.show()
+#in conclusion, the population of China is mainly distributed in the southeast coast
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-6b9971b5aa27>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0mmatplotlib[0m[0;34m.[0m[0mrcParams[0m[0;34m[[0m[0;34m'toolbar'[0m[0;34m][0m [0;34m=[0m [0;34m'None'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mfrom[0m [0mmpl_toolkits[0m[0;34m.[0m[0mbasemap[0m [0;32mimport[0m [0mBasemap[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;32mfrom[0m  [0mmatplotlib[0m[0;34m.[0m[0manimation[0m [0;32mimport[0m [0mFuncAnimation[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'mpl_toolkits.basemap'
+ModuleNotFoundError: No module named 'mpl_toolkits.basemap'
+
+Executability                            : False

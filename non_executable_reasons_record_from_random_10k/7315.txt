@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+plt.plot(data['Distance'], data['Area'], 'rs')
+plt.xlabel('Distance (cm)')
+plt.ylabel('Area (cm^2)')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-9c1d6affa4b4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mdata[0m[0;34m[[0m[0;34m'Distance'[0m[0;34m][0m[0;34m,[0m [0mdata[0m[0;34m[[0m[0;34m'Area'[0m[0;34m][0m[0;34m,[0m [0;34m'rs'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m'Distance (cm)'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mylabel[0m[0;34m([0m[0;34m'Area (cm^2)'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

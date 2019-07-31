@@ -1,0 +1,155 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# %load model_weights_cv.py
+#!/usr/bin/env python3
+"""
+Created on Sun May 14 17:08:27 2017
+
+@author: meiyi
+"""
+# highest lb score 
+
+import pandas as pd
+import numpy as np
+import platform
+
+def setPath():
+    if platform.system() == 'Darwin':
+        path_w2v = '/Volumes/MyPassport/kaggle_quora/w2v_pretrained/'
+        path_data= '/Volumes/MyPassport/kaggle_quora/data/'
+        path_feature = '/Volumes/MyPassport/kaggle_quora/features/'
+        path_unpack = '/Volumes/MyPassport/kaggle_quora/features/un_pack/'
+        return path_w2v,path_data,path_feature,path_unpack
+    elif platform.system() == 'Darwin':
+        path_w2v = 'D:\\kaggle_quora\\w2v_pretrained\\'
+        path_data= 'D:\\kaggle_quora\\data\\'
+        path_feature = 'D:\\kaggle_quora\\features\\'
+        return path_w2v,path_data,path_feature,path_unpack
+        
+path_w2v,path_data,path_feature,path_unpack = setPath()
+
+
+# basic features ---- features engineering
+
+test_data = pd.DataFrame()
+
+for i in range(0,10):
+    filename = 'test_'+str(i)+'_quora_features.pkl'
+    data = pd.read_pickle(path_feature+filename)
+    test_data = test_data.append(data)
+    
+    
+train_data = pd.read_pickle(path_feature + 'train_quora_features.pkl')
+
+
+#train_w2v_q1 = np.load(path_feature+'train_q1_w2v_google.pkl')
+#train_w2v_q1 = pd.DataFrame(train_w2v_q1,columns=['q1_' + i for i in list(map(str,range(0,train_w2v_q1.shape[1])))])
+#  
+#train_w2v_q2 = np.load(path_feature+'train_q2_w2v_google.pkl')
+#train_w2v_q2 = pd.DataFrame(train_w2v_q2,columns=['q2_' + i for i in list(map(str,range(0,train_w2v_q2.shape[1])))])
+
+train_porter_intersec = pd.DataFrame(pd.read_pickle(path_feature+'train_porter_interaction.pkl'),
+                                     columns = ['porter_intersec'])
+test_porter_intersec = pd.DataFrame(pd.read_pickle(path_feature+'test_porter_interaction.pkl'),
+                                     columns = ['porter_intersec'])
+
+
+
+train_intersec = pd.read_pickle(path_feature + 'train_intersect.pkl')
+test_intersec = pd.read_pickle(path_feature + 'test_intersect.pkl')
+
+
+# magic features 
+
+train_comb = pd.read_pickle(path_feature+'magic_feature_train.pkl')
+test_comb = pd.read_pickle(path_feature+'magic_feature_test.pkl')
+
+
+# features stacking
+ 
+
+train_data['weights']= [ np.random.uniform(0.2,0.3) if x == 1 else
+                         np.random.uniform(0.8,0.9) for x in train_data['is_duplicate']]
+
+
+train_features = pd.concat([train_data[train_data.columns.difference(['question1', 'question2'])],
+                                       train_porter_intersec,
+                                       train_intersec,
+                             train_comb[train_comb.columns.difference(['id','is_duplicate'])]], axis=1)
+    #.tocsr()
+    
+
+test_features = pd.concat([test_data[test_data.columns.difference(['question1', 'question2'])],
+                                     test_porter_intersec,
+                                     test_intersec,
+                            test_comb[test_comb.columns.difference(['id'])]],axis=1)
+    #.tocsr()
+    
+
+
+from sklearn.model_selection import train_test_split
+
+feature_col = train_features.columns.difference(['id','q1_hash','q2_hash']).values.tolist()
+
+pos_train, pos_test = train_test_split(train_features.ix[train_features['is_duplicate']==1,feature_col], test_size = 0.3)
+neg_train, neg_test = train_test_split(train_features.ix[train_features['is_duplicate']==0,feature_col], test_size = 0.3)
+
+train_X = pos_train.append(neg_train)
+test_X = pos_test.append(neg_test)
+
+train_y = train_X.is_duplicate.values
+weight_X = train_X.weights.values
+train_X = train_X[train_X.columns.difference(['is_duplicate','weights'])]
+
+test_y = test_X.is_duplicate.values
+weight_x = test_X.weights.values
+test_X = test_X[test_X.columns.difference(['is_duplicate','weights'])]
+
+# Set our parameters for xgboost
+
+import xgboost as xgb
+
+params = {}
+params['objective'] = 'binary:logistic'
+params['eval_metric'] = 'logloss'
+params['eta'] = 0.02
+params['max_depth'] = 9
+
+d_train = xgb.DMatrix(train_X, label=train_y,weight=weight_X)
+d_valid = xgb.DMatrix(test_X, label=test_y,weight=weight_x) 
+
+watchlist = [(d_train, 'train'), (d_valid, 'valid')]
+
+
+bst = xgb.train(params, d_train, 1500, watchlist, early_stopping_rounds=5, verbose_eval=10)
+               # , feval = kappa)
+
+feature_col_test = train_X.columns.values.tolist()
+
+d_test = xgb.DMatrix(test_features.ix[:,feature_col_test])
+p_test = bst.predict(d_test)
+
+sub = pd.DataFrame()
+sub['test_id'] = test_comb['id']
+sub['is_duplicate'] = p_test
+
+sub.to_csv(path_data+'xgb_2105_0.2_0.8_0.9_9_intersec.csv', index=False)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-67be9d6e9cc7>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     27[0m         [0;32mreturn[0m [0mpath_w2v[0m[0;34m,[0m[0mpath_data[0m[0;34m,[0m[0mpath_feature[0m[0;34m,[0m[0mpath_unpack[0m[0;34m[0m[0m
+[1;32m     28[0m [0;34m[0m[0m
+[0;32m---> 29[0;31m [0mpath_w2v[0m[0;34m,[0m[0mpath_data[0m[0;34m,[0m[0mpath_feature[0m[0;34m,[0m[0mpath_unpack[0m [0;34m=[0m [0msetPath[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     30[0m [0;34m[0m[0m
+[1;32m     31[0m [0;34m[0m[0m
+
+[0;31mTypeError[0m: 'NoneType' object is not iterable
+TypeError: 'NoneType' object is not iterable
+
+Executability                            : False

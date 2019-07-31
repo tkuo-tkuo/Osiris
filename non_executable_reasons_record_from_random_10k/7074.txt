@@ -1,0 +1,14 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+train_csv=pd.read_csv('train.csv',header=0)
+test_csv=pd.read_csv('test.csv',header=0)
+
+test_csv.head()
+
+
+------------------
+
+FileNotFoundError: File b'train.csv' does not exist
+
+Executability                            : False

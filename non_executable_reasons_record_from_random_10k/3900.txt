@@ -1,0 +1,57 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 1]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+def build_lexicon(corpus):
+    lexicon = set()
+    for doc in corpus:
+        lexicon.update([word for word in doc.split()])
+    return lexicon
+
+def tf(term, document):
+    return freq(term, document)
+
+def freq(term, document):
+    return document.split().count(term)
+
+vocabulary = build_lexicon(mydoclist)
+
+doc_term_matrix = []
+print('Our vocabulary vector is [' + ', '.join(list(vocabulary)) + ']')
+
+for doc in mydoclist:
+    print('The doc is "' + doc + '"')
+    tf_vector = [tf(word, doc) for word in vocabulary]
+    tf_vector_string = ', '.join(format(freq, 'd')for freq in tf_vector)
+    print('the tf vector for Document %d is [%s]'%((mydoclist.index(doc)+1), tf_vector_string))
+    doc_term_matrix.append(tf_vector)
+    
+print('All Combined here is our master document term matrix: ')
+print(doc_term_matrix)
+
+-----------------
+Original output:
+Our vocabulary vector is [likes, basketball, Linda, loves, Jane, baseball, than, He, more, Julie, me]
+The doc is "Julie loves me more than Linda loves me"
+the tf vector for Document 1 is [0, 0, 1, 2, 0, 0, 1, 0, 1, 1, 2]
+The doc is "Jane likes me more than Julie loves me"
+the tf vector for Document 2 is [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 2]
+The doc is "He likes basketball more than baseball"
+the tf vector for Document 3 is [1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0]
+All Combined here is our master document term matrix: 
+[[0, 0, 1, 2, 0, 0, 1, 0, 1, 1, 2], [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 2], [1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0]]
+
+Executed output:
+Our vocabulary vector is [more, loves, than, basketball, baseball, likes, me, Jane, Linda, Julie, He]
+The doc is "Julie loves me more than Linda loves me"
+the tf vector for Document 1 is [1, 2, 1, 0, 0, 0, 2, 0, 1, 1, 0]
+The doc is "Jane likes me more than Julie loves me"
+the tf vector for Document 2 is [1, 1, 1, 0, 0, 1, 2, 1, 0, 1, 0]
+The doc is "He likes basketball more than baseball"
+the tf vector for Document 3 is [1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1]
+All Combined here is our master document term matrix: 
+[[1, 2, 1, 0, 0, 0, 2, 0, 1, 1, 0], [1, 1, 1, 0, 0, 1, 2, 1, 0, 1, 0], [1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1]]
+

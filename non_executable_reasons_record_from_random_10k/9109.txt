@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from sklearn.ensemble import BaggingClassifier, AdaBoostClassifier, RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neural_network import MLPClassifier
+from sklearn.svm import SVC
+from xgboost.sklearn import XGBClassifier
+from sklearn.model_selection import KFold, cross_validate
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import roc_auc_score, recall_score, precision_score
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-3-234bb544c71f>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mneural_network[0m [0;32mimport[0m [0mMLPClassifier[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0msvm[0m [0;32mimport[0m [0mSVC[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mxgboost[0m[0;34m.[0m[0msklearn[0m [0;32mimport[0m [0mXGBClassifier[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmodel_selection[0m [0;32mimport[0m [0mKFold[0m[0;34m,[0m [0mcross_validate[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mneighbors[0m [0;32mimport[0m [0mKNeighborsClassifier[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'xgboost'
+ModuleNotFoundError: No module named 'xgboost'
+
+Executability                            : False

@@ -1,0 +1,65 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+
+from scipy.special import j1, struve
+
+from AcousticProperties import *
+from GmshBoundaries import *
+from RayleighSolver import *
+from SamplingPatterns import *
+from Plots import *
+%matplotlib inline
+
+import gmsh
+from joblib import Parallel, delayed
+
+
+def magnitude(k, boundaryCondition, samples):
+    solution = solver.solveBoundary(k, boundaryCondition)
+    phi = solver.solveSamples(solution, samples)
+    return SoundMagnitude(soundPressure(k, phi))
+
+def theoreticalPressure(R, V, k, r, theta, rho = 1.205, c = 344.0):
+    "From Morse & Ingard: Theoretical Acoustics"
+    sin_theta = k * R * np.sin(theta)
+    f_omega = 2.0 * V * np.pi * R**2 * (2.0 * j1(sin_theta) / sin_theta)
+    return -1j * k * rho * c * np.exp(1j * k * r) / (4 * np.pi * r) * f_omega
+
+def theoreticalMagnitude(R, V, k, r, theta, rho = 1.205, c = 344.0):
+    return SoundMagnitude(theoreticalPressure(R, V, k, r, theta, rho, c))
+
+def analyticalZm(r, aK, rho, c):
+    "From Pierce: Acoustics"
+    R1 = 1.0 - 2 * j1(2.0 * aK * r) / (2.0 * aK * r)
+    X1 = 2 * struve(1, 2.0 * aK * r) / (2.0 * aK * r)
+    Zm = density * c * np.pi * r**2 * (R1 - 1j * X1)
+    return Zm
+
+def numericalZm(k, boundaryCondition):
+    solution = solver.solveBoundary(k, boundaryCondition)
+    return solution.mechanicalImpedance()
+ 
+
+V = 1.0 # piston velocity
+c = 344.0
+density = 1.205
+nMaxEdge = 0.03
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-7f41a8f36922>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mspecial[0m [0;32mimport[0m [0mj1[0m[0;34m,[0m [0mstruve[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mAcousticProperties[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0mGmshBoundaries[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0mRayleighSolver[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'AcousticProperties'
+ModuleNotFoundError: No module named 'AcousticProperties'
+
+Executability                            : False

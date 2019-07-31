@@ -1,0 +1,44 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+np.set_printoptions(precision=1)
+import time
+# import tensorflow as tf
+import matplotlib.pylab as plt
+
+from modules.utils import load_cifar10
+# from modules.cnn_with_spectral_parameterization import CNN_Spectral_Param
+# from modules.cnn_with_spectral_pooling import CNN_Spectral_Pool
+from modules.image_generator import ImageGenerator
+
+import torch
+import torchvision
+import torchvision.transforms as transforms
+import torch.optim as optim
+from torch.autograd import Variable
+import torch.nn as nn
+import torch.nn.functional as F
+from torch.nn.modules.module import Module
+import pytorch_fft.fft.autograd as fft
+
+% matplotlib inline
+% load_ext autoreload
+% autoreload 2
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-0735c3483fb6>[0m in [0;36m<module>[0;34m[0m
+[1;32m     12[0m [0;32mfrom[0m [0mmodules[0m[0;34m.[0m[0mimage_generator[0m [0;32mimport[0m [0mImageGenerator[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0;34m[0m[0m
+[0;32m---> 14[0;31m [0;32mimport[0m [0mtorch[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;32mimport[0m [0mtorchvision[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m [0;32mimport[0m [0mtorchvision[0m[0;34m.[0m[0mtransforms[0m [0;32mas[0m [0mtransforms[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'torch'
+ModuleNotFoundError: No module named 'torch'
+
+Executability                            : False

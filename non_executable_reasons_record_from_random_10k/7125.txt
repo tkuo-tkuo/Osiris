@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#2015
+#fig = plt.figure(figsize = (8,2))
+#plt.subplot(131)
+ct_in_Brasil = pd.crosstab(nova_tabela.Condição_de_ocupação, nova_tabela.Acesso_Internet)
+ct_in_Brasil = (ct_in_Brasil/ct_in_Brasil.sum().sum()*100).round(decimals=0)
+ct_in_Brasil.plot(kind='bar', color=('yellow', 'salmon'))
+plt.title("2015 Acesso a Internet relacionado com a Situação da Residência - BRASIL")
+plt.ylabel('Frequência Relativa (em %)')
+
+#plt.subplot(132)
+ct_tv_Brasil = pd.crosstab(nova_tabela.Condição_de_ocupação, nova_tabela.Tem_sinal_TV)
+ct_tv_Brasil = (ct_tv_Brasil/ct_tv_Brasil.sum().sum()*100).round(decimals=0)
+ct_tv_Brasil.plot(kind='bar', color=('yellow', 'salmon'))
+plt.title("2015 Acesso a TV relacionado com a Situação da Residência - BRASIL")
+plt.ylabel('Frequência Relativa (em %)')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-4ca04e741cfc>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;31m#fig = plt.figure(figsize = (8,2))[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#plt.subplot(131)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0mct_in_Brasil[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mcrosstab[0m[0;34m([0m[0mnova_tabela[0m[0;34m.[0m[0mCondição_de_ocupação[0m[0;34m,[0m [0mnova_tabela[0m[0;34m.[0m[0mAcesso_Internet[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0mct_in_Brasil[0m [0;34m=[0m [0;34m([0m[0mct_in_Brasil[0m[0;34m/[0m[0mct_in_Brasil[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m)[0m[0;34m*[0m[0;36m100[0m[0;34m)[0m[0;34m.[0m[0mround[0m[0;34m([0m[0mdecimals[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0mct_in_Brasil[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mkind[0m[0;34m=[0m[0;34m'bar'[0m[0;34m,[0m [0mcolor[0m[0;34m=[0m[0;34m([0m[0;34m'yellow'[0m[0;34m,[0m [0;34m'salmon'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+ontology.edge['DOID->769']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-7-ce1e320bc8aa>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0montology[0m[0;34m.[0m[0medge[0m[0;34m[[0m[0;34m'DOID->769'[0m[0;34m][0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: 'DiGraph' object has no attribute 'edge'
+AttributeError: 'DiGraph' object has no attribute 'edge'
+
+Executability                            : False

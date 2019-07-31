@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+plot(train_diff, type='l')
+------------------
+
+NameError: name 'plot' is not defined
+
+Executability                            : False

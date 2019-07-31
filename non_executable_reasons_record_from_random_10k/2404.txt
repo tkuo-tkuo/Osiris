@@ -1,0 +1,72 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
+#load data
+mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
+
+batch_size = 100
+
+batch_count = mnist.train.num_examples // batch_size
+
+#define place holder
+x = tf.placeholder(tf.float32, [None, 784])
+y = tf.placeholder(tf.float32, [None, 10])
+
+#create a 1-level neural network
+W = tf.Variable(tf.truncated_normal([784, 10], stddev=0.1))
+# b = tf.Variable(tf.zeros([10]))
+b = tf.Variable(tf.zeros([10])+0.1)
+
+wx_b = tf.matmul(x, W)+b
+
+#激活函数，实现非线性化
+# prediction = tf.nn.relu(wx_b)
+# prediction = tf.nn.tanh(wx_b)
+# prediction = tf.nn.sigmoid(wx_b)
+prediction = tf.nn.softmax(wx_b)
+
+loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=y, logits=prediction))
+# loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=y, logits=prediction))
+
+#train
+train = tf.train.GradientDescentOptimizer(0.2).minimize(loss)
+
+init = tf.global_variables_initializer()
+
+#比较预测值与实际值
+correct_pred = tf.equal(tf.argmax(y, 1), tf.argmax(prediction, 1)) #argmax 返回沿着某个维度最大值的位置
+
+#准确率
+accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+
+with tf.Session() as sess:
+    sess.run(init)
+    
+    for step in range(20):
+        for batch in range(batch_count):
+            batch_xs, batch_ys = mnist.train.next_batch(batch_size)
+            sess.run(train, feed_dict={x:batch_xs, y:batch_ys})
+        
+        acc = sess.run(accuracy, feed_dict={x:mnist.test.images, y:mnist.test.labels})
+        print("step:" + str(step) + " accurancy:" + str(acc))
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-5c017fae9344>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mexamples[0m[0;34m.[0m[0mtutorials[0m[0;34m.[0m[0mmnist[0m [0;32mimport[0m [0minput_data[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#load data[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

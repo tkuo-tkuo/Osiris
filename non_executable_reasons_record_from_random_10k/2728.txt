@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from mrjob.job import MRJob
+from mrjob.step import MRStep
+from mrjob.protocol import JSONValueProtocol
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-3e2199314a4d>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mmrjob[0m[0;34m.[0m[0mjob[0m [0;32mimport[0m [0mMRJob[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mmrjob[0m[0;34m.[0m[0mstep[0m [0;32mimport[0m [0mMRStep[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mmrjob[0m[0;34m.[0m[0mprotocol[0m [0;32mimport[0m [0mJSONValueProtocol[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'mrjob'
+ImportError: No module named 'mrjob'
+
+Executability                            : False

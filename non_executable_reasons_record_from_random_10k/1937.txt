@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%latex   
+\begin{align}n \geq {(\frac{z * \sigma}{MOE})^2}\end{align}
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-3494323980f0>"[0;36m, line [0;32m4[0m
+[0;31m    \begin{align}n \geq {(\frac{z * \sigma}{MOE})^2}\end{align}[0m
+[0m                                                               ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m unexpected character after line continuation character
+
+SyntaxError: unexpected character after line continuation character (<ipython-input-1-3494323980f0>, line 4)
+
+Executability                            : False

@@ -1,0 +1,39 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from datetime import date, datetime
+import time
+from calendar import monthrange
+from time import sleep
+from glob import glob
+import os
+import sys
+import requests
+import re
+from pyquery import PyQuery
+import lxml
+
+REQUEST_INTERVAL = 0.01    # Length of delay between each request in seconds, to avoid server banning the spider
+
+# Date related settings and help functions
+
+YEAR_START   = 2015     ## Important: set these dates to the date of last scrape
+MONTH_START  = 10       ## If you don't set, the scraper will start from this date, which should have few
+DAY_START    = 29       ## negative effects.
+
+YEAR_END     = date.today().year
+MONTH_END    = date.today().month
+DAY_END      = date.today().day
+
+def normalizeDate(date_unit):
+    result = str(date_unit)
+    if len(result) == 1:
+        result = '0' + result
+    return result
+------------------
+
+ImportError: No module named 'pyquery'
+
+Executability                            : False

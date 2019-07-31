@@ -1,0 +1,46 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+Tmax = 24 * 7
+ll = 120
+
+t = np.zeros(10000)
+t[0] = 0
+
+N = np.zeros(10000)
+N[0] = 0
+
+current = 0
+while t[current] < Tmax:
+    current += 1
+    nextJob = np.random.poisson(completionRate,1)
+    nextCompleted = np.random.exponential(completionRate, 1)
+    nextChange = min(nextJob, nextCompleted)
+    
+    if nextJob < nextCompleted:
+        N[current] = N[current-1] + 1
+        t[current] = t[current-1] + nextJob
+        current += 1
+        N[current] = N[current-1] - 1
+        t[current] = t[current-1] + nextCompleted - nextJob
+    else:
+        N[current] = N[current-1] - 1
+        t[current] = t[current-1] + nextCompleted
+        current += 1
+        N[current] = N[current-1] + 1oo
+        t[current] = t[current-1] + nextJob - nextCompleted
+    
+            
+
+plt.plot(t[:current], N[:current])
+plt.show()
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-f8b5a76962fe>"[0;36m, line [0;32m27[0m
+[0;31m    N[current] = N[current-1] + 1oo[0m
+[0m                                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-2-f8b5a76962fe>, line 27)
+
+Executability                            : False

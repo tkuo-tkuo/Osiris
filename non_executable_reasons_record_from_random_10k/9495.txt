@@ -1,0 +1,69 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+!pip install sklearn_pandas
+!pip install git+https://github.com/jpmml/sklearn2pmml.git
+
+-----------------
+Original output:
+Requirement already satisfied: sklearn_pandas in /opt/conda/lib/python3.5/site-packages
+Requirement already satisfied: numpy>=1.6.1 in /opt/conda/lib/python3.5/site-packages (from sklearn_pandas)
+Requirement already satisfied: scikit-learn>=0.15.0 in /opt/conda/lib/python3.5/site-packages (from sklearn_pandas)
+Requirement already satisfied: scipy>=0.14 in /opt/conda/lib/python3.5/site-packages (from sklearn_pandas)
+Requirement already satisfied: pandas>=0.11.0 in /opt/conda/lib/python3.5/site-packages (from sklearn_pandas)
+Requirement already satisfied: python-dateutil>=2 in /opt/conda/lib/python3.5/site-packages (from pandas>=0.11.0->sklearn_pandas)
+Requirement already satisfied: pytz>=2011k in /opt/conda/lib/python3.5/site-packages (from pandas>=0.11.0->sklearn_pandas)
+Requirement already satisfied: six>=1.5 in /opt/conda/lib/python3.5/site-packages (from python-dateutil>=2->pandas>=0.11.0->sklearn_pandas)
+Collecting git+https://github.com/jpmml/sklearn2pmml.git
+  Cloning https://github.com/jpmml/sklearn2pmml.git to /tmp/pip-kv7b1tw2-build
+  Requirement already satisfied (use --upgrade to upgrade): sklearn2pmml==0.19.0 from git+https://github.com/jpmml/sklearn2pmml.git in /opt/conda/lib/python3.5/site-packages
+Requirement already satisfied: scikit-learn>=0.16.0 in /opt/conda/lib/python3.5/site-packages (from sklearn2pmml==0.19.0)
+Requirement already satisfied: sklearn_pandas>=0.0.10 in /opt/conda/lib/python3.5/site-packages (from sklearn2pmml==0.19.0)
+Requirement already satisfied: scipy>=0.14 in /opt/conda/lib/python3.5/site-packages (from sklearn_pandas>=0.0.10->sklearn2pmml==0.19.0)
+Requirement already satisfied: numpy>=1.6.1 in /opt/conda/lib/python3.5/site-packages (from sklearn_pandas>=0.0.10->sklearn2pmml==0.19.0)
+Requirement already satisfied: pandas>=0.11.0 in /opt/conda/lib/python3.5/site-packages (from sklearn_pandas>=0.0.10->sklearn2pmml==0.19.0)
+Requirement already satisfied: python-dateutil>=2 in /opt/conda/lib/python3.5/site-packages (from pandas>=0.11.0->sklearn_pandas>=0.0.10->sklearn2pmml==0.19.0)
+Requirement already satisfied: pytz>=2011k in /opt/conda/lib/python3.5/site-packages (from pandas>=0.11.0->sklearn_pandas>=0.0.10->sklearn2pmml==0.19.0)
+Requirement already satisfied: six>=1.5 in /opt/conda/lib/python3.5/site-packages (from python-dateutil>=2->pandas>=0.11.0->sklearn_pandas>=0.0.10->sklearn2pmml==0.19.0)
+
+Executed output:
+Requirement already satisfied: sklearn_pandas in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (1.8.0)
+Requirement already satisfied: scikit-learn>=0.15.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from sklearn_pandas) (0.19.1)
+Requirement already satisfied: pandas>=0.11.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from sklearn_pandas) (0.23.0)
+Requirement already satisfied: numpy>=1.6.1 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from sklearn_pandas) (1.14.3)
+Requirement already satisfied: scipy>=0.14 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from sklearn_pandas) (1.1.0)
+Requirement already satisfied: python-dateutil>=2.5.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from pandas>=0.11.0->sklearn_pandas) (2.7.3)
+Requirement already satisfied: pytz>=2011k in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from pandas>=0.11.0->sklearn_pandas) (2018.4)
+Requirement already satisfied: six>=1.5 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from python-dateutil>=2.5.0->pandas>=0.11.0->sklearn_pandas) (1.11.0)
+[31mdistributed 1.21.8 requires msgpack, which is not installed.[0m
+[31mwatson-developer-cloud 2.10.1 has requirement websocket-client==0.48.0, but you'll have websocket-client 0.40.0 which is incompatible.[0m
+[31mrequests 2.18.1 has requirement urllib3<1.22,>=1.21.1, but you'll have urllib3 1.22 which is incompatible.[0m
+[31mflask 1.0.2 has requirement Jinja2>=2.10, but you'll have jinja2 2.9.6 which is incompatible.[0m
+[33mYou are using pip version 10.0.1, however version 19.2.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting git+https://github.com/jpmml/sklearn2pmml.git
+  Cloning https://github.com/jpmml/sklearn2pmml.git to /tmp/pip-req-build-1mvvkfom
+Requirement already satisfied (use --upgrade to upgrade): sklearn2pmml==0.48.0 from git+https://github.com/jpmml/sklearn2pmml.git in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages
+Requirement already satisfied: scikit-learn>=0.18.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from sklearn2pmml==0.48.0) (0.19.1)
+Requirement already satisfied: sklearn-pandas>=0.0.10 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from sklearn2pmml==0.48.0) (1.8.0)
+Requirement already satisfied: pandas>=0.11.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from sklearn-pandas>=0.0.10->sklearn2pmml==0.48.0) (0.23.0)
+Requirement already satisfied: scipy>=0.14 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from sklearn-pandas>=0.0.10->sklearn2pmml==0.48.0) (1.1.0)
+Requirement already satisfied: numpy>=1.6.1 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from sklearn-pandas>=0.0.10->sklearn2pmml==0.48.0) (1.14.3)
+Requirement already satisfied: python-dateutil>=2.5.0 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from pandas>=0.11.0->sklearn-pandas>=0.0.10->sklearn2pmml==0.48.0) (2.7.3)
+Requirement already satisfied: pytz>=2011k in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from pandas>=0.11.0->sklearn-pandas>=0.0.10->sklearn2pmml==0.48.0) (2018.4)
+Requirement already satisfied: six>=1.5 in /home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages (from python-dateutil>=2.5.0->pandas>=0.11.0->sklearn-pandas>=0.0.10->sklearn2pmml==0.48.0) (1.11.0)
+Building wheels for collected packages: sklearn2pmml
+  Running setup.py bdist_wheel for sklearn2pmml ... [?25l- \ done
+[?25h  Stored in directory: /tmp/pip-ephem-wheel-cache-x6auuyn_/wheels/a5/16/28/39a02d646759c3c329275b8553d0a4c8635c9ff7a5ee5c73ba
+Successfully built sklearn2pmml
+[31mdistributed 1.21.8 requires msgpack, which is not installed.[0m
+[31mwatson-developer-cloud 2.10.1 has requirement websocket-client==0.48.0, but you'll have websocket-client 0.40.0 which is incompatible.[0m
+[31mflask 1.0.2 has requirement Jinja2>=2.10, but you'll have jinja2 2.9.6 which is incompatible.[0m
+[31mrequests 2.18.1 has requirement urllib3<1.22,>=1.21.1, but you'll have urllib3 1.22 which is incompatible.[0m
+[33mYou are using pip version 10.0.1, however version 19.2.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+

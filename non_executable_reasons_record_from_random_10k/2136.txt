@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from bs3 import BeautifulSoup
+------------------
+
+ImportError: No module named 'bs3'
+
+Executability                            : False

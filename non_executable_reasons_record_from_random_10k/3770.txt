@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import print_function, unicode_literals, division, absolute_import
+
+from widget_canvas import CanvasImage
+from widget_canvas import image
+
+import toyplot as tp
+import IPython
+from ipywidgets import widgets
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-a469361b8ac7>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mprint_function[0m[0;34m,[0m [0municode_literals[0m[0;34m,[0m [0mdivision[0m[0;34m,[0m [0mabsolute_import[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mwidget_canvas[0m [0;32mimport[0m [0mCanvasImage[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mwidget_canvas[0m [0;32mimport[0m [0mimage[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'widget_canvas'
+ImportError: No module named 'widget_canvas'
+
+Executability                            : False

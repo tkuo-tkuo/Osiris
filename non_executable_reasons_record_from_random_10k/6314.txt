@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+plt = createScatter()
+# 全関数を描画
+for f in all_funcs_inflection:
+    plt.plot(fx, f(fx), linewidth=3)
+plt.ylim(ymin=0,ymax=10000) # 表示を見やすくするため yの下限を0に設定する
+plt.legend(["d={}".format(f.order) for f in all_funcs_inflection], loc="upper left")
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-19-10ac06cb30c1>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mplt[0m [0;34m=[0m [0mcreateScatter[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m# 全関数を描画[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfor[0m [0mf[0m [0;32min[0m [0mall_funcs_inflection[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mfx[0m[0;34m,[0m [0mf[0m[0;34m([0m[0mfx[0m[0;34m)[0m[0;34m,[0m [0mlinewidth[0m[0;34m=[0m[0;36m3[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mylim[0m[0;34m([0m[0mymin[0m[0;34m=[0m[0;36m0[0m[0;34m,[0m[0mymax[0m[0;34m=[0m[0;36m10000[0m[0;34m)[0m [0;31m# 表示を見やすくするため yの下限を0に設定する[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'all_funcs_inflection' is not defined
+NameError: name 'all_funcs_inflection' is not defined
+
+Executability                            : False

@@ -1,0 +1,34 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import unicodedata
+import numpy as np
+import torch
+from torch import nn
+import re
+import os
+
+try:
+    from tensorboardX import SummaryWriter
+except ModuleNotFoundError:
+    pass
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print(device)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-a1a24b48c540>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0municodedata[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mtorch[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mtorch[0m [0;32mimport[0m [0mnn[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mre[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'torch'
+ModuleNotFoundError: No module named 'torch'
+
+Executability                            : False

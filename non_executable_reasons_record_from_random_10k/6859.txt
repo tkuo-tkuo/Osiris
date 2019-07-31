@@ -1,0 +1,43 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+resample = sample.sample(1000)
+resample = resample.drop(resample.columns[[0,1,2,3,4]], 1)
+resample = resample.rename(columns={'posts.csv': 'blogID'})
+resample.to_csv('posts_resample.csv')
+resample
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-4-2c5bf5698b32>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mresample[0m [0;34m=[0m [0mresample[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0mresample[0m[0;34m.[0m[0mcolumns[0m[0;34m[[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m[0;36m4[0m[0;34m][0m[0;34m][0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mresample[0m [0;34m=[0m [0mresample[0m[0;34m.[0m[0mrename[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0;34m{[0m[0;34m'posts.csv'[0m[0;34m:[0m [0;34m'blogID'[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mresample[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0;34m'posts_resample.csv'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mresample[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36mto_csv[0;34m(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, tupleize_cols, date_format, doublequote, escapechar, decimal)[0m
+[1;32m   1743[0m                                  [0mdoublequote[0m[0;34m=[0m[0mdoublequote[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m   1744[0m                                  escapechar=escapechar, decimal=decimal)
+[0;32m-> 1745[0;31m         [0mformatter[0m[0;34m.[0m[0msave[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1746[0m [0;34m[0m[0m
+[1;32m   1747[0m         [0;32mif[0m [0mpath_or_buf[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/formats/csvs.py[0m in [0;36msave[0;34m(self)[0m
+[1;32m    134[0m             f, handles = _get_handle(self.path_or_buf, self.mode,
+[1;32m    135[0m                                      [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m--> 136[0;31m                                      compression=None)
+[0m[1;32m    137[0m             [0mclose[0m [0;34m=[0m [0;32mTrue[0m [0;32mif[0m [0mself[0m[0;34m.[0m[0mcompression[0m [0;32mis[0m [0;32mNone[0m [0;32melse[0m [0;32mFalse[0m[0;34m[0m[0m
+[1;32m    138[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/common.py[0m in [0;36m_get_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text)[0m
+[1;32m    398[0m         [0;32melif[0m [0mencoding[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    399[0m             [0;31m# Python 3 and encoding[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 400[0;31m             [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mpath_or_buf[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    401[0m         [0;32melif[0m [0mis_text[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    402[0m             [0;31m# Python 3 and no explicit encoding[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'posts_resample.csv'
+PermissionError: [Errno 13] Permission denied: 'posts_resample.csv'
+
+Executability                            : False

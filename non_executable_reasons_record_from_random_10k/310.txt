@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from lencoder import ColumnOneHotEncoder, OneHotEncoder
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-76f582adb6cd>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mlencoder[0m [0;32mimport[0m [0mColumnOneHotEncoder[0m[0;34m,[0m [0mOneHotEncoder[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mModuleNotFoundError[0m: No module named 'lencoder'
+ModuleNotFoundError: No module named 'lencoder'
+
+Executability                            : False

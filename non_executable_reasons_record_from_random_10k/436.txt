@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+n, bins = get_hist(ax)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-18-4e121951b3da>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mn[0m[0;34m,[0m [0mbins[0m [0;34m=[0m [0mget_hist[0m[0;34m([0m[0max[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'get_hist' is not defined
+NameError: name 'get_hist' is not defined
+
+Executability                            : False

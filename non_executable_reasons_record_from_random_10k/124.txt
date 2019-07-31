@@ -1,0 +1,29 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 7
+Reproducibility                          : matched ratio: 0.714 ; index of matched cells: [0, 1, 2, 3, 4]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+import time
+
+-----------------
+Original output:
+
+Executed output:
+07-31-19
+11:39 AM
+
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+print(time.strftime("%m-%d-%y"))
+print(time.strftime("%I:%M %p"))
+
+-----------------
+Original output:
+10-30-17
+04:49 PM
+
+Executed output:
+

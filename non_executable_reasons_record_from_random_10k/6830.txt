@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import gensim, logging
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+
+sentences = []
+with open('../data/corpora/enlang1.txt') as f:
+    for line in f.readlines():
+        sentences.append(line.strip().split())
+
+model = gensim.models.Word2Vec(sentences, size = 50, min_count=3)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-2941a93eadca>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mgensim[0m[0;34m,[0m [0mlogging[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mlogging[0m[0;34m.[0m[0mbasicConfig[0m[0;34m([0m[0mformat[0m[0;34m=[0m[0;34m'%(asctime)s : %(levelname)s : %(message)s'[0m[0;34m,[0m [0mlevel[0m[0;34m=[0m[0mlogging[0m[0;34m.[0m[0mINFO[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'gensim'
+ImportError: No module named 'gensim'
+
+Executability                            : False

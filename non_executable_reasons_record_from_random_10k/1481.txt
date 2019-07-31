@@ -1,0 +1,63 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 6
+Reproducibility                          : matched ratio: 0.167 ; index of matched cells: [0]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+F_temps = map(fahrenheit, temp)
+
+#Show
+F_temps
+
+-----------------
+Original output:
+[32.0, 72.5, 104.0, 212.0]
+Executed output:
+<map at 0x7f7e4818aa90>
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+# Convert back
+map(celsius, F_temps)
+
+-----------------
+Original output:
+[0.0, 22.5, 40.0, 100.0]
+Executed output:
+<map at 0x7f7e4818a5f8>
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+map(lambda x: (5.0/9)*(x - 32), F_temps)
+
+-----------------
+Original output:
+[0.0, 22.5, 40.0, 100.0]
+Executed output:
+<map at 0x7f7e4812a048>
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+a = [1,2,3,4]
+b = [5,6,7,8]
+c = [9,10,11,12]
+
+map(lambda x,y:x+y,a,b)
+
+-----------------
+Original output:
+[6, 8, 10, 12]
+Executed output:
+<map at 0x7f7e4812a7b8>
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+# Now all three lists
+map(lambda x,y,z:x+y+z, a,b,c)
+
+-----------------
+Original output:
+[15, 18, 21, 24]
+Executed output:
+<map at 0x7f7e4812a4a8>

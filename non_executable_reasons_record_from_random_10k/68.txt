@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+#バイナリデータとして保存 (拡張子は .npy)
+np.save('my_array',arr)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-d0dd33ae6f17>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m#バイナリデータとして保存 (拡張子は .npy)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mnp[0m[0;34m.[0m[0msave[0m[0;34m([0m[0;34m'my_array'[0m[0;34m,[0m[0marr[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/numpy/lib/npyio.py[0m in [0;36msave[0;34m(file, arr, allow_pickle, fix_imports)[0m
+[1;32m    490[0m         [0;32mif[0m [0;32mnot[0m [0mfile[0m[0;34m.[0m[0mendswith[0m[0;34m([0m[0;34m'.npy'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    491[0m             [0mfile[0m [0;34m=[0m [0mfile[0m [0;34m+[0m [0;34m'.npy'[0m[0;34m[0m[0m
+[0;32m--> 492[0;31m         [0mfid[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfile[0m[0;34m,[0m [0;34m"wb"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    493[0m         [0mown_fid[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0m
+[1;32m    494[0m     [0;32melif[0m [0mis_pathlib_path[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'my_array.npy'
+PermissionError: [Errno 13] Permission denied: 'my_array.npy'
+
+Executability                            : False

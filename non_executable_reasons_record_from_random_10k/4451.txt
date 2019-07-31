@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+os.chdir(os.getcwd()+'/data')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-c0b3213a265a>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mos[0m[0;34m.[0m[0mchdir[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mgetcwd[0m[0;34m([0m[0;34m)[0m[0;34m+[0m[0;34m'/data'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/mnt/fit-Knowledgezoo/Github_repos_download/data/radiolarian@alpha60/initgotham/data'
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/fit-Knowledgezoo/Github_repos_download/data/radiolarian@alpha60/initgotham/data'
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+dtree.fit(X_train,y_train)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-97e56a26e4dc>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdtree[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX_train[0m[0;34m,[0m[0my_train[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'X_train' is not defined
+NameError: name 'X_train' is not defined
+
+Executability                            : False

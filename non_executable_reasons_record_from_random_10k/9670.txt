@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+#Trapezoid method example
+r = zeros(21) # we will be storing the results here
+r[1] = trapezoid(g,0.0,sqrt(math.pi),0.0,1) # first call is special, since no  
+                                            # result to be refined yet exists
+for k in range(2,21):
+    r[k] = trapezoid(g,0.0,1.0,r[k-1],k) # refinements of the answer using ever more points 
+    
+result=2.0/math.sqrt(math.pi)*r[20]
+print('Trapezoid method result and relative error: ',result,abs(exact-result)/exact)
+
+#Note the relatively large error of the trapezoid method, even for very large number 
+#of sub-intervals
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-c4200168074f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0mresult[0m[0;34m=[0m[0;36m2.0[0m[0;34m/[0m[0mmath[0m[0;34m.[0m[0msqrt[0m[0;34m([0m[0mmath[0m[0;34m.[0m[0mpi[0m[0;34m)[0m[0;34m*[0m[0mr[0m[0;34m[[0m[0;36m20[0m[0;34m][0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0mprint[0m[0;34m([0m[0;34m'Trapezoid method result and relative error: '[0m[0;34m,[0m[0mresult[0m[0;34m,[0m[0mabs[0m[0;34m([0m[0mexact[0m[0;34m-[0m[0mresult[0m[0;34m)[0m[0;34m/[0m[0mexact[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m [0;31m#Note the relatively large error of the trapezoid method, even for very large number[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'exact' is not defined
+NameError: name 'exact' is not defined
+
+Executability                            : False

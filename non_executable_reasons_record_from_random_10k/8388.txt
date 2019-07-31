@@ -1,0 +1,37 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+###remember our essential utility commands
+import cv2 #this makes OpenCV available
+%pylab notebook 
+#this makes for nice figure generation, and brings numpy and matplotlib functions into
+                #our namespace
+    
+###if you're not using notebooks, run:
+#from numpy import *
+#from matplotlib.pyplot import *
+#also make sure to call show() in order to display plots
+
+###note that the preferred convention for shared projects is
+#import numpy as np
+#import matplotlib.pyplot as plt
+###in which case you have to prefix things like np.zeros(5) instead of just zeros(5), 
+###and plt.imshow() instead of just imshow()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-4ce8fe955958>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m###remember our essential utility commands[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mcv2[0m [0;31m#this makes OpenCV available[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'pylab'[0m[0;34m,[0m [0;34m'notebook'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0;31m#this makes for nice figure generation, and brings numpy and matplotlib functions into[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

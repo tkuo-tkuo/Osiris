@@ -1,0 +1,12 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+library(tidyverse)
+hart_tb = read_csv('_bentrevino_files/HART_survey_data.csv')
+------------------
+
+NameError: name 'library' is not defined
+
+Executability                            : False

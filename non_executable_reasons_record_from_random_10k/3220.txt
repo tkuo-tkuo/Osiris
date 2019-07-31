@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+#%matplotlib qt # Choose %matplotlib qt to plot to an interactive window (note it may show up behind your browser)
+# Make some of the relevant imports
+import cv2 # OpenCV for perspective transform
+import numpy as np
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+import scipy.misc # For saving images as needed
+import glob  # For reading in a list of images from a folder
+import imageio
+imageio.plugins.ffmpeg.download()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-c775948462d2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;31m#%matplotlib qt # Choose %matplotlib qt to plot to an interactive window (note it may show up behind your browser)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m# Make some of the relevant imports[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mcv2[0m [0;31m# OpenCV for perspective transform[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mimage[0m [0;32mas[0m [0mmpimg[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

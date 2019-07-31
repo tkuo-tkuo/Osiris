@@ -1,0 +1,113 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+da.apply(word_tokenize)
+target.apply(word_tokenize)
+for i in range(5572):
+    da[i].lower().split()
+meaningful_words = [w for w in da if not w in stop]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mLookupError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-7-23d1cb8dd670>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mda[0m[0;34m.[0m[0mapply[0m[0;34m([0m[0mword_tokenize[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mtarget[0m[0;34m.[0m[0mapply[0m[0;34m([0m[0mword_tokenize[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m5572[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mda[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m.[0m[0mlower[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mmeaningful_words[0m [0;34m=[0m [0;34m[[0m[0mw[0m [0;32mfor[0m [0mw[0m [0;32min[0m [0mda[0m [0;32mif[0m [0;32mnot[0m [0mw[0m [0;32min[0m [0mstop[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/series.py[0m in [0;36mapply[0;34m(self, func, convert_dtype, args, **kwds)[0m
+[1;32m   3589[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3590[0m                 [0mvalues[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mastype[0m[0;34m([0m[0mobject[0m[0;34m)[0m[0;34m.[0m[0mvalues[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3591[0;31m                 [0mmapped[0m [0;34m=[0m [0mlib[0m[0;34m.[0m[0mmap_infer[0m[0;34m([0m[0mvalues[0m[0;34m,[0m [0mf[0m[0;34m,[0m [0mconvert[0m[0;34m=[0m[0mconvert_dtype[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3592[0m [0;34m[0m[0m
+[1;32m   3593[0m         [0;32mif[0m [0mlen[0m[0;34m([0m[0mmapped[0m[0;34m)[0m [0;32mand[0m [0misinstance[0m[0;34m([0m[0mmapped[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mSeries[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/lib.pyx[0m in [0;36mpandas._libs.lib.map_infer[0;34m()[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/tokenize/__init__.py[0m in [0;36mword_tokenize[0;34m(text, language, preserve_line)[0m
+[1;32m    142[0m     [0;34m:[0m[0mtype[0m [0mpreserve_line[0m[0;34m:[0m [0mbool[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    143[0m     """
+[0;32m--> 144[0;31m     [0msentences[0m [0;34m=[0m [0;34m[[0m[0mtext[0m[0;34m][0m [0;32mif[0m [0mpreserve_line[0m [0;32melse[0m [0msent_tokenize[0m[0;34m([0m[0mtext[0m[0;34m,[0m [0mlanguage[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    145[0m     return [
+[1;32m    146[0m         [0mtoken[0m [0;32mfor[0m [0msent[0m [0;32min[0m [0msentences[0m [0;32mfor[0m [0mtoken[0m [0;32min[0m [0m_treebank_word_tokenizer[0m[0;34m.[0m[0mtokenize[0m[0;34m([0m[0msent[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/tokenize/__init__.py[0m in [0;36msent_tokenize[0;34m(text, language)[0m
+[1;32m    103[0m     [0;34m:[0m[0mparam[0m [0mlanguage[0m[0;34m:[0m [0mthe[0m [0mmodel[0m [0mname[0m [0;32min[0m [0mthe[0m [0mPunkt[0m [0mcorpus[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    104[0m     """
+[0;32m--> 105[0;31m     [0mtokenizer[0m [0;34m=[0m [0mload[0m[0;34m([0m[0;34m'tokenizers/punkt/{0}.pickle'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mlanguage[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    106[0m     [0;32mreturn[0m [0mtokenizer[0m[0;34m.[0m[0mtokenize[0m[0;34m([0m[0mtext[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    107[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/data.py[0m in [0;36mload[0;34m(resource_url, format, cache, verbose, logic_parser, fstruct_reader, encoding)[0m
+[1;32m    866[0m [0;34m[0m[0m
+[1;32m    867[0m     [0;31m# Load the resource.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 868[0;31m     [0mopened_resource[0m [0;34m=[0m [0m_open[0m[0;34m([0m[0mresource_url[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    869[0m [0;34m[0m[0m
+[1;32m    870[0m     [0;32mif[0m [0mformat[0m [0;34m==[0m [0;34m'raw'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/data.py[0m in [0;36m_open[0;34m(resource_url)[0m
+[1;32m    991[0m [0;34m[0m[0m
+[1;32m    992[0m     [0;32mif[0m [0mprotocol[0m [0;32mis[0m [0;32mNone[0m [0;32mor[0m [0mprotocol[0m[0;34m.[0m[0mlower[0m[0;34m([0m[0;34m)[0m [0;34m==[0m [0;34m'nltk'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 993[0;31m         [0;32mreturn[0m [0mfind[0m[0;34m([0m[0mpath_[0m[0;34m,[0m [0mpath[0m [0;34m+[0m [0;34m[[0m[0;34m''[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    994[0m     [0;32melif[0m [0mprotocol[0m[0;34m.[0m[0mlower[0m[0;34m([0m[0;34m)[0m [0;34m==[0m [0;34m'file'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    995[0m         [0;31m# urllib might not use mode='rb', so handle this one ourselves:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/data.py[0m in [0;36mfind[0;34m(resource_name, paths)[0m
+[1;32m    699[0m     [0msep[0m [0;34m=[0m [0;34m'*'[0m [0;34m*[0m [0;36m70[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    700[0m     [0mresource_not_found[0m [0;34m=[0m [0;34m'\n%s\n%s\n%s\n'[0m [0;34m%[0m [0;34m([0m[0msep[0m[0;34m,[0m [0mmsg[0m[0;34m,[0m [0msep[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 701[0;31m     [0;32mraise[0m [0mLookupError[0m[0;34m([0m[0mresource_not_found[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    702[0m [0;34m[0m[0m
+[1;32m    703[0m [0;34m[0m[0m
+
+[0;31mLookupError[0m: 
+**********************************************************************
+  Resource [93mpunkt[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt/PY3/english.pickle[0m
+
+  Searched in:
+    - '/home/dabao/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/share/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+    - ''
+**********************************************************************
+
+LookupError: 
+**********************************************************************
+  Resource [93mpunkt[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt/PY3/english.pickle[0m
+
+  Searched in:
+    - '/home/dabao/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/share/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+    - ''
+**********************************************************************
+
+
+Executability                            : False

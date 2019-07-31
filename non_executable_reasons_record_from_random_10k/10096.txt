@@ -1,0 +1,36 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 2
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [0]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+from datetime import datetime 
+import random
+
+total = 100000
+qtde = 10000
+lista = random.sample(range(total), k=qtde)
+##print(lista)
+
+raiz = BinaryTree(total/2)
+for i in lista:
+    raiz.insertNode(i)
+
+busca = random.randrange(total)
+print()
+print("Ini:",datetime.now())
+raiz.searchValue(busca)
+print("Fim:",datetime.now())    
+
+-----------------
+Original output:
+
+Ini: 2018-04-17 23:53:19.465902
+Fim: 2018-04-17 23:53:19.465902
+
+Executed output:
+
+Ini: 2019-07-31 18:04:20.226386
+Fim: 2019-07-31 18:04:20.226461
+

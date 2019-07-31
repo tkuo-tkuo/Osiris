@@ -1,0 +1,20 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# print("round[%d] --> %s: %.2f%% took %0.2f hours " % (1, 2, 3, 4))
+result
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-155efc248131>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# print("round[%d] --> %s: %.2f%% took %0.2f hours " % (1, 2, 3, 4))[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mresult[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'result' is not defined
+NameError: name 'result' is not defined
+
+Executability                            : False

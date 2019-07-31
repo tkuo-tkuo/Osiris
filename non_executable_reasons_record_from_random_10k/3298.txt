@@ -1,0 +1,174 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import pandas as pd
+
+# TODO: Set weight1, weight2, and bias
+weight1 = 1
+weight2 = 1
+bias = -1.1
+
+# DON'T CHANGE ANYTHING BELOW
+# Inputs and outputs
+test_inputs = [(0, 0), (0, 1), (1, 0), (1, 1)]
+correct_outputs = [False, False, False, True]
+outputs = []
+
+# Generate and check output
+for test_input, correct_output in zip(test_inputs, correct_outputs):
+    linear_combination = weight1 * test_input[0] + weight2 * test_input[1] + bias
+    output = int(linear_combination >= 0)
+    is_correct_string = 'Yes' if output == correct_output else 'No'
+    outputs.append([test_input[0], test_input[1], linear_combination, output, is_correct_string])
+
+# Print output
+num_wrong = len([output[4] for output in outputs if output[4] == 'No'])
+output_frame = pd.DataFrame(outputs, columns=['Input 1', '  Input 2', '  Linear Combination', '  Activation Output', '  Is Correct'])
+if not num_wrong:
+    print('Nice!  You got it all correct.\n')
+else:
+    print('You got {} wrong.  Keep trying!\n'.format(num_wrong))
+print(output_frame.to_string(index=False))
+
+
+-----------------
+Original output:
+Nice!  You got it all correct.
+
+Input 1    Input 2    Linear Combination    Activation Output   Is Correct
+      0          0                  -1.1                    0          Yes
+      0          1                  -0.1                    0          Yes
+      1          0                  -0.1                    0          Yes
+      1          1                   0.9                    1          Yes
+
+Executed output:
+Nice!  You got it all correct.
+
+ Input 1    Input 2    Linear Combination    Activation Output   Is Correct
+       0          0                  -1.1                    0          Yes
+       0          1                  -0.1                    0          Yes
+       1          0                  -0.1                    0          Yes
+       1          1                   0.9                    1          Yes
+
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+import pandas as pd
+
+# TODO: Set weight1, weight2, and bias
+weight1 = 1
+weight2 = 1
+bias = -0.1
+
+# DON'T CHANGE ANYTHING BELOW
+# Inputs and outputs
+test_inputs = [(0, 0), (0, 1), (1, 0), (1, 1)]
+correct_outputs = [False, True, True, True]
+outputs = []
+
+# Generate and check output
+for test_input, correct_output in zip(test_inputs, correct_outputs):
+    linear_combination = weight1 * test_input[0] + weight2 * test_input[1] + bias
+    output = int(linear_combination >= 0)
+    is_correct_string = 'Yes' if output == correct_output else 'No'
+    outputs.append([test_input[0], test_input[1], linear_combination, output, is_correct_string])
+
+# Print output
+num_wrong = len([output[4] for output in outputs if output[4] == 'No'])
+output_frame = pd.DataFrame(outputs, columns=['Input 1', '  Input 2', '  Linear Combination', '  Activation Output', '  Is Correct'])
+if not num_wrong:
+    print('Nice!  You got it all correct.\n')
+else:
+    print('You got {} wrong.  Keep trying!\n'.format(num_wrong))
+print(output_frame.to_string(index=False))
+
+
+-----------------
+Original output:
+Nice!  You got it all correct.
+
+Input 1    Input 2    Linear Combination    Activation Output   Is Correct
+      0          0                  -0.1                    0          Yes
+      0          1                   0.9                    1          Yes
+      1          0                   0.9                    1          Yes
+      1          1                   1.9                    1          Yes
+
+Executed output:
+Nice!  You got it all correct.
+
+ Input 1    Input 2    Linear Combination    Activation Output   Is Correct
+       0          0                  -0.1                    0          Yes
+       0          1                   0.9                    1          Yes
+       1          0                   0.9                    1          Yes
+       1          1                   1.9                    1          Yes
+
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+import pandas as pd
+
+# TODO: Set weight1, weight2, and bias
+weight_a1 = 1
+weight_a2 = 1
+bias_a = -1.1
+
+weight_b1 = 1
+weight_b2 = 1
+bias_b = -0.1
+
+weight_c1 = 1
+weight_c2 = 1
+bias_c = -1.5
+
+# DON'T CHANGE ANYTHING BELOW
+# Inputs and outputs
+test_inputs = [(0, 0), (0, 1), (1, 0), (1, 1)]
+correct_outputs = [False, True, True, False]
+outputs = []
+
+# Generate and check output
+for test_input, correct_output in zip(test_inputs, correct_outputs):
+    linear_combination_a = weight_a1 * test_input[0] + weight_a2 * test_input[1] + bias_a
+    linear_combination_b = weight_b1 * test_input[0] + weight_b2 * test_input[1] + bias_b
+    
+    output_a = int(linear_combination_a < 0)
+    output_b = int(linear_combination_b >= 0)
+    
+    linear_combination_c = weight_c1 * output_a + weight_c2 * output_b + bias_c
+    output = int(linear_combination_c >= 0)
+    
+    is_correct_string = 'Yes' if output == correct_output else 'No'
+    outputs.append([test_input[0], test_input[1], linear_combination_c, output, is_correct_string])
+
+# Print output
+num_wrong = len([output[4] for output in outputs if output[4] == 'No'])
+output_frame = pd.DataFrame(outputs, columns=['Input 1', '  Input 2', '  Linear Combination', '  Activation Output', '  Is Correct'])
+if not num_wrong:
+    print('Nice!  You got it all correct.\n')
+else:
+    print('You got {} wrong.  Keep trying!\n'.format(num_wrong))
+print(output_frame.to_string(index=False))
+
+-----------------
+Original output:
+Nice!  You got it all correct.
+
+Input 1    Input 2    Linear Combination    Activation Output   Is Correct
+      0          0                  -0.5                    0          Yes
+      0          1                   0.5                    1          Yes
+      1          0                   0.5                    1          Yes
+      1          1                  -0.5                    0          Yes
+
+Executed output:
+Nice!  You got it all correct.
+
+ Input 1    Input 2    Linear Combination    Activation Output   Is Correct
+       0          0                  -0.5                    0          Yes
+       0          1                   0.5                    1          Yes
+       1          0                   0.5                    1          Yes
+       1          1                  -0.5                    0          Yes
+

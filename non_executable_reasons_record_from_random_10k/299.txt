@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from fastai.structured import *
+from fastai.column_data import *
+np.set_printoptions(threshold=50, edgeitems=20)
+
+PATH='data/rossman/'
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-dac2499d2ff4>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mfastai[0m[0;34m.[0m[0mstructured[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mfastai[0m[0;34m.[0m[0mcolumn_data[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mnp[0m[0;34m.[0m[0mset_printoptions[0m[0;34m([0m[0mthreshold[0m[0;34m=[0m[0;36m50[0m[0;34m,[0m [0medgeitems[0m[0;34m=[0m[0;36m20[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mPATH[0m[0;34m=[0m[0;34m'data/rossman/'[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'fastai'
+ModuleNotFoundError: No module named 'fastai'
+
+Executability                            : False

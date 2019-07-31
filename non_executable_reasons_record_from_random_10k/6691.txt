@@ -1,0 +1,44 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+np.random.seed(0)
+x=np.random.random(size=(100,))
+y=3.0*x+np.random.normal(0.0,0.1,size=(100,))
+
+xp=np.linspace(-0.5,1.5,201)
+
+#Create regressor object
+slr=SLR()
+
+#Fit model
+slr.fit(x,y)
+
+#Get 95% confidence interval
+ci=slr.get_ci(0.95)
+print("95% Confidence interval on slope: " + str(ci[0,:]))
+print("95% Confidence interval on intercept: " + str(ci[1,:]))
+
+#Plot prediction. 95% confidence interval
+yp,[yp_low,yp_high] = slr.predict(xp, ci=0.95)
+
+plt.plot(xp,yp)
+plt.plot(x,y,'.')
+plt.fill_between(xp,yp_low,yp_high,alpha=0.5)
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-0f4ca439bbdd>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mseed[0m[0;34m([0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mx[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mrandom[0m[0;34m([0m[0msize[0m[0;34m=[0m[0;34m([0m[0;36m100[0m[0;34m,[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0my[0m[0;34m=[0m[0;36m3.0[0m[0;34m*[0m[0mx[0m[0;34m+[0m[0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mnormal[0m[0;34m([0m[0;36m0.0[0m[0;34m,[0m[0;36m0.1[0m[0;34m,[0m[0msize[0m[0;34m=[0m[0;34m([0m[0;36m100[0m[0;34m,[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

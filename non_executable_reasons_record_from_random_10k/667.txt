@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+int("23bottles") #Not a valid int
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-21-abfc412c8232>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mint[0m[0;34m([0m[0;34m"23bottles"[0m[0;34m)[0m [0;31m#Not a valid int[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: invalid literal for int() with base 10: '23bottles'
+ValueError: invalid literal for int() with base 10: '23bottles'
+
+Executability                            : False

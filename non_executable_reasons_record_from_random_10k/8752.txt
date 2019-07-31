@@ -1,0 +1,55 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from urllib.request import urlretrieve
+from os.path import isfile, isdir
+from tqdm import tqdm
+
+data_dir = 'data/'
+
+if not isdir(data_dir):
+    raise Exception("Data directory doesn't exist!")
+
+class DLProgress(tqdm):
+    last_block = 0
+
+    def hook(self, block_num=1, block_size=1, total_size=None):
+        self.total = total_size
+        self.update((block_num - self.last_block) * block_size)
+        self.last_block = block_num
+
+if not isfile(data_dir + "train_32x32.mat"):
+    with DLProgress(unit='B', unit_scale=True, miniters=1, desc='SVHN Training Set') as pbar:
+        urlretrieve(
+            'http://ufldl.stanford.edu/housenumbers/train_32x32.mat',
+            data_dir + 'train_32x32.mat',
+            pbar.hook)
+
+if not isfile(data_dir + "test_32x32.mat"):
+    with DLProgress(unit='B', unit_scale=True, miniters=1, desc='SVHN Training Set') as pbar:
+        urlretrieve(
+            'http://ufldl.stanford.edu/housenumbers/test_32x32.mat',
+            data_dir + 'test_32x32.mat',
+            pbar.hook)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-dead3a8ef801>[0m in [0;36m<module>[0;34m[0m
+[1;32m     21[0m             [0;34m'http://ufldl.stanford.edu/housenumbers/train_32x32.mat'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     22[0m             [0mdata_dir[0m [0;34m+[0m [0;34m'train_32x32.mat'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 23[0;31m             pbar.hook)
+[0m[1;32m     24[0m [0;34m[0m[0m
+[1;32m     25[0m [0;32mif[0m [0;32mnot[0m [0misfile[0m[0;34m([0m[0mdata_dir[0m [0;34m+[0m [0;34m"test_32x32.mat"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/urllib/request.py[0m in [0;36murlretrieve[0;34m(url, filename, reporthook, data)[0m
+[1;32m    256[0m         [0;31m# Handle temporary file setup.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    257[0m         [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 258[0;31m             [0mtfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    259[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    260[0m             [0mtfp[0m [0;34m=[0m [0mtempfile[0m[0;34m.[0m[0mNamedTemporaryFile[0m[0;34m([0m[0mdelete[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'data/train_32x32.mat'
+PermissionError: [Errno 13] Permission denied: 'data/train_32x32.mat'
+
+Executability                            : False

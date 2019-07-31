@@ -1,0 +1,44 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+## First we need to load all the libraries and set up the path
+## for the input files. Same files as used by the online tutorial
+## Need to be on \pf\dev branch !!!
+%pylab inline 
+import SimPEG.PF as PF
+from SimPEG import *
+from SimPEG.Utils import io_utils
+import matplotlib
+import matplotlib.colors as colors
+import scipy as sp
+import time as tm
+import os
+import urllib
+import shutil
+from ipywidgets.widgets import interact, IntSlider
+
+# URL and files needed for this notebook
+#url='https://storage.googleapis.com/simpeg/tests/potential_fields/'
+#cloudfiles = ['GravData.obs','Gaussian.topo','Mesh_10m.msh','ModelStart.sus','Obs_loc_TMI.obs','PYMAG3D_inv.inp']
+url='https://storage.googleapis.com/simpeg/tkc_synthetic/potential_fields/'
+cloudfiles = ['MagData.obs']
+# Create a temporary directory with all files downloaded from cloud
+# for file in cloudfiles:
+io_utils.download(url+cloudfiles[0], overwrite=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-49b61244aa82>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;31m## Need to be on \pf\dev branch !!![0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'pylab'[0m[0;34m,[0m [0;34m'inline '[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0mSimPEG[0m[0;34m.[0m[0mPF[0m [0;32mas[0m [0mPF[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0mSimPEG[0m[0;34m.[0m[0mUtils[0m [0;32mimport[0m [0mio_utils[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'SimPEG'
+ModuleNotFoundError: No module named 'SimPEG'
+
+Executability                            : False

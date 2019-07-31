@@ -1,0 +1,34 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+math1 = 0
+phisic2 = 0
+russian3 = 0
+it = 0
+with open('stutents_marks_mean.txt', 'w') as test2:
+    for line in lines:
+        mean = (int(line[1]) + int(line[2]) + int(line[3])) / 3
+        test2.write(str(mean) + '\n')
+        print(mean)
+        math1 += int(line[1])
+        phisic2 += int(line[2])
+        russian3 += int(line[3])
+        it += 1
+    test2.write(str(math1/it) + ' ' + str(phisic2/it) + ' ' + str(russian3/it))
+    print(math1/it, phisic2/it, russian3/it)     
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-5decba21cb9f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0mrussian3[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0m
+[1;32m      4[0m [0mit[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'stutents_marks_mean.txt'[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mtest2[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      6[0m     [0;32mfor[0m [0mline[0m [0;32min[0m [0mlines[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      7[0m         [0mmean[0m [0;34m=[0m [0;34m([0m[0mint[0m[0;34m([0m[0mline[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m)[0m [0;34m+[0m [0mint[0m[0;34m([0m[0mline[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m)[0m [0;34m+[0m [0mint[0m[0;34m([0m[0mline[0m[0;34m[[0m[0;36m3[0m[0;34m][0m[0;34m)[0m[0;34m)[0m [0;34m/[0m [0;36m3[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'stutents_marks_mean.txt'
+PermissionError: [Errno 13] Permission denied: 'stutents_marks_mean.txt'
+
+Executability                            : False

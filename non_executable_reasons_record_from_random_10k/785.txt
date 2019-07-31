@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+Y=df1.iloc[:,0]
+Y.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-906f5cfb220c>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mY[0m[0;34m=[0m[0mdf1[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mY[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'df1' is not defined
+NameError: name 'df1' is not defined
+
+Executability                            : False

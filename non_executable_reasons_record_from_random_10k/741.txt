@@ -1,0 +1,48 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+x = df.groupby(['PUREDATE', 'HOUR'])['HOURLYDRYBULBTEMPF'].mean().dropna()
+y = windSpeedDf['HOURLYWindSpeed'].dropna()[:29836]
+
+plt.scatter(x, y, color='b')
+plt.xlabel('Temperature')
+plt.ylabel('Wind Speed')
+
+m, b = np.polyfit(x, y, 1)
+plt.plot(x, m*x + b, '-')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-14-bb763fcc0589>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0my[0m [0;34m=[0m [0mwindSpeedDf[0m[0;34m[[0m[0;34m'HOURLYWindSpeed'[0m[0;34m][0m[0;34m.[0m[0mdropna[0m[0;34m([0m[0;34m)[0m[0;34m[[0m[0;34m:[0m[0;36m29836[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0mplt[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0mcolor[0m[0;34m=[0m[0;34m'b'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m'Temperature'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mplt[0m[0;34m.[0m[0mylabel[0m[0;34m([0m[0;34m'Wind Speed'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/pyplot.py[0m in [0;36mscatter[0;34m(x, y, s, c, marker, cmap, norm, vmin, vmax, alpha, linewidths, verts, edgecolors, plotnonfinite, data, **kwargs)[0m
+[1;32m   2839[0m         [0mverts[0m[0;34m=[0m[0mverts[0m[0;34m,[0m [0medgecolors[0m[0;34m=[0m[0medgecolors[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2840[0m         plotnonfinite=plotnonfinite, **({"data": data} if data is not
+[0;32m-> 2841[0;31m         None else {}), **kwargs)
+[0m[1;32m   2842[0m     [0msci[0m[0;34m([0m[0m__ret[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2843[0m     [0;32mreturn[0m [0m__ret[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/__init__.py[0m in [0;36minner[0;34m(ax, data, *args, **kwargs)[0m
+[1;32m   1587[0m     [0;32mdef[0m [0minner[0m[0;34m([0m[0max[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0mdata[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1588[0m         [0;32mif[0m [0mdata[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1589[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0max[0m[0;34m,[0m [0;34m*[0m[0mmap[0m[0;34m([0m[0msanitize_sequence[0m[0;34m,[0m [0margs[0m[0;34m)[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1590[0m [0;34m[0m[0m
+[1;32m   1591[0m         [0mbound[0m [0;34m=[0m [0mnew_sig[0m[0;34m.[0m[0mbind[0m[0;34m([0m[0max[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_axes.py[0m in [0;36mscatter[0;34m(self, x, y, s, c, marker, cmap, norm, vmin, vmax, alpha, linewidths, verts, edgecolors, plotnonfinite, **kwargs)[0m
+[1;32m   4434[0m         [0my[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mma[0m[0;34m.[0m[0mravel[0m[0;34m([0m[0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   4435[0m         [0;32mif[0m [0mx[0m[0;34m.[0m[0msize[0m [0;34m!=[0m [0my[0m[0;34m.[0m[0msize[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 4436[0;31m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"x and y must be the same size"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   4437[0m [0;34m[0m[0m
+[1;32m   4438[0m         [0;32mif[0m [0ms[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: x and y must be the same size
+ValueError: x and y must be the same size
+
+Executability                            : False

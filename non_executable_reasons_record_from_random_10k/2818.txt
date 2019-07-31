@@ -1,0 +1,56 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#importing the libraries for data analysis and visualization.
+import pandas as pd
+import io
+import numpy as np
+import random
+import matplotlib as mpl
+from matplotlib import pyplot as p
+import plotly.plotly as py
+import cufflinks as cf
+import plotly.graph_objs as go
+from plotly.graph_objs import Bar, Scatter, Figure, Layout
+from plotly.offline import init_notebook_mode,iplot
+#make plotly work with Jupyter notebook
+init_notebook_mode(connected=True)
+
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-71ec7b32f49c>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;32mimport[0m [0mmatplotlib[0m [0;32mas[0m [0mmpl[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0mpyplot[0m [0;32mas[0m [0mp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0;32mimport[0m [0mplotly[0m[0;34m.[0m[0mplotly[0m [0;32mas[0m [0mpy[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;32mimport[0m [0mcufflinks[0m [0;32mas[0m [0mcf[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0;32mimport[0m [0mplotly[0m[0;34m.[0m[0mgraph_objs[0m [0;32mas[0m [0mgo[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/plotly/plotly/__init__.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;32mfrom[0m [0m_plotly_future_[0m [0;32mimport[0m [0m_chart_studio_error[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0m_chart_studio_error[0m[0;34m([0m[0;34m"plotly"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/_plotly_future_/__init__.py[0m in [0;36m_chart_studio_error[0;34m(submodule)[0m
+[1;32m     47[0m [0mchart_studio[0m[0;34m.[0m[0;34m{[0m[0msubmodule[0m[0;34m}[0m [0mmodule[0m [0minstead[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     48[0m """.format(
+[0;32m---> 49[0;31m             [0msubmodule[0m[0;34m=[0m[0msubmodule[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     50[0m         )
+[1;32m     51[0m     )
+
+[0;31mImportError[0m: 
+The plotly.plotly module is deprecated,
+please install the chart-studio package and use the
+chart_studio.plotly module instead. 
+
+ImportError: 
+The plotly.plotly module is deprecated,
+please install the chart-studio package and use the
+chart_studio.plotly module instead. 
+
+
+Executability                            : False

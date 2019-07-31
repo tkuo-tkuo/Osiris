@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import matplotlib.pyplot as plt
+import time
+% matplotlib inline
+------------------
+
+
+UsageError: Line magic function `%` not found.
+
+Executability                            : False

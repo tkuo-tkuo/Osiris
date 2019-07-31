@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%capture
+!rm -rf data/*
+!unzip data.zip -d data/
+!pip install --no-cache-dir pyldavis
+from datascience import *
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import pyLDAvis
+import pyLDAvis.sklearn
+import pickle
+%matplotlib inline
+------------------
+
+
+UsageError: Line magic function `%%capture` not found.
+
+Executability                            : False

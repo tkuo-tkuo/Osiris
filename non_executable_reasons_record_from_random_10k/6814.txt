@@ -1,0 +1,36 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 15 ; number of cells: 16
+Reproducibility                          : matched ratio: 0.938 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15]
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+# Consider the following code snippet:
+
+# a.shape = (3,4)
+# b.shape = (4,1)
+
+a = np.random.randn(3,4)
+b = np.random.randn(4,1)
+
+#for i in range(3):
+#    for j in range(4):
+#        c[i][j] = a[i][j] + b[j]
+        
+        
+# How do you vectorize this?
+#c = a + b.T
+c = a+np.transpose(b)
+print(c)
+
+-----------------
+Original output:
+[[-2.9470033   0.03258165 -0.24649538  0.0696474 ]
+ [-1.95909138 -0.76673299  0.10673108 -0.16879477]
+ [-2.08600594  0.1000894  -1.56071474  0.66375689]]
+
+Executed output:
+[[ 1.12969181  0.17621043 -1.12123043  1.784236  ]
+ [ 2.83913764  0.27138595 -1.45695689  1.23525989]
+ [ 0.53284652 -0.35205195 -0.71820665 -0.03909105]]
+

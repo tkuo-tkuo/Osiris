@@ -1,0 +1,50 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from urllib.request import urlretrieve
+from os.path import isfile, isdir
+from tqdm import tqdm
+import tarfile
+
+cifar10_dataset_folder_path = 'cifar-10-batches-py'
+tar_gz_path = 'cifar-10-python.tar.gz'
+
+class DLProgress(tqdm):
+    last_block = 0
+
+    def hook(self, block_num=1, block_size=1, total_size=None):
+        self.total = total_size
+        self.update((block_num - self.last_block) * block_size)
+        self.last_block = block_num
+
+if not isdir(cifar10_dataset_folder_path):
+    if not isfile(tar_gz_path):
+        with DLProgress(unit='B', unit_scale=True, miniters=1, desc='CIFAR-10 Dataset') as pbar:
+            urlretrieve('https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz', tar_gz_path, pbar.hook)
+    with tarfile.open(tar_gz_path) as tar:
+        tar.extractall()
+        tar.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-137b9ff6a19f>[0m in [0;36m<module>[0;34m[0m
+[1;32m     20[0m     [0;32mif[0m [0;32mnot[0m [0misfile[0m[0;34m([0m[0mtar_gz_path[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     21[0m         [0;32mwith[0m [0mDLProgress[0m[0;34m([0m[0munit[0m[0;34m=[0m[0;34m'B'[0m[0;34m,[0m [0munit_scale[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0mminiters[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m [0mdesc[0m[0;34m=[0m[0;34m'CIFAR-10 Dataset'[0m[0;34m)[0m [0;32mas[0m [0mpbar[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 22[0;31m             [0murlretrieve[0m[0;34m([0m[0;34m'https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz'[0m[0;34m,[0m [0mtar_gz_path[0m[0;34m,[0m [0mpbar[0m[0;34m.[0m[0mhook[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     23[0m     [0;32mwith[0m [0mtarfile[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mtar_gz_path[0m[0;34m)[0m [0;32mas[0m [0mtar[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     24[0m         [0mtar[0m[0;34m.[0m[0mextractall[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/urllib/request.py[0m in [0;36murlretrieve[0;34m(url, filename, reporthook, data)[0m
+[1;32m    256[0m         [0;31m# Handle temporary file setup.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    257[0m         [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 258[0;31m             [0mtfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    259[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    260[0m             [0mtfp[0m [0;34m=[0m [0mtempfile[0m[0;34m.[0m[0mNamedTemporaryFile[0m[0;34m([0m[0mdelete[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'cifar-10-python.tar.gz'
+PermissionError: [Errno 13] Permission denied: 'cifar-10-python.tar.gz'
+
+Executability                            : False

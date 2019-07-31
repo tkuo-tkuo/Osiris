@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from scipy import ndimage
+img=ndimage.imread('CD28.jpg')
+plt.imshow(img)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-17-cec62433c072>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0mndimage[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mimg[0m[0;34m=[0m[0mndimage[0m[0;34m.[0m[0mimread[0m[0;34m([0m[0;34m'CD28.jpg'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0mimg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'scipy.ndimage' has no attribute 'imread'
+AttributeError: module 'scipy.ndimage' has no attribute 'imread'
+
+Executability                            : False

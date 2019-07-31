@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Load the (preprocessed) CIFAR10 data.
+
+data = get_CIFAR10_data()
+for k, v in data.items():
+  print('%s: ' % k, v.shape)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-4c29023c5488>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m# Load the (preprocessed) CIFAR10 data.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0mdata[0m [0;34m=[0m [0mget_CIFAR10_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfor[0m [0mk[0m[0;34m,[0m [0mv[0m [0;32min[0m [0mdata[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m   [0mprint[0m[0;34m([0m[0;34m'%s: '[0m [0;34m%[0m [0mk[0m[0;34m,[0m [0mv[0m[0;34m.[0m[0mshape[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'get_CIFAR10_data' is not defined
+NameError: name 'get_CIFAR10_data' is not defined
+
+Executability                            : False

@@ -1,0 +1,46 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from sklearn.datasets import load_files       
+from keras.utils import np_utils
+import numpy as np
+from glob import glob
+
+# define function to load train, test, and validation datasets
+def load_dataset(path):
+    data = load_files(path)
+    dog_files = np.array(data['filenames'])
+    dog_targets = np_utils.to_categorical(np.array(data['target']), 133)
+    return dog_files, dog_targets
+
+# load train, test, and validation datasets
+train_files, train_targets = load_dataset('dogImages/train')
+valid_files, valid_targets = load_dataset('dogImages/valid')
+test_files, test_targets = load_dataset('dogImages/test')
+
+# load list of dog names
+dog_names = [item[20:-1] for item in sorted(glob("dogImages/train/*/"))]
+
+# print statistics about the dataset
+print('There are %d total dog categories.' % len(dog_names))
+print('There are %s total dog images.\n' % len(np.hstack([train_files, valid_files, test_files])))
+print('There are %d training dog images.' % len(train_files))
+print('There are %d validation dog images.' % len(valid_files))
+print('There are %d test dog images.'% len(test_files))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-a7ed05856775>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mdatasets[0m [0;32mimport[0m [0mload_files[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mutils[0m [0;32mimport[0m [0mnp_utils[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mglob[0m [0;32mimport[0m [0mglob[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

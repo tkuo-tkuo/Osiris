@@ -1,0 +1,35 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+
+from ibmdbpy import IdaDataBase, IdaDataFrame
+
+# @hidden_cell
+# This connection object is used to access your data and contains your credentials.
+# You might want to remove those credentials before you share your notebook.
+idadb_abe8608cb7a84abf8ea60a002a751df5 = IdaDataBase(dsn='DASHDB;Database=BLUDB;Hostname=dashdb-entry-yp-dal09-08.services.dal.bluemix.net;Port=50000;PROTOCOL=TCPIP;UID=dash6285;PWD=lX2Vd~9l@lXL')
+
+data_df_5 = IdaDataFrame(idadb_abe8608cb7a84abf8ea60a002a751df5, 'DASH6285.ACME_FACEBOOK_EXPORT').as_dataframe()
+data_df_5.head()
+
+# You can close the database connection with the following code. Please keep the comment line with the @hidden_cell tag,
+# because the close function displays parts of the credentials.
+# @hidden_cell
+# idadb_abe8608cb7a84abf8ea60a002a751df5.close()
+# To learn more about the ibmdby package, please read the documentation: http://pythonhosted.org/ibmdbpy/
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-6-60883e298e00>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mibmdbpy[0m [0;32mimport[0m [0mIdaDataBase[0m[0;34m,[0m [0mIdaDataFrame[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;31m# @hidden_cell[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m# This connection object is used to access your data and contains your credentials.[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'ibmdbpy'
+ImportError: No module named 'ibmdbpy'
+
+Executability                            : False

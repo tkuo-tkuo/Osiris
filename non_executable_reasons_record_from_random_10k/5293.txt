@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+
+folder="C:\\Users\\sriram\\OneDrive\\Computational Linguistics\\Assignment 4\\"
+file="outputTrainWords-Final.txt"
+inputFile=open(folder+file)
+text=""
+textArray=[]
+tagArray=[]
+tag=""
+for row in inputFile:
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-ced13cc3174d>"[0;36m, line [0;32m11[0m
+[0;31m    for row in inputFile:[0m
+[0m                         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m unexpected EOF while parsing
+
+SyntaxError: unexpected EOF while parsing (<ipython-input-1-ced13cc3174d>, line 11)
+
+Executability                            : False

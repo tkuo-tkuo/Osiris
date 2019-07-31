@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+# load as Pandas dataframe
+sample_json_df = pd.read_json('data/world_bank_projects_less.json')
+sample_json_df
+------------------
+
+NameError: name 'pd' is not defined
+
+Executability                            : False

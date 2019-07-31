@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from sklearn.neighbors import KNeighborsClassifier
+
+KNeighbors = KNeighborsClassifier(n_neighbors=130) 
+
+KNeighbors = KNeighbors.fit( train_message, train_gender )
+
+score = KNeighbors.score(test_message,test_gender )
+score
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-11-59f5c591fe55>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mKNeighbors[0m [0;34m=[0m [0mKNeighborsClassifier[0m[0;34m([0m[0mn_neighbors[0m[0;34m=[0m[0;36m130[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0mKNeighbors[0m [0;34m=[0m [0mKNeighbors[0m[0;34m.[0m[0mfit[0m[0;34m([0m [0mtrain_message[0m[0;34m,[0m [0mtrain_gender[0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0mscore[0m [0;34m=[0m [0mKNeighbors[0m[0;34m.[0m[0mscore[0m[0;34m([0m[0mtest_message[0m[0;34m,[0m[0mtest_gender[0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'train_message' is not defined
+NameError: name 'train_message' is not defined
+
+Executability                            : False

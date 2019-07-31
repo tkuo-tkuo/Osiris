@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+use_gpu = torch.cuda.is_available()
+------------------
+
+NameError: name 'torch' is not defined
+
+Executability                            : False

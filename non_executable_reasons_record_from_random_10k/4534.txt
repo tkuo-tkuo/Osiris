@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+template = """
+FROM prolocutor/docker-python-sqlite:3.12
+#FROM 229931fb6377 #testing 
+RUN cd /tmp/sqlite-autoconf-3120200 \                                                                    
+        && ./configure --prefix=/usr --disable-static \                                                  
+                CFLAGS="-g {{ flag -}}" \
+        && make \                                                                                        
+        && make install \                                                                                
+        && rm -r /tmp/*                                                                                  
+
+CMD ["python3"]
+
+"""
+versionroot = "./sqlite3.12/"
+
+readmetemplate = """
+# SQLITE 3.12
+## Available Dockerfiles:
+{% for d in dockerfiles %}
+{{d}}
+{% endfor %}
+"""
+
+with open(versionroot+"README.jinja2","w") as f:
+    f.write(readmetemplate)
+with open(versionroot+"Dockerfile.jinja2","w") as f:
+    f.write(template)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-4892c43a160d>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     22[0m """
+[1;32m     23[0m [0;34m[0m[0m
+[0;32m---> 24[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mversionroot[0m[0;34m+[0m[0;34m"README.jinja2"[0m[0;34m,[0m[0;34m"w"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     25[0m     [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mreadmetemplate[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     26[0m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mversionroot[0m[0;34m+[0m[0;34m"Dockerfile.jinja2"[0m[0;34m,[0m[0;34m"w"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: './sqlite3.12/README.jinja2'
+PermissionError: [Errno 13] Permission denied: './sqlite3.12/README.jinja2'
+
+Executability                            : False

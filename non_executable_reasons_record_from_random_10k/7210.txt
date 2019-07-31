@@ -1,0 +1,70 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jul  1 13:09:30 2017
+
+@author: paulaan
+"""
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+#Mock Data
+x_train = np.linspace(-1, 1, 200)
+learning_rate = 0.01
+epochs = 100
+
+y_train = 2 * x_train + np.random.randn(*x_train.shape) * 0.333
+
+
+# Variables is the thing we will figure out through our Model
+w = tf.Variable(0.0, "weight")
+b = tf.Variable(0.001, "bias")
+def my_model(X, w, b):
+    return tf.add(tf.multiply(X, w), b)
+# X and Y refer to our data which hold all dataset among training process
+# Placeholder definition is used for those case
+X = tf.placeholder("float")
+Y = tf.placeholder("float")
+#Our model refers to a Mathmetical function
+y_model = my_model(X, w, b)
+#Our goal is to feed X and figure out w and b in order to minize
+cost_function = tf.square(Y - y_model)
+
+#This operation(Algorithm) is used to minimize our cost function 
+#according to our feed data X and Y placeholder
+train_operation = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost_function)
+
+#Each training process must belong to Tensorflow Session
+session = tf.Session()
+init_operation = tf.global_variables_initializer()
+
+session.run(init_operation)
+
+for i in range(1, epochs):
+    for x, y in zip(x_train, y_train):
+        session.run(train_operation, feed_dict={X: x, Y: y})
+        
+weight_val = session.run(w)
+bias_val = session.run(b)
+
+session.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-66c9c1ba3719>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;34m@[0m[0mauthor[0m[0;34m:[0m [0mpaulaan[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m """
+[0;32m---> 10[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

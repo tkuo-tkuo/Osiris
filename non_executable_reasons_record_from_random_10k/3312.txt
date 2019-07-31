@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+a.execute('DROP TABLE IF EXISTS test1;')
+a.execute('CREATE TABLE test1(a INT, b TEXT);')
+a.execute('INSERT INTO test1(rowid, a, b) VALUES(123, 5, \'hello\');')
+a.execute('INSERT INTO test1( a, b) VALUES(34, \'lol\');')
+a.execute('INSERT INTO test1 VALUES(32765, \'klol\');')
+print(a.execute('select rowid, * from test1;').fetchall())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-3-b22788b446a6>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0ma[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0;34m'DROP TABLE IF EXISTS test1;'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0ma[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0;34m'CREATE TABLE test1(a INT, b TEXT);'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0ma[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0;34m'INSERT INTO test1(rowid, a, b) VALUES(123, 5, \'hello\');'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0ma[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0;34m'INSERT INTO test1( a, b) VALUES(34, \'lol\');'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0ma[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0;34m'INSERT INTO test1 VALUES(32765, \'klol\');'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mOperationalError[0m: attempt to write a readonly database
+OperationalError: attempt to write a readonly database
+
+Executability                            : False

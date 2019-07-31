@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import datetime as dt
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+% matplotlib inline
+------------------
+
+
+UsageError: Line magic function `%` not found.
+
+Executability                            : False

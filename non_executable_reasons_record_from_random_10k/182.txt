@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+mails = [rec.strip() for rec in open('mail.csv')]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-4-129e530d56f8>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mmails[0m [0;34m=[0m [0;34m[[0m[0mrec[0m[0;34m.[0m[0mstrip[0m[0;34m([0m[0;34m)[0m [0;32mfor[0m [0mrec[0m [0;32min[0m [0mopen[0m[0;34m([0m[0;34m'mail.csv'[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'mail.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'mail.csv'
+
+Executability                            : False

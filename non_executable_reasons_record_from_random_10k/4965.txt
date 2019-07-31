@@ -1,0 +1,190 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import csv
+import json
+import requests
+#import elasticsearch
+from elasticsearch import Elasticsearch as ES
+from elasticsearch import helpers
+
+ESURL='http://localhost:9200'
+ESIDX='hai-idx'
+CURL="curl --silent -H Content-Type:application/json"
+
+# es_client = elasticsearch.Elasticsearch(ES)
+es_client = ES(ESURL)
+# print(es_client)
+print(es_client.indices.get_alias().keys())
+
+def postHaiIdx(row) :
+    #print(row)
+    es_client.create(index=ESIDX,doc_type="doc", id=row["id"],
+                    body={
+                        'indx': row["id"],
+                        'intent' : row["intent"],
+                        'utterance' : row["utterance"]
+                    })
+    
+    #print("don postHaiIdx")
+    
+def makeHaiIdx() :
+    #es_client.indices.delete(index="hai-idx")
+    
+    csv_training = open('./data/hai_training.csv', 'r', encoding='utf-8-sig')
+    print(csv_training)
+    reader = csv.DictReader(csv_training)
+    totalrows = 0
+    for row in reader:
+        postHaiIdx(row)
+        #print(row["utterance"])
+        totalrows += 1
+        
+    print(totalrows)
+
+    csv_training.close()
+
+
+#def compareWithTraining(row, TCNT, FCNT) :
+def compareWithTraining(row) :
+    srch_docs = es_client.search(index = ESIDX, doc_type = 'doc',
+                       body = {
+                           'query': {
+                               'match': {
+                                   #'utterance': '컨설팅팀 알려'
+                                   'utterance': {
+                                       #'query': row["utterance"], 'operator': 'and'
+                                       'query': row["utterance"]
+                                   }
+                               }
+                           }
+                       })
+    #print("len : {}".format(len(srch_docs["hits"]["hits"])))
+    
+    resultBolean = False;
+        
+    if len(srch_docs["hits"]["hits"]) > 0 :
+        #resultBolean = False;
+        '''
+        print("result max:{}, score:{}, intent:{}".format(
+                 srch_docs["hits"]["max_score"]
+                ,srch_docs["hits"]["hits"][0]["_score"]
+                ,srch_docs["hits"]["hits"][0]["_source"]["intent"]))
+        '''
+        if row["intent"] == srch_docs["hits"]["hits"][0]["_source"]["intent"] :
+            #print("True")
+            resultBolean = True;
+        else :
+            #print("False")
+            resultBolean = False;
+        '''
+        print("result [{}] max:{}, score:{}, intent:[{}][{}]".format(
+                 resultBolean
+                ,srch_docs["hits"]["max_score"]
+                ,srch_docs["hits"]["hits"][0]["_score"]
+                ,srch_docs["hits"]["hits"][0]["_source"]["intent"]
+                ,row["intent"]))
+        '''    
+        maxs   = srch_docs["hits"]["max_score"]
+        score  = srch_docs["hits"]["hits"][0]["_score"]
+        intent = srch_docs["hits"]["hits"][0]["_source"]["intent"]
+        uttera = srch_docs["hits"]["hits"][0]["_source"]["utterance"]
+        
+        print("[{}], [{}][{}], [{}][{}]".format(resultBolean, row["intent"], intent, row["utterance"], uttera))
+    else :
+        print("[None] [{}],[{}]".format(row["intent"],row["utterance"]))
+        
+    return resultBolean
+    
+def checkHaiIdxWithTest() :
+    #es_client.indices.delete(index="hai-idx")
+    
+    #tCnt = 0
+    #fCnt = 0
+    
+    csv_test = open('./data/hai_test.csv', 'r', encoding='utf-8-sig')
+    #print(csv_test)
+    reader = csv.DictReader(csv_test)
+    totalrows = 0
+    tCnt = 0
+    fCnt = 0
+    
+    for row in reader:
+        RCNT = compareWithTraining(row)
+        if RCNT :
+            tCnt += 1
+        else :
+            fCnt += 1
+            
+        #compareWithTraining(row)
+        #print(row["utterance"])
+        totalrows += 1
+        
+    print("hai_test : {}, {}, {}".format(totalrows, tCnt, fCnt))
+
+    
+    csv_test.close()
+    
+#makeHaiIdx()
+checkHaiIdxWithTest()
+
+
+# print(es_client.indices.get_alias().keys())
+
+#Get a document
+#https://docs.objectrocket.com/elastic_python_examples.html
+#http://www.pythonexample.com/search?q=elasticsearch
+# http://jason-heo.github.io/elasticsearch/2016/07/16/elasticsearch-with-python.html
+
+#get_doc = es_client.get(index=ESIDX, doc_type='doc', id='2322')
+#print(get_doc)
+#print("\n")
+
+# Search (DSL)
+srch_docs = es_client.search(index = ESIDX, doc_type = 'doc',
+                       body = {
+                           'query': {
+                               'match': {
+                                   #'utterance': '컨설팅팀 알려'
+                                   'utterance': {
+                                       'query': '통제예산 알려', 'operator': 'and'
+                                   }
+                               }
+                           }
+                       })
+print("len : {}".format(len(srch_docs["hits"]["hits"])))
+#print("result count : {}".format(srch_docs["hits"]["total"]))
+
+#if srch_docs is not None :
+if len(srch_docs["hits"]["hits"]) > 0 :
+    print("result max:{}, score:{}, intent:{}".format(
+                 srch_docs["hits"]["max_score"]
+                ,srch_docs["hits"]["hits"][0]["_score"]
+                ,srch_docs["hits"]["hits"][0]["_source"]["intent"]))
+        
+#print(srch_docs)
+#print(json.dumps(srch_docs, indent = 4, ensure_ascii=False))
+#print(json.dumps(srch_docs["hits"]["hits"][0], indent = 4, ensure_ascii=False))
+#print(json.dumps(srch_docs))
+
+#Delete a document
+#es_client.delete(index=ESIDX, doc_type='doc', id=3000)
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-c4545a9dc4ed>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mimport[0m [0mrequests[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;31m#import elasticsearch[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0melasticsearch[0m [0;32mimport[0m [0mElasticsearch[0m [0;32mas[0m [0mES[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0melasticsearch[0m [0;32mimport[0m [0mhelpers[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'elasticsearch'
+ModuleNotFoundError: No module named 'elasticsearch'
+
+Executability                            : False

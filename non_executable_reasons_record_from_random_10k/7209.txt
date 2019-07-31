@@ -1,0 +1,63 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 5
+Reproducibility                          : matched ratio: 0.2 ; index of matched cells: [0]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+!unzip ml-latest-small.zip
+
+-----------------
+Original output:
+Archive:  ml-latest-small.zip
+   creating: ml-latest-small/
+  inflating: ml-latest-small/links.csv  
+  inflating: ml-latest-small/movies.csv  
+  inflating: ml-latest-small/ratings.csv  
+  inflating: ml-latest-small/README.txt  
+  inflating: ml-latest-small/tags.csv  
+
+Executed output:
+unzip:  cannot find or open ml-latest-small.zip, ml-latest-small.zip.zip or ml-latest-small.zip.ZIP.
+
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+pwd
+
+-----------------
+Original output:
+'/root/notebooks/Untitled Folder 1'
+Executed output:
+'/mnt/fit-Knowledgezoo/Github_repos_download/data/ioancw@notebooks/movie_lens'
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+ls -lrt
+
+-----------------
+Original output:
+total 4
+-rw-r--r-- 1 root root 72 Sep  7 09:25 Untitled.ipynb
+
+Executed output:
+total 1024
+-rwxr-xr-x 1 root root 2465 Jul  7 01:22 [0m[01;32m'Loading Movie Lens Data.ipynb'[0m*
+drwxr-xr-x 2 root root    0 Jul  7 01:22  [01;34mml-latest-small[0m/
+
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+!curl -O http://files.grouplens.org/datasets/movielens/ml-latest-small.zip
+
+-----------------
+Original output:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  896k  100  896k    0     0   853k      0  0:00:01  0:00:01 --:--:--  854k
+
+Executed output:
+Warning: Failed to create the file ml-latest-small.zip: Permission denied
+
+curl: (23) Failed writing body (0 != 14203)
+

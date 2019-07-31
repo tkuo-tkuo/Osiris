@@ -1,0 +1,65 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+buildGraphs("mask_hidden.json", "Concrete_Dropout_Hidden_Hidden_Map_average.eps")
+buildGraphs("mask_input.json", "Concrete_Dropout_Input_Hidden_Map_average.eps")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-4-c5394b297de9>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mbuildGraphs[0m[0;34m([0m[0;34m"mask_hidden.json"[0m[0;34m,[0m [0;34m"Concrete_Dropout_Hidden_Hidden_Map_average.eps"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mbuildGraphs[0m[0;34m([0m[0;34m"mask_input.json"[0m[0;34m,[0m [0;34m"Concrete_Dropout_Input_Hidden_Map_average.eps"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-3-27dd64bb7f53>[0m in [0;36mbuildGraphs[0;34m(file, name)[0m
+[1;32m     10[0m     [0mplt[0m[0;34m.[0m[0mtight_layout[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m     [0mplt[0m[0;34m.[0m[0mfill_between[0m[0;34m([0m[0mx[0m[0;34m,[0m [0msteUp[0m[0;34m,[0m [0msteDown[0m[0;34m,[0m [0mcolor[0m[0;34m=[0m[0;34m'orange'[0m[0;34m,[0m [0malpha[0m[0;34m=[0m[0;34m'0.5'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m     [0mplt[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m     [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/pyplot.py[0m in [0;36msavefig[0;34m(*args, **kwargs)[0m
+[1;32m    714[0m [0;32mdef[0m [0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    715[0m     [0mfig[0m [0;34m=[0m [0mgcf[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 716[0;31m     [0mres[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    717[0m     [0mfig[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mdraw_idle[0m[0;34m([0m[0;34m)[0m   [0;31m# need this if 'transparent=True' to reset colors[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    718[0m     [0;32mreturn[0m [0mres[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/figure.py[0m in [0;36msavefig[0;34m(self, fname, transparent, **kwargs)[0m
+[1;32m   2178[0m             [0mself[0m[0;34m.[0m[0mpatch[0m[0;34m.[0m[0mset_visible[0m[0;34m([0m[0mframeon[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2179[0m [0;34m[0m[0m
+[0;32m-> 2180[0;31m         [0mself[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2181[0m [0;34m[0m[0m
+[1;32m   2182[0m         [0;32mif[0m [0mframeon[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, **kwargs)[0m
+[1;32m   2080[0m                     [0morientation[0m[0;34m=[0m[0morientation[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2081[0m                     [0mbbox_inches_restore[0m[0;34m=[0m[0m_bbox_inches_restore[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2082[0;31m                     **kwargs)
+[0m[1;32m   2083[0m             [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2084[0m                 [0;32mif[0m [0mbbox_inches[0m [0;32mand[0m [0mrestore_bbox[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backends/backend_ps.py[0m in [0;36mprint_eps[0;34m(self, outfile, *args, **kwargs)[0m
+[1;32m    840[0m [0;34m[0m[0m
+[1;32m    841[0m     [0;32mdef[0m [0mprint_eps[0m[0;34m([0m[0mself[0m[0;34m,[0m [0moutfile[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 842[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_print_ps[0m[0;34m([0m[0moutfile[0m[0;34m,[0m [0;34m'eps'[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    843[0m [0;34m[0m[0m
+[1;32m    844[0m     def _print_ps(self, outfile, format, *args,
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backends/backend_ps.py[0m in [0;36m_print_ps[0;34m(self, outfile, format, papertype, dpi, facecolor, edgecolor, orientation, *args, **kwargs)[0m
+[1;32m    869[0m             self._print_figure(outfile, format, dpi, facecolor, edgecolor,
+[1;32m    870[0m                                [0morientation[0m[0;34m,[0m [0misLandscape[0m[0;34m,[0m [0mpapertype[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 871[0;31m                                **kwargs)
+[0m[1;32m    872[0m [0;34m[0m[0m
+[1;32m    873[0m     def _print_figure(
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backends/backend_ps.py[0m in [0;36m_print_figure[0;34m(self, outfile, format, dpi, facecolor, edgecolor, orientation, isLandscape, papertype, metadata, dryrun, bbox_inches_restore, **kwargs)[0m
+[1;32m   1104[0m                 [0mprint_figure_impl[0m[0;34m([0m[0mfh[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1105[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1106[0;31m                 [0;32mwith[0m [0mopen[0m[0;34m([0m[0moutfile[0m[0;34m,[0m [0;34m'w'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'latin-1'[0m[0;34m)[0m [0;32mas[0m [0mfh[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1107[0m                     [0mprint_figure_impl[0m[0;34m([0m[0mfh[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1108[0m [0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'Concrete_Dropout_Hidden_Hidden_Map_average.eps'
+PermissionError: [Errno 13] Permission denied: 'Concrete_Dropout_Hidden_Hidden_Map_average.eps'
+
+Executability                            : False

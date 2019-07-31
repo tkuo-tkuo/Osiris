@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import os
+os.chdir('/home/matej/develop/pdapt')
+os.getcwd()
+------------------
+
+FileNotFoundError: [Errno 2] No such file or directory: '/home/matej/develop/pdapt'
+
+Executability                            : False

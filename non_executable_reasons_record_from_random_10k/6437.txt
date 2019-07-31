@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+salary = NBA_Salary_History[['YearEnd', 'Team', 'Player', ' Salary ']]
+salary = salary.rename(columns={' Salary ':'Salary'})
+salary = salary.rename(columns={'YearEnd':'Year'})
+player_salary = pd.merge(ap, salary, on=['Player', 'Year']).fillna(0)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-ffc0f30eeaa7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0msalary[0m [0;34m=[0m [0msalary[0m[0;34m.[0m[0mrename[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0;34m{[0m[0;34m' Salary '[0m[0;34m:[0m[0;34m'Salary'[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0msalary[0m [0;34m=[0m [0msalary[0m[0;34m.[0m[0mrename[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0;34m{[0m[0;34m'YearEnd'[0m[0;34m:[0m[0;34m'Year'[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mplayer_salary[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mmerge[0m[0;34m([0m[0map[0m[0;34m,[0m [0msalary[0m[0;34m,[0m [0mon[0m[0;34m=[0m[0;34m[[0m[0;34m'Player'[0m[0;34m,[0m [0;34m'Year'[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mfillna[0m[0;34m([0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'ap' is not defined
+NameError: name 'ap' is not defined
+
+Executability                            : False

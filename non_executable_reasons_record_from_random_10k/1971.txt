@@ -1,0 +1,101 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#### Great! now let's try inserting pickle into SQLite database.
+#### need to create a db w/ the expressions table using our schema:
+#### write to DB:
+import sqlite3
+import os
+db = sqlite3.connect(':memory:') #### allocate memory
+try:
+    os.remove('_jonhonda_dat//toyExprDB') #### remove existing db if it exists
+    print ('killed existing db')
+except FileNotFoundError as err:
+    print('db does not exist - okay make it') #### do nothing
+db = sqlite3.connect('_jonhonda_dat//toyExprDB')  #### make a database
+cursor = db.cursor()
+#### build expression table:
+cursor.execute ('''CREATE TABLE expressions(
+    expression_id INTEGER PRIMARY KEY, 
+    expression_name TEXT, 
+    expression_str TEXT,
+    expression_data_type TEXT, 
+    vars BLOB)''')
+db.commit()
+
+#### build a toy table that hold variable values:
+cursor.execute ('''CREATE TABLE sizes(
+    size_id INTEGER PRIMARY KEY,
+    area FLOAT,
+    volume FLOAT,
+    length FLOAT
+)''')
+db.commit()
+
+#### put some values into variable value tables
+cursor.execute ('''INSERT INTO sizes(area, volume, length) VALUES(?,?,?)''', (25.6,33.1,2.5))
+cursor.execute ('''INSERT INTO sizes(area, volume, length) VALUES(?,?,?)''', (45.6,23.4,0.5))
+cursor.execute ('''INSERT INTO sizes(area, volume, length) VALUES(?,?,?)''', (14.8,2.6,1.6))
+db.commit()
+
+#### make some expression data:
+expression_name = 'SIZE'
+expression_str = 'area*3+volume-length*length*length-SIDE'
+expression_data_type = 'float'
+#### store variable data in a dictionary object
+#### format: [dbVarType, dbTable, dbField, dbQryOnUniqueField, valDataType]
+VARS = {'area':['db_val','sizes','area', 'size_id', 'FLOAT'], 
+       'volume':['db_val','sizes','volume', 'size_id', 'FLOAT'],
+       'length':['db_val','sizes','length', 'size_id', 'FLOAT'],
+        'SIDE':['expression','expressions','expression_str', 'expression_name', 'FLOAT']
+       }
+#### now serialize the variable dictionary w/ pickling:
+import pickle
+# Pickle the 'data' dictionary using the highest protocol available.
+# use the dumps command to write pickle to a string
+mypickle = pickle.dumps(VARS, pickle.HIGHEST_PROTOCOL) ####uses the latest pickling version
+#### NOW INSERT DATA TO DB:
+cursor.execute ('''INSERT INTO expressions(expression_name, expression_str, expression_data_type, vars) VALUES(?,?,?,?)''',(expression_name,expression_str,expression_data_type,mypickle))
+db.commit()
+
+expression_name = 'SIDE'
+expression_str = 'length*4'
+expression_data_type = 'float'
+#### store variable data in a dictionary object
+#### format: [dbVarType, dbTable, dbField, dbQryOnUniqueField, valDataType]
+VARS = {'length':['db_val','sizes','length', 'size_id', 'FLOAT']}
+#### now serialize the variable dictionary w/ pickling:
+import pickle
+# Pickle the 'data' dictionary using the highest protocol available.
+# use the dumps command to write pickle to a string
+mypickle = pickle.dumps(VARS, pickle.HIGHEST_PROTOCOL) ####uses the latest pickling version
+#### NOW INSERT DATA TO DB:
+cursor.execute ('''INSERT INTO expressions(expression_name, expression_str, expression_data_type, vars) VALUES(?,?,?,?)''',(expression_name,expression_str,expression_data_type,mypickle))
+db.commit()
+
+
+# #### now get Vars from database
+# cursor.execute ('''SELECT vars FROM expressions WHERE expression_name = 'SIDE' ''')
+# dbVars = cursor.fetchone()
+# db.close()    
+# print(type(dbVars[0]))
+# #### read pickled data:
+# retVARS = pickle.loads(dbVars[0])
+# print (retVARS, "as data type: ", type(retVARS))
+
+print ("fin")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-302bb00513c9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0mdb[0m [0;34m=[0m [0msqlite3[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m':memory:'[0m[0;34m)[0m [0;31m#### allocate memory[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m     [0mos[0m[0;34m.[0m[0mremove[0m[0;34m([0m[0;34m'_jonhonda_dat//toyExprDB'[0m[0;34m)[0m [0;31m#### remove existing db if it exists[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m     [0mprint[0m [0;34m([0m[0;34m'killed existing db'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mexcept[0m [0mFileNotFoundError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '_jonhonda_dat//toyExprDB'
+PermissionError: [Errno 13] Permission denied: '_jonhonda_dat//toyExprDB'
+
+Executability                            : False

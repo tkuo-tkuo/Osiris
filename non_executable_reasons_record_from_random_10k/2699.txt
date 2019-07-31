@@ -1,0 +1,10 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+library(tidyverse)
+
+------------------
+
+NameError: name 'library' is not defined
+
+Executability                            : False

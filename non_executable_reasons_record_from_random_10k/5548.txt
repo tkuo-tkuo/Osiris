@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# import all dependencies
+import time
+import pandas as pd
+from bs4 import BeautifulSoup
+from splinter import Browser
+executable_path = {"executable_path": "chromedriver.exe"}
+browser = Browser("chrome",**executable_path, headless=False)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-134481a812c0>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mbs4[0m [0;32mimport[0m [0mBeautifulSoup[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0msplinter[0m [0;32mimport[0m [0mBrowser[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mexecutable_path[0m [0;34m=[0m [0;34m{[0m[0;34m"executable_path"[0m[0;34m:[0m [0;34m"chromedriver.exe"[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0mbrowser[0m [0;34m=[0m [0mBrowser[0m[0;34m([0m[0;34m"chrome"[0m[0;34m,[0m[0;34m**[0m[0mexecutable_path[0m[0;34m,[0m [0mheadless[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'splinter'
+ModuleNotFoundError: No module named 'splinter'
+
+Executability                            : False

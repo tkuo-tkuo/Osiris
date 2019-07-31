@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+file=open('C:/Users/Inance/Documents/Thesis/BURST/Burst_Testing_Data_Analysis/Day_1_Testing/Burst/Changed_TXT/Sample_15_burst_TXT.txt')
+lst = [] 
+for line in file:
+    lst.append([ float(x) for x in line.split()])
+time = np.array([ x[0] for x in lst]) #first row in file and make array
+void = np.array([ x[1] for x in lst]) #second row in file and make array
+pressure0 =np.array([ x[2] for x in lst]) #third row in file and make array
+pressure=pressure0*-1 #change the sign of the imported pressure data
+while pressure 
+#print(' time = ',time,'\n\n','void = ',void,'\n\n\n','pressure = ',pressure)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-1271736c62ec>"[0;36m, line [0;32m9[0m
+[0;31m    while pressure[0m
+[0m                   ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-2-1271736c62ec>, line 9)
+
+Executability                            : False

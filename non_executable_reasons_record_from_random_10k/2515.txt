@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+a_num = 5
+a_num_also = 4.5
+
+rslt = a_num + a_num_also
+print(rslt)
+a_num = 4 # assign a new value to a_num
+print((a_num-rslt)/3)
+
+x = int("54", 2)
+print(x)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-7-f65b09d3721d>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0mprint[0m[0;34m([0m[0;34m([0m[0ma_num[0m[0;34m-[0m[0mrslt[0m[0;34m)[0m[0;34m/[0m[0;36m3[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[0;32m----> 9[0;31m [0mx[0m [0;34m=[0m [0mint[0m[0;34m([0m[0;34m"54"[0m[0;34m,[0m [0;36m2[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0mprint[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: invalid literal for int() with base 2: '54'
+ValueError: invalid literal for int() with base 2: '54'
+
+Executability                            : False

@@ -1,0 +1,55 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 1]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+x = np.array([[0,0,1],[0,1,1],[1,0,1],[1,1,1]])
+
+y = np.array([[0,0,1,1]]).T
+
+np.random.seed(1)
+
+w = 2 * np.random.random((3, 1)) - 1
+
+print(w)
+
+for i in range(100000):
+    level_0 = x
+    level_1 = sigmoid(np.dot(level_0, w))
+    
+    #calculate error.. 
+    level_1_error = y - level_1
+    
+#     print(level_1_error)
+    
+    #calculate the correction to weights
+    delta_l1 = level_1_error * sigmoid(level_1, True)
+    
+    w += np.dot(level_0.T, delta_l1)
+    
+print("Result")
+print(level_1)
+
+-----------------
+Original output:
+[[-0.16595599]
+ [ 0.44064899]
+ [-0.99977125]]
+Result
+[[ -3.65031604e-05]
+ [ -2.59054248e-08]
+ [ -3.36180181e-07]
+ [ -2.38587702e-10]]
+
+Executed output:
+[[-0.16595599]
+ [ 0.44064899]
+ [-0.99977125]]
+Result
+[[-3.65031604e-05]
+ [-2.59054248e-08]
+ [-3.36180181e-07]
+ [-2.38587702e-10]]
+

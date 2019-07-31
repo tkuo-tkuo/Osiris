@@ -1,0 +1,367 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 6
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [0, 1, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+
+
+def line_side(x0,y0,x1,y1,x,y):
+    #-1 = under, 1 = over when x0 < x1
+    v = (x-x0)*(y1-y0)-(y-y0)*(x1-x0)
+    return v/abs(v)
+def calc_poly(x,a):
+    y = 0
+    for i in range(0,a.size,1):
+        y+=a[i]*x**i
+            
+    return y
+
+
+def spline_cm(o,K,Cd,ax):
+    f = np.polyfit(K,Cd,o)
+    print(f[::-1])
+    p = np.poly1d(f)
+    K1 = np.linspace(K.min(),K.max(),50)
+    Cd1 = p(K1)
+    #Cd2 = np.c_[[poly1d(k,f[::-1]) for k in K]]
+    plt.plot(K,Cd,'k-')
+    plt.plot(K1[:],Cd1[:],'b.-')
+    #plt.plot(K,Cd2)
+    plt.title(o)
+    return K1,Cd1
+
+        
+fig=plt.figure(figsize=(10,5))
+ax = fig.add_subplot(1,1,1)
+
+log = np.log10
+x=log(x1)
+y=log(y1)
+xr,yr=log(xr1),log(yr1)
+print(xr)
+print(yr)
+#spline_cm(6,x1,y1,ax)
+#spline_cm(11,x2,y2,ax)
+#spline_cm(11,x3,y3,ax)
+#spline_cm(11,x4,y4,ax)
+ax.plot(xr,yr,'o')
+x,y=spline_cm(1,x,y,ax)
+plt.show()
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>[-2.00292683 -1.6604878  -0.5395122  -0.31414634  0.24487805  1.          1.        ]
+[ 1.65099107  1.30984821  0.17726836 -0.03561541 -0.60326733 -1.35105658
+ -1.99727335]
+[-0.34460696 -0.99610987]
+
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>[-2.00292683 -1.6604878  -0.5395122  -0.31414634  0.24487805  1.
+  1.        ]
+[ 1.65099107  1.30984821  0.17726836 -0.03561541 -0.60326733 -1.35105658
+ -1.99727335]
+[-0.34460696 -0.99610987]
+
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+
+
+
+
+
+-----------------
+Original output:
+
+Executed output:
+[-2.0029 -1.6605 -0.5395 -0.3141  0.2449  1.      1.    ]
+[ 1.651   1.3098  0.1773 -0.0356 -0.6033 -1.3511 -1.9973]
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>##############################
+-1.0
+6
+-1.8239087409443189 1.462397997898956 6
+##############################
+-1.0
+5
+-1.5228787452803376 0.6989700043360189 5
+##############################
+-1.0
+3
+-1.0 0.146128035678238 3
+##############################
+-1.0
+3
+-0.5228787452803376 -0.3010299956639812 3
+##############################
+-1.0
+4
+0.0 -0.5228787452803376 4
+##############################
+-1.0
+2
+0.3010299956639812 -1.0 2
+##############################
+-1.0
+1
+-1.0 -1.0 1
+##############################
+-1.0
+2
+0.0 -1.6989700043360187 2
+##############################
+-1.0
+1
+-1.6989700043360187 -1.6989700043360187 1
+
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+def wave_load_regimes(x0,y0,x1,y1,x,y,ax):
+    regimes = [6,5,3,4,2,1]
+    x,y=log(x),log(y)
+    print("#"*30)
+    forceType=0
+    s = -line_side(x0,y0,x1,y1,x,y,)
+    print(s)
+    if (s==1):
+        forceType=7
+    else:
+        if (yr[0] > y and y >= yr[1]):
+            i=0
+            s = line_side(xr[i],yr[i],xr[i+1],yr[i+1],x,y)
+            if (s==1):
+                plt.plot([-2,1],[yr[i],yr[i]],'b-')
+                plt.plot([xr[i],xr[i+1]],[yr[i],yr[i+1]],'bo--')
+                forceType=6
+                ax.text(x,y,forceType)
+                plt.plot(x,y,'b*')
+
+            else:
+                forceType=7
+           
+            
+        elif (yr[1] > y and y>= yr[2]):
+            i=1
+            s = line_side(xr[i],yr[i],xr[i+1],yr[i+1],x,y)
+            if (s==1):
+                forceType=5
+                plt.plot([-2,1],[yr[i],yr[i]],'r-')
+                plt.plot([xr[i],xr[i+1]],[yr[i],yr[i+1]],'ro--')
+                plt.plot(x,y,'r*')
+                ax.text(x,y,forceType)
+            else:
+                forceType=7
+            
+            
+        elif (yr[2] > y and y>= yr[3]):
+            i=2
+            s = line_side(xr[i],yr[i],xr[i+1],yr[i+1],x,y)
+            if (s==1):
+                forceType=3
+                plt.plot([-2,1],[yr[i],yr[i]],'g-')
+                plt.plot([xr[i],xr[i+1]],[yr[i],yr[i+1]],'go--')
+                plt.plot(x,y,'g*')
+                ax.text(x,y,forceType)
+            else:
+                forceType=7
+            
+        elif (yr[3] > y and y>= yr[4]):#todo
+            i=3
+            if (x < xr[i]):
+                plt.plot([xr[i]]*2,[yr[i],yr[i+1]],'g--')
+                plt.plot([-2,1],[yr[i],yr[i]],'g-')
+                plt.plot(x,y,'g*')
+
+                forceType=3
+                ax.text(x,y,forceType)
+            else:
+                s = line_side(xr[i],yr[i],xr[i+1],yr[i+1],x,y)
+                if (s==1):
+                    plt.plot(x,y,'c*')
+                    plt.plot([xr[i],xr[i+1]],[yr[i],yr[i+1]],'co--')
+                    forceType=4
+                    ax.text(x,y,forceType)
+                else:
+                    forceType=7
+            
+           
+        elif (yr[4] > y >= yr[5]):
+            i=4
+            if (x < xr[3]):
+                forceType=1
+                plt.plot([xr[i],xr[i+1]],[yr[i],yr[i+1]],'yo--')
+                plt.plot([xr[3]]*2,[yr[i],yr[i+1]],'y--')
+                plt.plot(x,y,'y*')
+                ax.text(x,y,forceType)
+
+            else:
+                s = line_side(xr[i],yr[i],xr[i+1],yr[i+1],x,y)
+                if (s==1):
+                    forceType=2
+                    plt.plot([-2,1],[yr[i],yr[i]],'m-')
+                    plt.plot([xr[i],xr[i+1]],[yr[i],yr[i+1]],'mo--')
+                    plt.plot(x,y,'m*')
+                    ax.text(x,y,forceType)
+                else:
+                    forceType=7
+           
+        elif (yr[5] > y >= yr[6]):
+            i=5
+            if (x<xr[3]):
+                forceType=1
+                plt.plot([xr[3]]*2,[yr[i],yr[i+1]],'y--')
+                plt.plot([-2,1],[yr[i],yr[i]],'y-')
+                ax.text(x,y,forceType)
+                plt.plot(x,y,'y*')
+
+            elif (x < xr[5]):
+                forceType=2
+                plt.plot([-2,1],[yr[i],yr[i]],'k-')
+                plt.plot([xr[i],xr[i+1]],[yr[i],yr[i+1]],'ko--')
+                ax.text(x,y,forceType)
+                plt.plot(x,y,'k*')
+
+            else:
+                forceType=7
+            
+    
+    print(forceType)
+    return forceType
+
+def wave_load_regimes1(x,y):
+
+    xr = np.r_[-2.00 ,-1.6605, -0.5395 ,-0.3141 , 0.2449  ,1.,      1.    ]
+    yr = np.r_[ 1.651 ,   1.3098 , 0.1773, -0.0356, -0.6033, -1.3511, -2.00]
+    
+    x0 = -2
+    x1 = 1
+    y0 = 1.651
+    y1 = -1.3511
+    
+    x,y=log(x),log(y)
+    forceType=0
+    s = -line_side(x0,y0,x1,y1,x,y,)
+    regimes = [6,5,3]
+    regimes1 = [[3,4],[1,2]]
+    if (s==1):
+        forceType=7
+    else:
+        for i in range(3):
+            if (yr[i] > y and y>= yr[i+1]):
+                s = line_side(xr[i],yr[i],xr[i+1],yr[i+1],x,y)
+                if (s==1):
+                    forceType=regimes[i]
+                else:
+                    forceType=7
+                return forceType
+        for i in range(2):
+            i+=3
+            if (yr[i] > y and y>= yr[i+1]):#todo
+                if (x < xr[i]):
+                    forceType=regimes1[i-3][0]
+                else:
+                    s = line_side(xr[i],yr[i],xr[i+1],yr[i+1],x,y)
+                    if (s==1):
+                        forceType=regimes1[i-3][1]
+                    else:
+                        forceType=7
+                return forceType
+        i=5
+        if (yr[i] > y and y>= yr[i+1]):
+            if (x<xr[3]):
+                forceType=1
+            elif (x < xr[5]):
+                forceType=2
+            else:
+                forceType=7
+            return forceType
+            
+    
+    return forceType
+
+
+p = np.c_[
+    [0.015,29],
+    [0.03,5],
+    [0.1,1.4],
+    [0.3,0.5],
+    [1,0.3],
+    [2,0.1],
+    [0.1,0.1],
+    [1.,0.02],
+    [0.02,0.02]
+    
+].T
+
+
+xr = np.around(xr,4)
+yr = np.around(yr,4)
+print(xr)
+print(yr)
+
+fig=plt.figure(figsize=(10,5))
+ax = fig.add_subplot(1,1,1)
+
+ax.plot(xr,yr)
+
+x0,x1=xr[0],xr[-2]
+y0,y1=yr[0],yr[-2]
+ax.plot(xr,yr,'o-')
+for pi in p:
+    ax.plot(x0,y0,'k*')
+    ax.plot(x1,y1,'b*')
+    ax.plot(log(pi[0]),log(pi[1]),'o')
+    n=wave_load_regimes(x0,y0,x1,y1,pi[0],pi[1],ax)
+    n1=wave_load_regimes1(pi[0],pi[1])
+    print(log(pi[0]),log(pi[1]),n)
+    ax.text(log(pi[0]),log(pi[1]),(n,n1))
+
+plt.xticks(x[::3])
+plt.grid(True)
+plt.show()
+
+-----------------
+Original output:
+[-2.     -1.6605 -0.5395 -0.3141  0.2449  1.      1.    ]
+[ 1.651   1.3098  0.1773 -0.0356 -0.6033 -1.3511 -2.    ]
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>##############################
+-1.0
+6
+-1.82390874094 1.4623979979 6
+##############################
+-1.0
+5
+-1.52287874528 0.698970004336 5
+##############################
+-1.0
+3
+-1.0 0.146128035678 3
+##############################
+-1.0
+3
+-0.52287874528 -0.301029995664 3
+##############################
+-1.0
+4
+0.0 -0.52287874528 4
+##############################
+-1.0
+2
+0.301029995664 -1.0 2
+##############################
+-1.0
+1
+-1.0 -1.0 1
+##############################
+-1.0
+2
+0.0 -1.69897000434 2
+##############################
+-1.0
+1
+-1.69897000434 -1.69897000434 1
+
+Executed output:
+

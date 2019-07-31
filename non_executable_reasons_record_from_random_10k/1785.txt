@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+df_list = []
+root = 'C:/Users/cpgei/OneDrive/Documents/networkx-master/networkx-master/examples/javascript/data'
+file_list = os.listdir(root)
+for i in file_list:
+    df_list.append(pd.read_csv(i,encoding='ISO-8859-1',sep='|',names=['advisor','current_company','disclosures','company_history','start','end','company_location']))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-742413bdb359>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mdf_list[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mroot[0m [0;34m=[0m [0;34m'C:/Users/cpgei/OneDrive/Documents/networkx-master/networkx-master/examples/javascript/data'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mfile_list[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0mroot[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mfile_list[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mdf_list[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mi[0m[0;34m,[0m[0mencoding[0m[0;34m=[0m[0;34m'ISO-8859-1'[0m[0;34m,[0m[0msep[0m[0;34m=[0m[0;34m'|'[0m[0;34m,[0m[0mnames[0m[0;34m=[0m[0;34m[[0m[0;34m'advisor'[0m[0;34m,[0m[0;34m'current_company'[0m[0;34m,[0m[0;34m'disclosures'[0m[0;34m,[0m[0;34m'company_history'[0m[0;34m,[0m[0;34m'start'[0m[0;34m,[0m[0;34m'end'[0m[0;34m,[0m[0;34m'company_location'[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'C:/Users/cpgei/OneDrive/Documents/networkx-master/networkx-master/examples/javascript/data'
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/cpgei/OneDrive/Documents/networkx-master/networkx-master/examples/javascript/data'
+
+Executability                            : False

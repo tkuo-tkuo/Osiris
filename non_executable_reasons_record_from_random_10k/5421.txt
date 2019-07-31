@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import pickle
+
+# Load tweets, labels
+tweets = pickle.load(open(TWEETS_DIR,'rb'))
+labels = pickle.load(open(LABELS_DIR,'rb'))
+
+# Sample some tweets to display
+for i in range(0,100,10):
+    print ("Tweet: ", tweets[i], ". Label: ", labels[i])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-458848f8be5d>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# Load tweets, labels[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mtweets[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0mTWEETS_DIR[0m[0;34m,[0m[0;34m'rb'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mlabels[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0mLABELS_DIR[0m[0;34m,[0m[0;34m'rb'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: './obama-trump-data/tweets'
+FileNotFoundError: [Errno 2] No such file or directory: './obama-trump-data/tweets'
+
+Executability                            : False

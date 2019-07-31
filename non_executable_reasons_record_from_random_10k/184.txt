@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import requests
+res = requests.get('https://img.appledaily.com.tw/images/thumbnail/other/4c96dd254111d4ffd78a255eca1262f6.jpg')
+with open('1.jpg', 'wb') as f:
+    f.write(res.content)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-38-925c62a1a5f1>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mrequests[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mres[0m [0;34m=[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m'https://img.appledaily.com.tw/images/thumbnail/other/4c96dd254111d4ffd78a255eca1262f6.jpg'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'1.jpg'[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mres[0m[0;34m.[0m[0mcontent[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '1.jpg'
+PermissionError: [Errno 13] Permission denied: '1.jpg'
+
+Executability                            : False

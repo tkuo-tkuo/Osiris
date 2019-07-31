@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import print_function
+from keras.preprocessing.sequence import pad_sequences
+import numpy as np
+import sys
+from keras.preprocessing.text import text_to_word_sequence
+from keras.models import Sequential
+from keras.layers import Activation, TimeDistributed, Dense, RepeatVector, recurrent, Embedding
+from keras.layers.recurrent import LSTM
+from keras.optimizers import Adam, RMSprop
+from nltk import FreqDist
+import os
+import datetime
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-c85838bf3e5f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mprint_function[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mpreprocessing[0m[0;34m.[0m[0msequence[0m [0;32mimport[0m [0mpad_sequences[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0msys[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

@@ -1,0 +1,57 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+X = "AGGTAB"
+Y = "GXTAYB"
+longest_common_substring(len(X), len(Y),X,Y)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-affebb25944a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mX[0m [0;34m=[0m [0;34m"AGGTAB"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mY[0m [0;34m=[0m [0;34m"GXTAYB"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mlongest_common_substring[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m,[0m [0mlen[0m[0;34m([0m[0mY[0m[0;34m)[0m[0;34m,[0m[0mX[0m[0;34m,[0m[0mY[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-1-de84a96233ea>[0m in [0;36mlongest_common_substring[0;34m(l1, l2, s1, s2)[0m
+[1;32m      6[0m         [0;32mreturn[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m     [0;32melif[0m [0ms1[0m[0;34m[[0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m][0m [0;34m==[0m [0ms2[0m[0;34m[[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m         [0;32mreturn[0m [0;36m1[0m [0;34m+[0m [0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m     [0mprint[0m[0;34m([0m[0mmax[0m[0;34m([0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m,[0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-de84a96233ea>[0m in [0;36mlongest_common_substring[0;34m(l1, l2, s1, s2)[0m
+[1;32m      7[0m     [0;32melif[0m [0ms1[0m[0;34m[[0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m][0m [0;34m==[0m [0ms2[0m[0;34m[[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m         [0;32mreturn[0m [0;36m1[0m [0;34m+[0m [0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     [0mprint[0m[0;34m([0m[0mmax[0m[0;34m([0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m,[0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-1-de84a96233ea>[0m in [0;36mlongest_common_substring[0;34m(l1, l2, s1, s2)[0m
+[1;32m      6[0m         [0;32mreturn[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m     [0;32melif[0m [0ms1[0m[0;34m[[0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m][0m [0;34m==[0m [0ms2[0m[0;34m[[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m         [0;32mreturn[0m [0;36m1[0m [0;34m+[0m [0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m     [0mprint[0m[0;34m([0m[0mmax[0m[0;34m([0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m,[0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-de84a96233ea>[0m in [0;36mlongest_common_substring[0;34m(l1, l2, s1, s2)[0m
+[1;32m      6[0m         [0;32mreturn[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m     [0;32melif[0m [0ms1[0m[0;34m[[0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m][0m [0;34m==[0m [0ms2[0m[0;34m[[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m         [0;32mreturn[0m [0;36m1[0m [0;34m+[0m [0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m     [0mprint[0m[0;34m([0m[0mmax[0m[0;34m([0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m,[0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-de84a96233ea>[0m in [0;36mlongest_common_substring[0;34m(l1, l2, s1, s2)[0m
+[1;32m      7[0m     [0;32melif[0m [0ms1[0m[0;34m[[0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m][0m [0;34m==[0m [0ms2[0m[0;34m[[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m         [0;32mreturn[0m [0;36m1[0m [0;34m+[0m [0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     [0mprint[0m[0;34m([0m[0mmax[0m[0;34m([0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m,[0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-1-de84a96233ea>[0m in [0;36mlongest_common_substring[0;34m(l1, l2, s1, s2)[0m
+[1;32m      7[0m     [0;32melif[0m [0ms1[0m[0;34m[[0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m][0m [0;34m==[0m [0ms2[0m[0;34m[[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m         [0;32mreturn[0m [0;36m1[0m [0;34m+[0m [0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     [0mprint[0m[0;34m([0m[0mmax[0m[0;34m([0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m,[0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-1-de84a96233ea>[0m in [0;36mlongest_common_substring[0;34m(l1, l2, s1, s2)[0m
+[1;32m      7[0m     [0;32melif[0m [0ms1[0m[0;34m[[0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m][0m [0;34m==[0m [0ms2[0m[0;34m[[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m         [0;32mreturn[0m [0;36m1[0m [0;34m+[0m [0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     [0mprint[0m[0;34m([0m[0mmax[0m[0;34m([0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m,[0m[0ml2[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m,[0m[0mlongest_common_substring[0m[0;34m([0m[0ml1[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0ml2[0m[0;34m,[0m[0ms1[0m[0;34m,[0m[0ms2[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: '>' not supported between instances of 'int' and 'NoneType'
+TypeError: '>' not supported between instances of 'int' and 'NoneType'
+
+Executability                            : False

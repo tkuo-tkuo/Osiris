@@ -1,0 +1,31 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.cross_validation import train_test_split
+from sklearn.metrics import mean_squared_error as err
+from sklearn.ensemble import GradientBoostingRegressor
+from sknn.mlp import Regressor, Layer
+from sklearn.neighbors import KNeighborsRegressor
+
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-5a5749c8e4e4>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmetrics[0m [0;32mimport[0m [0mmean_squared_error[0m [0;32mas[0m [0merr[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mensemble[0m [0;32mimport[0m [0mGradientBoostingRegressor[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mfrom[0m [0msknn[0m[0;34m.[0m[0mmlp[0m [0;32mimport[0m [0mRegressor[0m[0;34m,[0m [0mLayer[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mneighbors[0m [0;32mimport[0m [0mKNeighborsRegressor[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'sknn'
+ImportError: No module named 'sknn'
+
+Executability                            : False

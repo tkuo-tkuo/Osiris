@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import mysql.connector as sql
+
+import pandas as pd
+
+db_connection = sql.connect(host='54.86.230.73', 
+                port=3316,user='candidate', passwd='Doximity', 
+                db='candidate')
+db_cursor = db_connection.cursor()
+db_cursor.execute('SELECT region, AVG(age) FROM users GROUP BY region')
+
+table_rows = db_cursor.fetchall()
+
+q1 = pd.DataFrame(table_rows)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-f4adc37c9ef7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mmysql[0m[0;34m.[0m[0mconnector[0m [0;32mas[0m [0msql[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'mysql'
+ModuleNotFoundError: No module named 'mysql'
+
+Executability                            : False

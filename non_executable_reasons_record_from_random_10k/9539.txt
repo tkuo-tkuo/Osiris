@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+tags = set()
+
+for name in names:
+    for _, tag in iterate(name):
+        tags.add(tag)
+        
+        
+print(len(tags))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-4-8d3dbb2906b4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;32mfor[0m [0mname[0m [0;32min[0m [0mnames[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m     [0;32mfor[0m [0m_[0m[0;34m,[0m [0mtag[0m [0;32min[0m [0miterate[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m         [0mtags[0m[0;34m.[0m[0madd[0m[0;34m([0m[0mtag[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-1-0be81f945828>[0m in [0;36miterate[0;34m(path)[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mdef[0m [0miterate[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0mpath[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mbuffer[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m         [0mhead_format[0m [0;34m=[0m [0;34m'<I3H'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m         [0mhead_size[0m [0;34m=[0m [0mstruct[0m[0;34m.[0m[0mcalcsize[0m[0;34m([0m[0mhead_format[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/1.0test-gb1.gnt'
+FileNotFoundError: [Errno 2] No such file or directory: '../data/1.0test-gb1.gnt'
+
+Executability                            : False

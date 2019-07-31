@@ -1,0 +1,291 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 10 ; number of cells: 17
+Reproducibility                          : matched ratio: 0.588 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 10, 15]
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+table_for_keys(sliders, key_dict, source=property_source)
+
+-----------------
+Original output:
+<Table length=11>
+ Property (keys)  IntSlider FloatSlider ... SelectionSlider SelectionRangeSlider
+      str17          str1       str1    ...       str1              str1        
+----------------- --------- ----------- ... --------------- --------------------
+continuous_update         X           X ...               X                    X
+      description         X           X ...               X                    X
+         disabled         X           X ...               X                    X
+            index                       ...               X                    X
+              max         X           X ...                                     
+              min         X           X ...                                     
+      orientation         X           X ...               X                    X
+          readout         X           X ...               X                    X
+   readout_format         X           X ...                                     
+             step         X           X ...                                     
+            value         X           X ...                                     
+Executed output:
+<Table length=12>
+  Property (keys)   IntSlider ... SelectionSlider SelectionRangeSlider
+       str19           str1   ...       str1              str1        
+------------------- --------- ... --------------- --------------------
+  continuous_update         X ...               X                    X
+        description         X ...               X                    X
+description_tooltip         X ...               X                    X
+           disabled         X ...               X                    X
+              index           ...               X                    X
+                max         X ...                                     
+                min         X ...                                     
+        orientation         X ...               X                    X
+            readout         X ...               X                    X
+     readout_format         X ...                                     
+               step         X ...                                     
+              value         X ...                                     
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+table_for_keys(buttons, key_dict, source=property_source)
+
+-----------------
+Original output:
+<Table length=9>
+Property (keys) ToggleButton RadioButtons ToggleButtons Button
+     str12          str1         str1          str1      str1 
+--------------- ------------ ------------ ------------- ------
+   button_style            X                          X      X
+    description            X            X             X      X
+       disabled            X            X             X      X
+           icon            X                                 X
+          icons                                       X       
+          index                         X             X       
+        tooltip            X                                 X
+       tooltips                                       X       
+          value            X                                  
+Executed output:
+<Table length=10>
+  Property (keys)   ToggleButton RadioButtons ToggleButtons Button
+       str19            str1         str1          str1      str1 
+------------------- ------------ ------------ ------------- ------
+       button_style            X                          X      X
+        description            X            X             X      X
+description_tooltip            X            X             X       
+           disabled            X            X             X      X
+               icon            X                                 X
+              icons                                       X       
+              index                         X             X       
+            tooltip            X                                 X
+           tooltips                                       X       
+              value            X                                  
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+table_for_keys(texts, key_dict, source=property_source)
+
+-----------------
+Original output:
+<Table length=7>
+Property (keys) BoundedIntText BoundedFloatText IntText ... HTML HTMLMath Label
+     str11           str1            str1         str1  ... str1   str1    str1
+--------------- -------------- ---------------- ------- ... ---- -------- -----
+    description              X                X       X ...    X        X     X
+       disabled              X                X       X ...                    
+            max              X                X         ...                    
+            min              X                X         ...                    
+    placeholder                                         ...    X        X     X
+           rows                                         ...                    
+          value              X                X       X ...    X        X     X
+Executed output:
+<Table length=10>
+  Property (keys)   BoundedIntText BoundedFloatText ... HTML HTMLMath Label
+       str19             str1            str1       ... str1   str1    str1
+------------------- -------------- ---------------- ... ---- -------- -----
+  continuous_update              X                X ...                    
+        description              X                X ...    X        X     X
+description_tooltip              X                X ...    X        X     X
+           disabled              X                X ...                    
+                max              X                X ...                    
+                min              X                X ...                    
+        placeholder                                 ...    X        X     X
+               rows                                 ...                    
+               step              X                X ...                    
+              value              X                X ...    X        X     X
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+table_for_keys(progress, key_dict, source=property_source)
+
+-----------------
+Original output:
+<Table length=6>
+Property (keys) IntProgress FloatProgress
+     str11          str1         str1    
+--------------- ----------- -------------
+      bar_style           X             X
+    description           X             X
+            max           X             X
+            min           X             X
+    orientation           X             X
+          value           X             X
+Executed output:
+<Table length=7>
+  Property (keys)   IntProgress FloatProgress
+       str19            str1         str1    
+------------------- ----------- -------------
+          bar_style           X             X
+        description           X             X
+description_tooltip           X             X
+                max           X             X
+                min           X             X
+        orientation           X             X
+              value           X             X
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+table_for_keys(selects, key_dict, source=property_source)
+
+-----------------
+Original output:
+<Table length=4>
+Property (keys) Dropdown Select SelectMultiple
+     str11        str1    str1       str1     
+--------------- -------- ------ --------------
+    description        X      X              X
+       disabled        X      X              X
+          index        X      X              X
+           rows               X              X
+Executed output:
+<Table length=5>
+  Property (keys)   Dropdown Select SelectMultiple
+       str19          str1    str1       str1     
+------------------- -------- ------ --------------
+        description        X      X              X
+description_tooltip        X      X              X
+           disabled        X      X              X
+              index        X      X              X
+               rows               X              X
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+table_for_keys(others, key_dict, source=property_source)
+
+-----------------
+Original output:
+<Table length=14>
+Property (keys) Checkbox Valid Image Play DatePicker ColorPicker
+     str11        str1    str1  str1 str1    str1        str1   
+--------------- -------- ----- ----- ---- ---------- -----------
+        concise                                                X
+    description        X     X          X          X           X
+       disabled        X     X          X          X           X
+         format                    X                            
+         height                    X                            
+         indent        X                                        
+       interval                         X                       
+            max                         X                       
+            min                         X                       
+        readout              X                                  
+    show_repeat                         X                       
+           step                         X                       
+          value        X     X          X          X           X
+          width                    X                            
+Executed output:
+<Table length=15>
+  Property (keys)   Checkbox Valid Image Play DatePicker ColorPicker
+       str19          str1    str1  str1 str1    str1        str1   
+------------------- -------- ----- ----- ---- ---------- -----------
+            concise                                                X
+        description        X     X          X          X           X
+description_tooltip        X     X          X          X           X
+           disabled        X     X          X          X           X
+             format                    X                            
+             height                    X                            
+             indent        X                                        
+           interval                         X                       
+                max                         X                       
+                min                         X                       
+            readout              X                                  
+        show_repeat                         X                       
+               step                         X                       
+              value        X     X     X    X          X           X
+              width                    X                            
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+for w, s in zip(names, style_keys):
+    print('{} has style keys: {}'.format(w, ', '.join(s)))
+
+-----------------
+Original output:
+IntSlider has style keys: description_width, handle_color
+FloatSlider has style keys: description_width, handle_color
+IntRangeSlider has style keys: description_width, handle_color
+FloatRangeSlider has style keys: description_width, handle_color
+IntProgress has style keys: bar_color, description_width
+FloatProgress has style keys: bar_color, description_width
+BoundedIntText has style keys: description_width
+BoundedFloatText has style keys: description_width
+IntText has style keys: description_width
+FloatText has style keys: description_width
+ToggleButton has style keys: description_width
+Checkbox has style keys: description_width
+Valid has style keys: description_width
+Dropdown has style keys: description_width
+RadioButtons has style keys: description_width
+Select has style keys: description_width
+SelectionSlider has style keys: description_width
+SelectionRangeSlider has style keys: description_width
+ToggleButtons has style keys: description_width
+SelectMultiple has style keys: description_width
+Text has style keys: description_width
+Textarea has style keys: description_width
+Label has style keys: description_width
+HTML has style keys: description_width
+HTMLMath has style keys: description_width
+Image has style keys: 
+Button has style keys: button_color, font_weight
+Play has style keys: description_width
+DatePicker has style keys: description_width
+ColorPicker has style keys: description_width
+Box has style keys: 
+HBox has style keys: 
+VBox has style keys: 
+Accordion has style keys: 
+Tab has style keys: 
+
+Executed output:
+IntSlider has style keys: description_width, handle_color
+FloatSlider has style keys: description_width, handle_color
+IntRangeSlider has style keys: description_width, handle_color
+FloatRangeSlider has style keys: description_width, handle_color
+IntProgress has style keys: bar_color, description_width
+FloatProgress has style keys: bar_color, description_width
+BoundedIntText has style keys: description_width
+BoundedFloatText has style keys: description_width
+IntText has style keys: description_width
+FloatText has style keys: description_width
+ToggleButton has style keys: description_width
+Checkbox has style keys: description_width
+Valid has style keys: description_width
+Dropdown has style keys: description_width
+RadioButtons has style keys: description_width
+Select has style keys: description_width
+SelectionSlider has style keys: description_width
+SelectionRangeSlider has style keys: description_width
+ToggleButtons has style keys: button_width, description_width, font_weight
+SelectMultiple has style keys: description_width
+Text has style keys: description_width
+Textarea has style keys: description_width
+Label has style keys: description_width
+HTML has style keys: description_width
+HTMLMath has style keys: description_width
+Image has style keys: 
+Button has style keys: button_color, font_weight
+Play has style keys: description_width
+DatePicker has style keys: description_width
+ColorPicker has style keys: description_width
+Box has style keys: 
+HBox has style keys: 
+VBox has style keys: 
+Accordion has style keys: 
+Tab has style keys: 
+

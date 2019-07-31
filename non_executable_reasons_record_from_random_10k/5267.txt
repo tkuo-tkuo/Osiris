@@ -1,0 +1,134 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# NFAtoDFA.py :
+# This is Python code for representing finite automata, DFAs and NFAs, 
+# and for converting from an NFA into a DFA.  
+#
+# Ben Reichardt, 1/17/2011
+#
+
+class DFA:	
+	"""Class that encapsulates a DFA."""
+	def __init__(self, transitionFunction, initialState, finalStates):
+		self.delta = transitionFunction	
+		self.q0 = initialState
+		self.F = finalStates
+	def deltaHat(self, state, inputString):
+		for a in inputString: 
+			state = self.delta[state][a]
+		return state
+	def inLanguage(self, inputString):
+		return self.deltaHat(self.q0, inputString) in self.F
+	# comments: 
+	# 	* python dictionary keys must be immutable
+	#	* it is a KeyError to extract an entry using a non-existent key
+
+class NFA: 
+	"""Class that encapsulates an NFA."""
+	def __init__(self, transitionFunction, initialState, finalStates):
+		self.delta = transitionFunction	
+		self.q0 = initialState
+		self.F = set(finalStates)
+	def deltaHat(self, state, inputString):
+		"""deltaHat is smart enough to return the empty set if no transition is defined."""
+		states = set([state])
+		for a in inputString: 
+			newStates = set([])
+			for state in states: 
+				try: 
+					newStates = newStates | self.delta[state][a]
+				except KeyError: pass
+			states = newStates
+		return states
+	def inLanguage(self, inputString):
+		return len(self.deltaHat(self.q0, inputString) & self.F) > 0
+	def alphabet(self):
+		"""Returns the NFA's input alphabet, generated on the fly."""
+		Sigma = myreduce(lambda a,b:set(a)|set(b), [x.keys() for x in N.delta.values()])
+		return Sigma
+	def states(self):
+		"""Returns the NFA's set of states, generated on the fly."""
+		Q = set([self.q0]) | set(self.delta.keys()) | reduce(lambda a,b:a|b, reduce(lambda a,b:a+b, [x.values() for x in self.delta.values()]))	# {q0, all states with outgoing arrows, all with incoming arrows}
+		return Q
+
+def convertNFAtoDFA(N):
+	"""Converts the input NFA into a DFA.  
+	
+	The output DFA has a state for every *reachable* subset of states in the input NFA.  
+	In the worst case, there will be an exponential increase in the number of states.
+	"""
+	q0 = frozenset([N.q0])	# frozensets are hashable, so can key the delta dictionary
+	Q = set([q0])
+	unprocessedQ = Q.copy()	# unprocessedQ tracks states for which delta is not yet defined
+	delta = {}
+	F = []
+	Sigma = N.alphabet()
+	
+	while len(unprocessedQ) > 0: 
+		qSet = unprocessedQ.pop()
+		delta[qSet] = {}
+		for a in Sigma: 
+			nextStates = myreduce(lambda x,y: x|y, [N.deltaHat(q,a) for q in qSet])
+			nextStates = frozenset(nextStates)
+			delta[qSet][a] = nextStates
+			if not nextStates in Q: 
+				Q.add(nextStates)
+				unprocessedQ.add(nextStates)
+	for qSet in Q: 
+		if len(qSet & N.F) > 0: 
+			F.append(qSet)
+	M = DFA(delta, q0, F)
+	return M
+
+#delta = {'q0':{'0':set(['q0','q1']),'1':set(['q0'])}, 'q1':{'1':set(['q2'])}}
+delta = {'q1':{'a':set(['q2'])}, 'q2':{'b':set(['q3','q4'])},'q3':{'a':set(['q2'])},'q4':{'a':set(['q3'])}}
+N = NFA(delta, 'q1', ['q3'])
+print(N.F)
+#N.deltaHat('q1', '0001')
+print ([(x, N.inLanguage(x)) for x in ['0001', '00010', '100101']])
+def myreduce(fnc, seq):
+	tally = seq[0]
+	for next in seq[1:]:
+		tally = fnc(tally, next)
+	return tally
+M = convertNFAtoDFA(N)
+print (M.delta)
+print ([(x, M.inLanguage(x)) for x in ['0001', '00010', '100101']])
+# both the above lines should return [('0001', True), ('00010', False), ('100101', True)]
+
+# to run the doctests, run python or python -v directly on this script
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-1-83561b1fb57a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     92[0m                 [0mtally[0m [0;34m=[0m [0mfnc[0m[0;34m([0m[0mtally[0m[0;34m,[0m [0mnext[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     93[0m         [0;32mreturn[0m [0mtally[0m[0;34m[0m[0m
+[0;32m---> 94[0;31m [0mM[0m [0;34m=[0m [0mconvertNFAtoDFA[0m[0;34m([0m[0mN[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     95[0m [0mprint[0m [0;34m([0m[0mM[0m[0;34m.[0m[0mdelta[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     96[0m [0mprint[0m [0;34m([0m[0;34m[[0m[0;34m([0m[0mx[0m[0;34m,[0m [0mM[0m[0;34m.[0m[0minLanguage[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m)[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0;34m[[0m[0;34m'0001'[0m[0;34m,[0m [0;34m'00010'[0m[0;34m,[0m [0;34m'100101'[0m[0;34m][0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-83561b1fb57a>[0m in [0;36mconvertNFAtoDFA[0;34m(N)[0m
+[1;32m     69[0m                 [0mdelta[0m[0;34m[[0m[0mqSet[0m[0;34m][0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m     70[0m                 [0;32mfor[0m [0ma[0m [0;32min[0m [0mSigma[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 71[0;31m                         [0mnextStates[0m [0;34m=[0m [0mmyreduce[0m[0;34m([0m[0;32mlambda[0m [0mx[0m[0;34m,[0m[0my[0m[0;34m:[0m [0mx[0m[0;34m|[0m[0my[0m[0;34m,[0m [0;34m[[0m[0mN[0m[0;34m.[0m[0mdeltaHat[0m[0;34m([0m[0mq[0m[0;34m,[0m[0ma[0m[0;34m)[0m [0;32mfor[0m [0mq[0m [0;32min[0m [0mqSet[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     72[0m                         [0mnextStates[0m [0;34m=[0m [0mfrozenset[0m[0;34m([0m[0mnextStates[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     73[0m                         [0mdelta[0m[0;34m[[0m[0mqSet[0m[0;34m][0m[0;34m[[0m[0ma[0m[0;34m][0m [0;34m=[0m [0mnextStates[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-83561b1fb57a>[0m in [0;36mmyreduce[0;34m(fnc, seq)[0m
+[1;32m     88[0m [0mprint[0m [0;34m([0m[0;34m[[0m[0;34m([0m[0mx[0m[0;34m,[0m [0mN[0m[0;34m.[0m[0minLanguage[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m)[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0;34m[[0m[0;34m'0001'[0m[0;34m,[0m [0;34m'00010'[0m[0;34m,[0m [0;34m'100101'[0m[0;34m][0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     89[0m [0;32mdef[0m [0mmyreduce[0m[0;34m([0m[0mfnc[0m[0;34m,[0m [0mseq[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 90[0;31m         [0mtally[0m [0;34m=[0m [0mseq[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m     91[0m         [0;32mfor[0m [0mnext[0m [0;32min[0m [0mseq[0m[0;34m[[0m[0;36m1[0m[0;34m:[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     92[0m                 [0mtally[0m [0;34m=[0m [0mfnc[0m[0;34m([0m[0mtally[0m[0;34m,[0m [0mnext[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mIndexError[0m: list index out of range
+IndexError: list index out of range
+
+Executability                            : False

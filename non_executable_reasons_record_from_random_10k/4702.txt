@@ -1,0 +1,138 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 20 ; number of cells: 24
+Reproducibility                          : matched ratio: 0.833 ; index of matched cells: [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 19, 21, 22, 23]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+print(random_player(game52, 'A'))
+print(random_player(game52, 'A'))
+
+-----------------
+Original output:
+a1
+a3
+
+Executed output:
+a3
+a1
+
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+random_player(ttt, my_state)
+
+-----------------
+Original output:
+(3, 3)
+Executed output:
+(2, 2)
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+print(play_game(ttt, random_player, alphabeta_player))
+
+-----------------
+Original output:
+O X O 
+O . X 
+O X X 
+-1
+
+Executed output:
+. . X 
+O O O 
+. X X 
+-1
+
+-------------------------------------------
+Source Code of a Unmatched Cell 20
+-------------------------------------------
+for _ in range(10):
+    print(play_game(ttt, random_player, alphabeta_player))
+
+-----------------
+Original output:
+X . . 
+O O O 
+. X X 
+-1
+O O O 
+X X O 
+X X . 
+-1
+O X . 
+. O X 
+X . O 
+-1
+O . . 
+. O X 
+X X O 
+-1
+X O X 
+X O O 
+. O X 
+-1
+O . X 
+X O . 
+. X O 
+-1
+O O X 
+X O X 
+X O . 
+-1
+O O O 
+O X X 
+X . X 
+-1
+X X O 
+O O X 
+O X . 
+-1
+X . X 
+O O O 
+. X . 
+-1
+
+Executed output:
+O X X 
+X O O 
+X O X 
+0
+X O . 
+. O . 
+X O X 
+-1
+O X X 
+X X O 
+O O X 
+0
+X X O 
+X O . 
+O . . 
+-1
+O X . 
+. O X 
+X . O 
+-1
+X X O 
+O O X 
+O . X 
+-1
+O O O 
+. X . 
+X X . 
+-1
+O X O 
+X O X 
+O X . 
+-1
+O X . 
+. O . 
+X X O 
+-1
+O X O 
+O X X 
+X O X 
+0
+

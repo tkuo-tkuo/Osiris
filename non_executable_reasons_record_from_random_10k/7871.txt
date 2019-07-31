@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+X = 0.5
+plt.figure()
+plt.plot(y, u(X, y), label = "anal")
+plt.plot(y, interpolate_fixed(U,x, y, X = 0.5), label="nume")
+plt.plot(y, u(X, y) - interpolate_fixed(U, x, y, X = 0.5), label = "err")
+plt.legend()
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-b7aa4e9f2f69>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mX[0m [0;34m=[0m [0;36m0.5[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0my[0m[0;34m,[0m [0mu[0m[0;34m([0m[0mX[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m,[0m [0mlabel[0m [0;34m=[0m [0;34m"anal"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0my[0m[0;34m,[0m [0minterpolate_fixed[0m[0;34m([0m[0mU[0m[0;34m,[0m[0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0mX[0m [0;34m=[0m [0;36m0.5[0m[0;34m)[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m"nume"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0my[0m[0;34m,[0m [0mu[0m[0;34m([0m[0mX[0m[0;34m,[0m [0my[0m[0;34m)[0m [0;34m-[0m [0minterpolate_fixed[0m[0;34m([0m[0mU[0m[0;34m,[0m [0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0mX[0m [0;34m=[0m [0;36m0.5[0m[0;34m)[0m[0;34m,[0m [0mlabel[0m [0;34m=[0m [0;34m"err"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'y' is not defined
+NameError: name 'y' is not defined
+
+Executability                            : False

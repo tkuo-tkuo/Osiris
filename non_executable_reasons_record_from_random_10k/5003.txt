@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+G5 = nx.from_pandas_dataframe(G_df, 'n1', 'n2', edge_attr='weight')
+G5.edges(data=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-9-37fc17b8d2ef>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mG5[0m [0;34m=[0m [0mnx[0m[0;34m.[0m[0mfrom_pandas_dataframe[0m[0;34m([0m[0mG_df[0m[0;34m,[0m [0;34m'n1'[0m[0;34m,[0m [0;34m'n2'[0m[0;34m,[0m [0medge_attr[0m[0;34m=[0m[0;34m'weight'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mG5[0m[0;34m.[0m[0medges[0m[0;34m([0m[0mdata[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'networkx' has no attribute 'from_pandas_dataframe'
+AttributeError: module 'networkx' has no attribute 'from_pandas_dataframe'
+
+Executability                            : False

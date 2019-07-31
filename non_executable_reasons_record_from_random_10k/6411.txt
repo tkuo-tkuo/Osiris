@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+string = '23abced++'
+re.search('\S+', string).group()  #no spaces
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-f8fcb58eef86>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mstring[0m [0;34m=[0m [0;34m'23abced++'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mre[0m[0;34m.[0m[0msearch[0m[0;34m([0m[0;34m'\S+'[0m[0;34m,[0m [0mstring[0m[0;34m)[0m[0;34m.[0m[0mgroup[0m[0;34m([0m[0;34m)[0m  [0;31m#no spaces[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 're' is not defined
+NameError: name 're' is not defined
+
+Executability                            : False

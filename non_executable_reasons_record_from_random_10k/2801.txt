@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+dir_files = []
+for (dirpath, dirnames, filename) in walk(path):
+    if len(dirnames) > 4:
+        dir_files.extend(dirnames)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-d6df536c54c2>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mdir_files[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfor[0m [0;34m([0m[0mdirpath[0m[0;34m,[0m [0mdirnames[0m[0;34m,[0m [0mfilename[0m[0;34m)[0m [0;32min[0m [0mwalk[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0;32mif[0m [0mlen[0m[0;34m([0m[0mdirnames[0m[0;34m)[0m [0;34m>[0m [0;36m4[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m         [0mdir_files[0m[0;34m.[0m[0mextend[0m[0;34m([0m[0mdirnames[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'walk' is not defined
+NameError: name 'walk' is not defined
+
+Executability                            : False

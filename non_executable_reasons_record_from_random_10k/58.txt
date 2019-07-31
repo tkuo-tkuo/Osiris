@@ -1,0 +1,177 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 9 ; number of cells: 19
+Reproducibility                          : matched ratio: 0.474 ; index of matched cells: [0, 1, 2, 3, 4, 5, 7, 9, 17]
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+dframe
+
+-----------------
+Original output:
+    0   1   2
+0   1   2   3
+1 NaN   5   6
+2   7 NaN   9
+3 NaN NaN NaN
+Executed output:
+     0    1    2
+0  1.0  2.0  3.0
+1  NaN  5.0  6.0
+2  7.0  NaN  9.0
+3  NaN  NaN  NaN
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+clean_dframe
+
+-----------------
+Original output:
+   0  1  2
+0  1  2  3
+Executed output:
+     0    1    2
+0  1.0  2.0  3.0
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+# 取り除き方を指定することもできます。すべてNaNの行がなくなります。
+dframe.dropna(how='all')
+
+-----------------
+Original output:
+    0   1  2
+0   1   2  3
+1 NaN   5  6
+2   7 NaN  9
+Executed output:
+     0    1    2
+0  1.0  2.0  3.0
+1  NaN  5.0  6.0
+2  7.0  NaN  9.0
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+#閾値を決めることも可能です。
+dframe2 = DataFrame([[1,2,3,nan],[2,nan,5,6],[nan,7,nan,9],[1,nan,nan,nan]])
+dframe2
+
+-----------------
+Original output:
+    0   1   2   3
+0   1   2   3 NaN
+1   2 NaN   5   6
+2 NaN   7 NaN   9
+3   1 NaN NaN NaN
+Executed output:
+     0    1    2    3
+0  1.0  2.0  3.0  NaN
+1  2.0  NaN  5.0  6.0
+2  NaN  7.0  NaN  9.0
+3  1.0  NaN  NaN  NaN
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+# nullではない値が2個以上必要
+dframe2.dropna(thresh=2)
+
+-----------------
+Original output:
+    0   1   2   3
+0   1   2   3 NaN
+1   2 NaN   5   6
+2 NaN   7 NaN   9
+Executed output:
+     0    1    2    3
+0  1.0  2.0  3.0  NaN
+1  2.0  NaN  5.0  6.0
+2  NaN  7.0  NaN  9.0
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+# 同じく3個以上
+dframe2.dropna(thresh=3)
+
+-----------------
+Original output:
+   0   1  2   3
+0  1   2  3 NaN
+1  2 NaN  5   6
+Executed output:
+     0    1    2    3
+0  1.0  2.0  3.0  NaN
+1  2.0  NaN  5.0  6.0
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+# null値を埋められます。
+dframe2.fillna(1)
+
+-----------------
+Original output:
+   0  1  2  3
+0  1  2  3  1
+1  2  1  5  6
+2  1  7  1  9
+3  1  1  1  1
+Executed output:
+     0    1    2    3
+0  1.0  2.0  3.0  1.0
+1  2.0  1.0  5.0  6.0
+2  1.0  7.0  1.0  9.0
+3  1.0  1.0  1.0  1.0
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+# 列ごとに埋める値を変えられます。
+dframe2.fillna({0:0,1:1,2:2,3:3})
+
+-----------------
+Original output:
+   0  1  2  3
+0  1  2  3  3
+1  2  1  5  6
+2  0  7  2  9
+3  1  1  2  3
+Executed output:
+     0    1    2    3
+0  1.0  2.0  3.0  3.0
+1  2.0  1.0  5.0  6.0
+2  0.0  7.0  2.0  9.0
+3  1.0  1.0  2.0  3.0
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+dframe2
+
+-----------------
+Original output:
+    0   1   2   3
+0   1   2   3 NaN
+1   2 NaN   5   6
+2 NaN   7 NaN   9
+3   1 NaN NaN NaN
+Executed output:
+     0    1    2    3
+0  1.0  2.0  3.0  NaN
+1  2.0  NaN  5.0  6.0
+2  NaN  7.0  NaN  9.0
+3  1.0  NaN  NaN  NaN
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+dframe2
+
+-----------------
+Original output:
+   0  1  2  3
+0  1  2  3  0
+1  2  0  5  6
+2  0  7  0  9
+3  1  0  0  0
+Executed output:
+     0    1    2    3
+0  1.0  2.0  3.0  0.0
+1  2.0  0.0  5.0  6.0
+2  0.0  7.0  0.0  9.0
+3  1.0  0.0  0.0  0.0

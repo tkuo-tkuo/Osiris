@@ -1,0 +1,139 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+
+plt.figure(figsize=(40,40))
+
+for i in range(len(NoteName)):
+    G3.add_nodes_from([NoteName[i]],label=NoteName[i].split('_')[0])
+    
+# Import and export edge attributes
+for i in range(len(Edge)):
+    G3.add_edges_from([Edge[i]],color=EdgeColor[i],width=EdgeWidth[i])
+Ecolor=nx.get_edge_attributes(G3,'color')
+Ewidth=nx.get_edge_attributes(G3,'width')
+    
+# Draw the network
+nx.draw(G3, Pos3, node_size=5000, node_color=NoteColor, node_shape='o', 
+        edge_color = Ecolor.values(), width = Ewidth.values(), alpha = 0.6, arrows=False, 
+        with_labels=True, labels=Nlabel, font_size=30, font_color='white', font_weight='bold')
+
+# Show the title
+plt.title(Title,{'fontsize':50})
+
+# Show the legend: color and note duration
+legend=[]
+for i in range(len(C)):
+    legend.append(mpatches.Patch(color=C[i], label=NF2[i]))
+
+plt.legend(handles=legend,prop={'size': 40})
+
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/formatters.py[0m in [0;36m__call__[0;34m(self, obj)[0m
+[1;32m    339[0m                 [0;32mpass[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    340[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 341[0;31m                 [0;32mreturn[0m [0mprinter[0m[0;34m([0m[0mobj[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    342[0m             [0;31m# Finally look for special method names[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    343[0m             [0mmethod[0m [0;34m=[0m [0mget_real_method[0m[0;34m([0m[0mobj[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mprint_method[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/pylabtools.py[0m in [0;36m<lambda>[0;34m(fig)[0m
+[1;32m    242[0m [0;34m[0m[0m
+[1;32m    243[0m     [0;32mif[0m [0;34m'png'[0m [0;32min[0m [0mformats[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 244[0;31m         [0mpng_formatter[0m[0;34m.[0m[0mfor_type[0m[0;34m([0m[0mFigure[0m[0;34m,[0m [0;32mlambda[0m [0mfig[0m[0;34m:[0m [0mprint_figure[0m[0;34m([0m[0mfig[0m[0;34m,[0m [0;34m'png'[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    245[0m     [0;32mif[0m [0;34m'retina'[0m [0;32min[0m [0mformats[0m [0;32mor[0m [0;34m'png2x'[0m [0;32min[0m [0mformats[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    246[0m         [0mpng_formatter[0m[0;34m.[0m[0mfor_type[0m[0;34m([0m[0mFigure[0m[0;34m,[0m [0;32mlambda[0m [0mfig[0m[0;34m:[0m [0mretina_figure[0m[0;34m([0m[0mfig[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/IPython/core/pylabtools.py[0m in [0;36mprint_figure[0;34m(fig, fmt, bbox_inches, **kwargs)[0m
+[1;32m    126[0m [0;34m[0m[0m
+[1;32m    127[0m     [0mbytes_io[0m [0;34m=[0m [0mBytesIO[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 128[0;31m     [0mfig[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mbytes_io[0m[0;34m,[0m [0;34m**[0m[0mkw[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    129[0m     [0mdata[0m [0;34m=[0m [0mbytes_io[0m[0;34m.[0m[0mgetvalue[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    130[0m     [0;32mif[0m [0mfmt[0m [0;34m==[0m [0;34m'svg'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, **kwargs)[0m
+[1;32m   2054[0m                         [0morientation[0m[0;34m=[0m[0morientation[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2055[0m                         [0mdryrun[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2056[0;31m                         **kwargs)
+[0m[1;32m   2057[0m                     [0mrenderer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mfigure[0m[0;34m.[0m[0m_cachedRenderer[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2058[0m                     [0mbbox_artists[0m [0;34m=[0m [0mkwargs[0m[0;34m.[0m[0mpop[0m[0;34m([0m[0;34m"bbox_extra_artists"[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py[0m in [0;36mprint_png[0;34m(self, filename_or_obj, metadata, pil_kwargs, *args, **kwargs)[0m
+[1;32m    525[0m [0;34m[0m[0m
+[1;32m    526[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 527[0;31m             [0mFigureCanvasAgg[0m[0;34m.[0m[0mdraw[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    528[0m             [0mrenderer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_renderer[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    529[0m             [0;32mwith[0m [0mcbook[0m[0;34m.[0m[0m_setattr_cm[0m[0;34m([0m[0mrenderer[0m[0;34m,[0m [0mdpi[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mfigure[0m[0;34m.[0m[0mdpi[0m[0;34m)[0m[0;34m,[0m[0;31m [0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py[0m in [0;36mdraw[0;34m(self)[0m
+[1;32m    386[0m         [0mself[0m[0;34m.[0m[0mrenderer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_renderer[0m[0;34m([0m[0mcleared[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    387[0m         [0;32mwith[0m [0mRendererAgg[0m[0;34m.[0m[0mlock[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 388[0;31m             [0mself[0m[0;34m.[0m[0mfigure[0m[0;34m.[0m[0mdraw[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mrenderer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    389[0m             [0;31m# A GUI class may be need to update a window using this draw, so[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    390[0m             [0;31m# don't forget to call the superclass.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/artist.py[0m in [0;36mdraw_wrapper[0;34m(artist, renderer, *args, **kwargs)[0m
+[1;32m     36[0m                 [0mrenderer[0m[0;34m.[0m[0mstart_filter[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     37[0m [0;34m[0m[0m
+[0;32m---> 38[0;31m             [0;32mreturn[0m [0mdraw[0m[0;34m([0m[0martist[0m[0;34m,[0m [0mrenderer[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     39[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     40[0m             [0;32mif[0m [0martist[0m[0;34m.[0m[0mget_agg_filter[0m[0;34m([0m[0;34m)[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/figure.py[0m in [0;36mdraw[0;34m(self, renderer)[0m
+[1;32m   1707[0m             [0mself[0m[0;34m.[0m[0mpatch[0m[0;34m.[0m[0mdraw[0m[0;34m([0m[0mrenderer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1708[0m             mimage._draw_list_compositing_images(
+[0;32m-> 1709[0;31m                 renderer, self, artists, self.suppressComposite)
+[0m[1;32m   1710[0m [0;34m[0m[0m
+[1;32m   1711[0m             [0mrenderer[0m[0;34m.[0m[0mclose_group[0m[0;34m([0m[0;34m'figure'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/image.py[0m in [0;36m_draw_list_compositing_images[0;34m(renderer, parent, artists, suppress_composite)[0m
+[1;32m    133[0m     [0;32mif[0m [0mnot_composite[0m [0;32mor[0m [0;32mnot[0m [0mhas_images[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    134[0m         [0;32mfor[0m [0ma[0m [0;32min[0m [0martists[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 135[0;31m             [0ma[0m[0;34m.[0m[0mdraw[0m[0;34m([0m[0mrenderer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    136[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    137[0m         [0;31m# Composite any adjacent images together[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/artist.py[0m in [0;36mdraw_wrapper[0;34m(artist, renderer, *args, **kwargs)[0m
+[1;32m     36[0m                 [0mrenderer[0m[0;34m.[0m[0mstart_filter[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     37[0m [0;34m[0m[0m
+[0;32m---> 38[0;31m             [0;32mreturn[0m [0mdraw[0m[0;34m([0m[0martist[0m[0;34m,[0m [0mrenderer[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     39[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     40[0m             [0;32mif[0m [0martist[0m[0;34m.[0m[0mget_agg_filter[0m[0;34m([0m[0;34m)[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_base.py[0m in [0;36mdraw[0;34m(self, renderer, inframe)[0m
+[1;32m   2643[0m             [0mrenderer[0m[0;34m.[0m[0mstop_rasterizing[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2644[0m [0;34m[0m[0m
+[0;32m-> 2645[0;31m         [0mmimage[0m[0;34m.[0m[0m_draw_list_compositing_images[0m[0;34m([0m[0mrenderer[0m[0;34m,[0m [0mself[0m[0;34m,[0m [0martists[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2646[0m [0;34m[0m[0m
+[1;32m   2647[0m         [0mrenderer[0m[0;34m.[0m[0mclose_group[0m[0;34m([0m[0;34m'axes'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/image.py[0m in [0;36m_draw_list_compositing_images[0;34m(renderer, parent, artists, suppress_composite)[0m
+[1;32m    133[0m     [0;32mif[0m [0mnot_composite[0m [0;32mor[0m [0;32mnot[0m [0mhas_images[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    134[0m         [0;32mfor[0m [0ma[0m [0;32min[0m [0martists[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 135[0;31m             [0ma[0m[0;34m.[0m[0mdraw[0m[0;34m([0m[0mrenderer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    136[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    137[0m         [0;31m# Composite any adjacent images together[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/artist.py[0m in [0;36mdraw_wrapper[0;34m(artist, renderer, *args, **kwargs)[0m
+[1;32m     36[0m                 [0mrenderer[0m[0;34m.[0m[0mstart_filter[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     37[0m [0;34m[0m[0m
+[0;32m---> 38[0;31m             [0;32mreturn[0m [0mdraw[0m[0;34m([0m[0martist[0m[0;34m,[0m [0mrenderer[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     39[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     40[0m             [0;32mif[0m [0martist[0m[0;34m.[0m[0mget_agg_filter[0m[0;34m([0m[0;34m)[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/collections.py[0m in [0;36mdraw[0;34m(self, renderer)[0m
+[1;32m    327[0m                 [0mself[0m[0;34m.[0m[0m_linewidths[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m_linestyles[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    328[0m                 [0mself[0m[0;34m.[0m[0m_antialiaseds[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m_urls[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 329[0;31m                 self._offset_position)
+[0m[1;32m    330[0m [0;34m[0m[0m
+[1;32m    331[0m         [0mgc[0m[0;34m.[0m[0mrestore[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: Cannot cast array data from dtype('O') to dtype('float64') according to the rule 'safe'
+TypeError: Cannot cast array data from dtype('O') to dtype('float64') according to the rule 'safe'
+
+Executability                            : False

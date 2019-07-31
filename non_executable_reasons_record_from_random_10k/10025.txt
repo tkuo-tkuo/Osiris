@@ -1,0 +1,41 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# your turn
+plt.scatter(bos.PTRATIO, bos.PRICE)
+plt.xlabel("Pupil-Teacher Ratio by Town (PTRATIO)")
+plt.ylabel("Housing Price")
+plt.title("Relationship between PTRATIO and Price")
+plt.show()
+
+ptrat = bos.PTRATIO.reshape(-1,1)
+lm.fit(ptrat, bos.PRICE)
+lm.coef_ #-2.1571
+lm.intercept_ #62.3446
+r2 = lm.score(ptrat, bos.PRICE) # .2578
+fstat = (r2/(1-r2))*((len(bos.PRICE)-1-1)/(1)) #175.1055
+
+m = ols('PRICE ~ PTRATIO',bos).fit()
+print(m.summary())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-36-df17d45ff5fb>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0mptrat[0m [0;34m=[0m [0mbos[0m[0;34m.[0m[0mPTRATIO[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0mlm[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mptrat[0m[0;34m,[0m [0mbos[0m[0;34m.[0m[0mPRICE[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0mlm[0m[0;34m.[0m[0mcoef_[0m [0;31m#-2.1571[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36m__getattr__[0;34m(self, name)[0m
+[1;32m   5065[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0m_info_axis[0m[0;34m.[0m[0m_can_hold_identifiers_and_holds_name[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   5066[0m                 [0;32mreturn[0m [0mself[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 5067[0;31m             [0;32mreturn[0m [0mobject[0m[0;34m.[0m[0m__getattribute__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   5068[0m [0;34m[0m[0m
+[1;32m   5069[0m     [0;32mdef[0m [0m__setattr__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'Series' object has no attribute 'reshape'
+AttributeError: 'Series' object has no attribute 'reshape'
+
+Executability                            : False

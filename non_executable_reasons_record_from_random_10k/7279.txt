@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Time to train our perceptron algorithm on the iris dataset 
+ppn = perceptron(eta=.1, n_iter=10)
+ppn.fit(X, y)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-cbd20c3a9133>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Time to train our perceptron algorithm on the iris dataset[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mppn[0m [0;34m=[0m [0mperceptron[0m[0;34m([0m[0meta[0m[0;34m=[0m[0;36m.1[0m[0;34m,[0m [0mn_iter[0m[0;34m=[0m[0;36m10[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mppn[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'perceptron' is not defined
+NameError: name 'perceptron' is not defined
+
+Executability                            : False

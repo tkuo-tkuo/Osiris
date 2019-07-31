@@ -1,0 +1,43 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import numpy as np
+import problem_unittests as tests
+
+def create_lookup_tables(text):
+    """
+    Create lookup tables for vocabulary
+    :param text: The text of tv scripts split into words
+    :return: A tuple of dicts (vocab_to_int, int_to_vocab)
+    """
+    vocab_to_int = {w : i for i, w in list(enumerate(set(text)))}
+    int_to_vocab = {i : w for w, i in vocab_to_int.items()}
+    return vocab_to_int, int_to_vocab
+
+
+"""
+DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
+"""
+tests.test_create_lookup_tables(create_lookup_tables)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-3-e558b81ba74f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mproblem_unittests[0m [0;32mas[0m [0mtests[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;32mdef[0m [0mcreate_lookup_tables[0m[0;34m([0m[0mtext[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      5[0m     """
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/hvillanua@deep-learning/tv-script-generation/problem_unittests.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mcontrib[0m [0;32mimport[0m [0mrnn[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

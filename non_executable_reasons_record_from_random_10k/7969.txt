@@ -1,0 +1,34 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+from scipy import signal
+from scipy.fftpack import fft, ifft
+import seaborn as sns 
+from obspy.io.segy.segy import _read_segy
+from las import LASReader
+from tabulate import tabulate
+from scipy.optimize import curve_fit
+import pandas as pd
+
+%matplotlib inline
+plt.style.use('seaborn-white')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-485ef67cbb16>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mfftpack[0m [0;32mimport[0m [0mfft[0m[0;34m,[0m [0mifft[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mfrom[0m [0mobspy[0m[0;34m.[0m[0mio[0m[0;34m.[0m[0msegy[0m[0;34m.[0m[0msegy[0m [0;32mimport[0m [0m_read_segy[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;32mfrom[0m [0mlas[0m [0;32mimport[0m [0mLASReader[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mfrom[0m [0mtabulate[0m [0;32mimport[0m [0mtabulate[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'obspy'
+ModuleNotFoundError: No module named 'obspy'
+
+Executability                            : False

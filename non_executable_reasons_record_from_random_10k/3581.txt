@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Hatalı Kod
+"Merhaba'
+------------------
+
+[0;36m  File [0;32m"<ipython-input-5-e07ff65edb4c>"[0;36m, line [0;32m2[0m
+[0;31m    "Merhaba'[0m
+[0m             ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m EOL while scanning string literal
+
+SyntaxError: EOL while scanning string literal (<ipython-input-5-e07ff65edb4c>, line 2)
+
+Executability                            : False

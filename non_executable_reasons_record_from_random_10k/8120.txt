@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from gensim.models import word2vec
+
+# 単語データからモデルを生成
+persons = ['夏目漱石', '太宰治', '芥川龍之介']
+for person in persons:
+    print(person)
+    data = word2vec.LineSentence('text/'+person+'.wakati')
+    model = word2vec.Word2Vec(data, size=2,
+        window=3, hs=1, min_count=1, sg=1)
+    model.save('text/2d-'+person+'.model')
+print("ok")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-614ebdbb8e2e>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mgensim[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mword2vec[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# 単語データからモデルを生成[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mpersons[0m [0;34m=[0m [0;34m[[0m[0;34m'夏目漱石'[0m[0;34m,[0m [0;34m'太宰治'[0m[0;34m,[0m [0;34m'芥川龍之介'[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfor[0m [0mperson[0m [0;32min[0m [0mpersons[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'gensim'
+ImportError: No module named 'gensim'
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+f = open('./data.csv')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-7-814f09108648>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'./data.csv'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: './data.csv'
+FileNotFoundError: [Errno 2] No such file or directory: './data.csv'
+
+Executability                            : False

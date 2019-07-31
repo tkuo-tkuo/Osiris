@@ -1,0 +1,70 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+def check_freq(fname):
+    name = os.path.basename(fname)
+    lang = re.match(r'^[a-z]{2,}',name).group() # regex 에서 ^ 가 없어도 출력 결과는 같다.  e.g. en-3.txt -> en
+    with open(fname, 'r', encoding='utf-8') as f:
+        text = f.read()
+    
+    text  = text.lower()
+    
+    #숫자 세기  변수(cnt) 초기호하기
+    cnt = [0  for n in range(0,26)]
+    code_a = ord('a')
+    code_z = ord('z')
+    
+    #알파벳 출현 횟수 구하기
+    for ch in text:
+        n = ord(ch)
+        if code_a <= n <= code_z:
+            cnt[n - code_a] += 1
+    # 정규화 하기
+    total = sum(cnt)
+    freq = list(map(lambda n: n/total,cnt))
+    return (freq, lang)
+
+def load_files(path):
+    freqs = []
+    labels = []
+    file_list = glob.glob(path)
+    for fname in file_list:
+        r = check_freq(fname)
+        freqs.append(r[0])
+        labels.append(r[1])
+    return {"freqs":freqs, "labels":labels}
+
+data = load_files('../data/lang/train/*.txt')
+test = load_files('../data/lang/test/*.txt')
+
+# 이후를 대비해서 JSON으로 결과 저장하기
+with open('../data/lang/freq.json', 'w', encoding='utf-8') as fp:
+    json.dump([data, test], fp)
+    
+clf = svm.SVC()
+clf.fit(data['freqs'], data['labels'])
+
+predict = clf.predict(test['freqs'])
+
+ac_score = metrics.accuracy_score(test['labels'], predict)
+cl_report= metrics.classification_report(test['labels'], predict)
+
+print('정답률:', ac_score)
+print("리포트=")
+print(cl_report)
+    
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-82db43368191>[0m in [0;36m<module>[0;34m[0m
+[1;32m     36[0m [0;34m[0m[0m
+[1;32m     37[0m [0;31m# 이후를 대비해서 JSON으로 결과 저장하기[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 38[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'../data/lang/freq.json'[0m[0;34m,[0m [0;34m'w'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'utf-8'[0m[0;34m)[0m [0;32mas[0m [0mfp[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     39[0m     [0mjson[0m[0;34m.[0m[0mdump[0m[0;34m([0m[0;34m[[0m[0mdata[0m[0;34m,[0m [0mtest[0m[0;34m][0m[0;34m,[0m [0mfp[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     40[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/lang/freq.json'
+FileNotFoundError: [Errno 2] No such file or directory: '../data/lang/freq.json'
+
+Executability                            : False

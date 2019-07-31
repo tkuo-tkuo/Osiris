@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+def sum_dosing(A, b, k, t, T=0, N=6):
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-11-3e21d4ee5287>"[0;36m, line [0;32m1[0m
+[0;31m    def sum_dosing(A, b, k, t, T=0, N=6):[0m
+[0m                                         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m unexpected EOF while parsing
+
+SyntaxError: unexpected EOF while parsing (<ipython-input-11-3e21d4ee5287>, line 1)
+
+Executability                            : False

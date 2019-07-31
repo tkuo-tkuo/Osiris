@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+os.mkdir('../train')
+os.mkdir('../valid')
+os.mkdir('../test')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-5-940596fd9412>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mos[0m[0;34m.[0m[0mmkdir[0m[0;34m([0m[0;34m'../train'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mos[0m[0;34m.[0m[0mmkdir[0m[0;34m([0m[0;34m'../valid'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mos[0m[0;34m.[0m[0mmkdir[0m[0;34m([0m[0;34m'../test'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '../train'
+PermissionError: [Errno 13] Permission denied: '../train'
+
+Executability                            : False

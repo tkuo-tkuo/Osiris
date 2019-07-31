@@ -1,0 +1,12 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+% time
+anagram_map = all_anagrams(r'words.txt')
+#print_anagram_sets_in_order(anagram_map)
+------------------
+
+
+UsageError: Line magic function `%` not found.
+
+Executability                            : False

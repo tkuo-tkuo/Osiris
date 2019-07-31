@@ -1,0 +1,43 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+%pylab inline
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+img=mpimg.imread('franckosc.jpg')
+plt.figure(figsize=(20,10))
+plt.axis('off')
+imgplot = plt.imshow(img)
+plt.show()
+
+print("Oscilloscope Readout")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-841552f49104>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mimage[0m [0;32mas[0m [0mmpimg[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0mimg[0m[0;34m=[0m[0mmpimg[0m[0;34m.[0m[0mimread[0m[0;34m([0m[0;34m'franckosc.jpg'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m20[0m[0;34m,[0m[0;36m10[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0mplt[0m[0;34m.[0m[0maxis[0m[0;34m([0m[0;34m'off'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/image.py[0m in [0;36mimread[0;34m(fname, format)[0m
+[1;32m   1408[0m                              [0;34m'with Pillow installed matplotlib can handle '[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1409[0m                              'more images' % list(handlers))
+[0;32m-> 1410[0;31m         [0;32mwith[0m [0mImage[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfname[0m[0;34m)[0m [0;32mas[0m [0mimage[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1411[0m             [0;32mreturn[0m [0mpil_to_array[0m[0;34m([0m[0mimage[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1412[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/PIL/Image.py[0m in [0;36mopen[0;34m(fp, mode)[0m
+[1;32m   2768[0m [0;34m[0m[0m
+[1;32m   2769[0m     [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2770[0;31m         [0mfp[0m [0;34m=[0m [0mbuiltins[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"rb"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2771[0m         [0mexclusive_fp[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2772[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'franckosc.jpg'
+FileNotFoundError: [Errno 2] No such file or directory: 'franckosc.jpg'
+
+Executability                            : False

@@ -1,0 +1,47 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Compute TF-IDF matrix
+tvec = TfidfVectorizer(min_df=2)
+tvec_weights = tvec.fit_transform(data)
+b2 = tvec.get_feature_names()
+# TF-IDF Matrix
+tfidf = tvec_weights.toarray()
+# IDF Dictionary {term: idf}
+idfLst = {term: idf for term, idf in zip(tvec.get_feature_names(), tvec.idf_)}
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-4-427f106bffca>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Compute TF-IDF matrix[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mtvec[0m [0;34m=[0m [0mTfidfVectorizer[0m[0;34m([0m[0mmin_df[0m[0;34m=[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mtvec_weights[0m [0;34m=[0m [0mtvec[0m[0;34m.[0m[0mfit_transform[0m[0;34m([0m[0mdata[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mb2[0m [0;34m=[0m [0mtvec[0m[0;34m.[0m[0mget_feature_names[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m# TF-IDF Matrix[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/feature_extraction/text.py[0m in [0;36mfit_transform[0;34m(self, raw_documents, y)[0m
+[1;32m   1650[0m         """
+[1;32m   1651[0m         [0mself[0m[0;34m.[0m[0m_check_params[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1652[0;31m         [0mX[0m [0;34m=[0m [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mfit_transform[0m[0;34m([0m[0mraw_documents[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1653[0m         [0mself[0m[0;34m.[0m[0m_tfidf[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1654[0m         [0;31m# X is already a transformed view of raw_documents so[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/feature_extraction/text.py[0m in [0;36mfit_transform[0;34m(self, raw_documents, y)[0m
+[1;32m   1056[0m [0;34m[0m[0m
+[1;32m   1057[0m         vocabulary, X = self._count_vocab(raw_documents,
+[0;32m-> 1058[0;31m                                           self.fixed_vocabulary_)
+[0m[1;32m   1059[0m [0;34m[0m[0m
+[1;32m   1060[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mbinary[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/feature_extraction/text.py[0m in [0;36m_count_vocab[0;34m(self, raw_documents, fixed_vocab)[0m
+[1;32m    987[0m             [0mvocabulary[0m [0;34m=[0m [0mdict[0m[0;34m([0m[0mvocabulary[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    988[0m             [0;32mif[0m [0;32mnot[0m [0mvocabulary[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 989[0;31m                 raise ValueError("empty vocabulary; perhaps the documents only"
+[0m[1;32m    990[0m                                  " contain stop words")
+[1;32m    991[0m [0;34m[0m[0m
+
+[0;31mValueError[0m: empty vocabulary; perhaps the documents only contain stop words
+ValueError: empty vocabulary; perhaps the documents only contain stop words
+
+Executability                            : False

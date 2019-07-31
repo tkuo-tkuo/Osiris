@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# drop 1 class
+df_wine = df_wine[df_wine['Class label'] != 1]
+y = df_wine['Class label'].values
+X = df_wine[['Alcohol', 'Hue']].values
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-21-cd2fd4dd9ca8>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# drop 1 class[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdf_wine[0m [0;34m=[0m [0mdf_wine[0m[0;34m[[0m[0mdf_wine[0m[0;34m[[0m[0;34m'Class label'[0m[0;34m][0m [0;34m!=[0m [0;36m1[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0my[0m [0;34m=[0m [0mdf_wine[0m[0;34m[[0m[0;34m'Class label'[0m[0;34m][0m[0;34m.[0m[0mvalues[0m[0;34m[0m[0m
+[1;32m      4[0m [0mX[0m [0;34m=[0m [0mdf_wine[0m[0;34m[[0m[0;34m[[0m[0;34m'Alcohol'[0m[0;34m,[0m [0;34m'Hue'[0m[0;34m][0m[0;34m][0m[0;34m.[0m[0mvalues[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'df_wine' is not defined
+NameError: name 'df_wine' is not defined
+
+Executability                            : False

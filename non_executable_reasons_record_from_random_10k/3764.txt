@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+passive_df.columns.values
+------------------
+
+NameError: name 'passive_df' is not defined
+
+Executability                            : False

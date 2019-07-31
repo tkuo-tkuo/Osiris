@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+assert leap_year(1900) == True, "Centuries not divisible by 4 are not leap years"
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAssertionError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-12-9b70e03539a9>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32massert[0m [0mleap_year[0m[0;34m([0m[0;36m1900[0m[0;34m)[0m [0;34m==[0m [0;32mTrue[0m[0;34m,[0m [0;34m"Centuries not divisible by 4 are not leap years"[0m[0;34m[0m[0m
+[0m
+[0;31mAssertionError[0m: Centuries not divisible by 4 are not leap years
+AssertionError: Centuries not divisible by 4 are not leap years
+
+Executability                            : False

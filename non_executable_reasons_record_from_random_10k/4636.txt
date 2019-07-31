@@ -1,0 +1,45 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from bs4 import BeautifulSoup
+import os
+import requests
+import pandas as pd
+import tweepy
+import json
+from wordcloud import WordCloud,STOPWORDS
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+from os import path
+from PIL import Image
+import numpy as np
+import sys
+from datetime import datetime
+%matplotlib inline
+import plotly.plotly as py
+from plotly.offline import download_plotlyjs,init_notebook_mode,plot,iplot
+init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import warnings
+warnings.filterwarnings('ignore')
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-499b7a33beb3>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mimport[0m [0mrequests[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0mtweepy[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mimport[0m [0mjson[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0mwordcloud[0m [0;32mimport[0m [0mWordCloud[0m[0;34m,[0m[0mSTOPWORDS[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tweepy'
+ModuleNotFoundError: No module named 'tweepy'
+
+Executability                            : False

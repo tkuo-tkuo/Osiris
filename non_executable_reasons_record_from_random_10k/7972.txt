@@ -1,0 +1,48 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from IPython.display import Image
+Image(filename='Ejemplo-EspectroAmplitud.png', width=800, height=700)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-2407391bb77a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mIPython[0m[0;34m.[0m[0mdisplay[0m [0;32mimport[0m [0mImage[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mImage[0m[0;34m([0m[0mfilename[0m[0;34m=[0m[0;34m'Ejemplo-EspectroAmplitud.png'[0m[0;34m,[0m [0mwidth[0m[0;34m=[0m[0;36m800[0m[0;34m,[0m [0mheight[0m[0;34m=[0m[0;36m700[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py37/lib/python3.7/site-packages/IPython/core/display.py[0m in [0;36m__init__[0;34m(self, data, url, filename, format, embed, width, height, retina, unconfined, metadata)[0m
+[1;32m   1195[0m         [0mself[0m[0;34m.[0m[0munconfined[0m [0;34m=[0m [0munconfined[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1196[0m         super(Image, self).__init__(data=data, url=url, filename=filename, 
+[0;32m-> 1197[0;31m                 metadata=metadata)
+[0m[1;32m   1198[0m [0;34m[0m[0m
+[1;32m   1199[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mwidth[0m [0;32mis[0m [0;32mNone[0m [0;32mand[0m [0mself[0m[0;34m.[0m[0mmetadata[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m'width'[0m[0;34m,[0m [0;34m{[0m[0;34m}[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py37/lib/python3.7/site-packages/IPython/core/display.py[0m in [0;36m__init__[0;34m(self, data, url, filename, metadata)[0m
+[1;32m    618[0m             [0mself[0m[0;34m.[0m[0mmetadata[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    619[0m [0;34m[0m[0m
+[0;32m--> 620[0;31m         [0mself[0m[0;34m.[0m[0mreload[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    621[0m         [0mself[0m[0;34m.[0m[0m_check_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    622[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py37/lib/python3.7/site-packages/IPython/core/display.py[0m in [0;36mreload[0;34m(self)[0m
+[1;32m   1226[0m         [0;34m"""Reload the raw data from file or URL."""[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1227[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0membed[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1228[0;31m             [0msuper[0m[0;34m([0m[0mImage[0m[0;34m,[0m[0mself[0m[0;34m)[0m[0;34m.[0m[0mreload[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1229[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mretina[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1230[0m                 [0mself[0m[0;34m.[0m[0m_retina_shape[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py37/lib/python3.7/site-packages/IPython/core/display.py[0m in [0;36mreload[0;34m(self)[0m
+[1;32m    643[0m         [0;34m"""Reload the raw data from file or URL."""[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    644[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mfilename[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 645[0;31m             [0;32mwith[0m [0mopen[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mfilename[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m_read_flags[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    646[0m                 [0mself[0m[0;34m.[0m[0mdata[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    647[0m         [0;32melif[0m [0mself[0m[0;34m.[0m[0murl[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'Ejemplo-EspectroAmplitud.png'
+FileNotFoundError: [Errno 2] No such file or directory: 'Ejemplo-EspectroAmplitud.png'
+
+Executability                            : False

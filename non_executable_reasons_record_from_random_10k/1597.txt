@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+l.append[6]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-bab9f6432000>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0ml[0m[0;34m.[0m[0mappend[0m[0;34m[[0m[0;36m6[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: 'builtin_function_or_method' object is not subscriptable
+TypeError: 'builtin_function_or_method' object is not subscriptable
+
+Executability                            : False

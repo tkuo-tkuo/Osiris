@@ -1,0 +1,37 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+"""
+DON'T MODIFY ANYTHING IN THIS CELL
+"""
+import helper
+import problem_unittests as tests
+
+source_path = 'data/small_vocab_en'
+target_path = 'data/small_vocab_fr'
+source_text = helper.load_data(source_path)
+target_text = helper.load_data(target_path)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-e676b24a13ee>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m """
+[1;32m      6[0m [0;32mimport[0m [0mhelper[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0mproblem_unittests[0m [0;32mas[0m [0mtests[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0msource_path[0m [0;34m=[0m [0;34m'data/small_vocab_en'[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/hvillanua@deep-learning/language-translation/problem_unittests.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mpython[0m[0;34m.[0m[0mlayers[0m[0;34m.[0m[0mcore[0m [0;32mimport[0m [0mDense[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mitertools[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mcollections[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

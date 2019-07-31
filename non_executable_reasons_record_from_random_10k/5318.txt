@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+import sys
+import operator
+import numpy as np
+import pandas as pd
+from scipy import sparse
+import xgboost as xgb
+from sklearn import model_selection, preprocessing, ensemble
+from sklearn.metrics import log_loss
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-b4f4dab225c1>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0msparse[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mimport[0m [0mxgboost[0m [0;32mas[0m [0mxgb[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;32mfrom[0m [0msklearn[0m [0;32mimport[0m [0mmodel_selection[0m[0;34m,[0m [0mpreprocessing[0m[0;34m,[0m [0mensemble[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmetrics[0m [0;32mimport[0m [0mlog_loss[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'xgboost'
+ImportError: No module named 'xgboost'
+
+Executability                            : False

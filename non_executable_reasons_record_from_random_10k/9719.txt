@@ -1,0 +1,62 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#1.Diffraction of light
+import numpy as np
+import romberg as rb #Romberg requires 3 variables f, a and b
+import scipy.integrate as scint #scipy integrate also requires 3 variables f, a and b. It returns y and absolut error -> needs two variable out
+import matplotlib.pyplot as plt 
+
+ct=[]
+st=[]
+c2t=[]
+s2t=[]
+iF=[]
+iF2=[]
+
+def c(w):
+    return np.cos((np.pi*w**2)/2)
+def s(w):
+    return np.sin((np.pi*w**2)/2)
+
+
+for i in np.arange (0,10,0.001):
+    c1,nc1=rb.romberg(c,0,i)
+    ct.append(c1)
+    s1,ns1=rb.romberg(s,0,i)
+    st.append(s1)
+
+    c2,errc=scint.quad(c,0,i)
+    c2t.append(c2)
+    s2,errs=scint.quad(s,0,i)
+    s2t.append(s2)
+    
+    iF.append((0.5)*((c1+0.5)**2+(s1+0.5)**2))
+    iF2.append((0.5)*((c2+0.5)**2+(s2+0.5)**2))
+    
+##print (ct,'\n',st, '\n', iF)
+#time to plot the graphs
+v=np.arange(0,10,0.001)
+plt.plot(v, ct,'-',v,st,'-',v,iF,'-')
+plt.show()
+
+plt.plot(v, c2t,'-',v,s2t,'-',v,iF2,'-')
+plt.show()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-bcc59df18e89>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m#1.Diffraction of light[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mromberg[0m [0;32mas[0m [0mrb[0m [0;31m#Romberg requires 3 variables f, a and b[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mimport[0m [0mscipy[0m[0;34m.[0m[0mintegrate[0m [0;32mas[0m [0mscint[0m [0;31m#scipy integrate also requires 3 variables f, a and b. It returns y and absolut error -> needs two variable out[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'romberg'
+ModuleNotFoundError: No module named 'romberg'
+
+Executability                            : False

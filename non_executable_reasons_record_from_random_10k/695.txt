@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from image_augmentation import random_transform
+from image_augmentation import random_warp
+from utils import get_image_paths, load_images, stack_images
+from pixel_shuffler import PixelShuffler
+from instance_normalization import InstanceNormalization
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-9f7b131b4150>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mimage_augmentation[0m [0;32mimport[0m [0mrandom_transform[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mimage_augmentation[0m [0;32mimport[0m [0mrandom_warp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mutils[0m [0;32mimport[0m [0mget_image_paths[0m[0;34m,[0m [0mload_images[0m[0;34m,[0m [0mstack_images[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/shaoanlu@faceswap-GAN/legacy/image_augmentation.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mnumpy[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mumeyama[0m [0;32mimport[0m [0mumeyama[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'cv2'
+ModuleNotFoundError: No module named 'cv2'
+
+Executability                            : False

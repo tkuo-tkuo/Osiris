@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+reviews_train = load_files("../data/text/classification_text/moview-review-aclImdb/train/")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-78228778e442>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mreviews_train[0m [0;34m=[0m [0mload_files[0m[0;34m([0m[0;34m"../data/text/classification_text/moview-review-aclImdb/train/"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/datasets/base.py[0m in [0;36mload_files[0;34m(container_path, description, categories, load_content, shuffle, encoding, decode_error, random_state)[0m
+[1;32m    161[0m     [0mfilenames[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m    162[0m [0;34m[0m[0m
+[0;32m--> 163[0;31m     folders = [f for f in sorted(listdir(container_path))
+[0m[1;32m    164[0m                if isdir(join(container_path, f))]
+[1;32m    165[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/text/classification_text/moview-review-aclImdb/train/'
+FileNotFoundError: [Errno 2] No such file or directory: '../data/text/classification_text/moview-review-aclImdb/train/'
+
+Executability                            : False

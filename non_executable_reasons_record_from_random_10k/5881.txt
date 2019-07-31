@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+spam = Spam(3)
+------------------
+
+NameError: name 'Spam' is not defined
+
+Executability                            : False

@@ -1,0 +1,70 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+
+html = urlopen("https://www.directathletics.com/results/track/49329_m.html")
+bsObj = BeautifulSoup(html)
+
+for child in bsObj.find("table",{"id":"jqTable"}):
+    print(child)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mHTTPError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-7ea3fb816fbf>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mfrom[0m [0mbs4[0m [0;32mimport[0m [0mBeautifulSoup[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0mhtml[0m [0;34m=[0m [0murlopen[0m[0;34m([0m[0;34m"https://www.directathletics.com/results/track/49329_m.html"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0mbsObj[0m [0;34m=[0m [0mBeautifulSoup[0m[0;34m([0m[0mhtml[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36murlopen[0;34m(url, data, timeout, cafile, capath, cadefault, context)[0m
+[1;32m    161[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    162[0m         [0mopener[0m [0;34m=[0m [0m_opener[0m[0;34m[0m[0m
+[0;32m--> 163[0;31m     [0;32mreturn[0m [0mopener[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mdata[0m[0;34m,[0m [0mtimeout[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    164[0m [0;34m[0m[0m
+[1;32m    165[0m [0;32mdef[0m [0minstall_opener[0m[0;34m([0m[0mopener[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mopen[0;34m(self, fullurl, data, timeout)[0m
+[1;32m    470[0m         [0;32mfor[0m [0mprocessor[0m [0;32min[0m [0mself[0m[0;34m.[0m[0mprocess_response[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mprotocol[0m[0;34m,[0m [0;34m[[0m[0;34m][0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    471[0m             [0mmeth[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mprocessor[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 472[0;31m             [0mresponse[0m [0;34m=[0m [0mmeth[0m[0;34m([0m[0mreq[0m[0;34m,[0m [0mresponse[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    473[0m [0;34m[0m[0m
+[1;32m    474[0m         [0;32mreturn[0m [0mresponse[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mhttp_response[0;34m(self, request, response)[0m
+[1;32m    580[0m         [0;32mif[0m [0;32mnot[0m [0;34m([0m[0;36m200[0m [0;34m<=[0m [0mcode[0m [0;34m<[0m [0;36m300[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    581[0m             response = self.parent.error(
+[0;32m--> 582[0;31m                 'http', request, response, code, msg, hdrs)
+[0m[1;32m    583[0m [0;34m[0m[0m
+[1;32m    584[0m         [0;32mreturn[0m [0mresponse[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36merror[0;34m(self, proto, *args)[0m
+[1;32m    508[0m         [0;32mif[0m [0mhttp_err[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    509[0m             [0margs[0m [0;34m=[0m [0;34m([0m[0mdict[0m[0;34m,[0m [0;34m'default'[0m[0;34m,[0m [0;34m'http_error_default'[0m[0;34m)[0m [0;34m+[0m [0morig_args[0m[0;34m[0m[0m
+[0;32m--> 510[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_call_chain[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    511[0m [0;34m[0m[0m
+[1;32m    512[0m [0;31m# XXX probably also want an abstract factory that knows when it makes[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36m_call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
+[1;32m    442[0m         [0;32mfor[0m [0mhandler[0m [0;32min[0m [0mhandlers[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    443[0m             [0mfunc[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mhandler[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 444[0;31m             [0mresult[0m [0;34m=[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    445[0m             [0;32mif[0m [0mresult[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    446[0m                 [0;32mreturn[0m [0mresult[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mhttp_error_default[0;34m(self, req, fp, code, msg, hdrs)[0m
+[1;32m    588[0m [0;32mclass[0m [0mHTTPDefaultErrorHandler[0m[0;34m([0m[0mBaseHandler[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    589[0m     [0;32mdef[0m [0mhttp_error_default[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mreq[0m[0;34m,[0m [0mfp[0m[0;34m,[0m [0mcode[0m[0;34m,[0m [0mmsg[0m[0;34m,[0m [0mhdrs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 590[0;31m         [0;32mraise[0m [0mHTTPError[0m[0;34m([0m[0mreq[0m[0;34m.[0m[0mfull_url[0m[0;34m,[0m [0mcode[0m[0;34m,[0m [0mmsg[0m[0;34m,[0m [0mhdrs[0m[0;34m,[0m [0mfp[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    591[0m [0;34m[0m[0m
+[1;32m    592[0m [0;32mclass[0m [0mHTTPRedirectHandler[0m[0;34m([0m[0mBaseHandler[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mHTTPError[0m: HTTP Error 403: Forbidden
+HTTPError: HTTP Error 403: Forbidden
+
+Executability                            : False

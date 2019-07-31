@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+### Area of a Square
+# equation: area = side_length ** 2
+# input the side length
+print("I will calculate the area of a square")
+side_length = float(input("Please tell me the side length: "))
+area = side_length ** 2
+print("The area of a the square with side_length {} is {}".format(side_length, area))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-4-5b76bfd08199>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;31m# input the side length[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mprint[0m[0;34m([0m[0;34m"I will calculate the area of a square"[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mside_length[0m [0;34m=[0m [0mfloat[0m[0;34m([0m[0minput[0m[0;34m([0m[0;34m"Please tell me the side length: "[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0marea[0m [0;34m=[0m [0mside_length[0m [0;34m**[0m [0;36m2[0m[0;34m[0m[0m
+[1;32m      7[0m [0mprint[0m[0;34m([0m[0;34m"The area of a the square with side_length {} is {}"[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mside_length[0m[0;34m,[0m [0marea[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

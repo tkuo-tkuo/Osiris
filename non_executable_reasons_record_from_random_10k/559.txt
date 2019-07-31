@@ -1,0 +1,86 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#source py3/bin/activate
+# Load pickled data
+import pickle 
+
+#needs to be opened by python 3 since pickle is from python 3
+#remedy: tell it to use an earlier protocol(0,1 or 2)
+# passing the data folder path
+#'/home/hoof/Desktop/SessionTwo/data/train.p'
+#'C:\Users\crc52_000\Dropbox\IntelligentOpenCVLessons\lessonTwo'
+import os
+
+training_file = r"C:\Users\crc52_000\Dropbox\IntelligentOpenCVLessons\lessonTwo\train.p"
+print(training_file)
+testing_file = r"C:\Users\crc52_000\Dropbox\IntelligentOpenCVLessons\lessonTwo\test.p"
+print(testing_file)
+
+with open(training_file, mode='rb') as f:
+    train = pickle.load(f)
+with open(testing_file, mode='rb') as f:
+    test = pickle.load(f)
+    
+    
+x_train, y_train = train['features'], train['labels']
+x_test, y_test = test['features'], test['labels']
+
+
+n_classes = len(set(train['labels']))
+x_train_split=x_train
+y_train_split=y_train
+
+print("Training Set Total:   {} samples".format(len(x_train)))
+
+
+#The traffic sign data set dosen't come with data split therefore
+#import sklearn model for splitting data into learninig traininig and validation
+from sklearn.cross_validation import train_test_split
+from sklearn.metrics import confusion_matrix
+
+#take 20% of data of the training set for testing(validation) 
+n_test = x_test.shape[0]
+x_train_split=x_train
+y_train_split=y_train
+x_train,x_validation,y_train, y_validation = train_test_split(x_train_split, y_train_split, test_size=0.2, random_state=0)
+
+x_train = x_train.astype('float32')
+x_validation = x_validation.astype('float32')
+x_test= x_test.astype('float32')
+x_train = x_train / 255 - 0.5
+x_validation = x_validation / 255 - 0.5
+x_test = x_test / 255 - 0.5
+
+print("Updated image shape {}".format (x_train[0].shape))
+
+print()
+print("Training Set:   {} samples".format(len(x_train)))
+print("Validation Set: {} samples".format(len(x_validation)))
+print("Test Set:       {} samples".format(len(x_test)))
+ 
+
+print("Number of classes =", n_classes)
+
+
+
+
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-1-7c59608a4378>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     17[0m [0mprint[0m[0;34m([0m[0mtesting_file[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     18[0m [0;34m[0m[0m
+[0;32m---> 19[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mtraining_file[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     20[0m     [0mtrain[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     21[0m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mtesting_file[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mOSError[0m: [Errno 22] Invalid argument: 'C:\\Users\\crc52_000\\Dropbox\\IntelligentOpenCVLessons\\lessonTwo\\train.p'
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\crc52_000\\Dropbox\\IntelligentOpenCVLessons\\lessonTwo\\train.p'
+
+Executability                            : False

@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+data11 = np.load('experiments/test2w5_modelgrusimple_mid-noise0.05-dropout10-shuffle1-data-test2a-w5-n100000-l6-random.pickle/stats-runlr0005A.npz')
+
+tloss = data11['tloss']
+tloss_mean = np.mean(tloss,axis=0)
+tloss_std = np.std(tloss,axis=0)/tloss.shape[0]
+
+vloss = data11['vloss']
+vloss_mean = np.mean(vloss,axis=0)
+vloss_std = np.std(vloss,axis=0)/vloss.shape[0]
+
+figure()
+title('Training Losses')
+plot(tloss_mean,label='tloss')
+plot(vloss_mean,label='vloss')
+ylim(0,0.0001)
+legend()
+# looks like wants 100 is enough
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-0fadc82d78c9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mdata11[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34m'experiments/test2w5_modelgrusimple_mid-noise0.05-dropout10-shuffle1-data-test2a-w5-n100000-l6-random.pickle/stats-runlr0005A.npz'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mtloss[0m [0;34m=[0m [0mdata11[0m[0;34m[[0m[0;34m'tloss'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

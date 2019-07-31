@@ -1,0 +1,34 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+"""
+Introductory Econometrics with Python
+
+Coded by Carlos Góes (andregoes@gmail.com)
+Chief-Research Officer, Instituto Mercado Popular
+
+Last updated on March 20th, 2017
+"""
+
+import numpy as np
+import statsmodels.formula.api as smf
+from pandas_datareader import wb
+import matplotlib.pyplot as plt
+import seaborn as sns
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-0360edf74b3f>[0m in [0;36m<module>[0;34m[0m
+[1;32m     12[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mimport[0m [0mstatsmodels[0m[0;34m.[0m[0mformula[0m[0;34m.[0m[0mapi[0m [0;32mas[0m [0msmf[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0;32mfrom[0m [0mpandas_datareader[0m [0;32mimport[0m [0mwb[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pandas_datareader'
+ModuleNotFoundError: No module named 'pandas_datareader'
+
+Executability                            : False

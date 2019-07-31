@@ -1,0 +1,35 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import print_function, division
+import geopandas as gp
+import pandas as pd
+import pylab as pl
+import os
+import json
+import seaborn
+import statsmodels.formula.api as smf
+import scipy.stats
+#s = json.load( open(os.getenv('PUI2016')+'/fbb_matplotlibrc.json') )
+#pl.rcParams.update(s)
+if os.getenv("PUIDATA") is None:
+    print ("$PUIDATA to point to set PUIdata dir")
+
+%pylab inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-e66b3f949164>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mprint_function[0m[0;34m,[0m [0mdivision[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mgeopandas[0m [0;32mas[0m [0mgp[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mpylab[0m [0;32mas[0m [0mpl[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'geopandas'
+ImportError: No module named 'geopandas'
+
+Executability                            : False

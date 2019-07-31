@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from utils import plot_2d_samples
+plot_2d_samples(bag_of_words, labels)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-c80a7cb319a4>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mutils[0m [0;32mimport[0m [0mplot_2d_samples[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplot_2d_samples[0m[0;34m([0m[0mbag_of_words[0m[0;34m,[0m [0mlabels[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'utils'
+ImportError: No module named 'utils'
+
+Executability                            : False

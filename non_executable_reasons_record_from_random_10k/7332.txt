@@ -1,0 +1,52 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from os import listdir
+from os.path import isfile, join
+from astropy.io import ascii
+
+onlyfiles = [f for f in listdir("./data/") if isfile(join("./data/", f))]
+
+
+with open("data.csv", "w") as fout:
+    fout.write('page,length,radius\n')
+    total = []
+    for f in onlyfiles:
+        with open("./data/"+f, 'r') as fle:
+            data = fle.read().split("\n")[1:]
+            total = total + data
+            
+    with open("test.csv", 'r') as fle:
+        data = fle.read().split("\n")[1:]
+        fixed = []
+        for d in data:
+            if d != '':
+                temp = d.split(',')
+                temp1 = temp[1]
+                temp[1] = temp[2]
+                temp[2] = temp1
+                fixed.append(','.join(temp))
+        total = total + fixed
+    final = []
+    for t in total:
+        if t not in ['', ' ', '\n']:
+            final.append(t)
+    fout.write("\n".join(final))
+        
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-a65bc5407826>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+[0;32m---> 10[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"data.csv"[0m[0;34m,[0m [0;34m"w"[0m[0;34m)[0m [0;32mas[0m [0mfout[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m     [0mfout[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m'page,length,radius\n'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m     [0mtotal[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'data.csv'
+PermissionError: [Errno 13] Permission denied: 'data.csv'
+
+Executability                            : False

@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#trying to figure out how to get all the non latin characters out....
+homoglyphs = []
+conf = confusables.is_confusable(bp.body[6175], greedy=True)
+for i in conf:
+    if i['alias'] != 'LATIN':
+        homoglyphs.append(i['character'])
+
+print("Flagged homoglyphs: " + str(len(homoglyphs)))
+print("Unique homoglyphs: " + str(len(set(homoglyphs))))
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-50b5de07526b>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m#trying to figure out how to get all the non latin characters out....[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mhomoglyphs[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mconf[0m [0;34m=[0m [0mconfusables[0m[0;34m.[0m[0mis_confusable[0m[0;34m([0m[0mbp[0m[0;34m.[0m[0mbody[0m[0;34m[[0m[0;36m6175[0m[0;34m][0m[0;34m,[0m [0mgreedy[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mconf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m     [0;32mif[0m [0mi[0m[0;34m[[0m[0;34m'alias'[0m[0;34m][0m [0;34m!=[0m [0;34m'LATIN'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'confusables' is not defined
+NameError: name 'confusables' is not defined
+
+Executability                            : False

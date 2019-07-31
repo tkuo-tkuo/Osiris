@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+exampleFile = open('c:/Users/309292/Desktop/example.html') # can also load an html file from our computer
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-8-e59de5836295>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mexampleFile[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'c:/Users/309292/Desktop/example.html'[0m[0;34m)[0m [0;31m# can also load an html file from our computer[0m[0;34m[0m[0m
+[0m
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'c:/Users/309292/Desktop/example.html'
+FileNotFoundError: [Errno 2] No such file or directory: 'c:/Users/309292/Desktop/example.html'
+
+Executability                            : False

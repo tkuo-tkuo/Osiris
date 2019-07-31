@@ -1,0 +1,36 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# The Basics
+# How many variables/columns?
+length(aalii_facebook)
+
+# What are the unique Facebook campaigns in the data set?
+unique(aalii_facebook$campaign_name)
+
+# How much money was spent in total over the course of this data set?
+sum(aalii_facebook$amount_spent)
+# 16601.66
+
+# What was the max amount of money spent?
+max(aalii_facebook$amount_spent)
+# 644.75
+
+# What was the minimum amount spent?
+ min(aalii_facebook$amount_spent)
+# 0
+ 
+# What was the maximum reach recorded?
+max(aalii_facebook$reach)
+# 21263
+
+# What was the minimum reach recorded?
+min(aalii_facebook$reach)
+# 0
+------------------
+
+SyntaxError: invalid syntax (<ipython-input-1-45738609de57>, line 8)
+
+Executability                            : False

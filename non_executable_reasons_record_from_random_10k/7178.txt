@@ -1,0 +1,57 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#Import models from scikit learn module:
+from sklearn.linear_model import LogisticRegression
+from sklearn.cross_validation import KFold   #For K-fold cross validation
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier, export_graphviz
+from sklearn import metrics
+
+#Generic function for making a classification model and accessing performance:
+def classification_model(moedel, data, predictors, outcome):
+  #Fit the model:
+  model.fit(data[predictors],data[outcome])
+  
+  #Make predictions on training set:
+  predictions = model.predict(data[predictors])
+  
+  #Print accuracy
+  accuracy = metrics.accuracy_score(predictions,data[outcome])
+  print("Accuracy : %s" % "{0:.3%}".format(accuracy))
+
+  #Perform k-fold cross-validation with 5 folds
+  kf = KFold(data.shape[0], n_folds=5)
+  error = []
+  for train, test in kf:
+    # Filter training data
+    train_predictors = (data[predictors].iloc[train,:])
+    
+    # The target we're using to train the algorithm.
+    train_target = data[outcome].iloc[train]
+    
+    # Training the algorithm using the predictors and target.
+    model.fit(train_predictors, train_target)
+    
+    #Record error from each cross-validation run
+    error.append(model.score(data[predictors].iloc[test,:], data[outcome].iloc[test]))
+ 
+  print("Cross-Validation Score : %s" % "{0:.3%}".format(np.mean(error)))
+
+  #Fit the model again so that it can be refered outside the function:
+  model.fit(data[predictors],data[outcome])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-25-7d7f07695068>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#Import models from scikit learn module:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mlinear_model[0m [0;32mimport[0m [0mLogisticRegression[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mcross_validation[0m [0;32mimport[0m [0mKFold[0m   [0;31m#For K-fold cross validation[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mensemble[0m [0;32mimport[0m [0mRandomForestClassifier[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mtree[0m [0;32mimport[0m [0mDecisionTreeClassifier[0m[0;34m,[0m [0mexport_graphviz[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'sklearn.cross_validation'
+ModuleNotFoundError: No module named 'sklearn.cross_validation'
+
+Executability                            : False

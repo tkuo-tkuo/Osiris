@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# load text
+file = open('nmh_lyrics.txt', 'r')
+text = file.read()
+file.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-3-f9518aa9161e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# load text[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mfile[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'nmh_lyrics.txt'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mtext[0m [0;34m=[0m [0mfile[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mfile[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'nmh_lyrics.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'nmh_lyrics.txt'
+
+Executability                            : False

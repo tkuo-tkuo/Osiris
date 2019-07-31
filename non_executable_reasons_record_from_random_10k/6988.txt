@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from tensorflow.examples.tutorials.mnist import input_data
+mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-8bf8ae5a5303>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mexamples[0m[0;34m.[0m[0mtutorials[0m[0;34m.[0m[0mmnist[0m [0;32mimport[0m [0minput_data[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mmnist[0m [0;34m=[0m [0minput_data[0m[0;34m.[0m[0mread_data_sets[0m[0;34m([0m[0;34m"MNIST_data/"[0m[0;34m,[0m [0mone_hot[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

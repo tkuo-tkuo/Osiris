@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+components = fourier(bw)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-cb3a2b5bc4c3>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mcomponents[0m [0;34m=[0m [0mfourier[0m[0;34m([0m[0mbw[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'bw' is not defined
+NameError: name 'bw' is not defined
+
+Executability                            : False

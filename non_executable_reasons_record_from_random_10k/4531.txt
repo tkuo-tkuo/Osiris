@@ -1,0 +1,88 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+
+#Read data
+def load_data():
+    with gzip.open('mnist.pkl.gz', 'rb') as f:
+        training_data, validation_data, test_data = cPickle.load(f, encoding="latin-1")
+    f.close()
+    return (training_data, validation_data, test_data)
+
+def load_data_wrapper():
+    tr_d, va_d, te_d = load_data()
+    training_inputs = [np.reshape(x, (784, 1)) for x in tr_d[0]]
+    training_results = [vectorized_result(y) for y in tr_d[1]]
+    training_data = np.array(list(zip(training_inputs, training_results)))
+    validation_inputs = [np.reshape(x, (784, 1)) for x in va_d[0]]
+    validation_data = np.array(list(zip(validation_inputs, va_d[1])))
+    test_inputs = [np.reshape(x, (784, 1)) for x in te_d[0]]
+    test_data = np.array(list(zip(test_inputs, te_d[1])))
+    return (training_data, validation_data, test_data)
+
+def vectorized_result(j):
+    e = np.zeros((10, 1))
+    e[j] = 1.0
+    return e
+
+training_data, validation_data, test_data = load_data_wrapper()
+
+training_data_nolab = np.delete(training_data,[1],axis = 1)
+training_labels = np.array(np.delete(training_data,[0],axis=1))
+training_labels_list = []
+training_data_nolab_list = np.zeros(shape=(50000,784))
+
+for i in range(len(training_labels)):
+    list.append(training_labels_list, np.argmax(training_labels[i,0]))
+
+for i in range(len(training_data_nolab)):
+    training_data_nolab_list[i] = np.array(np.ravel(training_data_nolab[i,0]))
+
+Xtr = training_data_nolab_list
+ytr = np.squeeze(training_labels_list)
+
+test_data_nolab = np.delete(test_data,[1],axis = 1)
+test_labels = np.array(np.delete(test_data,[0],axis=1))
+test_labels_list = []
+test_data_nolab_list = np.zeros(shape=(10000,784))
+
+for i in range(len(test_labels)):
+    list.append(test_labels_list, np.argmax(test_labels[i,0]))
+
+for i in range(len(test_data_nolab)):
+    test_data_nolab_list[i] = np.array(np.ravel(test_data_nolab[i,0]))
+
+Xtst = test_data_nolab_list
+ytst = np.squeeze(test_labels_list)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-a8e24607c4f6>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     25[0m     [0;32mreturn[0m [0me[0m[0;34m[0m[0m
+[1;32m     26[0m [0;34m[0m[0m
+[0;32m---> 27[0;31m [0mtraining_data[0m[0;34m,[0m [0mvalidation_data[0m[0;34m,[0m [0mtest_data[0m [0;34m=[0m [0mload_data_wrapper[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     28[0m [0;34m[0m[0m
+[1;32m     29[0m [0mtraining_data_nolab[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mdelete[0m[0;34m([0m[0mtraining_data[0m[0;34m,[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m,[0m[0maxis[0m [0;34m=[0m [0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-a8e24607c4f6>[0m in [0;36mload_data_wrapper[0;34m()[0m
+[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m [0;32mdef[0m [0mload_data_wrapper[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m     [0mtr_d[0m[0;34m,[0m [0mva_d[0m[0;34m,[0m [0mte_d[0m [0;34m=[0m [0mload_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     13[0m     [0mtraining_inputs[0m [0;34m=[0m [0;34m[[0m[0mnp[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0mx[0m[0;34m,[0m [0;34m([0m[0;36m784[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m)[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0mtr_d[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m][0m[0;34m[0m[0m
+[1;32m     14[0m     [0mtraining_results[0m [0;34m=[0m [0;34m[[0m[0mvectorized_result[0m[0;34m([0m[0my[0m[0;34m)[0m [0;32mfor[0m [0my[0m [0;32min[0m [0mtr_d[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m][0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-a8e24607c4f6>[0m in [0;36mload_data[0;34m()[0m
+[1;32m      4[0m [0;31m#Read data[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mdef[0m [0mload_data[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0;32mwith[0m [0mgzip[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0;34m'mnist.pkl.gz'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      7[0m         [0mtraining_data[0m[0;34m,[0m [0mvalidation_data[0m[0;34m,[0m [0mtest_data[0m [0;34m=[0m [0mcPickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mf[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m"latin-1"[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      8[0m     [0mf[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'gzip' is not defined
+NameError: name 'gzip' is not defined
+
+Executability                            : False

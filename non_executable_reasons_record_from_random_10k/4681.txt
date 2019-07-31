@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# help(pd.read_csv)
+url_to_data = 'data/data1708_fromAug2017.csv'
+data = pd.read_csv(url_to_data, names=['REQUEST_ID', 'MODIFIED_DATE', 'CLIENT_CATEGORY', 'SEGMENT',
+                                       'CREATE_DATE', 'CLOSETIME', 'GNAME1', 'GNAME2', 'GNAME2_PREV',
+                                       'football', 'STATUS', 'SERVICE', 'PHONE_NUM', 'ASRZ200_ID',
+                                       'CHANNELREQUESTID', 'channeltype', 'source', 'MI_ID', 'PRIORITY',
+                                       'IMPACT', 'URGENCY', 'RESPZONE_SOLUTION', 'RESPZONE_PROBLEM',
+                                       'PERSID4', 'CLIENT', 'PERSID2', 'PERSID2_PREV', 'GID2', 'GID2_PREV',
+                                       'TIMELEFTOLA', 'TIMELEFTSLA', 'OPERATOR', 'DOGID', 'CONTRACT_NUM',
+                                       'FIXTIME', 'ASRZTTID', 'SERVICEIMPATSCLS', 'LOC_EADDR_ID1', 'DECLARED_FAULT',
+                                       'ASRZ208_STATUS', 'ASRZ200_STATUS', 'CHANNELID', 'BUSINESS_CATEGORY',
+                                       'TYPE_TIER_TT', 'CLIENTCHANNELADDRESS', 'num_of_repeat', 'CHANNELREQUESTID2',
+                                       'num_of_repeat'], na_values='0', delimiter=';', skiprows=[0])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-b2bde0a3a916>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m# help(pd.read_csv)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0murl_to_data[0m [0;34m=[0m [0;34m'data/data1708_fromAug2017.csv'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m data = pd.read_csv(url_to_data, names=['REQUEST_ID', 'MODIFIED_DATE', 'CLIENT_CATEGORY', 'SEGMENT',
+[0m[1;32m      6[0m                                        [0;34m'CREATE_DATE'[0m[0;34m,[0m [0;34m'CLOSETIME'[0m[0;34m,[0m [0;34m'GNAME1'[0m[0;34m,[0m [0;34m'GNAME2'[0m[0;34m,[0m [0;34m'GNAME2_PREV'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m                                        [0;34m'football'[0m[0;34m,[0m [0;34m'STATUS'[0m[0;34m,[0m [0;34m'SERVICE'[0m[0;34m,[0m [0;34m'PHONE_NUM'[0m[0;34m,[0m [0;34m'ASRZ200_ID'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

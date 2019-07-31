@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import numpy as np
+import scipy as sp
+import splipy as spl
+from splipy.io import G2
+import matplotlib.pyplot as plt
+import sys
+import time
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-9fdcff194fbf>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mimport[0m [0mscipy[0m [0;32mas[0m [0msp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0msplipy[0m [0;32mas[0m [0mspl[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0msplipy[0m[0;34m.[0m[0mio[0m [0;32mimport[0m [0mG2[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'splipy'
+ModuleNotFoundError: No module named 'splipy'
+
+Executability                            : False

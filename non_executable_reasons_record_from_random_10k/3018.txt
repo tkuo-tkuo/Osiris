@@ -1,0 +1,41 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from gensim.models import Word2Vec
+# define training data
+sentences = [['this', 'is', 'the', 'first', 'sentence', 'for', 'word2vec'],
+['this', 'is', 'the', 'second', 'sentence'],
+['yet', 'another', 'sentence'],
+['one', 'more', 'sentence'],
+['and', 'the', 'final', 'sentence']]
+# train model
+model = Word2Vec(sentences, min_count=1)
+# summarize the loaded model
+print(model)
+# summarize vocabulary
+words = list(model.wv.vocab)
+print(words)
+# access vector for one word
+print(model['sentence'])
+# save model
+model.save('model.bin')
+# load model
+new_model = Word2Vec.load('model.bin')
+print(new_model)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-662a12853460>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mgensim[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mWord2Vec[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;31m# define training data[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m sentences = [['this', 'is', 'the', 'first', 'sentence', 'for', 'word2vec'],
+
+[0;31mImportError[0m: No module named 'gensim'
+ImportError: No module named 'gensim'
+
+Executability                            : False

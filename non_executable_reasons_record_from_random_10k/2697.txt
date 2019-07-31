@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+stupid_function(fname)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-01b0e9437b57>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mstupid_function[0m[0;34m([0m[0mfname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-1-a1dc727d3003>[0m in [0;36mstupid_function[0;34m(filename)[0m
+[1;32m      4[0m     [0mprint[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mspath[0m [0;34m=[0m [0;34m'/ssd_data/sgp_soundings/'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0mradar[0m [0;34m=[0m [0mpyart[0m[0;34m.[0m[0mio[0m[0;34m.[0m[0mread[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     radar_start_date = netCDF4.num2date(radar.time['data'][0],
+[1;32m      8[0m                                         radar.time['units'])
+
+[0;31mNameError[0m: name 'pyart' is not defined
+NameError: name 'pyart' is not defined
+
+Executability                            : False

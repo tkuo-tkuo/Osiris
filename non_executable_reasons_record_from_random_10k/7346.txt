@@ -1,0 +1,56 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 2
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [0]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+import numpy as np
+import matplotlib.pyplot as plt
+from astropy import units as u
+from scipy.optimize import curve_fit
+from matplotlib import pyplot
+from statistics import mean
+%matplotlib inline
+
+#assign variables to data
+td = mean (data['td'])
+tu = mean (data['tu'])
+
+#define variables
+d = .00005 #m
+D = .005 #m
+pi = 3.14
+n = .000018
+r = .00000055 #m
+V = 200 #V
+
+#calculate terminal velocities
+vu = d/tu
+vd = d/td
+
+#calculate deltaV
+deltaV = (vu-vd)
+
+#calculate the charge of e
+q = (3*pi*n*r*deltaV*D)/V
+
+print ('The value for the charge of an electron was found to be', q)
+
+
+#percent error
+qa = -1.6*10**-19 #accepted value
+
+error = ((qa-q)/qa)*100
+
+print ('The percent error is', error, '%')
+
+-----------------
+Original output:
+The value for the charge of an electron was found to be -1.48749983199e-19
+The percent error is 7.03126050077 %
+
+Executed output:
+The value for the charge of an electron was found to be -1.48749983198769e-19
+The percent error is 7.031260500769389 %
+

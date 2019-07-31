@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+fig, ax = plt.subplots(figsize=(10, 4))
+
+ax.plot(x, x**2, x, x**3, lw=2)
+
+ax.set_xticks([1, 2, 3, 4, 5])
+ax.set_xticklabels([r'$\alpha$', r'$\beta$', r'$\gamma$', r'$\delta$', r'$\epsilon$'], fontsize=18)
+
+yticks = [0, 50, 100, 150]
+ax.set_yticks(yticks)
+ax.set_yticklabels(["$%.1f$" % y for y in yticks], fontsize=18);
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-d167d650c2fa>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mfig[0m[0;34m,[0m [0max[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m10[0m[0;34m,[0m [0;36m4[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0max[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx[0m[0;34m,[0m [0mx[0m[0;34m**[0m[0;36m2[0m[0;34m,[0m [0mx[0m[0;34m,[0m [0mx[0m[0;34m**[0m[0;36m3[0m[0;34m,[0m [0mlw[0m[0;34m=[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

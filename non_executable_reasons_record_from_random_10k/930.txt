@@ -1,0 +1,34 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+with open("q3tweets.txt", "r") as f:
+    real_tweets = [line.strip('\n') for line in f]
+    real_tweets = [line.lower() for line in real_tweets]
+    
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mUnicodeDecodeError[0m                        Traceback (most recent call last)
+[0;32m<ipython-input-8-e0edd978381f>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"q3tweets.txt"[0m[0;34m,[0m [0;34m"r"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m     [0mreal_tweets[0m [0;34m=[0m [0;34m[[0m[0mline[0m[0;34m.[0m[0mstrip[0m[0;34m([0m[0;34m'\n'[0m[0;34m)[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mf[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0mreal_tweets[0m [0;34m=[0m [0;34m[[0m[0mline[0m[0;34m.[0m[0mlower[0m[0;34m([0m[0;34m)[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mreal_tweets[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-8-e0edd978381f>[0m in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m      1[0m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"q3tweets.txt"[0m[0;34m,[0m [0;34m"r"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m     [0mreal_tweets[0m [0;34m=[0m [0;34m[[0m[0mline[0m[0;34m.[0m[0mstrip[0m[0;34m([0m[0;34m'\n'[0m[0;34m)[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mf[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0mreal_tweets[0m [0;34m=[0m [0;34m[[0m[0mline[0m[0;34m.[0m[0mlower[0m[0;34m([0m[0;34m)[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mreal_tweets[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/codecs.py[0m in [0;36mdecode[0;34m(self, input, final)[0m
+[1;32m    319[0m         [0;31m# decode input (taking the buffer into account)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    320[0m         [0mdata[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mbuffer[0m [0;34m+[0m [0minput[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 321[0;31m         [0;34m([0m[0mresult[0m[0;34m,[0m [0mconsumed[0m[0;34m)[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_buffer_decode[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0merrors[0m[0;34m,[0m [0mfinal[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    322[0m         [0;31m# keep undecoded input until the next call[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    323[0m         [0mself[0m[0;34m.[0m[0mbuffer[0m [0;34m=[0m [0mdata[0m[0;34m[[0m[0mconsumed[0m[0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mUnicodeDecodeError[0m: 'utf-8' codec can't decode byte 0x92 in position 177: invalid start byte
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x92 in position 177: invalid start byte
+
+Executability                            : False

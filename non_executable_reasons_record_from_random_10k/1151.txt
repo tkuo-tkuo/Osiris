@@ -1,0 +1,49 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+new_table_1 = pd.read_html("http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/1/1/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc")
+new_table_2 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/2/2/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+new_table_3 = pd.read_html("http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/3/3/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc")
+new_table_4 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/4/4/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+new_table_5 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/5/5/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+new_table_6 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/6/6/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+new_table_7 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/7/7/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+new_table_8 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/8/8/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+new_table_9 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/9/9/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+new_table_10 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/10/10/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+new_table_11 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/11/11/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+new_table_12 = pd.read_html('http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/12/12/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mHTTPError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-2388633b677a>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mnew_table_1[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_html[0m[0;34m([0m[0;34m"http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/1/1/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mnew_table_2[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_html[0m[0;34m([0m[0;34m'http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/2/2/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mnew_table_3[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_html[0m[0;34m([0m[0;34m"http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/3/3/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc"[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mnew_table_4[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_html[0m[0;34m([0m[0;34m'http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/4/4/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mnew_table_5[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_html[0m[0;34m([0m[0;34m'http://www.the-numbers.com/movies/report/All/All/All/All/All/All/All/All/All/None/None/1995/2016/5/5/None/None?show-release-date=On&show-domestic-box-office=On&show-international-box-office=On&show-worldwide-box-office=On&view-order-by=domestic-box-office&view-order-direction=desc'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/html.py[0m in [0;36mread_html[0;34m(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, tupleize_cols, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only)[0m
+[1;32m    985[0m                   [0mdecimal[0m[0;34m=[0m[0mdecimal[0m[0;34m,[0m [0mconverters[0m[0;34m=[0m[0mconverters[0m[0;34m,[0m [0mna_values[0m[0;34m=[0m[0mna_values[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m    986[0m                   [0mkeep_default_na[0m[0;34m=[0m[0mkeep_default_na[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m--> 987[0;31m                   displayed_only=displayed_only)
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/html.py[0m in [0;36m_parse[0;34m(flavor, io, match, attrs, encoding, displayed_only, **kwargs)[0m
+[1;32m    813[0m             [0;32mbreak[0m[0;34m[0m[0m
+[1;32m    814[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 815[0;31m         [0mraise_with_traceback[0m[0;34m([0m[0mretained[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    816[0m [0;34m[0m[0m
+[1;32m    817[0m     [0mret[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/compat/__init__.py[0m in [0;36mraise_with_traceback[0;34m(exc, traceback)[0m
+[1;32m    401[0m         [0;32mif[0m [0mtraceback[0m [0;34m==[0m [0mEllipsis[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    402[0m             [0m_[0m[0;34m,[0m [0m_[0m[0;34m,[0m [0mtraceback[0m [0;34m=[0m [0msys[0m[0;34m.[0m[0mexc_info[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 403[0;31m         [0;32mraise[0m [0mexc[0m[0;34m.[0m[0mwith_traceback[0m[0;34m([0m[0mtraceback[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    404[0m [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    405[0m     [0;31m# this version of raise is a syntax error in Python 3[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mHTTPError[0m: HTTP Error 403: Forbidden
+HTTPError: HTTP Error 403: Forbidden
+
+Executability                            : False

@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+all_years = {}
+for year in range(1900, 2000, 10):
+    all_years[year] = pd.read_csv(
+        '/Users/staroverova/Netology/names/yob{}.txt'.format(year),
+        names=['Name','Gender','Count']
+    )
+all_names = pd.concat(all_years, names=['Year', 'Number'])   
+all_names.head(10)    
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-a0d288c599d5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mall_years[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfor[0m [0myear[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m1900[0m[0;34m,[0m [0;36m2000[0m[0;34m,[0m [0;36m10[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m     all_years[year] = pd.read_csv(
+[0m[1;32m      6[0m         [0;34m'/Users/staroverova/Netology/names/yob{}.txt'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0myear[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m         [0mnames[0m[0;34m=[0m[0;34m[[0m[0;34m'Name'[0m[0;34m,[0m[0;34m'Gender'[0m[0;34m,[0m[0;34m'Count'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

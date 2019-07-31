@@ -1,0 +1,63 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import edward as ed
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+
+from edward.models import Normal
+
+
+# note that in the function below D should be greater then K
+def build_toy_dataset(N, D, K, sigma=1):
+    x_train = np.zeros([D, N])
+    w = np.zeros([D,K])
+    for k in range(K):
+        w[k,k]=1.0/(k+1)
+        w[k+1,k]=-1.0/(k+1)
+    print(w)
+    z = np.random.normal(0.0, 1.0, size=(K, N))
+    mean = np.dot(w, z)
+    shift=np.zeros([D])
+    shift[1]=10
+    for d in range(D):
+      for n in range(N):
+        x_train[d, n] = np.random.normal(mean[d, n], sigma)+shift[d]
+#     print("True principal axes:")
+#     print(w)
+#     print("Shift:")
+#     print(shift)
+    return x_train.astype(np.float32,copy=False)
+
+
+#ed.set_seed(142)
+
+N = 1000  # number of data points
+D = 2  # data dimensionality
+K = 1  # latent dimensionality
+
+# DATA
+
+x_train = build_toy_dataset(N, D, K, sigma = 0.1)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-226a38101d87>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mprint_function[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0medward[0m [0;32mas[0m [0med[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'edward'
+ImportError: No module named 'edward'
+
+Executability                            : False

@@ -1,0 +1,14 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 8 ; number of cells: 9
+Reproducibility                          : matched ratio: 0.889 ; index of matched cells: [0, 2, 3, 4, 5, 6, 7, 8]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+zip(liste1,liste2)
+
+-----------------
+Original output:
+<zip at 0x2744933988>
+Executed output:
+<zip at 0x7f2676fd70c8>

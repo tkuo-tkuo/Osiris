@@ -1,0 +1,46 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#create list of column headers
+df_headers = []
+for item in table.findAll('th'):
+    #only include headers that don't contain sub categories
+    if item.has_attr("rowspan") and item.get("rowspan") == "2":
+        df_headers.append(item.string.strip())
+
+#I had to hard code the columns that contain sub categories i.e. height -> no shoes, shoes; vertical -> max, max reach, no, step, no step reach; hand -> length, width
+
+#set desired start indices for sub categories in list of column headers
+height_IDX = 3   
+vertical_IDX = 7
+hand_IDX = 13
+
+for i in range(len(table.findAll('tr')[1].findAll('th'))):
+    item = table.findAll('tr')[1].findAll('th')[i].string.strip()
+    
+    if i in range(0,2):
+        df_headers.insert(height_IDX, item)
+        height_IDX += 1
+    elif i in range(2,6):
+        df_headers.insert(vertical_IDX, item)
+        vertical_IDX += 1
+    else:
+        df_headers.insert(hand_IDX, item)
+        hand_IDX += 1
+        
+print(df_headers)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-4-fb448b9a0c35>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#create list of column headers[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mdf_headers[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfor[0m [0mitem[0m [0;32min[0m [0mtable[0m[0;34m.[0m[0mfindAll[0m[0;34m([0m[0;34m'th'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0;31m#only include headers that don't contain sub categories[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0;32mif[0m [0mitem[0m[0;34m.[0m[0mhas_attr[0m[0;34m([0m[0;34m"rowspan"[0m[0;34m)[0m [0;32mand[0m [0mitem[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m"rowspan"[0m[0;34m)[0m [0;34m==[0m [0;34m"2"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'NoneType' object has no attribute 'findAll'
+AttributeError: 'NoneType' object has no attribute 'findAll'
+
+Executability                            : False

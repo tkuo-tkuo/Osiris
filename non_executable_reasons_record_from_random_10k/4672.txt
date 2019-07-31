@@ -1,0 +1,34 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import pymysql
+import pers_data
+import sql_queries
+
+mysql_conn= pymysql.connect(host=pers_data.HOST, 
+                port=pers_data.PORT,user=pers_data.USER, passwd=pers_data.PASSWD, 
+                db=pers_data.DB, charset='utf8')
+#connection.use_unicode =  True
+
+# data_y=pd.DataFrame()
+# # data_y=pd.read_sql(sql_queries.SQL_QUERY, con=mysql_conn)
+# for i in sql_queries.list0.split(','):
+#     data_y=data_y.append(pd.read_sql(sql_queries.SQL_QUERY.format(i), con=mysql_conn))
+    
+        
+    
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-6e528b2ce351>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mpymysql[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mpers_data[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0msql_queries[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m mysql_conn= pymysql.connect(host=pers_data.HOST, 
+
+[0;31mImportError[0m: No module named 'pymysql'
+ImportError: No module named 'pymysql'
+
+Executability                            : False

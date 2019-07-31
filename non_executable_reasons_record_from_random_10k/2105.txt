@@ -1,0 +1,24 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+ library("RSQLite")
+library(DBI)
+# connect to the sqlite file
+con = dbConnect(RSQLite::SQLite(), dbname="Soccer.sqlite")
+# get a list of all tables
+alltables = dbListTables(con)
+dbListTables(con) # print table names to know which one will we use 
+
+#export Player  and Player_Attributes tables from SQLite to CSV
+Player =  dbReadTable(con, "Player")
+write.csv(Player, file = "Player.csv") 
+P_Attributes  = dbReadTable(con, "Player_Attributes")
+write.csv(P_Attributes, file = "Player_Attributes.csv")
+ 
+------------------
+
+IndentationError: unexpected indent (<ipython-input-1-de3806a1e75d>, line 3)
+
+Executability                            : False

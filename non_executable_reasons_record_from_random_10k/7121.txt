@@ -1,0 +1,26 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 14 ; number of cells: 15
+Reproducibility                          : matched ratio: 0.933 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+df2 = df.groupby('Name').agg([np.sum, max])  # apply sum and msx aggregate methods
+df2 = df2[['Shares', 'Net']]                 # filter total and max Shares and Net profit
+print(df2)
+
+-----------------
+Original output:
+     Shares         Net     
+        sum max     sum  max
+Name                        
+Dove     72  40  1584.8  920
+Spam     20  20   124.0  124
+
+Executed output:
+     Shares         Net       
+        sum max     sum    max
+Name                          
+Dove     72  40  1584.8  920.0
+Spam     20  20   124.0  124.0
+

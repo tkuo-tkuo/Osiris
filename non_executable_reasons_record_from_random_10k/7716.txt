@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+def findFiles(path): return glob.glob(path)
+
+print(findFiles(r'G:\git\data\pytorch\data\names\*.txt'))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-3b9c1b417646>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mdef[0m [0mfindFiles[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m:[0m [0;32mreturn[0m [0mglob[0m[0;34m.[0m[0mglob[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0mprint[0m[0;34m([0m[0mfindFiles[0m[0;34m([0m[0;34mr'G:\git\data\pytorch\data\names\*.txt'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-2-3b9c1b417646>[0m in [0;36mfindFiles[0;34m(path)[0m
+[0;32m----> 1[0;31m [0;32mdef[0m [0mfindFiles[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m:[0m [0;32mreturn[0m [0mglob[0m[0;34m.[0m[0mglob[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mprint[0m[0;34m([0m[0mfindFiles[0m[0;34m([0m[0;34mr'G:\git\data\pytorch\data\names\*.txt'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'glob' is not defined
+NameError: name 'glob' is not defined
+
+Executability                            : False

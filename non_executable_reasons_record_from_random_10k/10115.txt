@@ -1,0 +1,41 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import json
+f=open('data/initial data/Brightkite_edges.txt')
+node=[]
+link=[]
+cnt=0
+for i in range(58228):
+    node.append({'index':i,'degree':0})
+while True:
+    s=f.readline()
+    if not s:
+        break
+    arr=s.split('\t')
+    a=int(arr[0])
+    b=int(arr[1].replace('\n',' '))
+    link.append({'source':a,'target':b,'index':cnt})
+    node[a]['degree']+=1
+    node[b]['degree']+=1
+    ++cnt
+d=[{'node':node,'link':link}]
+with open('data/kite.json','w')as ff:
+    json.dump(d,ff)     
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-b2457e2fa478>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mjson[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mf[0m[0;34m=[0m[0mopen[0m[0;34m([0m[0;34m'data/initial data/Brightkite_edges.txt'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mnode[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mlink[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data/initial data/Brightkite_edges.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'data/initial data/Brightkite_edges.txt'
+
+Executability                            : False

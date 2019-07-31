@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+spy_url = "https://us.spdrs.com/site-content/xls/SPY_All_Holdings.xls?fund=SPY&docname=All+Holdings&onyx_code1=&onyx_code2="
+spy_holdings = pd.read_excel(spy_url)
+spy_holdings.columns = spy_holdings.iloc[2]
+access_date = spy_holdings.iloc[1]['Identifier']
+spy_holdings.rename({'Weight':'Wt '+access_date,
+                     'Shares Held': 'Shares '+access_date,
+                     'Identifier' : 'Ticker'},axis=1,inplace=True)
+spy_holdings = spy_holdings.iloc[3:].reindex()
+
+top = 100
+spy_top = list(spy_holdings.head(top)['Ticker'])
+spy_top.append('SPY')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-6d383d3c3018>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mspy_url[0m [0;34m=[0m [0;34m"https://us.spdrs.com/site-content/xls/SPY_All_Holdings.xls?fund=SPY&docname=All+Holdings&onyx_code1=&onyx_code2="[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mspy_holdings[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0mspy_url[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mspy_holdings[0m[0;34m.[0m[0mcolumns[0m [0;34m=[0m [0mspy_holdings[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0maccess_date[0m [0;34m=[0m [0mspy_holdings[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[[0m[0;34m'Identifier'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

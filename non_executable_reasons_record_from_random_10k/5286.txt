@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+q1_index=q1.index
+temp=q1.sum()
+q1_b=np.argmax(temp)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-87f9bad72fcc>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mq1_index[0m[0;34m=[0m[0mq1[0m[0;34m.[0m[0mindex[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mtemp[0m[0;34m=[0m[0mq1[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mq1_b[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0margmax[0m[0;34m([0m[0mtemp[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'q1' is not defined
+NameError: name 'q1' is not defined
+
+Executability                            : False

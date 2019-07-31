@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pickle
+
+mnist_small = pickle.load(open(r'D:/Dev/Python-ML/data/mnist/mnist_small.pickle', 'rb'))
+
+X_train, Y_train, X_test, Y_test = mnist_small
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-d39915262718>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0mpickle[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0mmnist_small[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0;34mr'D:/Dev/Python-ML/data/mnist/mnist_small.pickle'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0mX_train[0m[0;34m,[0m [0mY_train[0m[0;34m,[0m [0mX_test[0m[0;34m,[0m [0mY_test[0m [0;34m=[0m [0mmnist_small[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'D:/Dev/Python-ML/data/mnist/mnist_small.pickle'
+FileNotFoundError: [Errno 2] No such file or directory: 'D:/Dev/Python-ML/data/mnist/mnist_small.pickle'
+
+Executability                            : False

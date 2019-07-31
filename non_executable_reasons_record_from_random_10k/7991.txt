@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Count lines in both files using Python
+print('number of lines in the bookings.csv file =', sum(1 for line in open('bookings.csv')))
+print('number of lines in the searches.csv file =', sum(1 for line in open('searches.csv')))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-3beeffe48f5f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# Count lines in both files using Python[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mprint[0m[0;34m([0m[0;34m'number of lines in the bookings.csv file ='[0m[0;34m,[0m [0msum[0m[0;34m([0m[0;36m1[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mopen[0m[0;34m([0m[0;34m'bookings.csv'[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mprint[0m[0;34m([0m[0;34m'number of lines in the searches.csv file ='[0m[0;34m,[0m [0msum[0m[0;34m([0m[0;36m1[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mopen[0m[0;34m([0m[0;34m'searches.csv'[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'bookings.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'bookings.csv'
+
+Executability                            : False

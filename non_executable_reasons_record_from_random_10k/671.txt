@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+split_str
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-16-a2634e72b1bf>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0msplit_str[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'split_str' is not defined
+NameError: name 'split_str' is not defined
+
+Executability                            : False

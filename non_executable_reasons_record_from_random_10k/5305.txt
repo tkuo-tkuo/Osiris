@@ -1,0 +1,27 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 9 ; number of cells: 10
+Reproducibility                          : matched ratio: 0.9 ; index of matched cells: [0, 1, 2, 4, 5, 6, 7, 8, 9]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+res
+
+-----------------
+Original output:
+     fun: 2.5
+ message: 'Optimization terminated successfully.'
+     nit: 7
+   slack: array([ 0.5,  0.5,  1. ,  0.5,  0.5,  0.5,  1. ,  0. ,  0. ,  0. ,  0. ,
+        0. ,  0. ])
+  status: 0
+ success: True
+       x: array([ 0.5,  0.5,  0. ,  0.5,  0.5,  0.5,  0. ])
+Executed output:
+     fun: 2.5
+ message: 'Optimization terminated successfully.'
+     nit: 7
+   slack: array([0.5, 0.5, 1. , 0.5, 0.5, 0.5, 1. , 0. , 0. , 0. , 0. , 0. , 0. ])
+  status: 0
+ success: True
+       x: array([0.5, 0.5, 0. , 0.5, 0.5, 0.5, 0. ])

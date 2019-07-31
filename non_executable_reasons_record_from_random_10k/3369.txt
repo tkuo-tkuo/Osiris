@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Out of index. Não é possível deletar um item que não existe na lista
+del listadomercado2[4]   
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-13-84d96cb799fe>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Out of index. Não é possível deletar um item que não existe na lista[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mdel[0m [0mlistadomercado2[0m[0;34m[[0m[0;36m4[0m[0;34m][0m[0;34m[0m[0m
+[0m
+[0;31mIndexError[0m: list assignment index out of range
+IndexError: list assignment index out of range
+
+Executability                            : False

@@ -1,0 +1,42 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# A simple generator
+def simple_gen():
+    yield 0
+    yield 1
+    yield 2
+    
+usegen = simple_gen()
+
+# This for loop calls the generator's next() function behind-the-scenes
+for val in usegen:
+    try:
+        print(val)
+    except IndexError as e:
+        print ("woops" + e)
+        break
+# New instance of the generator since we are at the end of the series from previous for loop
+usegen = simple_gen()
+
+# use next() instead
+print('using next ', next(usegen))
+print('using next ', next(usegen))
+print('using next ', next(usegen))
+
+# What happens if we call next() again?
+print('using next ', next(usegen))
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStopIteration[0m                             Traceback (most recent call last)
+[0;32m<ipython-input-28-adaeac166b8d>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     23[0m [0;34m[0m[0m
+[1;32m     24[0m [0;31m# What happens if we call next() again?[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 25[0;31m [0mprint[0m[0;34m([0m[0;34m'using next '[0m[0;34m,[0m [0mnext[0m[0;34m([0m[0musegen[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mStopIteration[0m: 
+StopIteration: 
+
+Executability                            : False

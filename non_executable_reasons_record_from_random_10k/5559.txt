@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+master_period_keys=['Master semestre 1','Master semestre 2','Master semestre 3','Master semestre 4',
+               'Mineur semestre 1','Mineur semestre 2','Projet Master automne',
+               'Projet Master printemps','Stage printemps master']
+ww_x_PERIODE_PEDAGO_masters={key: dicti['ww_x_PERIODE_PEDAGO'][key] for key in master_period_keys}
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-d8c7bc9ca2e7>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m                [0;34m'Mineur semestre 1'[0m[0;34m,[0m[0;34m'Mineur semestre 2'[0m[0;34m,[0m[0;34m'Projet Master automne'[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m      5[0m                'Projet Master printemps','Stage printemps master']
+[0;32m----> 6[0;31m [0mww_x_PERIODE_PEDAGO_masters[0m[0;34m=[0m[0;34m{[0m[0mkey[0m[0;34m:[0m [0mdicti[0m[0;34m[[0m[0;34m'ww_x_PERIODE_PEDAGO'[0m[0;34m][0m[0;34m[[0m[0mkey[0m[0;34m][0m [0;32mfor[0m [0mkey[0m [0;32min[0m [0mmaster_period_keys[0m[0;34m}[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-1-d8c7bc9ca2e7>[0m in [0;36m<dictcomp>[0;34m(.0)[0m
+[1;32m      4[0m                [0;34m'Mineur semestre 1'[0m[0;34m,[0m[0;34m'Mineur semestre 2'[0m[0;34m,[0m[0;34m'Projet Master automne'[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m      5[0m                'Projet Master printemps','Stage printemps master']
+[0;32m----> 6[0;31m [0mww_x_PERIODE_PEDAGO_masters[0m[0;34m=[0m[0;34m{[0m[0mkey[0m[0;34m:[0m [0mdicti[0m[0;34m[[0m[0;34m'ww_x_PERIODE_PEDAGO'[0m[0;34m][0m[0;34m[[0m[0mkey[0m[0;34m][0m [0;32mfor[0m [0mkey[0m [0;32min[0m [0mmaster_period_keys[0m[0;34m}[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'dicti' is not defined
+NameError: name 'dicti' is not defined
+
+Executability                            : False

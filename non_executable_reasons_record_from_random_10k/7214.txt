@@ -1,0 +1,44 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# OR Logic
+one_or_zero = lambda x: 0 if x < 0 else 1
+training_data = [(array([0,0,1]), 0),
+                 (array([0,1,1]), 1),
+                 (array([1,0,1]), 1),
+                 (array([1,1,1]), 1)]
+
+weights = random.rand(3)
+errors = []
+learning_rate = 0.2
+num_iterations = 100
+
+for i in range(num_iterations):
+    input, truth = choice(training_data)
+    result = dot(weights, input)
+    error = truth - one_or_zero(result)
+    errors.append(error)
+    weights += learning_rate*error*input
+    
+for x, _ in training_data:
+    result = dot(x,weights)
+    print("{}: {} -> {}".format(x[:2], result, one_or_zero(result)))
+
+print(weights)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-9b2272f9d161>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m# OR Logic[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mone_or_zero[0m [0;34m=[0m [0;32mlambda[0m [0mx[0m[0;34m:[0m [0;36m0[0m [0;32mif[0m [0mx[0m [0;34m<[0m [0;36m0[0m [0;32melse[0m [0;36m1[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m training_data = [(array([0,0,1]), 0),
+[0m[1;32m      6[0m                  [0;34m([0m[0marray[0m[0;34m([0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m                  [0;34m([0m[0marray[0m[0;34m([0m[0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'array' is not defined
+NameError: name 'array' is not defined
+
+Executability                            : False

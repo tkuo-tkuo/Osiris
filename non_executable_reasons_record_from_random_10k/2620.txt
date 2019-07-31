@@ -1,0 +1,103 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 10 ; number of cells: 14
+Reproducibility                          : matched ratio: 0.714 ; index of matched cells: [0, 1, 2, 4, 5, 6, 7, 8, 9, 10]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+df.groupby('Company')
+
+-----------------
+Original output:
+<pandas.core.groupby.DataFrameGroupBy object at 0x113014128>
+Executed output:
+<pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fb4f592e438>
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+by_comp.describe()
+
+-----------------
+Original output:
+                    Sales
+Company                  
+FB      count    2.000000
+        mean   296.500000
+        std     75.660426
+        min    243.000000
+        25%    269.750000
+        50%    296.500000
+        75%    323.250000
+        max    350.000000
+GOOG    count    2.000000
+        mean   160.000000
+        std     56.568542
+        min    120.000000
+        25%    140.000000
+        50%    160.000000
+        75%    180.000000
+        max    200.000000
+MSFT    count    2.000000
+        mean   232.000000
+        std    152.735065
+        min    124.000000
+        25%    178.000000
+        50%    232.000000
+        75%    286.000000
+        max    340.000000
+Executed output:
+        Sales                                                        
+        count   mean         std    min     25%    50%     75%    max
+Company                                                              
+FB        2.0  296.5   75.660426  243.0  269.75  296.5  323.25  350.0
+GOOG      2.0  160.0   56.568542  120.0  140.00  160.0  180.00  200.0
+MSFT      2.0  232.0  152.735065  124.0  178.00  232.0  286.00  340.0
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+by_comp.describe().transpose()
+
+-----------------
+Original output:
+Company    FB                                                         GOOG  \
+        count   mean        std    min     25%    50%     75%    max count   
+Sales     2.0  296.5  75.660426  243.0  269.75  296.5  323.25  350.0   2.0   
+
+Company         ...                  MSFT                                   \
+          mean  ...      75%    max count   mean         std    min    25%   
+Sales    160.0  ...    180.0  200.0   2.0  232.0  152.735065  124.0  178.0   
+
+Company                       
+           50%    75%    max  
+Sales    232.0  286.0  340.0  
+
+[1 rows x 24 columns]
+Executed output:
+Company              FB        GOOG        MSFT
+Sales count    2.000000    2.000000    2.000000
+      mean   296.500000  160.000000  232.000000
+      std     75.660426   56.568542  152.735065
+      min    243.000000  120.000000  124.000000
+      25%    269.750000  140.000000  178.000000
+      50%    296.500000  160.000000  232.000000
+      75%    323.250000  180.000000  286.000000
+      max    350.000000  200.000000  340.000000
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+by_comp.describe().transpose()['GOOG']
+
+-----------------
+Original output:
+       count   mean        std    min    25%    50%    75%    max
+Sales    2.0  160.0  56.568542  120.0  140.0  160.0  180.0  200.0
+Executed output:
+Sales  count      2.000000
+       mean     160.000000
+       std       56.568542
+       min      120.000000
+       25%      140.000000
+       50%      160.000000
+       75%      180.000000
+       max      200.000000
+Name: GOOG, dtype: float64

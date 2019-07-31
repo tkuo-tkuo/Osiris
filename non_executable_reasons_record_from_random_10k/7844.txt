@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+sympy.Eq(vk1, vk + J_inv_s*F_s(vk))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-10-19c4ec68552c>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0msympy[0m[0;34m.[0m[0mEq[0m[0;34m([0m[0mvk1[0m[0;34m,[0m [0mvk[0m [0;34m+[0m [0mJ_inv_s[0m[0;34m*[0m[0mF_s[0m[0;34m([0m[0mvk[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: 'Symbol' object is not callable
+TypeError: 'Symbol' object is not callable
+
+Executability                            : False

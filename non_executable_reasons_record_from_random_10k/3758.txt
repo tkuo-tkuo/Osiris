@@ -1,0 +1,48 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+passive_files = glob.glob('resources/smallpassive*')
+for i in range(len(passive_files)):
+    protocol = passive_files[i][23:-11] # e.g., icmp, tcp, total, etc
+    print("PROTOCOL : {0}".format(protocol))
+    if protocol == 'total' or protocol == 'tcpPORTS':
+        pass
+    else:
+        # Prefix the column names with the name of the protocol, e.g.:
+        #     icmp_src icmp_dest icmp_out_bytes ...
+        protocol_names = [protocol + "_" + name for name in names]
+        protocol_to_drop = [protocol + "_" + col for col in to_drop]
+        
+        # Read the csv
+        df = pd.read_csv(passive_files[i], header=None, skiprows=5, names=protocol_names)
+        
+        # Drop rows we don't need, including those where the src IP is the victim
+        df = df.drop(df.tail(1).index)
+        df = df.drop(protocol_to_drop, axis=1)
+        
+        for i, row in passive_df.iterrows():
+            if row.outframes > 0:
+                if row.duration != 0:
+                    
+        
+        protocol_names.remove(protocol + "_src")
+        protocol_names.remove(protocol + "_<->")
+        protocol_names.remove(protocol + "_dest")
+        protocol_names.remove(protocol + "_in_frames")
+        protocol_names.remove(protocol + "_in_bytes")
+        protocol_names.remove(protocol + "_total_frames")
+        protocol_names.remove(protocol + "_total_bytes")
+           
+        for protocol_name in protocol_names:
+            passive_df[protocol_name] = 0
+        
+        for row_index, row in df.iterrows():
+            protocol_source_ip = row[protocol + '_src']
+            idx = passive_df.loc[passive_df['total_src'] == protocol_source_ip].index
+            for protocol_name in protocol_names:
+                passive_df.loc[idx[0], protocol_name] = row[protocol_name]
+------------------
+
+IndentationError: expected an indented block (<ipython-input-4-b3c64cb54bbc>, line 25)
+
+Executability                            : False

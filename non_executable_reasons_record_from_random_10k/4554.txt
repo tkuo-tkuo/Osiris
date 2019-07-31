@@ -1,0 +1,24 @@
+3.4
+Executability                            : True
+Reproducibility                          : number of matched cells: 19 ; number of cells: 21
+Reproducibility                          : matched ratio: 0.905 ; index of matched cells: [0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+document
+
+-----------------
+Original output:
+<xml.etree.ElementTree.ElementTree at 0x105ed2438>
+Executed output:
+<xml.etree.ElementTree.ElementTree at 0x7f0a4c111b38>
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+root
+
+-----------------
+Original output:
+<Element 'mondial' at 0x105ecc778>
+Executed output:
+<Element 'mondial' at 0x7f0a4c1124a8>

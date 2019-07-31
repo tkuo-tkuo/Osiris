@@ -1,0 +1,44 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(vectors, target, test_size=0.2)
+print('Train size: {}'.format(len(X_train)))
+print('Test size: {}'.format(len(X_test)))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-6-34305009378a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmodel_selection[0m [0;32mimport[0m [0mtrain_test_split[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0mX_train[0m[0;34m,[0m [0mX_test[0m[0;34m,[0m [0my_train[0m[0;34m,[0m [0my_test[0m [0;34m=[0m [0mtrain_test_split[0m[0;34m([0m[0mvectors[0m[0;34m,[0m [0mtarget[0m[0;34m,[0m [0mtest_size[0m[0;34m=[0m[0;36m0.2[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mprint[0m[0;34m([0m[0;34m'Train size: {}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mX_train[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mprint[0m[0;34m([0m[0;34m'Test size: {}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mX_test[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sklearn/model_selection/_split.py[0m in [0;36mtrain_test_split[0;34m(*arrays, **options)[0m
+[1;32m   2029[0m         [0mtest_size[0m [0;34m=[0m [0;36m0.25[0m[0;34m[0m[0m
+[1;32m   2030[0m [0;34m[0m[0m
+[0;32m-> 2031[0;31m     [0marrays[0m [0;34m=[0m [0mindexable[0m[0;34m([0m[0;34m*[0m[0marrays[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2032[0m [0;34m[0m[0m
+[1;32m   2033[0m     [0;32mif[0m [0mshuffle[0m [0;32mis[0m [0;32mFalse[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sklearn/utils/validation.py[0m in [0;36mindexable[0;34m(*iterables)[0m
+[1;32m    227[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    228[0m             [0mresult[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 229[0;31m     [0mcheck_consistent_length[0m[0;34m([0m[0;34m*[0m[0mresult[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    230[0m     [0;32mreturn[0m [0mresult[0m[0;34m[0m[0m
+[1;32m    231[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sklearn/utils/validation.py[0m in [0;36mcheck_consistent_length[0;34m(*arrays)[0m
+[1;32m    202[0m     [0;32mif[0m [0mlen[0m[0;34m([0m[0muniques[0m[0;34m)[0m [0;34m>[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    203[0m         raise ValueError("Found input variables with inconsistent numbers of"
+[0;32m--> 204[0;31m                          " samples: %r" % [int(l) for l in lengths])
+[0m[1;32m    205[0m [0;34m[0m[0m
+[1;32m    206[0m [0;34m[0m[0m
+
+[0;31mValueError[0m: Found input variables with inconsistent numbers of samples: [0, 7793]
+ValueError: Found input variables with inconsistent numbers of samples: [0, 7793]
+
+Executability                            : False

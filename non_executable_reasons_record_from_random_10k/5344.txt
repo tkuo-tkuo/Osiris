@@ -1,0 +1,104 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Question 1
+
+import nltk
+import math
+folder="C:\\Users\\sriram\\Desktop\\CLA\\Ngrams\\"
+file="nonsense.txt"
+inputFile=open(folder+file)
+text=""
+textArray=[]
+for row in inputFile:
+    if row !="\n":
+        text+=row.replace(" ","").replace("\n"," ")
+    else:
+        textArray.append("<s> " + text.replace("\n","")+ " </s>")
+        text=""
+
+inputFile.close()
+
+bigramsArray=[]
+corpus=""
+for sentence in textArray:
+    tokens = sentence.lower().split()
+    corpus= corpus+sentence + " "
+    bigrams = (tuple(nltk.bigrams(tokens)))
+    #print (bigrams)
+    for bigram in bigrams:
+        bigramsArray.append(bigram)
+
+print (bigramsArray)
+
+SentenceA="<s> I do not like them in a mouse. </s>".lower()
+SentenceB="<s> I am Sam I am Sam </s>".lower()
+SentenceC="<s> I do like them anywhere </s>".lower()
+SentenceD="<s> I would like green ham and beef. </s>".lower()
+
+corpus += SentenceA + " " + SentenceB + " " + SentenceC + " " + SentenceD
+vocabulary=set(corpus.split())
+print (vocabulary)
+
+cfd = nltk.ConditionalFreqDist(bigramsArray)
+cpd = nltk.ConditionalProbDist(cfd, nltk.MLEProbDist)
+
+#Bigram probabilities
+bigramsProbDict={}
+for (a,b) in bigramsArray:
+    if (a,b) not in bigramsProbDict:
+        bigramsProbDict[(a,b)]= 1.0* cfd[a][b]/cfd[a].N()
+print ("\nBigrams Probabilities\n")
+print (bigramsProbDict)
+
+out=open(folder+"bigramProb.csv","w")
+for key in bigramsProbDict:
+    out.write(str(key)+","+str(bigramsProbDict[key])+"\n")
+    
+out.close()
+#Add One Smoothing
+
+bigramsProbDictOne={}
+for (a,b) in bigramsArray:
+    #To get the unique bigrams
+    if (a,b) not in bigramsProbDictOne:
+        bigramsProbDictOne[(a,b)]=(1+cfd[a][b]) / (len(vocabulary)+cfd[a].N())
+print ("\nBigrams Probabilities with add one smoothing\n")
+print (bigramsProbDictOne)
+
+out=open(folder+"bigramProbSmoothed.csv","w")
+for key in bigramsProbDictOne:
+    out.write(str(key)+","+str(bigramsProbDictOne[key])+"\n")
+    
+out.close()
+
+#Probability of sentences
+print ("\n\n Sentence Probabilities:\n")
+sentences=[SentenceA,SentenceB,SentenceC,SentenceD]
+for sentence in sentences:
+    sentenceBigrams = tuple(nltk.bigrams(sentence.split()))
+    sentProb=1
+    bigramProb=[]
+    for (a,b) in sentenceBigrams:
+        prob=(1+cfd[a][b]) / (len(vocabulary)+cfd[a].N())
+        sentProb*= prob
+        bigramProb.append(prob)
+    print (sentence, ":" , sentProb)
+    #print (bigramProb)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-1-ddea3abff10d>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0mfolder[0m[0;34m=[0m[0;34m"C:\\Users\\sriram\\Desktop\\CLA\\Ngrams\\"[0m[0;34m[0m[0m
+[1;32m      8[0m [0mfile[0m[0;34m=[0m[0;34m"nonsense.txt"[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0minputFile[0m[0;34m=[0m[0mopen[0m[0;34m([0m[0mfolder[0m[0;34m+[0m[0mfile[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0mtext[0m[0;34m=[0m[0;34m""[0m[0;34m[0m[0m
+[1;32m     11[0m [0mtextArray[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mOSError[0m: [Errno 22] Invalid argument: 'C:\\Users\\sriram\\Desktop\\CLA\\Ngrams\\nonsense.txt'
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\sriram\\Desktop\\CLA\\Ngrams\\nonsense.txt'
+
+Executability                            : False

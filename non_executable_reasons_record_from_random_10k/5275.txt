@@ -1,0 +1,43 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+Image(filename='./images/01_01.png', width=500) 
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-fa0d0c7b11c4>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mImage[0m[0;34m([0m[0mfilename[0m[0;34m=[0m[0;34m'./images/01_01.png'[0m[0;34m,[0m [0mwidth[0m[0;34m=[0m[0;36m500[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/core/display.py[0m in [0;36m__init__[0;34m(self, data, url, filename, format, embed, width, height, retina, unconfined, metadata)[0m
+[1;32m   1149[0m         [0mself[0m[0;34m.[0m[0munconfined[0m [0;34m=[0m [0munconfined[0m[0;34m[0m[0m
+[1;32m   1150[0m         super(Image, self).__init__(data=data, url=url, filename=filename, 
+[0;32m-> 1151[0;31m                 metadata=metadata)
+[0m[1;32m   1152[0m [0;34m[0m[0m
+[1;32m   1153[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mwidth[0m [0;32mis[0m [0;32mNone[0m [0;32mand[0m [0mself[0m[0;34m.[0m[0mmetadata[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m'width'[0m[0;34m,[0m [0;34m{[0m[0;34m}[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/core/display.py[0m in [0;36m__init__[0;34m(self, data, url, filename, metadata)[0m
+[1;32m    607[0m             [0mself[0m[0;34m.[0m[0mmetadata[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m    608[0m [0;34m[0m[0m
+[0;32m--> 609[0;31m         [0mself[0m[0;34m.[0m[0mreload[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    610[0m         [0mself[0m[0;34m.[0m[0m_check_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    611[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/core/display.py[0m in [0;36mreload[0;34m(self)[0m
+[1;32m   1180[0m         [0;34m"""Reload the raw data from file or URL."""[0m[0;34m[0m[0m
+[1;32m   1181[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0membed[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1182[0;31m             [0msuper[0m[0;34m([0m[0mImage[0m[0;34m,[0m[0mself[0m[0;34m)[0m[0;34m.[0m[0mreload[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1183[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mretina[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1184[0m                 [0mself[0m[0;34m.[0m[0m_retina_shape[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/core/display.py[0m in [0;36mreload[0;34m(self)[0m
+[1;32m    632[0m         [0;34m"""Reload the raw data from file or URL."""[0m[0;34m[0m[0m
+[1;32m    633[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mfilename[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 634[0;31m             [0;32mwith[0m [0mopen[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mfilename[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m_read_flags[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m    635[0m                 [0mself[0m[0;34m.[0m[0mdata[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    636[0m         [0;32melif[0m [0mself[0m[0;34m.[0m[0murl[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: './images/01_01.png'
+FileNotFoundError: [Errno 2] No such file or directory: './images/01_01.png'
+
+Executability                            : False

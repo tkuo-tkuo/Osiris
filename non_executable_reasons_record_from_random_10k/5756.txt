@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Convert pickup and drop offs to datetime objects and reduce counts and duration to save memory
+def convData(data):
+    data['pickup_datetime'] = pd.to_datetime(data['pickup_datetime'])
+    data['dropoff_datetime'] = pd.to_datetime(data['dropoff_datetime'])
+    data.passenger_count = data.passenger_count.astype(int)
+    data.trip_duration = data.trip_duration.astype(int)
+    data.trip_duration = round((data['trip_duration'] / 60),2) # time analysis is now in decimal options
+
+#Run the function    
+convData(df_nyc)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-34f3a1e3f824>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;31m#Run the function[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0mconvData[0m[0;34m([0m[0mdf_nyc[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'df_nyc' is not defined
+NameError: name 'df_nyc' is not defined
+
+Executability                            : False

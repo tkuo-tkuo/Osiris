@@ -1,0 +1,132 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 11 ; number of cells: 15
+Reproducibility                          : matched ratio: 0.733 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+begin = time.time()
+opt = optimize.leastsq(lambda p, y, x:y - x @ p, param, args=(y_err, X_con))
+end = time.time()
+print(opt)
+print(end - begin)
+
+-----------------
+Original output:
+(array([ 0.85787509,  2.0124089 ,  3.00852751,  4.19194791]), 1)
+0.0009989738464355469
+
+Executed output:
+(array([1.06089425, 2.09071754, 2.88438538, 4.05541274]), 1)
+0.0015070438385009766
+
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+begin = time.time()
+opt = optimize.minimize(
+    lambda p, y, x: np.sum((y - x @ p)**2)/2/m, 
+    param, 
+    args=(y_err, X_con), 
+    jac=lambda p, y, x:-x.T @ (y - x @ p)/m, 
+    method='BFGS'
+)
+end = time.time()
+print(opt)
+print(end - begin)
+
+-----------------
+Original output:
+      fun: 0.485694220633477
+ hess_inv: array([[  9.39485861,  -5.94514747,  -4.9981894 ,  -5.67163751],
+       [ -5.94514747,  11.75844078,  -0.1799552 ,  -0.25408951],
+       [ -4.9981894 ,  -0.1799552 ,  10.41797101,   0.03844398],
+       [ -5.67163751,  -0.25408951,   0.03844398,  11.36617952]])
+      jac: array([ -8.11612404e-08,   1.32821473e-06,   1.61043554e-06,
+        -2.82940172e-06])
+  message: 'Optimization terminated successfully.'
+     nfev: 20
+      nit: 18
+     njev: 20
+   status: 0
+  success: True
+        x: array([ 0.85787431,  2.01242807,  3.00854703,  4.19191085])
+0.004000663757324219
+
+Executed output:
+      fun: 0.4790776244802793
+ hess_inv: array([[ 8.2811919 , -5.10054605, -4.7236503 , -5.40995762],
+       [-5.10054605, 11.29541331, -0.42170031, -0.33571495],
+       [-4.7236503 , -0.42170031, 10.18294632,  0.2325748 ],
+       [-5.40995762, -0.33571495,  0.2325748 , 11.19553109]])
+      jac: array([ 2.36977029e-06,  4.88641884e-07, -1.62045623e-07,  7.68878616e-07])
+  message: 'Optimization terminated successfully.'
+     nfev: 16
+      nit: 14
+     njev: 16
+   status: 0
+  success: True
+        x: array([1.06091248, 2.09070857, 2.8843683 , 4.05540688])
+0.008243083953857422
+
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+begin = time.time()
+for i in range(1000):
+    opt = optimize.leastsq(lambda p, y, x:y - x @ p, param, args=(y_err, X_con))
+end = time.time()
+print(opt)
+print(end - begin)
+
+-----------------
+Original output:
+(array([ 0.85787509,  2.0124089 ,  3.00852751,  4.19194791]), 1)
+0.22800087928771973
+
+Executed output:
+(array([1.06089425, 2.09071754, 2.88438538, 4.05541274]), 1)
+0.219801664352417
+
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+begin = time.time()
+for i in range(1000):
+    opt = optimize.minimize(
+        lambda p, y, x: np.sum((y - x @ p)**2)/2/m, 
+        param, 
+        args=(y_err, X_con), 
+        jac=lambda p, y, x:-x.T @ (y - x @ p)/m, 
+        method='L-BFGS-B'
+    )
+end = time.time()
+print(opt)
+print(end - begin)
+
+-----------------
+Original output:
+      fun: 0.48569422055334632
+ hess_inv: <4x4 LbfgsInvHessProduct with dtype=float64>
+      jac: array([  6.75139227e-07,   5.22818183e-07,   8.53617284e-08,
+         2.77786833e-07])
+  message: b'CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL'
+     nfev: 11
+      nit: 9
+   status: 0
+  success: True
+        x: array([ 0.85787641,  2.0124111 ,  3.00852477,  4.19194704])
+0.48201537132263184
+
+Executed output:
+      fun: 0.4790776244636528
+ hess_inv: <4x4 LbfgsInvHessProduct with dtype=float64>
+      jac: array([1.37915110e-06, 5.96685345e-07, 8.71740327e-07, 3.10229546e-07])
+  message: b'CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL'
+     nfev: 12
+      nit: 10
+   status: 0
+  success: True
+        x: array([1.06089721, 2.09071658, 2.88438723, 4.0554086 ])
+0.956838846206665
+

@@ -1,0 +1,36 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+train_data_filenmame = 'train-images.idx3-ubyte'
+test_data_filename = 't10k-images.idx3-ubyte'
+
+train_labels_filename = 'train-labels.idx1-ubyte'
+test_labels_filename = 't10k-labels.idx1-ubyte'
+
+train_data = read_idx(train_data_filenmame)
+test_data = read_idx(test_data_filename)
+
+train_labels = read_idx(train_labels_filename)
+test_labels = read_idx(test_labels_filename)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-3-099b20dc95dd>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0mtest_labels_filename[0m [0;34m=[0m [0;34m't10k-labels.idx1-ubyte'[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0mtrain_data[0m [0;34m=[0m [0mread_idx[0m[0;34m([0m[0mtrain_data_filenmame[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mtest_data[0m [0;34m=[0m [0mread_idx[0m[0;34m([0m[0mtest_data_filename[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-2-0e9600e931a0>[0m in [0;36mread_idx[0;34m(filename)[0m
+[1;32m      1[0m [0;32mdef[0m [0mread_idx[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      3[0m         [0mzero[0m[0;34m,[0m [0mdata_type[0m[0;34m,[0m [0mdims[0m [0;34m=[0m [0mstruct[0m[0;34m.[0m[0munpack[0m[0;34m([0m[0;34m'>HBB'[0m[0;34m,[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;36m4[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m         [0mshape[0m [0;34m=[0m [0mtuple[0m[0;34m([0m[0mstruct[0m[0;34m.[0m[0munpack[0m[0;34m([0m[0;34m'>I'[0m[0;34m,[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;36m4[0m[0;34m)[0m[0;34m)[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;32mfor[0m [0md[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mdims[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m         [0;32mreturn[0m [0mnp[0m[0;34m.[0m[0mfromstring[0m[0;34m([0m[0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0muint8[0m[0;34m)[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0mshape[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'train-images.idx3-ubyte'
+FileNotFoundError: [Errno 2] No such file or directory: 'train-images.idx3-ubyte'
+
+Executability                            : False

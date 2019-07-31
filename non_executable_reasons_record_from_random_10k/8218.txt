@@ -1,0 +1,10 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+os.getcwd()
+df = pd.read_csv('data/all-ages.csv')
+------------------
+
+NameError: name 'os' is not defined
+
+Executability                            : False

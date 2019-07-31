@@ -1,0 +1,60 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+"""
+DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
+"""
+from urllib.request import urlretrieve
+from os.path import isfile, isdir
+from tqdm import tqdm
+import problem_unittests as tests
+import tarfile
+
+cifar10_dataset_folder_path = 'cifar-10-batches-py'
+
+class DLProgress(tqdm):
+    last_block = 0
+
+    def hook(self, block_num=1, block_size=1, total_size=None):
+        self.total = total_size
+        self.update((block_num - self.last_block) * block_size)
+        self.last_block = block_num
+
+if not isfile('cifar-10-python.tar.gz'):
+    with DLProgress(unit='B', unit_scale=True, miniters=1, desc='CIFAR-10 Dataset') as pbar:
+        urlretrieve(
+            'https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz',
+            'cifar-10-python.tar.gz',
+            pbar.hook)
+
+if not isdir(cifar10_dataset_folder_path):
+    with tarfile.open('cifar-10-python.tar.gz') as tar:
+        tar.extractall()
+        tar.close()
+
+
+tests.test_folder_path(cifar10_dataset_folder_path)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-ee5e5b5b3380>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0;32mfrom[0m [0mos[0m[0;34m.[0m[0mpath[0m [0;32mimport[0m [0misfile[0m[0;34m,[0m [0misdir[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfrom[0m [0mtqdm[0m [0;32mimport[0m [0mtqdm[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mimport[0m [0mproblem_unittests[0m [0;32mas[0m [0mtests[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;32mimport[0m [0mtarfile[0m[0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/ChrisParsonsDev@mlnd/Projects/image_classification/problem_unittests.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mrandom[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0munittest[0m[0;34m.[0m[0mmock[0m [0;32mimport[0m [0mMagicMock[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

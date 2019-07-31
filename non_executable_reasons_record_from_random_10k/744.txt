@@ -1,0 +1,28 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+library(lubridate)
+
+Shenandoah <- read.csv(file="./shenandoah-build-125-jdk8.csv", header=FALSE, sep=",")
+G1GC <- MyData <- read.csv(file="./g1gc-build-125-jdk8.csv", header=FALSE, sep=",")
+
+Sseconds <- unlist(lapply(lapply(Shenandoah$V1, hms), as.numeric))
+Gseconds <- unlist(lapply(lapply(G1GC$V1, hms), as.numeric))
+summary(Sseconds)
+summary(Gseconds)
+
+var.test(Sseconds, Gseconds)
+
+#test if Sseconds is likely to be less (lower) than Gseconds
+t.test(Sseconds,Gseconds, alternative="less")
+#test if Gseconds is likely to be less (lower) than Sseconds, sanity check
+t.test(Gseconds,Sseconds, alternative="less")
+
+time_length((sum(Sseconds) +sum(Gseconds)), unit = "days")
+------------------
+
+SyntaxError: invalid syntax (<ipython-input-1-d7a4764d15a0>, line 8)
+
+Executability                            : False

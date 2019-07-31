@@ -1,0 +1,38 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 19 ; number of cells: 20
+Reproducibility                          : matched ratio: 0.95 ; index of matched cells: [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+r = BinaryTree('a')
+print(r.getRootVal())
+print(r.getLeftChild())
+r.insertLeft('b')
+print(r.getLeftChild())
+print(r.getLeftChild().getRootVal())
+r.insertRight('c')
+print(r.getRightChild())
+print(r.getRightChild().getRootVal())
+r.getRightChild().setRootVal('hello')
+print(r.getRightChild().getRootVal())
+
+-----------------
+Original output:
+a
+None
+<__main__.BinaryTree object at 0x0000021F3248B160>
+b
+<__main__.BinaryTree object at 0x0000021F3248B2B0>
+c
+hello
+
+Executed output:
+a
+None
+<__main__.BinaryTree object at 0x7f8af85d0b38>
+b
+<__main__.BinaryTree object at 0x7f8af85d0ac8>
+c
+hello
+

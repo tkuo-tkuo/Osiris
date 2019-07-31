@@ -1,0 +1,77 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+import cv2 #Image segmentation Library
+import numpy as np #Numerical functions lib
+from matplotlib import pyplot as plt #Basic ploting lib
+import sys
+import os #Lib for get the operative system sintaxis
+from glob import glob #library used for get the file paths
+import seaborn as sns #Library used for a nicer plotting
+#from sklearn import linear_model#Machine learning package for a smart plot fit
+#from sklearn import datasets
+import pandas as pd
+import random
+
+#CUSTOM FUNCTIONS
+
+
+# Quicksort algorithm implementation
+def quicksort(l):
+        if l:
+                left = [x for x in l if x < l[0]]
+                right = [x for x in l if x > l[0]]
+                if len(left) > 1:
+                        left = quicksort(left)
+                if len(right) > 1:
+                        right = quicksort(right)
+                return left + [l[0]] * l.count(l[0]) + right
+
+# Switches rows and columns in a list of lists
+def coltorow(alist): 
+    arr = [list(i) for i in zip(*alist)]
+    return arr
+
+# Custom peak detection algorithm y = data, thresh = peak heigth, peakdist= mininimum distance between peaks
+def indexes(y,thresh,peakdist): 
+    dy = np.diff(y)
+    ind = []
+    for i in range(len(dy)):
+        if len(ind) > 0:
+            if dy[i] < dy[int(i-1)] and dy[i] <- thresh and i - peakdist > ind[-1]:
+                ind.append(i)
+        elif len(ind) == 0:
+            if dy[i] < dy[int(i-1)] and dy[i] <- thresh:
+                ind.append(i)
+    return ind
+
+# Custom contour sorting algorithm
+def sort_contours(cnts, method="LtR"):
+    reverse = False
+    i = 0
+    if method == "RtL" or method == "BtT":
+        reverse = True
+    if method == "TtB" or method == "BtB":
+        i = 1
+    boundingBoxes = [cv2.boundingRect(c) for c in cnts]
+    (cnts, boundingBoxes) = zip(*sorted(zip(cnts, boundingBoxes),
+        key=lambda b:b[1][i], reverse=reverse))
+    return (cnts, boundingBoxes)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-cdadae413cd4>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mcv2[0m [0;31m#Image segmentation Library[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m [0;31m#Numerical functions lib[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0mpyplot[0m [0;32mas[0m [0mplt[0m [0;31m#Basic ploting lib[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

@@ -1,0 +1,181 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 8
+Reproducibility                          : matched ratio: 0.375 ; index of matched cells: [1, 2, 6]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics.pairwise import cosine_similarity
+pd.__version__
+
+-----------------
+Original output:
+'0.20.1'
+Executed output:
+'0.24.2'
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+avgRatings = getAverageRatings(Ratings)
+allMovies = pd.merge(allMovies, avgRatings, on="movieId", how='left')
+allMovies.head(2)
+
+-----------------
+Original output:
+  drama children fantasy  year war western romancecioccolata animation horror  \
+0     0        1       1  1995   0       0                 0         1      0   
+1     0        1       1  1995   0       0                 0         0      0   
+
+  romance musical             title movieId dra documentary sci-fi adventure  \
+0       0       0  Toy Story (1995)       1   0           0      0         1   
+1       0       0    Jumanji (1995)       2   0           0      0         1   
+
+  thriller comedy imax mystery action crime film-noir  Avg_rating  
+0        0      1    0       0      0     0         0    3.872470  
+1        0      0    0       0      0     0         0    3.401869  
+Executed output:
+  documentary crime fantasy  year romancecioccolata comedy war horror drama  \
+0           0     0       1  1995                 0      1   0      0     0   
+1           0     0       1  1995                 0      0   0      0     0   
+
+  mystery             title imax animation action thriller western film-noir  \
+0       0  Toy Story (1995)    0         1      0        0       0         0   
+1       0    Jumanji (1995)    0         0      0        0       0         0   
+
+  children romance adventure musical sci-fi dra movieId  Avg_rating  
+0        1       0         1       0      0   0       1    3.872470  
+1        1       0         1       0      0   0       2    3.401869  
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+allMovies['year'] = scale_year(allMovies, 'year')
+allMovies['Avg_rating'] = scale_year(allMovies, 'Avg_rating')
+sim_from, sim_to = get_source_and_target_movies(allMovies=allMovies)
+movie_name = allMovies[allMovies['title'] == sim_to.index.values[0]].movieId.values[0]
+print('You want to find movies similar to movie with id <<%s>> and name << %s >>' % (movie_name, sim_to.index.values[0]))
+
+-----------------
+Original output:
+You want to find movies similar to movie with id <<451>> and name << Flesh and Bone (1993) >>
+
+Executed output:
+You want to find movies similar to movie with id <<441>> and name << Dazed and Confused (1993) >>
+
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+sim_to.head()
+
+-----------------
+Original output:
+                      drama children fantasy      year war western  \
+title                                                                
+Flesh and Bone (1993)     1        0       0  0.949153   0       0   
+
+                      romancecioccolata animation horror romance musical dra  \
+title                                                                          
+Flesh and Bone (1993)                 0         0      0       1       0   0   
+
+                      documentary sci-fi adventure thriller comedy imax  \
+title                                                                     
+Flesh and Bone (1993)           0      0         0        0      0    0   
+
+                      mystery action crime film-noir  Avg_rating  
+title                                                             
+Flesh and Bone (1993)       1      0     0         0    0.607143  
+Executed output:
+                          documentary crime fantasy      year  \
+title                                                           
+Dazed and Confused (1993)           0     0       0  0.949153   
+
+                          romancecioccolata comedy war horror drama mystery  \
+title                                                                         
+Dazed and Confused (1993)                 0      1   0      0     0       0   
+
+                          imax animation action thriller western film-noir  \
+title                                                                        
+Dazed and Confused (1993)    0         0      0        0       0         0   
+
+                          children romance adventure musical sci-fi dra  \
+title                                                                     
+Dazed and Confused (1993)        0       0         0       0      0   0   
+
+                           Avg_rating  
+title                                  
+Dazed and Confused (1993)    0.665541  
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+sim_df = pd.DataFrame(data=similar_movies, columns=['title', 'sim_index'])
+sim_df = sim_df.sort_values(by=['sim_index'], ascending=False)
+sim_df.head(30)
+
+-----------------
+Original output:
+                                               title       sim_index
+400                            Flesh and Bone (1993)             1.0
+111    Chungking Express <Chung Hing sam lam> (1994)  0.997971721088
+377                             Boxing Helena (1993)  0.888692890758
+221                          Immortal Beloved (1994)  0.875029719277
+158                                  Mad Love (1995)  0.874971707113
+183                     Walk in the Clouds, A (1995)  0.874937441416
+33                                 Carrington (1995)  0.874928220385
+410                                   Go Fish (1994)    0.8749127368
+121                     Up Close and Personal (1996)  0.874858144783
+540                                 Jane Eyre (1996)  0.874852333429
+533                              One Fine Day (1996)  0.874739065177
+242                               Love Affair (1994)  0.874700836442
+270           Queen Margot <Reine Margot, La> (1994)  0.874533678504
+189                            Before Sunrise (1995)  0.874484719329
+24                          Leaving Las Vegas (1995)  0.874406308285
+435                              M. Butterfly (1993)  0.874386541506
+417                 House of the Spirits, The (1993)  0.874386541506
+345                  When a Man Loves a Woman (1994)  0.874364978948
+44              How to Make an American Quilt (1995)  0.874361660306
+455                                Piano, The (1993)  0.874345889669
+103                          Before and After (1996)   0.87432124154
+97             Bridges of Madison County, The (1995)  0.874113107813
+375                                  Blue Sky (1994)  0.873744768859
+504                                  Germinal (1993)  0.873673763568
+16                      Sense and Sensibility (1995)  0.873464875797
+195                         Circle of Friends (1995)  0.873417604505
+77   Once Upon a Time... When We Were Colored (1995)  0.873414694273
+178                             Total Eclipse (1995)  0.873414694273
+169                       Scarlet Letter, The (1995)  0.873414694273
+69                               Bed of Roses (1996)  0.873388234573
+Executed output:
+                                                 title           sim_index
+390                          Dazed and Confused (1993)  1.0000000000000002
+460                                    Ref, The (1994)  0.9999529959933507
+155                          Living in Oblivion (1995)  0.9998250232338677
+278                     Stuart Saves His Family (1995)  0.9997514749966843
+64                                       Friday (1995)  0.9997505380015588
+113                      Flirting With Disaster (1996)  0.9997210988692519
+398                         Fear of a Black Hat (1994)  0.9995954017170223
+419                        Hudsucker Proxy, The (1994)  0.9995844564790793
+122                               Birdcage, The (1996)  0.9994852053243198
+313                       Bullets Over Broadway (1994)  0.9993141215020532
+307                            Muriel's Wedding (1994)  0.9992950148651495
+196                                      Clerks (1994)  0.9991766391558825
+415                             Live Nude Girls (1995)  0.9983316127882601
+123                      Brothers McMullen, The (1995)  0.9982770077033981
+298                                   Tommy Boy (1995)  0.9982169181159714
+179  To Wong Foo, Thanks for Everything! Julie Newm...  0.9980767767678201
+17                                   Four Rooms (1995)  0.9979284344156685
+4                   Father of the Bride Part II (1995)   0.997726820065466
+96                                Happy Gilmore (1996)   0.997624630347681
+220                                  Houseguest (1994)  0.9967483939482636
+394                              Fatal Instinct (1993)  0.9964625710000738
+466                   Robin Hood: Men in Tights (1993)  0.9957709452829798
+518                      Brady Bunch Movie, The (1995)  0.9952949182714799
+190                               Billy Madison (1995)  0.9945226603792815
+505                                     Chasers (1994)  0.9945084571942948
+250                              Miami Rhapsody (1995)  0.9941270429568301
+532                               Bye Bye, Love (1995)  0.9941270429568301
+108                     Steal Big, Steal Little (1995)  0.9941270429568301
+290              National Lampoon's Senior Trip (1995)  0.9941270429568301
+119                              Down Periscope (1996)   0.993679192080263

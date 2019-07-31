@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+plot_graphs(method_name = "Euler method", 
+            method = euler_methodthod, 
+            start_x = [10.0, -7.0, 4.0],
+            r = 24)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-964c3537b84b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m plot_graphs(method_name = "Euler method", 
+[0;32m----> 2[0;31m             [0mmethod[0m [0;34m=[0m [0meuler_methodthod[0m[0;34m,[0m[0;34m[0m[0m
+[0m[1;32m      3[0m             [0mstart_x[0m [0;34m=[0m [0;34m[[0m[0;36m10.0[0m[0;34m,[0m [0;34m-[0m[0;36m7.0[0m[0;34m,[0m [0;36m4.0[0m[0;34m][0m[0;34m,[0m[0;34m[0m[0m
+[1;32m      4[0m             r = 24)
+
+[0;31mNameError[0m: name 'euler_methodthod' is not defined
+NameError: name 'euler_methodthod' is not defined
+
+Executability                            : False

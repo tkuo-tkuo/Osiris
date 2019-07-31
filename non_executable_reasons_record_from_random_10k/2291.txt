@@ -1,0 +1,155 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Create functions for Dask
+def calcTrow(Xn,Yn,Zn,xyzLoc, rxType='z'):
+    """
+    Load in the active nodes of a tensor mesh and computes the gravity tensor
+    for a given observation location xyzLoc[obsx, obsy, obsz]
+
+    INPUT:
+    Xn, Yn, Zn: Node location matrix for the lower and upper most corners of
+                all cells in the mesh shape[nC,2]
+    M
+    OUTPUT:
+    Tx = [Txx Txy Txz]
+    Ty = [Tyx Tyy Tyz]
+    Tz = [Tzx Tzy Tzz]
+
+    where each elements have dimension 1-by-nC.
+    Only the upper half 5 elements have to be computed since symetric.
+    Currently done as for-loops but will eventually be changed to vector
+    indexing, once the topography has been figured out.
+
+    """
+
+    NewtG = constants.G*1e+8  # Convertion from mGal (1e-5) and g/cc (1e-3)
+    eps = 1e-8  # add a small value to the locations to avoid
+
+    # Pre-allocate space for 1D array
+    row = np.zeros((1, Xn.shape[0]))
+
+    dz = xyzLoc[2] - Zn
+
+    dy = Yn - xyzLoc[1]
+
+    dx = Xn - xyzLoc[0]
+
+    # Compute contribution from each corners
+    for aa in range(2):
+        for bb in range(2):
+            for cc in range(2):
+
+                r = (
+                        mkvc(dx[:, aa]) ** 2 +
+                        mkvc(dy[:, bb]) ** 2 +
+                        mkvc(dz[:, cc]) ** 2
+                    ) ** (0.50)
+
+                if rxType == 'x':
+                    row = row - NewtG * (-1) ** aa * (-1) ** bb * (-1) ** cc * (
+                        dy[:, bb] * np.log(dz[:, cc] + r + eps) +
+                        dz[:, cc] * np.log(dy[:, bb] + r + eps) -
+                        dx[:, aa] * np.arctan(dy[:, bb] * dz[:, cc] /
+                                              (dx[:, aa] * r + eps)))
+
+                elif rxType == 'y':
+                    row = row - NewtG * (-1) ** aa * (-1) ** bb * (-1) ** cc * (
+                        dx[:, aa] * np.log(dz[:, cc] + r + eps) +
+                        dz[:, cc] * np.log(dx[:, aa] + r + eps) -
+                        dy[:, bb] * np.arctan(dx[:, aa] * dz[:, cc] /
+                                              (dy[:, bb] * r + eps)))
+
+                else:
+                    row -= NewtG * (-1) ** aa * (-1) ** bb * (-1) ** cc * (
+                        dx[:, aa] * np.log(dy[:, bb] + r + eps) +
+                        dy[:, bb] * np.log(dx[:, aa] + r + eps) -
+                        dz[:, cc] * np.arctan(dx[:, aa] * dy[:, bb] /
+                                              (dz[:, cc] * r + eps)))
+
+    return row
+
+                        
+
+
+# Create random problem class
+
+N = 10000
+
+class forward(object):
+
+    A = None
+
+    @property
+    def A(self):
+
+        if getattr(self, '_A', None) is None:
+
+            self._A = da.random.random_sample(size=(N,N), chunks=[int(N/16),int(N/16)])
+
+        return self._A
+
+    def fields(self, model):
+        print("fields")
+        return da.dot(self.A, model)
+
+    def Jvec(self, v):
+
+        vec = da.dot(self.A, v)
+        row = dask.delayed(
+            sp.csr_matrix.dot)(
+                sp.eye(N), vec
+            )
+
+        return da.from_delayed(row, dtype=float, shape=(1, N))
+    
+    def Jtvec(self, v):
+
+        vec = da.dot(self.A, v)
+        row = dask.delayed(
+            sp.csr_matrix.dot)(
+                sp.eye(N), vec
+            )
+
+        return da.from_delayed(row, dtype=float, shape=(1, N))
+
+    def deriv(self, m):
+        
+#         f = self.fields(m)
+
+        row = self.Jvec(np.ones(N))
+
+        return da.from_delayed(row, dtype=float, shape=(1, N))
+
+@dask.delayed
+def rowSum(arr):
+    sum = 0
+    for i in range(len(arr)):
+        sum += arr[i]
+    return sum
+
+
+# Create a list of forward
+F = [forward() for ii in range(10)]    
+        
+        
+    
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-a5f4b3b3339a>[0m in [0;36m<module>[0;34m[0m
+[1;32m    121[0m         [0;32mreturn[0m [0mda[0m[0;34m.[0m[0mfrom_delayed[0m[0;34m([0m[0mrow[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mfloat[0m[0;34m,[0m [0mshape[0m[0;34m=[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0mN[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    122[0m [0;34m[0m[0m
+[0;32m--> 123[0;31m [0;34m@[0m[0mdask[0m[0;34m.[0m[0mdelayed[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    124[0m [0;32mdef[0m [0mrowSum[0m[0;34m([0m[0marr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    125[0m     [0msum[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'dask' is not defined
+NameError: name 'dask' is not defined
+
+Executability                            : False

@@ -1,0 +1,40 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+rms2=(2*6.4)**.5
+
+newK5=Cell(L=0,N=200,trans_speed=1.8,avalanche_on=True,L_mod=True, build_size=.25/200, decay_size=.0037, rms_disp=rms2,
+         thresh=30, num_release = 30)
+newK5.sim(10000)
+newK5.growth()
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-06ce0649e3dc>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m newK5=Cell(L=0,N=200,trans_speed=1.8,avalanche_on=True,L_mod=True, build_size=.25/200, decay_size=.0037, rms_disp=rms2,
+[0;32m----> 4[0;31m          thresh=30, num_release = 30)
+[0m[1;32m      5[0m [0mnewK5[0m[0;34m.[0m[0msim[0m[0;34m([0m[0;36m10000[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0mnewK5[0m[0;34m.[0m[0mgrowth[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-2eab29e86946>[0m in [0;36m__init__[0;34m(self, L, N, trans_speed, k_on, k_off, avalanche_on, thresh, num_release, L_mod, build_size, decay_size, rms_disp)[0m
+[1;32m     16[0m         [0mself[0m[0;34m.[0m[0mk_off[0m [0;34m=[0m [0mk_off[0m[0;34m[0m[0m
+[1;32m     17[0m         [0mself[0m[0;34m.[0m[0mN[0m [0;34m=[0m [0mN[0m[0;34m[0m[0m
+[0;32m---> 18[0;31m         [0mself[0m[0;34m.[0m[0mmotors[0m [0;34m=[0m [0;34m[[0m[0mMotor[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mN[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m     19[0m         [0mself[0m[0;34m.[0m[0mtrack_active[0m [0;34m=[0m [0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0m
+[1;32m     20[0m         [0mself[0m[0;34m.[0m[0mactive50[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mN[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-2eab29e86946>[0m in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m     16[0m         [0mself[0m[0;34m.[0m[0mk_off[0m [0;34m=[0m [0mk_off[0m[0;34m[0m[0m
+[1;32m     17[0m         [0mself[0m[0;34m.[0m[0mN[0m [0;34m=[0m [0mN[0m[0;34m[0m[0m
+[0;32m---> 18[0;31m         [0mself[0m[0;34m.[0m[0mmotors[0m [0;34m=[0m [0;34m[[0m[0mMotor[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mN[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m     19[0m         [0mself[0m[0;34m.[0m[0mtrack_active[0m [0;34m=[0m [0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0m
+[1;32m     20[0m         [0mself[0m[0;34m.[0m[0mactive50[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mN[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'Motor' is not defined
+NameError: name 'Motor' is not defined
+
+Executability                            : False

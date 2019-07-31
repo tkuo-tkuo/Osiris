@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+### FIRST SOME CODE ####
+
+from __future__ import division, print_function, absolute_import
+from IPython.display import SVG, display, Image
+
+import numpy as np, scipy as sp, pylab as pl, matplotlib.pyplot as plt, scipy.stats as stats, sklearn, sklearn.datasets
+from scipy.spatial.distance import squareform, pdist, cdist
+
+import distributions as dist #commit 480cf98 of https://github.com/ingmarschuster/distributions
+
+pl.style.use(u'seaborn-talk')
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-867f71608b04>"[0;36m, line [0;32m8[0m
+[0;31m    import numpy as np, scipy as sp, pylab as pl, matplotlib.pyplot as plt, scipy.stats as stats, sklearn, sklearn.datasets[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-867f71608b04>, line 8)
+
+Executability                            : False

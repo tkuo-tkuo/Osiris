@@ -1,0 +1,44 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy
+folder="C:\\Users\\sriram\\OneDrive\\Fall 2016\\Data Mining\\Assignment\\Assignment 2\\"
+inputFile="bcWiscon.txt"
+
+dataArray=numpy.genfromtxt(folder+inputFile,delimiter=",",missing_values=('?'))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-1-3e69962d2352>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0minputFile[0m[0;34m=[0m[0;34m"bcWiscon.txt"[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0mdataArray[0m[0;34m=[0m[0mnumpy[0m[0;34m.[0m[0mgenfromtxt[0m[0;34m([0m[0mfolder[0m[0;34m+[0m[0minputFile[0m[0;34m,[0m[0mdelimiter[0m[0;34m=[0m[0;34m","[0m[0;34m,[0m[0mmissing_values[0m[0;34m=[0m[0;34m([0m[0;34m'?'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/numpy/lib/npyio.py[0m in [0;36mgenfromtxt[0;34m(fname, dtype, comments, delimiter, skip_header, skip_footer, converters, missing_values, filling_values, usecols, names, excludelist, deletechars, replace_space, autostrip, case_sensitive, defaultfmt, unpack, usemask, loose, invalid_raise, max_rows, encoding)[0m
+[1;32m   1687[0m             [0mfname[0m [0;34m=[0m [0mstr[0m[0;34m([0m[0mfname[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1688[0m         [0;32mif[0m [0misinstance[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0mbasestring[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1689[0;31m             [0mfhd[0m [0;34m=[0m [0miter[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mlib[0m[0;34m.[0m[0m_datasource[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'rt'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1690[0m             [0mown_fhd[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0m
+[1;32m   1691[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/numpy/lib/_datasource.py[0m in [0;36mopen[0;34m(path, mode, destpath, encoding, newline)[0m
+[1;32m    258[0m [0;34m[0m[0m
+[1;32m    259[0m     [0mds[0m [0;34m=[0m [0mDataSource[0m[0;34m([0m[0mdestpath[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 260[0;31m     [0;32mreturn[0m [0mds[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mpath[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m,[0m [0mnewline[0m[0;34m=[0m[0mnewline[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    261[0m [0;34m[0m[0m
+[1;32m    262[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/numpy/lib/_datasource.py[0m in [0;36mopen[0;34m(self, path, mode, encoding, newline)[0m
+[1;32m    614[0m                                       encoding=encoding, newline=newline)
+[1;32m    615[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 616[0;31m             [0;32mraise[0m [0mIOError[0m[0;34m([0m[0;34m"%s not found."[0m [0;34m%[0m [0mpath[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    617[0m [0;34m[0m[0m
+[1;32m    618[0m [0;34m[0m[0m
+
+[0;31mOSError[0m: C:\Users\sriram\OneDrive\Fall 2016\Data Mining\Assignment\Assignment 2\bcWiscon.txt not found.
+OSError: C:\Users\sriram\OneDrive\Fall 2016\Data Mining\Assignment\Assignment 2\bcWiscon.txt not found.
+
+Executability                            : False

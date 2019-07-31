@@ -1,0 +1,20 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Display a description of the dataset
+display(data.describe())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-60fc825d615f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# Display a description of the dataset[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mdisplay[0m[0;34m([0m[0mdata[0m[0;34m.[0m[0mdescribe[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'data' is not defined
+NameError: name 'data' is not defined
+
+Executability                            : False

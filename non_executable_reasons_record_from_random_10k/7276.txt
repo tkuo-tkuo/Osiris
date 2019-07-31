@@ -1,0 +1,44 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+next(stream_docs(path="C:/Users/309292/Desktop/Python/aclImdb/movie_data.csv"))
+# to check if the stream_docs function works properly
+
+def get_minibatch(doc_stream, size):
+    docs, y = [], []
+    try:
+        for _ in range(size):
+            text, label = next(doc_stream)
+            docs.append(text)
+            y.append(label)
+    except StopIteration:
+        return None, None
+    return docs, y
+
+from sklearn.feature_extraction.text import HashingVectorizer
+from sklearn.linear_model import SGDClassifier
+vect = HashingVectorizer(decode_error='ignore', n_features=2**21, preprocessor=None, tokenizer=tokenizer)
+clf = SGDClassifier(loss='log', random_state=1, n_iter=1)
+doc_stream = stream_docs(path='C:/Users/309292/Desktop/Python/aclImdb/movie_data.csv')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-4-8fc8ee0a981c>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mnext[0m[0;34m([0m[0mstream_docs[0m[0;34m([0m[0mpath[0m[0;34m=[0m[0;34m"C:/Users/309292/Desktop/Python/aclImdb/movie_data.csv"[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;31m# to check if the stream_docs function works properly[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;32mdef[0m [0mget_minibatch[0m[0;34m([0m[0mdoc_stream[0m[0;34m,[0m [0msize[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mdocs[0m[0;34m,[0m [0my[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m,[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+
+[0;32m<ipython-input-3-107f0c5fe113>[0m in [0;36mstream_docs[0;34m(path)[0m
+[1;32m     13[0m [0;34m[0m[0m
+[1;32m     14[0m [0;32mdef[0m [0mstream_docs[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m:[0m    [0;31m# a generator function that reads and returns one document at a time[0m[0;34m[0m[0m
+[0;32m---> 15[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0mpath[0m[0;34m,[0m [0;34m'r'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'ISO-8859-1'[0m[0;34m)[0m [0;32mas[0m [0mcsv[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     16[0m         [0mnext[0m[0;34m([0m[0mcsv[0m[0;34m)[0m  [0;31m# skip header[0m[0;34m[0m[0m
+[1;32m     17[0m         [0;32mfor[0m [0mline[0m [0;32min[0m [0mcsv[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'C:/Users/309292/Desktop/Python/aclImdb/movie_data.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/309292/Desktop/Python/aclImdb/movie_data.csv'
+
+Executability                            : False

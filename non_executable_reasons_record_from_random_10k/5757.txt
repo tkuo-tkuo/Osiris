@@ -1,0 +1,107 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+from __future__ import print_function
+from distutils.version import LooseVersion as Version
+import sys
+
+
+
+OK = '\x1b[42m[ OK ]\x1b[0m'
+FAIL = "\x1b[41m[FAIL]\x1b[0m"
+
+try:
+    import importlib
+except ImportError:
+    print(FAIL, "Python version 3.4 (or 2.7) is required,"
+                " but %s is installed." % sys.version)
+
+    
+def import_version(pkg, min_ver, fail_msg=""):
+    mod = None
+    try:
+        mod = importlib.import_module(pkg)
+        if pkg in {'PIL'}:
+            ver = mod.VERSION
+        else:
+            ver = mod.__version__
+        if Version(ver) < min_ver:
+            print(FAIL, "%s version %s or higher required, but %s installed."
+                  % (lib, min_ver, ver))
+        else:
+            print(OK, '%s version %s' % (pkg, ver))
+    except ImportError:
+        print(FAIL, '%s not installed. %s' % (pkg, fail_msg))
+    return mod
+
+
+# first check the python version
+print('Using python in', sys.prefix)
+print(sys.version)
+pyversion = Version(sys.version)
+if pyversion >= "3":
+    if pyversion < "3.4":
+        print(FAIL, "Python version 3.4 (or 2.7) is required,"
+                    " but %s is installed." % sys.version)
+elif pyversion >= "2":
+    if pyversion < "2.7":
+        print(FAIL, "Python version 2.7 is required,"
+                    " but %s is installed." % sys.version)
+else:
+    print(FAIL, "Unknown Python version: %s" % sys.version)
+
+print()
+requirements = {'numpy': "1.6.1", 'scipy': "0.9", 'matplotlib': "1.0",
+                'IPython': "3.0", 'sklearn': "0.18", 'pandas': "0.18",
+                'PIL': "1.1.7"}
+
+# now the dependencies
+for lib, required_version in list(requirements.items()):
+    import_version(lib, required_version)
+
+# graphviz is a bit different
+testgraph = """'digraph Tree {\nnode [shape=box] ;\n0 [label="X[0] <= -3.6693\\ngini = 0.6666\\nsamples = 100\\nvalue = [34, 33, 33]"] ;\n1 [label="X[0] <= -8.3538\\ngini = 0.5\\nsamples = 66\\nvalue = [0, 33, 33]"] ;\n0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;\n2 [label="gini = 0.0\\nsamples = 33\\nvalue = [0, 33, 0]"] ;\n1 -> 2 ;\n3 [label="gini = 0.0\\nsamples = 33\\nvalue = [0, 0, 33]"] ;\n1 -> 3 ;\n4 [label="gini = 0.0\\nsamples = 34\\nvalue = [34, 0, 0]"] ;\n0 -> 4 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;\n}'"""
+try:
+    import graphviz
+    graphviz.Source(testgraph)
+except:
+    print("graphviz is not installed."
+          "It is not required but you will miss out on some plots."
+          "\nYou can install it using 'pip install graphviz'."
+          "You will *also* need to install the graphviz C library, either"
+          " using 'conda install graphviz' or your package manager")
+
+
+-----------------
+Original output:
+Using python in /home/andy/anaconda3
+3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+
+[42m[ OK ][0m sklearn version 0.19.dev0
+[42m[ OK ][0m matplotlib version 2.0.0
+[42m[ OK ][0m PIL version 1.1.7
+[42m[ OK ][0m pandas version 0.19.2
+[42m[ OK ][0m IPython version 5.1.0
+[42m[ OK ][0m numpy version 1.12.1
+[42m[ OK ][0m scipy version 0.19.0
+
+Executed output:
+Using python in /home/dabao/anaconda3/envs/Osiris_py35
+3.5.5 |Anaconda, Inc.| (default, May 13 2018, 21:12:35) 
+[GCC 7.2.0]
+
+[42m[ OK ][0m sklearn version 0.19.1
+[42m[ OK ][0m PIL version 1.1.7
+[42m[ OK ][0m matplotlib version 2.2.2
+[42m[ OK ][0m pandas version 0.23.0
+[42m[ OK ][0m scipy version 1.1.0
+[42m[ OK ][0m IPython version 6.4.0
+[42m[ OK ][0m numpy version 1.14.3
+graphviz is not installed.It is not required but you will miss out on some plots.
+You can install it using 'pip install graphviz'.You will *also* need to install the graphviz C library, either using 'conda install graphviz' or your package manager
+

@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import org.apache.spark.sql.functions.get_json_object
+import org.apache.spark.sql.functions.json_tuple
+ 
+streamingInputDF = \
+  spark.readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "<server:ip>") \
+    .option("subscribe", "topic1") \
+    .option("startingOffsets", "latest") \
+    .option("minPartitions", "10") \
+    .option("failOnDataLoss", "true") \
+    .load()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-07cec180f0ea>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0morg[0m[0;34m.[0m[0mapache[0m[0;34m.[0m[0mspark[0m[0;34m.[0m[0msql[0m[0;34m.[0m[0mfunctions[0m[0;34m.[0m[0mget_json_object[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0morg[0m[0;34m.[0m[0mapache[0m[0;34m.[0m[0mspark[0m[0;34m.[0m[0msql[0m[0;34m.[0m[0mfunctions[0m[0;34m.[0m[0mjson_tuple[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'org'
+ImportError: No module named 'org'
+
+Executability                            : False

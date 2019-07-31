@@ -1,0 +1,13 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+data = pd.read_csv("thanksgiving.csv", encoding = "Latin-1")
+data[:3]
+------------------
+
+FileNotFoundError: File b'thanksgiving.csv' does not exist
+
+Executability                            : False

@@ -1,0 +1,62 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+from ExampleBoundaries import TruncatedSphere
+from AcousticProperties import *
+from RayleighCavitySolver3D import *
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+f = 50.0 # Hertz
+k = frequencyToWavenumber(f)
+
+solver = RayleighCavitySolver3D(TruncatedSphere())
+boundaryCondition = solver.neumannBoundaryCondition()
+
+nBoundaryElements = solver.numberOfElements()
+for i in range(nBoundaryElements):
+    if i >= nBoundaryElements - 6: 
+        # last 6 triangles in element array are radiating
+        boundaryCondition.f[i] = 1.0
+    else:
+        boundaryCondition.f[i] = 0.0
+        
+exteriorPoints = np.array([[0.0000, 0.0000, 1.0000],
+                           [0.0000, 0.0000, 2.0000],
+                           [0.0000, 0.0000, 10.000]], dtype=np.float32)
+
+interiorPoints = np.array([[0.5000, 0.0000, 0.0000],
+                           [0.0000, 0.0000, 0.0100],
+                           [0.0000, 0.0000, 0.2500],
+                           [0.0000, 0.0000, 0.5000]], dtype=np.float32)
+
+solution = solver.solveBoundary(k, boundaryCondition)
+
+print(solution)
+
+interiorPhi = solution.solveCavity(interiorPoints)
+print("Sound pressure at the interior points\n")
+print(interiorPhi)
+
+exteriorPhi = solution.solveSamples(exteriorPoints)
+print("Sound pressure at the exterior points\n")
+print(exteriorPhi)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-f5ded22f6ac6>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mExampleBoundaries[0m [0;32mimport[0m [0mTruncatedSphere[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mAcousticProperties[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mRayleighCavitySolver3D[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'ExampleBoundaries'
+ModuleNotFoundError: No module named 'ExampleBoundaries'
+
+Executability                            : False

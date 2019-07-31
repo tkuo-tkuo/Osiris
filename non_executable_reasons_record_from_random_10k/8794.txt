@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import os
+filename = os.path.join(skimage.data_dir, 'moon.png')
+from skimage import io
+moon = io.imread(filename)
+io.imshow(moon)
+io.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-0da29ecdb261>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mfilename[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mskimage[0m[0;34m.[0m[0mdata_dir[0m[0;34m,[0m [0;34m'moon.png'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfrom[0m [0mskimage[0m [0;32mimport[0m [0mio[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mmoon[0m [0;34m=[0m [0mio[0m[0;34m.[0m[0mimread[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mio[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0mmoon[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'skimage' is not defined
+NameError: name 'skimage' is not defined
+
+Executability                            : False

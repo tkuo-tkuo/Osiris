@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#Test
+art_data = ArtData()
+art_data.load_images()
+art_data.load_metadata()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-3-b64965e3a10e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#Test[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mart_data[0m [0;34m=[0m [0mArtData[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mart_data[0m[0;34m.[0m[0mload_images[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mart_data[0m[0;34m.[0m[0mload_metadata[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-009a4ab6d010>[0m in [0;36mload_images[0;34m(self)[0m
+[1;32m     31[0m         [0mfiles[0m [0;34m=[0m [0mglob[0m[0;34m.[0m[0mglob[0m[0;34m([0m[0;34m'*.jpg'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     32[0m         [0;32mfor[0m [0mfile[0m [0;32min[0m [0mfiles[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 33[0;31m             [0mimage[0m [0;34m=[0m [0mmisc[0m[0;34m.[0m[0mimread[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     34[0m             [0mself[0m[0;34m.[0m[0mtrain_images[0m[0;34m[[0m[0mfile[0m[0;34m][0m [0;34m=[0m [0mimage[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     35[0m         [0;32mif[0m [0mlen[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mtrain_images[0m[0;34m)[0m [0;34m>[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'scipy.misc' has no attribute 'imread'
+AttributeError: module 'scipy.misc' has no attribute 'imread'
+
+Executability                            : False

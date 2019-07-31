@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+data.index = pd.PeriodIndex(data["Año"].astype(str)+"Q" + data["Trimestre"].astype(str), freq="Q")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-11-2c1a37d59d92>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdata[0m[0;34m.[0m[0mindex[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mPeriodIndex[0m[0;34m([0m[0mdata[0m[0;34m[[0m[0;34m"Año"[0m[0;34m][0m[0;34m.[0m[0mastype[0m[0;34m([0m[0mstr[0m[0;34m)[0m[0;34m+[0m[0;34m"Q"[0m [0;34m+[0m [0mdata[0m[0;34m[[0m[0;34m"Trimestre"[0m[0;34m][0m[0;34m.[0m[0mastype[0m[0;34m([0m[0mstr[0m[0;34m)[0m[0;34m,[0m [0mfreq[0m[0;34m=[0m[0;34m"Q"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexes/period.py[0m in [0;36m__new__[0;34m(cls, data, ordinal, freq, start, end, periods, tz, dtype, copy, name, **fields)[0m
+[1;32m    238[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    239[0m                 [0;31m# don't pass copy here, since we copy later.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 240[0;31m                 [0mdata[0m [0;34m=[0m [0mperiod_array[0m[0;34m([0m[0mdata[0m[0;34m=[0m[0mdata[0m[0;34m,[0m [0mfreq[0m[0;34m=[0m[0mfreq[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    241[0m [0;34m[0m[0m
+[1;32m    242[0m         [0;32mif[0m [0mcopy[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/arrays/period.py[0m in [0;36mperiod_array[0;34m(data, freq, copy)[0m
+[1;32m    767[0m         [0;32mreturn[0m [0mPeriodArray[0m[0;34m.[0m[0m_from_datetime64[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mfreq[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    768[0m     [0;32mif[0m [0misinstance[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0;34m([0m[0mABCPeriodIndex[0m[0;34m,[0m [0mABCSeries[0m[0;34m,[0m [0mPeriodArray[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 769[0;31m         [0;32mreturn[0m [0mPeriodArray[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mfreq[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    770[0m [0;34m[0m[0m
+[1;32m    771[0m     [0;31m# other iterable of some kind[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/arrays/period.py[0m in [0;36m__init__[0;34m(self, values, freq, dtype, copy)[0m
+[1;32m    155[0m             [0mvalues[0m [0;34m=[0m [0mvalues[0m[0;34m.[0m[0m_values[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    156[0m             [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mvalues[0m[0;34m,[0m [0mtype[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 157[0;31m                 [0;32mraise[0m [0mTypeError[0m[0;34m([0m[0;34m"Incorrect dtype"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    158[0m [0;34m[0m[0m
+[1;32m    159[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mvalues[0m[0;34m,[0m [0mABCPeriodIndex[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: Incorrect dtype
+TypeError: Incorrect dtype
+
+Executability                            : False

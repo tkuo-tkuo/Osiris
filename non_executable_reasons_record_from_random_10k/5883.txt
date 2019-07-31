@@ -1,0 +1,14 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+l = []
+for x in lst:
+    if x % 2 == 0 
+        if x > 2:
+            l.append(x+1)
+l
+------------------
+
+SyntaxError: invalid syntax (<ipython-input-7-cfa75a5c9a58>, line 3)
+
+Executability                            : False

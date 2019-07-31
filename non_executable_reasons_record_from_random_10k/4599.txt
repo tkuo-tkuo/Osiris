@@ -1,0 +1,41 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+num_sims=1e6
+X1=scipy.stats.uniform.rvs(size=num_sims)
+X2=scipy.stats.uniform.rvs(size=num_sims)
+Y=scipy.stats.uniform.rvs(size=num_sims)*X1
+numpy.count_nonzero(X2<Y)/num_sims
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-92779e42322f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mnum_sims[0m[0;34m=[0m[0;36m1e6[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mX1[0m[0;34m=[0m[0mscipy[0m[0;34m.[0m[0mstats[0m[0;34m.[0m[0muniform[0m[0;34m.[0m[0mrvs[0m[0;34m([0m[0msize[0m[0;34m=[0m[0mnum_sims[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mX2[0m[0;34m=[0m[0mscipy[0m[0;34m.[0m[0mstats[0m[0;34m.[0m[0muniform[0m[0;34m.[0m[0mrvs[0m[0;34m([0m[0msize[0m[0;34m=[0m[0mnum_sims[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mY[0m[0;34m=[0m[0mscipy[0m[0;34m.[0m[0mstats[0m[0;34m.[0m[0muniform[0m[0;34m.[0m[0mrvs[0m[0;34m([0m[0msize[0m[0;34m=[0m[0mnum_sims[0m[0;34m)[0m[0;34m*[0m[0mX1[0m[0;34m[0m[0m
+[1;32m      5[0m [0mnumpy[0m[0;34m.[0m[0mcount_nonzero[0m[0;34m([0m[0mX2[0m[0;34m<[0m[0mY[0m[0;34m)[0m[0;34m/[0m[0mnum_sims[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/scipy/stats/_distn_infrastructure.py[0m in [0;36mrvs[0;34m(self, *args, **kwds)[0m
+[1;32m    952[0m         [0;31m# by _rvs().[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    953[0m         [0mself[0m[0;34m.[0m[0m_size[0m [0;34m=[0m [0msize[0m[0;34m[0m[0m
+[0;32m--> 954[0;31m         [0mvals[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_rvs[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    955[0m [0;34m[0m[0m
+[1;32m    956[0m         [0mvals[0m [0;34m=[0m [0mvals[0m [0;34m*[0m [0mscale[0m [0;34m+[0m [0mloc[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/scipy/stats/_continuous_distns.py[0m in [0;36m_rvs[0;34m(self)[0m
+[1;32m   5924[0m     """
+[1;32m   5925[0m     [0;32mdef[0m [0m_rvs[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 5926[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_random_state[0m[0;34m.[0m[0muniform[0m[0;34m([0m[0;36m0.0[0m[0;34m,[0m [0;36m1.0[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m_size[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   5927[0m [0;34m[0m[0m
+[1;32m   5928[0m     [0;32mdef[0m [0m_pdf[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mx[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32mmtrand.pyx[0m in [0;36mmtrand.RandomState.uniform[0;34m()[0m
+
+[0;32mmtrand.pyx[0m in [0;36mmtrand.cont2_array_sc[0;34m()[0m
+
+[0;31mTypeError[0m: 'numpy.float64' object cannot be interpreted as an integer
+TypeError: 'numpy.float64' object cannot be interpreted as an integer
+
+Executability                            : False

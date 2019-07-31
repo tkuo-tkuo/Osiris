@@ -1,0 +1,29 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+map = Map()
+
+filename = "output.html"
+
+for result in dat["location"]:
+    map.add_point((result[0], result[1]))
+
+with open(filename, "w") as out:
+    print(map, file=out)
+
+webbrowser.open(filename)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-4-5cbe834104ef>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m     [0mmap[0m[0;34m.[0m[0madd_point[0m[0;34m([0m[0;34m([0m[0mresult[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mresult[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"w"[0m[0;34m)[0m [0;32mas[0m [0mout[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m     [0mprint[0m[0;34m([0m[0mmap[0m[0;34m,[0m [0mfile[0m[0;34m=[0m[0mout[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'output.html'
+PermissionError: [Errno 13] Permission denied: 'output.html'
+
+Executability                            : False

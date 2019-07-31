@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+assert_equal(get_history(report), 'HISTORY:  [**Age over 90 **] year-old woman with a history of metastatic lung cancer to the\n     brain.  Question hemorrhagic mass.  Question stability of bleed.\n     \n     COMPARISON:  Head CT from [**Hospital 12568**] Hospital dated [**2644-1-16**].\n     \n     ')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-7090f6f6ae9a>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0massert_equal[0m[0;34m([0m[0mget_history[0m[0;34m([0m[0mreport[0m[0;34m)[0m[0;34m,[0m [0;34m'HISTORY:  [**Age over 90 **] year-old woman with a history of metastatic lung cancer to the\n     brain.  Question hemorrhagic mass.  Question stability of bleed.\n     \n     COMPARISON:  Head CT from [**Hospital 12568**] Hospital dated [**2644-1-16**].\n     \n     '[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'report' is not defined
+NameError: name 'report' is not defined
+
+Executability                            : False

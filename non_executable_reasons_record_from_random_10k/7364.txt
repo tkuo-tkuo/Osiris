@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+plt.plot(data['dx(m)'], data['dt(ns)'], 'rs')
+plt.xlabel('Change in Distance (m)')
+plt.ylabel('Change in Time (ns)')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-8c261fcea951>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mdata[0m[0;34m[[0m[0;34m'dx(m)'[0m[0;34m][0m[0;34m,[0m [0mdata[0m[0;34m[[0m[0;34m'dt(ns)'[0m[0;34m][0m[0;34m,[0m [0;34m'rs'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m'Change in Distance (m)'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mylabel[0m[0;34m([0m[0;34m'Change in Time (ns)'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

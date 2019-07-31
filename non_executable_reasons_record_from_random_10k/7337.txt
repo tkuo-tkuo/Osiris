@@ -1,0 +1,101 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from astropy.io import ascii
+import numpy as np
+from scipy.stats import expon
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
+data=ascii.read('lab04/exp_data.csv')
+delt=np.sort(data['delta_t'])
+
+#loc1, scale1 = expon.fit(delt)
+#print(loc1, scale1)
+
+
+
+fig, ax = plt.subplots(1, 1)
+(numbs, bins, patches) = ax.hist(delt, bins=20, label='hst')
+lower = np.resize(bins, len(bins)-1)
+tmid =  lower + 0.5*np.diff(bins)
+
+#print(tmid,numbs)
+
+#plot fits
+#ax.plot(delt, np.exp(-delt)+scale,'r-', lw=5, alpha=0.6, label='expon_pdf')
+#add histogram to plot
+#ax.hist(delt, histtype='stepfilled', alpha=0.2)
+
+def exponential_func(x, a, b, c):
+    return a*np.exp(-x*b)+c
+#popt, pcov = curve_fit(exponenial_func, delt, expon.pdf(delt,loc=0,scale=scale1))
+popt, pcov = curve_fit(exponential_func, tmid, numbs,bounds=([1000.,0.0006,3000.],[20000,.0007,4000.]))
+
+#plot fits
+ax.plot(tmid, exponential_func(tmid, *popt),'k--', lw=5, alpha=0.6, label='expon_pdf')
+ax.plot(tmid, numbs, 'rs', lw=2, alpha=.6, label='curve_fit')
+
+#add histogram to plot
+#ax.hist(delt, normed=True, histtype='stepfilled', alpha=0.2)
+#print(popt)
+mean_life=1./popt[1]
+print(mean_life)#in nanosec.
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-5-10b2a49c2b58>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0moptimize[0m [0;32mimport[0m [0mcurve_fit[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0mdata[0m[0;34m=[0m[0mascii[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m'lab04/exp_data.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mdelt[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0msort[0m[0;34m([0m[0mdata[0m[0;34m[[0m[0;34m'delta_t'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/ascii/ui.py[0m in [0;36mread[0;34m(table, guess, **kwargs)[0m
+[1;32m    285[0m         [0;31m# through below to the non-guess way so that any problems result in a[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    286[0m         [0;31m# more useful traceback.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 287[0;31m         [0mdat[0m [0;34m=[0m [0m_guess[0m[0;34m([0m[0mtable[0m[0;34m,[0m [0mnew_kwargs[0m[0;34m,[0m [0mformat[0m[0;34m,[0m [0mfast_reader[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    288[0m         [0;32mif[0m [0mdat[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    289[0m             [0mguess[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/ascii/ui.py[0m in [0;36m_guess[0;34m(table, read_kwargs, format, fast_reader)[0m
+[1;32m    444[0m [0;34m[0m[0m
+[1;32m    445[0m             [0mreader[0m[0;34m.[0m[0mguessing[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 446[0;31m             [0mdat[0m [0;34m=[0m [0mreader[0m[0;34m.[0m[0mread[0m[0;34m([0m[0mtable[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    447[0m             _read_trace.append({'kwargs': copy.deepcopy(guess_kwargs),
+[1;32m    448[0m                                 [0;34m'Reader'[0m[0;34m:[0m [0mreader[0m[0;34m.[0m[0m__class__[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/ascii/core.py[0m in [0;36mread[0;34m(self, table)[0m
+[1;32m   1162[0m [0;34m[0m[0m
+[1;32m   1163[0m         [0;31m# Get a list of the lines (rows) in the table[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1164[0;31m         [0mself[0m[0;34m.[0m[0mlines[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0minputter[0m[0;34m.[0m[0mget_lines[0m[0;34m([0m[0mtable[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1165[0m [0;34m[0m[0m
+[1;32m   1166[0m         [0;31m# Set self.data.data_lines to a slice of lines contain the data rows[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/ascii/core.py[0m in [0;36mget_lines[0;34m(self, table)[0m
+[1;32m    303[0m                     ('\n' not in table + '' and '\r' not in table + '')):
+[1;32m    304[0m                 with get_readable_fileobj(table,
+[0;32m--> 305[0;31m                                           encoding=self.encoding) as fileobj:
+[0m[1;32m    306[0m                     [0mtable[0m [0;34m=[0m [0mfileobj[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    307[0m             [0mlines[0m [0;34m=[0m [0mtable[0m[0;34m.[0m[0msplitlines[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/contextlib.py[0m in [0;36m__enter__[0;34m(self)[0m
+[1;32m     79[0m     [0;32mdef[0m [0m__enter__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     80[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 81[0;31m             [0;32mreturn[0m [0mnext[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mgen[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     82[0m         [0;32mexcept[0m [0mStopIteration[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     83[0m             [0;32mraise[0m [0mRuntimeError[0m[0;34m([0m[0;34m"generator didn't yield"[0m[0;34m)[0m [0;32mfrom[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/utils/data.py[0m in [0;36mget_readable_fileobj[0;34m(name_or_obj, encoding, cache, show_progress, remote_timeout)[0m
+[1;32m    191[0m                 [0mname_or_obj[0m[0;34m,[0m [0mcache[0m[0;34m=[0m[0mcache[0m[0;34m,[0m [0mshow_progress[0m[0;34m=[0m[0mshow_progress[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    192[0m                 timeout=remote_timeout)
+[0;32m--> 193[0;31m         [0mfileobj[0m [0;34m=[0m [0mio[0m[0;34m.[0m[0mFileIO[0m[0;34m([0m[0mname_or_obj[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    194[0m         [0;32mif[0m [0mis_url[0m [0;32mand[0m [0;32mnot[0m [0mcache[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    195[0m             [0mdelete_fds[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mfileobj[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'lab04/exp_data.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'lab04/exp_data.csv'
+
+Executability                            : False

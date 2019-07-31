@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Tuplas não suportam append()
+tupla1.append("Chocolate")   
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-3-cb90e5e5a1a0>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Tuplas não suportam append()[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mtupla1[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m"Chocolate"[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: 'tuple' object has no attribute 'append'
+AttributeError: 'tuple' object has no attribute 'append'
+
+Executability                            : False

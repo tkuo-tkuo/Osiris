@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+data11 = np.load('experiments/test2_modelgrusimple_mid-dropout10-shuffle1-data-test2a-w4-n100000-l5-random.pickle/mem-runA0-epoch40.npz')
+six.print_(data11.files)
+mem_arrays = data11['mem_arrays']
+six.print_(mem_arrays[0])
+six.print_(mem_arrays[1])
+six.print_(mem_arrays[5][1000])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-6-d7eca826aeb9>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdata11[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34m'experiments/test2_modelgrusimple_mid-dropout10-shuffle1-data-test2a-w4-n100000-l5-random.pickle/mem-runA0-epoch40.npz'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0msix[0m[0;34m.[0m[0mprint_[0m[0;34m([0m[0mdata11[0m[0;34m.[0m[0mfiles[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mmem_arrays[0m [0;34m=[0m [0mdata11[0m[0;34m[[0m[0;34m'mem_arrays'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0msix[0m[0;34m.[0m[0mprint_[0m[0;34m([0m[0mmem_arrays[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0msix[0m[0;34m.[0m[0mprint_[0m[0;34m([0m[0mmem_arrays[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/numpy/lib/npyio.py[0m in [0;36mload[0;34m(file, mmap_mode, allow_pickle, fix_imports, encoding)[0m
+[1;32m    420[0m         [0mown_fid[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    421[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 422[0;31m         [0mfid[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mos_fspath[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m,[0m [0;34m"rb"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    423[0m         [0mown_fid[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    424[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'experiments/test2_modelgrusimple_mid-dropout10-shuffle1-data-test2a-w4-n100000-l5-random.pickle/mem-runA0-epoch40.npz'
+FileNotFoundError: [Errno 2] No such file or directory: 'experiments/test2_modelgrusimple_mid-dropout10-shuffle1-data-test2a-w4-n100000-l5-random.pickle/mem-runA0-epoch40.npz'
+
+Executability                            : False

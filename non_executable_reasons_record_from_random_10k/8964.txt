@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import pandas as pd
+from lightgbm import LGBMRegressor
+from xgboost import XGBRegressor
+from catboost import CatBoostRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics.regression import mean_squared_error
+from sklearn.linear_model import ElasticNet
+from sklearn.preprocessing import PolynomialFeatures, OneHotEncoder, Imputer, MinMaxScaler
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.ensemble import ExtraTreesRegressor, RandomForestRegressor
+from tqdm import tqdm_notebook
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-ee45fbd33828>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mlightgbm[0m [0;32mimport[0m [0mLGBMRegressor[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mxgboost[0m [0;32mimport[0m [0mXGBRegressor[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mcatboost[0m [0;32mimport[0m [0mCatBoostRegressor[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'lightgbm'
+ModuleNotFoundError: No module named 'lightgbm'
+
+Executability                            : False

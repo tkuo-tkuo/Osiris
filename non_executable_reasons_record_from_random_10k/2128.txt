@@ -1,0 +1,81 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+for i in range(1,3):
+    ppompage = 'http://www.ppomppu.co.kr/search_bbs.php?search_type=sub_memo&page_no='+str(i)+'&keyword=%EB%AA%B0%ED%85%8C%EC%9D%BC&page_size=20&bbs_id=&order_type=date&bbs_cate=1'
+    html = urlopen(ppompage)    
+    bsObj_p = BeautifulSoup(html, 'html.parser')
+    day_n_view = bsObj_p.find_all('p',{"class":"desc"})
+    sss= []
+    for d in day_n_view:
+        kkk = d.get_text().strip().split(sep='\n')
+        sss.append(kkk)
+        ##### 결과값 sss
+        
+    for tag in bsObj_p.select('.content > .title > a'):##select('.content > .title > a') 안에 있는 문법이 정확히 이해가                  
+        print("글 제목 : ", tag.text, "\n링크 :", tag['href']) #글 제목과 링크
+        print("작성 게시판 : ",sss[count][0]," ",sss[count][1]," 작성 날짜 : ",sss[count][2]) #작성 게시판, 조회수, 날짜
+        k = tag['href']
+        num = re.search('no=(.+)&k',k)
+        cnum = num.group(1)
+        print("글 번호 :", cnum)
+        html_c = urlopen(k)
+        soup = BeautifulSoup(html_c, 'html.parser')
+        error = soup.find_all("div", {"class" :"error2"})
+        for t in tagged:
+            if t in k:
+                driver.get(k)
+                k_source = driver.page_source
+                kbsoup = BeautifulSoup(k_source, 'html.parser')
+                kbtitle = kbsoup.find_all("font", {"class" : "view_title2"}) #데이터 입력용 변수
+                kbaisle = kbsoup.find_all("font", {"class" : "view_cate"})
+                kbname = kbsoup.find_all('font', {"class" : "view_name"})
+                #atrbute = soup.find_all('td', {"class" : "han"})
+                kbcontents = kbsoup.find_all('td', {"class" : "board-contents"})
+                for n in kbname:
+                    print("글 작성자 : ", n.get_text())
+                #for b in atrbute:
+                #    print(b.get_text())
+                #    print("-"*3)
+                for a in kbaisle:
+                    print("글 분류 : ", a.get_text())
+                    print("글 내용 : ")
+                for c in kbcontents:
+                    print(c.get_text().strip())
+        title = soup.find_all("font", {"class" : "view_title2"}) #역시 데이터 입력용 변수
+        aisle = soup.find_all("font", {"class" : "view_cate"})
+        name = soup.find_all('font', {"class" : "view_name"})
+        #atrbute = soup.find_all('td', {"class" : "han"})
+        contents = soup.find_all(class_ ='pic_bg')
+        #for t in title:
+        #    print("글 제목 : ", t.get_text())
+        for n in name:
+            print("글 작성자 : ", n.get_text())
+            #for b in atrbute:
+            #    print(b.get_text())
+        for a in aisle:
+            print("글 분류 : ", a.get_text())
+            print("글 내용 : ")
+        for c in contents:
+            print(c.get_text().strip())
+        count=count+1
+        print("===================================================")
+    count=0
+    print("========================================"+str(i)+"페이지========================================")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-4842622515f6>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mppompage[0m [0;34m=[0m [0;34m'http://www.ppomppu.co.kr/search_bbs.php?search_type=sub_memo&page_no='[0m[0;34m+[0m[0mstr[0m[0;34m([0m[0mi[0m[0;34m)[0m[0;34m+[0m[0;34m'&keyword=%EB%AA%B0%ED%85%8C%EC%9D%BC&page_size=20&bbs_id=&order_type=date&bbs_cate=1'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m     [0mhtml[0m [0;34m=[0m [0murlopen[0m[0;34m([0m[0mppompage[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m     [0mbsObj_p[0m [0;34m=[0m [0mBeautifulSoup[0m[0;34m([0m[0mhtml[0m[0;34m,[0m [0;34m'html.parser'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m     [0mday_n_view[0m [0;34m=[0m [0mbsObj_p[0m[0;34m.[0m[0mfind_all[0m[0;34m([0m[0;34m'p'[0m[0;34m,[0m[0;34m{[0m[0;34m"class"[0m[0;34m:[0m[0;34m"desc"[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'urlopen' is not defined
+NameError: name 'urlopen' is not defined
+
+Executability                            : False

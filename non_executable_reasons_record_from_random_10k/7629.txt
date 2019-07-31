@@ -1,0 +1,43 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import tensorflow as tf
+from tensorflow.contrib import rnn
+
+x = tf.constant([[1]], dtype = tf.float32)
+
+lstm_cell = rnn.BasicLSTMCell(2)
+gru_cell = rnn.GRUCell(2)
+
+state0_lstm = lstm_cell.zero_state(1,dtype=tf.float32)
+output,state = lstm_cell(x,state0_lstm)
+
+state0_gru = gru_cell.zero_state(1,dtype=tf.float32)
+output2,state2 = gru_cell(x,state0_gru)
+
+init = tf.global_variables
+_initializer()
+with tf.Session() as sess:
+    sess.run(init)
+    print(sess.run(output))
+    print(sess.run(state))
+
+    print(sess.run(output2))
+    print(sess.run(state2))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-00134a166d87>[0m in [0;36m<module>[0;34m[0m
+[1;32m     16[0m [0;34m[0m[0m
+[1;32m     17[0m [0minit[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mglobal_variables[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 18[0;31m [0m_initializer[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     19[0m [0;32mwith[0m [0mtf[0m[0;34m.[0m[0mSession[0m[0;34m([0m[0;34m)[0m [0;32mas[0m [0msess[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     20[0m     [0msess[0m[0;34m.[0m[0mrun[0m[0;34m([0m[0minit[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name '_initializer' is not defined
+NameError: name '_initializer' is not defined
+
+Executability                            : False

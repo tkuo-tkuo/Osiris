@@ -1,0 +1,52 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 20 ; number of cells: 21
+Reproducibility                          : matched ratio: 0.952 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20]
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+AL, linear_activation_cache = linear_activation_backward_test_case()
+
+dA_prev, dW, db = linear_activation_backward(AL, linear_activation_cache, activation = "sigmoid")
+print ("sigmoid:")
+print ("dA_prev = "+ str(dA_prev))
+print ("dW = " + str(dW))
+print ("db = " + str(db) + "\n")
+
+dA_prev, dW, db = linear_activation_backward(AL, linear_activation_cache, activation = "relu")
+print ("relu:")
+print ("dA_prev = "+ str(dA_prev))
+print ("dW = " + str(dW))
+print ("db = " + str(db))
+
+-----------------
+Original output:
+sigmoid:
+dA_prev = [[ 0.11017994  0.01105339]
+ [ 0.09466817  0.00949723]
+ [-0.05743092 -0.00576154]]
+dW = [[ 0.10266786  0.09778551 -0.01968084]]
+db = -0.057296222176291135
+
+relu:
+dA_prev = [[ 0.44090989  0.        ]
+ [ 0.37883606  0.        ]
+ [-0.2298228   0.        ]]
+dW = [[ 0.44513824  0.37371418 -0.10478989]]
+db = -0.2083789237027353
+
+Executed output:
+sigmoid:
+dA_prev = [[ 0.11017994  0.01105339]
+ [ 0.09466817  0.00949723]
+ [-0.05743092 -0.00576154]]
+dW = [[ 0.10266786  0.09778551 -0.01968084]]
+db = -0.057296222176291135
+
+relu:
+dA_prev = [[ 0.44090989 -0.        ]
+ [ 0.37883606 -0.        ]
+ [-0.2298228   0.        ]]
+dW = [[ 0.44513824  0.37371418 -0.10478989]]
+db = -0.2083789237027353
+

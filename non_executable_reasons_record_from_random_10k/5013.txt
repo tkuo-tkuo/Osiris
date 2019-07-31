@@ -1,0 +1,73 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 11 ; number of cells: 14
+Reproducibility                          : matched ratio: 0.786 ; index of matched cells: [0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+from sklearn.dummy import DummyClassifier
+from sklearn.metrics import classification_report
+dummy_majority = DummyClassifier(strategy = 'most_frequent').fit(X_train, y_train)
+y_majority_predicted = dummy_majority.predict(X_test)
+
+print(classification_report(y_test, y_majority_predicted,))
+
+-----------------
+Original output:
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99      5344
+          1       0.00      0.00      0.00        80
+
+avg / total       0.97      0.99      0.98      5424
+
+/home/swap9047/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+
+Executed output:
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      0.99      5344
+           1       0.00      0.00      0.00        80
+
+    accuracy                           0.99      5424
+   macro avg       0.49      0.50      0.50      5424
+weighted avg       0.97      0.99      0.98      5424
+
+
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+answer_three()
+
+-----------------
+Original output:
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      1.00      5344
+          1       1.00      0.38      0.55        80
+
+avg / total       0.99      0.99      0.99      5424
+
+(0.9907817109144543, 0.375, 1.0)
+Executed output:
+(0.9907817109144543, 0.375, 1.0)
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+# Use the following function to help visualize results from the grid search
+def GridSearch_Heatmap(scores):
+    %matplotlib notebook
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    plt.figure()
+    sns.heatmap(scores.reshape(5,2), xticklabels=['l1','l2'], yticklabels=[0.01, 0.1, 1, 10, 100])
+    plt.yticks(rotation=0);
+
+#GridSearch_Heatmap(answer_six())
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>
+Executed output:
+

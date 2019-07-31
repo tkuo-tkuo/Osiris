@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import lc
+ldb2 = lc.LightCurveDB()
+ldb2.populate("./data/CEPH")
+ldb2.index()
+ldb2.retrieve('tile', 4661)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-78f3703bdaeb>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mlc[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mldb2[0m [0;34m=[0m [0mlc[0m[0;34m.[0m[0mLightCurveDB[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mldb2[0m[0;34m.[0m[0mpopulate[0m[0;34m([0m[0;34m"./data/CEPH"[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mldb2[0m[0;34m.[0m[0mindex[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mldb2[0m[0;34m.[0m[0mretrieve[0m[0;34m([0m[0;34m'tile'[0m[0;34m,[0m [0;36m4661[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'lc'
+ImportError: No module named 'lc'
+
+Executability                            : False

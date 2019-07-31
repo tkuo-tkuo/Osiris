@@ -1,0 +1,41 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+import sys
+print('Python Version: {}'.format(sys.version))
+
+import pandas as pd
+print('pandas version: {}'.format(pd.__version__))
+
+import matplotlib
+print('matplotlib version: {}'.format(matplotlib.__version__))
+
+import numpy as np
+print('numpy version: {}'.format(np.__version__))
+
+import scipy as sp
+print('scipy version: {}'.format(sp.__version__))
+
+import IPython
+print('ipython version: {}'.format(IPython.__version__))
+
+import sklearn
+print('scikit-learn version: {}'.format(sklearn.__version__))
+
+import mglearn
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-17108323cbc8>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     23[0m [0mprint[0m[0;34m([0m[0;34m'scikit-learn version: {}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0msklearn[0m[0;34m.[0m[0m__version__[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     24[0m [0;34m[0m[0m
+[0;32m---> 25[0;31m [0;32mimport[0m [0mmglearn[0m[0;34m[0m[0m
+[0m
+[0;31mImportError[0m: No module named 'mglearn'
+ImportError: No module named 'mglearn'
+
+Executability                            : False

@@ -1,0 +1,170 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 6
+Reproducibility                          : matched ratio: 0.333 ; index of matched cells: [2, 5]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import requests
+query = 'Summersville Regional Medical Center'
+gmaps_places_key = 'AIzaSyDg1YT6UH2jOvpNMfPRLh_Nwg5KkZ5-60o'
+
+url = 'https://maps.googleapis.com/maps/api/place/textsearch/json'
+# Build dictionary containing the parameters for the request.
+
+payload = {
+    'query': query,
+    'key': gmaps_places_key
+}
+# Make the request
+response = requests.get(url, payload)
+# This returns a response object.
+
+# To view a human-readable version of the response...
+response.text
+
+-----------------
+Original output:
+'{\n   "html_attributions" : [],\n   "results" : [\n      {\n         "formatted_address" : "400 Fairview Heights Rd, Summersville, WV 26651, United States",\n         "geometry" : {\n            "location" : {\n               "lat" : 38.292546,\n               "lng" : -80.829295\n            },\n            "viewport" : {\n               "northeast" : {\n                  "lat" : 38.2936712802915,\n                  "lng" : -80.8279219697085\n               },\n               "southwest" : {\n                  "lat" : 38.2909733197085,\n                  "lng" : -80.8306199302915\n               }\n            }\n         },\n         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",\n         "id" : "dc34e7a11599cb6a5d25791f33b7150e5a18fdd7",\n         "name" : "Summersville Regional Medical Center",\n         "photos" : [\n            {\n               "height" : 1365,\n               "html_attributions" : [\n                  "\\u003ca href=\\"https://maps.google.com/maps/contrib/108055343835210740093/photos\\"\\u003eSummersville Regional Medical Center\\u003c/a\\u003e"\n               ],\n               "photo_reference" : "CmRaAAAA3qQHQW5XJZUVMj_B5gMLMPoQTJpUluGsbgsPcAnq9FFvBbB_1IFOgLXgfS2UXdEAnmfzF-e5uFUjoavEEO53pyBykfMU_t7Z9TgPo0xT47f2CGqWxYqc2-XzZj4v7uVHEhBZuEBAsw_FU0ZS6QCAN6BNGhRpACP_O0i8VaGYdJyTUvZaS3voWw",\n               "width" : 2048\n            }\n         ],\n         "place_id" : "ChIJjbn34LSqTogR_cOpEpr8H2Y",\n         "rating" : 1.9,\n         "reference" : "CmRRAAAA9Y43MkFW3bDjuytw-ApqsAvke-Q6_dmOvzqhQU9mJ5YQEr3Kyln4pKnRnG5C-y8i-qxFOmeEYv0h2IY0Je98GhrKKzjjlRWssDi4uHnW1vevXX3_cPfM3Yg_EIFk5M67EhDRDNme-6Mmj8OvkwRJ9qDkGhStOV6tFCDcDFPnksrjovs0mQ6ozg",\n         "types" : [ "hospital", "health", "point_of_interest", "establishment" ]\n      }\n   ],\n   "status" : "OK"\n}\n'
+Executed output:
+'{\n   "html_attributions" : [],\n   "results" : [\n      {\n         "formatted_address" : "400 Fairview Heights Rd, Summersville, WV 26651, USA",\n         "geometry" : {\n            "location" : {\n               "lat" : 38.292546,\n               "lng" : -80.829295\n            },\n            "viewport" : {\n               "northeast" : {\n                  "lat" : 38.29367212989272,\n                  "lng" : -80.82792112010728\n               },\n               "southwest" : {\n                  "lat" : 38.29097247010728,\n                  "lng" : -80.83062077989273\n               }\n            }\n         },\n         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",\n         "id" : "dc34e7a11599cb6a5d25791f33b7150e5a18fdd7",\n         "name" : "Summersville Regional Medical Center",\n         "opening_hours" : {\n            "open_now" : true\n         },\n         "photos" : [\n            {\n               "height" : 1365,\n               "html_attributions" : [\n                  "\\u003ca href=\\"https://maps.google.com/maps/contrib/108055343835210740093/photos\\"\\u003eA Google User\\u003c/a\\u003e"\n               ],\n               "photo_reference" : "CmRaAAAAhIJnfs1FvwAj7buty6fE5m5J-s--Pal9DyjjlDBEI44Q6u0oF3wInqmo6DCkFRmLw-s6l4td9YRqiPYueS-BRjiJ-VWrbB8b4a1OKu9mNI5KFC6ISPoON2WEHUIj6K_fEhBlOAlDEZvXGpygbE_1Bxp1GhQZMXgrY_W7M-5L2hjCERTxdWpEsQ",\n               "width" : 2048\n            }\n         ],\n         "place_id" : "ChIJjbn34LSqTogR_cOpEpr8H2Y",\n         "plus_code" : {\n            "compound_code" : "75VC+27 Summersville, WV, USA",\n            "global_code" : "86CX75VC+27"\n         },\n         "rating" : 2.7,\n         "reference" : "ChIJjbn34LSqTogR_cOpEpr8H2Y",\n         "types" : [ "hospital", "health", "point_of_interest", "establishment" ],\n         "user_ratings_total" : 21\n      }\n   ],\n   "status" : "OK"\n}\n'
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+# Or better yet, convert it to json
+response_data = response.json()
+response_data
+
+-----------------
+Original output:
+{'html_attributions': [],
+ 'results': [{'formatted_address': '400 Fairview Heights Rd, Summersville, WV 26651, United States',
+   'geometry': {'location': {'lat': 38.292546, 'lng': -80.829295},
+    'viewport': {'northeast': {'lat': 38.2936712802915,
+      'lng': -80.8279219697085},
+     'southwest': {'lat': 38.2909733197085, 'lng': -80.8306199302915}}},
+   'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png',
+   'id': 'dc34e7a11599cb6a5d25791f33b7150e5a18fdd7',
+   'name': 'Summersville Regional Medical Center',
+   'photos': [{'height': 1365,
+     'html_attributions': ['<a href="https://maps.google.com/maps/contrib/108055343835210740093/photos">Summersville Regional Medical Center</a>'],
+     'photo_reference': 'CmRaAAAA3qQHQW5XJZUVMj_B5gMLMPoQTJpUluGsbgsPcAnq9FFvBbB_1IFOgLXgfS2UXdEAnmfzF-e5uFUjoavEEO53pyBykfMU_t7Z9TgPo0xT47f2CGqWxYqc2-XzZj4v7uVHEhBZuEBAsw_FU0ZS6QCAN6BNGhRpACP_O0i8VaGYdJyTUvZaS3voWw',
+     'width': 2048}],
+   'place_id': 'ChIJjbn34LSqTogR_cOpEpr8H2Y',
+   'rating': 1.9,
+   'reference': 'CmRRAAAA9Y43MkFW3bDjuytw-ApqsAvke-Q6_dmOvzqhQU9mJ5YQEr3Kyln4pKnRnG5C-y8i-qxFOmeEYv0h2IY0Je98GhrKKzjjlRWssDi4uHnW1vevXX3_cPfM3Yg_EIFk5M67EhDRDNme-6Mmj8OvkwRJ9qDkGhStOV6tFCDcDFPnksrjovs0mQ6ozg',
+   'types': ['hospital', 'health', 'point_of_interest', 'establishment']}],
+ 'status': 'OK'}
+Executed output:
+{'html_attributions': [],
+ 'results': [{'formatted_address': '400 Fairview Heights Rd, Summersville, WV 26651, USA',
+   'geometry': {'location': {'lat': 38.292546, 'lng': -80.829295},
+    'viewport': {'northeast': {'lat': 38.29367212989272,
+      'lng': -80.82792112010728},
+     'southwest': {'lat': 38.29097247010728, 'lng': -80.83062077989273}}},
+   'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png',
+   'id': 'dc34e7a11599cb6a5d25791f33b7150e5a18fdd7',
+   'name': 'Summersville Regional Medical Center',
+   'opening_hours': {'open_now': True},
+   'photos': [{'height': 1365,
+     'html_attributions': ['<a href="https://maps.google.com/maps/contrib/108055343835210740093/photos">A Google User</a>'],
+     'photo_reference': 'CmRaAAAAhIJnfs1FvwAj7buty6fE5m5J-s--Pal9DyjjlDBEI44Q6u0oF3wInqmo6DCkFRmLw-s6l4td9YRqiPYueS-BRjiJ-VWrbB8b4a1OKu9mNI5KFC6ISPoON2WEHUIj6K_fEhBlOAlDEZvXGpygbE_1Bxp1GhQZMXgrY_W7M-5L2hjCERTxdWpEsQ',
+     'width': 2048}],
+   'place_id': 'ChIJjbn34LSqTogR_cOpEpr8H2Y',
+   'plus_code': {'compound_code': '75VC+27 Summersville, WV, USA',
+    'global_code': '86CX75VC+27'},
+   'rating': 2.7,
+   'reference': 'ChIJjbn34LSqTogR_cOpEpr8H2Y',
+   'types': ['hospital', 'health', 'point_of_interest', 'establishment'],
+   'user_ratings_total': 21}],
+ 'status': 'OK'}
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+results = response_data['results']
+results
+
+-----------------
+Original output:
+[{'formatted_address': '400 Fairview Heights Rd, Summersville, WV 26651, United States',
+  'geometry': {'location': {'lat': 38.292546, 'lng': -80.829295},
+   'viewport': {'northeast': {'lat': 38.2936712802915,
+     'lng': -80.8279219697085},
+    'southwest': {'lat': 38.2909733197085, 'lng': -80.8306199302915}}},
+  'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png',
+  'id': 'dc34e7a11599cb6a5d25791f33b7150e5a18fdd7',
+  'name': 'Summersville Regional Medical Center',
+  'photos': [{'height': 1365,
+    'html_attributions': ['<a href="https://maps.google.com/maps/contrib/108055343835210740093/photos">Summersville Regional Medical Center</a>'],
+    'photo_reference': 'CmRaAAAA3qQHQW5XJZUVMj_B5gMLMPoQTJpUluGsbgsPcAnq9FFvBbB_1IFOgLXgfS2UXdEAnmfzF-e5uFUjoavEEO53pyBykfMU_t7Z9TgPo0xT47f2CGqWxYqc2-XzZj4v7uVHEhBZuEBAsw_FU0ZS6QCAN6BNGhRpACP_O0i8VaGYdJyTUvZaS3voWw',
+    'width': 2048}],
+  'place_id': 'ChIJjbn34LSqTogR_cOpEpr8H2Y',
+  'rating': 1.9,
+  'reference': 'CmRRAAAA9Y43MkFW3bDjuytw-ApqsAvke-Q6_dmOvzqhQU9mJ5YQEr3Kyln4pKnRnG5C-y8i-qxFOmeEYv0h2IY0Je98GhrKKzjjlRWssDi4uHnW1vevXX3_cPfM3Yg_EIFk5M67EhDRDNme-6Mmj8OvkwRJ9qDkGhStOV6tFCDcDFPnksrjovs0mQ6ozg',
+  'types': ['hospital', 'health', 'point_of_interest', 'establishment']}]
+Executed output:
+[{'formatted_address': '400 Fairview Heights Rd, Summersville, WV 26651, USA',
+  'geometry': {'location': {'lat': 38.292546, 'lng': -80.829295},
+   'viewport': {'northeast': {'lat': 38.29367212989272,
+     'lng': -80.82792112010728},
+    'southwest': {'lat': 38.29097247010728, 'lng': -80.83062077989273}}},
+  'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png',
+  'id': 'dc34e7a11599cb6a5d25791f33b7150e5a18fdd7',
+  'name': 'Summersville Regional Medical Center',
+  'opening_hours': {'open_now': True},
+  'photos': [{'height': 1365,
+    'html_attributions': ['<a href="https://maps.google.com/maps/contrib/108055343835210740093/photos">A Google User</a>'],
+    'photo_reference': 'CmRaAAAAhIJnfs1FvwAj7buty6fE5m5J-s--Pal9DyjjlDBEI44Q6u0oF3wInqmo6DCkFRmLw-s6l4td9YRqiPYueS-BRjiJ-VWrbB8b4a1OKu9mNI5KFC6ISPoON2WEHUIj6K_fEhBlOAlDEZvXGpygbE_1Bxp1GhQZMXgrY_W7M-5L2hjCERTxdWpEsQ',
+    'width': 2048}],
+  'place_id': 'ChIJjbn34LSqTogR_cOpEpr8H2Y',
+  'plus_code': {'compound_code': '75VC+27 Summersville, WV, USA',
+   'global_code': '86CX75VC+27'},
+  'rating': 2.7,
+  'reference': 'ChIJjbn34LSqTogR_cOpEpr8H2Y',
+  'types': ['hospital', 'health', 'point_of_interest', 'establishment'],
+  'user_ratings_total': 21}]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+# Results is a list with one element
+results[0]
+
+-----------------
+Original output:
+{'formatted_address': '400 Fairview Heights Rd, Summersville, WV 26651, United States',
+ 'geometry': {'location': {'lat': 38.292546, 'lng': -80.829295},
+  'viewport': {'northeast': {'lat': 38.2936712802915,
+    'lng': -80.8279219697085},
+   'southwest': {'lat': 38.2909733197085, 'lng': -80.8306199302915}}},
+ 'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png',
+ 'id': 'dc34e7a11599cb6a5d25791f33b7150e5a18fdd7',
+ 'name': 'Summersville Regional Medical Center',
+ 'photos': [{'height': 1365,
+   'html_attributions': ['<a href="https://maps.google.com/maps/contrib/108055343835210740093/photos">Summersville Regional Medical Center</a>'],
+   'photo_reference': 'CmRaAAAA3qQHQW5XJZUVMj_B5gMLMPoQTJpUluGsbgsPcAnq9FFvBbB_1IFOgLXgfS2UXdEAnmfzF-e5uFUjoavEEO53pyBykfMU_t7Z9TgPo0xT47f2CGqWxYqc2-XzZj4v7uVHEhBZuEBAsw_FU0ZS6QCAN6BNGhRpACP_O0i8VaGYdJyTUvZaS3voWw',
+   'width': 2048}],
+ 'place_id': 'ChIJjbn34LSqTogR_cOpEpr8H2Y',
+ 'rating': 1.9,
+ 'reference': 'CmRRAAAA9Y43MkFW3bDjuytw-ApqsAvke-Q6_dmOvzqhQU9mJ5YQEr3Kyln4pKnRnG5C-y8i-qxFOmeEYv0h2IY0Je98GhrKKzjjlRWssDi4uHnW1vevXX3_cPfM3Yg_EIFk5M67EhDRDNme-6Mmj8OvkwRJ9qDkGhStOV6tFCDcDFPnksrjovs0mQ6ozg',
+ 'types': ['hospital', 'health', 'point_of_interest', 'establishment']}
+Executed output:
+{'formatted_address': '400 Fairview Heights Rd, Summersville, WV 26651, USA',
+ 'geometry': {'location': {'lat': 38.292546, 'lng': -80.829295},
+  'viewport': {'northeast': {'lat': 38.29367212989272,
+    'lng': -80.82792112010728},
+   'southwest': {'lat': 38.29097247010728, 'lng': -80.83062077989273}}},
+ 'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png',
+ 'id': 'dc34e7a11599cb6a5d25791f33b7150e5a18fdd7',
+ 'name': 'Summersville Regional Medical Center',
+ 'opening_hours': {'open_now': True},
+ 'photos': [{'height': 1365,
+   'html_attributions': ['<a href="https://maps.google.com/maps/contrib/108055343835210740093/photos">A Google User</a>'],
+   'photo_reference': 'CmRaAAAAhIJnfs1FvwAj7buty6fE5m5J-s--Pal9DyjjlDBEI44Q6u0oF3wInqmo6DCkFRmLw-s6l4td9YRqiPYueS-BRjiJ-VWrbB8b4a1OKu9mNI5KFC6ISPoON2WEHUIj6K_fEhBlOAlDEZvXGpygbE_1Bxp1GhQZMXgrY_W7M-5L2hjCERTxdWpEsQ',
+   'width': 2048}],
+ 'place_id': 'ChIJjbn34LSqTogR_cOpEpr8H2Y',
+ 'plus_code': {'compound_code': '75VC+27 Summersville, WV, USA',
+  'global_code': '86CX75VC+27'},
+ 'rating': 2.7,
+ 'reference': 'ChIJjbn34LSqTogR_cOpEpr8H2Y',
+ 'types': ['hospital', 'health', 'point_of_interest', 'establishment'],
+ 'user_ratings_total': 21}

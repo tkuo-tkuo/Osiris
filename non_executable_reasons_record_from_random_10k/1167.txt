@@ -1,0 +1,45 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from keras.models import Sequential
+from keras.layers import Conv2D, ZeroPadding2D, Activation, Input, concatenate
+from keras.models import Model
+from keras.layers.normalization import BatchNormalization
+from keras.layers.pooling import MaxPooling2D, AveragePooling2D
+from keras.layers.merge import Concatenate
+from keras.layers.core import Lambda, Flatten, Dense
+from keras.initializers import glorot_uniform
+from keras.engine.topology import Layer
+from keras import backend as K
+K.set_image_data_format('channels_first')
+import cv2
+import os
+import numpy as np
+from numpy import genfromtxt
+import pandas as pd
+import tensorflow as tf
+from fr_utils import *
+from inception_blocks_v2 import *
+
+%matplotlib inline
+%load_ext autoreload
+%autoreload 2
+
+np.set_printoptions(threshold=np.nan)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-0c956058d778>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mSequential[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mConv2D[0m[0;34m,[0m [0mZeroPadding2D[0m[0;34m,[0m [0mActivation[0m[0;34m,[0m [0mInput[0m[0;34m,[0m [0mconcatenate[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mModel[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'keras'
+ModuleNotFoundError: No module named 'keras'
+
+Executability                            : False

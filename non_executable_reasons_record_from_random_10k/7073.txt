@@ -1,0 +1,49 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+sub=predcitons
+sub['id']=predcitons.index+1
+sub.drop('imageId',axis=1,inplace=True)
+sub.to_csv('rslt.csv',index=False)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-7-66c72354fbd3>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0msub[0m[0;34m=[0m[0mpredcitons[0m[0;34m[0m[0m
+[1;32m      2[0m [0msub[0m[0;34m[[0m[0;34m'id'[0m[0;34m][0m[0;34m=[0m[0mpredcitons[0m[0;34m.[0m[0mindex[0m[0;34m+[0m[0;36m1[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0msub[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0;34m'imageId'[0m[0;34m,[0m[0maxis[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m[0minplace[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0msub[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0;34m'rslt.csv'[0m[0;34m,[0m[0mindex[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36mdrop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
+[1;32m   3692[0m                                            [0mindex[0m[0;34m=[0m[0mindex[0m[0;34m,[0m [0mcolumns[0m[0;34m=[0m[0mcolumns[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m   3693[0m                                            [0mlevel[0m[0;34m=[0m[0mlevel[0m[0;34m,[0m [0minplace[0m[0;34m=[0m[0minplace[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m-> 3694[0;31m                                            errors=errors)
+[0m[1;32m   3695[0m [0;34m[0m[0m
+[1;32m   3696[0m     @rewrite_axis_style_signature('mapper', [('copy', True),
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/generic.py[0m in [0;36mdrop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
+[1;32m   3106[0m         [0;32mfor[0m [0maxis[0m[0;34m,[0m [0mlabels[0m [0;32min[0m [0maxes[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   3107[0m             [0;32mif[0m [0mlabels[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 3108[0;31m                 [0mobj[0m [0;34m=[0m [0mobj[0m[0;34m.[0m[0m_drop_axis[0m[0;34m([0m[0mlabels[0m[0;34m,[0m [0maxis[0m[0;34m,[0m [0mlevel[0m[0;34m=[0m[0mlevel[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3109[0m [0;34m[0m[0m
+[1;32m   3110[0m         [0;32mif[0m [0minplace[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/generic.py[0m in [0;36m_drop_axis[0;34m(self, labels, axis, level, errors)[0m
+[1;32m   3138[0m                 [0mnew_axis[0m [0;34m=[0m [0maxis[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0mlabels[0m[0;34m,[0m [0mlevel[0m[0;34m=[0m[0mlevel[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   3139[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 3140[0;31m                 [0mnew_axis[0m [0;34m=[0m [0maxis[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0mlabels[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3141[0m             [0mdropped[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mreindex[0m[0;34m([0m[0;34m**[0m[0;34m{[0m[0maxis_name[0m[0;34m:[0m [0mnew_axis[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   3142[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/indexes/base.py[0m in [0;36mdrop[0;34m(self, labels, errors)[0m
+[1;32m   4385[0m             [0;32mif[0m [0merrors[0m [0;34m!=[0m [0;34m'ignore'[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   4386[0m                 raise KeyError(
+[0;32m-> 4387[0;31m                     'labels %s not contained in axis' % labels[mask])
+[0m[1;32m   4388[0m             [0mindexer[0m [0;34m=[0m [0mindexer[0m[0;34m[[0m[0;34m~[0m[0mmask[0m[0;34m][0m[0;34m[0m[0m
+[1;32m   4389[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdelete[0m[0;34m([0m[0mindexer[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: "labels ['imageId'] not contained in axis"
+KeyError: "labels ['imageId'] not contained in axis"
+
+Executability                            : False

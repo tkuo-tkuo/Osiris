@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+df = pd.DataFrame(np.random.randn(600, 3), index = pd.date_range('5/1/2016', freq = 'D', periods = 600), columns = ['A', 'B', 'C'])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-09290d14372d>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mrandn[0m[0;34m([0m[0;36m600[0m[0;34m,[0m [0;36m3[0m[0;34m)[0m[0;34m,[0m [0mindex[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mdate_range[0m[0;34m([0m[0;34m'5/1/2016'[0m[0;34m,[0m [0mfreq[0m [0;34m=[0m [0;34m'D'[0m[0;34m,[0m [0mperiods[0m [0;34m=[0m [0;36m600[0m[0;34m)[0m[0;34m,[0m [0mcolumns[0m [0;34m=[0m [0;34m[[0m[0;34m'A'[0m[0;34m,[0m [0;34m'B'[0m[0;34m,[0m [0;34m'C'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

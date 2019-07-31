@@ -1,0 +1,51 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import imageio
+import colour
+import numpy as np
+import matplotlib.pyplot as plt
+
+vid = imageio.get_reader("ChileMine.mp4", "mp4")
+nframes = vid.get_length()
+
+resources = []
+for i in range(nframes-1):
+    img1 = vid.get_data(i)
+    img2 = vid.get_data(i+1)
+    labimg1 = colour.XYZ_to_Lab(img1)
+    labimg2 = colour.XYZ_to_Lab(img2)
+    diff = colour.difference.delta_E(labimg1, labimg2)
+    d = diff.sum() / np.prod(img1.shape)
+    resources.append(d)
+    
+    if i < 10:
+        plt.figure(figsize=(20,10))
+        plt.subplot(1,3,1)
+        plt.imshow(img1)
+        plt.axis("off")
+        plt.subplot(1,3,2)
+        plt.imshow(img2)
+        plt.axis("off")
+        plt.subplot(1,3,3)
+        plt.imshow(diff)
+        plt.axis("off")
+        plt.title("Total difference {}".format(d))
+        plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-d9cbcf1d3ce9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mimageio[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mcolour[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'colour'
+ModuleNotFoundError: No module named 'colour'
+
+Executability                            : False

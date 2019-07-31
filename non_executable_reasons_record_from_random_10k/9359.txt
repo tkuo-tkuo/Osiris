@@ -1,0 +1,21 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+Jword_set = set()
+
+for line in lines:
+    # Passing no args to split() will do what you want in this case:
+    #   split on all weird characters (aka whitespace characters)
+    words = line.split()
+    for word in words:
+        # Lowercase the word or else alphabetical sort puts capitals ahead
+        word = word.lower()
+        # Adding to a set (vs list) will automatically de-duplicate
+        word_set.add(word)
+
+print(word_set)
+------------------
+
+NameError: name 'word_set' is not defined
+
+Executability                            : False

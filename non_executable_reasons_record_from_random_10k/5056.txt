@@ -1,0 +1,128 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+fig = plt.figure(facecolor='#F2F2F2')
+ax = fig.gca(projection='3d', axisbg='#F2F2F2')
+
+plt.style.use('ggplot')
+ax.set_title('Uma teoria sobre o impeachment', loc='left')
+ax.set_xlabel('Circunstância Política')
+ax.set_ylabel('Justificativa Jurídica')
+ax.set_zlabel('Probabilidade de Impeachment')
+
+ax.view_init(elev=22, azim=-118)             
+ax.dist=10                                  
+
+ax.set_ylim3d((0,1))
+ax.set_xlim3d((0,1))
+ax.set_zlim3d((0,1))
+
+ax.scatter(
+           x, z, y,  
+           marker='o',
+           s=8,                                  
+           color='red'
+           )
+ax.grid(True)
+
+fig.savefig('fig1.png', facecolor='#F2F2F2', bbox_inches='tight')
+
+
+
+fig2 = plt.figure(facecolor='#F2F2F2')
+
+plt.plot(x, y, 'ro', alpha=0.75)
+plt.style.use('ggplot')
+plt.title('Probabilidade de Impeachment condicional à política e o direito', loc='left')
+plt.xlabel('Circunstância Política ou Justificativa Jurídica')
+plt.ylabel('Probabilidade de Impeachment')
+plt.axis([0, 1, 0, 1])
+plt.grid(True)
+
+fig2.savefig('fig2.png', facecolor='#F2F2F2', bbox_inches='tight')
+
+
+fig3 = plt.figure(facecolor='#F2F2F2')
+
+plt.plot(z,x, 'ro', alpha=0.75)
+plt.style.use('ggplot')
+plt.title('Correlação entre política e direito', loc='left')
+plt.xlabel('Circunstância Política')
+plt.ylabel('Justificativa Jurídica')
+plt.axis([0, 1, 0, 1])
+plt.grid(True)
+
+plt.show()       
+
+fig3.savefig('fig3.png', facecolor='#F2F2F2', bbox_inches='tight')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-2-8a99a4d85e64>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mfig[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mfacecolor[0m[0;34m=[0m[0;34m'#F2F2F2'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0max[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0mgca[0m[0;34m([0m[0mprojection[0m[0;34m=[0m[0;34m'3d'[0m[0;34m,[0m [0maxisbg[0m[0;34m=[0m[0;34m'#F2F2F2'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mstyle[0m[0;34m.[0m[0muse[0m[0;34m([0m[0;34m'ggplot'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0max[0m[0;34m.[0m[0mset_title[0m[0;34m([0m[0;34m'Uma teoria sobre o impeachment'[0m[0;34m,[0m [0mloc[0m[0;34m=[0m[0;34m'left'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/figure.py[0m in [0;36mgca[0;34m(self, **kwargs)[0m
+[1;32m   1930[0m [0;34m[0m[0m
+[1;32m   1931[0m         [0;31m# no axes found, so create one which spans the figure[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1932[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0madd_subplot[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m1[0m[0;34m,[0m [0;36m1[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1933[0m [0;34m[0m[0m
+[1;32m   1934[0m     [0;32mdef[0m [0msca[0m[0;34m([0m[0mself[0m[0;34m,[0m [0ma[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/figure.py[0m in [0;36madd_subplot[0;34m(self, *args, **kwargs)[0m
+[1;32m   1412[0m                     [0mself[0m[0;34m.[0m[0m_axstack[0m[0;34m.[0m[0mremove[0m[0;34m([0m[0max[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1413[0m [0;34m[0m[0m
+[0;32m-> 1414[0;31m             [0ma[0m [0;34m=[0m [0msubplot_class_factory[0m[0;34m([0m[0mprojection_class[0m[0;34m)[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1415[0m [0;34m[0m[0m
+[1;32m   1416[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_add_axes_internal[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0ma[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_subplots.py[0m in [0;36m__init__[0;34m(self, fig, *args, **kwargs)[0m
+[1;32m     67[0m [0;34m[0m[0m
+[1;32m     68[0m         [0;31m# _axes_class is set in the subplot_class_factory[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 69[0;31m         [0mself[0m[0;34m.[0m[0m_axes_class[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mfig[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mfigbox[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     70[0m         [0;31m# add a layout box to this, for both the full axis, and the poss[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     71[0m         [0;31m# of the axis.  We need both because the axes may become smaller[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/mpl_toolkits/mplot3d/axes3d.py[0m in [0;36m__init__[0;34m(self, fig, rect, azim, elev, zscale, sharez, proj_type, *args, **kwargs)[0m
+[1;32m     99[0m             [0mself[0m[0;34m.[0m[0m_adjustable[0m [0;34m=[0m [0;34m'datalim'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    100[0m [0;34m[0m[0m
+[0;32m--> 101[0;31m         [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mfig[0m[0;34m,[0m [0mrect[0m[0;34m,[0m [0mframeon[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    102[0m         [0;31m# Disable drawing of axes by base class[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    103[0m         [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mset_axis_off[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/axes/_base.py[0m in [0;36m__init__[0;34m(self, fig, rect, facecolor, frameon, sharex, sharey, label, xscale, yscale, **kwargs)[0m
+[1;32m    507[0m             [0mself[0m[0;34m.[0m[0mset_yscale[0m[0;34m([0m[0myscale[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    508[0m [0;34m[0m[0m
+[0;32m--> 509[0;31m         [0mself[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    510[0m [0;34m[0m[0m
+[1;32m    511[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mxaxis[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/artist.py[0m in [0;36mupdate[0;34m(self, props)[0m
+[1;32m    955[0m [0;34m[0m[0m
+[1;32m    956[0m         [0;32mwith[0m [0mcbook[0m[0;34m.[0m[0m_setattr_cm[0m[0;34m([0m[0mself[0m[0;34m,[0m [0meventson[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 957[0;31m             [0mret[0m [0;34m=[0m [0;34m[[0m[0m_update_property[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mk[0m[0;34m,[0m [0mv[0m[0;34m)[0m [0;32mfor[0m [0mk[0m[0;34m,[0m [0mv[0m [0;32min[0m [0mprops[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    958[0m [0;34m[0m[0m
+[1;32m    959[0m         [0;32mif[0m [0mlen[0m[0;34m([0m[0mret[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/artist.py[0m in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m    955[0m [0;34m[0m[0m
+[1;32m    956[0m         [0;32mwith[0m [0mcbook[0m[0;34m.[0m[0m_setattr_cm[0m[0;34m([0m[0mself[0m[0;34m,[0m [0meventson[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 957[0;31m             [0mret[0m [0;34m=[0m [0;34m[[0m[0m_update_property[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mk[0m[0;34m,[0m [0mv[0m[0;34m)[0m [0;32mfor[0m [0mk[0m[0;34m,[0m [0mv[0m [0;32min[0m [0mprops[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    958[0m [0;34m[0m[0m
+[1;32m    959[0m         [0;32mif[0m [0mlen[0m[0;34m([0m[0mret[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/artist.py[0m in [0;36m_update_property[0;34m(self, k, v)[0m
+[1;32m    951[0m                 [0;32mif[0m [0;32mnot[0m [0mcallable[0m[0;34m([0m[0mfunc[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    952[0m                     raise AttributeError('{!r} object has no property {!r}'
+[0;32m--> 953[0;31m                                          .format(type(self).__name__, k))
+[0m[1;32m    954[0m                 [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0mv[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    955[0m [0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'Axes3DSubplot' object has no property 'axisbg'
+AttributeError: 'Axes3DSubplot' object has no property 'axisbg'
+
+Executability                            : False

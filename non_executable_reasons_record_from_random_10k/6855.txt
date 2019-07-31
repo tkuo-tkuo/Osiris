@@ -1,0 +1,49 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from sklearn.model_selection import KFold
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+import oll
+
+## manual 10-fold cross-validation
+kf = KFold(n_splits=2, random_state=None, shuffle=False)
+
+methods = ["P" ,"AP" ,"PA" ,"PA1","PA2" ,"PAK","CW" ,"AL"]
+
+for m in methods:
+    model = oll.oll(m, C=1)
+
+    accuracy = []
+    precision = []
+    recall = []
+    
+    for train_index, test_index in kf.split(data):
+
+        X_train, X_test = data[train_index], data[test_index]
+        y_train, y_test = target[train_index], target[test_index]
+        model.fit(X_train, y_train)
+        predicted = model.predict(X_test)
+
+        accuracy.append(accuracy_score(y_test, predicted))
+        precision.append(precision_score(y_test, predicted))
+        recall.append(recall_score(y_test, predicted))
+
+    print(m + ': acc(' + str(np.mean(accuracy)) 
+          + '), prec(' + str(np.mean(precision))
+          + '), rec(' + str(np.mean(recall)) + ')'
+         )
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-7-1b6834cd10fe>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmodel_selection[0m [0;32mimport[0m [0mKFold[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmetrics[0m [0;32mimport[0m [0maccuracy_score[0m[0;34m,[0m [0mprecision_score[0m[0;34m,[0m [0mrecall_score[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0moll[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;31m## manual 10-fold cross-validation[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'oll'
+ImportError: No module named 'oll'
+
+Executability                            : False

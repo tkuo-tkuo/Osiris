@@ -1,0 +1,62 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import torch
+
+dtype = torch.float
+device = torch.device("cpu")
+# device = torch.device("cuda:0") # Uncomment this to run on GPU
+
+# N is batch size; D_in is input dimension;
+# H is hidden dimension; D_out is output dimension.
+N, D_in, H, D_out = 64, 1000, 100, 10
+
+# Create random Tensors to hold input and outputs.
+# Setting requires_grad=False indicates that we do not need to compute gradients
+# with respect to these Tensors during the backward pass.
+x = torch.randn(N, D_in, device=device, dtype=dtype)
+y = torch.randn(N, D_out, device=device, dtype=dtype)
+
+# Create random Tensors for weights.
+# Setting requires_grad=True indicates that we want to compute gradients with
+# respect to these Tensors during the backward pass.
+w1 = torch.randn(D_in, H, device=device, dtype=dtype, requires_grad=True)
+w2 = torch.randn(H, D_out, device=device, dtype=dtype, requires_grad=True)
+
+b1 = torch.zeros(1, H, device=device, dtype=dtype, requires_grad = True)
+b2  = torch.zeros(1, D_out, device=device, dtype = dtype, requires_grad = True)
+
+learning_rate = 1e-6
+for t in range(1500):
+    h = x.mm(w1) + b1 
+    h_relu = h.clamp(min=0)
+    y_pred  = h_relu.mm(w2) + b2
+    
+    loss= (y_pred-y).pow(2).sum()
+    print(t,loss.item())
+    loss.backward()
+    with torch.no_grad():
+        w1 -=learning_rate*w1.grad
+        w2 -=learning_rate*w2.grad
+        b1 -= learning_rate*b1.grad
+        b2 -= learning_rate*b2.grad
+        
+        w1.grad.zero_()
+        w2.grad.zero_()
+        b1.grad.zero_()
+        b2.grad.zero_()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-17fd67c12dee>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mtorch[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mdtype[0m [0;34m=[0m [0mtorch[0m[0;34m.[0m[0mfloat[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mdevice[0m [0;34m=[0m [0mtorch[0m[0;34m.[0m[0mdevice[0m[0;34m([0m[0;34m"cpu"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m# device = torch.device("cuda:0") # Uncomment this to run on GPU[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'torch'
+ModuleNotFoundError: No module named 'torch'
+
+Executability                            : False

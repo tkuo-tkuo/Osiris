@@ -1,0 +1,58 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import requests
+from bs4 import BeautifulSoup
+from time import sleep, time
+from IPython.display import display
+import pandas as pd
+import numpy as np
+import itertools
+import random
+import re
+import nltk
+from sklearn.feature_extraction.stop_words import ENGLISH_STOP_WORDS
+from nltk.stem import WordNetLemmatizer
+from nltk.stem.porter import PorterStemmer
+from collections import Counter
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler
+from sklearn.model_selection import train_test_split, ShuffleSplit, StratifiedShuffleSplit
+from sklearn.metrics import accuracy_score, precision_score, recall_score, fbeta_score, f1_score
+from sklearn.metrics import classification_report, confusion_matrix, roc_curve
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC, LinearSVC
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+import keras
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation
+from sklearn.base import clone
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import NMF
+from sklearn.metrics import make_scorer
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+import visuals as vs
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-e94078f9a9f4>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     27[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mensemble[0m [0;32mimport[0m [0mRandomForestClassifier[0m[0;34m[0m[0m
+[1;32m     28[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mlinear_model[0m [0;32mimport[0m [0mLogisticRegression[0m[0;34m[0m[0m
+[0;32m---> 29[0;31m [0;32mimport[0m [0mkeras[0m[0;34m[0m[0m
+[0m[1;32m     30[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mSequential[0m[0;34m[0m[0m
+[1;32m     31[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mDense[0m[0;34m,[0m [0mDropout[0m[0;34m,[0m [0mActivation[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

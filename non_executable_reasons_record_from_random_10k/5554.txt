@@ -1,0 +1,31 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+import pandas as pd
+import networkx as nx
+import community
+from nltk.corpus import stopwords
+from collections import Counter
+import mpld3
+from mpld3 import plugins
+import re
+
+%pylab inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-0d7e60c8837e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mnetworkx[0m [0;32mas[0m [0mnx[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mcommunity[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mcorpus[0m [0;32mimport[0m [0mstopwords[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfrom[0m [0mcollections[0m [0;32mimport[0m [0mCounter[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'community'
+ImportError: No module named 'community'
+
+Executability                            : False

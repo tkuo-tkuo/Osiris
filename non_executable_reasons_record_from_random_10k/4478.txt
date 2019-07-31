@@ -1,0 +1,48 @@
+3.7
+Executability                            : True
+Reproducibility                          : number of matched cells: 4 ; number of cells: 5
+Reproducibility                          : matched ratio: 0.8 ; index of matched cells: [0, 1, 2, 3]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+class KNNClassifier():
+    
+    def __init__(self, k=5):
+        self.x_train = None
+        self.y_train = None
+        self.k = k
+        
+    def fit(self, X, y):
+        self.x_train = X
+        self.y_train = y
+    
+    def predict(self, X):
+        y = []
+        for row in X:
+            
+            # L2 norm, i.e., Euclidean Distance
+            dists = np.linalg.norm(row - self.x_train, axis=1)
+            # Cosine Similarity
+            # rn = np.linalg.norm(row)  # row norm
+            # dists = [row @ b / (rn * np.linalg.norm(b))
+            #        for b in self.x_train]
+            
+            # labels from the neareast neighbors
+            labels = self.y_train[np.argsort(dists)[:self.k]]
+            vals, counts = np.unique(labels, return_counts=True)
+            y.append(vals[np.argmax(counts)])
+        return y
+    
+    def score(self, X, y):
+        y_pred = self.predict(X)
+        return np.mean(y_pred == y)
+
+model = KNNClassifier()
+model.fit(X_train, y_train)
+model.score(X_test, y_test)
+
+-----------------
+Original output:
+1.0
+Executed output:
+0.967741935483871

@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+c=rgba(100,32,47,0.9785)
+assert_true('032' in c.__str__())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-13-8ff7cc48c48a>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mc[0m[0;34m=[0m[0mrgba[0m[0;34m([0m[0;36m100[0m[0;34m,[0m[0;36m32[0m[0;34m,[0m[0;36m47[0m[0;34m,[0m[0;36m0.9785[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0massert_true[0m[0;34m([0m[0;34m'032'[0m [0;32min[0m [0mc[0m[0;34m.[0m[0m__str__[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'rgba' is not defined
+NameError: name 'rgba' is not defined
+
+Executability                            : False

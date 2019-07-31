@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+a = knn.predict([3,4,4,1])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-4-617626ddc583>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0ma[0m [0;34m=[0m [0mknn[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0;34m[[0m[0;36m3[0m[0;34m,[0m[0;36m4[0m[0;34m,[0m[0;36m4[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/neighbors/classification.py[0m in [0;36mpredict[0;34m(self, X)[0m
+[1;32m    145[0m             [0mClass[0m [0mlabels[0m [0;32mfor[0m [0meach[0m [0mdata[0m [0msample[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    146[0m         """
+[0;32m--> 147[0;31m         [0mX[0m [0;34m=[0m [0mcheck_array[0m[0;34m([0m[0mX[0m[0;34m,[0m [0maccept_sparse[0m[0;34m=[0m[0;34m'csr'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    148[0m [0;34m[0m[0m
+[1;32m    149[0m         [0mneigh_dist[0m[0;34m,[0m [0mneigh_ind[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mkneighbors[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/utils/validation.py[0m in [0;36mcheck_array[0;34m(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, warn_on_dtype, estimator)[0m
+[1;32m    519[0m                     [0;34m"Reshape your data either using array.reshape(-1, 1) if "[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    520[0m                     [0;34m"your data has a single feature or array.reshape(1, -1) "[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 521[0;31m                     "if it contains a single sample.".format(array))
+[0m[1;32m    522[0m [0;34m[0m[0m
+[1;32m    523[0m         [0;31m# in the future np.flexible dtypes will be handled like object dtypes[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: Expected 2D array, got 1D array instead:
+array=[3 4 4 1].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+ValueError: Expected 2D array, got 1D array instead:
+array=[3 4 4 1].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+
+Executability                            : False

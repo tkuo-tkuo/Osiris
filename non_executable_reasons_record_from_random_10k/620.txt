@@ -1,0 +1,10 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+from jupyter_client.connect import find_connection_file
+find_connection_file()
+------------------
+
+OSError: Could not find 'kernel-*.json' in ['.', '/run/user/1004/jupyter']
+
+Executability                            : False

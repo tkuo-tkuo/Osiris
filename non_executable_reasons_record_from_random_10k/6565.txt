@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+pages = []
+for url in urls:
+    page = requests.get(url)
+    print(page.status_code)
+    pages.append(page.content)
+    time.sleep(1)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-1cf83660dade>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mpages[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mfor[0m [0murl[0m [0;32min[0m [0murls[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     [0mpage[0m [0;34m=[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0murl[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mprint[0m[0;34m([0m[0mpage[0m[0;34m.[0m[0mstatus_code[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mpages[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mpage[0m[0;34m.[0m[0mcontent[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'requests' is not defined
+NameError: name 'requests' is not defined
+
+Executability                            : False

@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+page =[]
+for tag in bsbj.select('.pagination > .page > a'):
+    page.append(tag.text)
+pnum = page
+pnum    
+count = 0 
+tagged = ['market', 'relay']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-9c82001db8c6>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mpage[0m [0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfor[0m [0mtag[0m [0;32min[0m [0mbsbj[0m[0;34m.[0m[0mselect[0m[0;34m([0m[0;34m'.pagination > .page > a'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m     [0mpage[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mtag[0m[0;34m.[0m[0mtext[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mpnum[0m [0;34m=[0m [0mpage[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'bsbj' is not defined
+NameError: name 'bsbj' is not defined
+
+Executability                            : False

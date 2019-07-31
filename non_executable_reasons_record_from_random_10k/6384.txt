@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+response = requests.get(page_link)
+response
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-e615db2079a5>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mresponse[0m [0;34m=[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mpage_link[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mresponse[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'page_link' is not defined
+NameError: name 'page_link' is not defined
+
+Executability                            : False

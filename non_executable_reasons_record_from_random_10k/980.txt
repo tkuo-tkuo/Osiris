@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from sklearn.linear_model import LogisticRegression
+from sklearn.cross_validation import train_test_split # con esta librería podemos dividir nuestra base de datos en entrenamiento y validación
+from sklearn.preprocessing import StandardScaler
+
+#primero hacemos nuestra partición de la DB
+
+X = iris.data[:,[2,3]] #tomaremos solo dos características 
+X_train, X_test, y_train, y_test =train_test_split(X,y,test_size=0.3, random_state=0)
+
+#Removemos la media y quitamos la varianza. Ojo con la normalización del conjunto de entrenamiento
+
+sc = StandardScaler()
+sc.fit(X_train)
+X_train_std = sc.transform(X_train)
+X_test_std = sc.transform(X_test)
+
+X_combined_std = np.vstack((X_train_std,X_test_std))
+y_combined = np.hstack((y_train,y_test))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-5-c1b820eed324>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mlinear_model[0m [0;32mimport[0m [0mLogisticRegression[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mcross_validation[0m [0;32mimport[0m [0mtrain_test_split[0m [0;31m# con esta librería podemos dividir nuestra base de datos en entrenamiento y validación[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mpreprocessing[0m [0;32mimport[0m [0mStandardScaler[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;31m#primero hacemos nuestra partición de la DB[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'sklearn.cross_validation'
+ModuleNotFoundError: No module named 'sklearn.cross_validation'
+
+Executability                            : False

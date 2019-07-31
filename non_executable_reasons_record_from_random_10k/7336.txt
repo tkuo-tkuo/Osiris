@@ -1,0 +1,38 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Imported software with analysis and plotting functions.
+import numpy as np
+
+data=ascii.read('lab08_data_ks_da.csv')
+
+#Imported data from a csv file and defined constants for caluculations.
+e=(data[0][:]*10)/(10**3)
+E=np.mean(e) #eV
+h=4.133*10**-15 #eV*s
+c=2.998*10**8 #m/s
+
+#Plugged values into formulas to complete calculations.
+nu=E/h
+
+wl=c/nu
+
+print(nu) #Hz
+print(wl) #m
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-1-a0dce420dc33>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0mdata[0m[0;34m=[0m[0mascii[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m'lab08_data_ks_da.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;31m#Imported data from a csv file and defined constants for caluculations.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'builtin_function_or_method' object has no attribute 'read'
+AttributeError: 'builtin_function_or_method' object has no attribute 'read'
+
+Executability                            : False

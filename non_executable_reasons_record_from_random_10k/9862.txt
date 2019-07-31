@@ -1,0 +1,33 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.333 ; index of matched cells: [0]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+# Calculate one gradient descent step for each weight
+# TODO: Calculate output of neural network
+nn_output = sigmoid(np.dot(x,w))
+print(nn_output)
+
+-----------------
+Original output:
+0.377540668798
+
+Executed output:
+0.3775406687981454
+
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+# TODO: Calculate error of neural network
+error = y - nn_output
+print(error)
+
+-----------------
+Original output:
+0.122459331202
+
+Executed output:
+0.1224593312018546
+

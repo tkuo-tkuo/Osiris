@@ -1,0 +1,54 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+vect = CountVectorizer(max_features=50)
+vect.fit(X)
+Xt = vect.transform(X)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-17-45332e671e94>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mvect[0m [0;34m=[0m [0mCountVectorizer[0m[0;34m([0m[0mmax_features[0m[0;34m=[0m[0;36m50[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mvect[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mXt[0m [0;34m=[0m [0mvect[0m[0;34m.[0m[0mtransform[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/feature_extraction/text.py[0m in [0;36mfit[0;34m(self, raw_documents, y)[0m
+[1;32m   1022[0m         [0mself[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1023[0m         """
+[0;32m-> 1024[0;31m         [0mself[0m[0;34m.[0m[0mfit_transform[0m[0;34m([0m[0mraw_documents[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1025[0m         [0;32mreturn[0m [0mself[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1026[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/feature_extraction/text.py[0m in [0;36mfit_transform[0;34m(self, raw_documents, y)[0m
+[1;32m   1056[0m [0;34m[0m[0m
+[1;32m   1057[0m         vocabulary, X = self._count_vocab(raw_documents,
+[0;32m-> 1058[0;31m                                           self.fixed_vocabulary_)
+[0m[1;32m   1059[0m [0;34m[0m[0m
+[1;32m   1060[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mbinary[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/feature_extraction/text.py[0m in [0;36m_count_vocab[0;34m(self, raw_documents, fixed_vocab)[0m
+[1;32m    968[0m         [0;32mfor[0m [0mdoc[0m [0;32min[0m [0mraw_documents[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    969[0m             [0mfeature_counter[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 970[0;31m             [0;32mfor[0m [0mfeature[0m [0;32min[0m [0manalyze[0m[0;34m([0m[0mdoc[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    971[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    972[0m                     [0mfeature_idx[0m [0;34m=[0m [0mvocabulary[0m[0;34m[[0m[0mfeature[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/feature_extraction/text.py[0m in [0;36m<lambda>[0;34m(doc)[0m
+[1;32m    350[0m                                                tokenize)
+[1;32m    351[0m             return lambda doc: self._word_ngrams(
+[0;32m--> 352[0;31m                 tokenize(preprocess(self.decode(doc))), stop_words)
+[0m[1;32m    353[0m [0;34m[0m[0m
+[1;32m    354[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/feature_extraction/text.py[0m in [0;36m<lambda>[0;34m(x)[0m
+[1;32m    254[0m [0;34m[0m[0m
+[1;32m    255[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mlowercase[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 256[0;31m             [0;32mreturn[0m [0;32mlambda[0m [0mx[0m[0;34m:[0m [0mstrip_accents[0m[0;34m([0m[0mx[0m[0;34m.[0m[0mlower[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    257[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    258[0m             [0;32mreturn[0m [0mstrip_accents[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'numpy.ndarray' object has no attribute 'lower'
+AttributeError: 'numpy.ndarray' object has no attribute 'lower'
+
+Executability                            : False

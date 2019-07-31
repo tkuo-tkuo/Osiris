@@ -1,0 +1,392 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 6 ; number of cells: 7
+Reproducibility                          : matched ratio: 0.857 ; index of matched cells: [0, 1, 2, 3, 4, 6]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+dframe
+
+-----------------
+Original output:
+                                             Bank Name                City  \
+0                                  Fayette County Bank          Saint Elmo   
+1    Guaranty Bank, (d/b/a BestBank in Georgia & Mi...           Milwaukee   
+2                                       First NBC Bank         New Orleans   
+3                                        Proficio Bank  Cottonwood Heights   
+4                        Seaway Bank and Trust Company             Chicago   
+5                               Harvest Community Bank          Pennsville   
+6                                          Allied Bank            Mulberry   
+7                         The Woodbury Banking Company            Woodbury   
+8                               First CornerStone Bank     King of Prussia   
+9                                   Trust Company Bank             Memphis   
+10                          North Milwaukee State Bank           Milwaukee   
+11                              Hometown National Bank            Longview   
+12                                 The Bank of Georgia      Peachtree City   
+13                                        Premier Bank              Denver   
+14                                      Edgebrook Bank             Chicago   
+15                              Doral Bank  En Espanol            San Juan   
+16                   Capitol City Bank & Trust Company             Atlanta   
+17                             Highland Community Bank             Chicago   
+18                    First National Bank of Crestview           Crestview   
+19                                  Northern Star Bank             Mankato   
+20              Frontier Bank, FSB D/B/A El Paseo Bank         Palm Desert   
+21               The National Republic Bank of Chicago             Chicago   
+22                                      NBRS Financial          Rising Sun   
+23                               GreenChoice Bank, fsb             Chicago   
+24                            Eastside Commercial Bank             Conyers   
+25                              The Freedom State Bank             Freedom   
+26                                         Valley Bank     Fort Lauderdale   
+27                                         Valley Bank              Moline   
+28                         Slavie Federal Savings Bank             Bel Air   
+29                               Columbia Savings Bank          Cincinnati   
+..                                                 ...                 ...   
+523                                  ANB Financial, NA         Bentonville   
+524                                          Hume Bank                Hume   
+525                             Douglass National Bank         Kansas City   
+526                                  Miami Valley Bank            Lakeview   
+527                                            NetBank          Alpharetta   
+528                          Metropolitan Savings Bank          Pittsburgh   
+529                                    Bank of Ephraim             Ephraim   
+530                                      Reliance Bank        White Plains   
+531              Guaranty National Bank of Tallahassee         Tallahassee   
+532                                Dollar Savings Bank              Newark   
+533                               Pulaski Savings Bank        Philadelphia   
+534              First National Bank of Blanchardville      Blanchardville   
+535                              Southern Pacific Bank            Torrance   
+536                        Farmers Bank of Cheneyville         Cheneyville   
+537                                      Bank of Alamo               Alamo   
+538             AmTrade International Bank  En Espanol             Atlanta   
+539                     Universal Federal Savings Bank             Chicago   
+540                       Connecticut Bank of Commerce            Stamford   
+541                                   New Century Bank     Shelby Township   
+542                              Net 1st National Bank          Boca Raton   
+543                                       NextBank, NA             Phoenix   
+544                           Oakwood Deposit Bank Co.             Oakwood   
+545                              Bank of Sierra Blanca       Sierra Blanca   
+546                      Hamilton Bank, NA  En Espanol               Miami   
+547                             Sinclair National Bank            Gravette   
+548                                 Superior Bank, FSB            Hinsdale   
+549                                Malta National Bank               Malta   
+550                    First Alliance Bank & Trust Co.          Manchester   
+551                  National State Bank of Metropolis          Metropolis   
+552                                   Bank of Honolulu            Honolulu   
+
+     ST   CERT                Acquiring Institution        Closing Date  \
+0    IL   1802            United Fidelity Bank, fsb        May 26, 2017   
+1    WI  30003  First-Citizens Bank & Trust Company         May 5, 2017   
+2    LA  58302                         Whitney Bank      April 28, 2017   
+3    UT  35495                    Cache Valley Bank       March 3, 2017   
+4    IL  19328                  State Bank of Texas    January 27, 2017   
+5    NJ  34951  First-Citizens Bank & Trust Company    January 13, 2017   
+6    AR     91                         Today's Bank  September 23, 2016   
+7    GA  11297                          United Bank     August 19, 2016   
+8    PA  35312  First-Citizens Bank & Trust Company         May 6, 2016   
+9    TN   9956           The Bank of Fayette County      April 29, 2016   
+10   WI  20364  First-Citizens Bank & Trust Company      March 11, 2016   
+11   WA  35156                       Twin City Bank     October 2, 2015   
+12   GA  35259                        Fidelity Bank     October 2, 2015   
+13   CO  34112            United Fidelity Bank, fsb       July 10, 2015   
+14   IL  57772             Republic Bank of Chicago         May 8, 2015   
+15   PR  32102         Banco Popular de Puerto Rico   February 27, 2015   
+16   GA  33938  First-Citizens Bank & Trust Company   February 13, 2015   
+17   IL  20290            United Fidelity Bank, fsb    January 23, 2015   
+18   FL  17557                       First NBC Bank    January 16, 2015   
+19   MN  34983                            BankVista   December 19, 2014   
+20   CA  34738    Bank of Southern California, N.A.    November 7, 2014   
+21   IL    916                  State Bank of Texas    October 24, 2014   
+22   MD   4862                          Howard Bank    October 17, 2014   
+23   IL  28462                 Providence Bank, LLC       July 25, 2014   
+24   GA  58125            Community & Southern Bank       July 18, 2014   
+25   OK  12483      Alva State Bank & Trust Company       June 27, 2014   
+26   FL  21793  Landmark Bank, National Association       June 20, 2014   
+27   IL  10450                  Great Southern Bank       June 20, 2014   
+28   MD  32368                        Bay Bank, FSB        May 30, 2014   
+29   OH  32284            United Fidelity Bank, fsb        May 23, 2014   
+..   ..    ...                                  ...                 ...   
+523  AR  33901       Pulaski Bank and Trust Company         May 9, 2008   
+524  MO   1971                        Security Bank       March 7, 2008   
+525  MO  24660       Liberty Bank and Trust Company    January 25, 2008   
+526  OH  16848         The Citizens Banking Company     October 4, 2007   
+527  GA  32575                           ING DIRECT  September 28, 2007   
+528  PA  35353  Allegheny Valley Bank of Pittsburgh    February 2, 2007   
+529  UT   1249                        Far West Bank       June 25, 2004   
+530  NY  26778                     Union State Bank      March 19, 2004   
+531  FL  26838              Hancock Bank of Florida      March 12, 2004   
+532  NJ  31330                          No Acquirer   February 14, 2004   
+533  PA  27203                       Earthstar Bank   November 14, 2003   
+534  WI  11639                        The Park Bank         May 9, 2003   
+535  CA  27094                            Beal Bank    February 7, 2003   
+536  LA  16445            Sabine State Bank & Trust   December 17, 2002   
+537  TN   9961                          No Acquirer    November 8, 2002   
+538  GA  33784                          No Acquirer  September 30, 2002   
+539  IL  29355               Chicago Community Bank       June 27, 2002   
+540  CT  19183                   Hudson United Bank       June 26, 2002   
+541  MI  34979                          No Acquirer      March 28, 2002   
+542  FL  26652                       Bank Leumi USA       March 1, 2002   
+543  AZ  22314                          No Acquirer    February 7, 2002   
+544  OH   8966       The State Bank & Trust Company    February 1, 2002   
+545  TX  22002     The Security State Bank of Pecos    January 18, 2002   
+546  FL  24382     Israel Discount Bank of New York    January 11, 2002   
+547  AR  34248                   Delta Trust & Bank   September 7, 2001   
+548  IL  32646                Superior Federal, FSB       July 27, 2001   
+549  OH   6629                    North Valley Bank         May 3, 2001   
+550  NH  34264  Southern New Hampshire Bank & Trust    February 2, 2001   
+551  IL   3815              Banterra Bank of Marion   December 14, 2000   
+552  HI  21029                   Bank of the Orient    October 13, 2000   
+
+           Updated Date  
+0          June 1, 2017  
+1          June 1, 2017  
+2          May 23, 2017  
+3          May 18, 2017  
+4          May 18, 2017  
+5          May 18, 2017  
+6     November 17, 2016  
+7          June 1, 2017  
+8     September 6, 2016  
+9     September 6, 2016  
+10       March 13, 2017  
+11       April 13, 2016  
+12     October 24, 2016  
+13      August 17, 2016  
+14        July 12, 2016  
+15         May 13, 2015  
+16       April 21, 2015  
+17       April 21, 2015  
+18          May 8, 2017  
+19      January 6, 2016  
+20    November 10, 2016  
+21      January 6, 2016  
+22       March 26, 2015  
+23    December 12, 2016  
+24        July 11, 2016  
+25       March 25, 2016  
+26        June 29, 2015  
+27        June 26, 2015  
+28    December 12, 2016  
+29    November 10, 2016  
+..                  ...  
+523     August 28, 2012  
+524     August 28, 2012  
+525    October 26, 2012  
+526  September 12, 2016  
+527     August 28, 2012  
+528    October 27, 2010  
+529       April 9, 2008  
+530       April 9, 2008  
+531        June 5, 2012  
+532       April 9, 2008  
+533       July 22, 2005  
+534        June 5, 2012  
+535    October 20, 2008  
+536    October 20, 2004  
+537      March 18, 2005  
+538  September 11, 2006  
+539       April 9, 2008  
+540   February 14, 2012  
+541      March 18, 2005  
+542       April 9, 2008  
+543    February 5, 2015  
+544    October 25, 2012  
+545    November 6, 2003  
+546  September 21, 2015  
+547   February 10, 2004  
+548     August 19, 2014  
+549   November 18, 2002  
+550   February 18, 2003  
+551      March 17, 2005  
+552      March 17, 2005  
+
+[553 rows x 7 columns]
+Executed output:
+                                             Bank Name                City  \
+0                                 The Enloe State Bank              Cooper   
+1                  Washington Federal Bank for Savings             Chicago   
+2      The Farmers and Merchants State Bank of Argonia             Argonia   
+3                                  Fayette County Bank          Saint Elmo   
+4    Guaranty Bank, (d/b/a BestBank in Georgia & Mi...           Milwaukee   
+5                                       First NBC Bank         New Orleans   
+6                                        Proficio Bank  Cottonwood Heights   
+7                        Seaway Bank and Trust Company             Chicago   
+8                               Harvest Community Bank          Pennsville   
+9                                          Allied Bank            Mulberry   
+10                        The Woodbury Banking Company            Woodbury   
+11                              First CornerStone Bank     King of Prussia   
+12                                  Trust Company Bank             Memphis   
+13                          North Milwaukee State Bank           Milwaukee   
+14                              Hometown National Bank            Longview   
+15                                 The Bank of Georgia      Peachtree City   
+16                                        Premier Bank              Denver   
+17                                      Edgebrook Bank             Chicago   
+18                              Doral Bank  En Español            San Juan   
+19                   Capitol City Bank & Trust Company             Atlanta   
+20                             Highland Community Bank             Chicago   
+21                    First National Bank of Crestview           Crestview   
+22                                  Northern Star Bank             Mankato   
+23              Frontier Bank, FSB D/B/A El Paseo Bank         Palm Desert   
+24               The National Republic Bank of Chicago             Chicago   
+25                                      NBRS Financial          Rising Sun   
+26                               GreenChoice Bank, fsb             Chicago   
+27                            Eastside Commercial Bank             Conyers   
+28                              The Freedom State Bank             Freedom   
+29                                         Valley Bank     Fort Lauderdale   
+..                                                 ...                 ...   
+526                                  ANB Financial, NA         Bentonville   
+527                                          Hume Bank                Hume   
+528                             Douglass National Bank         Kansas City   
+529                                  Miami Valley Bank            Lakeview   
+530                                            NetBank          Alpharetta   
+531                          Metropolitan Savings Bank          Pittsburgh   
+532                                    Bank of Ephraim             Ephraim   
+533                                      Reliance Bank        White Plains   
+534              Guaranty National Bank of Tallahassee         Tallahassee   
+535                                Dollar Savings Bank              Newark   
+536                               Pulaski Savings Bank        Philadelphia   
+537              First National Bank of Blanchardville      Blanchardville   
+538                              Southern Pacific Bank            Torrance   
+539                        Farmers Bank of Cheneyville         Cheneyville   
+540                                      Bank of Alamo               Alamo   
+541             AmTrade International Bank  En Español             Atlanta   
+542                     Universal Federal Savings Bank             Chicago   
+543                       Connecticut Bank of Commerce            Stamford   
+544                                   New Century Bank     Shelby Township   
+545                              Net 1st National Bank          Boca Raton   
+546                                       NextBank, NA             Phoenix   
+547                           Oakwood Deposit Bank Co.             Oakwood   
+548                              Bank of Sierra Blanca       Sierra Blanca   
+549                      Hamilton Bank, NA  En Español               Miami   
+550                             Sinclair National Bank            Gravette   
+551                                 Superior Bank, FSB            Hinsdale   
+552                                Malta National Bank               Malta   
+553                    First Alliance Bank & Trust Co.          Manchester   
+554                  National State Bank of Metropolis          Metropolis   
+555                                   Bank of Honolulu            Honolulu   
+
+     ST   CERT                Acquiring Institution        Closing Date  \
+0    TX  10716                   Legend Bank, N. A.        May 31, 2019   
+1    IL  30570                   Royal Savings Bank   December 15, 2017   
+2    KS  17719                          Conway Bank    October 13, 2017   
+3    IL   1802            United Fidelity Bank, fsb        May 26, 2017   
+4    WI  30003  First-Citizens Bank & Trust Company         May 5, 2017   
+5    LA  58302                         Whitney Bank      April 28, 2017   
+6    UT  35495                    Cache Valley Bank       March 3, 2017   
+7    IL  19328                  State Bank of Texas    January 27, 2017   
+8    NJ  34951  First-Citizens Bank & Trust Company    January 13, 2017   
+9    AR     91                         Today's Bank  September 23, 2016   
+10   GA  11297                          United Bank     August 19, 2016   
+11   PA  35312  First-Citizens Bank & Trust Company         May 6, 2016   
+12   TN   9956           The Bank of Fayette County      April 29, 2016   
+13   WI  20364  First-Citizens Bank & Trust Company      March 11, 2016   
+14   WA  35156                       Twin City Bank     October 2, 2015   
+15   GA  35259                        Fidelity Bank     October 2, 2015   
+16   CO  34112            United Fidelity Bank, fsb       July 10, 2015   
+17   IL  57772             Republic Bank of Chicago         May 8, 2015   
+18   PR  32102         Banco Popular de Puerto Rico   February 27, 2015   
+19   GA  33938  First-Citizens Bank & Trust Company   February 13, 2015   
+20   IL  20290            United Fidelity Bank, fsb    January 23, 2015   
+21   FL  17557                       First NBC Bank    January 16, 2015   
+22   MN  34983                            BankVista   December 19, 2014   
+23   CA  34738    Bank of Southern California, N.A.    November 7, 2014   
+24   IL    916                  State Bank of Texas    October 24, 2014   
+25   MD   4862                          Howard Bank    October 17, 2014   
+26   IL  28462                 Providence Bank, LLC       July 25, 2014   
+27   GA  58125            Community & Southern Bank       July 18, 2014   
+28   OK  12483      Alva State Bank & Trust Company       June 27, 2014   
+29   FL  21793  Landmark Bank, National Association       June 20, 2014   
+..   ..    ...                                  ...                 ...   
+526  AR  33901       Pulaski Bank and Trust Company         May 9, 2008   
+527  MO   1971                        Security Bank       March 7, 2008   
+528  MO  24660       Liberty Bank and Trust Company    January 25, 2008   
+529  OH  16848         The Citizens Banking Company     October 4, 2007   
+530  GA  32575                           ING DIRECT  September 28, 2007   
+531  PA  35353  Allegheny Valley Bank of Pittsburgh    February 2, 2007   
+532  UT   1249                        Far West Bank       June 25, 2004   
+533  NY  26778                     Union State Bank      March 19, 2004   
+534  FL  26838              Hancock Bank of Florida      March 12, 2004   
+535  NJ  31330                          No Acquirer   February 14, 2004   
+536  PA  27203                       Earthstar Bank   November 14, 2003   
+537  WI  11639                        The Park Bank         May 9, 2003   
+538  CA  27094                            Beal Bank    February 7, 2003   
+539  LA  16445            Sabine State Bank & Trust   December 17, 2002   
+540  TN   9961                          No Acquirer    November 8, 2002   
+541  GA  33784                          No Acquirer  September 30, 2002   
+542  IL  29355               Chicago Community Bank       June 27, 2002   
+543  CT  19183                   Hudson United Bank       June 26, 2002   
+544  MI  34979                          No Acquirer      March 28, 2002   
+545  FL  26652                       Bank Leumi USA       March 1, 2002   
+546  AZ  22314                          No Acquirer    February 7, 2002   
+547  OH   8966       The State Bank & Trust Company    February 1, 2002   
+548  TX  22002     The Security State Bank of Pecos    January 18, 2002   
+549  FL  24382     Israel Discount Bank of New York    January 11, 2002   
+550  AR  34248                   Delta Trust & Bank   September 7, 2001   
+551  IL  32646                Superior Federal, FSB       July 27, 2001   
+552  OH   6629                    North Valley Bank         May 3, 2001   
+553  NH  34264  Southern New Hampshire Bank & Trust    February 2, 2001   
+554  IL   3815              Banterra Bank of Marion   December 14, 2000   
+555  HI  21029                   Bank of the Orient    October 13, 2000   
+
+           Updated Date  
+0         June 18, 2019  
+1         July 24, 2019  
+2         July 24, 2019  
+3      January 29, 2019  
+4        March 22, 2018  
+5      January 29, 2019  
+6      January 29, 2019  
+7      January 29, 2019  
+8          May 18, 2017  
+9          May 13, 2019  
+10    December 13, 2018  
+11    November 13, 2018  
+12   September 14, 2018  
+13     January 29, 2019  
+14    February 19, 2018  
+15         July 9, 2018  
+16    February 20, 2018  
+17     January 29, 2019  
+18     January 29, 2019  
+19     January 29, 2019  
+20    November 15, 2017  
+21    November 15, 2017  
+22      January 3, 2018  
+23    November 10, 2016  
+24      January 6, 2016  
+25     January 29, 2019  
+26    December 12, 2016  
+27      October 6, 2017  
+28    February 21, 2018  
+29     January 29, 2019  
+..                  ...  
+526    February 1, 2019  
+527    January 31, 2019  
+528    October 26, 2012  
+529  September 12, 2016  
+530    January 31, 2019  
+531    October 27, 2010  
+532       April 9, 2008  
+533       April 9, 2008  
+534      April 17, 2018  
+535       April 9, 2008  
+536     October 6, 2017  
+537        June 5, 2012  
+538    October 20, 2008  
+539    October 20, 2004  
+540      March 18, 2005  
+541  September 11, 2006  
+542     October 6, 2017  
+543   February 14, 2012  
+544      March 18, 2005  
+545       April 9, 2008  
+546    February 5, 2015  
+547    October 25, 2012  
+548    November 6, 2003  
+549  September 21, 2015  
+550     October 6, 2017  
+551     August 19, 2014  
+552   November 18, 2002  
+553   February 18, 2003  
+554      March 17, 2005  
+555      March 17, 2005  
+
+[556 rows x 7 columns]

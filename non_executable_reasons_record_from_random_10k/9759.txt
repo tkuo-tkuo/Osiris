@@ -1,0 +1,39 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Load pickled data
+import pickle
+
+# TODO: Fill this in based on where you saved the training and testing data
+
+training_file = "/Users/andydun2004/Documents/Files/OnlineClasses/SelfDrivingEngr/CarND-DeepLearn/CarND-Traffic-Sign-Classifier-Project/traffic-signs-data/train.p"
+validation_file= "/Users/andydun2004/Documents/Files/OnlineClasses/SelfDrivingEngr/CarND-DeepLearn/CarND-Traffic-Sign-Classifier-Project/traffic-signs-data/valid.p"
+testing_file = "/Users/andydun2004/Documents/Files/OnlineClasses/SelfDrivingEngr/CarND-DeepLearn/CarND-Traffic-Sign-Classifier-Project/traffic-signs-data/test.p"
+
+with open(training_file, mode='rb') as f:
+    train = pickle.load(f)
+with open(validation_file, mode='rb') as f:
+    valid = pickle.load(f)
+with open(testing_file, mode='rb') as f:
+    test = pickle.load(f)
+    
+X_train, y_train = train['features'], train['labels']
+X_valid, y_valid = valid['features'], valid['labels']
+X_test, y_test = test['features'], test['labels']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-d9e198471870>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     10[0m [0mtesting_file[0m [0;34m=[0m [0;34m"/Users/andydun2004/Documents/Files/OnlineClasses/SelfDrivingEngr/CarND-DeepLearn/CarND-Traffic-Sign-Classifier-Project/traffic-signs-data/test.p"[0m[0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[0;32m---> 12[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mtraining_file[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     13[0m     [0mtrain[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     14[0m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mvalidation_file[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/andydun2004/Documents/Files/OnlineClasses/SelfDrivingEngr/CarND-DeepLearn/CarND-Traffic-Sign-Classifier-Project/traffic-signs-data/train.p'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/andydun2004/Documents/Files/OnlineClasses/SelfDrivingEngr/CarND-DeepLearn/CarND-Traffic-Sign-Classifier-Project/traffic-signs-data/train.p'
+
+Executability                            : False

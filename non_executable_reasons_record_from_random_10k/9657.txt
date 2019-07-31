@@ -1,0 +1,63 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Libraries
+from scipy import linalg
+from gaussPivot import *
+#
+
+#Define Matrix equation
+A = [[80.,-50.,-30.,0.],
+     [-50.,100.,-10.,-25.],
+     [-30.,-10.,65.,-20.],
+     [0.,-25.,-20.,100.]]
+b = [240.,0.,0.,0.]
+#
+
+#Convert to triangular matrices
+p,l,u = linalg.lu(A)
+#
+
+#Solve using Scipy
+X1 =linalg.solve(A,b)
+#
+
+#Reformat the parameters for gaussPivot function
+A = np.array(A)
+b = np.array(b)
+#
+
+#Solve using Gaussian Elimination
+X2 = gaussPivot(A,b)
+#
+
+#Outputs
+print("Lower Triangular Matrix: \n")
+print(str(l))
+print("\n\n")
+print("Upper Triangular Matrix: \n")
+print(str(u))
+print("\n\n")
+print("Scipy Solution:")
+print(X1)
+print("\n\n")
+print("Gaussian Elimination Solution:")
+print(X2)
+#
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-f9f0059f87e8>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m#Libraries[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0mlinalg[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mgaussPivot[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;31m#[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'gaussPivot'
+ModuleNotFoundError: No module named 'gaussPivot'
+
+Executability                            : False

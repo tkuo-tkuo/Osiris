@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+"""
+DON'T MODIFY ANYTHING IN THIS CELL
+"""
+import helper
+
+data_dir = './data/simpsons/moes_tavern_lines.txt'
+text = helper.load_data(data_dir)
+# Ignore notice, since we don't use it for analysing the data
+text = text[81:]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-2460afaeedda>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0mDON[0m[0;31m'[0m[0mT[0m [0mMODIFY[0m [0mANYTHING[0m [0mIN[0m [0mTHIS[0m [0mCELL[0m[0;34m[0m[0m
+[1;32m      5[0m """
+[0;32m----> 6[0;31m [0;32mimport[0m [0mhelper[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0mdata_dir[0m [0;34m=[0m [0;34m'./data/simpsons/moes_tavern_lines.txt'[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'helper'
+ImportError: No module named 'helper'
+
+Executability                            : False

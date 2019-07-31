@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Initializing model
+model = Sequential()
+model.add(Dense(20, input_shape=(2,) + env.observation_space.shape, kernel_initializer='uniform', activation='relu'))
+model.add(Flatten())
+model.add(Dense(18, kernel_initializer='uniform', activation='relu'))
+model.add(Dense(10, kernel_initializer='uniform', activation='relu'))
+model.add(Dense(env.action_space.n, kernel_initializer='uniform', activation='linear')) 
+model.compile(loss='mse', optimizer='adam', metrics=['accuracy'])         
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-55e9e0e75682>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# Initializing model[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mmodel[0m [0;34m=[0m [0mSequential[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mmodel[0m[0;34m.[0m[0madd[0m[0;34m([0m[0mDense[0m[0;34m([0m[0;36m20[0m[0;34m,[0m [0minput_shape[0m[0;34m=[0m[0;34m([0m[0;36m2[0m[0;34m,[0m[0;34m)[0m [0;34m+[0m [0menv[0m[0;34m.[0m[0mobservation_space[0m[0;34m.[0m[0mshape[0m[0;34m,[0m [0mkernel_initializer[0m[0;34m=[0m[0;34m'uniform'[0m[0;34m,[0m [0mactivation[0m[0;34m=[0m[0;34m'relu'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mmodel[0m[0;34m.[0m[0madd[0m[0;34m([0m[0mFlatten[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'Sequential' is not defined
+NameError: name 'Sequential' is not defined
+
+Executability                            : False

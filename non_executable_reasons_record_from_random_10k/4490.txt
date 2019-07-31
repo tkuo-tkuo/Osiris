@@ -1,0 +1,39 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+import glob
+import sys
+import tensorflow as tf
+import h5py
+
+from scipy import misc
+import numpy as np
+
+from tensorflow.contrib.keras.python import keras
+from tensorflow.contrib.keras.python.keras import layers, models
+
+from tensorflow import image
+
+from utils import scoring_utils
+from utils.separable_conv2d import SeparableConv2DKeras, BilinearUpSampling2D
+from utils import data_iterator
+from utils import plotting_tools 
+from utils import model_tools
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-f4887aae6c03>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mimport[0m [0mglob[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0msys[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mimport[0m [0mh5py[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

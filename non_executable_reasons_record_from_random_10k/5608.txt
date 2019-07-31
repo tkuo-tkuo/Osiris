@@ -1,0 +1,18 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from keras.models import Sequential
+from keras.layers import LSTM, Dense
+from keras.datasets import mnist
+from keras.utils import np_utils
+from keras import initializations
+
+def init_weights(shape, name=None):
+    return initializations.normal(shape, scale=0.01, name=name)
+------------------
+
+ImportError: No module named 'keras'
+
+Executability                            : False

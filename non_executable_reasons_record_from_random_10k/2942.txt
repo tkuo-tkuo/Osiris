@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from fastai.imports import *
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-9f9378ae0f2a>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mfastai[0m[0;34m.[0m[0mimports[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/abhimanyumittal@fast_ai_dl/fastai/imports.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mfrom[0m [0mIPython[0m[0;34m.[0m[0mlib[0m[0;34m.[0m[0mdeepreload[0m [0;32mimport[0m [0mreload[0m [0;32mas[0m [0mdreload[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mPIL[0m[0;34m,[0m [0mos[0m[0;34m,[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m,[0m [0mmath[0m[0;34m,[0m [0mcollections[0m[0;34m,[0m [0mthreading[0m[0;34m,[0m [0mjson[0m[0;34m,[0m [0mbcolz[0m[0;34m,[0m [0mrandom[0m[0;34m,[0m [0mscipy[0m[0;34m,[0m [0mcv2[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mimport[0m [0mrandom[0m[0;34m,[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m,[0m [0mpickle[0m[0;34m,[0m [0msys[0m[0;34m,[0m [0mitertools[0m[0;34m,[0m [0mstring[0m[0;34m,[0m [0msys[0m[0;34m,[0m [0mre[0m[0;34m,[0m [0mdatetime[0m[0;34m,[0m [0mtime[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m,[0m [0mmatplotlib[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mIPython[0m[0;34m,[0m [0mgraphviz[0m[0;34m,[0m [0msklearn_pandas[0m[0;34m,[0m [0msklearn[0m[0;34m,[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'bcolz'
+ModuleNotFoundError: No module named 'bcolz'
+
+Executability                            : False

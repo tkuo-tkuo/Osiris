@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+m,b= np.linalg.lstsq(X,Y)[0]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-17-b33383ee6f4a>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mm[0m[0;34m,[0m[0mb[0m[0;34m=[0m [0mnp[0m[0;34m.[0m[0mlinalg[0m[0;34m.[0m[0mlstsq[0m[0;34m([0m[0mX[0m[0;34m,[0m[0mY[0m[0;34m)[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/numpy/linalg/linalg.py[0m in [0;36mlstsq[0;34m(a, b, rcond)[0m
+[1;32m   2234[0m         [0;31m# lapack can't handle n_rhs = 0 - so allocate the array one larger in that axis[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2235[0m         [0mb[0m [0;34m=[0m [0mzeros[0m[0;34m([0m[0mb[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;34m:[0m[0;34m-[0m[0;36m2[0m[0;34m][0m [0;34m+[0m [0;34m([0m[0mm[0m[0;34m,[0m [0mn_rhs[0m [0;34m+[0m [0;36m1[0m[0;34m)[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mb[0m[0;34m.[0m[0mdtype[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2236[0;31m     [0mx[0m[0;34m,[0m [0mresids[0m[0;34m,[0m [0mrank[0m[0;34m,[0m [0ms[0m [0;34m=[0m [0mgufunc[0m[0;34m([0m[0ma[0m[0;34m,[0m [0mb[0m[0;34m,[0m [0mrcond[0m[0;34m,[0m [0msignature[0m[0;34m=[0m[0msignature[0m[0;34m,[0m [0mextobj[0m[0;34m=[0m[0mextobj[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2237[0m     [0;32mif[0m [0mm[0m [0;34m==[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2238[0m         [0mx[0m[0;34m[[0m[0;34m...[0m[0;34m][0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: No loop matching the specified signature and casting
+was found for ufunc lstsq_n
+TypeError: No loop matching the specified signature and casting
+was found for ufunc lstsq_n
+
+Executability                            : False

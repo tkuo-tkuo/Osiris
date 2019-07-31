@@ -1,0 +1,123 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from urllib import request
+
+name = 'python_cool'
+update_url = 'http://prediction-python-aws.demo.pipeline.io/update-python/%s/' % name
+
+update_headers = {}
+update_headers['Content-type'] = 'text/plain'
+
+req = request.Request("%s" % update_url, headers=update_headers, data=sourceBytes)
+resp = request.urlopen(req)
+
+generated_code = resp.read()
+print(generated_code.decode('utf-8'))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mgaierror[0m                                  Traceback (most recent call last)
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mdo_open[0;34m(self, http_class, req, **http_conn_args)[0m
+[1;32m   1253[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1254[0;31m                 [0mh[0m[0;34m.[0m[0mrequest[0m[0;34m([0m[0mreq[0m[0;34m.[0m[0mget_method[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mselector[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mdata[0m[0;34m,[0m [0mheaders[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1255[0m             [0;32mexcept[0m [0mOSError[0m [0;32mas[0m [0merr[0m[0;34m:[0m [0;31m# timeout error[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36mrequest[0;34m(self, method, url, body, headers)[0m
+[1;32m   1106[0m         [0;34m"""Send a complete request to the server."""[0m[0;34m[0m[0m
+[0;32m-> 1107[0;31m         [0mself[0m[0;34m.[0m[0m_send_request[0m[0;34m([0m[0mmethod[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0mbody[0m[0;34m,[0m [0mheaders[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1108[0m [0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36m_send_request[0;34m(self, method, url, body, headers)[0m
+[1;32m   1151[0m             [0mbody[0m [0;34m=[0m [0m_encode[0m[0;34m([0m[0mbody[0m[0;34m,[0m [0;34m'body'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m-> 1152[0;31m         [0mself[0m[0;34m.[0m[0mendheaders[0m[0;34m([0m[0mbody[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1153[0m [0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36mendheaders[0;34m(self, message_body)[0m
+[1;32m   1102[0m             [0;32mraise[0m [0mCannotSendHeader[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0;32m-> 1103[0;31m         [0mself[0m[0;34m.[0m[0m_send_output[0m[0;34m([0m[0mmessage_body[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1104[0m [0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36m_send_output[0;34m(self, message_body)[0m
+[1;32m    933[0m [0;34m[0m[0m
+[0;32m--> 934[0;31m         [0mself[0m[0;34m.[0m[0msend[0m[0;34m([0m[0mmsg[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    935[0m         [0;32mif[0m [0mmessage_body[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36msend[0;34m(self, data)[0m
+[1;32m    876[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mauto_open[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 877[0;31m                 [0mself[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    878[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/http/client.py[0m in [0;36mconnect[0;34m(self)[0m
+[1;32m    848[0m         self.sock = self._create_connection(
+[0;32m--> 849[0;31m             (self.host,self.port), self.timeout, self.source_address)
+[0m[1;32m    850[0m         [0mself[0m[0;34m.[0m[0msock[0m[0;34m.[0m[0msetsockopt[0m[0;34m([0m[0msocket[0m[0;34m.[0m[0mIPPROTO_TCP[0m[0;34m,[0m [0msocket[0m[0;34m.[0m[0mTCP_NODELAY[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/socket.py[0m in [0;36mcreate_connection[0;34m(address, timeout, source_address)[0m
+[1;32m    693[0m     [0merr[0m [0;34m=[0m [0;32mNone[0m[0;34m[0m[0m
+[0;32m--> 694[0;31m     [0;32mfor[0m [0mres[0m [0;32min[0m [0mgetaddrinfo[0m[0;34m([0m[0mhost[0m[0;34m,[0m [0mport[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0mSOCK_STREAM[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m    695[0m         [0maf[0m[0;34m,[0m [0msocktype[0m[0;34m,[0m [0mproto[0m[0;34m,[0m [0mcanonname[0m[0;34m,[0m [0msa[0m [0;34m=[0m [0mres[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/socket.py[0m in [0;36mgetaddrinfo[0;34m(host, port, family, type, proto, flags)[0m
+[1;32m    732[0m     [0maddrlist[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+[0;32m--> 733[0;31m     [0;32mfor[0m [0mres[0m [0;32min[0m [0m_socket[0m[0;34m.[0m[0mgetaddrinfo[0m[0;34m([0m[0mhost[0m[0;34m,[0m [0mport[0m[0;34m,[0m [0mfamily[0m[0;34m,[0m [0mtype[0m[0;34m,[0m [0mproto[0m[0;34m,[0m [0mflags[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m    734[0m         [0maf[0m[0;34m,[0m [0msocktype[0m[0;34m,[0m [0mproto[0m[0;34m,[0m [0mcanonname[0m[0;34m,[0m [0msa[0m [0;34m=[0m [0mres[0m[0;34m[0m[0m
+
+[0;31mgaierror[0m: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+[0;31mURLError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-2-aef6bb98f3f9>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0mreq[0m [0;34m=[0m [0mrequest[0m[0;34m.[0m[0mRequest[0m[0;34m([0m[0;34m"%s"[0m [0;34m%[0m [0mupdate_url[0m[0;34m,[0m [0mheaders[0m[0;34m=[0m[0mupdate_headers[0m[0;34m,[0m [0mdata[0m[0;34m=[0m[0msourceBytes[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0mresp[0m [0;34m=[0m [0mrequest[0m[0;34m.[0m[0murlopen[0m[0;34m([0m[0mreq[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0mgenerated_code[0m [0;34m=[0m [0mresp[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36murlopen[0;34m(url, data, timeout, cafile, capath, cadefault, context)[0m
+[1;32m    161[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    162[0m         [0mopener[0m [0;34m=[0m [0m_opener[0m[0;34m[0m[0m
+[0;32m--> 163[0;31m     [0;32mreturn[0m [0mopener[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mdata[0m[0;34m,[0m [0mtimeout[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    164[0m [0;34m[0m[0m
+[1;32m    165[0m [0;32mdef[0m [0minstall_opener[0m[0;34m([0m[0mopener[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mopen[0;34m(self, fullurl, data, timeout)[0m
+[1;32m    464[0m             [0mreq[0m [0;34m=[0m [0mmeth[0m[0;34m([0m[0mreq[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    465[0m [0;34m[0m[0m
+[0;32m--> 466[0;31m         [0mresponse[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_open[0m[0;34m([0m[0mreq[0m[0;34m,[0m [0mdata[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    467[0m [0;34m[0m[0m
+[1;32m    468[0m         [0;31m# post-process response[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36m_open[0;34m(self, req, data)[0m
+[1;32m    482[0m         [0mprotocol[0m [0;34m=[0m [0mreq[0m[0;34m.[0m[0mtype[0m[0;34m[0m[0m
+[1;32m    483[0m         result = self._call_chain(self.handle_open, protocol, protocol +
+[0;32m--> 484[0;31m                                   '_open', req)
+[0m[1;32m    485[0m         [0;32mif[0m [0mresult[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    486[0m             [0;32mreturn[0m [0mresult[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36m_call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
+[1;32m    442[0m         [0;32mfor[0m [0mhandler[0m [0;32min[0m [0mhandlers[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    443[0m             [0mfunc[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mhandler[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 444[0;31m             [0mresult[0m [0;34m=[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    445[0m             [0;32mif[0m [0mresult[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    446[0m                 [0;32mreturn[0m [0mresult[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mhttp_open[0;34m(self, req)[0m
+[1;32m   1280[0m [0;34m[0m[0m
+[1;32m   1281[0m     [0;32mdef[0m [0mhttp_open[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mreq[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1282[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdo_open[0m[0;34m([0m[0mhttp[0m[0;34m.[0m[0mclient[0m[0;34m.[0m[0mHTTPConnection[0m[0;34m,[0m [0mreq[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1283[0m [0;34m[0m[0m
+[1;32m   1284[0m     [0mhttp_request[0m [0;34m=[0m [0mAbstractHTTPHandler[0m[0;34m.[0m[0mdo_request_[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36mdo_open[0;34m(self, http_class, req, **http_conn_args)[0m
+[1;32m   1254[0m                 [0mh[0m[0;34m.[0m[0mrequest[0m[0;34m([0m[0mreq[0m[0;34m.[0m[0mget_method[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mselector[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mdata[0m[0;34m,[0m [0mheaders[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1255[0m             [0;32mexcept[0m [0mOSError[0m [0;32mas[0m [0merr[0m[0;34m:[0m [0;31m# timeout error[0m[0;34m[0m[0m
+[0;32m-> 1256[0;31m                 [0;32mraise[0m [0mURLError[0m[0;34m([0m[0merr[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1257[0m             [0mr[0m [0;34m=[0m [0mh[0m[0;34m.[0m[0mgetresponse[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   1258[0m         [0;32mexcept[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mURLError[0m: <urlopen error [Errno -2] Name or service not known>
+URLError: <urlopen error [Errno -2] Name or service not known>
+
+Executability                            : False

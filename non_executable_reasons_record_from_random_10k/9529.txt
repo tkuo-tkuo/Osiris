@@ -1,0 +1,59 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#Import Excel file with Club Market Values
+
+excel = 'C:/Users/USER/Documents/Springboard/Capstone 1/club_values.xlsx'
+sheets = [426, 430, 434, 436, 438]
+
+columns = ["Clubs", "Unnamed: 1", "Squad", "Age", "Foreign players", "Total market value", "Market value"]
+club_values = pd.DataFrame(columns=columns)
+for i in sheets:
+    df = pd.read_excel(open(excel,'rb'), sheetname= str(i))
+    df = df.iloc[1:,:]
+    df.columns = ["Clubs", "Unnamed: 1", "Squad", "Age", "Foreign players", "Total market value", "Market value"]
+    club_values =club_values.append(df, ignore_index=True)
+
+#Standardize Club names   
+
+club_values.loc[24,"Clubs"]="Red Bull Leipzig"
+club_values.loc[20,"Clubs"]="FC Bayern München"
+club_values.loc[25,"Clubs"]="Bor. Mönchengladbach"
+club_values.loc[22,"Clubs"]="Bayer Leverkusen"
+club_values.loc[30,"Clubs"]="Werder Bremen"
+club_values.loc[32,"Clubs"]="1. FSV Mainz "
+club_values.loc[42,"Clubs"]="Olympique de Marseille"
+club_values.loc[46,"Clubs"]="OSC Lille"
+club_values.loc[49,"Clubs"]="Montpellier Hérault SC"
+club_values.loc[44,"Clubs"]="FC Girondins de Bordeaux"
+club_values.loc[56,"Clubs"]="Dijon FCO"
+club_values.loc[45,"Clubs"]="Toulouse FC"
+club_values.loc[57,"Clubs"]="AS Nancy"
+club_values.loc[51,"Clubs"]="Angers SCO"
+club_values.loc[64,"Clubs"]="Athletic Club"
+club_values.loc[75,"Clubs"]="CD Leganes"
+club_values.loc[60,"Clubs"]="Club Atlético de Madrid"
+club_values.loc[70,"Clubs"]="Real Betis"
+club_values.loc[71,"Clubs"]="RCD Espanyol"
+club_values.loc[73,"Clubs"]="RC Deportivo La Coruna"
+club_values.loc[97,"Clubs"]="US Cittá di Palermo"
+club_values.loc[78,"Clubs"]="Juventus Turin"
+club_values.loc[91,"Clubs"]="Bologna FC"
+club_values.loc[94,"Clubs"]="Pescara Calcio"
+club_values.loc[93,"Clubs"]="Empoli FC"
+club_values.loc[81,"Clubs"]="FC Internazionale Milano"
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-d2a75e1b1dfa>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0mclub_values[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0mcolumns[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0msheets[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0mopen[0m[0;34m([0m[0mexcel[0m[0;34m,[0m[0;34m'rb'[0m[0;34m)[0m[0;34m,[0m [0msheetname[0m[0;34m=[0m [0mstr[0m[0;34m([0m[0mi[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m     [0mdf[0m [0;34m=[0m [0mdf[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;36m1[0m[0;34m:[0m[0;34m,[0m[0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m     [0mdf[0m[0;34m.[0m[0mcolumns[0m [0;34m=[0m [0;34m[[0m[0;34m"Clubs"[0m[0;34m,[0m [0;34m"Unnamed: 1"[0m[0;34m,[0m [0;34m"Squad"[0m[0;34m,[0m [0;34m"Age"[0m[0;34m,[0m [0;34m"Foreign players"[0m[0;34m,[0m [0;34m"Total market value"[0m[0;34m,[0m [0;34m"Market value"[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'C:/Users/USER/Documents/Springboard/Capstone 1/club_values.xlsx'
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/USER/Documents/Springboard/Capstone 1/club_values.xlsx'
+
+Executability                            : False

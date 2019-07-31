@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+toplam = toplama(3,4,5)
+ikiyleçarp(toplam)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-beb04a31c466>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mtoplam[0m [0;34m=[0m [0mtoplama[0m[0;34m([0m[0;36m3[0m[0;34m,[0m[0;36m4[0m[0;34m,[0m[0;36m5[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mikiyleçarp[0m[0;34m([0m[0mtoplam[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-2-d9040f609063>[0m in [0;36mikiyleçarp[0;34m(a)[0m
+[1;32m      1[0m [0;32mdef[0m [0mikiyleçarp[0m[0;34m([0m[0ma[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m     [0mprint[0m[0;34m([0m[0;34m"İkiyle çarp"[0m[0;34m,[0m[0ma[0m [0;34m*[0m [0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: unsupported operand type(s) for *: 'NoneType' and 'int'
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+
+Executability                            : False

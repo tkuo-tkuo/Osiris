@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+fig, axs = plt.subplots(2, 1, figsize=(14, 6))
+
+axs[0].plot(gp.time, pc.x[22, :], label='PCA reconstruction')
+axs[0].plot(gp.time, gp.sel(station=89592), label='data')
+axs[0].legend()
+
+axs[1].plot(gp.time, z[:,0])
+axs[1].plot(gp.time, z[:,1])
+axs[1].plot(gp.time, z[:,2]);
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-0eb967986b09>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mfig[0m[0;34m,[0m [0maxs[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0;36m2[0m[0;34m,[0m [0;36m1[0m[0;34m,[0m [0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m14[0m[0;34m,[0m [0;36m6[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0maxs[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mgp[0m[0;34m.[0m[0mtime[0m[0;34m,[0m [0mpc[0m[0;34m.[0m[0mx[0m[0;34m[[0m[0;36m22[0m[0;34m,[0m [0;34m:[0m[0;34m][0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'PCA reconstruction'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0maxs[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mgp[0m[0;34m.[0m[0mtime[0m[0;34m,[0m [0mgp[0m[0;34m.[0m[0msel[0m[0;34m([0m[0mstation[0m[0;34m=[0m[0;36m89592[0m[0;34m)[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'data'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0maxs[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m.[0m[0mlegend[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

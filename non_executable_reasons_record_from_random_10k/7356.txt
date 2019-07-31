@@ -1,0 +1,79 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 9 ; number of cells: 11
+Reproducibility                          : matched ratio: 0.818 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 8, 10]
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+#Helium:With uncertainty using smaller angle
+d=1.67*10**-6
+i=0
+j=0
+k=0
+data_He = []
+
+while i<=6:
+    He = d*math.sin(data['small angle (rad)'][i])
+    data_He.append(He)
+    
+    i+=1
+    j+=1
+
+while k<=6:  
+    print((data_He[k])/10**-9)
+    k+=1
+    
+
+-----------------
+Original output:
+425.1852475776539
+462.64871555639616
+468.4802638809722
+480.124703464923
+564.3209139276482
+642.4458428678166
+685.9004783698608
+
+Executed output:
+425.1852475776539
+462.64871555639627
+468.4802638809722
+480.124703464923
+564.3209139276482
+642.4458428678166
+685.9004783698608
+
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+#Hydrogen:no uncertainty
+d= 1.67*10**-6
+i=8
+j=0
+k=0
+data_Hy = []
+
+while i<=11:
+    Hy = d*math.sin(data['Avg Angle (radians)'][i])
+    data_Hy.append(Hy)
+    
+    i+=1
+    j+=1
+
+while k<=3:  
+    print((data_Hy[k])/10**-9)
+    k+=1
+
+-----------------
+Original output:
+413.4297439914292
+421.6609334469854
+481.28776824919964
+648.0465714663161
+
+Executed output:
+413.4297439914292
+421.6609334469854
+481.28776824919976
+648.0465714663161
+

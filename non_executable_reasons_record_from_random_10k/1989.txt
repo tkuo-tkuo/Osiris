@@ -1,0 +1,64 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#### LET'S START BUILDING SQL TABLE MAKING SCRIPT
+
+import sqlite3 as sqlite
+import os
+
+dbfilename = '_jonhonda_dat\\special_prj\\StrBMPModelDB003'
+scriptfilename = '_jonhonda_dat\\special_prj\\MakeStrBMPModelTables'
+
+print ("\nClearing old DB")
+try:
+    os.remove(dbfilename)
+except FileNotFoundError as err:
+    print ("no need to remove db file")####it's okay if file doesn't exist. ####
+    
+print ("Opening DB")
+print (dbfilename)
+connection = sqlite.connect(dbfilename)
+connection.execute ("PRAGMA foreign_keys = ON")
+cursor = connection.cursor()
+# cursor.execute ('''DROP TABLE facilities''')
+# connection.commit()
+# cursor.execute ('''CREATE TABLE facilities (facility_id INTEGER PRIMARY KEY, facility_name TEXT, wrs_pollutant_risks_id INTEGER)''')
+# connection.commit()
+
+print ("Reading Script...")
+scriptFile = open(scriptfilename, 'r')
+script = scriptFile.read()
+scriptFile.close()
+
+print ("Running Script...")
+cursor.executescript(script)
+
+connection.commit()
+print ("Changes successfully committed ...")
+ 
+# cursor.execute('''INSERT INTO facilities (facility_name, wrs_pollutant_risks_id) VALUES(?,?)''', ('testfac',10))
+# cursor.execute('''INSERT INTO base_bmps(bmp_name,bmp_removal_rates_id,cip_expression_id,om_expression_id,facility_id) VALUES(?,?,?,?,?)''',('testbmp',1,1,1,1))
+# cursor.execute('''SELECT * FROM base_bmps''')
+# print(cursor.fetchall())
+# cursor.execute('''SELECT * FROM facilities''')
+# print(cursor.fetchall())
+# cursor.execute('''DELETE FROM facilities''')
+# cursor.execute('''SELECT * FROM base_bmps''')
+# print(cursor.fetchall())
+connection.close()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-13-15bed3bf980b>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m [0mprint[0m [0;34m([0m[0;34m"\nClearing old DB"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m     [0mos[0m[0;34m.[0m[0mremove[0m[0;34m([0m[0mdbfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;32mexcept[0m [0mFileNotFoundError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m     [0mprint[0m [0;34m([0m[0;34m"no need to remove db file"[0m[0;34m)[0m[0;31m####it's okay if file doesn't exist. ####[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mOSError[0m: [Errno 22] Invalid argument: '_jonhonda_dat\\special_prj\\StrBMPModelDB003'
+OSError: [Errno 22] Invalid argument: '_jonhonda_dat\\special_prj\\StrBMPModelDB003'
+
+Executability                            : False

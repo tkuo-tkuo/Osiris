@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+sns.dist(ch_barkl['MP'])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-6-a9e29a360cc9>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0msns[0m[0;34m.[0m[0mdist[0m[0;34m([0m[0mch_barkl[0m[0;34m[[0m[0;34m'MP'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: module 'seaborn' has no attribute 'dist'
+AttributeError: module 'seaborn' has no attribute 'dist'
+
+Executability                            : False

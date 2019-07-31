@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+dframe.drop_duplicates(['key1'],take_last = True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-4196cb3edc25>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdframe[0m[0;34m.[0m[0mdrop_duplicates[0m[0;34m([0m[0;34m[[0m[0;34m'key1'[0m[0;34m][0m[0;34m,[0m[0mtake_last[0m [0;34m=[0m [0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: drop_duplicates() got an unexpected keyword argument 'take_last'
+TypeError: drop_duplicates() got an unexpected keyword argument 'take_last'
+
+Executability                            : False

@@ -1,0 +1,209 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+engine = create_engine('sqlite:///US_CoD.sqlite')
+Base.metadata.create_all(engine)
+session = Session(engine)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_wrap_pool_connect[0;34m(self, fn, connection)[0m
+[1;32m   2261[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2262[0;31m             [0;32mreturn[0m [0mfn[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2263[0m         [0;32mexcept[0m [0mdialect[0m[0;34m.[0m[0mdbapi[0m[0;34m.[0m[0mError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36mconnect[0;34m(self)[0m
+[1;32m    362[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_use_threadlocal[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 363[0;31m             [0;32mreturn[0m [0m_ConnectionFairy[0m[0;34m.[0m[0m_checkout[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    364[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36m_checkout[0;34m(cls, pool, threadconns, fairy)[0m
+[1;32m    759[0m         [0;32mif[0m [0;32mnot[0m [0mfairy[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 760[0;31m             [0mfairy[0m [0;34m=[0m [0m_ConnectionRecord[0m[0;34m.[0m[0mcheckout[0m[0;34m([0m[0mpool[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    761[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36mcheckout[0;34m(cls, pool)[0m
+[1;32m    491[0m     [0;32mdef[0m [0mcheckout[0m[0;34m([0m[0mcls[0m[0;34m,[0m [0mpool[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 492[0;31m         [0mrec[0m [0;34m=[0m [0mpool[0m[0;34m.[0m[0m_do_get[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    493[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/impl.py[0m in [0;36m_do_get[0;34m(self)[0m
+[1;32m    237[0m     [0;32mdef[0m [0m_do_get[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 238[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_create_connection[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    239[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36m_create_connection[0;34m(self)[0m
+[1;32m    307[0m [0;34m[0m[0m
+[0;32m--> 308[0;31m         [0;32mreturn[0m [0m_ConnectionRecord[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    309[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36m__init__[0;34m(self, pool, connect)[0m
+[1;32m    436[0m         [0;32mif[0m [0mconnect[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 437[0;31m             [0mself[0m[0;34m.[0m[0m__connect[0m[0;34m([0m[0mfirst_connect_check[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    438[0m         [0mself[0m[0;34m.[0m[0mfinalize_callback[0m [0;34m=[0m [0mdeque[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36m__connect[0;34m(self, first_connect_check)[0m
+[1;32m    638[0m             [0mself[0m[0;34m.[0m[0mstarttime[0m [0;34m=[0m [0mtime[0m[0;34m.[0m[0mtime[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 639[0;31m             [0mconnection[0m [0;34m=[0m [0mpool[0m[0;34m.[0m[0m_invoke_creator[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    640[0m             [0mpool[0m[0;34m.[0m[0mlogger[0m[0;34m.[0m[0mdebug[0m[0;34m([0m[0;34m"Created new connection %r"[0m[0;34m,[0m [0mconnection[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py[0m in [0;36mconnect[0;34m(connection_record)[0m
+[1;32m    113[0m                             [0;32mreturn[0m [0mconnection[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 114[0;31m                 [0;32mreturn[0m [0mdialect[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m*[0m[0mcargs[0m[0;34m,[0m [0;34m**[0m[0mcparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    115[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/default.py[0m in [0;36mconnect[0;34m(self, *cargs, **cparams)[0m
+[1;32m    450[0m     [0;32mdef[0m [0mconnect[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0mcargs[0m[0;34m,[0m [0;34m**[0m[0mcparams[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 451[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdbapi[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m*[0m[0mcargs[0m[0;34m,[0m [0;34m**[0m[0mcparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    452[0m [0;34m[0m[0m
+
+[0;31mOperationalError[0m: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-5-f67769e122a4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mengine[0m [0;34m=[0m [0mcreate_engine[0m[0;34m([0m[0;34m'sqlite:///US_CoD.sqlite'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mBase[0m[0;34m.[0m[0mmetadata[0m[0;34m.[0m[0mcreate_all[0m[0;34m([0m[0mengine[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0msession[0m [0;34m=[0m [0mSession[0m[0;34m([0m[0mengine[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/sql/schema.py[0m in [0;36mcreate_all[0;34m(self, bind, tables, checkfirst)[0m
+[1;32m   4285[0m             [0mbind[0m [0;34m=[0m [0m_bind_or_error[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   4286[0m         bind._run_visitor(
+[0;32m-> 4287[0;31m             [0mddl[0m[0;34m.[0m[0mSchemaGenerator[0m[0;34m,[0m [0mself[0m[0;34m,[0m [0mcheckfirst[0m[0;34m=[0m[0mcheckfirst[0m[0;34m,[0m [0mtables[0m[0;34m=[0m[0mtables[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   4288[0m         )
+[1;32m   4289[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_run_visitor[0;34m(self, visitorcallable, element, connection, **kwargs)[0m
+[1;32m   2030[0m         [0mself[0m[0;34m,[0m [0mvisitorcallable[0m[0;34m,[0m [0melement[0m[0;34m,[0m [0mconnection[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2031[0m     ):
+[0;32m-> 2032[0;31m         [0;32mwith[0m [0mself[0m[0;34m.[0m[0m_optional_conn_ctx_manager[0m[0;34m([0m[0mconnection[0m[0;34m)[0m [0;32mas[0m [0mconn[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2033[0m             [0mconn[0m[0;34m.[0m[0m_run_visitor[0m[0;34m([0m[0mvisitorcallable[0m[0;34m,[0m [0melement[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2034[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/contextlib.py[0m in [0;36m__enter__[0;34m(self)[0m
+[1;32m     79[0m     [0;32mdef[0m [0m__enter__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     80[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 81[0;31m             [0;32mreturn[0m [0mnext[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mgen[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     82[0m         [0;32mexcept[0m [0mStopIteration[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     83[0m             [0;32mraise[0m [0mRuntimeError[0m[0;34m([0m[0;34m"generator didn't yield"[0m[0;34m)[0m [0;32mfrom[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_optional_conn_ctx_manager[0;34m(self, connection)[0m
+[1;32m   2022[0m     [0;32mdef[0m [0m_optional_conn_ctx_manager[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mconnection[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2023[0m         [0;32mif[0m [0mconnection[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2024[0;31m             [0;32mwith[0m [0mself[0m[0;34m.[0m[0m_contextual_connect[0m[0;34m([0m[0;34m)[0m [0;32mas[0m [0mconn[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2025[0m                 [0;32myield[0m [0mconn[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2026[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_contextual_connect[0;34m(self, close_with_result, **kwargs)[0m
+[1;32m   2224[0m         return self._connection_cls(
+[1;32m   2225[0m             [0mself[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2226[0;31m             [0mself[0m[0;34m.[0m[0m_wrap_pool_connect[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mpool[0m[0;34m.[0m[0mconnect[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2227[0m             [0mclose_with_result[0m[0;34m=[0m[0mclose_with_result[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2228[0m             [0;34m**[0m[0mkwargs[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_wrap_pool_connect[0;34m(self, fn, connection)[0m
+[1;32m   2264[0m             [0;32mif[0m [0mconnection[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2265[0m                 Connection._handle_dbapi_exception_noconnection(
+[0;32m-> 2266[0;31m                     [0me[0m[0;34m,[0m [0mdialect[0m[0;34m,[0m [0mself[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2267[0m                 )
+[1;32m   2268[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_handle_dbapi_exception_noconnection[0;34m(cls, e, dialect, engine)[0m
+[1;32m   1534[0m             [0mutil[0m[0;34m.[0m[0mraise_from_cause[0m[0;34m([0m[0mnewraise[0m[0;34m,[0m [0mexc_info[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1535[0m         [0;32melif[0m [0mshould_wrap[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1536[0;31m             [0mutil[0m[0;34m.[0m[0mraise_from_cause[0m[0;34m([0m[0msqlalchemy_exception[0m[0;34m,[0m [0mexc_info[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1537[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1538[0m             [0mutil[0m[0;34m.[0m[0mreraise[0m[0;34m([0m[0;34m*[0m[0mexc_info[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/util/compat.py[0m in [0;36mraise_from_cause[0;34m(exception, exc_info)[0m
+[1;32m    397[0m     [0mexc_type[0m[0;34m,[0m [0mexc_value[0m[0;34m,[0m [0mexc_tb[0m [0;34m=[0m [0mexc_info[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    398[0m     [0mcause[0m [0;34m=[0m [0mexc_value[0m [0;32mif[0m [0mexc_value[0m [0;32mis[0m [0;32mnot[0m [0mexception[0m [0;32melse[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 399[0;31m     [0mreraise[0m[0;34m([0m[0mtype[0m[0;34m([0m[0mexception[0m[0;34m)[0m[0;34m,[0m [0mexception[0m[0;34m,[0m [0mtb[0m[0;34m=[0m[0mexc_tb[0m[0;34m,[0m [0mcause[0m[0;34m=[0m[0mcause[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    400[0m [0;34m[0m[0m
+[1;32m    401[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/util/compat.py[0m in [0;36mreraise[0;34m(tp, value, tb, cause)[0m
+[1;32m    151[0m             [0mvalue[0m[0;34m.[0m[0m__cause__[0m [0;34m=[0m [0mcause[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    152[0m         [0;32mif[0m [0mvalue[0m[0;34m.[0m[0m__traceback__[0m [0;32mis[0m [0;32mnot[0m [0mtb[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 153[0;31m             [0;32mraise[0m [0mvalue[0m[0;34m.[0m[0mwith_traceback[0m[0;34m([0m[0mtb[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    154[0m         [0;32mraise[0m [0mvalue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    155[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_wrap_pool_connect[0;34m(self, fn, connection)[0m
+[1;32m   2260[0m         [0mdialect[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mdialect[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2261[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2262[0;31m             [0;32mreturn[0m [0mfn[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2263[0m         [0;32mexcept[0m [0mdialect[0m[0;34m.[0m[0mdbapi[0m[0;34m.[0m[0mError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2264[0m             [0;32mif[0m [0mconnection[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36mconnect[0;34m(self)[0m
+[1;32m    361[0m         """
+[1;32m    362[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_use_threadlocal[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 363[0;31m             [0;32mreturn[0m [0m_ConnectionFairy[0m[0;34m.[0m[0m_checkout[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    364[0m [0;34m[0m[0m
+[1;32m    365[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36m_checkout[0;34m(cls, pool, threadconns, fairy)[0m
+[1;32m    758[0m     [0;32mdef[0m [0m_checkout[0m[0;34m([0m[0mcls[0m[0;34m,[0m [0mpool[0m[0;34m,[0m [0mthreadconns[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mfairy[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    759[0m         [0;32mif[0m [0;32mnot[0m [0mfairy[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 760[0;31m             [0mfairy[0m [0;34m=[0m [0m_ConnectionRecord[0m[0;34m.[0m[0mcheckout[0m[0;34m([0m[0mpool[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    761[0m [0;34m[0m[0m
+[1;32m    762[0m             [0mfairy[0m[0;34m.[0m[0m_pool[0m [0;34m=[0m [0mpool[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36mcheckout[0;34m(cls, pool)[0m
+[1;32m    490[0m     [0;34m@[0m[0mclassmethod[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    491[0m     [0;32mdef[0m [0mcheckout[0m[0;34m([0m[0mcls[0m[0;34m,[0m [0mpool[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 492[0;31m         [0mrec[0m [0;34m=[0m [0mpool[0m[0;34m.[0m[0m_do_get[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    493[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    494[0m             [0mdbapi_connection[0m [0;34m=[0m [0mrec[0m[0;34m.[0m[0mget_connection[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/impl.py[0m in [0;36m_do_get[0;34m(self)[0m
+[1;32m    236[0m [0;34m[0m[0m
+[1;32m    237[0m     [0;32mdef[0m [0m_do_get[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 238[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_create_connection[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    239[0m [0;34m[0m[0m
+[1;32m    240[0m     [0;32mdef[0m [0mrecreate[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36m_create_connection[0;34m(self)[0m
+[1;32m    306[0m         [0;34m"""Called by subclasses to create a new ConnectionRecord."""[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    307[0m [0;34m[0m[0m
+[0;32m--> 308[0;31m         [0;32mreturn[0m [0m_ConnectionRecord[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    309[0m [0;34m[0m[0m
+[1;32m    310[0m     [0;32mdef[0m [0m_invalidate[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mconnection[0m[0;34m,[0m [0mexception[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0m_checkin[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36m__init__[0;34m(self, pool, connect)[0m
+[1;32m    435[0m         [0mself[0m[0;34m.[0m[0m__pool[0m [0;34m=[0m [0mpool[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    436[0m         [0;32mif[0m [0mconnect[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 437[0;31m             [0mself[0m[0;34m.[0m[0m__connect[0m[0;34m([0m[0mfirst_connect_check[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    438[0m         [0mself[0m[0;34m.[0m[0mfinalize_callback[0m [0;34m=[0m [0mdeque[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    439[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/pool/base.py[0m in [0;36m__connect[0;34m(self, first_connect_check)[0m
+[1;32m    637[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    638[0m             [0mself[0m[0;34m.[0m[0mstarttime[0m [0;34m=[0m [0mtime[0m[0;34m.[0m[0mtime[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 639[0;31m             [0mconnection[0m [0;34m=[0m [0mpool[0m[0;34m.[0m[0m_invoke_creator[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    640[0m             [0mpool[0m[0;34m.[0m[0mlogger[0m[0;34m.[0m[0mdebug[0m[0;34m([0m[0;34m"Created new connection %r"[0m[0;34m,[0m [0mconnection[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    641[0m             [0mself[0m[0;34m.[0m[0mconnection[0m [0;34m=[0m [0mconnection[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py[0m in [0;36mconnect[0;34m(connection_record)[0m
+[1;32m    112[0m                         [0;32mif[0m [0mconnection[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    113[0m                             [0;32mreturn[0m [0mconnection[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 114[0;31m                 [0;32mreturn[0m [0mdialect[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m*[0m[0mcargs[0m[0;34m,[0m [0;34m**[0m[0mcparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    115[0m [0;34m[0m[0m
+[1;32m    116[0m             [0mcreator[0m [0;34m=[0m [0mpop_kwarg[0m[0;34m([0m[0;34m"creator"[0m[0;34m,[0m [0mconnect[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/default.py[0m in [0;36mconnect[0;34m(self, *cargs, **cparams)[0m
+[1;32m    449[0m [0;34m[0m[0m
+[1;32m    450[0m     [0;32mdef[0m [0mconnect[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0mcargs[0m[0;34m,[0m [0;34m**[0m[0mcparams[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 451[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdbapi[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m*[0m[0mcargs[0m[0;34m,[0m [0;34m**[0m[0mcparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    452[0m [0;34m[0m[0m
+[1;32m    453[0m     [0;32mdef[0m [0mcreate_connect_args[0m[0;34m([0m[0mself[0m[0;34m,[0m [0murl[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mOperationalError[0m: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: http://sqlalche.me/e/e3q8)
+OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: http://sqlalche.me/e/e3q8)
+
+Executability                            : False

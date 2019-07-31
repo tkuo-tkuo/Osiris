@@ -1,0 +1,75 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from datetime import datetime
+from turtle import Turtle, Screen
+import time
+import turtle
+import random
+import numpy as np
+from __future__ import division
+
+#bg = Screen()
+tl1 = []
+numt = 11
+
+
+def op():
+    for a in tl1:
+        #c = np.arange(-300,300,10)
+        #d = random.choice(c)
+        a.shape("turtle")
+        a.color('black')
+        a.penup()
+        a.speed(100)
+        a.setposition(-250,random.randrange(-300,300))
+        #a.setposition(0,0)
+        a.pendown()
+
+        
+
+
+def func():
+    while True:
+        
+        for turtle in tl1:
+            t = datetime.today()  
+            second = t.second
+            if second % 5 ==0:
+                #1
+                #1
+                #turtle.circle(second)
+                turtle.dot(second/3, 'black')
+                turtle.fd(20)
+                time.sleep(1)
+            else:
+                turtle.fd(20)
+                turtle.circle(5)
+                time.sleep(1)
+            #turtle.circle(second)
+            #turtle.right(second*30)
+            #turtle.fd(50)
+            #turtle.dot(second,'blue')
+            #time.sleep(1)
+            
+
+for i in range(numt):
+    tl1.append(turtle.Turtle())
+
+op()
+func()
+   
+turtle.exitonclick()
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-532fb2324f71>"[0;36m, line [0;32m12[0m
+[0;31m    tl1 = [][0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-532fb2324f71>, line 12)
+
+Executability                            : False

@@ -1,0 +1,63 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import plotly.plotly as py
+import cufflinks as cf
+import pandas as pd
+import numpy as np
+dpInternet_2013_14_15 = pd.DataFrame({
+    '2013':(dadosP_2013.Potencial_Internet),
+    '2014':(dadosP_2014.Potencial_Internet),
+    '2015':(dadosP_2015.Potencial_Internet)
+
+})
+
+dp3G_2013_14_15 = pd.DataFrame({
+    '2013':(dadosP_2013.Potencial_3G),
+    '2014':(dadosP_2014.Potencial_3G),
+    '2015':(dadosP_2015.Potencial_3G)
+
+})
+# PRIMEIRO NET
+dpInternet_2013_14_15=dpInternet_2013_14_15.dropna(0,how="any")
+dp3G_2013_14_15=dp3G_2013_14_15.dropna(0,how="any")
+dpInternet_2013_14_15=dpInternet_2013_14_15.groupby(['2013','2015'], as_index=True, sort=True, group_keys=True, squeeze=False).size() 
+dpInternet_2013_14_15=dpInternet_2013_14_15.unstack()
+dpInternet_2013_14_15.plot(kind='bar')
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-19-5f91f94144c6>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mplotly[0m[0;34m.[0m[0mplotly[0m [0;32mas[0m [0mpy[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mcufflinks[0m [0;32mas[0m [0mcf[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m dpInternet_2013_14_15 = pd.DataFrame({
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/plotly/plotly/__init__.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;32mfrom[0m [0m_plotly_future_[0m [0;32mimport[0m [0m_chart_studio_error[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0m_chart_studio_error[0m[0;34m([0m[0;34m"plotly"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/_plotly_future_/__init__.py[0m in [0;36m_chart_studio_error[0;34m(submodule)[0m
+[1;32m     47[0m [0mchart_studio[0m[0;34m.[0m[0;34m{[0m[0msubmodule[0m[0;34m}[0m [0mmodule[0m [0minstead[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     48[0m """.format(
+[0;32m---> 49[0;31m             [0msubmodule[0m[0;34m=[0m[0msubmodule[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     50[0m         )
+[1;32m     51[0m     )
+
+[0;31mImportError[0m: 
+The plotly.plotly module is deprecated,
+please install the chart-studio package and use the
+chart_studio.plotly module instead. 
+
+ImportError: 
+The plotly.plotly module is deprecated,
+please install the chart-studio package and use the
+chart_studio.plotly module instead. 
+
+
+Executability                            : False

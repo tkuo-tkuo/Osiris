@@ -1,0 +1,69 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 9 ; number of cells: 12
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+# unstackでDataFrameができます。
+dframe.unstack()
+
+-----------------
+Original output:
+        Q  X  Y   Z
+Alpha   0  1  2 NaN
+Beta  NaN  4  5   6
+Executed output:
+         Q    X    Y    Z
+Alpha  0.0  1.0  2.0  NaN
+Beta   NaN  4.0  5.0  6.0
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+# stackは、デフォルトでNaNを取り除きます。
+dframe.unstack().stack()
+
+-----------------
+Original output:
+Alpha  Q    0
+       X    1
+       Y    2
+Beta   X    4
+       Y    5
+       Z    6
+dtype: float64
+Executed output:
+Alpha  Q    0.0
+       X    1.0
+       Y    2.0
+Beta   X    4.0
+       Y    5.0
+       Z    6.0
+dtype: float64
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+# この動きを抑制することもできます。
+dframe.unstack().stack(dropna=False)
+
+-----------------
+Original output:
+Alpha  Q     0
+       X     1
+       Y     2
+       Z   NaN
+Beta   Q   NaN
+       X     4
+       Y     5
+       Z     6
+dtype: float64
+Executed output:
+Alpha  Q    0.0
+       X    1.0
+       Y    2.0
+       Z    NaN
+Beta   Q    NaN
+       X    4.0
+       Y    5.0
+       Z    6.0
+dtype: float64

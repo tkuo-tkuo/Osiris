@@ -1,0 +1,14 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 4 ; number of cells: 5
+Reproducibility                          : matched ratio: 0.8 ; index of matched cells: [0, 1, 2, 3]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+accuracy_score(Y_test, Y_predicted)
+
+-----------------
+Original output:
+0.7314047048707082
+Executed output:
+0.7298077513666237

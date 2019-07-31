@@ -1,0 +1,57 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+data = pd.io.stata.read_stata('data/us_job_market_discrimination.dta')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-cc0300cb7157>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdata[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mio[0m[0;34m.[0m[0mstata[0m[0;34m.[0m[0mread_stata[0m[0;34m([0m[0;34m'data/us_job_market_discrimination.dta'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/stata.py[0m in [0;36mread_stata[0;34m(filepath_or_buffer, convert_dates, convert_categoricals, encoding, index_col, convert_missing, preserve_dtypes, columns, order_categoricals, chunksize, iterator)[0m
+[1;32m    184[0m                          [0mcolumns[0m[0;34m=[0m[0mcolumns[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    185[0m                          [0morder_categoricals[0m[0;34m=[0m[0morder_categoricals[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 186[0;31m                          chunksize=chunksize)
+[0m[1;32m    187[0m [0;34m[0m[0m
+[1;32m    188[0m     [0;32mif[0m [0miterator[0m [0;32mor[0m [0mchunksize[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/stata.py[0m in [0;36m__init__[0;34m(self, path_or_buf, convert_dates, convert_categoricals, index_col, convert_missing, preserve_dtypes, columns, order_categoricals, encoding, chunksize)[0m
+[1;32m    992[0m [0;34m[0m[0m
+[1;32m    993[0m         [0;32mif[0m [0misinstance[0m[0;34m([0m[0mpath_or_buf[0m[0;34m,[0m [0;34m([0m[0mstr[0m[0;34m,[0m [0mtext_type[0m[0;34m,[0m [0mbytes[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 994[0;31m             [0mself[0m[0;34m.[0m[0mpath_or_buf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mpath_or_buf[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    995[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    996[0m             [0;31m# Copy to BytesIO, and ensure no encoding[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data/us_job_market_discrimination.dta'
+FileNotFoundError: [Errno 2] No such file or directory: 'data/us_job_market_discrimination.dta'
+
+Executability                            : False

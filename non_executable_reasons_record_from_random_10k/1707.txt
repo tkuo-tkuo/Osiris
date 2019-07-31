@@ -1,0 +1,87 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+percentage_change_for_leaf2=[0]
+i=0
+while i < max(input_and_output_test['leaf2'].dropna().index):
+    for j in input_and_output_test['leaf2'].dropna().index:
+        if j-i > 5000000000:
+            percentage_change_for_leaf2.append(((means_for_file2[2]-input_and_output_test.leaf2.dropna().loc[i:j].mean())/means_for_file2[2])*100)
+            break
+    i=j
+
+for i in range(2,len(percentage_change_for_leaf2)):
+    if float(percentage_change_for_leaf2[i]) < thresholds_for_no_failure[2]:
+        probabilities_df['No Failure'] += 1.2
+        probabilities_df['leaf1'] -= 0.1
+        probabilities_df['leaf2'] -= 0.1
+        probabilities_df['leaf3'] -= 0.1
+        probabilities_df['leaf4'] -= 0.1
+        probabilities_df['leaf5'] -= 0.1
+        probabilities_df['leaf6'] -= 0.1
+        probabilities_df['leaf7'] -= 0.1
+        probabilities_df['leaf8'] -= 0.1
+        probabilities_df['spine1'] -= 0.1
+        probabilities_df['spine2'] -= 0.1
+        probabilities_df['spine3'] -= 0.1
+        probabilities_df['spine4'] -= 0.1
+        
+    if float(percentage_change_for_leaf2[i]) > thresholds_for_no_failure[2] and float(percentage_change_for_leaf2[i]) < thresholds_for_disturbance[2]:
+        probabilities_df['No Failure'] -= 1.2
+        probabilities_df['leaf1'] += 0.1
+        probabilities_df['leaf2'] += 0.1
+        probabilities_df['leaf3'] += 0.1
+        probabilities_df['leaf4'] += 0.1
+        probabilities_df['leaf5'] += 0.1
+        probabilities_df['leaf6'] += 0.1
+        probabilities_df['leaf7'] += 0.1
+        probabilities_df['leaf8'] += 0.1
+        probabilities_df['spine1'] += 0.1
+        probabilities_df['spine2'] += 0.1
+        probabilities_df['spine3'] += 0.1
+        probabilities_df['spine4'] += 0.1
+        
+    if float(percentage_change_for_leaf2[i]) > thresholds_for_disturbance[2]:
+        probabilities_df['No Failure'] -= 9
+        probabilities_df['leaf1'] -= 1
+        probabilities_df['leaf2'] += 20
+        probabilities_df['leaf3'] -= 1
+        probabilities_df['leaf4'] -= 1
+        probabilities_df['leaf5'] -= 1
+        probabilities_df['leaf6'] -= 1
+        probabilities_df['leaf7'] -= 1
+        probabilities_df['leaf8'] -= 1
+        probabilities_df['spine1'] -= 1
+        probabilities_df['spine2'] -= 1
+        probabilities_df['spine3'] -= 1
+        probabilities_df['spine4'] -= 1
+        
+
+
+for i in probabilities_df.columns:
+    if float(probabilities_df[i]) > 80:
+        for j in (probabilities_df.columns):
+            probabilities_df.set_value(0,j,1)
+        
+        probabilities_df.set_value(0,i,88) 
+    if float(probabilities_df[i]) < 1:
+        probabilities_df.set_value(0,i,1)
+        
+bargraph=probabilities_df.iloc[-1].plot(kind='bar', title="Failure Probabilites(%)", figsize=(10,5), legend=True, fontsize=12)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-29677eb566a9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mpercentage_change_for_leaf2[0m[0;34m=[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mi[0m[0;34m=[0m[0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mwhile[0m [0mi[0m [0;34m<[0m [0mmax[0m[0;34m([0m[0minput_and_output_test[0m[0;34m[[0m[0;34m'leaf2'[0m[0;34m][0m[0;34m.[0m[0mdropna[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mindex[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m     [0;32mfor[0m [0mj[0m [0;32min[0m [0minput_and_output_test[0m[0;34m[[0m[0;34m'leaf2'[0m[0;34m][0m[0;34m.[0m[0mdropna[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mindex[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m         [0;32mif[0m [0mj[0m[0;34m-[0m[0mi[0m [0;34m>[0m [0;36m5000000000[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'input_and_output_test' is not defined
+NameError: name 'input_and_output_test' is not defined
+
+Executability                            : False

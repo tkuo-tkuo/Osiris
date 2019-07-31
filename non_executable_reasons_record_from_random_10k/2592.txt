@@ -1,0 +1,1234 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 13 ; number of cells: 21
+Reproducibility                          : matched ratio: 0.619 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 19, 20]
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+help(figure)
+
+-----------------
+Original output:
+Help on function figure in module bokeh.plotting.figure:
+
+figure(**kwargs)
+    Create a new :class:`~bokeh.plotting.figure.Figure` for plotting.
+    
+    In addition to the standard :class:`~bokeh.plotting.figure.Figure`
+    property values (e.g. ``plot_width`` or ``sizing_mode``) the following
+    additional options can be passed as well:
+    
+    .. bokeh-options:: FigureOptions
+        :module: bokeh.plotting.figure
+    
+    Returns:
+       Figure
+
+
+Executed output:
+Help on function figure in module bokeh.plotting.figure:
+
+figure(**kwargs)
+    Create a new :class:`~bokeh.plotting.figure.Figure` for plotting.
+    
+    Figure objects have many glyph methods that can be used to draw
+    vectorized graphical glyphs:
+    
+    .. hlist::
+        :columns: 3
+    
+        * :func:`~bokeh.plotting.figure.Figure.annular_wedge`
+        * :func:`~bokeh.plotting.figure.Figure.annulus`
+        * :func:`~bokeh.plotting.figure.Figure.arc`
+        * :func:`~bokeh.plotting.figure.Figure.asterisk`
+        * :func:`~bokeh.plotting.figure.Figure.bezier`
+        * :func:`~bokeh.plotting.figure.Figure.circle`
+        * :func:`~bokeh.plotting.figure.Figure.circle_cross`
+        * :func:`~bokeh.plotting.figure.Figure.circle_x`
+        * :func:`~bokeh.plotting.figure.Figure.cross`
+        * :func:`~bokeh.plotting.figure.Figure.diamond`
+        * :func:`~bokeh.plotting.figure.Figure.diamond_cross`
+        * :func:`~bokeh.plotting.figure.Figure.ellipse`
+        * :func:`~bokeh.plotting.figure.Figure.hbar`
+        * :func:`~bokeh.plotting.figure.Figure.hex`
+        * :func:`~bokeh.plotting.figure.Figure.hex_tile`
+        * :func:`~bokeh.plotting.figure.Figure.image`
+        * :func:`~bokeh.plotting.figure.Figure.image_rgba`
+        * :func:`~bokeh.plotting.figure.Figure.image_url`
+        * :func:`~bokeh.plotting.figure.Figure.inverted_triangle`
+        * :func:`~bokeh.plotting.figure.Figure.line`
+        * :func:`~bokeh.plotting.figure.Figure.multi_line`
+        * :func:`~bokeh.plotting.figure.Figure.oval`
+        * :func:`~bokeh.plotting.figure.Figure.patch`
+        * :func:`~bokeh.plotting.figure.Figure.patches`
+        * :func:`~bokeh.plotting.figure.Figure.quad`
+        * :func:`~bokeh.plotting.figure.Figure.quadratic`
+        * :func:`~bokeh.plotting.figure.Figure.ray`
+        * :func:`~bokeh.plotting.figure.Figure.rect`
+        * :func:`~bokeh.plotting.figure.Figure.segment`
+        * :func:`~bokeh.plotting.figure.Figure.square`
+        * :func:`~bokeh.plotting.figure.Figure.square_cross`
+        * :func:`~bokeh.plotting.figure.Figure.square_x`
+        * :func:`~bokeh.plotting.figure.Figure.step`
+        * :func:`~bokeh.plotting.figure.Figure.text`
+        * :func:`~bokeh.plotting.figure.Figure.triangle`
+        * :func:`~bokeh.plotting.figure.Figure.vbar`
+        * :func:`~bokeh.plotting.figure.Figure.wedge`
+        * :func:`~bokeh.plotting.figure.Figure.x`
+    
+    There are also two specialized methods for stacking bars:
+    
+    * :func:`~bokeh.plotting.figure.Figure.hbar_stack`
+    * :func:`~bokeh.plotting.figure.Figure.vbar_stack`
+    
+    And one specialized method for making simple hexbin plots:
+    
+    * :func:`~bokeh.plotting.figure.Figure.hexbin`
+    
+    In addition to the standard :class:`~bokeh.plotting.figure.Figure`
+    property values (e.g. ``plot_width`` or ``sizing_mode``) the following
+    additional options can be passed as well:
+    
+    .. bokeh-options:: FigureOptions
+        :module: bokeh.plotting.figure
+    
+    Returns:
+       Figure
+
+
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+p.line(x+1, y+1)
+
+-----------------
+Original output:
+GlyphRenderer(id='1beb57e9-66a8-4f5b-a1c0-ae45d275caf2', ...)
+Executed output:
+bokeh.models.renderers.GlyphRenderer(
+    id='6dd5bd01-0754-4701-92b9-e826619c4137',
+    data_source=bokeh.models.sources.ColumnDataSource(
+        id='8d1259ff-c867-4679-a9eb-6bf428e099cf',
+        callback=None,
+        data={'x': {'__ndarray__': 'AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'y': {'__ndarray__': 'AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8=',
+          'dtype': 'float64',
+          'shape': (16,)}},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        selected=bokeh.models.selections.Selection(
+            id='dcdbf0d3-6c30-4f0f-b5ae-625102b8c402',
+            indices=[],
+            js_event_callbacks={},
+            js_property_callbacks={},
+            line_indices=[],
+            multiline_indices={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        selection_policy=bokeh.models.selections.UnionRenderers(
+            id='7f7fcca0-2ee7-4a6c-aa5a-ac06443db406',
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    glyph=bokeh.models.glyphs.Line(
+        id='bc0d9b44-b267-4135-ab14-abeeaeb3ad85',
+        js_event_callbacks={},
+        js_property_callbacks={},
+        line_alpha=1.0,
+        line_cap='butt',
+        line_color='#1f77b4',
+        line_dash=[],
+        line_dash_offset=0,
+        line_join='miter',
+        line_width=1,
+        name=None,
+        subscribed_events=[],
+        tags=[],
+        x={'field': 'x'},
+        y={'field': 'y'}),
+    hover_glyph=None,
+    js_event_callbacks={},
+    js_property_callbacks={},
+    level='glyph',
+    muted=False,
+    muted_glyph=None,
+    name=None,
+    nonselection_glyph=bokeh.models.glyphs.Line(
+        id='1d3b995e-4a45-463d-9eb0-5a7cc9abddfd',
+        js_event_callbacks={},
+        js_property_callbacks={},
+        line_alpha=0.1,
+        line_cap='butt',
+        line_color='#1f77b4',
+        line_dash=[],
+        line_dash_offset=0,
+        line_join='miter',
+        line_width=1,
+        name=None,
+        subscribed_events=[],
+        tags=[],
+        x={'field': 'x'},
+        y={'field': 'y'}),
+    selection_glyph=None,
+    subscribed_events=[],
+    tags=[],
+    view=bokeh.models.sources.CDSView(
+        id='a6ff4dbd-e0ba-4aa1-b7fd-ed0df36ab892',
+        filters=[],
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        source=bokeh.models.sources.ColumnDataSource(
+            id='8d1259ff-c867-4679-a9eb-6bf428e099cf',
+            callback=None,
+            data={'x': {'__ndarray__': 'AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'y': {'__ndarray__': 'AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8=',
+              'dtype': 'float64',
+              'shape': (16,)}},
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            selected=bokeh.models.selections.Selection(
+                id='dcdbf0d3-6c30-4f0f-b5ae-625102b8c402',
+                indices=[],
+                js_event_callbacks={},
+                js_property_callbacks={},
+                line_indices=[],
+                multiline_indices={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            selection_policy=bokeh.models.selections.UnionRenderers(
+                id='7f7fcca0-2ee7-4a6c-aa5a-ac06443db406',
+                js_event_callbacks={},
+                js_property_callbacks={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    visible=True,
+    x_range_name='default',
+    y_range_name='default')
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+# annular wedges
+angles = np.pi/2 - big_angle/2 - df.index.to_series()*big_angle
+colors = [gram_color[gram] for gram in df.gram]
+p.annular_wedge(x, y, inner_radius, outer_radius, -big_angle+angles, angles, color=colors)
+
+-----------------
+Original output:
+GlyphRenderer(id='de2fb95a-b4a4-49aa-b26f-06dd73f10963', ...)
+Executed output:
+bokeh.models.renderers.GlyphRenderer(
+    id='12756e7f-32a0-40a7-b8ee-52adf74f7f73',
+    data_source=bokeh.models.sources.ColumnDataSource(
+        id='4f66804b-d9c9-4e1c-bd3d-503bdc6d9b62',
+        callback=None,
+        data={'end_angle': {'__ndarray__': 'juv/7wot9j95aHcnKkPwP8nK3b2SsuQ/QImZWaK90T9QDCIig6e3v2iPqupjkd2/3E1mhnOc6r8EqruLGjjzvxgtRFT7Ifm/LLDMHNwL/7+hmapy3noCwCvb7tbObwXAtRwzO79kCMA/Xnefr1kLwMufuwOgTg7AqvD/M8ihEMA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'fill_color': ['#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8'],
+         'line_color': ['#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#e69584',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8',
+          '#aeaeb8'],
+         'start_angle': {'__ndarray__': 'eWh3JypD8D/Iyt29krLkPz+JmVmivdE/TAwiIoOnt79nj6rqY5Hdv95NZoZznOq/A6q7ixo4878ZLURU+yH5vy2wzBzcC/+/oJmqct56AsAr2+7Wzm8FwLUcMzu/ZAjAP153n69ZC8DJn7sDoE4OwKvw/zPIoRDAbxEiZkAcEsA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'x': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'y': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+          'dtype': 'float64',
+          'shape': (16,)}},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        selected=bokeh.models.selections.Selection(
+            id='6a415ea4-8b76-41c2-9896-fdd12b16b169',
+            indices=[],
+            js_event_callbacks={},
+            js_property_callbacks={},
+            line_indices=[],
+            multiline_indices={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        selection_policy=bokeh.models.selections.UnionRenderers(
+            id='8c089c79-4d04-4144-aaf0-9197615610bb',
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    glyph=bokeh.models.glyphs.AnnularWedge(
+        id='f8234f2c-c4d9-45d2-841f-893f0f2fcbc3',
+        direction='anticlock',
+        end_angle={'field': 'end_angle', 'units': 'rad'},
+        fill_alpha={'value': 1.0},
+        fill_color={'field': 'fill_color'},
+        inner_radius={'units': 'data', 'value': 90},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        line_alpha={'value': 1.0},
+        line_cap='butt',
+        line_color={'field': 'line_color'},
+        line_dash=[],
+        line_dash_offset=0,
+        line_join='miter',
+        line_width={'value': 1},
+        name=None,
+        outer_radius={'units': 'data', 'value': 290},
+        start_angle={'field': 'start_angle', 'units': 'rad'},
+        subscribed_events=[],
+        tags=[],
+        x={'field': 'x'},
+        y={'field': 'y'}),
+    hover_glyph=None,
+    js_event_callbacks={},
+    js_property_callbacks={},
+    level='glyph',
+    muted=False,
+    muted_glyph=None,
+    name=None,
+    nonselection_glyph=bokeh.models.glyphs.AnnularWedge(
+        id='57ecc1d5-5b93-4327-9ac3-0eadeeddc663',
+        direction='anticlock',
+        end_angle={'field': 'end_angle', 'units': 'rad'},
+        fill_alpha={'value': 0.1},
+        fill_color={'value': '#1f77b4'},
+        inner_radius={'units': 'data', 'value': 90},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        line_alpha={'value': 0.1},
+        line_cap='butt',
+        line_color={'value': '#1f77b4'},
+        line_dash=[],
+        line_dash_offset=0,
+        line_join='miter',
+        line_width={'value': 1},
+        name=None,
+        outer_radius={'units': 'data', 'value': 290},
+        start_angle={'field': 'start_angle', 'units': 'rad'},
+        subscribed_events=[],
+        tags=[],
+        x={'field': 'x'},
+        y={'field': 'y'}),
+    selection_glyph=None,
+    subscribed_events=[],
+    tags=[],
+    view=bokeh.models.sources.CDSView(
+        id='f09131fe-3733-4679-b20b-e29d93b06f5b',
+        filters=[],
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        source=bokeh.models.sources.ColumnDataSource(
+            id='4f66804b-d9c9-4e1c-bd3d-503bdc6d9b62',
+            callback=None,
+            data={'end_angle': {'__ndarray__': 'juv/7wot9j95aHcnKkPwP8nK3b2SsuQ/QImZWaK90T9QDCIig6e3v2iPqupjkd2/3E1mhnOc6r8EqruLGjjzvxgtRFT7Ifm/LLDMHNwL/7+hmapy3noCwCvb7tbObwXAtRwzO79kCMA/Xnefr1kLwMufuwOgTg7AqvD/M8ihEMA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'fill_color': ['#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8'],
+             'line_color': ['#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#e69584',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8',
+              '#aeaeb8'],
+             'start_angle': {'__ndarray__': 'eWh3JypD8D/Iyt29krLkPz+JmVmivdE/TAwiIoOnt79nj6rqY5Hdv95NZoZznOq/A6q7ixo4878ZLURU+yH5vy2wzBzcC/+/oJmqct56AsAr2+7Wzm8FwLUcMzu/ZAjAP153n69ZC8DJn7sDoE4OwKvw/zPIoRDAbxEiZkAcEsA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'x': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'y': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+              'dtype': 'float64',
+              'shape': (16,)}},
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            selected=bokeh.models.selections.Selection(
+                id='6a415ea4-8b76-41c2-9896-fdd12b16b169',
+                indices=[],
+                js_event_callbacks={},
+                js_property_callbacks={},
+                line_indices=[],
+                multiline_indices={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            selection_policy=bokeh.models.selections.UnionRenderers(
+                id='8c089c79-4d04-4144-aaf0-9197615610bb',
+                js_event_callbacks={},
+                js_property_callbacks={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    visible=True,
+    x_range_name='default',
+    y_range_name='default')
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+# small wedges
+p.annular_wedge(x, y, inner_radius, rad(df.penicillin), -big_angle+angles + 5*small_angle, 
+                -big_angle+angles+6*small_angle, color=drug_color['Penicillin'])
+p.annular_wedge(x, y, inner_radius, rad(df.streptomycin), -big_angle+angles + 3*small_angle, 
+                -big_angle+angles+4*small_angle, color=drug_color['Streptomycin'])
+p.annular_wedge(x, y, inner_radius, rad(df.neomycin), -big_angle+angles + 1*small_angle, 
+                -big_angle+angles+2*small_angle, color=drug_color['Neomycin'])
+
+-----------------
+Original output:
+GlyphRenderer(id='2dfd021d-2656-423a-92f2-61534f60861f', ...)
+Executed output:
+bokeh.models.renderers.GlyphRenderer(
+    id='2d8ab523-2e1f-4c65-a2f5-869f2d051d22',
+    data_source=bokeh.models.sources.ColumnDataSource(
+        id='c058f737-60f5-42ea-92d3-7ff85ff4fa22',
+        callback=None,
+        data={'end_angle': {'__ndarray__': 'yERVhbPz8T9mg5l5pRPoP3v6ENHHf9g/KMXd3ZUIiz8rHjNzPs/Wv0CVqspgO+e/tM3dLZGH8b/KUGb2cXH3v97T7r5SW/2/eKu7w5miAcAD7f8nipcEwI0uRIx6jAfAF3CI8GqBCsChscxUW3YNwJd5iNylNRDAW5qqDh6wEcA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'outer_radius': {'__ndarray__': 'm8z7btjvY0D9PDy5w1RpQDjj0CUzIWlABsmM1zIPZUChS31Y0mVsQB0YCXI1nGZAOOPQJTMhaUCyh+QAGnxuQM3Wg944S2RA/HdeznjObkA449AlMyFpQAAAAAAAIHJAAAAAAAAgckCg0sRXLXlhQFhbROgM+V5AoNLEVy15YUA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'start_angle': {'__ndarray__': 'oVZm1m4b8T8Xp7sbHGPmP91BVRW1HtU/p1NmZnBGpL/J1u4uUTDav49xiCjq6+i/27vM3NVf8r/xPlWltkn4vwXC3W2XM/6/jCIzG7wOAsAXZHd/rAMFwKGlu+Oc+AfAK+f/R43tCsC1KESsfeINwCE1RAi3axDA5VVmOi/mEcA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'x': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'y': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+          'dtype': 'float64',
+          'shape': (16,)}},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        selected=bokeh.models.selections.Selection(
+            id='467c00ec-3460-4b44-8048-7eec2308e183',
+            indices=[],
+            js_event_callbacks={},
+            js_property_callbacks={},
+            line_indices=[],
+            multiline_indices={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        selection_policy=bokeh.models.selections.UnionRenderers(
+            id='804e92c0-3c9d-4b78-bc27-50857f679e30',
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    glyph=bokeh.models.glyphs.AnnularWedge(
+        id='66f57129-bd04-43cd-8242-c2bdfa26dc3d',
+        direction='anticlock',
+        end_angle={'field': 'end_angle', 'units': 'rad'},
+        fill_alpha={'value': 1.0},
+        fill_color={'value': 'black'},
+        inner_radius={'units': 'data', 'value': 90},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        line_alpha={'value': 1.0},
+        line_cap='butt',
+        line_color={'value': 'black'},
+        line_dash=[],
+        line_dash_offset=0,
+        line_join='miter',
+        line_width={'value': 1},
+        name=None,
+        outer_radius={'field': 'outer_radius', 'units': 'data'},
+        start_angle={'field': 'start_angle', 'units': 'rad'},
+        subscribed_events=[],
+        tags=[],
+        x={'field': 'x'},
+        y={'field': 'y'}),
+    hover_glyph=None,
+    js_event_callbacks={},
+    js_property_callbacks={},
+    level='glyph',
+    muted=False,
+    muted_glyph=None,
+    name=None,
+    nonselection_glyph=bokeh.models.glyphs.AnnularWedge(
+        id='93beacf4-5628-4cb9-ae44-03a1bf4f640d',
+        direction='anticlock',
+        end_angle={'field': 'end_angle', 'units': 'rad'},
+        fill_alpha={'value': 0.1},
+        fill_color={'value': '#1f77b4'},
+        inner_radius={'units': 'data', 'value': 90},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        line_alpha={'value': 0.1},
+        line_cap='butt',
+        line_color={'value': '#1f77b4'},
+        line_dash=[],
+        line_dash_offset=0,
+        line_join='miter',
+        line_width={'value': 1},
+        name=None,
+        outer_radius={'field': 'outer_radius', 'units': 'data'},
+        start_angle={'field': 'start_angle', 'units': 'rad'},
+        subscribed_events=[],
+        tags=[],
+        x={'field': 'x'},
+        y={'field': 'y'}),
+    selection_glyph=None,
+    subscribed_events=[],
+    tags=[],
+    view=bokeh.models.sources.CDSView(
+        id='0d29780e-ac17-43d6-96e8-4e7e01441ee8',
+        filters=[],
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        source=bokeh.models.sources.ColumnDataSource(
+            id='c058f737-60f5-42ea-92d3-7ff85ff4fa22',
+            callback=None,
+            data={'end_angle': {'__ndarray__': 'yERVhbPz8T9mg5l5pRPoP3v6ENHHf9g/KMXd3ZUIiz8rHjNzPs/Wv0CVqspgO+e/tM3dLZGH8b/KUGb2cXH3v97T7r5SW/2/eKu7w5miAcAD7f8nipcEwI0uRIx6jAfAF3CI8GqBCsChscxUW3YNwJd5iNylNRDAW5qqDh6wEcA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'outer_radius': {'__ndarray__': 'm8z7btjvY0D9PDy5w1RpQDjj0CUzIWlABsmM1zIPZUChS31Y0mVsQB0YCXI1nGZAOOPQJTMhaUCyh+QAGnxuQM3Wg944S2RA/HdeznjObkA449AlMyFpQAAAAAAAIHJAAAAAAAAgckCg0sRXLXlhQFhbROgM+V5AoNLEVy15YUA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'start_angle': {'__ndarray__': 'oVZm1m4b8T8Xp7sbHGPmP91BVRW1HtU/p1NmZnBGpL/J1u4uUTDav49xiCjq6+i/27vM3NVf8r/xPlWltkn4vwXC3W2XM/6/jCIzG7wOAsAXZHd/rAMFwKGlu+Oc+AfAK+f/R43tCsC1KESsfeINwCE1RAi3axDA5VVmOi/mEcA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'x': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'y': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+              'dtype': 'float64',
+              'shape': (16,)}},
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            selected=bokeh.models.selections.Selection(
+                id='467c00ec-3460-4b44-8048-7eec2308e183',
+                indices=[],
+                js_event_callbacks={},
+                js_property_callbacks={},
+                line_indices=[],
+                multiline_indices={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            selection_policy=bokeh.models.selections.UnionRenderers(
+                id='804e92c0-3c9d-4b78-bc27-50857f679e30',
+                js_event_callbacks={},
+                js_property_callbacks={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    visible=True,
+    x_range_name='default',
+    y_range_name='default')
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+# circular axes and lables
+labels = np.power(10.0, np.arange(-3, 4))
+radii = a * np.sqrt(np.log(labels * 1E4)) + b
+p.circle(x, y, radius=radii, fill_color=None, line_color="white")
+p.text(x[:-1], radii[:-1], [str(r) for r in labels[:-1]], 
+       text_font_size="8pt", text_align="center", text_baseline="middle")
+
+-----------------
+Original output:
+/opt/conda/lib/python3.5/site-packages/bokeh/models/sources.py:89: BokehUserWarning: ColumnDataSource's columns must be of the same length
+  lambda: warnings.warn("ColumnDataSource's columns must be of the same length", BokehUserWarning))
+/opt/conda/lib/python3.5/site-packages/bokeh/models/sources.py:89: BokehUserWarning: ColumnDataSource's columns must be of the same length
+  lambda: warnings.warn("ColumnDataSource's columns must be of the same length", BokehUserWarning))
+/opt/conda/lib/python3.5/site-packages/bokeh/models/sources.py:89: BokehUserWarning: ColumnDataSource's columns must be of the same length
+  lambda: warnings.warn("ColumnDataSource's columns must be of the same length", BokehUserWarning))
+GlyphRenderer(id='4d9be289-de48-4a38-9224-3d5fe7ec16ff', ...)
+Executed output:
+/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/bokeh/models/sources.py:110: BokehUserWarning: ColumnDataSource's columns must be of the same length. Current lengths: ('radius', 7), ('y', 16)
+  "Current lengths: %s" % ", ".join(sorted(str((k, len(v))) for k, v in data.items())), BokehUserWarning))
+/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/bokeh/models/sources.py:110: BokehUserWarning: ColumnDataSource's columns must be of the same length. Current lengths: ('radius', 7), ('x', 16), ('y', 16)
+  "Current lengths: %s" % ", ".join(sorted(str((k, len(v))) for k, v in data.items())), BokehUserWarning))
+/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/bokeh/models/sources.py:110: BokehUserWarning: ColumnDataSource's columns must be of the same length. Current lengths: ('text', 6), ('x', 15)
+  "Current lengths: %s" % ", ".join(sorted(str((k, len(v))) for k, v in data.items())), BokehUserWarning))
+/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/bokeh/models/sources.py:110: BokehUserWarning: ColumnDataSource's columns must be of the same length. Current lengths: ('text', 6), ('x', 15), ('y', 6)
+  "Current lengths: %s" % ", ".join(sorted(str((k, len(v))) for k, v in data.items())), BokehUserWarning))
+bokeh.models.renderers.GlyphRenderer(
+    id='30b7738c-ba5f-41fa-a30c-4645b6e6d39f',
+    data_source=bokeh.models.sources.ColumnDataSource(
+        id='ff737277-6ef0-488a-8642-99e20c39e65c',
+        callback=None,
+        data={'text': ['0.001', '0.01', '0.1', '1.0', '10.0', '100.0'],
+         'x': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+          'dtype': 'float64',
+          'shape': (15,)},
+         'y': {'__ndarray__': 'AAAAAAAgckDHcwaqNPVtQDjj0CUzIWlABsmM1zIPZUCg0sRXLXlhQBRFOMxxdlxA',
+          'dtype': 'float64',
+          'shape': (6,)}},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        selected=bokeh.models.selections.Selection(
+            id='120addb7-f77f-449a-974e-7bd79981e613',
+            indices=[],
+            js_event_callbacks={},
+            js_property_callbacks={},
+            line_indices=[],
+            multiline_indices={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        selection_policy=bokeh.models.selections.UnionRenderers(
+            id='8b067830-788b-4ac8-85b6-60073d9ae225',
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    glyph=bokeh.models.glyphs.Text(
+        id='ac40f658-c54a-456c-ae78-f31f7f45c6e2',
+        angle={'units': 'rad', 'value': 0},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        subscribed_events=[],
+        tags=[],
+        text={'field': 'text'},
+        text_align='center',
+        text_alpha={'value': 1.0},
+        text_baseline='middle',
+        text_color={'value': 'black'},
+        text_font='helvetica',
+        text_font_size={'value': '8pt'},
+        text_font_style='normal',
+        text_line_height=1.2,
+        x={'field': 'x'},
+        x_offset={'value': 0},
+        y={'field': 'y'},
+        y_offset={'value': 0}),
+    hover_glyph=None,
+    js_event_callbacks={},
+    js_property_callbacks={},
+    level='glyph',
+    muted=False,
+    muted_glyph=None,
+    name=None,
+    nonselection_glyph=bokeh.models.glyphs.Text(
+        id='4f1fa465-336f-4f16-8067-c901d9d3e097',
+        angle={'units': 'rad', 'value': 0},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        subscribed_events=[],
+        tags=[],
+        text={'field': 'text'},
+        text_align='center',
+        text_alpha={'value': 0.1},
+        text_baseline='middle',
+        text_color={'value': 'black'},
+        text_font='helvetica',
+        text_font_size={'value': '8pt'},
+        text_font_style='normal',
+        text_line_height=1.2,
+        x={'field': 'x'},
+        x_offset={'value': 0},
+        y={'field': 'y'},
+        y_offset={'value': 0}),
+    selection_glyph=None,
+    subscribed_events=[],
+    tags=[],
+    view=bokeh.models.sources.CDSView(
+        id='4d708510-00b3-4d22-bc61-1d85a71f8985',
+        filters=[],
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        source=bokeh.models.sources.ColumnDataSource(
+            id='ff737277-6ef0-488a-8642-99e20c39e65c',
+            callback=None,
+            data={'text': ['0.001', '0.01', '0.1', '1.0', '10.0', '100.0'],
+             'x': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+              'dtype': 'float64',
+              'shape': (15,)},
+             'y': {'__ndarray__': 'AAAAAAAgckDHcwaqNPVtQDjj0CUzIWlABsmM1zIPZUCg0sRXLXlhQBRFOMxxdlxA',
+              'dtype': 'float64',
+              'shape': (6,)}},
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            selected=bokeh.models.selections.Selection(
+                id='120addb7-f77f-449a-974e-7bd79981e613',
+                indices=[],
+                js_event_callbacks={},
+                js_property_callbacks={},
+                line_indices=[],
+                multiline_indices={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            selection_policy=bokeh.models.selections.UnionRenderers(
+                id='8b067830-788b-4ac8-85b6-60073d9ae225',
+                js_event_callbacks={},
+                js_property_callbacks={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    visible=True,
+    x_range_name='default',
+    y_range_name='default')
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+# radial axes
+p.annular_wedge(x, y, inner_radius-10, outer_radius+10, 
+                -big_angle+angles, -big_angle+angles, color="black")
+
+-----------------
+Original output:
+GlyphRenderer(id='581d242d-66f0-4b19-b4b9-fc52aacd5e17', ...)
+Executed output:
+bokeh.models.renderers.GlyphRenderer(
+    id='cf673965-8e8c-41e7-8c89-c3cb7ebf9a4e',
+    data_source=bokeh.models.sources.ColumnDataSource(
+        id='05ee4a4e-c230-4742-a483-ffd465d45f27',
+        callback=None,
+        data={'end_angle': {'__ndarray__': 'eWh3JypD8D/Iyt29krLkPz+JmVmivdE/TAwiIoOnt79nj6rqY5Hdv95NZoZznOq/A6q7ixo4878ZLURU+yH5vy2wzBzcC/+/oJmqct56AsAr2+7Wzm8FwLUcMzu/ZAjAP153n69ZC8DJn7sDoE4OwKvw/zPIoRDAbxEiZkAcEsA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'start_angle': {'__ndarray__': 'eWh3JypD8D/Iyt29krLkPz+JmVmivdE/TAwiIoOnt79nj6rqY5Hdv95NZoZznOq/A6q7ixo4878ZLURU+yH5vy2wzBzcC/+/oJmqct56AsAr2+7Wzm8FwLUcMzu/ZAjAP153n69ZC8DJn7sDoE4OwKvw/zPIoRDAbxEiZkAcEsA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'x': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'y': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+          'dtype': 'float64',
+          'shape': (16,)}},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        selected=bokeh.models.selections.Selection(
+            id='8ef72dc0-a90e-4831-8834-0cdae4b2be0f',
+            indices=[],
+            js_event_callbacks={},
+            js_property_callbacks={},
+            line_indices=[],
+            multiline_indices={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        selection_policy=bokeh.models.selections.UnionRenderers(
+            id='be6bdbe1-a1d2-4b5d-a874-d9e580823d92',
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    glyph=bokeh.models.glyphs.AnnularWedge(
+        id='437a9291-d15b-4f10-a437-b4120fe2229f',
+        direction='anticlock',
+        end_angle={'field': 'end_angle', 'units': 'rad'},
+        fill_alpha={'value': 1.0},
+        fill_color={'value': 'black'},
+        inner_radius={'units': 'data', 'value': 80},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        line_alpha={'value': 1.0},
+        line_cap='butt',
+        line_color={'value': 'black'},
+        line_dash=[],
+        line_dash_offset=0,
+        line_join='miter',
+        line_width={'value': 1},
+        name=None,
+        outer_radius={'units': 'data', 'value': 300},
+        start_angle={'field': 'start_angle', 'units': 'rad'},
+        subscribed_events=[],
+        tags=[],
+        x={'field': 'x'},
+        y={'field': 'y'}),
+    hover_glyph=None,
+    js_event_callbacks={},
+    js_property_callbacks={},
+    level='glyph',
+    muted=False,
+    muted_glyph=None,
+    name=None,
+    nonselection_glyph=bokeh.models.glyphs.AnnularWedge(
+        id='20b20ca0-e6db-4287-8f13-1e698c4b00ea',
+        direction='anticlock',
+        end_angle={'field': 'end_angle', 'units': 'rad'},
+        fill_alpha={'value': 0.1},
+        fill_color={'value': '#1f77b4'},
+        inner_radius={'units': 'data', 'value': 80},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        line_alpha={'value': 0.1},
+        line_cap='butt',
+        line_color={'value': '#1f77b4'},
+        line_dash=[],
+        line_dash_offset=0,
+        line_join='miter',
+        line_width={'value': 1},
+        name=None,
+        outer_radius={'units': 'data', 'value': 300},
+        start_angle={'field': 'start_angle', 'units': 'rad'},
+        subscribed_events=[],
+        tags=[],
+        x={'field': 'x'},
+        y={'field': 'y'}),
+    selection_glyph=None,
+    subscribed_events=[],
+    tags=[],
+    view=bokeh.models.sources.CDSView(
+        id='48ff5b56-581f-4a95-941b-64530877c35a',
+        filters=[],
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        source=bokeh.models.sources.ColumnDataSource(
+            id='05ee4a4e-c230-4742-a483-ffd465d45f27',
+            callback=None,
+            data={'end_angle': {'__ndarray__': 'eWh3JypD8D/Iyt29krLkPz+JmVmivdE/TAwiIoOnt79nj6rqY5Hdv95NZoZznOq/A6q7ixo4878ZLURU+yH5vy2wzBzcC/+/oJmqct56AsAr2+7Wzm8FwLUcMzu/ZAjAP153n69ZC8DJn7sDoE4OwKvw/zPIoRDAbxEiZkAcEsA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'start_angle': {'__ndarray__': 'eWh3JypD8D/Iyt29krLkPz+JmVmivdE/TAwiIoOnt79nj6rqY5Hdv95NZoZznOq/A6q7ixo4878ZLURU+yH5vy2wzBzcC/+/oJmqct56AsAr2+7Wzm8FwLUcMzu/ZAjAP153n69ZC8DJn7sDoE4OwKvw/zPIoRDAbxEiZkAcEsA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'x': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'y': {'__ndarray__': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=',
+              'dtype': 'float64',
+              'shape': (16,)}},
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            selected=bokeh.models.selections.Selection(
+                id='8ef72dc0-a90e-4831-8834-0cdae4b2be0f',
+                indices=[],
+                js_event_callbacks={},
+                js_property_callbacks={},
+                line_indices=[],
+                multiline_indices={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            selection_policy=bokeh.models.selections.UnionRenderers(
+                id='be6bdbe1-a1d2-4b5d-a874-d9e580823d92',
+                js_event_callbacks={},
+                js_property_callbacks={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    visible=True,
+    x_range_name='default',
+    y_range_name='default')
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+# bacteria labels
+xr = radii[0]*np.cos(np.array(-big_angle/2 + angles))
+yr = radii[0]*np.sin(np.array(-big_angle/2 + angles))
+label_angle=np.array(-big_angle/2+angles)
+label_angle[label_angle < -np.pi/2] += np.pi # easier to read labels on the left side
+p.text(xr, yr, df.bacteria, angle=label_angle, text_font_size="9pt", text_align="center", text_baseline="middle")
+
+-----------------
+Original output:
+GlyphRenderer(id='de149b5a-ce03-47d8-9bd3-8d0f7fd95eb6', ...)
+Executed output:
+bokeh.models.renderers.GlyphRenderer(
+    id='0f8a6222-3158-4168-a6c1-70a36b25fb98',
+    data_source=bokeh.models.sources.ColumnDataSource(
+        id='12509609-7d88-4ada-81a4-39f94f80ba1f',
+        callback=None,
+        data={'angle': {'__ndarray__': 'BKq7ixo48z/dTWaGc5zqP2iPqupjkd0/WgwiIoOntz8+iZlZor3Rv8nK3b2SsuS/eGh3JypD8L+O6//vCi32v47r/+8KLfY/emh3JypD8D/Iyt29krLkP0CJmVmivdE/QAwiIoOnt79gj6rqY5Hdv+BNZoZznOq/BKq7ixo4878=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'text': ['Mycobacterium tuberculosis',
+          'Salmonella schottmuelleri',
+          'Proteus vulgaris',
+          'Klebsiella pneumoniae',
+          'Brucella abortus',
+          'Pseudomonas aeruginosa',
+          'Escherichia coli',
+          'Salmonella (Eberthella) typhosa',
+          'Aerobacter aerogenes',
+          'Brucella antracis',
+          'Streptococcus fecalis',
+          'Staphylococcus aureus',
+          'Staphylococcus albus',
+          'Streptococcus hemolyticus',
+          'Streptococcus viridans',
+          'Diplococcus pneumoniae'],
+         'x': {'__ndarray__': 'cGn7M6UwWkAzVkZE5WtoQKq2lcOOOXBAjuBL4jQMckDOGdT43m5xQMF6BpGZ7WxA7SBXXEoVY0AXTcs3yKRKQBFNyzfIpErA6CBXXEoVY8DBegaRme1swM4Z1PjebnHAj+BL4jQMcsCrtpXDjjlwwDJWRkTla2jAcmn7M6UwWsA=',
+          'dtype': 'float64',
+          'shape': (16,)},
+         'y': {'__ndarray__': 'aywf0KvmcEAmrFe0AMpqQKfycbJzKGBAv6EJxQDCOkC6LG9iL9dTwNZbjg1z2GXAdpVS2APSbsAYUkjE/tBxwBhSSMT+0HHAepVS2APSbsDWW44Nc9hlwL8sb2Iv11PAmaEJxQDCOkCi8nGycyhgQCesV7QAympAaywf0KvmcEA=',
+          'dtype': 'float64',
+          'shape': (16,)}},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        selected=bokeh.models.selections.Selection(
+            id='74f63abe-f3be-4b6d-8975-254aa30bede0',
+            indices=[],
+            js_event_callbacks={},
+            js_property_callbacks={},
+            line_indices=[],
+            multiline_indices={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        selection_policy=bokeh.models.selections.UnionRenderers(
+            id='0531afb3-e83b-497d-9d8f-b787f2363c39',
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    glyph=bokeh.models.glyphs.Text(
+        id='14d7ea6f-5baa-4b78-a6fc-4898e9ad3b88',
+        angle={'field': 'angle', 'units': 'rad'},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        subscribed_events=[],
+        tags=[],
+        text={'field': 'text'},
+        text_align='center',
+        text_alpha={'value': 1.0},
+        text_baseline='middle',
+        text_color={'value': 'black'},
+        text_font='helvetica',
+        text_font_size={'value': '9pt'},
+        text_font_style='normal',
+        text_line_height=1.2,
+        x={'field': 'x'},
+        x_offset={'value': 0},
+        y={'field': 'y'},
+        y_offset={'value': 0}),
+    hover_glyph=None,
+    js_event_callbacks={},
+    js_property_callbacks={},
+    level='glyph',
+    muted=False,
+    muted_glyph=None,
+    name=None,
+    nonselection_glyph=bokeh.models.glyphs.Text(
+        id='510a002b-ca91-4389-ac0b-0f6c7897f84f',
+        angle={'field': 'angle', 'units': 'rad'},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        subscribed_events=[],
+        tags=[],
+        text={'field': 'text'},
+        text_align='center',
+        text_alpha={'value': 0.1},
+        text_baseline='middle',
+        text_color={'value': 'black'},
+        text_font='helvetica',
+        text_font_size={'value': '9pt'},
+        text_font_style='normal',
+        text_line_height=1.2,
+        x={'field': 'x'},
+        x_offset={'value': 0},
+        y={'field': 'y'},
+        y_offset={'value': 0}),
+    selection_glyph=None,
+    subscribed_events=[],
+    tags=[],
+    view=bokeh.models.sources.CDSView(
+        id='3136a553-b060-42df-8004-04e60edfd81b',
+        filters=[],
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        source=bokeh.models.sources.ColumnDataSource(
+            id='12509609-7d88-4ada-81a4-39f94f80ba1f',
+            callback=None,
+            data={'angle': {'__ndarray__': 'BKq7ixo48z/dTWaGc5zqP2iPqupjkd0/WgwiIoOntz8+iZlZor3Rv8nK3b2SsuS/eGh3JypD8L+O6//vCi32v47r/+8KLfY/emh3JypD8D/Iyt29krLkP0CJmVmivdE/QAwiIoOnt79gj6rqY5Hdv+BNZoZznOq/BKq7ixo4878=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'text': ['Mycobacterium tuberculosis',
+              'Salmonella schottmuelleri',
+              'Proteus vulgaris',
+              'Klebsiella pneumoniae',
+              'Brucella abortus',
+              'Pseudomonas aeruginosa',
+              'Escherichia coli',
+              'Salmonella (Eberthella) typhosa',
+              'Aerobacter aerogenes',
+              'Brucella antracis',
+              'Streptococcus fecalis',
+              'Staphylococcus aureus',
+              'Staphylococcus albus',
+              'Streptococcus hemolyticus',
+              'Streptococcus viridans',
+              'Diplococcus pneumoniae'],
+             'x': {'__ndarray__': 'cGn7M6UwWkAzVkZE5WtoQKq2lcOOOXBAjuBL4jQMckDOGdT43m5xQMF6BpGZ7WxA7SBXXEoVY0AXTcs3yKRKQBFNyzfIpErA6CBXXEoVY8DBegaRme1swM4Z1PjebnHAj+BL4jQMcsCrtpXDjjlwwDJWRkTla2jAcmn7M6UwWsA=',
+              'dtype': 'float64',
+              'shape': (16,)},
+             'y': {'__ndarray__': 'aywf0KvmcEAmrFe0AMpqQKfycbJzKGBAv6EJxQDCOkC6LG9iL9dTwNZbjg1z2GXAdpVS2APSbsAYUkjE/tBxwBhSSMT+0HHAepVS2APSbsDWW44Nc9hlwL8sb2Iv11PAmaEJxQDCOkCi8nGycyhgQCesV7QAympAaywf0KvmcEA=',
+              'dtype': 'float64',
+              'shape': (16,)}},
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            selected=bokeh.models.selections.Selection(
+                id='74f63abe-f3be-4b6d-8975-254aa30bede0',
+                indices=[],
+                js_event_callbacks={},
+                js_property_callbacks={},
+                line_indices=[],
+                multiline_indices={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            selection_policy=bokeh.models.selections.UnionRenderers(
+                id='0531afb3-e83b-497d-9d8f-b787f2363c39',
+                js_event_callbacks={},
+                js_property_callbacks={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    visible=True,
+    x_range_name='default',
+    y_range_name='default')
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+# OK, these hand drawn legends are pretty clunky, will be improved in future release
+p.circle([-40, -40], [-370, -390], color=list(gram_color.values()), radius=5)
+p.text([-30, -30], [-370, -390], text=["Gram-" + x for x in gram_color.keys()], 
+       text_font_size="7pt", text_align="left", text_baseline="middle")
+
+p.rect([-40, -40, -40], [18, 0, -18], width=30, height=13, color=list(drug_color.values()))
+p.text([-15, -15, -15], [18, 0, -18], text=list(drug_color.keys()),
+       text_font_size="9pt", text_align="left", text_baseline="middle")
+
+-----------------
+Original output:
+GlyphRenderer(id='2af4cf25-b75a-43c7-9e29-5c42200f6e37', ...)
+Executed output:
+bokeh.models.renderers.GlyphRenderer(
+    id='42766e9a-3a2c-403d-a8d1-0e668bbccefe',
+    data_source=bokeh.models.sources.ColumnDataSource(
+        id='3d03cb38-17f1-4316-83fb-026f34e724ac',
+        callback=None,
+        data={'text': ['Penicillin', 'Neomycin', 'Streptomycin'],
+         'x': [-15, -15, -15],
+         'y': [18, 0, -18]},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        selected=bokeh.models.selections.Selection(
+            id='2be02dfe-9649-4162-896d-3aabe3ebdd30',
+            indices=[],
+            js_event_callbacks={},
+            js_property_callbacks={},
+            line_indices=[],
+            multiline_indices={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        selection_policy=bokeh.models.selections.UnionRenderers(
+            id='13285bc9-1a47-43df-a10c-73ab06c12dc0',
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    glyph=bokeh.models.glyphs.Text(
+        id='b30e370b-ec97-495c-bebe-51b188fcd804',
+        angle={'units': 'rad', 'value': 0},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        subscribed_events=[],
+        tags=[],
+        text={'field': 'text'},
+        text_align='left',
+        text_alpha={'value': 1.0},
+        text_baseline='middle',
+        text_color={'value': 'black'},
+        text_font='helvetica',
+        text_font_size={'value': '9pt'},
+        text_font_style='normal',
+        text_line_height=1.2,
+        x={'field': 'x'},
+        x_offset={'value': 0},
+        y={'field': 'y'},
+        y_offset={'value': 0}),
+    hover_glyph=None,
+    js_event_callbacks={},
+    js_property_callbacks={},
+    level='glyph',
+    muted=False,
+    muted_glyph=None,
+    name=None,
+    nonselection_glyph=bokeh.models.glyphs.Text(
+        id='6a5b9e43-f50d-4537-9727-2bfbfae32c22',
+        angle={'units': 'rad', 'value': 0},
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        subscribed_events=[],
+        tags=[],
+        text={'field': 'text'},
+        text_align='left',
+        text_alpha={'value': 0.1},
+        text_baseline='middle',
+        text_color={'value': 'black'},
+        text_font='helvetica',
+        text_font_size={'value': '9pt'},
+        text_font_style='normal',
+        text_line_height=1.2,
+        x={'field': 'x'},
+        x_offset={'value': 0},
+        y={'field': 'y'},
+        y_offset={'value': 0}),
+    selection_glyph=None,
+    subscribed_events=[],
+    tags=[],
+    view=bokeh.models.sources.CDSView(
+        id='8706f9b1-d7f9-4610-8de9-3ad838aceaec',
+        filters=[],
+        js_event_callbacks={},
+        js_property_callbacks={},
+        name=None,
+        source=bokeh.models.sources.ColumnDataSource(
+            id='3d03cb38-17f1-4316-83fb-026f34e724ac',
+            callback=None,
+            data={'text': ['Penicillin', 'Neomycin', 'Streptomycin'],
+             'x': [-15, -15, -15],
+             'y': [18, 0, -18]},
+            js_event_callbacks={},
+            js_property_callbacks={},
+            name=None,
+            selected=bokeh.models.selections.Selection(
+                id='2be02dfe-9649-4162-896d-3aabe3ebdd30',
+                indices=[],
+                js_event_callbacks={},
+                js_property_callbacks={},
+                line_indices=[],
+                multiline_indices={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            selection_policy=bokeh.models.selections.UnionRenderers(
+                id='13285bc9-1a47-43df-a10c-73ab06c12dc0',
+                js_event_callbacks={},
+                js_property_callbacks={},
+                name=None,
+                subscribed_events=[],
+                tags=[]),
+            subscribed_events=[],
+            tags=[]),
+        subscribed_events=[],
+        tags=[]),
+    visible=True,
+    x_range_name='default',
+    y_range_name='default')

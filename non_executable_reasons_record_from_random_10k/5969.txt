@@ -1,0 +1,49 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+import sys
+print('Python Version: {}'.format(sys.version))
+
+import pandas as pd
+print('pandas version: {}'.format(pd.__version__))
+
+import matplotlib
+print('matplotlib version: {}'.format(matplotlib.__version__))
+
+import numpy as np
+print('numpy version: {}'.format(np.__version__))
+
+import scipy as sp
+print('scipy version: {}'.format(sp.__version__))
+
+import IPython
+print('ipython version: {}'.format(IPython.__version__))
+
+import sklearn
+print('scikit-learn version: {}'.format(sklearn.__version__))
+
+import matplotlib.pyplot as plt
+
+# 그래프에서 마이너스 폰트 깨지는 문제에 대한 대처
+matplotlib.rcParams['axes.unicode_minus'] = False
+
+# 한글 폰트 설정
+plt.rcParams["font.family"] = 'AppleGothic'
+
+import mglearn
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-6e9a872ff002>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     31[0m [0mplt[0m[0;34m.[0m[0mrcParams[0m[0;34m[[0m[0;34m"font.family"[0m[0;34m][0m [0;34m=[0m [0;34m'AppleGothic'[0m[0;34m[0m[0m
+[1;32m     32[0m [0;34m[0m[0m
+[0;32m---> 33[0;31m [0;32mimport[0m [0mmglearn[0m[0;34m[0m[0m
+[0m
+[0;31mImportError[0m: No module named 'mglearn'
+ImportError: No module named 'mglearn'
+
+Executability                            : False

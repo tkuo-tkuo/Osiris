@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# theta_init = np.zeros((3, 1))
+alpha = 0.01
+num_iters = 5000
+theta_init = np.zeros((3, 1))
+cost, theta_final = gradientDescentMulti(x_norm, Y, theta_init, alpha, num_iters)
+
+plt.figure()
+plt.plot(cost)
+plt.xlabel('No. of Iterations')
+plt.ylabel('Cost')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-f4890d2e2a68>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0malpha[0m [0;34m=[0m [0;36m0.01[0m[0;34m[0m[0m
+[1;32m      3[0m [0mnum_iters[0m [0;34m=[0m [0;36m5000[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mtheta_init[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mzeros[0m[0;34m([0m[0;34m([0m[0;36m3[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mcost[0m[0;34m,[0m [0mtheta_final[0m [0;34m=[0m [0mgradientDescentMulti[0m[0;34m([0m[0mx_norm[0m[0;34m,[0m [0mY[0m[0;34m,[0m [0mtheta_init[0m[0;34m,[0m [0malpha[0m[0;34m,[0m [0mnum_iters[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

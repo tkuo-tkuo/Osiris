@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# nullデータがあるかどうかを確認できます
+pd.isnull(obj2)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-13-bd8d82b63037>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# nullデータがあるかどうかを確認できます[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mpd[0m[0;34m.[0m[0misnull[0m[0;34m([0m[0mobj2[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'obj2' is not defined
+NameError: name 'obj2' is not defined
+
+Executability                            : False

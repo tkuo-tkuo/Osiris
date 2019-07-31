@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+formulas = []
+for cpd in df.iloc[:, 0]:
+    print("Getting " + cpd)
+    formulas.append(requests.get("http://rest.kegg.jp/get/" + cpd).text)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-0dbc2174de06>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mformulas[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfor[0m [0mcpd[0m [0;32min[0m [0mdf[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m [0;36m0[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0mprint[0m[0;34m([0m[0;34m"Getting "[0m [0;34m+[0m [0mcpd[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mformulas[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m"http://rest.kegg.jp/get/"[0m [0;34m+[0m [0mcpd[0m[0;34m)[0m[0;34m.[0m[0mtext[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
+
+Executability                            : False

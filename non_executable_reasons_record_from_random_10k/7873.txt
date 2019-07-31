@@ -1,0 +1,50 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+u = lambda x, t: np.sin(np.pi * x) * np.exp(-np.pi**2 * t)
+f = lambda x: np.sin(np.pi*x)
+g0 = lambda t: 0
+g1 = lambda t: 0
+N = 900
+T  = 0.1
+
+K = np.arange(1, 9)
+E = np.zeros((3, K.size))
+H = np.zeros(K.size)
+for k in K:
+    M = 2**k
+    x = np.linspace(0, 1, M+2)
+    H[k-1] = 1/(M+1)
+    U1 = forward_euler(f, g0, g1, N, M, T = 0.1)
+    U2 = backward_euler(f, g0, g1, N, M, T = 0.1)
+    U3 = crank_nicolson(f, g0, g1, N, M, T = 0.1)
+    E[0, k-1] = error(u, U1[-1], x, T, H[k-1], norm = 2)
+    E[1, k-1] = error(u, U2[-1], x, T, H[k-1], norm = 2)
+    E[2, k-1] = error(u, U3[-1], x, T, H[k-1], norm = 2)
+
+
+
+fig2 = plt.figure()
+ax2 = fig2.add_subplot(111)
+plot_error(ax2, E[0], H, label = 'Forward Euler')
+plot_error(ax2, E[1], H, label = 'Backward_Euler')
+plot_error(ax2, E[2], H, label = 'Crank-Nicolson')
+plt.savefig('error_space.png')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-730f51203cd7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0mT[0m  [0;34m=[0m [0;36m0.1[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+[0;32m---> 10[0;31m [0mK[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m9[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0mE[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mzeros[0m[0;34m([0m[0;34m([0m[0;36m3[0m[0;34m,[0m [0mK[0m[0;34m.[0m[0msize[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0mH[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mzeros[0m[0;34m([0m[0mK[0m[0;34m.[0m[0msize[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

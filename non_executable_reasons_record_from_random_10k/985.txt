@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# primero importamos las librerías necesarias
+
+import matplotlib.pyplot as plt 
+from sklearn.metrics import classification_report 
+from sklearn import cross_validation 
+from sklearn.tree import DecisionTreeClassifier 
+import numpy as np 
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-1141a48a42c1>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmetrics[0m [0;32mimport[0m [0mclassification_report[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0msklearn[0m [0;32mimport[0m [0mcross_validation[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mtree[0m [0;32mimport[0m [0mDecisionTreeClassifier[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: cannot import name 'cross_validation'
+ImportError: cannot import name 'cross_validation'
+
+Executability                            : False

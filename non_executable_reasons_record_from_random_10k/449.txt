@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Funcional porem não da muitas variaveis
+plt.plot(x,y)
+plt.xlabel("Eixo X")
+plt.ylabel("Eixo Y")
+plt.title("Hello Word")
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-08a9f847bf71>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Funcional porem não da muitas variaveis[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx[0m[0;34m,[0m[0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m"Eixo X"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mylabel[0m[0;34m([0m[0;34m"Eixo Y"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mtitle[0m[0;34m([0m[0;34m"Hello Word"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'y' is not defined
+NameError: name 'y' is not defined
+
+Executability                            : False

@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+
+for j in range(layers):
+    for i in range(len(inputData)):
+        #print(np.dot(inputData[i],weights[1:]))
+        v=weights1[j,0]+np.dot(inputData[i],weights1[j,1:])
+        d=1/(1+np.exp(-1*v))
+        deltaw=n*(y[i]-d)
+        weights1[j,1:]+=deltaw*inputData[i]
+        weights1[j,0]+=deltaw
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-b6f9355a6e2f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfor[0m [0mj[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mlayers[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mlen[0m[0;34m([0m[0minputData[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      4[0m         [0;31m#print(np.dot(inputData[i],weights[1:]))[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m         [0mv[0m[0;34m=[0m[0mweights1[0m[0;34m[[0m[0mj[0m[0;34m,[0m[0;36m0[0m[0;34m][0m[0;34m+[0m[0mnp[0m[0;34m.[0m[0mdot[0m[0;34m([0m[0minputData[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m,[0m[0mweights1[0m[0;34m[[0m[0mj[0m[0;34m,[0m[0;36m1[0m[0;34m:[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'layers' is not defined
+NameError: name 'layers' is not defined
+
+Executability                            : False

@@ -1,0 +1,47 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+if os.path.exists("temp.pickle"):
+    os.remove("temp.pickle")
+write_pickle("This is a test")
+assert_true(os.path.exists("temp.pickle"))
+assert_raises(FileExistsError, write_pickle, "This is a test", 
+              write_over=False)
+assert_equal(write_pickle("This is a test", write_over=True), None)
+os.remove("temp.pickle")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-4-062e08a563a8>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mif[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0;34m"temp.pickle"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      2[0m     [0mos[0m[0;34m.[0m[0mremove[0m[0;34m([0m[0;34m"temp.pickle"[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mwrite_pickle[0m[0;34m([0m[0;34m"This is a test"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0massert_true[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0;34m"temp.pickle"[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m assert_raises(FileExistsError, write_pickle, "This is a test", 
+
+[0;32m<ipython-input-3-f505475c9f3a>[0m in [0;36mwrite_pickle[0;34m(obj, destination, write_over)[0m
+[1;32m     22[0m             [0;32mraise[0m [0mFileExistsError[0m[0;34m[0m[0m
+[1;32m     23[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 24[0;31m         [0mf[0m[0;34m=[0m[0mgzip[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mdestination[0m[0;34m,[0m[0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     25[0m         [0mpickle[0m[0;34m.[0m[0mdump[0m[0;34m([0m[0mobj[0m[0;34m,[0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     26[0m         [0mf[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/gzip.py[0m in [0;36mopen[0;34m(filename, mode, compresslevel, encoding, errors, newline)[0m
+[1;32m     51[0m     [0mgz_mode[0m [0;34m=[0m [0mmode[0m[0;34m.[0m[0mreplace[0m[0;34m([0m[0;34m"t"[0m[0;34m,[0m [0;34m""[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     52[0m     [0;32mif[0m [0misinstance[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m([0m[0mstr[0m[0;34m,[0m [0mbytes[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 53[0;31m         [0mbinary_file[0m [0;34m=[0m [0mGzipFile[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mgz_mode[0m[0;34m,[0m [0mcompresslevel[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     54[0m     [0;32melif[0m [0mhasattr[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"read"[0m[0;34m)[0m [0;32mor[0m [0mhasattr[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"write"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     55[0m         [0mbinary_file[0m [0;34m=[0m [0mGzipFile[0m[0;34m([0m[0;32mNone[0m[0;34m,[0m [0mgz_mode[0m[0;34m,[0m [0mcompresslevel[0m[0;34m,[0m [0mfilename[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/gzip.py[0m in [0;36m__init__[0;34m(self, filename, mode, compresslevel, fileobj, mtime)[0m
+[1;32m    161[0m             [0mmode[0m [0;34m+=[0m [0;34m'b'[0m[0;34m[0m[0m
+[1;32m    162[0m         [0;32mif[0m [0mfileobj[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 163[0;31m             [0mfileobj[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mmyfileobj[0m [0;34m=[0m [0mbuiltins[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmode[0m [0;32mor[0m [0;34m'rb'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    164[0m         [0;32mif[0m [0mfilename[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    165[0m             [0mfilename[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mfileobj[0m[0;34m,[0m [0;34m'name'[0m[0;34m,[0m [0;34m''[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'temp.pickle'
+PermissionError: [Errno 13] Permission denied: 'temp.pickle'
+
+Executability                            : False

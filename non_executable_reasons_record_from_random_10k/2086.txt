@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import numpy as np
+from scipy.interpolate import UnivariateSpline
+from fbprophet import Prophet
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pickle
+import warnings
+warnings.simplefilter(action='ignore')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-65329fab4928>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0minterpolate[0m [0;32mimport[0m [0mUnivariateSpline[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mfbprophet[0m [0;32mimport[0m [0mProphet[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'fbprophet'
+ImportError: No module named 'fbprophet'
+
+Executability                            : False

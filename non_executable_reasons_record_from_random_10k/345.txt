@@ -1,0 +1,109 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from HelmholtzSolverRAD import *
+from ExampleBoundaries import SphereRAD
+
+frequency = 40.0 # frequency [Hz]
+k = frequencyToWavenumber(frequency)
+
+interiorPoints = np.array([[0.0000,  0.0000],
+                           [0.0000,  0.5000],
+                           [0.0000, -0.5000],
+                           [0.5000,  0.0000]], dtype=np.float32)
+
+
+# Test Problem 1
+# Dirichlet boundary condition with phi = sin(k*z)
+#
+solver = InteriorHelmholtzSolverRAD(SphereRAD())
+
+boundaryCondition = solver.dirichletBoundaryCondition()
+boundaryCondition.f[:] = np.sin(k * solver.aCenters[:,1])
+
+boundaryIncidence = BoundaryIncidence(solver.numberOfElements())
+boundaryIncidence.phi.fill(0.0)
+boundaryIncidence.v.fill(0.0)
+
+interiorIncidentPhi = np.zeros(interiorPoints.shape[0], dtype=np.complex64)
+
+boundarySolution = solver.solveBoundary(k, boundaryCondition, boundaryIncidence)
+sampleSolution = boundarySolution.solveSamples(interiorIncidentPhi, interiorPoints)
+
+print("Test Problem 1")
+print("==============\n")
+print(boundarySolution)
+print(sampleSolution)
+
+
+# Test Problem 2
+# von Neumann boundary condition such that phi = sin(k/sqrt(2) * x) * sin(k/sqrt(2) * y)
+# Differentiate with respect to x and y to obtain outward normal
+boundaryCondition = solver.neumannBoundaryCondition()
+aCenter = solver.oGeometry.centers()
+aNormal = solver.oGeometry.normals()
+for i in range(aCenter.shape[0]):
+    z = aCenter[i, 1]
+    n = -aNormal[i]
+    boundaryCondition.f[i] = k * np.cos(k*z) * n[1]
+    
+boundarySolution = solver.solveBoundary(k, boundaryCondition, boundaryIncidence)
+sampleSolution = boundarySolution.solveSamples(interiorIncidentPhi, interiorPoints)
+
+print("\n\nTest Problem 2")
+print("==============\n")
+print(boundarySolution)
+print(sampleSolution)
+
+
+# Test Problem 3
+# Dirichlet boundary condition, such that phi = sin(k/ sqrt(2) * x) * sin(k/sqrt(2) * y)
+# Differentiate with respect to x and y to obtain outward normal
+boundaryCondition.alpha.fill(1.0)
+boundaryCondition.beta.fill(0.0)
+
+zp = 0.25
+for i in range(aCenter.shape[0]):
+    r = aCenter[i, 0]
+    z = aCenter[i, 1]
+    # make input complex so proper sqrt is called
+    rpq = np.sqrt(0.0j + r**2 + (z - zp)**2)
+    boundaryCondition.f[i]   = np.exp(1j * k * rpq) / (4.0 * np.pi * rpq)
+    boundaryIncidence.phi[i] = np.exp(1j * k * rpq) / (4.0 * np.pi * rpq)
+    n = -aNormal[i]
+    drbdn = (r * n[0] + (z - zp) * n[1]) / rpq
+    boundaryIncidence.v[i] = drbdn * np.exp(1j * k * rpq) * (1j * k * rpq - 1.0) \
+        / (4.0 * np.pi * rpq*rpq)
+    
+for i in range(interiorPoints.shape[0]):
+    r = interiorPoints[i, 0]
+    z = interiorPoints[i, 1]
+    # make input complex so proper sqrt is called
+    rpq = np.sqrt(0.0j + r**2 + (zp - z)**2)
+    interiorIncidentPhi[i] = np.exp(1j * k * rpq) / (4.0 * np.pi * rpq)
+       
+boundarySolution = solver.solveBoundary(k, boundaryCondition, boundaryIncidence)
+sampleSolution = boundarySolution.solveSamples(interiorIncidentPhi, interiorPoints)
+
+print("\n\nTest Problem 3")
+print("==============\n")
+print(boundarySolution)
+print(sampleSolution)
+ 
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-15c8673d2e10>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mHelmholtzSolverRAD[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mExampleBoundaries[0m [0;32mimport[0m [0mSphereRAD[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'HelmholtzSolverRAD'
+ModuleNotFoundError: No module named 'HelmholtzSolverRAD'
+
+Executability                            : False

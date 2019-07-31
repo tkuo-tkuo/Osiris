@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+q = 1
+d = 0
+p = 3
+
+m = ARIMA(q, d, p)
+pred = m.fit_predict(x)
+
+plt.figure(figsize=(16, 6))
+ax = plt.subplot(111)
+ax.plot(pred, label='forecast')
+ax.plot(x, label='y')
+plt.legend()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-15-1767e8ee3c4b>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mp[0m [0;34m=[0m [0;36m3[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0mm[0m [0;34m=[0m [0mARIMA[0m[0;34m([0m[0mq[0m[0;34m,[0m [0md[0m[0;34m,[0m [0mp[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mpred[0m [0;34m=[0m [0mm[0m[0;34m.[0m[0mfit_predict[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'ARIMA' is not defined
+NameError: name 'ARIMA' is not defined
+
+Executability                            : False

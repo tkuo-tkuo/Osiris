@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import regex
+#Testing
+pattern = regex.compile(r'(?<!Baker: ) ', flags = re.IGNORECASE|re.M)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-15-20789248efed>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mregex[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;31m#Testing[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mpattern[0m [0;34m=[0m [0mregex[0m[0;34m.[0m[0mcompile[0m[0;34m([0m[0;34mr'(?<!Baker: ) '[0m[0;34m,[0m [0mflags[0m [0;34m=[0m [0mre[0m[0;34m.[0m[0mIGNORECASE[0m[0;34m|[0m[0mre[0m[0;34m.[0m[0mM[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'regex'
+ModuleNotFoundError: No module named 'regex'
+
+Executability                            : False

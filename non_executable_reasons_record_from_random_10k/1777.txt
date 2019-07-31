@@ -1,0 +1,49 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import numpy as np
+game_word = pickword(words_list) ##get a word
+game_info = setup_game_lists(game_word) # make game variables
+
+
+while (game_info['incorrect_guesses_no'] < 9 and game_info['won'] == False):
+    guess = input('Enter a guess here: ')
+    if guess in game_info['correct_letters']:
+        correct_guess(game_info,guess)
+        print_status(game_info)
+    else:
+        wrong_guess(game_info,guess)
+        print_status(game_info)
+
+print('-' * 40)
+print('-' * 40)
+
+if game_info['incorrect_guesses_no'] < 9:
+    print('Well done, you have won!')
+else:
+    print(':-(')
+        
+print('-' * 40)
+print('-' * 40)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-8-f345ec6be944>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;32mwhile[0m [0;34m([0m[0mgame_info[0m[0;34m[[0m[0;34m'incorrect_guesses_no'[0m[0;34m][0m [0;34m<[0m [0;36m9[0m [0;32mand[0m [0mgame_info[0m[0;34m[[0m[0;34m'won'[0m[0;34m][0m [0;34m==[0m [0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m     [0mguess[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m'Enter a guess here: '[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m     [0;32mif[0m [0mguess[0m [0;32min[0m [0mgame_info[0m[0;34m[[0m[0;34m'correct_letters'[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m         [0mcorrect_guess[0m[0;34m([0m[0mgame_info[0m[0;34m,[0m[0mguess[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    853[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    854[0m             raise StdinNotImplementedError(
+[0;32m--> 855[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    856[0m             )
+[1;32m    857[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

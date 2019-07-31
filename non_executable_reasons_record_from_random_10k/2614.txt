@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+filtered = reject_outliers(incomes, 2)
+
+plt.hist(filtered, 50)
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-59-e6937575cdab>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mfiltered[0m [0;34m=[0m [0mreject_outliers[0m[0;34m([0m[0mincomes[0m[0;34m,[0m [0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mhist[0m[0;34m([0m[0mfiltered[0m[0;34m,[0m [0;36m50[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: reject_outliers() takes 1 positional argument but 2 were given
+TypeError: reject_outliers() takes 1 positional argument but 2 were given
+
+Executability                            : False

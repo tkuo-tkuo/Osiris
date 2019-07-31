@@ -1,0 +1,89 @@
+3.4
+Executability                            : True
+Reproducibility                          : number of matched cells: 8 ; number of cells: 12
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 1, 2, 3, 4, 6, 8, 11]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+# outerも使えます。
+pd.merge(df_left,df_right,left_on='key',right_index=True,how='outer')
+
+-----------------
+Original output:
+   data key  group_data
+0     0   X          10
+3     3   X          10
+1     1   Y          20
+4     4   Y          20
+2     2   Z         NaN
+Executed output:
+   data key  group_data
+0     0   X        10.0
+3     3   X        10.0
+1     1   Y        20.0
+4     4   Y        20.0
+2     2   Z         NaN
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+df_left_hr
+
+-----------------
+Original output:
+   data_set key1  key2
+0         0   SF    10
+1         1   SF    20
+2         2   SF    30
+3         3   LA    20
+4         4   LA    30
+Executed output:
+   data_set key1  key2
+0       0.0   SF    10
+1       1.0   SF    20
+2       2.0   SF    30
+3       3.0   LA    20
+4       4.0   LA    30
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+# leftは列名で、rightはindexでマージします。
+pd.merge(df_left_hr,df_right_hr,left_on=['key1','key2'],right_index=True)
+
+-----------------
+Original output:
+   data_set key1  key2  col_1  col_2
+0         0   SF    10      4      5
+0         0   SF    10      6      7
+1         1   SF    20      8      9
+3         3   LA    20      0      1
+Executed output:
+   data_set key1  key2  col_1  col_2
+0       0.0   SF    10      4      5
+0       0.0   SF    10      6      7
+1       1.0   SF    20      8      9
+3       3.0   LA    20      0      1
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+# outer
+pd.merge(df_left_hr,df_right_hr,left_on=['key1','key2'],right_index=True,how='outer')
+
+-----------------
+Original output:
+   data_set key1  key2  col_1  col_2
+0         0   SF    10      4      5
+0         0   SF    10      6      7
+1         1   SF    20      8      9
+2         2   SF    30    NaN    NaN
+3         3   LA    20      0      1
+4         4   LA    30    NaN    NaN
+4       NaN   LA    10      2      3
+Executed output:
+   data_set key1  key2  col_1  col_2
+0       0.0   SF    10    4.0    5.0
+0       0.0   SF    10    6.0    7.0
+1       1.0   SF    20    8.0    9.0
+2       2.0   SF    30    NaN    NaN
+3       3.0   LA    20    0.0    1.0
+4       4.0   LA    30    NaN    NaN
+4       NaN   LA    10    2.0    3.0

@@ -1,0 +1,15 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 2
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [1]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import scipy, numpy
+scipy.version.full_version
+
+-----------------
+Original output:
+'0.17.0'
+Executed output:
+'1.1.0'

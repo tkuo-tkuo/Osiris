@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import numpy as np
+from gaussElimin import *  # First, import the needed modules (numpy and above module - 
+                           # which needs to be in the folder you are currently working in!!)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-3df35cec03fb>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mgaussElimin[0m [0;32mimport[0m [0;34m*[0m  [0;31m# First, import the needed modules (numpy and above module -[0m[0;34m[0m[0m
+[0m[1;32m      3[0m                            [0;31m# which needs to be in the folder you are currently working in!!)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'gaussElimin'
+ImportError: No module named 'gaussElimin'
+
+Executability                            : False

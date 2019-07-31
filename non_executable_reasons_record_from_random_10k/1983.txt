@@ -1,0 +1,194 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# ####  generalize facility csv importer to handle 'any' csv:
+# ### good for situations where you can just import csv 'as is' w/o need for processing individual columns.
+# def importCSV2DB(csvFileName, dbFileName, TableName, PrimaryKeyField, WhereField, UseCSVWhereVal, RetAssocFieldID=False, flgCommitAfterTransaction=True):
+#     import csv
+#     #import data in csv at fPath
+#     # write to db at dbPath
+#     # insert into TableName
+#     #PrimaryKeyField: Name of table's primary key field
+#     #Where field: field name to check record existance on
+#     #UseCSVWhereVal: if True, then check if record exists in TableName by querying against the WhereField valued csv column. 
+#                      #if != True, then use UseCSVWhereVal as where clause parameter's match value 
+#     #assume all csv fields match database field names
+#     #if RetAssocFieldID !=False then user requesting to associate the csv record with a database record held in TableName, FieldName
+#         #Assume passed parameter LIST:
+#             #[TableName,FieldName,AssocFieldName,CSVAssocColName]
+#     C_TableName = 0 #TableName & FieldName = name of table and field holding database record id associated w/ csv record
+#     C_FieldName = 1
+#     C_AssocFieldName = 2 #AssocFieldName = field name to do where clause on (e.g. WHERE AssocFieldName = (?))
+#     C_CSVAssocColName = 3 #CSVAssocColName = name of CSV column whos values should be used to associate w/ the database table and field name
+#         #!!!IMPORTANT! the CSVAssocCol will not be included in csv import. only used for association.
+#     #return list of lists: if RetAssocFieldID == False: List[insert/update PrimaryKeyField_id]
+#                                 #!= False: LIST of record pair[[insert/update PrimaryKeyField_id,assoc_record_id],[insert/update PrimaryKeyField_id,assoc_record_id]]
+        
+#     with open(csvFileName, 'rt', encoding='utf-8-sig') as csvfile:
+#         csvreader = csv.reader(csvfile,dialect='excel')
+#         # expect and handle 1st row as header row. add headers to list
+            
+#         print ('\nReading csv file for input to table: ' + TableName)
+#         field_namesLS=[]
+#         dataVals = ()
+# #         print (type(csvreader))
+#         rowi = 0
+#         valuesStr = ''
+#         sql_str = ''
+#         WhereFieldCol = 0
+#         RecordFieldLS = []
+#         ReturnLS = [] #return list
+#         for row in csvreader:
+#             if rowi==0:
+#                 RecordFieldLS = row #write field names as a list 
+#                 #'get field info'
+#                 if UseCSVWhereVal == True:
+#                     try:
+#                         WhereFieldCol = RecordFieldLS.index(WhereField) #find WhereField column number
+#                     except IndexError:
+#                         print ('FAULT!!!! No csv fields found. Import failed')
+#                         return ReturnLS                  
+#                     except ValueError:
+#                         print ('!!!! FAULT! Unable to find WhereField: ' + str(WhereField) + ' column in CSV headers. Fix Error.')
+#                         return ReturnLS
+#                 if RetAssocFieldID != False: #then we need to return record_id associated w/ some csv record. use value in CSVAssocFieldCol to determine association
+#                     try:
+#                         CSVAssocFieldCol = RecordFieldLS.index(RetAssocFieldID[C_CSVAssocColName]) #find csv column number that holds data we want to associate against
+#                     except ValueError:
+#                         print ('!!!! FAULT! Unable to find CSV column called: ' + str(RetAssocFieldID) + ' in CSV headers. Fix Error.')
+#                         return ReturnLS
+#                     del RecordFieldLS[CSVAssocFieldCol] #remove csv column from list  
+#             else:
+#                 print ('Reading record at row: ' + str(rowi) + ' ' + str(row[WhereFieldCol]))
+#                 #default csv association parameters:
+#                 CSV_val = ''
+#                 assoc_id = 0
+#                 if RetAssocFieldID != False: # then function entered w/ request to return association w/ csv record
+#                     CSV_val = row[CSVAssocFieldCol]
+#                     assoc_id = getRecordID(dbConnection,RetAssocFieldID[C_TableName], RetAssocFieldID[C_FieldName], RetAssocFieldID[C_AssocFieldName] + '=(?)', (CSV_val,))
+#                     del row[CSVAssocFieldCol] #remove facility name colum from record
+#                 RecordValsTPL = tuple(row)
+#                 if assoc_id <0: #need to assoc w/ facility, but unsuccessfull attempt to obtain facility id information. skip record insertion
+#                     print ('Skipping CSV record.  The ' + RetAssocFieldID[C_CSVAssocColName]  + ' record: ' + CSV_val + ' does not exist in table ' + RetAssocFieldID[C_TableName])
+#                 else:
+#                     #return PrimaryKeyField as rec_id:
+#                     if UseCSVWhereVal == True:
+#                         rec_id = setRecord(dbFileName, TableName, RecordFieldLS, RecordValsTPL, PrimaryKeyField, 
+#                                            WhereField + '=(?)', (row[WhereFieldCol],), flgCommitAfterTransaction)               
+#                     else:
+#                         rec_id = setRecord(dbFileName, TableName, RecordFieldLS, RecordValsTPL, PrimaryKeyField, 
+#                                            WhereField + '=(?)', (UseCSVWhereVal,), flgCommitAfterTransaction)                                       
+
+#                     if RetAssocFieldID == False:
+#                         ReturnLS += [[rec_id]] #no request for csv association
+#                     else:
+#                         ReturnLS += [[rec_id, assoc_id]] #request for csv assoc.
+#             rowi +=1
+#     return ReturnLS
+
+# def assocRecords (dbFileName, importLS, assocTable, assocField0, assocField1, flgCommitAfterTransaction):
+#     #associate record_id 0 in importLS list w/ record_id in a given table 
+#     #imporLS: list generated by importCSV2DB: List[[record0,record1],[record0,record1]] 
+#     #assocTable: the table that holds the record we want to do the association on 
+#     #assocField0: field that we want to set.
+#     #assocField1: field that we want to association on
+#         #i.e: UPDATE assocTable SET assocField0 = importLS[0] WHERE assocField1 = importLS[1]
+#     for importrec in importLS:
+#         setRecord(dbConnection, assocTable, [assocField0], (importrec[0],), assocField1, assocField1 + '=(?)', (importrec[1],), flgCommitAfterTransaction)                                   
+#         print ('Associated ' + assocTable + '.' + assocField0 + ': ' + str(importrec[0]) + ' with ' + assocField1 + ': ' + str(importrec[1]))
+
+#"MAIN" CODE:
+# dbConnection.close()
+# dbConnection = getDBConnection('_jonhonda_dat\\special_prj\\StrBMPModelDB003')
+# flgCommitAfterTransaction=False
+
+# #IMPORT FACILITY TYPES:
+# print ('\nImporting facility types:')
+# importCSV2DB('_jonhonda_dat\\special_prj\\Input_Files\\facility_types.csv', \
+#              dbConnection, 'facility_types', 'facility_type_id', 'Fac_Type',True,False,False)
+
+# #IMPORT BASIC FACILITY CHARS:
+# print ('\nImporting facility characteristics:')
+# assocLS = ['facility_types','facility_type_id','Fac_Type','Fac_Type']#assoc csv Fac_Type value w/ db's Fac_Type id 
+# importLS = importCSV2DB('_jonhonda_dat\\special_prj\\Input_Files\\facility_chars.csv', \
+#              dbConnection, 'facility_chars', 'facility_id', 'Fac_Name',True,assocLS, False)
+# swapLS = [[LS[1],LS[0]] for LS in importLS] #b/c of the way assocations are done, this import requires us to assoc. and insert/update record id rows
+# assocRecords(dbConnection, swapLS, 'facility_chars', 'facility_type_id', 'facility_id', flgCommitAfterTransaction )
+
+# #IMPORT FACILITY RAINFALL EXTRACTED FROM http://rainfall.geography.hawaii.edu/downloads.html
+# print ('\nImporting Facility Rainfall Data:')
+# assocLS = ['facility_chars', 'facility_id', 'Fac_Name', 'Fac_Name'] #assoc csv Fac_Name value w/ db's Fac_Name id 
+# importLS = importCSV2DB('_jonhonda_dat\\special_prj\\Input_Files\\FacilityRainfallData.csv', \
+#              dbConnection, \
+#             'facility_monthly_rain', 'facility_monthly_rain_id', 
+#             'facility_monthly_rain_id',-1234, 
+#             assocLS, 
+#             False)
+# assocRecords(dbConnection, importLS, 'facility_chars', 'facility_monthly_rain_id', 'facility_id' ,flgCommitAfterTransaction) #assoc w/ facility_id via facility_chars.facility_monthly_rain_id
+
+# #IMPORT EFFLUENT LIMITS FOR FACILITY TYPES: (either by Priority Based Plan, Table 3 or as City operational assignment)
+# print ('\nImporting Facility Type Has Effluent Limits:') #import into wrs_pollutant_risks table
+# assocLS = ['facility_types', 'facility_type_id', 'Fac_Type', 'Fac_Type'] #assoc csv Fac_Type value w/ db's Fac_Type id 
+# importLS = importCSV2DB('_jonhonda_dat\\special_prj\\Input_Files\\nel_exists_facility_types.csv', \
+#              dbConnection, \
+#             'wrs_pollutant_risks', 'wrs_pollutant_risks_id', 
+#             'wrs_pollutant_risks_id',-1234, 
+#             assocLS, 
+#             False)
+# #can't use assoc function b/c we are inserting 2 ids into a separate table. just use for loop
+# for importrec in importLS:
+#     recID = setRecord(dbConnection, 'facility_type_has_nel', ['wrs_pollutant_limits_id','facility_type_id'], (importrec[0],importrec[1]), 
+#               'facility_type_has_nel_id', 'facility_type_id=(?)', (importrec[1],), flgCommitAfterTransaction)                                   
+#     print ('Imported WRS_pollutant record w/ id: ' + str(importrec[0]) + ' for facility_type_id: ' + str(importrec[1]) + ' into facility_type_has_nel table w/ id: ' + str(recID))
+
+#IMPORT NEL CLASSIFICATION DATA
+print ('\nImporting NEL Classes')
+
+
+
+#IMPORT FACILITY RISKS:
+print ('\nImporting Facility Risks:')
+assocLS = ['facility_chars', 'facility_id', 'Fac_Name', 'Fac_Name'] #assoc csv Fac_Name value w/ db's Fac_Name id [TableName,FieldName,AssocFieldName,CSVAssocColName]
+importLS = importCSV2DB('_jonhonda_dat\\special_prj\\Input_Files\\facility_risks.csv', \
+             dbConnection, 'facility_risks', 'facility_risk_id', 'facility_risk_id',-1234, assocLS, False)
+assocRecords (dbConnection, importLS, 'facility_chars', 'existing_facility_risk_id', 'facility_id', flgCommitAfterTransaction) #assoc w/ facility_id via facility_chars.existing_facility_risk_id
+
+#IMPORT effluent limit existance for each facility type
+#need to build facility types table first, and then we can insert existance record as WRS polutant type, then assoc polutant type id w/ facility_type id
+
+    
+    
+#IMPORT TBL1 NELS:
+# print ('\nImporting Table 1 NELs:')
+# importLS = importCSV2DB('_jonhonda_dat\\special_prj\\Input_Files\\facility_tbl1_nels.csv', \
+#              dbConnection, \
+#              'wrs_pollutant_risks', 'wrs_pollutant_risks_id', 'wrs_pollutant_risks_id',-1234, 'Fac_Name', False)
+# #update facility_chars w/ facility risk id:
+# for importrec in importLS:
+#     rec_id = importrec[0] #wrs_id
+#     fac_id = importrec[1] #associated facility id
+#     setRecord(dbConnection, 'facility_risks', ['wrs_pollutant_limits_id'], (rec_id,), 'facility_id', 'facility_id' + '=(?)', (fac_id,), flgCommitAfterTransaction)                                   
+#     print ('Added risk record for facility_id: ' + str(fac_id) + ' facility_risk_id: ' + str(rec_id))
+
+    
+# importFacRisks('_jonhonda_dat\\special_prj\\Input_Files\\facility_risks.csv', dbConnection, flgCommitAfterTransaction)
+if flgCommitAfterTransaction==False: dbConnection.commit() #commit transactions at end if false
+dbConnection.close()
+
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-28-dac96ae54954>[0m in [0;36m<module>[0;34m[0m
+[1;32m    147[0m [0mprint[0m [0;34m([0m[0;34m'\nImporting Facility Risks:'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    148[0m [0massocLS[0m [0;34m=[0m [0;34m[[0m[0;34m'facility_chars'[0m[0;34m,[0m [0;34m'facility_id'[0m[0;34m,[0m [0;34m'Fac_Name'[0m[0;34m,[0m [0;34m'Fac_Name'[0m[0;34m][0m [0;31m#assoc csv Fac_Name value w/ db's Fac_Name id [TableName,FieldName,AssocFieldName,CSVAssocColName][0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 149[0;31m importLS = importCSV2DB('_jonhonda_dat\\special_prj\\Input_Files\\facility_risks.csv', \
+[0m[1;32m    150[0m              dbConnection, 'facility_risks', 'facility_risk_id', 'facility_risk_id',-1234, assocLS, False)
+[1;32m    151[0m [0massocRecords[0m [0;34m([0m[0mdbConnection[0m[0;34m,[0m [0mimportLS[0m[0;34m,[0m [0;34m'facility_chars'[0m[0;34m,[0m [0;34m'existing_facility_risk_id'[0m[0;34m,[0m [0;34m'facility_id'[0m[0;34m,[0m [0mflgCommitAfterTransaction[0m[0;34m)[0m [0;31m#assoc w/ facility_id via facility_chars.existing_facility_risk_id[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'importCSV2DB' is not defined
+NameError: name 'importCSV2DB' is not defined
+
+Executability                            : False

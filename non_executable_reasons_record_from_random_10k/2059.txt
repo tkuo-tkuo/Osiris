@@ -1,0 +1,18 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Load up necessary packages
+library(readr)
+require(devtools)
+install_github("Displayr/flipTime")
+library(flipTime)
+
+# Import data file
+aalii_facebook <- read_csv("Aalii-Campaigns-Dec-15-2017-Feb-4-2018.csv")
+------------------
+
+NameError: name 'library' is not defined
+
+Executability                            : False

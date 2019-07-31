@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+1 + 'abc'
+------------------
+
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+Executability                            : False

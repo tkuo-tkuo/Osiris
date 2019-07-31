@@ -1,0 +1,41 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+def per(data):
+    per_score = [ data['fgMade'] * 85.910\
+
++ data['steals'] * 53.897\
+
++ data['threeMade'] * 51.757\
+
++ data['ftMade'] * 46.845\
+
++ data['blocks'] * 39.190\
+
++ data['oRebounds']	* 39.190\
+
++ data['assists']	* 34.677\
+
++ data['dRebounds']	* 14.707\
+
+- data['PF'] * 17.174\
+
+- (data['ftAttempted'] - data['ftMade'])	* 20.091\
+
+- (data['fgAttempted'] - data['fgMade'])	* 39.190\
+
+- data['turnovers'] * 53.897 ]\
+
+* (np.divide(1 , data['minutes'].tolist()))
+
+    return per_score
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-390d7078da34>"[0;36m, line [0;32m28[0m
+[0;31m    return per_score[0m
+[0m    ^[0m
+[0;31mIndentationError[0m[0;31m:[0m unexpected indent
+
+IndentationError: unexpected indent (<ipython-input-2-390d7078da34>, line 28)
+
+Executability                            : False

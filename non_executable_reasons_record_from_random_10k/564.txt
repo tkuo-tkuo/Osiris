@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+x_trn = 
+y_trn = 
+x_tst = 
+y_tst = 
+------------------
+
+[0;36m  File [0;32m"<ipython-input-7-ecdec053198e>"[0;36m, line [0;32m1[0m
+[0;31m    x_trn =[0m
+[0m            ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-7-ecdec053198e>, line 1)
+
+Executability                            : False

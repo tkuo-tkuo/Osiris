@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#CREAR UN INDEX PARA ALMACENAR LOS DATOS
+from elasticsearch import Elasticsearch
+from pprint import pprint
+
+es = Elasticsearch()
+
+if not(es.indices.exists(index="tp5-championstweet")):
+    res = es.indices.create(index="tp5-championstweet")  
+    pprint(res)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-5929905164f9>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m#CREAR UN INDEX PARA ALMACENAR LOS DATOS[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0melasticsearch[0m [0;32mimport[0m [0mElasticsearch[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mpprint[0m [0;32mimport[0m [0mpprint[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'elasticsearch'
+ImportError: No module named 'elasticsearch'
+
+Executability                            : False

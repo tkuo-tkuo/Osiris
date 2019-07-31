@@ -1,0 +1,64 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import torch
+import torch.nn.functional as F
+from torch import nn
+from torch.autograd import Function
+from torchvision import datasets, transforms
+import matplotlib.pyplot as plt
+import numpy as np
+from torch.autograd import Variable
+
+def load_mnist(filename):
+    with open(filename, "r") as f:
+        f.readline()
+        data =[ [float(x) for x in l.split()] for l in f]
+    tmp = np.array(data)
+    return tmp[:,:-1],tmp[:,-1].astype(int)
+
+
+batch_size = 64
+train_loader_classic = torch.utils.data.DataLoader(
+    datasets.MNIST(
+        '../data', 
+        train=True, 
+        download=False, 
+        transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,),(0.3081,))])), 
+    batch_size=batch_size, 
+    shuffle=True)
+
+print("Loading...")
+batch_size = 64
+
+def load(name_train, name_test):
+    train = load_mnist(name_train)
+    test = load_mnist(name_test)
+    trainset_2 = torch.utils.data.TensorDataset(torch.from_numpy(train[0]).type(torch.FloatTensor), torch.from_numpy(train[1]).type(torch.LongTensor))
+    testset_2 = torch.utils.data.TensorDataset(torch.from_numpy(test[0]).type(torch.FloatTensor), torch.from_numpy(test[1]).type(torch.LongTensor))
+    train_loader_random = torch.utils.data.DataLoader(trainset_2, batch_size=batch_size, shuffle=True) 
+    test_loader_random = torch.utils.data.DataLoader(testset_2, batch_size=batch_size, shuffle=True)
+    return train_loader_random, test_loader_random
+
+train_loader_random, test_loader_random = load(
+    '/Users/valentin/Downloads/mnist_background_random/mnist_background_random_train.amat',
+    '/Users/valentin/Downloads/mnist_background_random/mnist_background_random_test.amat')
+
+print("fin")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-87d9933280f5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mtorch[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mtorch[0m[0;34m.[0m[0mnn[0m[0;34m.[0m[0mfunctional[0m [0;32mas[0m [0mF[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mtorch[0m [0;32mimport[0m [0mnn[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'torch'
+ModuleNotFoundError: No module named 'torch'
+
+Executability                            : False

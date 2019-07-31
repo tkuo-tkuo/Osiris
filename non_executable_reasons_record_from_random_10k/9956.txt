@@ -1,0 +1,42 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# var1 is a global variable
+var1 = 0
+
+if var1 == 0:
+    # This is still a global variable
+    var2 = 1
+
+def test_function(var3):
+    # var4 is a local variable
+    var4 = 3
+    print(var3)
+    print(var4)
+
+# Now we call the function, passing the value 7 as the first and only parameter
+test_function(7)
+
+# var1 and var2 still exist
+print(var1)
+print(var2)
+
+# var3 and var4 don't exist anymore -- these statements will give us name errors!
+print(var3)
+print(var4)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-5e044b9e4828>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     22[0m [0;34m[0m[0m
+[1;32m     23[0m [0;31m# var3 and var4 don't exist anymore -- these statements will give us name errors![0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 24[0;31m [0mprint[0m[0;34m([0m[0mvar3[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     25[0m [0mprint[0m[0;34m([0m[0mvar4[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'var3' is not defined
+NameError: name 'var3' is not defined
+
+Executability                            : False

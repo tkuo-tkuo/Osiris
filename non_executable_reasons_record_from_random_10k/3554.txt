@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+sum(3,4)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-22-991daaa8a1b0>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0msum[0m[0;34m([0m[0;36m3[0m[0;34m,[0m[0;36m4[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: 'int' object is not iterable
+TypeError: 'int' object is not iterable
+
+Executability                            : False

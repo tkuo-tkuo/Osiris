@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash 
+
+pip install xgboost --pre
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-56b711cdce6b>"[0;36m, line [0;32m3[0m
+[0;31m    %%bash[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-56b711cdce6b>, line 3)
+
+Executability                            : False

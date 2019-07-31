@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+assert_equal(len(d1a(fp1(tt), h=0.1)), len(tt))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-a0238bd42db0>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0massert_equal[0m[0;34m([0m[0mlen[0m[0;34m([0m[0md1a[0m[0;34m([0m[0mfp1[0m[0;34m([0m[0mtt[0m[0;34m)[0m[0;34m,[0m [0mh[0m[0;34m=[0m[0;36m0.1[0m[0;34m)[0m[0;34m)[0m[0;34m,[0m [0mlen[0m[0;34m([0m[0mtt[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'd1a' is not defined
+NameError: name 'd1a' is not defined
+
+Executability                            : False

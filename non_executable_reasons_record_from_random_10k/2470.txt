@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+icd9_patients = defaultdict(list)
+# YOUR CODE HERE
+icd9_patients_list = []
+for d in icd9_data:
+    if dicd9_patients_list
+
+
+#raise NotImplementedError()
+------------------
+
+[0;36m  File [0;32m"<ipython-input-8-a817d7df69ec>"[0;36m, line [0;32m5[0m
+[0;31m    if dicd9_patients_list[0m
+[0m                          ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-8-a817d7df69ec>, line 5)
+
+Executability                            : False

@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+d = pd.Series(train.reshape(-1))
+diff = d - d.shift(1)
+
+np.array(diff.data.tolist())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-ab9a79c03c88>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0md[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mSeries[0m[0;34m([0m[0mtrain[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0;34m-[0m[0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mdiff[0m [0;34m=[0m [0md[0m [0;34m-[0m [0md[0m[0;34m.[0m[0mshift[0m[0;34m([0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mdiff[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mtolist[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'train' is not defined
+NameError: name 'train' is not defined
+
+Executability                            : False

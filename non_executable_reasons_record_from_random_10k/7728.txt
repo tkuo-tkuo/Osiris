@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#应用于连个dataframe 需要对齐的位置，索引不同的情况
+merge(d1,d2,left_on='data1',right_on='data2',how='inner')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-19-83f2bc799470>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#应用于连个dataframe 需要对齐的位置，索引不同的情况[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mmerge[0m[0;34m([0m[0md1[0m[0;34m,[0m[0md2[0m[0;34m,[0m[0mleft_on[0m[0;34m=[0m[0;34m'data1'[0m[0;34m,[0m[0mright_on[0m[0;34m=[0m[0;34m'data2'[0m[0;34m,[0m[0mhow[0m[0;34m=[0m[0;34m'inner'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'merge' is not defined
+NameError: name 'merge' is not defined
+
+Executability                            : False

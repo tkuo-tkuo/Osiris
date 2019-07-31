@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Setup sqlite
+sqlite_file = 'hyper_live.db'
+connection = sqlite3.connect(sqlite_file)
+db = connection.cursor()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-9a52d5df4e59>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m# Setup sqlite[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0msqlite_file[0m [0;34m=[0m [0;34m'hyper_live.db'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mconnection[0m [0;34m=[0m [0msqlite3[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0msqlite_file[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mdb[0m [0;34m=[0m [0mconnection[0m[0;34m.[0m[0mcursor[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'sqlite3' is not defined
+NameError: name 'sqlite3' is not defined
+
+Executability                            : False

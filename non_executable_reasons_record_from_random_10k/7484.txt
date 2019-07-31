@@ -1,0 +1,41 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+# Generate the list of index pages
+
+index_list = [];
+
+print('Generating a list of index pages for each day')
+
+for year in range(YEAR_START, YEAR_END + 1):
+    
+    first_month = MONTH_START if year == YEAR_START else  1
+    last_month  = MONTH_END   if year == YEAR_END   else 12
+    
+    print('\nThe year is', year, '|',
+          'first month=', normalizeDate(first_month), '|',
+          'last month=', normalizeDate(last_month))
+
+    for month in range(first_month, last_month + 1):
+              
+        first_day = 1
+        _, last_day = monthrange(year, month)
+              
+        if year == YEAR_START and month == MONTH_START:
+            first_day = DAY_START
+        
+        if year == YEAR_END and month == MONTH_END:
+            last_day = DAY_END
+        
+        print('', 'the month is', normalizeDate(month), '|',
+              'first day is', normalizeDate(first_day), '|',
+              'last day is', normalizeDate(last_day))
+            
+        for day in range(first_day, last_day + 1):
+            indexURL = getIndexURL(year, month, day)
+            index_list.append(indexURL)
+------------------
+
+NameError: name 'YEAR_START' is not defined
+
+Executability                            : False

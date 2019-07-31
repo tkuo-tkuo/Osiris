@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+plt.xlabel("k value")
+plt.ylabel("accuracy")
+plt.title("accuracy of knn with different splits and k values")
+plt.plot(k_array, final_array[0],label= split_array[0])
+plt.plot(k_array, final_array[1],label= split_array[1])
+plt.plot(k_array, final_array[2],label= split_array[2])
+plt.plot(k_array, final_array[3],label= split_array[3])
+plt.plot(k_array, final_array[4],label= split_array[4])
+plt.plot(k_array, final_array[5],label= split_array[5])
+plt.legend()
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-c0c530c724b6>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m"k value"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mylabel[0m[0;34m([0m[0;34m"accuracy"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mtitle[0m[0;34m([0m[0;34m"accuracy of knn with different splits and k values"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

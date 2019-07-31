@@ -1,0 +1,43 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+wineries = count_within_radius(10, 'wineries_with_tract', tract_latlons_list, tract_geoid_list)
+
+breweries = count_within_radius(10, 'breweries_with_tract', tract_latlons_list, tract_geoid_list)
+
+fortune1000 = count_within_radius(5, 'fortune1000_va_with_tract', tract_latlons_list, tract_geoid_list)
+
+general_airports = count_within_radius(10, 'general_airports_with_tracts', tract_latlons_list, tract_geoid_list)
+
+commercial_airports = count_within_radius(20, 'commercial_airports_with_tracts', tract_latlons_list, tract_geoid_list)
+
+SBDCs = count_within_radius(10, 'small_business_development_centers_with_tract', tract_latlons_list, tract_geoid_list)
+
+hospitals = count_within_radius(10, 'hospitals_with_tract', tract_latlons_list, tract_geoid_list)
+
+colleges = count_within_radius(10, 'higher_education_with_tract', tract_latlons_list, tract_geoid_list)
+
+public_schools = count_within_radius(5, 'public_schools_with_tract', tract_latlons_list, tract_geoid_list)
+
+fed_centers = count_within_radius(10, 'federal_federally_funded_with_tract', tract_latlons_list, tract_geoid_list)
+
+research_parks = count_within_radius(10, 'research_parks_with_tract', tract_latlons_list, tract_geoid_list)
+
+sports_venues = count_within_radius(10, 'sports_venues', tract_latlons_list, tract_geoid_list)
+
+CDFIs = count_within_radius(10, 'cdfis_with_tract', tract_latlons_list, tract_geoid_list)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-3aa5ce40b114>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mwineries[0m [0;34m=[0m [0mcount_within_radius[0m[0;34m([0m[0;36m10[0m[0;34m,[0m [0;34m'wineries_with_tract'[0m[0;34m,[0m [0mtract_latlons_list[0m[0;34m,[0m [0mtract_geoid_list[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mbreweries[0m [0;34m=[0m [0mcount_within_radius[0m[0;34m([0m[0;36m10[0m[0;34m,[0m [0;34m'breweries_with_tract'[0m[0;34m,[0m [0mtract_latlons_list[0m[0;34m,[0m [0mtract_geoid_list[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mfortune1000[0m [0;34m=[0m [0mcount_within_radius[0m[0;34m([0m[0;36m5[0m[0;34m,[0m [0;34m'fortune1000_va_with_tract'[0m[0;34m,[0m [0mtract_latlons_list[0m[0;34m,[0m [0mtract_geoid_list[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'tract_latlons_list' is not defined
+NameError: name 'tract_latlons_list' is not defined
+
+Executability                            : False

@@ -1,0 +1,47 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+print(words)
+stat = {} # подсчет количиства вхождений каждого слова
+for i in words:
+    if i not in stat:
+        stat[i] = 1
+    elif i in stat:
+        stat[i] += 1
+print(stat)
+max1 = words[0] # поиск слова с максимальным повторением
+for i in stat:
+    if stat[i] >= stat[max1] :
+        max1 = i
+print(max1, stat[max1])
+leaders = [] # составление списка самых частых слов
+for i in stat:
+    if stat[i] == stat[max1]:
+        leaders += [i]
+print(leaders)
+if len(leaders) > 1 :
+    leaders.sort()
+    print('отсортированный список', leaders)
+
+for i in leaders: # вывод на печать списка с количеством
+    print(i, stat[max1])
+
+-----------------
+Original output:
+['tputdb', 'dd', 'upzadzcyx', 'upzadzcyx', 'cuxuxyt', 'dzaxu', 'dd', 'ua', 'zuxy', 'uc', 'tyc', 'y', 'attyydd', 'dtdpadxy', 'dzaxu', 'pbuutypuu', 'tputdb', 'autxazttb', 'uzutbua', 'ua', 'tputdb', 'zapdbyd', 'uzapytuy', 'ua', 'abduxpdtb', 'p', 'b', 'yxubbb', 't', 'bxdyttu', 'z', 'dypu', 'aattpxzyp', 'xzuytxd', 'b', 'zuxy', 'xctd', 'dcxuydtx', 'p', 'pxcbxuty', 't', 'u', 'zbzzccuyy', 'ybc', 'b', 'tputdb', 'xdyxyptt', 'uu', 'aattpxzyp', 'xuapdbaxx', 'uxc', 'yybt', 'yybt', 'dp', 'yybt', 'pcyuxzu', 'pcyuxzu', 'x', 'cbctb', 'zbxzxd', 'auz', 'xpc', 'cya', 'z', 'pcyuxzu', 'p', 'cacat', 'pcyuxzu', 'u', 'atdtpxddz', 'bp', 'u', 'yuyzxpyb', 'tbaxuac', 'pdu', 'bcyypdbzt', 'zby', 'c', 'dp', 'xzubz', 'zttctu', 'xzaabz', 'zbxzxd', 'bp', 'u', 'cy', 'xzyaxubcu', 'txtbctyau', 'yxtzutd', 'pxcypc', 'tby', 'tby', 'tby', 'tby', 'pxcypc', 'zpzpzc', 'pxcypc', 'aupbu', 'tucdct', 'dpzzu', 'azybyybcd', 'tucdct', 'p', 'du', 'pcacuypd', 'ptt', 'dyddcubac', 'aybup', 'acdzbzyay', 'aabbytyyd', 'atpta', 'cdxaczyt', 'azybyybcd', 'pzazzxddy', 'aa', 'cxpyztbbt', 'pzazzxddy', 'zyupzy', 'a', 'tud', 'cday', 'bxztptx', 'ypttzpyu', 'pzazzxddy', 'dz', 'cday', 'dtaap', 'a', 'a', 'pzazzxddy', 'zdzyupubb', 'a', 'a', 'bypp', 'pzazzxddy', 'xypu', 'zyupzy', 'ptxppu', 'aucaay', 'uauppza', 'uauppza', 'ubdxc', 'ayazxyzpa', 'uauppza', 'ptxppu', 'uauppza', 'tzayadbad', 'z', 'ubdxc', 'yxctd', 'bxzt', 'z', 'tyybdpaz', 'uauppza', 'ubz', 'z', 'pz', 'btzxzdy', 'u', 'z', 'z', 'acytdt', 'btzxzdy', 'dxbdpu', 'tdudxxd', 'bbxabd', 'dayzabbz', 'dayzabbz', 'pbcxcucp', 'dz', 'tct', 'ubc', 'txcd', 'audcxpy', 'zbt', 'zppcdc', 'cbpc', 'zztxp', 'a', 'xxuduca', 'ubc', 'uatbcd', 'tctzx', 'xxuduca', 'dayzabbz', 'u', 'dz', 'ayaxpx', 'ct', 'cbpc', 'b', 'dy', 'yapcpbxzp', 'xcdty', 'bzx', 'bzx', 'bzx', 'u', 'cttpb', 'cdbbttxt', 'bbyc', 'yp', 'xa', 'uaca', 'xbatc', 'yt', 'ttupbuy', 'xa', 'xpx', 'zbcubbuxz', 'aza', 'pzp', 'btczabt', 'bd', 'zpb', 'ty', 'cdcxtx', 'dbpy', 'bzx', 'z', 'ay', 'ay', 'xbtx', 'cdcxtx', 'yapdyu', 'xpx', 'pzp', 'pztztdu']
+{'ayazxyzpa': 1, 'bzx': 4, 'cttpb': 1, 'aza': 1, 'xzyaxubcu': 1, 'bxzt': 1, 'zbt': 1, 'uaca': 1, 'dtaap': 1, 'bxztptx': 1, 'xdyxyptt': 1, 'zuxy': 2, 'dy': 1, 'aupbu': 1, 'zbzzccuyy': 1, 'yybt': 3, 'yp': 1, 'bxdyttu': 1, 'dzaxu': 2, 'zyupzy': 2, 'cdxaczyt': 1, 'ubz': 1, 'azybyybcd': 2, 'cy': 1, 'zdzyupubb': 1, 'tyc': 1, 'ct': 1, 'dayzabbz': 3, 'pxcbxuty': 1, 'tud': 1, 'xxuduca': 2, 'ttupbuy': 1, 'yxtzutd': 1, 'xuapdbaxx': 1, 'xa': 2, 'cya': 1, 'ay': 2, 'dpzzu': 1, 'xctd': 1, 'zztxp': 1, 'ptxppu': 2, 'bbxabd': 1, 'uauppza': 5, 'dz': 3, 'aabbytyyd': 1, 'pztztdu': 1, 'du': 1, 'zby': 1, 'acdzbzyay': 1, 'xbtx': 1, 'abduxpdtb': 1, 'xzaabz': 1, 'p': 4, 'tdudxxd': 1, 'bp': 2, 'ty': 1, 'aybup': 1, 'cday': 2, 'cdbbttxt': 1, 'zppcdc': 1, 'dp': 2, 'yxctd': 1, 'yuyzxpyb': 1, 'ybc': 1, 'uzapytuy': 1, 'xpx': 2, 'bcyypdbzt': 1, 'z': 8, 'uxc': 1, 'ubdxc': 2, 'tct': 1, 'pbuutypuu': 1, 'yapdyu': 1, 'dtdpadxy': 1, 'dcxuydtx': 1, 'bbyc': 1, 'xzubz': 1, 'xypu': 1, 'pdu': 1, 'u': 7, 'xbatc': 1, 'autxazttb': 1, 'dypu': 1, 'yapcpbxzp': 1, 'btczabt': 1, 'ua': 3, 'xpc': 1, 'uu': 1, 'xcdty': 1, 'pcacuypd': 1, 'dyddcubac': 1, 'ubc': 2, 'xzuytxd': 1, 'b': 4, 'zttctu': 1, 't': 2, 'pxcypc': 3, 'cdcxtx': 2, 'txcd': 1, 'zbcubbuxz': 1, 'acytdt': 1, 'pzp': 2, 'yxubbb': 1, 'attyydd': 1, 'audcxpy': 1, 'atdtpxddz': 1, 'tby': 4, 'aattpxzyp': 2, 'bd': 1, 'zapdbyd': 1, 'bypp': 1, 'cbctb': 1, 'pbcxcucp': 1, 'atpta': 1, 'dxbdpu': 1, 'tctzx': 1, 'tzayadbad': 1, 'txtbctyau': 1, 'upzadzcyx': 2, 'pz': 1, 'x': 1, 'c': 1, 'zpzpzc': 1, 'yt': 1, 'pcyuxzu': 4, 'uatbcd': 1, 'cacat': 1, 'tputdb': 4, 'pzazzxddy': 5, 'ayaxpx': 1, 'ypttzpyu': 1, 'y': 1, 'aa': 1, 'cuxuxyt': 1, 'ptt': 1, 'tbaxuac': 1, 'tyybdpaz': 1, 'uc': 1, 'cbpc': 2, 'zpb': 1, 'tucdct': 2, 'dd': 2, 'dbpy': 1, 'uzutbua': 1, 'btzxzdy': 2, 'a': 6, 'cxpyztbbt': 1, 'zbxzxd': 2, 'aucaay': 1, 'auz': 1}
+z 8
+['z']
+z 8
+
+Executed output:
+['tputdb', 'dd', 'upzadzcyx', 'upzadzcyx', 'cuxuxyt', 'dzaxu', 'dd', 'ua', 'zuxy', 'uc', 'tyc', 'y', 'attyydd', 'dtdpadxy', 'dzaxu', 'pbuutypuu', 'tputdb', 'autxazttb', 'uzutbua', 'ua', 'tputdb', 'zapdbyd', 'uzapytuy', 'ua', 'abduxpdtb', 'p', 'b', 'yxubbb', 't', 'bxdyttu', 'z', 'dypu', 'aattpxzyp', 'xzuytxd', 'b', 'zuxy', 'xctd', 'dcxuydtx', 'p', 'pxcbxuty', 't', 'u', 'zbzzccuyy', 'ybc', 'b', 'tputdb', 'xdyxyptt', 'uu', 'aattpxzyp', 'xuapdbaxx', 'uxc', 'yybt', 'yybt', 'dp', 'yybt', 'pcyuxzu', 'pcyuxzu', 'x', 'cbctb', 'zbxzxd', 'auz', 'xpc', 'cya', 'z', 'pcyuxzu', 'p', 'cacat', 'pcyuxzu', 'u', 'atdtpxddz', 'bp', 'u', 'yuyzxpyb', 'tbaxuac', 'pdu', 'bcyypdbzt', 'zby', 'c', 'dp', 'xzubz', 'zttctu', 'xzaabz', 'zbxzxd', 'bp', 'u', 'cy', 'xzyaxubcu', 'txtbctyau', 'yxtzutd', 'pxcypc', 'tby', 'tby', 'tby', 'tby', 'pxcypc', 'zpzpzc', 'pxcypc', 'aupbu', 'tucdct', 'dpzzu', 'azybyybcd', 'tucdct', 'p', 'du', 'pcacuypd', 'ptt', 'dyddcubac', 'aybup', 'acdzbzyay', 'aabbytyyd', 'atpta', 'cdxaczyt', 'azybyybcd', 'pzazzxddy', 'aa', 'cxpyztbbt', 'pzazzxddy', 'zyupzy', 'a', 'tud', 'cday', 'bxztptx', 'ypttzpyu', 'pzazzxddy', 'dz', 'cday', 'dtaap', 'a', 'a', 'pzazzxddy', 'zdzyupubb', 'a', 'a', 'bypp', 'pzazzxddy', 'xypu', 'zyupzy', 'ptxppu', 'aucaay', 'uauppza', 'uauppza', 'ubdxc', 'ayazxyzpa', 'uauppza', 'ptxppu', 'uauppza', 'tzayadbad', 'z', 'ubdxc', 'yxctd', 'bxzt', 'z', 'tyybdpaz', 'uauppza', 'ubz', 'z', 'pz', 'btzxzdy', 'u', 'z', 'z', 'acytdt', 'btzxzdy', 'dxbdpu', 'tdudxxd', 'bbxabd', 'dayzabbz', 'dayzabbz', 'pbcxcucp', 'dz', 'tct', 'ubc', 'txcd', 'audcxpy', 'zbt', 'zppcdc', 'cbpc', 'zztxp', 'a', 'xxuduca', 'ubc', 'uatbcd', 'tctzx', 'xxuduca', 'dayzabbz', 'u', 'dz', 'ayaxpx', 'ct', 'cbpc', 'b', 'dy', 'yapcpbxzp', 'xcdty', 'bzx', 'bzx', 'bzx', 'u', 'cttpb', 'cdbbttxt', 'bbyc', 'yp', 'xa', 'uaca', 'xbatc', 'yt', 'ttupbuy', 'xa', 'xpx', 'zbcubbuxz', 'aza', 'pzp', 'btczabt', 'bd', 'zpb', 'ty', 'cdcxtx', 'dbpy', 'bzx', 'z', 'ay', 'ay', 'xbtx', 'cdcxtx', 'yapdyu', 'xpx', 'pzp', 'pztztdu']
+{'xxuduca': 2, 'xa': 2, 'tyybdpaz': 1, 'dypu': 1, 'u': 7, 'bcyypdbzt': 1, 'ubdxc': 2, 'dz': 3, 'acdzbzyay': 1, 'uatbcd': 1, 'zttctu': 1, 'x': 1, 'tputdb': 4, 'xcdty': 1, 'zdzyupubb': 1, 'dzaxu': 2, 'pz': 1, 'uzapytuy': 1, 'atdtpxddz': 1, 'cbpc': 2, 'aabbytyyd': 1, 'ubz': 1, 'ubc': 2, 'xbatc': 1, 'abduxpdtb': 1, 'txtbctyau': 1, 'ypttzpyu': 1, 'acytdt': 1, 'xctd': 1, 'ptxppu': 2, 'azybyybcd': 2, 'ua': 3, 'cuxuxyt': 1, 'ayaxpx': 1, 'zbxzxd': 2, 'uu': 1, 'aattpxzyp': 2, 'yxtzutd': 1, 'xzubz': 1, 'cxpyztbbt': 1, 'ay': 2, 'zppcdc': 1, 'bbxabd': 1, 'zpzpzc': 1, 'bbyc': 1, 'atpta': 1, 'xypu': 1, 'aucaay': 1, 'xuapdbaxx': 1, 'cbctb': 1, 'tucdct': 2, 'yapdyu': 1, 'aybup': 1, 'tbaxuac': 1, 'b': 4, 'ty': 1, 'tby': 4, 'autxazttb': 1, 'tud': 1, 'bp': 2, 'bxdyttu': 1, 'btczabt': 1, 'ttupbuy': 1, 'yxubbb': 1, 'cday': 2, 'pztztdu': 1, 'xzyaxubcu': 1, 'zbcubbuxz': 1, 'dp': 2, 'txcd': 1, 'aupbu': 1, 'pxcbxuty': 1, 'zby': 1, 'cdxaczyt': 1, 'tct': 1, 'yt': 1, 'yp': 1, 'zyupzy': 2, 'bypp': 1, 'yapcpbxzp': 1, 'upzadzcyx': 2, 'uzutbua': 1, 'cya': 1, 'dtaap': 1, 'zuxy': 2, 'uxc': 1, 'cy': 1, 'btzxzdy': 2, 'dcxuydtx': 1, 'pzazzxddy': 5, 'cttpb': 1, 'zbt': 1, 'uauppza': 5, 'dd': 2, 'dxbdpu': 1, 'dayzabbz': 3, 'p': 4, 'ct': 1, 'tctzx': 1, 'audcxpy': 1, 'aa': 1, 'cacat': 1, 'dbpy': 1, 'xpx': 2, 'zapdbyd': 1, 'tyc': 1, 'xdyxyptt': 1, 'xzaabz': 1, 'pdu': 1, 'uc': 1, 'pzp': 2, 'tdudxxd': 1, 'yxctd': 1, 'zztxp': 1, 'bxztptx': 1, 'xzuytxd': 1, 'pcyuxzu': 4, 'pbuutypuu': 1, 'bzx': 4, 'dtdpadxy': 1, 'z': 8, 'yybt': 3, 'bxzt': 1, 'dy': 1, 'pbcxcucp': 1, 'ayazxyzpa': 1, 'dpzzu': 1, 'xbtx': 1, 'uaca': 1, 'pcacuypd': 1, 'c': 1, 'du': 1, 'xpc': 1, 't': 2, 'cdcxtx': 2, 'zpb': 1, 'yuyzxpyb': 1, 'pxcypc': 3, 'a': 6, 'aza': 1, 'attyydd': 1, 'y': 1, 'dyddcubac': 1, 'ybc': 1, 'ptt': 1, 'cdbbttxt': 1, 'auz': 1, 'tzayadbad': 1, 'bd': 1, 'zbzzccuyy': 1}
+z 8
+['z']
+z 8
+

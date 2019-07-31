@@ -1,0 +1,78 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
+#load data
+mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
+
+batch_size = 100
+
+batch_count = mnist.train.num_examples // batch_size
+
+#define place holder
+x = tf.placeholder(tf.float32, [None, 784])
+y = tf.placeholder(tf.float32, [None, 10])
+
+#create a 3-level neural network
+W1 = tf.Variable(tf.truncated_normal([784, 500], stddev=0.1))
+b1 = tf.Variable(tf.zeros([500])+0.1)
+L1 = tf.nn.softmax(tf.matmul(x, W1)+b1)
+
+W2 = tf.Variable(tf.truncated_normal([500, 300], stddev=0.1))
+b2 = tf.Variable(tf.zeros([300])+0.1)
+L2 = tf.nn.softmax(tf.matmul(L1, W2)+b2)
+
+W3 = tf.Variable(tf.truncated_normal([300, 10], stddev=0.1))
+b3 = tf.Variable(tf.zeros([10])+0.1)
+prediction = tf.nn.softmax(tf.matmul(L2, W3)+b3)
+
+#交叉熵代价函数
+# loss = tf.reduce_mean(tf.square(y - prediction))
+loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=y, logits=prediction))
+# loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=y, logits=prediction))
+
+global_step = tf.Variable(0)
+learning_rate = tf.train.exponential_decay(0.01, global_step, 100, 0.96, staircase=True, name='learning_rate')
+
+#train
+# train = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
+train = tf.train.AdamOptimizer(learning_rate).minimize(loss, global_step = global_step)
+
+init = tf.global_variables_initializer()
+
+#比较预测值与实际值
+correct_pred = tf.equal(tf.argmax(y, 1), tf.argmax(prediction, 1)) #argmax 返回沿着某个维度最大值的位置
+
+#准确率
+accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+
+with tf.Session() as sess:
+    sess.run(init)
+    
+    for step in range(20):
+        for batch in range(batch_count):
+            batch_xs, batch_ys = mnist.train.next_batch(batch_size)
+            sess.run(train, feed_dict={x:batch_xs, y:batch_ys})
+        
+        acc = sess.run(accuracy, feed_dict={x:mnist.test.images, y:mnist.test.labels})
+        print("step:" + str(step) + " accurancy:" + str(acc))
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-b389d8ad6cad>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mexamples[0m[0;34m.[0m[0mtutorials[0m[0;34m.[0m[0mmnist[0m [0;32mimport[0m [0minput_data[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#load data[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

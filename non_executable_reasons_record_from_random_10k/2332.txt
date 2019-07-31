@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+c1 = tf.constant(5,name="scalar")
+c2 = tf.constant(3,name="c2")
+c3 = tf.constant([1,2,3,4], name="vector")
+c4 = tf.constant(5, tf.float32, name="float")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-89fec6642570>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mc1[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mconstant[0m[0;34m([0m[0;36m5[0m[0;34m,[0m[0mname[0m[0;34m=[0m[0;34m"scalar"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mc2[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mconstant[0m[0;34m([0m[0;36m3[0m[0;34m,[0m[0mname[0m[0;34m=[0m[0;34m"c2"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mc3[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mconstant[0m[0;34m([0m[0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m[0;36m4[0m[0;34m][0m[0;34m,[0m [0mname[0m[0;34m=[0m[0;34m"vector"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'tf' is not defined
+NameError: name 'tf' is not defined
+
+Executability                            : False

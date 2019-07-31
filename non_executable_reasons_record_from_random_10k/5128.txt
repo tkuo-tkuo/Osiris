@@ -1,0 +1,65 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+gray=np.array(img)
+delta=40
+extract_peaks_list=[]
+for i in range(13):
+    #sci-kit image
+    edges = canny(gray, 2, 1, 25)
+    h, theta, d = hough_line(edges,theta=np.concatenate((np.linspace(-np.pi/4, 0, 90),np.linspace(np.pi/2, np.pi *3/4, 90))))
+    fig, (ax0, ax1, ax2) = plt.subplots(1, 3, figsize=(12, 6))
+    plt.tight_layout()
+    # Generating figure 1.
+    ax0.imshow(gray, cmap=cm.gray)
+    ax0.set_title('Input image')
+    ax0.set_axis_off()
+
+    ax1.imshow(np.log(1 + h), extent=[np.rad2deg(theta[-1]), np.rad2deg(theta[0]),d[-1], d[0]], cmap=cm.gray, aspect=1/1.5)
+    ax1.set_title('Hough transform')
+    ax1.set_xlabel('Angles (degrees)')
+    ax1.set_ylabel('Distance (pixels)')
+    ax1.axis('image')
+    
+    ax2.imshow(edges, cmap=cm.gray)
+    row1, col1 = gray.shape
+    for _, angle, dist in zip(*hough_line_peaks(h, theta, d, min_distance=9, min_angle=10, threshold=0.5 * np.max(h),num_peaks=1)):
+        y0 = (dist - 0 * np.cos(angle)) / np.sin(angle)
+        y1 = (dist - col1 * np.cos(angle)) / np.sin(angle)
+        ax2.plot((0, col1), (y0, y1), '-r')
+        m=(y0-y1)/(0-col1)
+#         print('angle=',angle,'m=',m,'d=',y0)
+        ax2.plot((0, col1), (y0+delta/np.cos(angle), y1+delta/np.cos(angle)), '-b')
+        ax2.plot((0, col1), (y0-delta/np.cos(angle), y1-delta/np.cos(angle)), '-b')
+    ax2.axis((0, col1, row1, 0))
+    ax2.set_title('Detected lines')
+    ax2.set_axis_off()
+    extract_peaks_list.append([])
+    for peak in filtered_peaks_list:
+        if ( - m * int((peak[0]-min(rt))/rt_step) + int((peak[1]-min(m_z))/m_z_step) - y0 ) ** 2  <= (delta ** 2) * (m ** 2 + 1) :
+            gray[int((peak[1]-min(m_z))/m_z_step),int((peak[0]-min(rt))/rt_step)]=0
+            extract_peaks_list[-1].append(peak)
+            filtered_peaks_list.remove(peak)
+#     print(np.nonzero(edges))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-14-3cee482f3cd3>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     21[0m     [0max2[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0medges[0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0mcm[0m[0;34m.[0m[0mgray[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     22[0m     [0mrow1[0m[0;34m,[0m [0mcol1[0m [0;34m=[0m [0mgray[0m[0;34m.[0m[0mshape[0m[0;34m[0m[0m
+[0;32m---> 23[0;31m     [0;32mfor[0m [0m_[0m[0;34m,[0m [0mangle[0m[0;34m,[0m [0mdist[0m [0;32min[0m [0mzip[0m[0;34m([0m[0;34m*[0m[0mhough_line_peaks[0m[0;34m([0m[0mh[0m[0;34m,[0m [0mtheta[0m[0;34m,[0m [0md[0m[0;34m,[0m [0mmin_distance[0m[0;34m=[0m[0;36m9[0m[0;34m,[0m [0mmin_angle[0m[0;34m=[0m[0;36m10[0m[0;34m,[0m [0mthreshold[0m[0;34m=[0m[0;36m0.5[0m [0;34m*[0m [0mnp[0m[0;34m.[0m[0mmax[0m[0;34m([0m[0mh[0m[0;34m)[0m[0;34m,[0m[0mnum_peaks[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     24[0m         [0my0[0m [0;34m=[0m [0;34m([0m[0mdist[0m [0;34m-[0m [0;36m0[0m [0;34m*[0m [0mnp[0m[0;34m.[0m[0mcos[0m[0;34m([0m[0mangle[0m[0;34m)[0m[0;34m)[0m [0;34m/[0m [0mnp[0m[0;34m.[0m[0msin[0m[0;34m([0m[0mangle[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     25[0m         [0my1[0m [0;34m=[0m [0;34m([0m[0mdist[0m [0;34m-[0m [0mcol1[0m [0;34m*[0m [0mnp[0m[0;34m.[0m[0mcos[0m[0;34m([0m[0mangle[0m[0;34m)[0m[0;34m)[0m [0;34m/[0m [0mnp[0m[0;34m.[0m[0msin[0m[0;34m([0m[0mangle[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/skimage/transform/hough_transform.py[0m in [0;36mhough_line_peaks[0;34m(hspace, angles, dists, min_distance, min_angle, threshold, num_peaks)[0m
+[1;32m     64[0m                                [0mthreshold[0m[0;34m=[0m[0mthreshold[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m     65[0m                                num_peaks=num_peaks)
+[0;32m---> 66[0;31m     [0;32mreturn[0m [0;34m([0m[0mh[0m[0;34m,[0m [0mangles[0m[0;34m[[0m[0ma[0m[0;34m][0m[0;34m,[0m [0mdists[0m[0;34m[[0m[0md[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     67[0m [0;34m[0m[0m
+[1;32m     68[0m [0;34m[0m[0m
+
+[0;31mIndexError[0m: arrays used as indices must be of integer (or boolean) type
+IndexError: arrays used as indices must be of integer (or boolean) type
+
+Executability                            : False

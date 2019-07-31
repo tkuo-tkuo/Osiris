@@ -1,0 +1,29 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import sys, re
+sys.path.append('../../python/')
+from data.IGRA import Monthly
+from data.NCDC import GHCND
+import pandas as pd
+import xarray as xr
+import matplotlib.pyplot as plt
+from cartopy import crs
+from plots import annotated, availability_matrix as avail
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-02d2c628f0c5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0msys[0m[0;34m,[0m [0mre[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0msys[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m'../../python/'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mdata[0m[0;34m.[0m[0mIGRA[0m [0;32mimport[0m [0mMonthly[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mdata[0m[0;34m.[0m[0mNCDC[0m [0;32mimport[0m [0mGHCND[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'data'
+ModuleNotFoundError: No module named 'data'
+
+Executability                            : False

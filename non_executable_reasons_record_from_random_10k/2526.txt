@@ -1,0 +1,35 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# General:
+import tweepy           # To consume Twitter's API
+import pandas as pd     # To handle data
+import numpy as np      # For number computing
+
+# For plotting and visualization:
+from IPython.display import display
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+import networkx as nx
+import os
+from IPython.display import Image
+from itertools import product
+import time
+import pickle
+import gzip
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-199f805b27fc>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# General:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mtweepy[0m           [0;31m# To consume Twitter's API[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m     [0;31m# To handle data[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m      [0;31m# For number computing[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tweepy'
+ImportError: No module named 'tweepy'
+
+Executability                            : False

@@ -1,0 +1,72 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import seaborn as sns
+import datetime
+sns.set()
+prcp_df.set_index(pd.DatetimeIndex(prcp_df['Date']),inplace=True)
+
+plt.figure(figsize=(20,10))
+prcp_df.iloc[::-1].plot('Date', 'Precipitation',title='Precipitation of last 365 days')
+plt.tight_layout()
+plt.xticks(rotation=45)
+plt.figtext(1.0, 0.2, prcp_df.describe())
+
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-14-2bfa9457570f>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0mplt[0m[0;34m.[0m[0mtight_layout[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0mplt[0m[0;34m.[0m[0mxticks[0m[0;34m([0m[0mrotation[0m[0;34m=[0m[0;36m45[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0mplt[0m[0;34m.[0m[0mfigtext[0m[0;34m([0m[0;36m1.0[0m[0;34m,[0m [0;36m0.2[0m[0;34m,[0m [0mprcp_df[0m[0;34m.[0m[0mdescribe[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/pyplot.py[0m in [0;36mfigtext[0;34m(x, y, s, *args, **kwargs)[0m
+[1;32m    751[0m [0;34m@[0m[0mdocstring[0m[0;34m.[0m[0mcopy[0m[0;34m([0m[0mFigure[0m[0;34m.[0m[0mtext[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    752[0m [0;32mdef[0m [0mfigtext[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0ms[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 753[0;31m     [0;32mreturn[0m [0mgcf[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mtext[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0ms[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    754[0m [0;34m[0m[0m
+[1;32m    755[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/cbook/deprecation.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    367[0m                 [0;34mf"%(removal)s.  If any parameter follows {name!r}, they "[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    368[0m                 f"should be pass as keyword, not positionally.")
+[0;32m--> 369[0;31m         [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    370[0m [0;34m[0m[0m
+[1;32m    371[0m     [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/figure.py[0m in [0;36mtext[0;34m(self, x, y, s, fontdict, withdash, **kwargs)[0m
+[1;32m   1865[0m             [0mtext[0m [0;34m=[0m [0mTextWithDash[0m[0;34m([0m[0mx[0m[0;34m=[0m[0mx[0m[0;34m,[0m [0my[0m[0;34m=[0m[0my[0m[0;34m,[0m [0mtext[0m[0;34m=[0m[0ms[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1866[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1867[0;31m             [0mtext[0m [0;34m=[0m [0mText[0m[0;34m([0m[0mx[0m[0;34m=[0m[0mx[0m[0;34m,[0m [0my[0m[0;34m=[0m[0my[0m[0;34m,[0m [0mtext[0m[0;34m=[0m[0ms[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1868[0m [0;34m[0m[0m
+[1;32m   1869[0m         [0mtext[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0mdefault[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/text.py[0m in [0;36m__init__[0;34m(self, x, y, text, color, verticalalignment, horizontalalignment, multialignment, fontproperties, rotation, linespacing, rotation_mode, usetex, wrap, **kwargs)[0m
+[1;32m    151[0m [0;34m[0m[0m
+[1;32m    152[0m         [0mself[0m[0;34m.[0m[0m_text[0m [0;34m=[0m [0;34m''[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 153[0;31m         [0mself[0m[0;34m.[0m[0mset_text[0m[0;34m([0m[0mtext[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    154[0m         [0mself[0m[0;34m.[0m[0mset_color[0m[0;34m([0m[0mcolor[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    155[0m         [0mself[0m[0;34m.[0m[0mset_usetex[0m[0;34m([0m[0musetex[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/text.py[0m in [0;36mset_text[0;34m(self, s)[0m
+[1;32m   1148[0m         [0;32mif[0m [0ms[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1149[0m             [0ms[0m [0;34m=[0m [0;34m''[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1150[0;31m         [0;32mif[0m [0ms[0m [0;34m!=[0m [0mself[0m[0;34m.[0m[0m_text[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1151[0m             [0mself[0m[0;34m.[0m[0m_text[0m [0;34m=[0m [0mstr[0m[0;34m([0m[0ms[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1152[0m             [0mself[0m[0;34m.[0m[0mstale[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36m__nonzero__[0;34m(self)[0m
+[1;32m   1476[0m         raise ValueError("The truth value of a {0} is ambiguous. "
+[1;32m   1477[0m                          [0;34m"Use a.empty, a.bool(), a.item(), a.any() or a.all()."[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1478[0;31m                          .format(self.__class__.__name__))
+[0m[1;32m   1479[0m [0;34m[0m[0m
+[1;32m   1480[0m     [0m__bool__[0m [0;34m=[0m [0m__nonzero__[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+ValueError: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+
+Executability                            : False

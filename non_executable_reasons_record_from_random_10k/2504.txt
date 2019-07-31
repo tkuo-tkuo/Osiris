@@ -1,0 +1,33 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import sys
+sys.path
+
+-----------------
+Original output:
+['',
+ '/opt/conda/lib/python35.zip',
+ '/opt/conda/lib/python3.5',
+ '/opt/conda/lib/python3.5/plat-linux',
+ '/opt/conda/lib/python3.5/lib-dynload',
+ '/opt/conda/lib/python3.5/site-packages',
+ '/opt/conda/lib/python3.5/site-packages/Mako-1.0.7-py3.5.egg',
+ '/opt/conda/lib/python3.5/site-packages/cycler-0.10.0-py3.5.egg',
+ '/opt/conda/lib/python3.5/site-packages/setuptools-27.2.0-py3.5.egg',
+ '/opt/conda/lib/python3.5/site-packages/IPython/extensions',
+ '/home/jovyan/.ipython']
+Executed output:
+['',
+ '/home/dabao/anaconda3/envs/Osiris_py35/lib/python35.zip',
+ '/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5',
+ '/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/plat-linux',
+ '/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/lib-dynload',
+ '/home/dabao/.local/lib/python3.5/site-packages',
+ '/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages',
+ '/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/extensions',
+ '/home/dabao/.ipython']

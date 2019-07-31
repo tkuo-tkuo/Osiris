@@ -1,0 +1,22 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+
+def test_var_kwargs(farg=1, *args, **kwargs, *args2)
+    print ("formal arg:", farg)
+    print(args)
+    print (kwargs)
+    print(args2
+
+test_var_kwargs(1, 1,2,3, first_name='sijan', last_name='bhandar',10)
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-14-2e8d76c8bdd2>"[0;36m, line [0;32m2[0m
+[0;31m    def test_var_kwargs(farg=1, *args, **kwargs, *args2)[0m
+[0m                                               ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-14-2e8d76c8bdd2>, line 2)
+
+Executability                            : False

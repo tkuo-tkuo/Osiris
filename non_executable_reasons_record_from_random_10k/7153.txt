@@ -1,0 +1,52 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import chainer
+from chainer import cuda, Function, gradient_check, report, training, utils, Variable
+from chainer import datasets, iterators, optimizers, serializers
+from chainer import Link, Chain, ChainList
+import chainer.functions as F
+import chainer.links as L
+from chainer.training import extensions
+from chainer.dataset import concat_examples
+import inspect
+from jupyterthemes import jtplot
+jtplot.style()
+from matplotlib.colors import LinearSegmentedColormap
+from matplotlib import pyplot as plt
+%matplotlib inline
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+
+def generate_cmap(colors):
+    """自分で定義したカラーマップを返す"""
+    values = range(len(colors))
+
+    vmax = np.ceil(np.max(values))
+    color_list = []
+    for v, c in zip(values, colors):
+        color_list.append( ( v/ vmax, c) )
+    return LinearSegmentedColormap.from_list('custom_cmap', color_list)
+
+train, test = datasets.get_mnist()
+train_iter = iterators.SerialIterator(train, batch_size=100, shuffle=True)
+test_iter = iterators.SerialIterator(train, batch_size=100, shuffle=False, repeat=False)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-b3def0712898>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mchainer[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mchainer[0m [0;32mimport[0m [0mcuda[0m[0;34m,[0m [0mFunction[0m[0;34m,[0m [0mgradient_check[0m[0;34m,[0m [0mreport[0m[0;34m,[0m [0mtraining[0m[0;34m,[0m [0mutils[0m[0;34m,[0m [0mVariable[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mchainer[0m [0;32mimport[0m [0mdatasets[0m[0;34m,[0m [0miterators[0m[0;34m,[0m [0moptimizers[0m[0;34m,[0m [0mserializers[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'chainer'
+ModuleNotFoundError: No module named 'chainer'
+
+Executability                            : False

@@ -1,0 +1,110 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+def process_data():
+
+    id2line = get_id2line()
+    print('>> gathered id2line dictionary.\n')
+    convs = get_conversations()
+    print(convs[121:125])
+    print('>> gathered conversations.\n')
+    questions, answers = gather_dataset(convs,id2line)
+
+    # change to lower case (just for en)
+    questions = [ line.lower() for line in questions ]
+    answers = [ line.lower() for line in answers ]
+
+    # filter out unnecessary characters
+    print('\n>> Filter lines')
+    questions = [ filter_line(line, EN_WHITELIST) for line in questions ]
+    answers = [ filter_line(line, EN_WHITELIST) for line in answers ]
+
+    # filter out too long or too short sequences
+    print('\n>> 2nd layer of filtering')
+    qlines, alines = filter_data(questions, answers)
+
+    for q,a in zip(qlines[141:145], alines[141:145]):
+        print('q : [{0}]; a : [{1}]'.format(q,a))
+
+    # convert list of [lines of text] into list of [list of words ]
+    print('\n>> Segment lines into words')
+    qtokenized = [ [w.strip() for w in wordlist.split(' ') if w] for wordlist in qlines ]
+    atokenized = [ [w.strip() for w in wordlist.split(' ') if w] for wordlist in alines ]
+    print('\n:: Sample from segmented list of words')
+
+    for q,a in zip(qtokenized[141:145], atokenized[141:145]):
+        print('q : [{0}]; a : [{1}]'.format(q,a))
+
+    # indexing -> idx2w, w2idx 
+    print('\n >> Index words')
+    idx2w, w2idx, freq_dist = index_( qtokenized + atokenized, vocab_size=VOCAB_SIZE)
+    
+    # filter out sentences with too many unknowns
+    print('\n >> Filter Unknowns')
+    qtokenized, atokenized = filter_unk(qtokenized, atokenized, w2idx)
+    print('\n Final dataset len : ' + str(len(qtokenized)))
+
+
+    print('\n >> Zero Padding')
+    idx_q, idx_a = zero_pad(qtokenized, atokenized, w2idx)
+
+    print('\n >> Save numpy arrays to disk')
+    # save them
+    np.save('idx_q.npy', idx_q)
+    np.save('idx_a.npy', idx_a)
+
+    # let us now save the necessary dictionaries
+    metadata = {
+            'w2idx' : w2idx,
+            'idx2w' : idx2w,
+            'limit' : limit,
+            'freq_dist' : freq_dist
+                }
+
+    # write to disk : data control dictionaries
+    with open('metadata.pkl', 'wb') as f:
+        pickle.dump(metadata, f)
+
+    # count of unknowns
+    unk_count = (idx_q == 1).sum() + (idx_a == 1).sum()
+    # count of words
+    word_count = (idx_q > 1).sum() + (idx_a > 1).sum()
+
+    print('% unknown : {0}'.format(100 * (unk_count/word_count)))
+    print('Dataset count : ' + str(idx_q.shape[0]))
+
+
+    #print '>> gathered questions and answers.\n'
+    #prepare_seq2seq_files(questions,answers)
+
+
+if __name__ == '__main__':
+    process_data()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-10-ea5e1c9fb4e5>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     77[0m [0;34m[0m[0m
+[1;32m     78[0m [0;32mif[0m [0m__name__[0m [0;34m==[0m [0;34m'__main__'[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 79[0;31m     [0mprocess_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-10-ea5e1c9fb4e5>[0m in [0;36mprocess_data[0;34m()[0m
+[1;32m     48[0m     [0mprint[0m[0;34m([0m[0;34m'\n >> Save numpy arrays to disk'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     49[0m     [0;31m# save them[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 50[0;31m     [0mnp[0m[0;34m.[0m[0msave[0m[0;34m([0m[0;34m'idx_q.npy'[0m[0;34m,[0m [0midx_q[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     51[0m     [0mnp[0m[0;34m.[0m[0msave[0m[0;34m([0m[0;34m'idx_a.npy'[0m[0;34m,[0m [0midx_a[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     52[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/numpy/lib/npyio.py[0m in [0;36msave[0;34m(file, arr, allow_pickle, fix_imports)[0m
+[1;32m    490[0m         [0;32mif[0m [0;32mnot[0m [0mfile[0m[0;34m.[0m[0mendswith[0m[0;34m([0m[0;34m'.npy'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    491[0m             [0mfile[0m [0;34m=[0m [0mfile[0m [0;34m+[0m [0;34m'.npy'[0m[0;34m[0m[0m
+[0;32m--> 492[0;31m         [0mfid[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfile[0m[0;34m,[0m [0;34m"wb"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    493[0m         [0mown_fid[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0m
+[1;32m    494[0m     [0;32melif[0m [0mis_pathlib_path[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'idx_q.npy'
+PermissionError: [Errno 13] Permission denied: 'idx_q.npy'
+
+Executability                            : False

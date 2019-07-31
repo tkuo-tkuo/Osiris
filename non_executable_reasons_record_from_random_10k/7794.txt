@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# This is the input for our model
+
+transactions_feb = pd.read_csv('data/transactions_feb.csv')
+transactions_mar = pd.read_csv('data/transactions_mar_train_v2.csv')
+transactions_apr = pd.read_csv('data/transactions_apr.csv')
+members_feb = pd.read_csv('data/members_train1.csv')
+members_mar = pd.read_csv('data/members_train2.csv')
+members_apr = pd.read_csv('data/members_total.csv')
+user_logs_feb = pd.read_csv('data/user_logs_feb.csv')
+user_logs_mar = pd.read_csv('data/user_logs_mar.csv')
+user_logs_apr = pd.read_csv('data/user_logs_apr.csv')
+
+print('data loaded!')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-681b699a7f94>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m# This is the input for our model[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0mtransactions_feb[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'data/transactions_feb.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mtransactions_mar[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'data/transactions_mar_train_v2.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0mtransactions_apr[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'data/transactions_apr.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

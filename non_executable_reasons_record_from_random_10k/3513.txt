@@ -1,0 +1,48 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+with open("futbolcular.txt","r",encoding="utf-8") as file:
+    gs = list()
+    bjk = list()
+    fb = list()
+    
+    for satır in file:
+        satır = satır[:-1]
+        satır_elemanları = satır.split(",")
+        if (satır_elemanları[1] == "Fenerbahçe"):
+            fb.append(satır + "\n")
+        elif (satır_elemanları[1] == "Galatasaray"):
+            gs.append(satır + "\n")
+
+        else:
+            bjk.append(satır + "\n")
+    with open("gs.txt","w",encoding="utf-8") as file1:
+        for i in gs:
+            file1.write(i)
+            
+            
+
+    with open("fb.txt","w",encoding="utf-8") as file2:
+        for i in fb:
+            file2.write(i)
+    with open("bjk.txt","w",encoding="utf-8") as file3:
+        for i in bjk:
+            file3.write(i)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-4e90d8fd02f5>[0m in [0;36m<module>[0;34m[0m
+[1;32m     16[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     17[0m             [0mbjk[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0msatır[0m [0;34m+[0m [0;34m"\n"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 18[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"gs.txt"[0m[0;34m,[0m[0;34m"w"[0m[0;34m,[0m[0mencoding[0m[0;34m=[0m[0;34m"utf-8"[0m[0;34m)[0m [0;32mas[0m [0mfile1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     19[0m         [0;32mfor[0m [0mi[0m [0;32min[0m [0mgs[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     20[0m             [0mfile1[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mi[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'gs.txt'
+PermissionError: [Errno 13] Permission denied: 'gs.txt'
+
+Executability                            : False

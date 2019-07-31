@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+a = "Murat"
+a[1] = "p"
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-13-fd3868a246f6>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0ma[0m [0;34m=[0m [0;34m"Murat"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0ma[0m[0;34m[[0m[0;36m1[0m[0;34m][0m [0;34m=[0m [0;34m"p"[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: 'str' object does not support item assignment
+TypeError: 'str' object does not support item assignment
+
+Executability                            : False

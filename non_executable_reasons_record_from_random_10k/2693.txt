@@ -1,0 +1,44 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from google.cloud import storage
+import pickle
+
+# get GS bucket and setup token
+gs = storage.Client("fleets-production")
+bucket = gs.get_bucket("noa-kraken-production")
+
+# get list of DSD files
+DSDlist = list(bucket.list_blobs(prefix='dropzone_supply_demand/models/baseline/dt_None_tf_10T_tw_70'))
+
+# Iterate on each prediction file, get Dropzones that have no Demand neither Supply predictions                                 
+a=0
+while a<len(DSDlist):
+    for Org in pickle.loads(DSDlist[a].download_as_string())["balance"].keys():
+        print(Org)
+        a=a+1
+        for DSD_el in DSDlist:
+                print(DSD_el.path)
+                dsdlist = pickle.loads(DSD_el.download_as_string())
+                supply_dz_df = dsdlist["balance"][Org]["median"].max().reset_index()
+                demand_dz_df= dsdlist["balance"][Org]["median"].min().reset_index()
+                null_supply= supply_dz_df[supply_dz_df[0] == 0]['dropzone']
+                null_demand= demand_dz_df[demand_dz_df[0] == 0]['dropzone']
+                print(set(null_supply).intersection(set(null_demand)))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-62323de02e98>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mgoogle[0m[0;34m.[0m[0mcloud[0m [0;32mimport[0m [0mstorage[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mpickle[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'google'
+ModuleNotFoundError: No module named 'google'
+
+Executability                            : False

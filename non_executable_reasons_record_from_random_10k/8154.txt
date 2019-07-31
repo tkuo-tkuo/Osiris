@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+dataset = [[int(tok) for tok in line.strip().split()]
+              for line in gzip.open('../data/recommand/retail.dat.gz')]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-b4a2fb43eefe>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m dataset = [[int(tok) for tok in line.strip().split()]
+[0;32m----> 2[0;31m               for line in gzip.open('../data/recommand/retail.dat.gz')]
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/gzip.py[0m in [0;36mopen[0;34m(filename, mode, compresslevel, encoding, errors, newline)[0m
+[1;32m     51[0m     [0mgz_mode[0m [0;34m=[0m [0mmode[0m[0;34m.[0m[0mreplace[0m[0;34m([0m[0;34m"t"[0m[0;34m,[0m [0;34m""[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     52[0m     [0;32mif[0m [0misinstance[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m([0m[0mstr[0m[0;34m,[0m [0mbytes[0m[0;34m,[0m [0mos[0m[0;34m.[0m[0mPathLike[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 53[0;31m         [0mbinary_file[0m [0;34m=[0m [0mGzipFile[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mgz_mode[0m[0;34m,[0m [0mcompresslevel[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     54[0m     [0;32melif[0m [0mhasattr[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"read"[0m[0;34m)[0m [0;32mor[0m [0mhasattr[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"write"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     55[0m         [0mbinary_file[0m [0;34m=[0m [0mGzipFile[0m[0;34m([0m[0;32mNone[0m[0;34m,[0m [0mgz_mode[0m[0;34m,[0m [0mcompresslevel[0m[0;34m,[0m [0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/gzip.py[0m in [0;36m__init__[0;34m(self, filename, mode, compresslevel, fileobj, mtime)[0m
+[1;32m    161[0m             [0mmode[0m [0;34m+=[0m [0;34m'b'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    162[0m         [0;32mif[0m [0mfileobj[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 163[0;31m             [0mfileobj[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mmyfileobj[0m [0;34m=[0m [0mbuiltins[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmode[0m [0;32mor[0m [0;34m'rb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    164[0m         [0;32mif[0m [0mfilename[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    165[0m             [0mfilename[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mfileobj[0m[0;34m,[0m [0;34m'name'[0m[0;34m,[0m [0;34m''[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/recommand/retail.dat.gz'
+FileNotFoundError: [Errno 2] No such file or directory: '../data/recommand/retail.dat.gz'
+
+Executability                            : False

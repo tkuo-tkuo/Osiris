@@ -1,0 +1,74 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# using the same DataFrame, index into the row whose index is 'obs3'
+df.ix['obs3']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   2656[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2657[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2658[0m             [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index_class_helper.pxi[0m in [0;36mpandas._libs.index.Int64Engine._check_type[0;34m()[0m
+
+[0;31mKeyError[0m: 'obs3'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-5-05ed60feed3e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# using the same DataFrame, index into the row whose index is 'obs3'[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdf[0m[0;34m.[0m[0mix[0m[0;34m[[0m[0;34m'obs3'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexing.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m    124[0m [0;34m[0m[0m
+[1;32m    125[0m             [0mkey[0m [0;34m=[0m [0mcom[0m[0;34m.[0m[0mapply_if_callable[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mobj[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 126[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_axis[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    127[0m [0;34m[0m[0m
+[1;32m    128[0m     [0;32mdef[0m [0m_get_label[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mlabel[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexing.py[0m in [0;36m_getitem_axis[0;34m(self, key, axis)[0m
+[1;32m   1104[0m                     [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_get_loc[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1105[0m [0;34m[0m[0m
+[0;32m-> 1106[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_get_label[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1107[0m [0;34m[0m[0m
+[1;32m   1108[0m     [0;32mdef[0m [0m_get_listlike_indexer[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0maxis[0m[0;34m,[0m [0mraise_missing[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexing.py[0m in [0;36m_get_label[0;34m(self, label, axis)[0m
+[1;32m    139[0m             [0;32mraise[0m [0mIndexingError[0m[0;34m([0m[0;34m'no slices here, handle elsewhere'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    140[0m [0;34m[0m[0m
+[0;32m--> 141[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mobj[0m[0;34m.[0m[0m_xs[0m[0;34m([0m[0mlabel[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    142[0m [0;34m[0m[0m
+[1;32m    143[0m     [0;32mdef[0m [0m_get_loc[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36mxs[0;34m(self, key, axis, level, drop_level)[0m
+[1;32m   3583[0m                                                       drop_level=drop_level)
+[1;32m   3584[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3585[0;31m             [0mloc[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mindex[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3586[0m [0;34m[0m[0m
+[1;32m   3587[0m             [0;32mif[0m [0misinstance[0m[0;34m([0m[0mloc[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mndarray[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   2657[0m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2658[0m             [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2659[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_maybe_cast_indexer[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2660[0m         [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_indexer[0m[0;34m([0m[0;34m[[0m[0mkey[0m[0;34m][0m[0;34m,[0m [0mmethod[0m[0;34m=[0m[0mmethod[0m[0;34m,[0m [0mtolerance[0m[0;34m=[0m[0mtolerance[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2661[0m         [0;32mif[0m [0mindexer[0m[0;34m.[0m[0mndim[0m [0;34m>[0m [0;36m1[0m [0;32mor[0m [0mindexer[0m[0;34m.[0m[0msize[0m [0;34m>[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index_class_helper.pxi[0m in [0;36mpandas._libs.index.Int64Engine._check_type[0;34m()[0m
+
+[0;31mKeyError[0m: 'obs3'
+KeyError: 'obs3'
+
+Executability                            : False

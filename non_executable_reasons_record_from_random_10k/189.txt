@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+jieba.load_userdict('userdict.txt')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-13-9784a0027a80>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mjieba[0m[0;34m.[0m[0mload_userdict[0m[0;34m([0m[0;34m'userdict.txt'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/jieba/__init__.py[0m in [0;36mload_userdict[0;34m(self, f)[0m
+[1;32m    372[0m         [0;32mif[0m [0misinstance[0m[0;34m([0m[0mf[0m[0;34m,[0m [0mstring_types[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    373[0m             [0mf_name[0m [0;34m=[0m [0mf[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 374[0;31m             [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mf[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    375[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    376[0m             [0mf_name[0m [0;34m=[0m [0mresolve_filename[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'userdict.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'userdict.txt'
+
+Executability                            : False

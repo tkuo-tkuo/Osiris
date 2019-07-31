@@ -1,0 +1,28 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import stats
+import seaborn as sns
+from IPython.core.display import HTML
+import pymc3 as pm
+import theano
+import theano.tensor as tt
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-c8731631e8a9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mIPython[0m[0;34m.[0m[0mcore[0m[0;34m.[0m[0mdisplay[0m [0;32mimport[0m [0mHTML[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mimport[0m [0mpymc3[0m [0;32mas[0m [0mpm[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mimport[0m [0mtheano[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mimport[0m [0mtheano[0m[0;34m.[0m[0mtensor[0m [0;32mas[0m [0mtt[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pymc3'
+ModuleNotFoundError: No module named 'pymc3'
+
+Executability                            : False

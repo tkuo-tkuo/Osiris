@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+glimpse(tb)
+------------------
+
+NameError: name 'glimpse' is not defined
+
+Executability                            : False

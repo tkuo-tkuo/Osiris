@@ -1,0 +1,34 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 14 ; number of cells: 16
+Reproducibility                          : matched ratio: 0.875 ; index of matched cells: [0, 1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 15]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+ecom['Purchase Price'].max()
+
+-----------------
+Original output:
+99.989999999999995
+Executed output:
+99.99
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+ecom['Job'].value_counts().head(5) 
+
+-----------------
+Original output:
+Interior and spatial designer        31
+Lawyer                               30
+Social researcher                    28
+Research officer, political party    27
+Designer, jewellery                  27
+Name: Job, dtype: int64
+Executed output:
+Interior and spatial designer        31
+Lawyer                               30
+Social researcher                    28
+Designer, jewellery                  27
+Research officer, political party    27
+Name: Job, dtype: int64

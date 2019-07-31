@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#Hatalı
+i? = 5
+------------------
+
+[0;36m  File [0;32m"<ipython-input-19-687cb8aeaa4f>"[0;36m, line [0;32m2[0m
+[0;31m    i? = 5[0m
+[0m     ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-19-687cb8aeaa4f>, line 2)
+
+Executability                            : False

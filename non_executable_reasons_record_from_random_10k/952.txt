@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+wochentag = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+tage = {
+montag [],
+dienstag [],
+mittwoch [],
+donnerstag [],
+freitag [],
+samstag [],
+sonntag []
+}
+    
+def cutter(day):
+    pepsplit = day.strip()
+    print(pepsplit)
+with open("pepweek.txt", "r") as file:
+    pep = []
+    for line in file:
+        cutter(line)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-079cfeb7f987>"[0;36m, line [0;32m5[0m
+[0;31m    montag [],[0m
+[0m            ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-079cfeb7f987>, line 5)
+
+Executability                            : False

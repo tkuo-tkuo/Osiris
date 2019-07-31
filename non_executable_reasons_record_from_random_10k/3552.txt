@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+liste.remove("Javascript") # Listede yok hata verir.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-19-38589c50f7e6>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mliste[0m[0;34m.[0m[0mremove[0m[0;34m([0m[0;34m"Javascript"[0m[0;34m)[0m [0;31m# Listede yok hata verir.[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: list.remove(x): x not in list
+ValueError: list.remove(x): x not in list
+
+Executability                            : False

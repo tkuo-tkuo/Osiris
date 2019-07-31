@@ -1,0 +1,57 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+
+fig = plt.figure(figsize=(10,10))
+ax = fig.add_subplot(111, projection='3d')
+origin = np.array([0, 0, 0])
+#axis and radius
+p0 = np.array([-1, -1, -1])
+p1 = np.array([1, 1, 1])
+R = 5
+#vector in direction of axis
+v = p1 - p0
+#find magnitude of vector
+mag = norm(v)
+#unit vector in direction of axis
+v = v / mag
+#make some vector not in the same direction as v
+not_v = np.array([1, 0, 0])
+if (v == not_v).all():
+    not_v = np.array([0, 1, 0])
+#make vector perpendicular to v
+n1 = np.cross(v, not_v)
+#normalize n1
+n1 /= norm(n1)
+#make unit vector perpendicular to v and n1
+n2 = np.cross(v, n1)
+#surface ranges over t from 0 to length of axis and 0 to 2*pi
+t = np.linspace(0, mag, 100)
+theta = np.linspace(0, 2 * np.pi, 100)
+#use meshgrid to make 2d arrays
+t, theta = np.meshgrid(t, theta)
+#generate coordinates for surface
+X, Y, Z = [p0[i] + v[i] * t + R * np.sin(theta) * n1[i] + R * np.cos(theta) * n2[i] for i in [0, 1, 2]]
+ax.plot_surface(X, Y, Z)
+#plot axis
+ax.plot(*zip(p0, p1), color = 'red')
+ax.plot([p1[0],p1[0]+n1[0]*10],[p1[1],p1[1]+n1[1]*10],[p1[2],p1[2]+n1[2]*10],color='k')
+print([p1[0],p1[0]+n1[0]*10],[p1[1],p1[1]+n1[1]*10],[p1[2],p1[2]+n1[2]*10])
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-9d16a7fdac62>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0mfig[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m10[0m[0;34m,[0m[0;36m10[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0max[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0madd_subplot[0m[0;34m([0m[0;36m111[0m[0;34m,[0m [0mprojection[0m[0;34m=[0m[0;34m'3d'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0morigin[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0;36m0[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+solve(softplus-1)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-0b0dbf77dd64>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0msolve[0m[0;34m([0m[0msoftplus[0m[0;34m-[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'softplus' is not defined
+NameError: name 'softplus' is not defined
+
+Executability                            : False

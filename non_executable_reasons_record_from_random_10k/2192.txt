@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+sns.set_context('talk')
+sns.set_style('ticks')
+sns.set_palette('dark')
+
+ax = score_df.set_index('k').plot()
+
+ax.set(xlabel='k', ylabel='accuracy')
+ax.set_xticks(range(1, 21));
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-11-dc130032f7e3>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0msns[0m[0;34m.[0m[0mset_palette[0m[0;34m([0m[0;34m'dark'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0max[0m [0;34m=[0m [0mscore_df[0m[0;34m.[0m[0mset_index[0m[0;34m([0m[0;34m'k'[0m[0;34m)[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0max[0m[0;34m.[0m[0mset[0m[0;34m([0m[0mxlabel[0m[0;34m=[0m[0;34m'k'[0m[0;34m,[0m [0mylabel[0m[0;34m=[0m[0;34m'accuracy'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'score_df' is not defined
+NameError: name 'score_df' is not defined
+
+Executability                            : False

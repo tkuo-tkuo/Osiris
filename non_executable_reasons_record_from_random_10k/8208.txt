@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+b = pd.read_csv('data/h3zm-ta5h.tsv', sep='\t')
+b = b.round(1)
+b2 = b.copy()
+bCodes = []
+for col in b2:
+    typ = str(b2[col].dtype)
+    if typ in ['int', 'int32', 'int64','float', 'float32', 'float64']:
+        b2[col] = standardize(b2[col])
+    elif typ in ['object', 'string']:
+        b2[col], fcodes = cat_encode(b2[col])
+        bCodes.append(fcodes)
+        
+b3 = b2.dropna().copy()
+b3.reset_index(inplace=True, drop=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-329218f871b5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m         [0mb2[0m[0;34m[[0m[0mcol[0m[0;34m][0m [0;34m=[0m [0mstandardize[0m[0;34m([0m[0mb2[0m[0;34m[[0m[0mcol[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m     [0;32melif[0m [0mtyp[0m [0;32min[0m [0;34m[[0m[0;34m'object'[0m[0;34m,[0m [0;34m'string'[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m         [0mb2[0m[0;34m[[0m[0mcol[0m[0;34m][0m[0;34m,[0m [0mfcodes[0m [0;34m=[0m [0mcat_encode[0m[0;34m([0m[0mb2[0m[0;34m[[0m[0mcol[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m         [0mbCodes[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mfcodes[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'cat_encode' is not defined
+NameError: name 'cat_encode' is not defined
+
+Executability                            : False

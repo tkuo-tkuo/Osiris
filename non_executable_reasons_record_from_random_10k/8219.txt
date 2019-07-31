@@ -1,0 +1,13 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+echo "files in current directory:" `pwd`
+for i in `ls`; do echo $i; done
+------------------
+
+SyntaxError: invalid syntax (<ipython-input-1-777717dbb574>, line 3)
+
+Executability                            : False

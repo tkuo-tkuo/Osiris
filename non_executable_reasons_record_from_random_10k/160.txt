@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from sklearn.cross_validation import cross_val_score
+
+# Use selected features as input for the classifier (target)
+X_previouswins = df[['Home Last Win', 'Visitor Last Win']].values
+
+# Decision Tree Classifier
+dtc = DecisionTreeClassifier(random_state = 14)
+scores = cross_val_score(dtc, X_previouswins, y_true, scoring = scorer)
+
+# Print results
+print("Using just the last result from the home and visitor teams")
+print('F1: {0:.4f}%'.format(np.mean(scores) * 100))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-18-7698f8d79775>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mcross_validation[0m [0;32mimport[0m [0mcross_val_score[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# Use selected features as input for the classifier (target)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mX_previouswins[0m [0;34m=[0m [0mdf[0m[0;34m[[0m[0;34m[[0m[0;34m'Home Last Win'[0m[0;34m,[0m [0;34m'Visitor Last Win'[0m[0;34m][0m[0;34m][0m[0;34m.[0m[0mvalues[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'sklearn.cross_validation'
+ModuleNotFoundError: No module named 'sklearn.cross_validation'
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+simpleAlgorithm((1,1), 1/15, testdf)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-a9fcccb4eb04>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0msimpleAlgorithm[0m[0;34m([0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m)[0m[0;34m,[0m [0;36m1[0m[0;34m/[0m[0;36m15[0m[0;34m,[0m [0mtestdf[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'simpleAlgorithm' is not defined
+NameError: name 'simpleAlgorithm' is not defined
+
+Executability                            : False

@@ -1,0 +1,82 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+#your code here
+play_var = play(5,6)
+pdb.run(play_var)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-11-eacb551f7f12>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m#your code here[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mplay_var[0m [0;34m=[0m [0mplay[0m[0;34m([0m[0;36m5[0m[0;34m,[0m[0;36m6[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mpdb[0m[0;34m.[0m[0mrun[0m[0;34m([0m[0mplay_var[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-10-729fe9fa9c76>[0m in [0;36mplay[0;34m(a, b)[0m
+[1;32m      4[0m     [0;32mimport[0m [0mpdb[0m[0;34m;[0m[0mpdb[0m[0;34m.[0m[0mset_trace[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m     [0me[0m [0;34m=[0m [0ma[0m[0;34m+[0m[0mb[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     [0;32mdef[0m [0mg[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      8[0m         [0mpdb[0m[0;34m.[0m[0mset_trace[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-10-729fe9fa9c76>[0m in [0;36mplay[0;34m(a, b)[0m
+[1;32m      4[0m     [0;32mimport[0m [0mpdb[0m[0;34m;[0m[0mpdb[0m[0;34m.[0m[0mset_trace[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m     [0me[0m [0;34m=[0m [0ma[0m[0;34m+[0m[0mb[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     [0;32mdef[0m [0mg[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      8[0m         [0mpdb[0m[0;34m.[0m[0mset_trace[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/bdb.py[0m in [0;36mtrace_dispatch[0;34m(self, frame, event, arg)[0m
+[1;32m     46[0m             [0;32mreturn[0m [0;31m# None[0m[0;34m[0m[0m
+[1;32m     47[0m         [0;32mif[0m [0mevent[0m [0;34m==[0m [0;34m'line'[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 48[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdispatch_line[0m[0;34m([0m[0mframe[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     49[0m         [0;32mif[0m [0mevent[0m [0;34m==[0m [0;34m'call'[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     50[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdispatch_call[0m[0;34m([0m[0mframe[0m[0;34m,[0m [0marg[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/bdb.py[0m in [0;36mdispatch_line[0;34m(self, frame)[0m
+[1;32m     64[0m     [0;32mdef[0m [0mdispatch_line[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mframe[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     65[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mstop_here[0m[0;34m([0m[0mframe[0m[0;34m)[0m [0;32mor[0m [0mself[0m[0;34m.[0m[0mbreak_here[0m[0;34m([0m[0mframe[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 66[0;31m             [0mself[0m[0;34m.[0m[0muser_line[0m[0;34m([0m[0mframe[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     67[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mquitting[0m[0;34m:[0m [0;32mraise[0m [0mBdbQuit[0m[0;34m[0m[0m
+[1;32m     68[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mtrace_dispatch[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/pdb.py[0m in [0;36muser_line[0;34m(self, frame)[0m
+[1;32m    257[0m             [0mself[0m[0;34m.[0m[0m_wait_for_mainpyfile[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0m
+[1;32m    258[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mbp_commands[0m[0;34m([0m[0mframe[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 259[0;31m             [0mself[0m[0;34m.[0m[0minteraction[0m[0;34m([0m[0mframe[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    260[0m [0;34m[0m[0m
+[1;32m    261[0m     [0;32mdef[0m [0mbp_commands[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mframe[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/pdb.py[0m in [0;36minteraction[0;34m(self, frame, traceback)[0m
+[1;32m    348[0m             [0;32mreturn[0m[0;34m[0m[0m
+[1;32m    349[0m         [0mself[0m[0;34m.[0m[0mprint_stack_entry[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mstack[0m[0;34m[[0m[0mself[0m[0;34m.[0m[0mcurindex[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 350[0;31m         [0mself[0m[0;34m.[0m[0m_cmdloop[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    351[0m         [0mself[0m[0;34m.[0m[0mforget[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    352[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/pdb.py[0m in [0;36m_cmdloop[0;34m(self)[0m
+[1;32m    317[0m                 [0;31m# the current command, so allow them during interactive input[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    318[0m                 [0mself[0m[0;34m.[0m[0mallow_kbdint[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0m
+[0;32m--> 319[0;31m                 [0mself[0m[0;34m.[0m[0mcmdloop[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    320[0m                 [0mself[0m[0;34m.[0m[0mallow_kbdint[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0m
+[1;32m    321[0m                 [0;32mbreak[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/cmd.py[0m in [0;36mcmdloop[0;34m(self, intro)[0m
+[1;32m    124[0m                     [0;32mif[0m [0mself[0m[0;34m.[0m[0muse_rawinput[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    125[0m                         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 126[0;31m                             [0mline[0m [0;34m=[0m [0minput[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mprompt[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    127[0m                         [0;32mexcept[0m [0mEOFError[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    128[0m                             [0mline[0m [0;34m=[0m [0;34m'EOF'[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

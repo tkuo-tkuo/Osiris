@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Práctica 2: Resolución de bloxorz usando A\* (o solamente A).
+
+En la práctica 2 se van a implementar las funciones necesarias para resolver el bloxorz usando A\* o A (si la heurística que utilizamos no es minorante).
+
+## Requisitos
+1. Tener la función mueve de la práctica 1 funcionando correctamente.
+2. Tener la implementación de A\* funcionando correctamente sobre el grafo.
+
+Antes de dedicar tiempo a implementar la resolución del bloxorz usando A\* el alumno deberá estar completamente seguro de que lo anterior está correcto.
+Para ello debe usar distintos test que comprueben que tanto la salida de la función **mueve** como de la función **AStar** es la esperada.
+
+De lo contrario la depuración y búsqueda de errores será impracticable, ya que no se sabrá si el fallo está en las funciones de sucesores, meta, heurística o si está en el propio AStar o era la función mueve.
+
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-02e4362c8414>"[0;36m, line [0;32m5[0m
+[0;31m    En la práctica 2 se van a implementar las funciones necesarias para resolver el bloxorz usando A\* o A (si la heurística que utilizamos no es minorante).[0m
+[0m        ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-02e4362c8414>, line 5)
+
+Executability                            : False

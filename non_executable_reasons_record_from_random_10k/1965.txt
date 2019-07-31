@@ -1,0 +1,51 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# columns names
+columns = query_results.columns.values.tolist()
+
+# selection of the range that will be updated
+cell_list = wks.range(‘A1:F1’)
+
+# modifying the values in the range
+for cell in cell_list:
+    val = columns[cell.col-1]
+if type(val) is str:
+    val = val.decode(‘utf-8’)
+    cell.value = val
+
+# update column headers in batch to google sheet
+wks.update_cells(cell_list)
+
+# number of lines and columns
+num_lines, num_columns = query_results.shape
+
+# Select a cell range for results
+cell_list = wks.range(‘A2:’+numberToLetters(num_columns)+str(num_lines+1))
+
+# Update values
+for cell in cell_list:
+    val = query_results.iloc[cell.row-2,cell.col-1]
+    
+if type(val) is str:
+    val = val.decode(‘utf-8’)
+elif isinstance(val, (int, long, float, complex)):
+    
+    # note that we round all numbers
+    val = int(round(val))
+    cell.value = val
+
+    # Send results to update sheet in batch mode
+    wks.update_cells(cell_list)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-016aea543f46>"[0;36m, line [0;32m7[0m
+[0;31m    cell_list = wks.range(‘A1:F1’)[0m
+[0m                            ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid character in identifier
+
+SyntaxError: invalid character in identifier (<ipython-input-1-016aea543f46>, line 7)
+
+Executability                            : False

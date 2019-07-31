@@ -1,0 +1,288 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 10 ; number of cells: 17
+Reproducibility                          : matched ratio: 0.588 ; index of matched cells: [0, 1, 3, 5, 7, 8, 9, 11, 13, 15]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+np.random.seed(1)
+x = np.random.randn(4, 3, 3, 2)
+x_pad = zero_pad(x, 2)
+print ("x.shape =", x.shape)
+print ("x_pad.shape =", x_pad.shape)
+print ("x[1,1] =", x[1,1])
+print ("x_pad[1,1] =", x_pad[1,1])
+
+fig, axarr = plt.subplots(1, 2)
+axarr[0].set_title('x')
+axarr[0].imshow(x[0,:,:,0])
+axarr[1].set_title('x_pad')
+axarr[1].imshow(x_pad[0,:,:,0])
+
+-----------------
+Original output:
+x.shape = (4, 3, 3, 2)
+x_pad.shape = (4, 7, 7, 2)
+x[1,1] = [[ 0.90085595 -0.68372786]
+ [-0.12289023 -0.93576943]
+ [-0.26788808  0.53035547]]
+x_pad[1,1] = [[ 0.  0.]
+ [ 0.  0.]
+ [ 0.  0.]
+ [ 0.  0.]
+ [ 0.  0.]
+ [ 0.  0.]
+ [ 0.  0.]]
+<matplotlib.image.AxesImage at 0x7f2a08bcb1d0>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
+
+Executed output:
+x.shape = (4, 3, 3, 2)
+x_pad.shape = (4, 7, 7, 2)
+x[1,1] = [[ 0.90085595 -0.68372786]
+ [-0.12289023 -0.93576943]
+ [-0.26788808  0.53035547]]
+x_pad[1,1] = [[0. 0.]
+ [0. 0.]
+ [0. 0.]
+ [0. 0.]
+ [0. 0.]
+ [0. 0.]
+ [0. 0.]]
+<matplotlib.image.AxesImage at 0x7f81da7d9630>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
+
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+np.random.seed(1)
+a_slice_prev = np.random.randn(4, 4, 3)
+W = np.random.randn(4, 4, 3)
+b = np.random.randn(1, 1, 1)
+
+Z = conv_single_step(a_slice_prev, W, b)
+print("Z =", Z)
+
+-----------------
+Original output:
+Z = -6.99908945068
+
+Executed output:
+Z = -6.999089450680221
+
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+np.random.seed(1)
+A_prev = np.random.randn(10,4,4,3)
+W = np.random.randn(2,2,3,8)
+b = np.random.randn(1,1,1,8)
+hparameters = {"pad" : 2,
+               "stride": 2}
+
+Z, cache_conv = conv_forward(A_prev, W, b, hparameters)
+print("Z's mean =", np.mean(Z))
+print("Z[3,2,1] =", Z[3,2,1])
+print("cache_conv[0][1][2][3] =", cache_conv[0][1][2][3])
+
+-----------------
+Original output:
+Z's mean = 0.0489952035289
+Z[3,2,1] = [-0.61490741 -6.7439236  -2.55153897  1.75698377  3.56208902  0.53036437
+  5.18531798  8.75898442]
+cache_conv[0][1][2][3] = [-0.20075807  0.18656139  0.41005165]
+
+Executed output:
+Z's mean = 0.048995203528855794
+Z[3,2,1] = [-0.61490741 -6.7439236  -2.55153897  1.75698377  3.56208902  0.53036437
+  5.18531798  8.75898442]
+cache_conv[0][1][2][3] = [-0.20075807  0.18656139  0.41005165]
+
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+a = distribute_value(2, (2,2))
+print('distributed value =', a)
+
+-----------------
+Original output:
+distributed value = [[ 0.5  0.5]
+ [ 0.5  0.5]]
+
+Executed output:
+distributed value = [[0.5 0.5]
+ [0.5 0.5]]
+
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+np.random.seed(1)
+A_prev = np.random.randn(2, 4, 4, 3)
+hparameters = {"stride" : 2, "f": 3}
+
+A, cache = pool_forward(A_prev, hparameters)
+print("mode = max")
+print("A =", A)
+print()
+A, cache = pool_forward(A_prev, hparameters, mode = "average")
+print("mode = average")
+print("A =", A)
+
+-----------------
+Original output:
+mode = max
+A = [[[[ 1.74481176  0.86540763  1.13376944]]]
+
+
+ [[[ 1.13162939  1.51981682  2.18557541]]]]
+
+mode = average
+A = [[[[ 0.02105773 -0.20328806 -0.40389855]]]
+
+
+ [[[-0.22154621  0.51716526  0.48155844]]]]
+
+Executed output:
+mode = max
+A = [[[[1.74481176 0.86540763 1.13376944]]]
+
+
+ [[[1.13162939 1.51981682 2.18557541]]]]
+
+mode = average
+A = [[[[ 0.02105773 -0.20328806 -0.40389855]]]
+
+
+ [[[-0.22154621  0.51716526  0.48155844]]]]
+
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+np.random.seed(1)
+dA, dW, db = conv_backward(Z, cache_conv)
+print("dA_mean =", np.mean(dA))
+print("dW_mean =", np.mean(dW))
+print("db_mean =", np.mean(db))
+
+-----------------
+Original output:
+dA_mean = 1.45243777754
+dW_mean = 1.72699145831
+db_mean = 7.83923256462
+
+Executed output:
+dA_mean = 1.4524377775388075
+dW_mean = 1.7269914583139097
+db_mean = 7.839232564616838
+
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+np.random.seed(1)
+A_prev = np.random.randn(5, 5, 3, 2)
+hparameters = {"stride" : 1, "f": 2}
+A, cache = pool_forward(A_prev, hparameters)
+dA = np.random.randn(5, 4, 2, 2)
+
+dA_prev = pool_backward(dA, cache, mode = "max")
+print("mode = max")
+print('mean of dA = ', np.mean(dA))
+print('dA_prev[1,1] = ', dA_prev[1,1])  
+print()
+dA_prev = pool_backward(dA, cache, mode = "average")
+print("mode = average")
+print('mean of dA = ', np.mean(dA))
+print('dA_prev[1,1] = ', dA_prev[1,1]) 
+
+-----------------
+Original output:
+mode = max
+mean of dA =  0.145713902729
+dA_prev[1,1] =  [[ 0.          0.        ]
+ [ 5.05844394 -1.68282702]
+ [ 0.          0.        ]]
+
+mode = average
+mean of dA =  0.145713902729
+dA_prev[1,1] =  [[ 0.08485462  0.2787552 ]
+ [ 1.26461098 -0.25749373]
+ [ 1.17975636 -0.53624893]]
+
+Executed output:
+mode = max
+mean of dA =  0.14571390272918056
+dA_prev[1,1] =  [[ 0.          0.        ]
+ [ 5.05844394 -1.68282702]
+ [ 0.          0.        ]]
+
+mode = average
+mean of dA =  0.14571390272918056
+dA_prev[1,1] =  [[ 0.08485462  0.2787552 ]
+ [ 1.26461098 -0.25749373]
+ [ 1.17975636 -0.53624893]]
+

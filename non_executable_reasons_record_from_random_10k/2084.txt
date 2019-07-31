@@ -1,0 +1,31 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+with open('../../output/cv_df_list_prospective_monthly.pkl', 'rb') as file:
+    data_file = pickle.load(file)
+
+k = 6
+prov = 10
+
+input_data = data_file[k]
+input_data['year_month'] = (input_data['date_sick_year']-2006)*12 + (input_data['month'])
+
+df = input_data.loc[input_data['province'] == prov]
+df.tail()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-28924604ffd2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'../../output/cv_df_list_prospective_monthly.pkl'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mfile[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mdata_file[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../output/cv_df_list_prospective_monthly.pkl'
+FileNotFoundError: [Errno 2] No such file or directory: '../../output/cv_df_list_prospective_monthly.pkl'
+
+Executability                            : False

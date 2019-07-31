@@ -1,0 +1,71 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Import the required modules
+import numpy as np
+from scipy.integrate import odeint
+from printSoln import *
+import pylab as pl
+
+#Define the constants used in the differential equations
+a,b,c=5.0, 0.9, 8.2
+
+#
+'''Defining a function F where a du/dt, dv/dt and dw/dt are represented by a vector size 1x3
+and u, v and w are y[0], y[1] and y[2] respectivly.'''
+#
+
+def F(y,x):
+    F = np.zeros(3)
+    F[0] = -a*(y[0]-y[1]) #Equation 1
+    F[1] = c*y[0] - y[1] - y[0]*y[2] #Equation 2
+    F[2] = -b*y[2] + y[0]*y[1] #Equation 3
+    return F
+
+
+t = np.linspace(0,10,1000) # Where I want the solution. linspace (start, end, amount of points).
+y = np.array([0.0, 1.0, 2.0]) # Initial values of {y}
+
+freq = 200 # Printout frequency, will print out the intial start and then every 200 points will be printed corresponting to two seconds.
+Y1= odeint(F,y,t)
+
+#run again redefining "c".
+c=8.3
+
+Y2= odeint(F,y,t)
+
+#
+'''Having looked at the printSoln code I cannot add a title to the data to explain what it is; so 
+I have called a seperate print command before it. Also the header "x" in the table is actually "t" but
+is hard-coded in the module to be called "x". '''
+#
+
+print ('''Solutions of u(t), v(t) and w(t) for time, x every two seconds when c=8.2''')
+printSoln(t,Y1,freq)
+
+print ('\n\n','''Solutions of u(t), v(t) and w(t) for time, x every two seconds when c=8.3''')
+printSoln(t,Y2,freq)
+
+#Now to plot u when c=82 and when c=8.3
+pl.plot(t,Y1[:,0],label='u when c=8.2')
+pl.plot(t,Y2[:,0],label='u  when c=8.3')
+pl.xlabel('Time (seconds)')
+pl.title('''A Plot of u(t) at both c=8.2 and c=8.3''')
+pl.legend()
+pl.show()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-36e51835080a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mintegrate[0m [0;32mimport[0m [0modeint[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mprintSoln[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mpylab[0m [0;32mas[0m [0mpl[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'printSoln'
+ModuleNotFoundError: No module named 'printSoln'
+
+Executability                            : False

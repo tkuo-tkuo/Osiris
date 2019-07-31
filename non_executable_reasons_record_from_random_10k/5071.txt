@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pickle
+with open("vonMisesData_100neurons.p", "rb") as input_file:
+    [NumNeurons, NeuronParameters, WorldParameters, Neurons, 
+         NumTrajectories, TrajStartPos, RatRadialSpeed, TrajLength, SpikeRasters] = pickle.load(input_file)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-6509eaa6138f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mpickle[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"vonMisesData_100neurons.p"[0m[0;34m,[0m [0;34m"rb"[0m[0;34m)[0m [0;32mas[0m [0minput_file[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      5[0m     [NumNeurons, NeuronParameters, WorldParameters, Neurons, 
+[1;32m      6[0m          NumTrajectories, TrajStartPos, RatRadialSpeed, TrajLength, SpikeRasters] = pickle.load(input_file)
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'vonMisesData_100neurons.p'
+FileNotFoundError: [Errno 2] No such file or directory: 'vonMisesData_100neurons.p'
+
+Executability                            : False

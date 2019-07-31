@@ -1,0 +1,42 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+doc1 = "cat dog" 
+doc2 = "dog lion"
+doc3 = "cat lion"
+doc4 = "banana orange" 
+doc5 = "apple orange"
+doc6 = "banana apple"
+doc_complete = [doc1, doc2, doc3,doc4, doc5, doc6]
+doc_clean = [doc.split() for doc in doc_complete]
+# Creating the term dictionary of our corpus, where every unique term is assigned an index.  
+dictionary = corpora.Dictionary(doc_clean)
+print(dictionary)
+
+# Converting list of documents (corpus) into Document Term Matrix using dictionary prepared above. 
+doc_term_matrix = [dictionary.doc2bow(doc) for doc in doc_clean]
+print(doc_term_matrix)
+
+# Creating the object for LDA model using gensim library
+Lda = gensim.models.ldamodel.LdaModel
+
+# Running and Training LDA model on the document term matrix
+ldamodel = Lda(doc_term_matrix, num_topics=2, id2word = dictionary, passes=50)
+
+# Results 
+print(ldamodel.print_topics())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-d656944778f5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0mdoc_clean[0m [0;34m=[0m [0;34m[[0m[0mdoc[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m)[0m [0;32mfor[0m [0mdoc[0m [0;32min[0m [0mdoc_complete[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;31m# Creating the term dictionary of our corpus, where every unique term is assigned an index.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0mdictionary[0m [0;34m=[0m [0mcorpora[0m[0;34m.[0m[0mDictionary[0m[0;34m([0m[0mdoc_clean[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0mprint[0m[0;34m([0m[0mdictionary[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'corpora' is not defined
+NameError: name 'corpora' is not defined
+
+Executability                            : False

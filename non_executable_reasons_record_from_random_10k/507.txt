@@ -1,0 +1,39 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#!/usr/bin/env python
+"""Mixture model using variational inference.
+We posit a collapsed mixture of Gaussians.
+"""
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import edward as ed
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import numpy as np
+import tensorflow as tf
+
+from edward.models import Dirichlet, Normal, InverseGamma
+from edward.stats import dirichlet, invgamma, multivariate_normal_diag, norm
+from edward.util import get_dims
+
+plt.style.use('ggplot')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-aee9b78e6817>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mprint_function[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0;32mimport[0m [0medward[0m [0;32mas[0m [0med[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mcm[0m [0;32mas[0m [0mcm[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'edward'
+ImportError: No module named 'edward'
+
+Executability                            : False

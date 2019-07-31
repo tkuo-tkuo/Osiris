@@ -1,0 +1,48 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 42 ; number of cells: 46
+Reproducibility                          : matched ratio: 0.913 ; index of matched cells: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+# Randomly sample 100,000 times, and count up the results:
+Counter(sample(P(Earthquake)) for i in range(100000))
+
+-----------------
+Original output:
+Counter({F: 99793, T: 207})
+Executed output:
+Counter({F: 99804, T: 196})
+-------------------------------------------
+Source Code of a Unmatched Cell 30
+-------------------------------------------
+# But if you were not vaccinated, there is a higher chance you have the flu.
+enumeration_ask(Flu, {Headache: T, Fever: 'no', Vaccinated: F}, flu_net)
+
+-----------------
+Original output:
+{F: 0.9194016377587207, T: 0.08059836224127925}
+Executed output:
+{F: 0.9194016377587209, T: 0.08059836224127925}
+-------------------------------------------
+Source Code of a Unmatched Cell 31
+-------------------------------------------
+# And if you have both headache and fever, and were not vaccinated, 
+# then the flu is very likely, especially if it is a high fever.
+enumeration_ask(Flu, {Headache: T, Fever: 'mild', Vaccinated: F}, flu_net)
+
+-----------------
+Original output:
+{F: 0.1904145077720207, T: 0.8095854922279793}
+Executed output:
+{F: 0.19041450777202068, T: 0.8095854922279793}
+-------------------------------------------
+Source Code of a Unmatched Cell 32
+-------------------------------------------
+enumeration_ask(Flu, {Headache: T, Fever: 'high', Vaccinated: F}, flu_net)
+
+-----------------
+Original output:
+{F: 0.055534567434831886, T: 0.9444654325651682}
+Executed output:
+{F: 0.05553456743483188, T: 0.9444654325651682}

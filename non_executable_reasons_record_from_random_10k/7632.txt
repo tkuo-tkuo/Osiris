@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+arr7.reshape(4,3,2),arr8.reshape(-1,2)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-84430c588a66>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0marr7[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0;36m4[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m[0;36m2[0m[0;34m)[0m[0;34m,[0m[0marr8[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'arr8' is not defined
+NameError: name 'arr8' is not defined
+
+Executability                            : False

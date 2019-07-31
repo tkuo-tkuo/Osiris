@@ -1,0 +1,74 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+#Import the necessary methods from tweepy library
+from tweepy.streaming import StreamListener
+from tweepy import OAuthHandler
+from tweepy import Stream
+import json
+import pandas as pd
+from textblob import TextBlob
+from time import strptime
+import numpy as np
+import re
+import time
+import zipcode
+import sys, errno
+from nltk.corpus import stopwords
+from itertools import combinations
+from collections import Counter
+import matplotlib.pyplot as plt
+import nltk
+nltk.download('stopwords')
+
+runCount=0
+#Variables that contains the user credentials to access Twitter API 
+access_token = "141817420-ViMO9ic2MuVmjw4u04CACINnCA0MIJEs2uaPbkYX"
+access_token_secret = "LWNQKJYkHJnrAjNsH7LnrkKWmnf5qZ9akizidiWjbLhOy"
+consumer_key = "SyLwuJP6pzy4FevmLMOmcWdpf"
+consumer_secret = "XfZkuRRj5yqVmReRkAVvVFm9t6vaPHVeoXEdg85Iuqb8k524pU"
+
+tweets_data = []
+
+stop = stopwords.words('english') + ['and']
+emoticons_str = r"""
+    (?:
+        [:=;] # Eyes
+        [oO\-]? # Nose (optional)
+        [D\)\]\(\]/\\OpP] # Mouth
+    )"""
+ 
+regex_str = [
+    emoticons_str,
+    r'<[^>]+>', # HTML tags
+    r'(?:@[\w_]+)', # @-mentions
+    r"(?:\#+[\w_]+[\w\'_\-]*[\w_]+)", # hash-tags
+    r'http[s]?://(?:[a-z]|[0-9]|[$-_@.&amp;+]|[!*\(\),]|(?:%[0-9a-f][0-9a-f]))+', # URLs
+ 
+    r'(?:(?:\d+,?)+(?:\.?\d+)?)', # numbers
+    r"(?:[a-z][a-z'\-_]+[a-z])", # words with - and '
+    r'(?:[\w_]+)', # other words
+    r'(?:\S)' # anything else
+]
+    
+tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
+emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
+Count=0
+stop = stopwords.words('english')
+#This is a basic listener that just prints received tweets to stdout.
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-9-daa174e524b2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m#Import the necessary methods from tweepy library[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mtweepy[0m[0;34m.[0m[0mstreaming[0m [0;32mimport[0m [0mStreamListener[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfrom[0m [0mtweepy[0m [0;32mimport[0m [0mOAuthHandler[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mtweepy[0m [0;32mimport[0m [0mStream[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mjson[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tweepy'
+ImportError: No module named 'tweepy'
+
+Executability                            : False

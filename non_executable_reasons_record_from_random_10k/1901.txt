@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+sns.pairplot(train.sample(frac=0.1), diag_kind="hist", hue='default.payment.next.month')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-bab8875334a8>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0msns[0m[0;34m.[0m[0mpairplot[0m[0;34m([0m[0mtrain[0m[0;34m.[0m[0msample[0m[0;34m([0m[0mfrac[0m[0;34m=[0m[0;36m0.1[0m[0;34m)[0m[0;34m,[0m [0mdiag_kind[0m[0;34m=[0m[0;34m"hist"[0m[0;34m,[0m [0mhue[0m[0;34m=[0m[0;34m'default.payment.next.month'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'sns' is not defined
+NameError: name 'sns' is not defined
+
+Executability                            : False

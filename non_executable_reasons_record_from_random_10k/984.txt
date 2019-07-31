@@ -1,0 +1,46 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#creamos el modelo de NN
+modelo_nn = NearestNeighbors(n_neighbors = k, algorithm = 'ball_tree').fit(X)
+distancias, indices = modelo_nn.kneighbors(test)
+print(indices)
+#--------------------------------------------------------------
+#imprimos los vecinos más cercanos más bonito
+print('\nLos k vecinos más cercanos son: ')
+for rank, index in enumerate(indices[0][:k], start = 1):
+    print(str(rank) + '====>', X[index])  
+#-------------------------------------------------------------
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-11-3617aaf3e4b4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#creamos el modelo de NN[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mmodelo_nn[0m [0;34m=[0m [0mNearestNeighbors[0m[0;34m([0m[0mn_neighbors[0m [0;34m=[0m [0mk[0m[0;34m,[0m [0malgorithm[0m [0;34m=[0m [0;34m'ball_tree'[0m[0;34m)[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mdistancias[0m[0;34m,[0m [0mindices[0m [0;34m=[0m [0mmodelo_nn[0m[0;34m.[0m[0mkneighbors[0m[0;34m([0m[0mtest[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mprint[0m[0;34m([0m[0mindices[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#--------------------------------------------------------------[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/neighbors/base.py[0m in [0;36mkneighbors[0;34m(self, X, n_neighbors, return_distance)[0m
+[1;32m    400[0m         [0;32mif[0m [0mX[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    401[0m             [0mquery_is_train[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 402[0;31m             [0mX[0m [0;34m=[0m [0mcheck_array[0m[0;34m([0m[0mX[0m[0;34m,[0m [0maccept_sparse[0m[0;34m=[0m[0;34m'csr'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    403[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    404[0m             [0mquery_is_train[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/utils/validation.py[0m in [0;36mcheck_array[0;34m(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, warn_on_dtype, estimator)[0m
+[1;32m    519[0m                     [0;34m"Reshape your data either using array.reshape(-1, 1) if "[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    520[0m                     [0;34m"your data has a single feature or array.reshape(1, -1) "[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 521[0;31m                     "if it contains a single sample.".format(array))
+[0m[1;32m    522[0m [0;34m[0m[0m
+[1;32m    523[0m         [0;31m# in the future np.flexible dtypes will be handled like object dtypes[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: Expected 2D array, got 1D array instead:
+array=[4.3 2.7].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+ValueError: Expected 2D array, got 1D array instead:
+array=[4.3 2.7].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+
+Executability                            : False

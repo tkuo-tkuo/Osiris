@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+fname = r"labeledChineseReview1.csv"
+f = open(fname, 'r', encoding = 'utf8')
+
+reader = csv.reader(f)
+x  = 0
+for row in reader:
+    print(row[10:])
+    x+= 1
+    if x==5:
+        break
+f.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-3-ba76b39f2880>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mfname[0m [0;34m=[0m [0;34mr"labeledChineseReview1.csv"[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'r'[0m[0;34m,[0m [0mencoding[0m [0;34m=[0m [0;34m'utf8'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mreader[0m [0;34m=[0m [0mcsv[0m[0;34m.[0m[0mreader[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mx[0m  [0;34m=[0m [0;36m0[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'labeledChineseReview1.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'labeledChineseReview1.csv'
+
+Executability                            : False

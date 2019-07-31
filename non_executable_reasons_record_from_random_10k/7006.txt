@@ -1,0 +1,30 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+help(math.ceil)
+
+-----------------
+Original output:
+Help on built-in function ceil in module math:
+
+ceil(...)
+    ceil(x)
+    
+    Return the ceiling of x as an int.
+    This is the smallest integral value >= x.
+
+
+Executed output:
+Help on built-in function ceil in module math:
+
+ceil(...)
+    ceil(x)
+    
+    Return the ceiling of x as an Integral.
+    This is the smallest integer >= x.
+
+

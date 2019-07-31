@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#aa = a.copy()
+#aa.fillna(aa.median(numeric_only=True, skipna=True), inplace=True)
+#aa.fillna(aa.mode().iloc[0], inplace=True)
+
+bb = b.copy()
+bb.fillna(bb.median(numeric_only=True, skipna=True), inplace=True)
+bb.fillna(bb.mode().iloc[0], inplace=True)
+
+cc = c.copy()
+cc.fillna(cc.median(numeric_only=True, skipna=True), inplace=True)
+cc.fillna(cc.mode().iloc[0], inplace=True)
+
+dd = d.copy()
+dd.fillna(dd.median(numeric_only=True, skipna=True), inplace=True)
+dd.fillna(dd.mode().iloc[0], inplace=True)
+
+ee = e.copy()
+ee.fillna(ee.median(numeric_only=True, skipna=True), inplace=True)
+ee.fillna(ee.mode().iloc[0], inplace=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-a65db37005c8>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;31m#aa.fillna(aa.mode().iloc[0], inplace=True)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0mbb[0m [0;34m=[0m [0mb[0m[0;34m.[0m[0mcopy[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mbb[0m[0;34m.[0m[0mfillna[0m[0;34m([0m[0mbb[0m[0;34m.[0m[0mmedian[0m[0;34m([0m[0mnumeric_only[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0mskipna[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m,[0m [0minplace[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0mbb[0m[0;34m.[0m[0mfillna[0m[0;34m([0m[0mbb[0m[0;34m.[0m[0mmode[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0minplace[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'b' is not defined
+NameError: name 'b' is not defined
+
+Executability                            : False

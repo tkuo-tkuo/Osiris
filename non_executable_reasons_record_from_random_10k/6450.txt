@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+corn_bt = raw_corn.iloc[3:17, :19]
+corn_bt.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-537b99c475eb>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mcorn_bt[0m [0;34m=[0m [0mraw_corn[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;36m3[0m[0;34m:[0m[0;36m17[0m[0;34m,[0m [0;34m:[0m[0;36m19[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mcorn_bt[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'raw_corn' is not defined
+NameError: name 'raw_corn' is not defined
+
+Executability                            : False

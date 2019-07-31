@@ -1,0 +1,56 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# -*- coding: utf-8 -*-
+import sys, os
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+import json
+import gc
+
+def load_Img(imgDir,imgFoldName,subFold):
+    imgs = os.listdir(imgDir+"/"+imgFoldName)
+    labels = os.listdir(imgDir+"/"+subFold)
+    imgNum = len(imgs)
+    labelNum = len(labels)
+    #input size is 512 * 512 * 1
+
+    data = np.empty((imgNum * 2,512,512,1))
+    label = np.empty((imgNum * 2,512,512,1))
+    if labelNum == imgNum:
+        print (imgDir + ' imgNum: ',imgNum)
+        for i in range (imgNum):
+            img = cv2.imread(imgDir+"/"+imgFoldName+"/"+imgs[i])
+            img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+            img0 = img / 255            
+            arr_0 = cv2.flip(img0,1)         
+            
+            data[i,:,:,0] = img0
+            data[i + imgNum,:,:,0] = arr_0         
+
+            img = cv2.imread(imgDir+"/"+ subFold +"/"+labels[i])
+            img0 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+            arr_0 = cv2.flip(img0,1)                            
+            label[i,:,:,0] = img0
+            label[i + imgNum,:,:,0] = arr_0
+            gc.collect()
+            
+    return data,label
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-46f2ebf4e1ba>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;31m# -*- coding: utf-8 -*-[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0msys[0m[0;34m,[0m [0mos[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

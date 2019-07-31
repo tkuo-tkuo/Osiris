@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+arr[5]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-33-604daf0e837f>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0marr[0m[0;34m[[0m[0;36m5[0m[0;34m][0m[0;34m[0m[0m
+[0m
+[0;31mIndexError[0m: index 5 is out of bounds for axis 0 with size 5
+IndexError: index 5 is out of bounds for axis 0 with size 5
+
+Executability                            : False

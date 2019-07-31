@@ -1,0 +1,96 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+fig,ax = plt.subplots(1)
+axes = plt.gca()
+axes.set_ylim([0,1600])
+axes.set_xlim([0,8])
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.title('Concentration vs. Extraction Time')
+plt.xlabel('Extraction Time (min)')
+plt.ylabel('Concentration (>400 bp)')
+
+def make_scatter(x,y,c,m,l):
+    ax.scatter(x,y,s=30,c=c,marker=m, label=l)
+def make_fits(x,y,c,n):    
+    z = np.polyfit(x,y,1)
+    p = np.poly1d(z)
+    ax.plot(x,p(x),c=c,label=n, linewidth=3)
+
+make_fits(x1,y1,'r','outside out fit') #0
+make_fits(x2,y2,'g','nucleated fit')   #1
+make_fits(x3,y3,'b','no seal fit')     #2
+make_fits(x4,y4,'gold','partial nucleated fit') #3
+
+handles,labels = ax.get_legend_handles_labels()
+
+handles = [handles[1], handles[3], handles[2], handles[0]]
+labels = [labels[1], labels[3], labels[2], labels[0]]
+
+ax.legend(handles,labels,scatterpoints=1,loc='center right',ncol=1,fontsize=7,frameon=False)
+plt.tight_layout()
+plt.savefig('conc_vs_extraction.png',dpi=300)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-6-60fdaa8ce5a3>[0m in [0;36m<module>[0;34m[0m
+[1;32m     29[0m [0max[0m[0;34m.[0m[0mlegend[0m[0;34m([0m[0mhandles[0m[0;34m,[0m[0mlabels[0m[0;34m,[0m[0mscatterpoints[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m[0mloc[0m[0;34m=[0m[0;34m'center right'[0m[0;34m,[0m[0mncol[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m[0mfontsize[0m[0;34m=[0m[0;36m7[0m[0;34m,[0m[0mframeon[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     30[0m [0mplt[0m[0;34m.[0m[0mtight_layout[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 31[0;31m [0mplt[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m'conc_vs_extraction.png'[0m[0;34m,[0m[0mdpi[0m[0;34m=[0m[0;36m300[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/pyplot.py[0m in [0;36msavefig[0;34m(*args, **kwargs)[0m
+[1;32m    714[0m [0;32mdef[0m [0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    715[0m     [0mfig[0m [0;34m=[0m [0mgcf[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 716[0;31m     [0mres[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    717[0m     [0mfig[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mdraw_idle[0m[0;34m([0m[0;34m)[0m   [0;31m# need this if 'transparent=True' to reset colors[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    718[0m     [0;32mreturn[0m [0mres[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/figure.py[0m in [0;36msavefig[0;34m(self, fname, transparent, **kwargs)[0m
+[1;32m   2178[0m             [0mself[0m[0;34m.[0m[0mpatch[0m[0;34m.[0m[0mset_visible[0m[0;34m([0m[0mframeon[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2179[0m [0;34m[0m[0m
+[0;32m-> 2180[0;31m         [0mself[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2181[0m [0;34m[0m[0m
+[1;32m   2182[0m         [0;32mif[0m [0mframeon[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, **kwargs)[0m
+[1;32m   2080[0m                     [0morientation[0m[0;34m=[0m[0morientation[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2081[0m                     [0mbbox_inches_restore[0m[0;34m=[0m[0m_bbox_inches_restore[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2082[0;31m                     **kwargs)
+[0m[1;32m   2083[0m             [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2084[0m                 [0;32mif[0m [0mbbox_inches[0m [0;32mand[0m [0mrestore_bbox[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py[0m in [0;36mprint_png[0;34m(self, filename_or_obj, metadata, pil_kwargs, *args, **kwargs)[0m
+[1;32m    528[0m             [0mrenderer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_renderer[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    529[0m             [0;32mwith[0m [0mcbook[0m[0;34m.[0m[0m_setattr_cm[0m[0;34m([0m[0mrenderer[0m[0;34m,[0m [0mdpi[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mfigure[0m[0;34m.[0m[0mdpi[0m[0;34m)[0m[0;34m,[0m[0;31m [0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 530[0;31m                     [0mcbook[0m[0;34m.[0m[0mopen_file_cm[0m[0;34m([0m[0mfilename_or_obj[0m[0;34m,[0m [0;34m"wb"[0m[0;34m)[0m [0;32mas[0m [0mfh[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    531[0m                 _png.write_png(renderer._renderer, fh,
+[1;32m    532[0m                                self.figure.dpi, metadata=metadata)
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/contextlib.py[0m in [0;36m__enter__[0;34m(self)[0m
+[1;32m     79[0m     [0;32mdef[0m [0m__enter__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     80[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 81[0;31m             [0;32mreturn[0m [0mnext[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mgen[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     82[0m         [0;32mexcept[0m [0mStopIteration[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     83[0m             [0;32mraise[0m [0mRuntimeError[0m[0;34m([0m[0;34m"generator didn't yield"[0m[0;34m)[0m [0;32mfrom[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/cbook/__init__.py[0m in [0;36mopen_file_cm[0;34m(path_or_file, mode, encoding)[0m
+[1;32m    445[0m [0;32mdef[0m [0mopen_file_cm[0m[0;34m([0m[0mpath_or_file[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m"r"[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    446[0m     [0;34mr"""Pass through file objects and context-manage `.PathLike`\s."""[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 447[0;31m     [0mfh[0m[0;34m,[0m [0mopened[0m [0;34m=[0m [0mto_filehandle[0m[0;34m([0m[0mpath_or_file[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0;32mTrue[0m[0;34m,[0m [0mencoding[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    448[0m     [0;32mif[0m [0mopened[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    449[0m         [0;32mwith[0m [0mfh[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/cbook/__init__.py[0m in [0;36mto_filehandle[0;34m(fname, flag, return_opened, encoding)[0m
+[1;32m    430[0m             [0mfh[0m [0;34m=[0m [0mbz2[0m[0;34m.[0m[0mBZ2File[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0mflag[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    431[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 432[0;31m             [0mfh[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0mflag[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    433[0m         [0mopened[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    434[0m     [0;32melif[0m [0mhasattr[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'seek'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'conc_vs_extraction.png'
+PermissionError: [Errno 13] Permission denied: 'conc_vs_extraction.png'
+
+Executability                            : False

@@ -1,0 +1,161 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 16 ; number of cells: 26
+Reproducibility                          : matched ratio: 0.615 ; index of matched cells: [0, 1, 2, 3, 4, 5, 7, 9, 11, 13, 15, 17, 18, 23, 24, 25]
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+df['col2'].unique()
+
+-----------------
+Original output:
+array([444, 555, 666])
+Executed output:
+array([ nan, 555., 666., 444.])
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+df['col2'].value_counts()
+
+-----------------
+Original output:
+444    2
+555    1
+666    1
+Name: col2, dtype: int64
+Executed output:
+444.0    1
+666.0    1
+555.0    1
+Name: col2, dtype: int64
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+newdf
+
+-----------------
+Original output:
+   col1  col2 col3
+3     4   444  xyz
+Executed output:
+Empty DataFrame
+Columns: [col1, col2, col3]
+Index: []
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+df['col1'].apply(times2)
+
+-----------------
+Original output:
+0    2
+1    4
+2    6
+3    8
+Name: col1, dtype: int64
+Executed output:
+0    2.0
+1    4.0
+2    6.0
+3    NaN
+Name: col1, dtype: float64
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+df['col1'].sum()
+
+-----------------
+Original output:
+10
+Executed output:
+6.0
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+df
+
+-----------------
+Original output:
+   col2 col3
+0   444  abc
+1   555  def
+2   666  ghi
+3   444  xyz
+Executed output:
+    col2 col3
+0    NaN  abc
+1  555.0  def
+2  666.0  ghi
+3  444.0  xyz
+-------------------------------------------
+Source Code of a Unmatched Cell 19
+-------------------------------------------
+df
+
+-----------------
+Original output:
+   col2 col3
+0   444  abc
+1   555  def
+2   666  ghi
+3   444  xyz
+Executed output:
+    col2 col3
+0    NaN  abc
+1  555.0  def
+2  666.0  ghi
+3  444.0  xyz
+-------------------------------------------
+Source Code of a Unmatched Cell 20
+-------------------------------------------
+df.sort_values(by='col2') #inplace=False by default
+
+-----------------
+Original output:
+   col2 col3
+0   444  abc
+3   444  xyz
+1   555  def
+2   666  ghi
+Executed output:
+    col2 col3
+3  444.0  xyz
+1  555.0  def
+2  666.0  ghi
+0    NaN  abc
+-------------------------------------------
+Source Code of a Unmatched Cell 21
+-------------------------------------------
+df.isnull()
+
+-----------------
+Original output:
+    col2   col3
+0  False  False
+1  False  False
+2  False  False
+3  False  False
+Executed output:
+    col2   col3
+0   True  False
+1  False  False
+2  False  False
+3  False  False
+-------------------------------------------
+Source Code of a Unmatched Cell 22
+-------------------------------------------
+# Drop rows with NaN Values
+df.dropna()
+
+-----------------
+Original output:
+   col2 col3
+0   444  abc
+1   555  def
+2   666  ghi
+3   444  xyz
+Executed output:
+    col2 col3
+1  555.0  def
+2  666.0  ghi
+3  444.0  xyz

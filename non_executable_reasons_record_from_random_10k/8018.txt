@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline 
+import matplotlib.pylab
+import numpy as np
+import pandas as pd
+
+import pandas.io.data as web
+start = pd.Timestamp('2010-1-1')
+end = pd.Timestamp('2013-1-27')
+f = web.DataReader("F", 'yahoo', start, end)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-1745e7f41816>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mimport[0m [0mpandas[0m[0;34m.[0m[0mio[0m[0;34m.[0m[0mdata[0m [0;32mas[0m [0mweb[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0mstart[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mTimestamp[0m[0;34m([0m[0;34m'2010-1-1'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     10[0m [0mend[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mTimestamp[0m[0;34m([0m[0;34m'2013-1-27'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pandas.io.data'
+ImportError: No module named 'pandas.io.data'
+
+Executability                            : False

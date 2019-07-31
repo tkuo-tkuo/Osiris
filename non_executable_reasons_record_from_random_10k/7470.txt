@@ -1,0 +1,191 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 8 ; number of cells: 10
+Reproducibility                          : matched ratio: 0.8 ; index of matched cells: [2, 3, 4, 5, 6, 7, 8, 9]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import pandas as pd
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+pd.options.display.max_columns = 99
+%matplotlib inline
+
+loan = pd.read_csv('loans_2007.csv', nrows = 3200)
+loan.info(memory_usage="deep")
+
+#date_col = ['issue_d', 'earliest_cr_line', 'last_pymnt_d', 'last_credit_pull_d']
+
+-----------------
+Original output:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 3200 entries, 0 to 3199
+Data columns (total 52 columns):
+id                            3200 non-null int64
+member_id                     3200 non-null float64
+loan_amnt                     3200 non-null float64
+funded_amnt                   3200 non-null float64
+funded_amnt_inv               3200 non-null float64
+term                          3200 non-null object
+int_rate                      3200 non-null object
+installment                   3200 non-null float64
+grade                         3200 non-null object
+sub_grade                     3200 non-null object
+emp_title                     3013 non-null object
+emp_length                    3110 non-null object
+home_ownership                3200 non-null object
+annual_inc                    3200 non-null float64
+verification_status           3200 non-null object
+issue_d                       3200 non-null object
+loan_status                   3200 non-null object
+pymnt_plan                    3200 non-null object
+purpose                       3200 non-null object
+title                         3200 non-null object
+zip_code                      3200 non-null object
+addr_state                    3200 non-null object
+dti                           3200 non-null float64
+delinq_2yrs                   3200 non-null float64
+earliest_cr_line              3200 non-null object
+inq_last_6mths                3200 non-null float64
+open_acc                      3200 non-null float64
+pub_rec                       3200 non-null float64
+revol_bal                     3200 non-null float64
+revol_util                    3200 non-null object
+total_acc                     3200 non-null float64
+initial_list_status           3200 non-null object
+out_prncp                     3200 non-null float64
+out_prncp_inv                 3200 non-null float64
+total_pymnt                   3200 non-null float64
+total_pymnt_inv               3200 non-null float64
+total_rec_prncp               3200 non-null float64
+total_rec_int                 3200 non-null float64
+total_rec_late_fee            3200 non-null float64
+recoveries                    3200 non-null float64
+collection_recovery_fee       3200 non-null float64
+last_pymnt_d                  3198 non-null object
+last_pymnt_amnt               3200 non-null float64
+last_credit_pull_d            3200 non-null object
+collections_12_mths_ex_med    3200 non-null float64
+policy_code                   3200 non-null float64
+application_type              3200 non-null object
+acc_now_delinq                3200 non-null float64
+chargeoff_within_12_mths      3200 non-null float64
+delinq_amnt                   3200 non-null float64
+pub_rec_bankruptcies          3200 non-null float64
+tax_liens                     3200 non-null float64
+dtypes: float64(30), int64(1), object(21)
+memory usage: 4.9 MB
+
+Executed output:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 3200 entries, 0 to 3199
+Data columns (total 52 columns):
+id                            3200 non-null int64
+member_id                     3200 non-null float64
+loan_amnt                     3200 non-null float64
+funded_amnt                   3200 non-null float64
+funded_amnt_inv               3200 non-null float64
+term                          3200 non-null object
+int_rate                      3200 non-null object
+installment                   3200 non-null float64
+grade                         3200 non-null object
+sub_grade                     3200 non-null object
+emp_title                     3013 non-null object
+emp_length                    3110 non-null object
+home_ownership                3200 non-null object
+annual_inc                    3200 non-null float64
+verification_status           3200 non-null object
+issue_d                       3200 non-null object
+loan_status                   3200 non-null object
+pymnt_plan                    3200 non-null object
+purpose                       3200 non-null object
+title                         3200 non-null object
+zip_code                      3200 non-null object
+addr_state                    3200 non-null object
+dti                           3200 non-null float64
+delinq_2yrs                   3200 non-null float64
+earliest_cr_line              3200 non-null object
+inq_last_6mths                3200 non-null float64
+open_acc                      3200 non-null float64
+pub_rec                       3200 non-null float64
+revol_bal                     3200 non-null float64
+revol_util                    3200 non-null object
+total_acc                     3200 non-null float64
+initial_list_status           3200 non-null object
+out_prncp                     3200 non-null float64
+out_prncp_inv                 3200 non-null float64
+total_pymnt                   3200 non-null float64
+total_pymnt_inv               3200 non-null float64
+total_rec_prncp               3200 non-null float64
+total_rec_int                 3200 non-null float64
+total_rec_late_fee            3200 non-null float64
+recoveries                    3200 non-null float64
+collection_recovery_fee       3200 non-null float64
+last_pymnt_d                  3198 non-null object
+last_pymnt_amnt               3200 non-null float64
+last_credit_pull_d            3200 non-null object
+collections_12_mths_ex_med    3200 non-null float64
+policy_code                   3200 non-null float64
+application_type              3200 non-null object
+acc_now_delinq                3200 non-null float64
+chargeoff_within_12_mths      3200 non-null float64
+delinq_amnt                   3200 non-null float64
+pub_rec_bankruptcies          3200 non-null float64
+tax_liens                     3200 non-null float64
+dtypes: float64(30), int64(1), object(21)
+memory usage: 5.0 MB
+
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+chunk_iter = pd.read_csv('loans_2007.csv', chunksize = 3000)
+
+total_row = 0
+for chunk in chunk_iter:
+    total_row += len(chunk)
+    print(chunk.memory_usage(deep=True).sum()/ (1024 ** 2))
+    
+print
+print("\n"+'Total row is {}'.format(total_row))
+
+-----------------
+Original output:
+4.614681243896484
+4.6104278564453125
+4.612185478210449
+4.613537788391113
+4.6097307205200195
+4.6116132736206055
+4.610204696655273
+4.612573623657227
+4.610699653625488
+4.610750198364258
+4.623462677001953
+4.6223297119140625
+4.62913703918457
+4.8625898361206055
+0.8746747970581055
+
+Total row is 42538
+
+Executed output:
+4.649013519287109
+4.6447601318359375
+4.646517753601074
+4.647870063781738
+4.6440629959106445
+4.6459455490112305
+4.644536972045898
+4.646905899047852
+4.645031929016113
+4.645082473754883
+4.657794952392578
+4.6566619873046875
+4.663469314575195
+4.896910667419434
+0.8808088302612305
+
+Total row is 42538
+

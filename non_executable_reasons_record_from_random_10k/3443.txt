@@ -1,0 +1,98 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os, numpy, csv, shutil
+import pandas as pd
+
+#Settings and directories
+#Directories, !!! Make sure that you use "/" sclashes, not "\", Python does not like it. And finish all directories with /
+#Example: 'C:/Users/31380/final/'
+converter_Dir='C:/Users/S160939/Desktop/IS/'
+input_Dir='C:/Users/S160939/Desktop/IS/input/'
+output_Dir='C:/Users/S160939/Desktop/IS/output/'
+
+#Settings 'Relative' or 'Absolute'
+time_Midi='Relative'
+
+
+print('Converter:',converter_Dir+'midicsv.exe')
+print('Input Midi files:'+input_Dir)
+print('Output CSV files:'+output_Dir)
+
+list_Midi=[0 for i in range(len(os.listdir(input_Dir)))]
+i=0
+
+for file in os.listdir(input_Dir):
+    if file.endswith(".mid"):
+        list_Midi[i]=file
+        i=i+1
+list_Midi=numpy.trim_zeros(list_Midi)
+print(list_Midi)
+if len(list_Midi)==0:
+    print('Input directory is empty')
+
+for the_file in os.listdir(output_Dir):
+    file_path = os.path.join(output_Dir, the_file)
+    try:
+        if os.path.isfile(file_path) and the_file.endswith(".csv"):
+            os.unlink(file_path)
+    except Exception as e:
+        print(e)
+    
+for i in range(0,len(list_Midi)):
+    state=os.system(converter_Dir+'midicsv.exe '+input_Dir+list_Midi[i]+'>'+output_Dir+list_Midi[i].replace(".mid",".csv"))
+    if state==1:
+        print('Error: file '+list_Midi[i]+'convertion problem.')
+        state=0
+        
+list_CSV=[0 for i in range(len(os.listdir(output_Dir)))]
+i=0
+for file in os.listdir(output_Dir):
+    if file.endswith(".csv"):
+        list_CSV[i]=file
+        i=i+1
+list_CSV=numpy.trim_zeros(list_CSV)
+
+for i in range(0,len(list_CSV)):
+    with open(output_Dir+list_CSV[i], 'r') as inp, open(output_Dir+list_CSV[i].replace(".csv","_e.csv"), 'w', newline='') as out:
+        writer = csv.writer(out)
+        for row in csv.reader(inp):
+            if row[2] == " Note_on_c" or row[2] == " Note_off_c":
+                writer.writerow(row)
+
+i=0                
+for i in range(0,len(list_CSV)):
+    data=pd.read_csv(output_Dir+list_CSV[i].replace(".csv","_e.csv"),
+                     names=['Channel','Time','State','Something','Note','Volume'],
+                     index_col = False,  error_bad_lines=False, header=None, sep=',')
+    data=data[['Channel','Time','State','Note','Volume']]
+    if time_Midi=='Relative':
+        for n in range(0,len(data)):
+            try:
+                if data.ix[n,'State'] != ' Note_off_c' or (data.ix[n,'Volume'] != 0 and data.ix[n,'State'] == ' Note_on_c'):
+                    data.ix[n,'Time']=data.ix[n+1,'Time']-data.ix[n,'Time']
+            except Exception as e:
+                e
+        for n in range(0,len(data)):
+            if data.ix[n,'State'] == ' Note_off_c' or (data.ix[n,'Volume'] == 0 and data.ix[n,'State'] == ' Note_on_c') or data.ix[n,'Time'] == 0:
+                data=data.drop(n)
+    data.to_csv(output_Dir+list_CSV[i].replace(".csv","_e.csv"), index = False)
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-05abf8794acb>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     19[0m [0mprint[0m[0;34m([0m[0;34m'Output CSV files:'[0m[0;34m+[0m[0moutput_Dir[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     20[0m [0;34m[0m[0m
+[0;32m---> 21[0;31m [0mlist_Midi[0m[0;34m=[0m[0;34m[[0m[0;36m0[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0minput_Dir[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m     22[0m [0mi[0m[0;34m=[0m[0;36m0[0m[0;34m[0m[0m
+[1;32m     23[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'C:/Users/S160939/Desktop/IS/input/'
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/S160939/Desktop/IS/input/'
+
+Executability                            : False

@@ -1,0 +1,33 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+
+
+# an nltk.FreqDist() is like a dictionary,
+# but it is ordered by frequency.
+# Also, nltk automatically fills the dictionary
+# with counts when given a list of words.
+
+freq_brown = nltk.FreqDist(brown.words())
+
+list(freq_brown.keys())[:20]
+freq_brown.most_common(20)
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-565dec8bf0f1>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      8[0m [0;31m# with counts when given a list of words.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+[0;32m---> 10[0;31m [0mfreq_brown[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mFreqDist[0m[0;34m([0m[0mbrown[0m[0;34m.[0m[0mwords[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0mlist[0m[0;34m([0m[0mfreq_brown[0m[0;34m.[0m[0mkeys[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[[0m[0;34m:[0m[0;36m20[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'nltk' is not defined
+NameError: name 'nltk' is not defined
+
+Executability                            : False

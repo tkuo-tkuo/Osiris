@@ -1,0 +1,96 @@
+3.4
+Executability                            : True
+Reproducibility                          : number of matched cells: 12 ; number of cells: 14
+Reproducibility                          : matched ratio: 0.857 ; index of matched cells: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12]
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+sequential_decision_environment
+
+-----------------
+Original output:
+<mdp.GridMDP at 0x7f256c52c390>
+Executed output:
+<mdp.GridMDP at 0x7f4748167400>
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+import ipywidgets as widgets
+from IPython.display import display
+
+iteration_slider = widgets.IntSlider(min=1, max=15, step=1, value=0)
+w=widgets.interactive(plot_grid_step,iteration=iteration_slider)
+display(w)
+
+visualize_callback = make_visualize(iteration_slider)
+
+visualize_button = widgets.ToggleButton(desctiption = "Visualize", value = False)
+time_select = widgets.ToggleButtons(description='Extra Delay:',options=['0', '0.1', '0.2', '0.5', '0.7', '1.0'])
+a = widgets.interactive(visualize_callback, Visualize = visualize_button, time_step=time_select)
+display(a)
+
+-----------------
+Original output:
+iVBORw0KGgoAAAANSUhEUgAAATgAAADtCAYAAAAr+2lCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAADM5JREFUeJzt2lFolGe+gPFn0ggH1pKEHPWQ0a2Cya7scpz1ECxyEETY
+gANGUKgNbEqoopbdhFKkXikKB9obRXSDVsqxWch2KdQG9cRVKAgKktYajAtdrWldndhIUxs3vRGZ
+OReJaULSONvqzPjv87txJu/7hTd/Ph8+JyZyuRySFFFZsQ8gSU+KgZMUloGTFJaBkxSWgZMUloGT
+FFb5TIsjI/h/SKQimf1sothHeHrkctMOyyc4SWEZOElhGThJYRk4SWEZOElhGThJYRk4SWEZOElh
+GThJYRk4SWEZOElhGThJYRk4SWEZOElhGThJYRk4SWEZOElhGThJYRk4SWEZOElhGThJYRk4SWEZ
+OElhGThJYRk4SWEZOElhGThJYRk4SWEZOElhGThJYRk4SWGVXOC2b28llaplxYoUly/3Trvnxo0v
+WLXqeVKpOlpaXuTBgweT1i9e/Iiqqll0db1fiCMXhXPKn7N6tJeBecB/zrCnFagFUsDEKZ4CfgnU
+AW8+qQP+QCUVuNOnu+nvv05v7zX27z9MW9vWafft3Pk6ra2v0dt7lYqKSjo63h5fy2az7Nq1g9Wr
+Gwp17IJzTvlzVvlpAf46w3o3cB24BhwGHk4xC/x+7Nq/AX8GPn1yx/yXlVTgTp7soqmpGYD6+uXc
+uzfMnTuDU/adPfshjY3rAWhqeonjx4+Nrx06dIB16zYwZ87cwhy6CJxT/pxVfv4bqJphvQtoHnu9
+HBgGBoEeRp/qngNmARvH9paKkgrcwECGZHLB+PuamiQDA5lJe4aGhqisrKKsbPToyeR8bt8eGL/+
+xIkP2LRpG7lcrnAHLzDnlD9n9XhkgAUT3s8f+9r3fb1UlFTgfqwdO15lz56JnwL8dG/ImTin/Dmr
+6T0tUygv9gGOHGnn6NEjJBIJli2rJ5O5Ob6WydyipiY5aX91dTXDw9+QzWYpKyubtOfSpY9padlI
+LpdjaOgrzpzpprx8Fun02oL+TE+Cc8qfs3r8ksDNCe9vjX3tPvCPab5eKor+BLd58yucP3+Jc+c+
+IZ1upLOzA4CengtUVFQyd+68KdesXLmKY8feA6Cz8x3S6UYA+vr66evr58qVz2ls3MDeve1hbkTn
+lD9n9cPk+P4ns7VAx9jrC0Alo791rQc+A24wGrt3x/aWiqIHbqKGhjUsXLiIpUsX09a2hX372sfX
+1q9PMzj4JQC7d7/BwYN7SaXquHv3a5qbX57yvRKJRMHOXWjOKX/OKj9NwArgKvBz4H8Z/W3pW2Pr
+a4BFwGJgC/Bwis8AB4HfAr9i9JcMSwp26kdLzPTB6cjIU/NPbSmc2c/GDepjl8tNO6ySeoKTpMfJ
+wEkKy8BJCsvASQrLwEkKy8BJCsvASQrLwEkKy8BJCsvASQrLwEkKy8BJCsvASQrLwEkKy8BJCsvA
+SQrLwEkKy8BJCsvASQrLwEkKy8BJCsvASQrLwEkKy8BJCsvASQrLwEkKy8BJCsvASQrLwEkKy8BJ
+CsvASQrLwEkKy8BJCqu82AeIYvbPcsU+wlNh5NtEsY/w1EjgPZWv75uUT3CSwjJwksIycJLCMnCS
+wjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLC
+MnCSwjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIq
+ucBt395KKlXLihUpLl/unXbPjRtfsGrV86RSdbS0vMiDBw8mrV+8+BFVVbPo6nq/EEcuuFOnTvHL
+JUuo+8UvePPNN6fd09raSm1dHanf/Ibe3t5/6dpovKfy8XdgBfBvwN4Z9n0BPA/UAS8CE+fUCtQC
+KWD6ORdaSQXu9Olu+vuv09t7jf37D9PWtnXafTt3vk5r62v09l6loqKSjo63x9ey2Sy7du1g9eqG
+Qh27oLLZLL//wx/466lT/O3KFf787rt8+umnk/Z0d3dzvb+fa1evcvjQIbZu25b3tdF4T+WrGjgA
+bH/EvteB14CrQCXwcE7dwHXgGnAYmH7OhVZSgTt5soumpmYA6uuXc+/eMHfuDE7Zd/bshzQ2rgeg
+qekljh8/Nr526NAB1q3bwJw5cwtz6ALr6emhtraW5557jlmzZrHxhRfo6uqatKerq4vm3/0OgOXL
+lzM8PMzg4GBe10bjPZWvfwf+Cyh/xL4PgfVjr18CPhh73QU0j71eDgwDU+dcaCUVuIGBDMnkgvH3
+NTVJBgYyk/YMDQ1RWVlFWdno0ZPJ+dy+PTB+/YkTH7Bp0zZyuVzhDl5AmUyGBfPnj7+fP38+mczk
+GWUGBliwYMGUPflcG4331OM0BFTxXTbmAw9nmQEWTNibnLBWPCUVuB9rx45X2bNn4udKP/UbcpR/
+MX8476mn26OeR5+4I0faOXr0CIlEgmXL6slkbo6vZTK3qKlJTtpfXV3N8PA3ZLNZysrKJu25dOlj
+Wlo2ksvlGBr6ijNnuikvn0U6vbagP9OTlEwm+cfN72Z069YtksnJM0rW1HBzmj33799/5LUReE/l
+qx04AiSA/wP+4xH7q4FvgCyjz0a3GH1SY+zPmxP2TlwrnqI/wW3e/Arnz1/i3LlPSKcb6ezsAKCn
+5wIVFZXMnTtvyjUrV67i2LH3AOjsfId0uhGAvr5++vr6uXLlcxobN7B3b3uQG/E79fX1fPbZZ9y4
+cYP79+/z7l/+wtq1k3/GtWvX0vGnPwFw4cIFKisrmTdvXl7XRuA9la9XgEvAJ0yO20xPqauA98Ze
+vwM0jr1eC3SMvb7A6C8gps650IoeuIkaGtawcOEili5dTFvbFvbtax9fW78+zeDglwDs3v0GBw/u
+JZWq4+7dr2lufnnK90okEgU7dyE988wzHDxwgN82NPCrX/+ajS+8wJIlSzh8+DBvvfUWAGvWrGHR
+woUsrq1ly9attP/xjzNeG5n3VL4GGf0MbR/wP8DPgZGxtTTw5djrNxj9byR1wNfAwzmtARYBi4Et
+jD4dFl9ips9nRkb8wCFfs3/mqPIx8m3kSDxezz5b7BM8PXI5pr2xSuoJTpIeJwMnKSwDJyksAycp
+LAMnKSwDJyksAycpLAMnKSwDJyksAycpLAMnKSwDJyksAycpLAMnKSwDJyksAycpLAMnKSwDJyks
+AycpLAMnKSwDJyksAycpLAMnKSwDJyksAycpLAMnKSwDJyksAycpLAMnKSwDJyksAycpLAMnKazy
+Yh8gipFvE8U+goL55z+LfYKnn09wksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJw
+ksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLCMnCS
+wjJwksIycJLCMnCSwjJwksIycJLCMnCSwjJwksIycJLCKrnAbd/eSipVy4oVKS5f7p12z40bX7Bq
+1fOkUnW0tLzIgwcPJq1fvPgRVVWz6Op6vxBHLgrnlD9nlZ+IcyqpwJ0+3U1//3V6e6+xf/9h2tq2
+Trtv587XaW19jd7eq1RUVNLR8fb4WjabZdeuHaxe3VCoYxecc8qfs8pP1DmVVOBOnuyiqakZgPr6
+5dy7N8ydO4NT9p09+yGNjesBaGp6iePHj42vHTp0gHXrNjBnztzCHLoInFP+nFV+os6ppAI3MJAh
+mVww/r6mJsnAQGbSnqGhISorqygrGz16Mjmf27cHxq8/ceIDNm3aRi6XK9zBC8w55c9Z5SfqnEoq
+cD/Wjh2vsmfPmxO+UjqDLiXOKX/OKj+lOqfyYh/gyJF2jh49QiKRYNmyejKZm+NrmcwtamqSk/ZX
+V1czPPwN2WyWsrKySXsuXfqYlpaN5HI5hoa+4syZbsrLZ5FOry3oz/QkOKf8Oav8/BTmVPQnuM2b
+X+H8+UucO/cJ6XQjnZ0dAPT0XKCiopK5c+dNuWblylUcO/YeAJ2d75BONwLQ19dPX18/V658TmPj
+BvbubS/6gB8X55Q/Z5Wfn8Kcih64iRoa1rBw4SKWLl1MW9sW9u1rH19bvz7N4OCXAOze/QYHD+4l
+larj7t2vaW5+ecr3SiQSBTt3oTmn/Dmr/ESdU2KmDwRHRkrkH9KSNIPZs5m2qiX1BCdJj5OBkxSW
+gZMUloGTFJaBkxSWgZMUloGTFJaBkxSWgZMUloGTFJaBkxSWgZMUloGTFJaBkxSWgZMUloGTFJaB
+kxSWgZMUloGTFJaBkxSWgZMUloGTFJaBkxSWgZMUloGTFJaBkxSWgZMUloGTFJaBkxSWgZMUloGT
+FJaBkxSWgZMUViKXyxX7DJL0RPgEJyksAycpLAMnKSwDJyksAycpLAMnKaz/B9v3wubCyTXSAAAA
+AElFTkSuQmCC
+
+Executed output:
+

@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Inserir dados
+data_insert()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-3-70817cc8a9c2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Inserir dados[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdata_insert[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-1-cafad098fd1f>[0m in [0;36mdata_insert[0;34m()[0m
+[1;32m     15[0m [0;31m# Função para inserir uma linha[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m [0;32mdef[0m [0mdata_insert[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 17[0;31m     [0mc[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0;34m"INSERT INTO produtos VALUES(10, '2016-05-02 14:32:11', 'Teclado', 90 )"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     18[0m     [0mconn[0m[0;34m.[0m[0mcommit[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     19[0m     [0mc[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mOperationalError[0m: attempt to write a readonly database
+OperationalError: attempt to write a readonly database
+
+Executability                            : False

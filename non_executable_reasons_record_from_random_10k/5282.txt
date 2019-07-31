@@ -1,0 +1,56 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import csv
+from os import listdir
+from os.path import isfile, join
+from io import StringIO
+folder="C:\\Users\\sriram\\OneDrive\\Computational Linguistics\\Final Project\\Targets\\Train\\Words\\POSTagged-Words\\"
+onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
+for file in onlyfiles:
+    LineCount=0
+    print(file)
+    out=open(folder+"Word-Tags\\Output-"+file,"w")
+    out2=open(folder+"Word-Tags\\Output-Final-"+file,"w")
+    out.write("Word|Tag\n")
+    inp=open(folder+file)
+    #file_obj = StringIO(inp.read().decode())
+    tagDict=dict()
+    with open(folder+file,"rt") as file_obj:
+        reader = csv.reader(file_obj,skipinitialspace=True,delimiter="\t")
+        for row in reader:
+            print (row)
+            if LineCount>11:
+                if len(row)>0:
+                    line=("|".join(row[0].split())).replace("\n","")
+                    out.write(line+"\n")
+                    tag=(row[0]).replace("\n","")
+                    for i in range(1,6):
+                        if len(row[i])>0:
+                            tag=row[i]
+                            break
+                    word=(row[0]).replace("\n","")
+                    if tag[0]=="N" or tag[0]=="V" or tag[0]=="R":
+                        if word in tagDict and tag not in tagDict[word]:
+                            tagDict[word].append(tag)
+                        else:
+                            tagDict[word]=[tag]
+        
+            LineCount+=1
+    print (tagDict)
+            
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-2-526db15952d2>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mfrom[0m [0mio[0m [0;32mimport[0m [0mStringIO[0m[0;34m[0m[0m
+[1;32m      5[0m [0mfolder[0m[0;34m=[0m[0;34m"C:\\Users\\sriram\\OneDrive\\Computational Linguistics\\Final Project\\Targets\\Train\\Words\\POSTagged-Words\\"[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0monlyfiles[0m [0;34m=[0m [0;34m[[0m[0mf[0m [0;32mfor[0m [0mf[0m [0;32min[0m [0mlistdir[0m[0;34m([0m[0mfolder[0m[0;34m)[0m [0;32mif[0m [0misfile[0m[0;34m([0m[0mjoin[0m[0;34m([0m[0mfolder[0m[0;34m,[0m [0mf[0m[0;34m)[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfor[0m [0mfile[0m [0;32min[0m [0monlyfiles[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      8[0m     [0mLineCount[0m[0;34m=[0m[0;36m0[0m[0;34m[0m[0m
+
+[0;31mOSError[0m: [Errno 22] Invalid argument: 'C:\\Users\\sriram\\OneDrive\\Computational Linguistics\\Final Project\\Targets\\Train\\Words\\POSTagged-Words\\'
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\sriram\\OneDrive\\Computational Linguistics\\Final Project\\Targets\\Train\\Words\\POSTagged-Words\\'
+
+Executability                            : False

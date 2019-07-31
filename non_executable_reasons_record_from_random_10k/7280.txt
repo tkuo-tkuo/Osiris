@@ -1,0 +1,20 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# we can use the isnull function to look for missing values
+df.isnull().sum() # C and D have one null(NaN) each
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-486598a763db>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# we can use the isnull function to look for missing values[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mdf[0m[0;34m.[0m[0misnull[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m)[0m [0;31m# C and D have one null(NaN) each[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
+
+Executability                            : False

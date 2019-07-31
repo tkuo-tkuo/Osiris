@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# print the results of the search we made for "frogs" keyword in a numbered list
+print_numbered_sharepa_results(frogs_search)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-58c0aeaf7155>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# print the results of the search we made for "frogs" keyword in a numbered list[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mprint_numbered_sharepa_results[0m[0;34m([0m[0mfrogs_search[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'print_numbered_sharepa_results' is not defined
+NameError: name 'print_numbered_sharepa_results' is not defined
+
+Executability                            : False

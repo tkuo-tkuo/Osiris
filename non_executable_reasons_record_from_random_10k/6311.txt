@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Standard Python libraries
+from __future__ import print_function, division
+import os
+import random
+
+# DataModelDict class
+# https://github.com/usnistgov/DataModelDict
+from DataModelDict import DataModelDict as DM
+
+# Print DataModelDict version
+import DataModelDict
+print('DataModelDict version =', DataModelDict.__version__)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-1b478d1e362d>"[0;36m, line [0;32m7[0m
+[0;31m    [0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-1b478d1e362d>, line 7)
+
+Executability                            : False

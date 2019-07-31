@@ -1,0 +1,23 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+for tweet in cleaned_tweets:   
+    fname = get_nonexistant_path("cleanedTweets.txt")
+    text_file = open(fname, "w")
+    text_file.write(tweet)
+    text_file.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-9ce95bcd7eef>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfor[0m [0mtweet[0m [0;32min[0m [0mcleaned_tweets[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0mfname[0m [0;34m=[0m [0mget_nonexistant_path[0m[0;34m([0m[0;34m"cleanedTweets.txt"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m     [0mtext_file[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m"w"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mtext_file[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mtweet[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mtext_file[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'cleaned_tweets' is not defined
+NameError: name 'cleaned_tweets' is not defined
+
+Executability                            : False

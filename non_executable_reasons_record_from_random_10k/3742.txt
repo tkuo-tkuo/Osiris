@@ -1,0 +1,40 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import exchange
+import json
+
+
+with open("countryCurrency.json") as json_file:
+    dataCurrency = json.load(json_file)
+
+for n in range(0, len(dataCountries)):
+    if dataCountries[n]['name'] == country:
+        countryCode = dataCountries[n]['code']
+        print(countryCode)
+        break
+try:
+    print(("{0:.2f}".format(exchange.rate('USD', countryCurrency))))
+except Exception as inst:
+    exError = inst
+    pass
+
+countryCurrency = dataCurrency[countryCode]
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-0849a5d73cc8>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mexchange[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mjson[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'exchange'
+ModuleNotFoundError: No module named 'exchange'
+
+Executability                            : False

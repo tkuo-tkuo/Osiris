@@ -1,0 +1,33 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# TODO: Implement load the data here.
+import pickle
+
+training_file = 'train.p'
+
+with open(training_file, mode='rb') as f:
+    train = pickle.load(f)
+    
+X_train, y_train = train['features'], train['labels']
+
+# STOP: Do not change the tests below. Your implementation should pass these tests. 
+assert(X_train.shape[0] == y_train.shape[0]), "The number of images is not equal to the number of labels."
+assert(X_train.shape[1:] == (32,32,3)), "The dimensions of the images are not 32 x 32 x 3."
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-2944c6239d7b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0mtraining_file[0m [0;34m=[0m [0;34m'train.p'[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mtraining_file[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      9[0m     [0mtrain[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'train.p'
+FileNotFoundError: [Errno 2] No such file or directory: 'train.p'
+
+Executability                            : False

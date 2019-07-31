@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+tab = pd.crosstab(index=df['Age'], columns=df['Choice'], values=df['Wage'], aggfunc='mean', margins=True)
+tab[['All', 'White', 'Blue', 'Military']]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-9eda2268373e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mtab[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mcrosstab[0m[0;34m([0m[0mindex[0m[0;34m=[0m[0mdf[0m[0;34m[[0m[0;34m'Age'[0m[0;34m][0m[0;34m,[0m [0mcolumns[0m[0;34m=[0m[0mdf[0m[0;34m[[0m[0;34m'Choice'[0m[0;34m][0m[0;34m,[0m [0mvalues[0m[0;34m=[0m[0mdf[0m[0;34m[[0m[0;34m'Wage'[0m[0;34m][0m[0;34m,[0m [0maggfunc[0m[0;34m=[0m[0;34m'mean'[0m[0;34m,[0m [0mmargins[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mtab[0m[0;34m[[0m[0;34m[[0m[0;34m'All'[0m[0;34m,[0m [0;34m'White'[0m[0;34m,[0m [0;34m'Blue'[0m[0;34m,[0m [0;34m'Military'[0m[0;34m][0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

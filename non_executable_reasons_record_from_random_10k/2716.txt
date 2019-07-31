@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+G.add_edge(1, 2, weight=4.7 )
+G.add_edges_from([(3,4),(4,5)], color='red')
+G.add_edges_from([(1,2,{'color':'blue'}), (2,3,{'weight':8})])
+G[1][2]['weight'] = 4.7
+G.edge[1][2]['weight'] = 4
+G.edges(data=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-27-52b2c140451b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0mG[0m[0;34m.[0m[0madd_edges_from[0m[0;34m([0m[0;34m[[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;34m{[0m[0;34m'color'[0m[0;34m:[0m[0;34m'blue'[0m[0;34m}[0m[0;34m)[0m[0;34m,[0m [0;34m([0m[0;36m2[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m[0;34m{[0m[0;34m'weight'[0m[0;34m:[0m[0;36m8[0m[0;34m}[0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mG[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m[[0m[0;34m'weight'[0m[0;34m][0m [0;34m=[0m [0;36m4.7[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mG[0m[0;34m.[0m[0medge[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m[[0m[0;34m'weight'[0m[0;34m][0m [0;34m=[0m [0;36m4[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mG[0m[0;34m.[0m[0medges[0m[0;34m([0m[0mdata[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'DiGraph' object has no attribute 'edge'
+AttributeError: 'DiGraph' object has no attribute 'edge'
+
+Executability                            : False

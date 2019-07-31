@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+filepath = 'model_chekpoints/weights-improvement-{epoch:02d}-{loss:.4f}.hdf5'
+checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=False, mode='min')
+callbacks_list = [checkpoint]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-774a15aa484f>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mfilepath[0m [0;34m=[0m [0;34m'model_chekpoints/weights-improvement-{epoch:02d}-{loss:.4f}.hdf5'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mcheckpoint[0m [0;34m=[0m [0mModelCheckpoint[0m[0;34m([0m[0mfilepath[0m[0;34m,[0m [0mmonitor[0m[0;34m=[0m[0;34m'loss'[0m[0;34m,[0m [0mverbose[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m [0msave_best_only[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'min'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mcallbacks_list[0m [0;34m=[0m [0;34m[[0m[0mcheckpoint[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'ModelCheckpoint' is not defined
+NameError: name 'ModelCheckpoint' is not defined
+
+Executability                            : False

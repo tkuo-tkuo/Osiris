@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+fname = r"reviews_ChinesePN_5000.csv"
+f = open(fname, 'r', encoding = 'utf8')
+reader = csv.reader(f)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-434b2b22290e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mfname[0m [0;34m=[0m [0;34mr"reviews_ChinesePN_5000.csv"[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m'r'[0m[0;34m,[0m [0mencoding[0m [0;34m=[0m [0;34m'utf8'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mreader[0m [0;34m=[0m [0mcsv[0m[0;34m.[0m[0mreader[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'reviews_ChinesePN_5000.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'reviews_ChinesePN_5000.csv'
+
+Executability                            : False

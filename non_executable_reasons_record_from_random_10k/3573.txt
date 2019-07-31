@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+araba1 # Objemizin veri tipi Araba
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-92fda9450fbd>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0maraba1[0m [0;31m# Objemizin veri tipi Araba[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'araba1' is not defined
+NameError: name 'araba1' is not defined
+
+Executability                            : False

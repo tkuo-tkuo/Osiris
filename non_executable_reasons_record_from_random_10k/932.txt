@@ -1,0 +1,230 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+#Taken from https://datasciencelab.wordpress.com/2013/12/12/clustering-with-k-means-in-python/
+# Just added plotting for 3-k cases
+
+import numpy as np
+import random
+import matplotlib.pyplot as plt
+
+def init_board(N):
+    X = np.array([(random.uniform(-1, 1), random.uniform(-1, 1)) for i in range(N)])
+    return X
+
+def cluster_points(X, mu):
+    clusters  = {}
+    for x in X:
+        bestmukey = min([(i[0], np.linalg.norm(x-mu[i[0]])) \
+                    for i in enumerate(mu)], key=lambda t:t[1])[0]
+        try:
+            clusters[bestmukey].append(x)
+        except KeyError:
+            clusters[bestmukey] = [x]
+    return clusters
+
+def reevaluate_centers(mu, clusters):
+    newmu = []
+    keys = sorted(clusters.keys())
+    for k in keys:
+        newmu.append(np.mean(clusters[k], axis = 0))
+    return newmu
+
+def has_converged(mu, oldmu):
+    return (set([tuple(a) for a in mu]) == set([tuple(a) for a in oldmu]))
+
+def find_centers(X, K):
+    # Initialize to K random centers
+    oldmu = random.sample(X, K)
+    mu = random.sample(X, K)
+    while not has_converged(mu, oldmu):
+        oldmu = mu
+        # Assign all points in X to clusters
+        clusters = cluster_points(X, mu)
+        # Reevaluate centers
+        mu = reevaluate_centers(oldmu, clusters)
+    return(mu, clusters)
+
+def change_coords(array):
+    return list(map(list, zip(*array)))
+
+def parse_output(data):
+    clusters = data[1]
+    points1 = change_coords(clusters[0])
+    plt.plot(points1[0], points1[1], 'ro')
+    points2 = change_coords(clusters[1])
+    plt.plot(points2[0], points2[1], 'g^')
+    points3 = change_coords(clusters[2])
+    plt.plot(points3[0], points3[1], 'ys')
+    centroids = change_coords(data[0])
+    plt.plot(centroids[0], centroids[1], 'kx')
+    plt.axis([-1.0, 1, -1.0, 1])
+    plt.show()
+
+#data = init_board(15)
+data = np.array([[-0.689, -0.629],
+ [ 0.12923,  0.8423],
+ [ 0.127234,  0.81234],
+ [ 0.85234,  -0.798234],
+ [ 0.91234,  -0.97],
+ [-0.688,  -0.639],
+ [ 0.41,  0.49],
+ [0.93,  -0.83457],
+ [-0.389,  0.977],
+ [ 0.41071898, 0.48],
+ [-0.73028746, -0.74933859],
+ [-0.75137343, -0.73091723],
+ [-0.72163264,  -0.75235193],
+ [0.47800762,  0.4271211 ],
+ [-0.20,  0.87628712]])
+print(data)
+print(type(data))
+out = find_centers(list(data), 3)
+parse_output(out)
+
+-----------------
+Original output:
+[[-0.689      -0.629     ]
+ [ 0.12923     0.8423    ]
+ [ 0.127234    0.81234   ]
+ [ 0.85234    -0.798234  ]
+ [ 0.91234    -0.97      ]
+ [-0.688      -0.639     ]
+ [ 0.41        0.49      ]
+ [ 0.93       -0.83457   ]
+ [-0.389       0.977     ]
+ [ 0.41071898  0.48      ]
+ [-0.73028746 -0.74933859]
+ [-0.75137343 -0.73091723]
+ [-0.72163264 -0.75235193]
+ [ 0.47800762  0.4271211 ]
+ [-0.2         0.87628712]]
+<class 'numpy.ndarray'>
+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
+jtUAAAAASUVORK5CYII=
+
+Executed output:
+[[-0.689      -0.629     ]
+ [ 0.12923     0.8423    ]
+ [ 0.127234    0.81234   ]
+ [ 0.85234    -0.798234  ]
+ [ 0.91234    -0.97      ]
+ [-0.688      -0.639     ]
+ [ 0.41        0.49      ]
+ [ 0.93       -0.83457   ]
+ [-0.389       0.977     ]
+ [ 0.41071898  0.48      ]
+ [-0.73028746 -0.74933859]
+ [-0.75137343 -0.73091723]
+ [-0.72163264 -0.75235193]
+ [ 0.47800762  0.4271211 ]
+ [-0.2         0.87628712]]
+<class 'numpy.ndarray'>
+<Figure size 640x480 with 1 Axes>

@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+lm = linear_model.LinearRegression()
+
+# This function from numpy builds a matrix of powers for us
+X = np.vander(xs, 4)
+y = ys
+
+model = lm.fit(X, y)
+predictions = lm.predict(X)
+
+plt.scatter(xs, ys)
+plt.title("Randomly Generated Data")
+plt.plot(xs, predictions)
+plt.show()
+print "r^2:", model.score(X, y)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-1957f3a2a39f>"[0;36m, line [0;32m14[0m
+[0;31m    print "r^2:", model.score(X, y)[0m
+[0m               ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-2-1957f3a2a39f>, line 14)
+
+Executability                            : False

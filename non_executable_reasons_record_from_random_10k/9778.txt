@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from moviepy.editor import ImageSequenceClip
+def image_to_video(images_folder):
+    clip = ImageSequenceClip(images_folder, load_images=True, fps=5)
+    clip.write_videofile('result.mp4')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-4484643f6677>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mmoviepy[0m[0;34m.[0m[0meditor[0m [0;32mimport[0m [0mImageSequenceClip[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mdef[0m [0mimage_to_video[0m[0;34m([0m[0mimages_folder[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mclip[0m [0;34m=[0m [0mImageSequenceClip[0m[0;34m([0m[0mimages_folder[0m[0;34m,[0m [0mload_images[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0mfps[0m[0;34m=[0m[0;36m5[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'moviepy'
+ModuleNotFoundError: No module named 'moviepy'
+
+Executability                            : False

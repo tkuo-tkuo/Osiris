@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+file[file.playerID == player]['3par']
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-10-e4605f285e1d>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mfile[0m[0;34m[[0m[0mfile[0m[0;34m.[0m[0mplayerID[0m [0;34m==[0m [0mplayer[0m[0;34m][0m[0;34m[[0m[0;34m'3par'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'player' is not defined
+NameError: name 'player' is not defined
+
+Executability                            : False

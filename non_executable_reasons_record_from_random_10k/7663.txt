@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+logreg = linear_model.LogisticRegression(C=1e5)
+
+# 我们创建了一个 Neighbours Classifier 的实例，并拟合数据。
+logreg.fit(X, Y)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-28dd35a7d21d>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# 我们创建了一个 Neighbours Classifier 的实例，并拟合数据。[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mlogreg[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX[0m[0;34m,[0m [0mY[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'X' is not defined
+NameError: name 'X' is not defined
+
+Executability                            : False

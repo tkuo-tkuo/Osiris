@@ -1,0 +1,30 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+"""
+ Weakly Supervised Net (Global Average Pooling) with MNIST
+ @Sungjoon Choi (sungjoon.choi@cpslab.snu.ac.kr
+"""
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+from tensorflow.examples.tutorials.mnist import input_data
+%matplotlib inline  
+
+mnist = input_data.read_data_sets('data/', one_hot=True)
+trainimgs   = mnist.train.images
+trainlabels = mnist.train.labels
+testimgs    = mnist.test.images
+testlabels  = mnist.test.labels
+
+ntrain      = trainimgs.shape[0]
+ntest       = testimgs.shape[0]
+dim         = trainimgs.shape[1]
+nout        = trainlabels.shape[1]
+------------------
+
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

@@ -1,0 +1,54 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+hero = sorted(parse_hero_id())
+
+win_matrix = {}
+head_to_head_matrix = {}
+
+for i in range(0, len(hero)):
+    if hero[i] not in win_matrix:
+        win_matrix[hero[i]] = {}
+    if hero[i] not in head_to_head_matrix:
+        head_to_head_matrix[hero[i]] = {}
+        
+    for j in range(0, len(hero)):
+        win_matrix[hero[i]][hero[j]] = 0
+        head_to_head_matrix[hero[i]][hero[j]] = 0
+        
+with open(win_data, 'r') as winFile:
+    data = csv.reader(winFile)
+    for row in data:
+#         print(row)
+        newRow = [int(row[0]), int(row[1]), float(row[2]) * 100]
+        win_matrix[newRow[0]][newRow[1]] = twoDec(newRow[2])
+        if newRow[1] > newRow[0]:
+            win_matrix[newRow[1]][newRow[0]] = twoDec(newRow[2])
+            
+with open(head_to_head_data, 'r') as head_to_head_csv:
+    data = csv.reader(head_to_head_csv)
+    for row in data:
+        newRow = [int(row[0]), int(row[1]), float(row[2]) * 100]
+        head_to_head_matrix[newRow[0]][newRow[1]] = twoDec(newRow[2])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-5-7af7b9d55148>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mhero[0m [0;34m=[0m [0msorted[0m[0;34m([0m[0mparse_hero_id[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mwin_matrix[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m      4[0m [0mhead_to_head_matrix[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-3-b4b112e37c29>[0m in [0;36mparse_hero_id[0;34m()[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;32mdef[0m [0mparse_hero_id[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0mjson_path[0m[0;34m)[0m [0;32mas[0m [0mjson_data[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      5[0m         [0mraw_json[0m [0;34m=[0m [0mjson[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mjson_data[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m         [0mheroes[0m [0;34m=[0m [0mraw_json[0m[0;34m[[0m[0;34m'heroes'[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/home/hpham/hero.json'
+FileNotFoundError: [Errno 2] No such file or directory: '/home/hpham/hero.json'
+
+Executability                            : False

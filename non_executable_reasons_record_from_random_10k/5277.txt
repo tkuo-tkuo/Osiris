@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Label Encoder
+le = preprocessing.LabelEncoder()
+#Getting Categorical columns
+train_str = train.select_dtypes(include=['object'])
+test_str = test.select_dtypes(include=['object']) 
+display(train_str.head())        
+
+print(train_str.columns.values)
+#Only numeric values
+train.drop(train_str.columns.values,axis=1,inplace=True)
+test.drop(train_str.columns.values,axis=1,inplace=True)
+print(train.columns.values)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-a16942e2c964>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m#Label Encoder[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mle[0m [0;34m=[0m [0mpreprocessing[0m[0;34m.[0m[0mLabelEncoder[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;31m#Getting Categorical columns[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mtrain_str[0m [0;34m=[0m [0mtrain[0m[0;34m.[0m[0mselect_dtypes[0m[0;34m([0m[0minclude[0m[0;34m=[0m[0;34m[[0m[0;34m'object'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'preprocessing' is not defined
+NameError: name 'preprocessing' is not defined
+
+Executability                            : False

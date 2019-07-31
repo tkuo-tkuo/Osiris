@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Записываем выборку из файла в список sample
+f = open('Weibull.csv.xls', 'r')
+text = f.read()
+lines = text.split('\n')
+sample = np.array([0]).hstack([float(lines[n]) if float(lines[n]) else 0.0001 for n in range(len(lines) - 1)])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-2-2b585c5062b1>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0mtext[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mlines[0m [0;34m=[0m [0mtext[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m'\n'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0msample[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mhstack[0m[0;34m([0m[0;34m[[0m[0mfloat[0m[0;34m([0m[0mlines[0m[0;34m[[0m[0mn[0m[0;34m][0m[0;34m)[0m [0;32mif[0m [0mfloat[0m[0;34m([0m[0mlines[0m[0;34m[[0m[0mn[0m[0;34m][0m[0;34m)[0m [0;32melse[0m [0;36m0.0001[0m [0;32mfor[0m [0mn[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mlines[0m[0;34m)[0m [0;34m-[0m [0;36m1[0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: 'numpy.ndarray' object has no attribute 'hstack'
+AttributeError: 'numpy.ndarray' object has no attribute 'hstack'
+
+Executability                            : False

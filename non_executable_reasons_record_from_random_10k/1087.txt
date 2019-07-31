@@ -1,0 +1,40 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# data_dir = './data'
+
+# FloydHub - Use with data ID "R5KrjnANiKVhLWAkpXhNBe"
+data_dir = '/input'
+
+
+"""
+DON'T MODIFY ANYTHING IN THIS CELL
+"""
+import helper
+
+helper.download_extract('mnist', data_dir)
+helper.download_extract('celeba', data_dir)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-e6636f0961b3>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     10[0m [0mDON[0m[0;31m'[0m[0mT[0m [0mMODIFY[0m [0mANYTHING[0m [0mIN[0m [0mTHIS[0m [0mCELL[0m[0;34m[0m[0m
+[1;32m     11[0m """
+[0;32m---> 12[0;31m [0;32mimport[0m [0mhelper[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0;34m[0m[0m
+[1;32m     14[0m [0mhelper[0m[0;34m.[0m[0mdownload_extract[0m[0;34m([0m[0;34m'mnist'[0m[0;34m,[0m [0mdata_dir[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/cxy229@dlnd_face_generation/helper.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mfrom[0m [0mPIL[0m [0;32mimport[0m [0mImage[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0;32mfrom[0m [0mtqdm[0m [0;32mimport[0m [0mtqdm[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;34m[0m[0m
+[1;32m     13[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tqdm'
+ImportError: No module named 'tqdm'
+
+Executability                            : False

@@ -1,0 +1,173 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 7 ; number of cells: 13
+Reproducibility                          : matched ratio: 0.538 ; index of matched cells: [0, 2, 4, 5, 8, 10, 11]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+%%time
+yens = [1, 5, 10, 50, 100, 500]
+count = 0
+for i in range(5, 0, -1):
+    num = min(int(A / yens[i]), C[i])
+    count += num
+    A -= num * yens[i]
+
+print(count)
+
+-----------------
+Original output:
+6
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 473 µs
+
+Executed output:
+6
+CPU times: user 304 µs, sys: 49 µs, total: 353 µs
+Wall time: 269 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+%%time
+def njobs(n, s, t):
+    import numpy as np
+    s = np.array(s)
+    t = np.array(t)
+    time = -1
+    count = 0
+    while True:
+        available = t[s > time]
+        if len(available) == 0:
+            return count
+        idx = np.argmin(available)
+        time = available[idx]
+        count += 1
+
+print(njobs(n, s, t))
+
+-----------------
+Original output:
+3
+CPU times: user 96 ms, sys: 160 ms, total: 256 ms
+Wall time: 55.6 ms
+
+Executed output:
+3
+CPU times: user 58.5 ms, sys: 4.31 ms, total: 62.8 ms
+Wall time: 67.5 ms
+
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+%%time
+s = s.upper()
+s2 = s + s
+print(sorted([s2[i:i+n]for i in range(n)])[0])
+
+-----------------
+Original output:
+AATORCZVWIVOUKNGNNURMVQWLXMRSKNOTHBUWCMFHFLGURGBJLRGECBBWWYDBXBYOKRHNUHMJNUVRSPQSTVLLBEGNTWFTFVJFDTZXPZIFQPUTBLHUGWNTVDGDPZIAPDZGXYRHYBOCNIWKASKVZKJSFOCTUSLSRAPUVQWTFXVJLXWPVQZDLBVYMSWEREGZIZQPDKVHDNAYZMITKINBJORASKGLHYSSWBNXKJVIARATATRMOIRLMROESVYYJZKNJDHNMBRMCFGWYBZSNGTOYSUYFQKYGPKKQTNWELCCTDAUCNGMLRNAVRKCTKXVILSBOUYDMSUWKCTZFPMTAFEAUDAHATUVPWREZUIVATXYTKDJLBZIKUOWPBGNIXXCXAEUSTZOXIFRNQTOSEBYEZKANWVHBOCVNUHLPXEKUIEESRDQTSXTEQEKUTFYKUELFRRZLXDSTBBWOPJEGLBOKSWIZKNTAFORNIEWWGYNBPXNEPXPQJZIEQZBYHW
+CPU times: user 0 ns, sys: 4 ms, total: 4 ms
+Wall time: 1 ms
+
+Executed output:
+AEEKNIWDKRYPBAXZYGFRLLEANTBWDUGYOYMFCZUIQVEBBUCYVVFPWCBUXQWBQTCDXBHPHSXVPDTRLDFKYWHJBTPTSEIMXYHEUMBZCJCFGYHOMINMRNKBDFTBQOSGZTKNSGUWGBKBCWQZIOFXMHGKQDPEVUZKYGATQSYGYRWDLSYZSBIBBHHHZASNDECNYJSAEGCXOMKLKKYBHLDEXGISDQPWXVGHDBYBFHEKFNWFKLWDPJHAFBHGHOYAIHFJGTTWHBCTVWEVJQNMILXNCZIQXRTHEOUQEPKIBIYQXGHETNPUHNTWKIHHHEKKBRVFDFIXGFOCAWKQUYYVWKZVRYEDRMQEMMSDMTCFKTVMBSXRVWWOFZSOZTBDAULMMWOMUGCSRONGSVPJEIMXURNAIASYXHFIZNBHRNWWWRYZZTXIZUNYZKWECXZGUITAZWRXQPKDXDMOJSSAIFHGYPAPGGSWXVXIASYFCMBUJKEESNPMLIXNRHFJTHTI
+CPU times: user 632 µs, sys: 0 ns, total: 632 µs
+Wall time: 535 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+%%time
+# 貪欲法を使う場合
+s = s.upper()
+s2 = s + s
+candidates = [s2[i:i+n] for i in range(n)]
+digit = 0
+while len(candidates) > 1 and not all([cand == candidates[0] for cand in candidates]) and digit < n:
+    next_candidates = []
+    min_char = 'Z'
+    for cand in candidates:
+        if cand[digit] < min_char:
+            min_char = cand[digit]
+            next_candidates = [cand]
+        elif cand[digit] == min_char:
+            next_candidates.append(cand)
+    candidates = list(next_candidates)
+    digit += 1
+
+print(candidates[0])
+
+-----------------
+Original output:
+AATORCZVWIVOUKNGNNURMVQWLXMRSKNOTHBUWCMFHFLGURGBJLRGECBBWWYDBXBYOKRHNUHMJNUVRSPQSTVLLBEGNTWFTFVJFDTZXPZIFQPUTBLHUGWNTVDGDPZIAPDZGXYRHYBOCNIWKASKVZKJSFOCTUSLSRAPUVQWTFXVJLXWPVQZDLBVYMSWEREGZIZQPDKVHDNAYZMITKINBJORASKGLHYSSWBNXKJVIARATATRMOIRLMROESVYYJZKNJDHNMBRMCFGWYBZSNGTOYSUYFQKYGPKKQTNWELCCTDAUCNGMLRNAVRKCTKXVILSBOUYDMSUWKCTZFPMTAFEAUDAHATUVPWREZUIVATXYTKDJLBZIKUOWPBGNIXXCXAEUSTZOXIFRNQTOSEBYEZKANWVHBOCVNUHLPXEKUIEESRDQTSXTEQEKUTFYKUELFRRZLXDSTBBWOPJEGLBOKSWIZKNTAFORNIEWWGYNBPXNEPXPQJZIEQZBYHW
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 386 µs
+
+Executed output:
+AEEKNIWDKRYPBAXZYGFRLLEANTBWDUGYOYMFCZUIQVEBBUCYVVFPWCBUXQWBQTCDXBHPHSXVPDTRLDFKYWHJBTPTSEIMXYHEUMBZCJCFGYHOMINMRNKBDFTBQOSGZTKNSGUWGBKBCWQZIOFXMHGKQDPEVUZKYGATQSYGYRWDLSYZSBIBBHHHZASNDECNYJSAEGCXOMKLKKYBHLDEXGISDQPWXVGHDBYBFHEKFNWFKLWDPJHAFBHGHOYAIHFJGTTWHBCTVWEVJQNMILXNCZIQXRTHEOUQEPKIBIYQXGHETNPUHNTWKIHHHEKKBRVFDFIXGFOCAWKQUYYVWKZVRYEDRMQEMMSDMTCFKTVMBSXRVWWOFZSOZTBDAULMMWOMUGCSRONGSVPJEIMXURNAIASYXHFIZNBHRNWWWRYZZTXIZUNYZKWECXZGUITAZWRXQPKDXDMOJSSAIFHGYPAPGGSWXVXIASYFCMBUJKEESNPMLIXNRHFJTHTI
+CPU times: user 961 µs, sys: 0 ns, total: 961 µs
+Wall time: 920 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+%%time
+def npoints(N, R, X):
+    count = 0
+    X = sorted(X)
+    while len(X) > 0:
+        selected = [x for x in X if x >= X[-1] - R][0]
+        X = [x for x in X if x < selected - R] # まだカバーされていない点
+        count += 1
+    return count
+
+print(npoints(N, R, X))
+
+-----------------
+Original output:
+3
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 119 µs
+
+Executed output:
+3
+CPU times: user 309 µs, sys: 42 µs, total: 351 µs
+Wall time: 258 µs
+
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+%%time
+def sep(L):
+    L = sorted(L)
+    left = []
+    right = []
+    while len(L) > 0:
+        v = L.pop()
+        if sum(left) < sum(right):
+            left.append(v)
+        else:
+            right.append(v)
+    return left, right
+
+def cost(L):
+    if len(L) == 1:
+        return 0
+    left, right = sep(L)
+    return cost(left) + cost(right) + sum(L)
+
+print(cost(L))
+
+-----------------
+Original output:
+33
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 65.3 µs
+
+Executed output:
+33
+CPU times: user 302 µs, sys: 41 µs, total: 343 µs
+Wall time: 269 µs
+

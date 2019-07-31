@@ -1,0 +1,2051 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 33 ; number of cells: 57
+Reproducibility                          : matched ratio: 0.579 ; index of matched cells: [0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 15, 16, 22, 23, 25, 27, 28, 31, 35, 36, 37, 39, 43, 46, 47, 48, 49, 51, 52, 54, 55]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+scipy.mean(x)
+
+-----------------
+Original output:
+9.8571428571428577
+Executed output:
+9.857142857142858
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+np.mean(x)
+
+-----------------
+Original output:
+9.8571428571428577
+Executed output:
+9.857142857142858
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+matricula  = {
+            'Carlos Goes': '06/99209',
+            "Nicolas Powidayko": '10/22290',
+            "Alexander Rabbat": '08/21346',
+            "Dani Alaino": '07/20345',
+            "Lya Nikate": '09/23567',
+            "Niz Borroz": '11/22035',
+            "Tom Rundal": "98/20145"
+            }
+
+matricula = pd.Series(matricula)
+
+matricula
+
+-----------------
+Original output:
+Alexander Rabbat     08/21346
+Carlos Goes          06/99209
+Dani Alaino          07/20345
+Lya Nikate           09/23567
+Nicolas Powidayko    10/22290
+Niz Borroz           11/22035
+Tom Rundal           98/20145
+dtype: object
+Executed output:
+Carlos Goes          06/99209
+Nicolas Powidayko    10/22290
+Alexander Rabbat     08/21346
+Dani Alaino          07/20345
+Lya Nikate           09/23567
+Niz Borroz           11/22035
+Tom Rundal           98/20145
+dtype: object
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+matricula.iloc[1]
+
+-----------------
+Original output:
+'06/99209'
+Executed output:
+'10/22290'
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+curso = pd.Series({
+        'Carlos Goes': 'Economia',
+        "Nicolas Powidayko": 'Economia',
+        "Alexander Rabbat": 'Relações Internacionais',
+        "Dani Alaino": 'Relações Internacionais',
+        "Lya Nikate": 'Relações Internacionais',
+        "Niz Borroz": 'Relações Internacionais',
+        "Tom Rundal": "Economia"
+        })
+
+curso
+
+-----------------
+Original output:
+Alexander Rabbat     Relações Internacionais
+Carlos Goes                         Economia
+Dani Alaino          Relações Internacionais
+Lya Nikate           Relações Internacionais
+Nicolas Powidayko                   Economia
+Niz Borroz           Relações Internacionais
+Tom Rundal                          Economia
+dtype: object
+Executed output:
+Carlos Goes                         Economia
+Nicolas Powidayko                   Economia
+Alexander Rabbat     Relações Internacionais
+Dani Alaino          Relações Internacionais
+Lya Nikate           Relações Internacionais
+Niz Borroz           Relações Internacionais
+Tom Rundal                          Economia
+dtype: object
+-------------------------------------------
+Source Code of a Unmatched Cell 19
+-------------------------------------------
+ira = pd.Series({
+    'Carlos Goes': 5.0,
+    "Nicolas Powidayko": 4.8,
+    "Alexander Rabbat": 3.8,
+    "Dani Alaino": 4.4,
+    "Lya Nikate": 4.3,
+    "Niz Borroz": 4.0,
+    "Tom Rundal": 4.0
+    })
+
+
+ira
+
+-----------------
+Original output:
+Alexander Rabbat     3.8
+Carlos Goes          5.0
+Dani Alaino          4.4
+Lya Nikate           4.3
+Nicolas Powidayko    4.8
+Niz Borroz           4.0
+Tom Rundal           4.0
+dtype: float64
+Executed output:
+Carlos Goes          5.0
+Nicolas Powidayko    4.8
+Alexander Rabbat     3.8
+Dani Alaino          4.4
+Lya Nikate           4.3
+Niz Borroz           4.0
+Tom Rundal           4.0
+dtype: float64
+-------------------------------------------
+Source Code of a Unmatched Cell 20
+-------------------------------------------
+data = [matricula, curso, ira]
+
+df = pd.DataFrame(data, index=['matricula','curso','ira'])
+
+df
+
+-----------------
+Original output:
+                  Alexander Rabbat Carlos Goes              Dani Alaino  \
+matricula                 08/21346    06/99209                 07/20345   
+curso      Relações Internacionais    Economia  Relações Internacionais   
+ira                            3.8           5                      4.4   
+
+                        Lya Nikate Nicolas Powidayko               Niz Borroz  \
+matricula                 09/23567          10/22290                 11/22035   
+curso      Relações Internacionais          Economia  Relações Internacionais   
+ira                            4.3               4.8                        4   
+
+          Tom Rundal  
+matricula   98/20145  
+curso       Economia  
+ira                4  
+Executed output:
+          Carlos Goes Nicolas Powidayko         Alexander Rabbat  \
+matricula    06/99209          10/22290                 08/21346   
+curso        Economia          Economia  Relações Internacionais   
+ira                 5               4.8                      3.8   
+
+                       Dani Alaino               Lya Nikate  \
+matricula                 07/20345                 09/23567   
+curso      Relações Internacionais  Relações Internacionais   
+ira                            4.4                      4.3   
+
+                        Niz Borroz Tom Rundal  
+matricula                 11/22035   98/20145  
+curso      Relações Internacionais   Economia  
+ira                              4          4  
+-------------------------------------------
+Source Code of a Unmatched Cell 21
+-------------------------------------------
+df = df.T
+df
+
+-----------------
+Original output:
+                  matricula                    curso  ira
+Alexander Rabbat   08/21346  Relações Internacionais  3.8
+Carlos Goes        06/99209                 Economia    5
+Dani Alaino        07/20345  Relações Internacionais  4.4
+Lya Nikate         09/23567  Relações Internacionais  4.3
+Nicolas Powidayko  10/22290                 Economia  4.8
+Niz Borroz         11/22035  Relações Internacionais    4
+Tom Rundal         98/20145                 Economia    4
+Executed output:
+                  matricula                    curso  ira
+Carlos Goes        06/99209                 Economia    5
+Nicolas Powidayko  10/22290                 Economia  4.8
+Alexander Rabbat   08/21346  Relações Internacionais  3.8
+Dani Alaino        07/20345  Relações Internacionais  4.4
+Lya Nikate         09/23567  Relações Internacionais  4.3
+Niz Borroz         11/22035  Relações Internacionais    4
+Tom Rundal         98/20145                 Economia    4
+-------------------------------------------
+Source Code of a Unmatched Cell 24
+-------------------------------------------
+df["matricula"]
+
+-----------------
+Original output:
+Alexander Rabbat     08/21346
+Carlos Goes          06/99209
+Dani Alaino          07/20345
+Lya Nikate           09/23567
+Nicolas Powidayko    10/22290
+Niz Borroz           11/22035
+Tom Rundal           98/20145
+Name: matricula, dtype: object
+Executed output:
+Carlos Goes          06/99209
+Nicolas Powidayko    10/22290
+Alexander Rabbat     08/21346
+Dani Alaino          07/20345
+Lya Nikate           09/23567
+Niz Borroz           11/22035
+Tom Rundal           98/20145
+Name: matricula, dtype: object
+-------------------------------------------
+Source Code of a Unmatched Cell 26
+-------------------------------------------
+df["curso"] == "Economia"
+
+-----------------
+Original output:
+Alexander Rabbat     False
+Carlos Goes           True
+Dani Alaino          False
+Lya Nikate           False
+Nicolas Powidayko     True
+Niz Borroz           False
+Tom Rundal            True
+Name: curso, dtype: bool
+Executed output:
+Carlos Goes           True
+Nicolas Powidayko     True
+Alexander Rabbat     False
+Dani Alaino          False
+Lya Nikate           False
+Niz Borroz           False
+Tom Rundal            True
+Name: curso, dtype: bool
+-------------------------------------------
+Source Code of a Unmatched Cell 29
+-------------------------------------------
+df['ira'] *= 2
+df
+
+-----------------
+Original output:
+                  matricula                    curso  ira
+Alexander Rabbat   08/21346  Relações Internacionais  7.6
+Carlos Goes        06/99209                 Economia   10
+Dani Alaino        07/20345  Relações Internacionais  8.8
+Lya Nikate         09/23567  Relações Internacionais  8.6
+Nicolas Powidayko  10/22290                 Economia  9.6
+Niz Borroz         11/22035  Relações Internacionais    8
+Tom Rundal         98/20145                 Economia    8
+Executed output:
+                  matricula                    curso  ira
+Carlos Goes        06/99209                 Economia   10
+Nicolas Powidayko  10/22290                 Economia  9.6
+Alexander Rabbat   08/21346  Relações Internacionais  7.6
+Dani Alaino        07/20345  Relações Internacionais  8.8
+Lya Nikate         09/23567  Relações Internacionais  8.6
+Niz Borroz         11/22035  Relações Internacionais    8
+Tom Rundal         98/20145                 Economia    8
+-------------------------------------------
+Source Code of a Unmatched Cell 30
+-------------------------------------------
+df['ira'] /= 2
+df
+
+-----------------
+Original output:
+                  matricula                    curso  ira
+Alexander Rabbat   08/21346  Relações Internacionais  3.8
+Carlos Goes        06/99209                 Economia    5
+Dani Alaino        07/20345  Relações Internacionais  4.4
+Lya Nikate         09/23567  Relações Internacionais  4.3
+Nicolas Powidayko  10/22290                 Economia  4.8
+Niz Borroz         11/22035  Relações Internacionais    4
+Tom Rundal         98/20145                 Economia    4
+Executed output:
+                  matricula                    curso  ira
+Carlos Goes        06/99209                 Economia    5
+Nicolas Powidayko  10/22290                 Economia  4.8
+Alexander Rabbat   08/21346  Relações Internacionais  3.8
+Dani Alaino        07/20345  Relações Internacionais  4.4
+Lya Nikate         09/23567  Relações Internacionais  4.3
+Niz Borroz         11/22035  Relações Internacionais    4
+Tom Rundal         98/20145                 Economia    4
+-------------------------------------------
+Source Code of a Unmatched Cell 32
+-------------------------------------------
+ira_media = np.mean(df['ira'])
+ira_media
+
+-----------------
+Original output:
+4.3285714285714283
+Executed output:
+4.328571428571428
+-------------------------------------------
+Source Code of a Unmatched Cell 33
+-------------------------------------------
+df = df.drop('Carlos Goes')
+df
+
+-----------------
+Original output:
+                  matricula                    curso  ira
+Alexander Rabbat   08/21346  Relações Internacionais  3.8
+Dani Alaino        07/20345  Relações Internacionais  4.4
+Lya Nikate         09/23567  Relações Internacionais  4.3
+Nicolas Powidayko  10/22290                 Economia  4.8
+Niz Borroz         11/22035  Relações Internacionais    4
+Tom Rundal         98/20145                 Economia    4
+Executed output:
+                  matricula                    curso  ira
+Nicolas Powidayko  10/22290                 Economia  4.8
+Alexander Rabbat   08/21346  Relações Internacionais  3.8
+Dani Alaino        07/20345  Relações Internacionais  4.4
+Lya Nikate         09/23567  Relações Internacionais  4.3
+Niz Borroz         11/22035  Relações Internacionais    4
+Tom Rundal         98/20145                 Economia    4
+-------------------------------------------
+Source Code of a Unmatched Cell 34
+-------------------------------------------
+df = df.append(
+        pd.Series(
+                data = { 'curso': 'Economia',
+                        'matricula': '06/99209',
+                        'ira': 5.0  },
+                name=('Carlos Goes')
+                )
+            )
+
+df
+
+-----------------
+Original output:
+                  matricula                    curso  ira
+Alexander Rabbat   08/21346  Relações Internacionais  3.8
+Dani Alaino        07/20345  Relações Internacionais  4.4
+Lya Nikate         09/23567  Relações Internacionais  4.3
+Nicolas Powidayko  10/22290                 Economia  4.8
+Niz Borroz         11/22035  Relações Internacionais    4
+Tom Rundal         98/20145                 Economia    4
+Carlos Goes        06/99209                 Economia    5
+Executed output:
+                  matricula                    curso  ira
+Nicolas Powidayko  10/22290                 Economia  4.8
+Alexander Rabbat   08/21346  Relações Internacionais  3.8
+Dani Alaino        07/20345  Relações Internacionais  4.4
+Lya Nikate         09/23567  Relações Internacionais  4.3
+Niz Borroz         11/22035  Relações Internacionais    4
+Tom Rundal         98/20145                 Economia    4
+Carlos Goes        06/99209                 Economia    5
+-------------------------------------------
+Source Code of a Unmatched Cell 38
+-------------------------------------------
+left = pd.merge(df, extracurricular,
+                  left_index=True, right_index=True, how='left')
+left
+
+-----------------
+Original output:
+                  matricula                    curso  ira Lista de Honra  \
+Alexander Rabbat   08/21346  Relações Internacionais  3.8            NaN   
+Dani Alaino        07/20345  Relações Internacionais  4.4            NaN   
+Lya Nikate         09/23567  Relações Internacionais  4.3            NaN   
+Nicolas Powidayko  10/22290                 Economia  4.8           True   
+Niz Borroz         11/22035  Relações Internacionais    4            NaN   
+Tom Rundal         98/20145                 Economia    4            NaN   
+Carlos Goes        06/99209                 Economia    5           True   
+
+                  Modelo da ONU Monitor  
+Alexander Rabbat            NaN     NaN  
+Dani Alaino                 NaN     NaN  
+Lya Nikate                  NaN     NaN  
+Nicolas Powidayko         False   False  
+Niz Borroz                  NaN     NaN  
+Tom Rundal                  NaN     NaN  
+Carlos Goes                True    True  
+Executed output:
+                  matricula                    curso  ira Lista de Honra  \
+Nicolas Powidayko  10/22290                 Economia  4.8           True   
+Alexander Rabbat   08/21346  Relações Internacionais  3.8            NaN   
+Dani Alaino        07/20345  Relações Internacionais  4.4            NaN   
+Lya Nikate         09/23567  Relações Internacionais  4.3            NaN   
+Niz Borroz         11/22035  Relações Internacionais    4            NaN   
+Tom Rundal         98/20145                 Economia    4            NaN   
+Carlos Goes        06/99209                 Economia    5           True   
+
+                  Modelo da ONU Monitor  
+Nicolas Powidayko         False   False  
+Alexander Rabbat            NaN     NaN  
+Dani Alaino                 NaN     NaN  
+Lya Nikate                  NaN     NaN  
+Niz Borroz                  NaN     NaN  
+Tom Rundal                  NaN     NaN  
+Carlos Goes                True    True  
+-------------------------------------------
+Source Code of a Unmatched Cell 40
+-------------------------------------------
+left = left.fillna(False)
+left
+
+-----------------
+Original output:
+                  matricula                    curso  ira  Lista de Honra  \
+Alexander Rabbat   08/21346  Relações Internacionais  3.8           False   
+Dani Alaino        07/20345  Relações Internacionais  4.4           False   
+Lya Nikate         09/23567  Relações Internacionais  4.3           False   
+Nicolas Powidayko  10/22290                 Economia  4.8            True   
+Niz Borroz         11/22035  Relações Internacionais  4.0           False   
+Tom Rundal         98/20145                 Economia  4.0           False   
+Carlos Goes        06/99209                 Economia  5.0            True   
+
+                   Modelo da ONU  Monitor  
+Alexander Rabbat           False    False  
+Dani Alaino                False    False  
+Lya Nikate                 False    False  
+Nicolas Powidayko          False    False  
+Niz Borroz                 False    False  
+Tom Rundal                 False    False  
+Carlos Goes                 True     True  
+Executed output:
+                  matricula                    curso  ira  Lista de Honra  \
+Nicolas Powidayko  10/22290                 Economia  4.8            True   
+Alexander Rabbat   08/21346  Relações Internacionais  3.8           False   
+Dani Alaino        07/20345  Relações Internacionais  4.4           False   
+Lya Nikate         09/23567  Relações Internacionais  4.3           False   
+Niz Borroz         11/22035  Relações Internacionais  4.0           False   
+Tom Rundal         98/20145                 Economia  4.0           False   
+Carlos Goes        06/99209                 Economia  5.0            True   
+
+                   Modelo da ONU  Monitor  
+Nicolas Powidayko          False    False  
+Alexander Rabbat           False    False  
+Dani Alaino                False    False  
+Lya Nikate                 False    False  
+Niz Borroz                 False    False  
+Tom Rundal                 False    False  
+Carlos Goes                 True     True  
+-------------------------------------------
+Source Code of a Unmatched Cell 41
+-------------------------------------------
+url = "https://raw.githubusercontent.com/" +      \
+    "omercadopopular/cgoes/master/piketty/" +   \
+    "fdatabasetax.csv"
+                
+piketty = pd.read_csv(url)
+piketty
+
+-----------------
+Original output:
+           country  year  top10   top5   top1      short     tshort  \
+0        Australia  1980  25.39  15.31   4.79  10.667500        NaN   
+1        Australia  1981  25.31  15.15   4.61  13.250833   7.155450   
+2        Australia  1982  25.82  15.44   4.67  14.642497   7.906948   
+3        Australia  1983  25.32  15.16   4.68  12.225000   6.601500   
+4        Australia  1984  25.50  15.25   4.75  10.985000   5.931900   
+5        Australia  1985  25.93  15.63   5.02  15.336663   8.281798   
+6        Australia  1986  26.61  16.17   5.39  15.386665   7.847199   
+7        Australia  1987  28.66  17.94   6.67  12.798332   6.527149   
+8        Australia  1988  30.28  19.84   8.41  15.400000   9.394000   
+9        Australia  1989  27.64  17.46   6.43  17.550000  10.705500   
+10       Australia  1990  27.66  17.37   6.34  12.100000   7.381000   
+11       Australia  1991  28.22  17.70   6.41   7.600000   4.636000   
+12       Australia  1992  28.52  17.95   6.55   5.940000   3.623400   
+13       Australia  1993  29.40  18.66   6.96   4.840000   3.242800   
+14       Australia  1994  29.42  18.87   7.13   8.270000   5.540900   
+15       Australia  1995  29.13  18.76   7.23   7.440000   4.761600   
+16       Australia  1996  29.16  18.77   7.24   5.980000   3.827200   
+17       Australia  1997  30.41  19.73   7.81   5.050000   3.232000   
+18       Australia  1998  30.11  19.63   7.84   4.810000   3.078400   
+19       Australia  1999  31.48  20.95   8.84   5.570000   3.564800   
+20       Australia  2000  31.28  20.98   9.03   6.130000   4.045800   
+21       Australia  2001  30.61  20.33   8.31   4.250000   2.975000   
+22       Australia  2002  31.34  20.90   8.79   4.790000   3.353000   
+23       Australia  2003  32.04  21.49   9.18   5.520000   3.864000   
+24       Australia  2004  30.08  20.32   8.89   5.430000   3.801000   
+25       Australia  2005  30.54  20.72   9.12   5.640000   3.948000   
+26       Australia  2006  31.81  21.91  10.06   6.440000   4.508000   
+27       Australia  2007  31.51  21.61   9.84   7.200000   5.040000   
+28       Australia  2008  29.34  19.85   8.59   4.080000   2.856000   
+29       Australia  2009  30.56  20.69   8.88   4.210000   2.947000   
+..             ...   ...    ...    ...    ...        ...        ...   
+550  United States  1983  33.69  21.79   8.59   8.944167   4.486931   
+551  United States  1984  33.95  22.10   8.89   9.897500   4.969990   
+552  United States  1985  34.25  22.38   9.09   7.730833   3.882007   
+553  United States  1986  34.57  22.59   9.13   6.155000   3.088382   
+554  United States  1987  36.48  24.49  10.75   5.962500   3.328506   
+555  United States  1988  38.63  26.95  13.17   6.884167   4.227319   
+556  United States  1989  38.47  26.66  12.61   8.393333   5.147950   
+557  United States  1990  38.84  27.05  12.98   7.742500   4.749791   
+558  United States  1991  38.38  26.43  12.17   5.538333   3.386635   
+559  United States  1992  39.82  27.88  13.48   3.515833   2.149433   
+560  United States  1993  39.48  27.41  12.82   3.065000   1.846617   
+561  United States  1994  39.60  27.50  12.85   4.365833   2.633187   
+562  United States  1995  40.54  28.46  13.53   5.660000   3.418159   
+563  United States  1996  41.16  29.16  14.11   5.145000   3.111156   
+564  United States  1997  41.73  29.85  14.77   5.200000   3.148470   
+565  United States  1998  42.12  30.36  15.29   4.906667   2.971502   
+566  United States  1999  42.67  30.97  15.87   4.777500   2.895452   
+567  United States  2000  43.11  31.51  16.49   5.995833   3.637072   
+568  United States  2001  42.23  30.40  15.37   3.469167   2.106825   
+569  United States  2002  42.36  30.36  14.99   1.633333   0.991433   
+570  United States  2003  42.76  30.66  15.21   1.030000   0.625004   
+571  United States  2004  43.64  31.71  16.34   1.395000   0.846486   
+572  United States  2005  44.94  33.12  17.68   3.213333   1.950815   
+573  United States  2006  45.50  33.59  18.06   4.848333   2.942938   
+574  United States  2007  45.67  33.84  18.33   4.471667   2.715643   
+575  United States  2008  45.96  33.78  17.89   1.391667   0.845437   
+576  United States  2009  45.47  32.81  16.68   0.150833   0.091767   
+577  United States  2010  46.35  33.73  17.45   0.136667   0.083080   
+578  United States  2011  46.63  33.98  17.47   0.052500   0.031925   
+579  United States  2012  48.16  35.76  19.34   0.085833   0.052247   
+
+          long     tlong   deflator    ...       growth       rg1       rg2  \
+0    11.651666       NaN   9.799431    ...     2.893709 -2.025640 -1.041474   
+1    13.987500  7.553250  10.112331    ...     4.127127 -0.988626 -0.251958   
+2    15.345829  8.286748  12.080141    ...     0.062726  2.499629  3.202961   
+3    14.112500  7.620750   8.696501    ...    -0.473595  4.002095  5.889595   
+4    13.833333  7.470000   5.962292    ...     6.346048 -1.323340  1.524993   
+5    14.104165  7.616249   5.280455    ...     5.456397  4.599811  3.367313   
+6    13.558331  6.914749   6.111641    ...     2.448094  6.826930  4.998596   
+7    13.466667  6.868000   7.158711    ...     4.892633  0.746989  1.415324   
+8    12.950000  7.899500   9.068585    ...     4.253262  2.078153 -0.371847   
+9    12.900000  7.869000   7.498348    ...     4.569199  5.482453  0.832453   
+10   12.070000  7.362700   5.033114    ...     1.502580  5.564305  5.534305   
+11    9.390000  5.727900   1.618239    ...    -1.112748  7.094509  8.884509   
+12    8.940000  5.453400   1.199299    ...     2.654565  2.086137  5.086137   
+13    6.680000  4.475600   1.227720    ...     3.899857 -0.287577  1.552423   
+14   10.040000  6.726800   1.073971    ...     4.901374  2.294655  4.064655   
+15    8.180000  5.235200   3.093712    ...     2.955487  1.390801  2.130801   
+16    7.370000  4.716800   1.718858    ...     4.298257 -0.037116  1.352884   
+17    6.050000  3.872000   1.331466    ...     4.164025 -0.445491  0.554509   
+18    5.010000  3.206400   0.625728    ...     4.866077 -0.681806 -0.481806   
+19    6.960000  4.454400   1.074690    ...     4.243811  0.251498  1.641498   
+20    5.460000  3.603600   4.322023    ...     3.085010 -1.277032 -1.947032   
+21    6.010000  4.207000   3.502399    ...     2.577170 -1.829568 -0.069568   
+22    5.160000  3.612000   3.064757    ...     3.995218 -2.269975 -1.899975   
+23    5.600000  3.920000   3.181852    ...     3.021015 -0.682867 -0.602867   
+24    5.330000  3.731000   3.414135    ...     4.035961 -2.020096 -2.120096   
+25    5.200000  3.640000   4.438343    ...     3.213558 -2.011902 -2.451902   
+26    5.890000  4.123000   5.155750    ...     2.654242 -1.369992 -1.919992   
+27    6.330000  4.431000   4.343298    ...     4.519407 -1.662705 -2.532705   
+28    3.990000  2.793000   6.314457    ...     2.677017 -4.911474 -5.001474   
+29    5.650000  3.955000   0.322558    ...     1.563143  2.324298  3.764298   
+..         ...       ...        ...    ...          ...       ...       ...   
+550  11.105000  5.570934   3.947447    ...     4.632757  0.363963  2.524796   
+551  12.438333  6.245859   3.548931    ...     7.258908 -0.910339  1.630494   
+552  10.623333  5.334464   3.200059    ...     4.238489  0.292285  3.184785   
+553   7.682500  3.854833   2.016127    ...     3.512076  0.626797  2.154297   
+554   8.384167  4.680377   2.552269    ...     3.461612 -0.051381  2.370286   
+555   8.845833  5.431908   3.500560    ...     4.204068 -0.820461  1.141206   
+556   8.499167  5.212862   3.888594    ...     3.680158  0.824581  0.930415   
+557   8.550000  5.245169   3.698705    ...     1.919449  2.124345  2.931845   
+558   7.858333  4.805292   3.328476    ...    -0.073702  2.283559  4.603559   
+559   7.010000  4.285620   2.279748    ...     3.555095 -2.319009  1.175157   
+560   5.873333  3.538595   2.378937    ...     2.745898 -2.059835  0.748499   
+561   7.080000  4.270196   2.128412    ...     4.037916 -1.800495  0.913672   
+562   6.580000  3.973761   2.085533    ...     2.718705  0.855762  1.775762   
+563   6.438333  3.893228   1.825084    ...     3.796162 -0.476246  0.817087   
+564   6.352500  3.846280   1.712177    ...     4.486791 -0.998969  0.153531   
+565   5.264167  3.188006   1.085079    ...     4.449766 -0.628178 -0.270678   
+566   5.636667  3.416158   1.530409    ...     4.685328 -1.438237 -0.579070   
+567   6.029167  3.657293   2.275285    ...     4.092111 -0.371563 -0.338229   
+568   5.017500  3.047128   2.279037    ...     0.976142  0.213988  1.762321   
+569   4.610833  2.798776   1.535187    ...     1.786158 -1.688011  1.289489   
+570   4.015000  2.436302   1.993963    ...     2.806812 -3.770775 -0.785775   
+571   4.274167  2.593564   2.749910    ...     3.785481 -5.140392 -2.261225   
+572   4.290000  2.604459   3.217295    ...     3.345379 -3.349341 -2.272675   
+573   4.791667  2.908542   3.072731    ...     2.666456 -0.890854 -0.947520   
+574   4.629167  2.811293   2.660947    ...     1.778798  0.031922  0.189422   
+575   3.666667  2.227500   1.961634    ...    -0.291621 -0.278346  1.996654   
+576   3.256667  1.981356   0.759410    ...    -2.775554  2.166977  5.272811   
+577   3.214167  1.953892   1.221783    ...     2.531773 -3.616889 -0.539389   
+578   2.785833  1.694065   2.064300    ...     1.601584 -3.613384 -0.880051   
+579   1.802500  1.097182   1.795448    ...     2.320817 -4.030431 -2.313764   
+
+           rg3        rg4       rg5  ctxrate     kshare       rimp     delta  
+0          NaN        NaN       NaN      NaN  22.781307   7.143823  4.372757  
+1   -10.375515 -10.160703 -4.548147  46.0000  22.992748   7.116895  4.264144  
+2    -7.873116  -7.668024 -0.387324  46.0000  24.848551   7.272948  4.251989  
+3    -4.658095  -4.107700  0.526811  46.0000  26.956326   7.994036  4.263564  
+4    -9.105114  -8.274540 -6.093940  46.0000  27.437305   8.234032  4.194270  
+5    -6.264681  -6.624078 -5.167578  46.0000  27.803844   8.398011  4.246107  
+6    -4.557664  -5.033214 -2.377699  49.0000  29.045123   8.697203  4.365178  
+7    -8.722497  -8.548663 -4.428184  49.0000  30.865788   9.409619  4.334457  
+8    -7.591507  -8.503152 -2.752238  39.0000  30.706412   9.332893  4.192040  
+9    -5.537192  -7.267457 -1.403170  39.0000  39.471942  11.967970  4.134433  
+10   -2.033285  -2.044448  1.267054  39.0000  38.648278  11.374377  4.168736  
+11    2.322469   2.988528  3.825925  39.0000  39.283425  11.363328  4.218454  
+12   -1.643589  -0.527289  0.257537  39.0000  40.069735  11.778655  4.272878  
+13   -2.954901  -2.128925 -0.064921  33.0000  40.691477  12.130551  4.292533  
+14   -2.262942  -1.468389 -0.953323  33.0000  40.406108  12.142597  4.187489  
+15   -3.001775  -2.698671  0.615518  36.0000  39.766490  12.060660  4.147816  
+16   -3.567708  -2.998364 -0.717828  36.0000  39.108557  11.939323  4.060737  
+17   -3.427011  -3.017411 -0.487195  36.0000  39.355123  12.127869  4.085006  
+18   -3.521630  -3.439710 -1.154545  36.0000  39.198452  12.244674  4.125059  
+19   -3.037030  -2.467686 -0.295058  36.0000  40.002674  12.500292  4.051433  
+20   -4.736804  -5.028656  1.058265  34.0000  40.051138  12.406828  4.045232  
+21   -3.997068  -3.134668  2.229875  30.0000  40.711647  12.692868  4.077963  
+22   -4.712875  -4.531575  0.857931  30.0000  40.762812  12.620984  3.981540  
+23   -3.498067  -3.458867  2.101612  30.0000  41.242969  12.767035  3.814298  
+24   -4.789396  -4.838396  1.088343  30.0000  41.310185  12.660201  3.737837  
+25   -4.888302  -5.103902  1.940464  30.0000  41.816020  12.635522  3.690843  
+26   -4.654392  -4.923892  2.480075  30.0000  41.841656  12.568084  3.663342  
+27   -5.334705  -5.761005  0.764272  30.0000  42.348117  12.603646  3.538873  
+28   -6.992274  -7.036374  2.346032  30.0000  42.782533  12.365476  3.632784  
+29    0.177198   0.882798  3.290767  30.0000  42.782533  12.126245  3.634461  
+..         ...        ...       ...      ...        ...        ...       ...  
+550  -6.329290  -5.785489 -3.129056  49.8340  36.220944  10.623248  3.825557  
+551  -8.312178  -7.671506 -5.497860  49.7854  36.373425  11.101173  3.813362  
+552  -5.489214  -4.759869 -2.447973  49.7854  36.429292  11.224792  3.845968  
+553  -3.978552  -3.593971 -1.776360  49.8232  36.236578  11.220634  3.894439  
+554  -4.155776  -3.401107 -1.214923  44.1760  35.539335  11.047359  3.920389  
+555  -5.108783  -4.369088 -1.337692  38.5936  35.103440  11.058576  3.924298  
+556  -4.411318  -4.371506 -0.564331  38.6662  36.180097  11.497419  3.935976  
+557  -2.704300  -2.400401  1.083427  38.6530  35.990918  11.377557  3.976914  
+558  -1.183881  -0.316386  2.843698  38.8510  35.947359  11.128864  4.035192  
+559  -4.520770  -3.214795 -0.730433  38.8642  35.785723  11.233581  4.043077  
+560  -4.012276  -2.992884  0.075158  39.7515  35.966307  11.357884  4.021899  
+561  -4.578161  -3.590823 -1.020486  39.6865  36.364216  11.662802  4.016814  
+562  -2.739961  -2.404425  0.268317  39.6085  36.184728  11.592238  4.013704  
+563  -3.739946  -3.267031 -0.684700  39.5305  36.533493  11.799203  4.023457  
+564  -4.292649  -3.870142 -1.264478  39.4525  36.529076  11.959037  4.018585  
+565  -3.735288  -3.604173 -1.435520  39.4395  35.053098  11.594438  4.007403  
+566  -4.460920  -4.145340 -1.656345  39.3940  34.816396  11.668833  4.043030  
+567  -4.161148  -4.148883 -1.328449  39.3400  33.636129  11.346480  4.119113  
+568  -1.975704  -1.404658  1.613573  39.2700  33.567560  11.122801  4.165163  
+569  -2.719545  -1.622488  0.946763  39.3000  34.472531  11.361515  4.163519  
+570  -4.421522  -3.322427  0.037684  39.3200  34.636515  11.436527  4.095189  
+571  -6.021744  -4.961617 -0.635526  39.3200  35.297692  11.758980  3.985394  
+572  -5.378335  -4.981508  0.096294  39.2900  36.017263  12.045333  3.871048  
+573  -3.952823  -3.973702  0.893310  39.3000  36.116236  12.091968  3.780059  
+574  -2.790535  -2.732447  1.845069  39.2700  36.571825  12.204612  3.787994  
+575  -1.156410  -0.316807  3.644916  39.2500  36.161852  11.823449  3.829451  
+576   2.071975   3.221601  5.999226  39.1600  37.445313  11.777189  3.941569  
+577  -3.703052  -2.565785  0.904324  39.2100  37.956351  12.141440  3.944685  
+578  -3.646470  -2.635723  1.917809  39.1900  37.801415  12.216007  3.909161  
+579  -4.084462  -3.448410       NaN  39.1300        NaN        NaN       NaN  
+
+[580 rows x 22 columns]
+Executed output:
+           country  year  top10   top5   top1      short     tshort  \
+0        Australia  1980  25.39  15.31   4.79  10.667500        NaN   
+1        Australia  1981  25.31  15.15   4.61  13.250833   7.155450   
+2        Australia  1982  25.82  15.44   4.67  14.642497   7.906948   
+3        Australia  1983  25.32  15.16   4.68  12.225000   6.601500   
+4        Australia  1984  25.50  15.25   4.75  10.985000   5.931900   
+5        Australia  1985  25.93  15.63   5.02  15.336663   8.281798   
+6        Australia  1986  26.61  16.17   5.39  15.386665   7.847199   
+7        Australia  1987  28.66  17.94   6.67  12.798332   6.527149   
+8        Australia  1988  30.28  19.84   8.41  15.400000   9.394000   
+9        Australia  1989  27.64  17.46   6.43  17.550000  10.705500   
+10       Australia  1990  27.66  17.37   6.34  12.100000   7.381000   
+11       Australia  1991  28.22  17.70   6.41   7.600000   4.636000   
+12       Australia  1992  28.52  17.95   6.55   5.940000   3.623400   
+13       Australia  1993  29.40  18.66   6.96   4.840000   3.242800   
+14       Australia  1994  29.42  18.87   7.13   8.270000   5.540900   
+15       Australia  1995  29.13  18.76   7.23   7.440000   4.761600   
+16       Australia  1996  29.16  18.77   7.24   5.980000   3.827200   
+17       Australia  1997  30.41  19.73   7.81   5.050000   3.232000   
+18       Australia  1998  30.11  19.63   7.84   4.810000   3.078400   
+19       Australia  1999  31.48  20.95   8.84   5.570000   3.564800   
+20       Australia  2000  31.28  20.98   9.03   6.130000   4.045800   
+21       Australia  2001  30.61  20.33   8.31   4.250000   2.975000   
+22       Australia  2002  31.34  20.90   8.79   4.790000   3.353000   
+23       Australia  2003  32.04  21.49   9.18   5.520000   3.864000   
+24       Australia  2004  30.08  20.32   8.89   5.430000   3.801000   
+25       Australia  2005  30.54  20.72   9.12   5.640000   3.948000   
+26       Australia  2006  31.81  21.91  10.06   6.440000   4.508000   
+27       Australia  2007  31.51  21.61   9.84   7.200000   5.040000   
+28       Australia  2008  29.34  19.85   8.59   4.080000   2.856000   
+29       Australia  2009  30.56  20.69   8.88   4.210000   2.947000   
+..             ...   ...    ...    ...    ...        ...        ...   
+550  United States  1983  33.69  21.79   8.59   8.944167   4.486931   
+551  United States  1984  33.95  22.10   8.89   9.897500   4.969990   
+552  United States  1985  34.25  22.38   9.09   7.730833   3.882007   
+553  United States  1986  34.57  22.59   9.13   6.155000   3.088382   
+554  United States  1987  36.48  24.49  10.75   5.962500   3.328506   
+555  United States  1988  38.63  26.95  13.17   6.884167   4.227319   
+556  United States  1989  38.47  26.66  12.61   8.393333   5.147950   
+557  United States  1990  38.84  27.05  12.98   7.742500   4.749791   
+558  United States  1991  38.38  26.43  12.17   5.538333   3.386635   
+559  United States  1992  39.82  27.88  13.48   3.515833   2.149433   
+560  United States  1993  39.48  27.41  12.82   3.065000   1.846617   
+561  United States  1994  39.60  27.50  12.85   4.365833   2.633187   
+562  United States  1995  40.54  28.46  13.53   5.660000   3.418159   
+563  United States  1996  41.16  29.16  14.11   5.145000   3.111156   
+564  United States  1997  41.73  29.85  14.77   5.200000   3.148470   
+565  United States  1998  42.12  30.36  15.29   4.906667   2.971502   
+566  United States  1999  42.67  30.97  15.87   4.777500   2.895452   
+567  United States  2000  43.11  31.51  16.49   5.995833   3.637072   
+568  United States  2001  42.23  30.40  15.37   3.469167   2.106825   
+569  United States  2002  42.36  30.36  14.99   1.633333   0.991433   
+570  United States  2003  42.76  30.66  15.21   1.030000   0.625004   
+571  United States  2004  43.64  31.71  16.34   1.395000   0.846486   
+572  United States  2005  44.94  33.12  17.68   3.213333   1.950815   
+573  United States  2006  45.50  33.59  18.06   4.848333   2.942938   
+574  United States  2007  45.67  33.84  18.33   4.471667   2.715643   
+575  United States  2008  45.96  33.78  17.89   1.391667   0.845437   
+576  United States  2009  45.47  32.81  16.68   0.150833   0.091767   
+577  United States  2010  46.35  33.73  17.45   0.136667   0.083080   
+578  United States  2011  46.63  33.98  17.47   0.052500   0.031925   
+579  United States  2012  48.16  35.76  19.34   0.085833   0.052247   
+
+          long     tlong   deflator  ...    growth       rg1       rg2  \
+0    11.651666       NaN   9.799431  ...  2.893709 -2.025640 -1.041474   
+1    13.987500  7.553250  10.112331  ...  4.127127 -0.988626 -0.251958   
+2    15.345829  8.286748  12.080141  ...  0.062726  2.499629  3.202961   
+3    14.112500  7.620750   8.696501  ... -0.473595  4.002095  5.889595   
+4    13.833333  7.470000   5.962292  ...  6.346048 -1.323340  1.524993   
+5    14.104165  7.616249   5.280455  ...  5.456397  4.599811  3.367313   
+6    13.558331  6.914749   6.111641  ...  2.448094  6.826930  4.998596   
+7    13.466667  6.868000   7.158711  ...  4.892633  0.746989  1.415324   
+8    12.950000  7.899500   9.068585  ...  4.253262  2.078153 -0.371847   
+9    12.900000  7.869000   7.498348  ...  4.569199  5.482453  0.832453   
+10   12.070000  7.362700   5.033114  ...  1.502580  5.564305  5.534305   
+11    9.390000  5.727900   1.618239  ... -1.112748  7.094509  8.884509   
+12    8.940000  5.453400   1.199299  ...  2.654565  2.086137  5.086137   
+13    6.680000  4.475600   1.227720  ...  3.899857 -0.287577  1.552423   
+14   10.040000  6.726800   1.073971  ...  4.901374  2.294655  4.064655   
+15    8.180000  5.235200   3.093712  ...  2.955487  1.390801  2.130801   
+16    7.370000  4.716800   1.718858  ...  4.298257 -0.037116  1.352884   
+17    6.050000  3.872000   1.331466  ...  4.164025 -0.445491  0.554509   
+18    5.010000  3.206400   0.625728  ...  4.866077 -0.681806 -0.481806   
+19    6.960000  4.454400   1.074690  ...  4.243811  0.251498  1.641498   
+20    5.460000  3.603600   4.322023  ...  3.085010 -1.277032 -1.947032   
+21    6.010000  4.207000   3.502399  ...  2.577170 -1.829568 -0.069568   
+22    5.160000  3.612000   3.064757  ...  3.995218 -2.269975 -1.899975   
+23    5.600000  3.920000   3.181852  ...  3.021015 -0.682867 -0.602867   
+24    5.330000  3.731000   3.414135  ...  4.035961 -2.020096 -2.120096   
+25    5.200000  3.640000   4.438343  ...  3.213558 -2.011902 -2.451902   
+26    5.890000  4.123000   5.155750  ...  2.654242 -1.369992 -1.919992   
+27    6.330000  4.431000   4.343298  ...  4.519407 -1.662705 -2.532705   
+28    3.990000  2.793000   6.314457  ...  2.677017 -4.911474 -5.001474   
+29    5.650000  3.955000   0.322558  ...  1.563143  2.324298  3.764298   
+..         ...       ...        ...  ...       ...       ...       ...   
+550  11.105000  5.570934   3.947447  ...  4.632757  0.363963  2.524796   
+551  12.438333  6.245859   3.548931  ...  7.258908 -0.910339  1.630494   
+552  10.623333  5.334464   3.200059  ...  4.238489  0.292285  3.184785   
+553   7.682500  3.854833   2.016127  ...  3.512076  0.626797  2.154297   
+554   8.384167  4.680377   2.552269  ...  3.461612 -0.051381  2.370286   
+555   8.845833  5.431908   3.500560  ...  4.204068 -0.820461  1.141206   
+556   8.499167  5.212862   3.888594  ...  3.680158  0.824581  0.930415   
+557   8.550000  5.245169   3.698705  ...  1.919449  2.124345  2.931845   
+558   7.858333  4.805292   3.328476  ... -0.073702  2.283559  4.603559   
+559   7.010000  4.285620   2.279748  ...  3.555095 -2.319009  1.175157   
+560   5.873333  3.538595   2.378937  ...  2.745898 -2.059835  0.748499   
+561   7.080000  4.270196   2.128412  ...  4.037916 -1.800495  0.913672   
+562   6.580000  3.973761   2.085533  ...  2.718705  0.855762  1.775762   
+563   6.438333  3.893228   1.825084  ...  3.796162 -0.476246  0.817087   
+564   6.352500  3.846280   1.712177  ...  4.486791 -0.998969  0.153531   
+565   5.264167  3.188006   1.085079  ...  4.449766 -0.628178 -0.270678   
+566   5.636667  3.416158   1.530409  ...  4.685328 -1.438237 -0.579070   
+567   6.029167  3.657293   2.275285  ...  4.092111 -0.371563 -0.338229   
+568   5.017500  3.047128   2.279037  ...  0.976142  0.213988  1.762321   
+569   4.610833  2.798776   1.535187  ...  1.786158 -1.688011  1.289489   
+570   4.015000  2.436302   1.993963  ...  2.806812 -3.770775 -0.785775   
+571   4.274167  2.593564   2.749910  ...  3.785481 -5.140392 -2.261225   
+572   4.290000  2.604459   3.217295  ...  3.345379 -3.349341 -2.272675   
+573   4.791667  2.908542   3.072731  ...  2.666456 -0.890854 -0.947520   
+574   4.629167  2.811293   2.660947  ...  1.778798  0.031922  0.189422   
+575   3.666667  2.227500   1.961634  ... -0.291621 -0.278346  1.996654   
+576   3.256667  1.981356   0.759410  ... -2.775554  2.166977  5.272811   
+577   3.214167  1.953892   1.221783  ...  2.531773 -3.616889 -0.539389   
+578   2.785833  1.694065   2.064300  ...  1.601584 -3.613384 -0.880051   
+579   1.802500  1.097182   1.795448  ...  2.320817 -4.030431 -2.313764   
+
+           rg3        rg4       rg5  ctxrate     kshare       rimp     delta  
+0          NaN        NaN       NaN      NaN  22.781307   7.143823  4.372757  
+1   -10.375515 -10.160703 -4.548147  46.0000  22.992748   7.116895  4.264144  
+2    -7.873116  -7.668024 -0.387324  46.0000  24.848551   7.272948  4.251989  
+3    -4.658095  -4.107700  0.526811  46.0000  26.956326   7.994036  4.263564  
+4    -9.105114  -8.274540 -6.093940  46.0000  27.437305   8.234032  4.194270  
+5    -6.264681  -6.624078 -5.167578  46.0000  27.803844   8.398011  4.246107  
+6    -4.557664  -5.033214 -2.377699  49.0000  29.045123   8.697203  4.365178  
+7    -8.722497  -8.548663 -4.428184  49.0000  30.865788   9.409619  4.334457  
+8    -7.591507  -8.503152 -2.752238  39.0000  30.706412   9.332893  4.192040  
+9    -5.537192  -7.267457 -1.403170  39.0000  39.471942  11.967970  4.134433  
+10   -2.033285  -2.044448  1.267054  39.0000  38.648278  11.374377  4.168736  
+11    2.322469   2.988528  3.825925  39.0000  39.283425  11.363328  4.218454  
+12   -1.643589  -0.527289  0.257537  39.0000  40.069735  11.778655  4.272878  
+13   -2.954901  -2.128925 -0.064921  33.0000  40.691477  12.130551  4.292533  
+14   -2.262942  -1.468389 -0.953323  33.0000  40.406108  12.142597  4.187489  
+15   -3.001775  -2.698671  0.615518  36.0000  39.766490  12.060660  4.147816  
+16   -3.567708  -2.998364 -0.717828  36.0000  39.108557  11.939323  4.060737  
+17   -3.427011  -3.017411 -0.487195  36.0000  39.355123  12.127869  4.085006  
+18   -3.521630  -3.439710 -1.154545  36.0000  39.198452  12.244674  4.125059  
+19   -3.037030  -2.467686 -0.295058  36.0000  40.002674  12.500292  4.051433  
+20   -4.736804  -5.028656  1.058265  34.0000  40.051138  12.406828  4.045232  
+21   -3.997068  -3.134668  2.229875  30.0000  40.711647  12.692868  4.077963  
+22   -4.712875  -4.531575  0.857931  30.0000  40.762812  12.620984  3.981540  
+23   -3.498067  -3.458867  2.101612  30.0000  41.242969  12.767035  3.814298  
+24   -4.789396  -4.838396  1.088343  30.0000  41.310185  12.660201  3.737837  
+25   -4.888302  -5.103902  1.940464  30.0000  41.816020  12.635522  3.690843  
+26   -4.654392  -4.923892  2.480075  30.0000  41.841656  12.568084  3.663342  
+27   -5.334705  -5.761005  0.764272  30.0000  42.348117  12.603646  3.538873  
+28   -6.992274  -7.036374  2.346032  30.0000  42.782533  12.365476  3.632784  
+29    0.177198   0.882798  3.290767  30.0000  42.782533  12.126245  3.634461  
+..         ...        ...       ...      ...        ...        ...       ...  
+550  -6.329290  -5.785489 -3.129056  49.8340  36.220944  10.623248  3.825557  
+551  -8.312178  -7.671506 -5.497860  49.7854  36.373425  11.101173  3.813362  
+552  -5.489214  -4.759869 -2.447973  49.7854  36.429292  11.224792  3.845968  
+553  -3.978552  -3.593971 -1.776360  49.8232  36.236578  11.220634  3.894439  
+554  -4.155776  -3.401107 -1.214923  44.1760  35.539335  11.047359  3.920389  
+555  -5.108783  -4.369088 -1.337692  38.5936  35.103440  11.058576  3.924298  
+556  -4.411318  -4.371506 -0.564331  38.6662  36.180097  11.497419  3.935976  
+557  -2.704300  -2.400401  1.083427  38.6530  35.990918  11.377557  3.976914  
+558  -1.183881  -0.316386  2.843698  38.8510  35.947359  11.128864  4.035192  
+559  -4.520770  -3.214795 -0.730433  38.8642  35.785723  11.233581  4.043077  
+560  -4.012276  -2.992884  0.075158  39.7515  35.966307  11.357884  4.021899  
+561  -4.578161  -3.590823 -1.020486  39.6865  36.364216  11.662802  4.016814  
+562  -2.739961  -2.404425  0.268317  39.6085  36.184728  11.592238  4.013704  
+563  -3.739946  -3.267031 -0.684700  39.5305  36.533493  11.799203  4.023457  
+564  -4.292649  -3.870142 -1.264478  39.4525  36.529076  11.959037  4.018585  
+565  -3.735288  -3.604173 -1.435520  39.4395  35.053098  11.594438  4.007403  
+566  -4.460920  -4.145340 -1.656345  39.3940  34.816396  11.668833  4.043030  
+567  -4.161148  -4.148883 -1.328449  39.3400  33.636129  11.346480  4.119113  
+568  -1.975704  -1.404658  1.613573  39.2700  33.567560  11.122801  4.165163  
+569  -2.719545  -1.622488  0.946763  39.3000  34.472531  11.361515  4.163519  
+570  -4.421522  -3.322427  0.037684  39.3200  34.636515  11.436527  4.095189  
+571  -6.021744  -4.961617 -0.635526  39.3200  35.297692  11.758980  3.985394  
+572  -5.378335  -4.981508  0.096294  39.2900  36.017263  12.045333  3.871048  
+573  -3.952823  -3.973702  0.893310  39.3000  36.116236  12.091968  3.780059  
+574  -2.790535  -2.732447  1.845069  39.2700  36.571825  12.204612  3.787994  
+575  -1.156410  -0.316807  3.644916  39.2500  36.161852  11.823449  3.829451  
+576   2.071975   3.221601  5.999226  39.1600  37.445313  11.777189  3.941569  
+577  -3.703052  -2.565785  0.904324  39.2100  37.956351  12.141440  3.944685  
+578  -3.646470  -2.635723  1.917809  39.1900  37.801415  12.216007  3.909161  
+579  -4.084462  -3.448410       NaN  39.1300        NaN        NaN       NaN  
+
+[580 rows x 22 columns]
+-------------------------------------------
+Source Code of a Unmatched Cell 42
+-------------------------------------------
+estd = pd.DataFrame([piketty.mean(),
+    piketty.min(),
+    piketty.quantile(0.25),
+    piketty.median(),
+    piketty.quantile(0.75),
+    piketty.max()],
+                                         
+    index=['média', 'min',
+    'Q1', 'mediana',
+    'Q3', 'max'])
+                     
+estd.T
+
+-----------------
+Original output:
+             média        min        Q1   mediana       Q3            max
+country        NaN  Australia       NaN       NaN      NaN  United States
+ctxrate    36.4503       12.5      29.1        35       43          61.75
+deflator   4.12754   -5.20482   1.58637    3.0291  5.45106        30.4936
+delta       4.1522    3.16318   3.78479   4.07658  4.53323        5.20929
+fiscal      -462.9    -212645  -32.4682  -5.71741  24.2831        4338.03
+growth     2.94515   -8.26904   1.47175   2.78642  4.27581        15.2404
+kshare     39.4074    22.7813   34.5579   37.8713  44.4646        59.7889
+long       7.47639   0.843333   4.49106   6.31208  10.2481        21.5025
+rg1      -0.998129   -23.7701  -2.77191 -0.366904   2.0767        17.5954
+rg2       0.132303   -23.7701  -1.70644  0.751902  2.87375        16.3973
+rg3        -4.0055   -23.8328  -5.96056   -3.7006 -1.96652        13.0478
+rg4        -3.8269   -23.6358  -5.91845  -3.39795 -1.46338        14.2901
+rg5        2.53687   -6.96258 -0.564331   1.48313   4.3638        28.7527
+rimp       15.0354     6.5026   11.0591    12.621  16.9592        47.0268
+savings    25.2367    12.1619   20.2283   23.1879  28.9579        53.4357
+short      6.56003      0.001   3.01896   5.42338  9.68701          22.67
+tlong      4.45566   0.592467   2.97702   3.92946  5.67924        12.3675
+top1       8.71077       3.49   6.98915    8.3925     9.94          19.34
+top10      32.8321      21.83    29.825     32.42    35.51          48.16
+top5       21.7165      13.17     19.09   21.3917     23.6          35.76
+tshort     3.84455  0.0006046   1.96736   3.32938  5.39917        13.4332
+year       1994.98       1980      1987      1995     2003           2012
+Executed output:
+             média        min        Q1   mediana       Q3            max
+year       1994.98       1980      1987      1995     2003           2012
+top10      32.8321      21.83    29.825     32.42    35.51          48.16
+top5       21.7165      13.17     19.09   21.3917     23.6          35.76
+top1       8.71077       3.49   6.98915    8.3925     9.94          19.34
+short      6.56003      0.001   3.01896   5.42338  9.68701          22.67
+tshort     3.84455  0.0006046   1.96736   3.32938  5.39917        13.4332
+long       7.47639   0.843333   4.49106   6.31208  10.2481        21.5025
+tlong      4.45566   0.592467   2.97702   3.92946  5.67924        12.3675
+deflator   4.12754   -5.20482   1.58637    3.0291  5.45106        30.4936
+fiscal      -462.9    -212645  -32.4682  -5.71741  24.2831        4338.03
+savings    25.2367    12.1619   20.2283   23.1879  28.9579        53.4357
+growth     2.94515   -8.26904   1.47175   2.78642  4.27581        15.2404
+rg1      -0.998129   -23.7701  -2.77191 -0.366904   2.0767        17.5954
+rg2       0.132303   -23.7701  -1.70644  0.751902  2.87375        16.3973
+rg3        -4.0055   -23.8328  -5.96056   -3.7006 -1.96652        13.0478
+rg4        -3.8269   -23.6358  -5.91845  -3.39795 -1.46338        14.2901
+rg5        2.53687   -6.96258 -0.564331   1.48313   4.3638        28.7527
+ctxrate    36.4503       12.5      29.1        35       43          61.75
+kshare     39.4074    22.7813   34.5579   37.8713  44.4646        59.7889
+rimp       15.0354     6.5026   11.0591    12.621  16.9592        47.0268
+delta       4.1522    3.16318   3.78479   4.07658  4.53323        5.20929
+country        NaN  Australia       NaN       NaN      NaN  United States
+-------------------------------------------
+Source Code of a Unmatched Cell 44
+-------------------------------------------
+australia = piketty[ piketty['country'] == "Australia" ]
+australia
+
+-----------------
+Original output:
+      country  year  top10   top5   top1      short     tshort       long  \
+0   Australia  1980  25.39  15.31   4.79  10.667500        NaN  11.651666   
+1   Australia  1981  25.31  15.15   4.61  13.250833   7.155450  13.987500   
+2   Australia  1982  25.82  15.44   4.67  14.642497   7.906948  15.345829   
+3   Australia  1983  25.32  15.16   4.68  12.225000   6.601500  14.112500   
+4   Australia  1984  25.50  15.25   4.75  10.985000   5.931900  13.833333   
+5   Australia  1985  25.93  15.63   5.02  15.336663   8.281798  14.104165   
+6   Australia  1986  26.61  16.17   5.39  15.386665   7.847199  13.558331   
+7   Australia  1987  28.66  17.94   6.67  12.798332   6.527149  13.466667   
+8   Australia  1988  30.28  19.84   8.41  15.400000   9.394000  12.950000   
+9   Australia  1989  27.64  17.46   6.43  17.550000  10.705500  12.900000   
+10  Australia  1990  27.66  17.37   6.34  12.100000   7.381000  12.070000   
+11  Australia  1991  28.22  17.70   6.41   7.600000   4.636000   9.390000   
+12  Australia  1992  28.52  17.95   6.55   5.940000   3.623400   8.940000   
+13  Australia  1993  29.40  18.66   6.96   4.840000   3.242800   6.680000   
+14  Australia  1994  29.42  18.87   7.13   8.270000   5.540900  10.040000   
+15  Australia  1995  29.13  18.76   7.23   7.440000   4.761600   8.180000   
+16  Australia  1996  29.16  18.77   7.24   5.980000   3.827200   7.370000   
+17  Australia  1997  30.41  19.73   7.81   5.050000   3.232000   6.050000   
+18  Australia  1998  30.11  19.63   7.84   4.810000   3.078400   5.010000   
+19  Australia  1999  31.48  20.95   8.84   5.570000   3.564800   6.960000   
+20  Australia  2000  31.28  20.98   9.03   6.130000   4.045800   5.460000   
+21  Australia  2001  30.61  20.33   8.31   4.250000   2.975000   6.010000   
+22  Australia  2002  31.34  20.90   8.79   4.790000   3.353000   5.160000   
+23  Australia  2003  32.04  21.49   9.18   5.520000   3.864000   5.600000   
+24  Australia  2004  30.08  20.32   8.89   5.430000   3.801000   5.330000   
+25  Australia  2005  30.54  20.72   9.12   5.640000   3.948000   5.200000   
+26  Australia  2006  31.81  21.91  10.06   6.440000   4.508000   5.890000   
+27  Australia  2007  31.51  21.61   9.84   7.200000   5.040000   6.330000   
+28  Australia  2008  29.34  19.85   8.59   4.080000   2.856000   3.990000   
+29  Australia  2009  30.56  20.69   8.88   4.210000   2.947000   5.650000   
+30  Australia  2010  30.98  21.10   9.17   5.020000   3.514000   5.510000   
+
+       tlong   deflator    ...       growth       rg1       rg2        rg3  \
+0        NaN   9.799431    ...     2.893709 -2.025640 -1.041474        NaN   
+1   7.553250  10.112331    ...     4.127127 -0.988626 -0.251958 -10.375515   
+2   8.286748  12.080141    ...     0.062726  2.499629  3.202961  -7.873116   
+3   7.620750   8.696501    ...    -0.473595  4.002095  5.889595  -4.658095   
+4   7.470000   5.962292    ...     6.346048 -1.323340  1.524993  -9.105114   
+5   7.616249   5.280455    ...     5.456397  4.599811  3.367313  -6.264681   
+6   6.914749   6.111641    ...     2.448094  6.826930  4.998596  -4.557664   
+7   6.868000   7.158711    ...     4.892633  0.746989  1.415324  -8.722497   
+8   7.899500   9.068585    ...     4.253262  2.078153 -0.371847  -7.591507   
+9   7.869000   7.498348    ...     4.569199  5.482453  0.832453  -5.537192   
+10  7.362700   5.033114    ...     1.502580  5.564305  5.534305  -2.033285   
+11  5.727900   1.618239    ...    -1.112748  7.094509  8.884509   2.322469   
+12  5.453400   1.199299    ...     2.654565  2.086137  5.086137  -1.643589   
+13  4.475600   1.227720    ...     3.899857 -0.287577  1.552423  -2.954901   
+14  6.726800   1.073971    ...     4.901374  2.294655  4.064655  -2.262942   
+15  5.235200   3.093712    ...     2.955487  1.390801  2.130801  -3.001775   
+16  4.716800   1.718858    ...     4.298257 -0.037116  1.352884  -3.567708   
+17  3.872000   1.331466    ...     4.164025 -0.445491  0.554509  -3.427011   
+18  3.206400   0.625728    ...     4.866077 -0.681806 -0.481806  -3.521630   
+19  4.454400   1.074690    ...     4.243811  0.251498  1.641498  -3.037030   
+20  3.603600   4.322023    ...     3.085010 -1.277032 -1.947032  -4.736804   
+21  4.207000   3.502399    ...     2.577170 -1.829568 -0.069568  -3.997068   
+22  3.612000   3.064757    ...     3.995218 -2.269975 -1.899975  -4.712875   
+23  3.920000   3.181852    ...     3.021015 -0.682867 -0.602867  -3.498067   
+24  3.731000   3.414135    ...     4.035961 -2.020096 -2.120096  -4.789396   
+25  3.640000   4.438343    ...     3.213558 -2.011902 -2.451902  -4.888302   
+26  4.123000   5.155750    ...     2.654242 -1.369992 -1.919992  -4.654392   
+27  4.431000   4.343298    ...     4.519407 -1.662705 -2.532705  -5.334705   
+28  2.793000   6.314457    ...     2.677017 -4.911474 -5.001474  -6.992274   
+29  3.955000   0.322558    ...     1.563143  2.324298  3.764298   0.177198   
+30  3.857000   5.446843    ...     2.261792 -2.688635 -2.198635  -5.248835   
+
+          rg4       rg5  ctxrate     kshare       rimp     delta  
+0         NaN       NaN      NaN  22.781307   7.143823  4.372757  
+1  -10.160703 -4.548147     46.0  22.992748   7.116895  4.264144  
+2   -7.668024 -0.387324     46.0  24.848551   7.272948  4.251989  
+3   -4.107700  0.526811     46.0  26.956326   7.994036  4.263564  
+4   -8.274540 -6.093940     46.0  27.437305   8.234032  4.194270  
+5   -6.624078 -5.167578     46.0  27.803844   8.398011  4.246107  
+6   -5.033214 -2.377699     49.0  29.045123   8.697203  4.365178  
+7   -8.548663 -4.428184     49.0  30.865788   9.409619  4.334457  
+8   -8.503152 -2.752238     39.0  30.706412   9.332893  4.192040  
+9   -7.267457 -1.403170     39.0  39.471942  11.967970  4.134433  
+10  -2.044448  1.267054     39.0  38.648278  11.374377  4.168736  
+11   2.988528  3.825925     39.0  39.283425  11.363328  4.218454  
+12  -0.527289  0.257537     39.0  40.069735  11.778655  4.272878  
+13  -2.128925 -0.064921     33.0  40.691477  12.130551  4.292533  
+14  -1.468389 -0.953323     33.0  40.406108  12.142597  4.187489  
+15  -2.698671  0.615518     36.0  39.766490  12.060660  4.147816  
+16  -2.998364 -0.717828     36.0  39.108557  11.939323  4.060737  
+17  -3.017411 -0.487195     36.0  39.355123  12.127869  4.085006  
+18  -3.439710 -1.154545     36.0  39.198452  12.244674  4.125059  
+19  -2.467686 -0.295058     36.0  40.002674  12.500292  4.051433  
+20  -5.028656  1.058265     34.0  40.051138  12.406828  4.045232  
+21  -3.134668  2.229875     30.0  40.711647  12.692868  4.077963  
+22  -4.531575  0.857931     30.0  40.762812  12.620984  3.981540  
+23  -3.458867  2.101612     30.0  41.242969  12.767035  3.814298  
+24  -4.838396  1.088343     30.0  41.310185  12.660201  3.737837  
+25  -5.103902  1.940464     30.0  41.816020  12.635522  3.690843  
+26  -4.923892  2.480075     30.0  41.841656  12.568084  3.663342  
+27  -5.761005  0.764272     30.0  42.348117  12.603646  3.538873  
+28  -7.036374  2.346032     30.0  42.782533  12.365476  3.632784  
+29   0.882798  3.290767     30.0  42.782533  12.126245  3.634461  
+30  -5.008735  2.411952     30.0  42.782533  11.839311  3.613774  
+
+[31 rows x 22 columns]
+Executed output:
+      country  year  top10   top5   top1      short     tshort       long  \
+0   Australia  1980  25.39  15.31   4.79  10.667500        NaN  11.651666   
+1   Australia  1981  25.31  15.15   4.61  13.250833   7.155450  13.987500   
+2   Australia  1982  25.82  15.44   4.67  14.642497   7.906948  15.345829   
+3   Australia  1983  25.32  15.16   4.68  12.225000   6.601500  14.112500   
+4   Australia  1984  25.50  15.25   4.75  10.985000   5.931900  13.833333   
+5   Australia  1985  25.93  15.63   5.02  15.336663   8.281798  14.104165   
+6   Australia  1986  26.61  16.17   5.39  15.386665   7.847199  13.558331   
+7   Australia  1987  28.66  17.94   6.67  12.798332   6.527149  13.466667   
+8   Australia  1988  30.28  19.84   8.41  15.400000   9.394000  12.950000   
+9   Australia  1989  27.64  17.46   6.43  17.550000  10.705500  12.900000   
+10  Australia  1990  27.66  17.37   6.34  12.100000   7.381000  12.070000   
+11  Australia  1991  28.22  17.70   6.41   7.600000   4.636000   9.390000   
+12  Australia  1992  28.52  17.95   6.55   5.940000   3.623400   8.940000   
+13  Australia  1993  29.40  18.66   6.96   4.840000   3.242800   6.680000   
+14  Australia  1994  29.42  18.87   7.13   8.270000   5.540900  10.040000   
+15  Australia  1995  29.13  18.76   7.23   7.440000   4.761600   8.180000   
+16  Australia  1996  29.16  18.77   7.24   5.980000   3.827200   7.370000   
+17  Australia  1997  30.41  19.73   7.81   5.050000   3.232000   6.050000   
+18  Australia  1998  30.11  19.63   7.84   4.810000   3.078400   5.010000   
+19  Australia  1999  31.48  20.95   8.84   5.570000   3.564800   6.960000   
+20  Australia  2000  31.28  20.98   9.03   6.130000   4.045800   5.460000   
+21  Australia  2001  30.61  20.33   8.31   4.250000   2.975000   6.010000   
+22  Australia  2002  31.34  20.90   8.79   4.790000   3.353000   5.160000   
+23  Australia  2003  32.04  21.49   9.18   5.520000   3.864000   5.600000   
+24  Australia  2004  30.08  20.32   8.89   5.430000   3.801000   5.330000   
+25  Australia  2005  30.54  20.72   9.12   5.640000   3.948000   5.200000   
+26  Australia  2006  31.81  21.91  10.06   6.440000   4.508000   5.890000   
+27  Australia  2007  31.51  21.61   9.84   7.200000   5.040000   6.330000   
+28  Australia  2008  29.34  19.85   8.59   4.080000   2.856000   3.990000   
+29  Australia  2009  30.56  20.69   8.88   4.210000   2.947000   5.650000   
+30  Australia  2010  30.98  21.10   9.17   5.020000   3.514000   5.510000   
+
+       tlong   deflator  ...    growth       rg1       rg2        rg3  \
+0        NaN   9.799431  ...  2.893709 -2.025640 -1.041474        NaN   
+1   7.553250  10.112331  ...  4.127127 -0.988626 -0.251958 -10.375515   
+2   8.286748  12.080141  ...  0.062726  2.499629  3.202961  -7.873116   
+3   7.620750   8.696501  ... -0.473595  4.002095  5.889595  -4.658095   
+4   7.470000   5.962292  ...  6.346048 -1.323340  1.524993  -9.105114   
+5   7.616249   5.280455  ...  5.456397  4.599811  3.367313  -6.264681   
+6   6.914749   6.111641  ...  2.448094  6.826930  4.998596  -4.557664   
+7   6.868000   7.158711  ...  4.892633  0.746989  1.415324  -8.722497   
+8   7.899500   9.068585  ...  4.253262  2.078153 -0.371847  -7.591507   
+9   7.869000   7.498348  ...  4.569199  5.482453  0.832453  -5.537192   
+10  7.362700   5.033114  ...  1.502580  5.564305  5.534305  -2.033285   
+11  5.727900   1.618239  ... -1.112748  7.094509  8.884509   2.322469   
+12  5.453400   1.199299  ...  2.654565  2.086137  5.086137  -1.643589   
+13  4.475600   1.227720  ...  3.899857 -0.287577  1.552423  -2.954901   
+14  6.726800   1.073971  ...  4.901374  2.294655  4.064655  -2.262942   
+15  5.235200   3.093712  ...  2.955487  1.390801  2.130801  -3.001775   
+16  4.716800   1.718858  ...  4.298257 -0.037116  1.352884  -3.567708   
+17  3.872000   1.331466  ...  4.164025 -0.445491  0.554509  -3.427011   
+18  3.206400   0.625728  ...  4.866077 -0.681806 -0.481806  -3.521630   
+19  4.454400   1.074690  ...  4.243811  0.251498  1.641498  -3.037030   
+20  3.603600   4.322023  ...  3.085010 -1.277032 -1.947032  -4.736804   
+21  4.207000   3.502399  ...  2.577170 -1.829568 -0.069568  -3.997068   
+22  3.612000   3.064757  ...  3.995218 -2.269975 -1.899975  -4.712875   
+23  3.920000   3.181852  ...  3.021015 -0.682867 -0.602867  -3.498067   
+24  3.731000   3.414135  ...  4.035961 -2.020096 -2.120096  -4.789396   
+25  3.640000   4.438343  ...  3.213558 -2.011902 -2.451902  -4.888302   
+26  4.123000   5.155750  ...  2.654242 -1.369992 -1.919992  -4.654392   
+27  4.431000   4.343298  ...  4.519407 -1.662705 -2.532705  -5.334705   
+28  2.793000   6.314457  ...  2.677017 -4.911474 -5.001474  -6.992274   
+29  3.955000   0.322558  ...  1.563143  2.324298  3.764298   0.177198   
+30  3.857000   5.446843  ...  2.261792 -2.688635 -2.198635  -5.248835   
+
+          rg4       rg5  ctxrate     kshare       rimp     delta  
+0         NaN       NaN      NaN  22.781307   7.143823  4.372757  
+1  -10.160703 -4.548147     46.0  22.992748   7.116895  4.264144  
+2   -7.668024 -0.387324     46.0  24.848551   7.272948  4.251989  
+3   -4.107700  0.526811     46.0  26.956326   7.994036  4.263564  
+4   -8.274540 -6.093940     46.0  27.437305   8.234032  4.194270  
+5   -6.624078 -5.167578     46.0  27.803844   8.398011  4.246107  
+6   -5.033214 -2.377699     49.0  29.045123   8.697203  4.365178  
+7   -8.548663 -4.428184     49.0  30.865788   9.409619  4.334457  
+8   -8.503152 -2.752238     39.0  30.706412   9.332893  4.192040  
+9   -7.267457 -1.403170     39.0  39.471942  11.967970  4.134433  
+10  -2.044448  1.267054     39.0  38.648278  11.374377  4.168736  
+11   2.988528  3.825925     39.0  39.283425  11.363328  4.218454  
+12  -0.527289  0.257537     39.0  40.069735  11.778655  4.272878  
+13  -2.128925 -0.064921     33.0  40.691477  12.130551  4.292533  
+14  -1.468389 -0.953323     33.0  40.406108  12.142597  4.187489  
+15  -2.698671  0.615518     36.0  39.766490  12.060660  4.147816  
+16  -2.998364 -0.717828     36.0  39.108557  11.939323  4.060737  
+17  -3.017411 -0.487195     36.0  39.355123  12.127869  4.085006  
+18  -3.439710 -1.154545     36.0  39.198452  12.244674  4.125059  
+19  -2.467686 -0.295058     36.0  40.002674  12.500292  4.051433  
+20  -5.028656  1.058265     34.0  40.051138  12.406828  4.045232  
+21  -3.134668  2.229875     30.0  40.711647  12.692868  4.077963  
+22  -4.531575  0.857931     30.0  40.762812  12.620984  3.981540  
+23  -3.458867  2.101612     30.0  41.242969  12.767035  3.814298  
+24  -4.838396  1.088343     30.0  41.310185  12.660201  3.737837  
+25  -5.103902  1.940464     30.0  41.816020  12.635522  3.690843  
+26  -4.923892  2.480075     30.0  41.841656  12.568084  3.663342  
+27  -5.761005  0.764272     30.0  42.348117  12.603646  3.538873  
+28  -7.036374  2.346032     30.0  42.782533  12.365476  3.632784  
+29   0.882798  3.290767     30.0  42.782533  12.126245  3.634461  
+30  -5.008735  2.411952     30.0  42.782533  11.839311  3.613774  
+
+[31 rows x 22 columns]
+-------------------------------------------
+Source Code of a Unmatched Cell 45
+-------------------------------------------
+y2000 = piketty[ piketty['year'] == 2000 ]
+y2000
+
+-----------------
+Original output:
+            country  year  top10       top5       top1     short    tshort  \
+20        Australia  2000  31.28  20.980000   9.030000  6.130000  4.045800   
+51           Canada  2000  42.34  29.010000  13.560000  5.479167  3.154356   
+82          Finland  2000  32.17  21.821786   8.293964  4.390833  3.117492   
+112          France  2000  33.05  21.650000   8.290000  4.390642  2.732735   
+161         Ireland  2000  33.87        NaN  10.320000       NaN       NaN   
+191           Italy  2000  32.94  22.560000   9.090000  1.988333  1.252650   
+221           Japan  2000  37.15  23.520000   8.220000  0.289333  0.171083   
+252           Korea  2000  35.39  21.250000   8.190000  5.130914  3.550593   
+285     Netherlands  2000  28.02  17.210000   5.610000  4.390642  2.853917   
+318     New Zealand  2000  31.19  20.430000   7.920000  6.627500  4.440425   
+350          Norway  2000  30.45  21.360000  10.310000  6.745833  4.857000   
+382        Portugal  2000  36.13  24.580000   9.090000  3.041667  1.971000   
+408       Singapore  2000  38.06  28.280000  13.260000  1.711667  1.420683   
+439           Spain  2000  33.45  22.200000   8.650000  4.381917  2.848246   
+472          Sweden  2000  26.72  17.120000   5.970000  3.954608  2.847318   
+505     Switzerland  2000  32.32  22.440000  10.420000  3.174167  2.382847   
+535  United Kingdom  2000  38.43  27.040000  12.670000  6.188355  4.331849   
+567   United States  2000  43.11  31.510000  16.490000  5.995833  3.637072   
+
+         long     tlong   deflator    ...       growth        rg1        rg2  \
+20   5.460000  3.603600   4.322023    ...     3.085010  -1.277032  -1.947032   
+51   5.925833  3.411502   4.272401    ...     5.123082  -3.916316  -3.469650   
+82   5.483333  3.893167   1.630421    ...     5.634923  -2.874510  -1.782010   
+112  5.394167  3.357329   1.543388    ...     3.875162  -1.027908  -0.024383   
+161  5.478333  4.163533   6.418885    ...     9.520972 -15.939858 -10.461524   
+191  5.575167  3.512355   1.982081    ...     3.693178  -3.686926  -0.100092   
+221  1.766521  1.044544  -1.247557    ...     2.257473  -0.720583   0.756605   
+252  8.508382  5.887800   1.086836    ...     8.924413  -4.880334  -1.502867   
+285  5.404167  3.512708   4.101888    ...     4.382394  -4.093641  -3.080116   
+318  6.700000  4.489000   2.164071    ...     4.167813   0.295616   0.368116   
+350  6.218333  4.477200  15.434371    ...     3.205277 -11.893814 -12.421314   
+382  5.590000  3.622320   3.459541    ...     3.787460  -4.205334  -1.657001   
+408  3.744167  3.107658   3.739203    ...     8.897544 -10.925081  -8.892581   
+439  5.609838  3.646395   3.449674    ...     5.052919  -4.120676  -2.892755   
+472  5.367500  3.864600   1.558780    ...     4.735294  -2.339465  -0.926574   
+505  3.710417  2.785410   1.360457    ...     4.134407  -2.320698  -1.784448   
+535  5.328333  3.729833   2.402646    ...     3.768870   0.016838  -0.843183   
+567  6.029167  3.657293   2.275285    ...     4.092111  -0.371563  -0.338229   
+
+           rg3        rg4        rg5  ctxrate     kshare       rimp     delta  
+20   -4.736804  -5.028656   1.058265    34.00  40.051138  12.406828  4.045232  
+51   -7.579520  -7.431481   1.724614    42.43  42.027324  18.796513  3.973456  
+82   -5.051925  -4.501195  -1.227834    29.00  41.942596  11.332386  3.638906  
+112  -3.717695  -3.328948  -0.333721    37.76  37.158555  11.336139  3.514171  
+161        NaN -12.775572  22.279247    24.00  52.964234  47.026812  3.940158  
+191  -4.886090  -3.462475  -0.033934    37.00  46.646464  12.365698  4.131145  
+221  -0.908755  -0.392277  -0.355899    40.87  44.877821  10.812556  4.491889  
+252  -7.554238  -5.936891  -3.008988    30.80  47.287315  15.072074  4.514450  
+285  -6.629236  -6.201022   0.746085    35.00  37.370318  13.925210  3.922908  
+318  -3.356799  -3.324254   5.987382    33.00  48.298222  21.670734  4.364197  
+350 -15.142607 -15.416063  11.071653    28.00  48.550385  24.828924  3.599895  
+382  -5.969793  -4.899737  -1.569020    35.20  31.141090  10.270855  4.437074  
+408 -11.457580 -10.057391  -1.798556    17.00  54.239029  14.635479  5.048459  
+439  -6.651233  -6.132437  -1.665489    35.00  34.059954  10.539958  3.463543  
+472  -4.244005  -3.511562   2.466982    28.00  35.086620  16.928421  4.986187  
+505  -3.706061  -3.403857  -1.802767    24.93  28.219980   9.703213  4.952562  
+535  -3.139223  -3.560633   2.802690    30.00  35.859871  15.843334  4.518774  
+567  -4.161148  -4.148883  -1.328449    39.34  33.636129  11.346480  4.119113  
+
+[18 rows x 22 columns]
+Executed output:
+            country  year  top10       top5       top1     short    tshort  \
+20        Australia  2000  31.28  20.980000   9.030000  6.130000  4.045800   
+51           Canada  2000  42.34  29.010000  13.560000  5.479167  3.154356   
+82          Finland  2000  32.17  21.821786   8.293964  4.390833  3.117492   
+112          France  2000  33.05  21.650000   8.290000  4.390642  2.732735   
+161         Ireland  2000  33.87        NaN  10.320000       NaN       NaN   
+191           Italy  2000  32.94  22.560000   9.090000  1.988333  1.252650   
+221           Japan  2000  37.15  23.520000   8.220000  0.289333  0.171083   
+252           Korea  2000  35.39  21.250000   8.190000  5.130914  3.550593   
+285     Netherlands  2000  28.02  17.210000   5.610000  4.390642  2.853917   
+318     New Zealand  2000  31.19  20.430000   7.920000  6.627500  4.440425   
+350          Norway  2000  30.45  21.360000  10.310000  6.745833  4.857000   
+382        Portugal  2000  36.13  24.580000   9.090000  3.041667  1.971000   
+408       Singapore  2000  38.06  28.280000  13.260000  1.711667  1.420683   
+439           Spain  2000  33.45  22.200000   8.650000  4.381917  2.848246   
+472          Sweden  2000  26.72  17.120000   5.970000  3.954608  2.847318   
+505     Switzerland  2000  32.32  22.440000  10.420000  3.174167  2.382847   
+535  United Kingdom  2000  38.43  27.040000  12.670000  6.188355  4.331849   
+567   United States  2000  43.11  31.510000  16.490000  5.995833  3.637072   
+
+         long     tlong   deflator  ...    growth        rg1        rg2  \
+20   5.460000  3.603600   4.322023  ...  3.085010  -1.277032  -1.947032   
+51   5.925833  3.411502   4.272401  ...  5.123082  -3.916316  -3.469650   
+82   5.483333  3.893167   1.630421  ...  5.634923  -2.874510  -1.782010   
+112  5.394167  3.357329   1.543388  ...  3.875162  -1.027908  -0.024383   
+161  5.478333  4.163533   6.418885  ...  9.520972 -15.939858 -10.461524   
+191  5.575167  3.512355   1.982081  ...  3.693178  -3.686926  -0.100092   
+221  1.766521  1.044544  -1.247557  ...  2.257473  -0.720583   0.756605   
+252  8.508382  5.887800   1.086836  ...  8.924413  -4.880334  -1.502867   
+285  5.404167  3.512708   4.101888  ...  4.382394  -4.093641  -3.080116   
+318  6.700000  4.489000   2.164071  ...  4.167813   0.295616   0.368116   
+350  6.218333  4.477200  15.434371  ...  3.205277 -11.893814 -12.421314   
+382  5.590000  3.622320   3.459541  ...  3.787460  -4.205334  -1.657001   
+408  3.744167  3.107658   3.739203  ...  8.897544 -10.925081  -8.892581   
+439  5.609838  3.646395   3.449674  ...  5.052919  -4.120676  -2.892755   
+472  5.367500  3.864600   1.558780  ...  4.735294  -2.339465  -0.926574   
+505  3.710417  2.785410   1.360457  ...  4.134407  -2.320698  -1.784448   
+535  5.328333  3.729833   2.402646  ...  3.768870   0.016838  -0.843183   
+567  6.029167  3.657293   2.275285  ...  4.092111  -0.371563  -0.338229   
+
+           rg3        rg4        rg5  ctxrate     kshare       rimp     delta  
+20   -4.736804  -5.028656   1.058265    34.00  40.051138  12.406828  4.045232  
+51   -7.579520  -7.431481   1.724614    42.43  42.027324  18.796513  3.973456  
+82   -5.051925  -4.501195  -1.227834    29.00  41.942596  11.332386  3.638906  
+112  -3.717695  -3.328948  -0.333721    37.76  37.158555  11.336139  3.514171  
+161        NaN -12.775572  22.279247    24.00  52.964234  47.026812  3.940158  
+191  -4.886090  -3.462475  -0.033934    37.00  46.646464  12.365698  4.131145  
+221  -0.908755  -0.392277  -0.355899    40.87  44.877821  10.812556  4.491889  
+252  -7.554238  -5.936891  -3.008988    30.80  47.287315  15.072074  4.514450  
+285  -6.629236  -6.201022   0.746085    35.00  37.370318  13.925210  3.922908  
+318  -3.356799  -3.324254   5.987382    33.00  48.298222  21.670734  4.364197  
+350 -15.142607 -15.416063  11.071653    28.00  48.550385  24.828924  3.599895  
+382  -5.969793  -4.899737  -1.569020    35.20  31.141090  10.270855  4.437074  
+408 -11.457580 -10.057391  -1.798556    17.00  54.239029  14.635479  5.048459  
+439  -6.651233  -6.132437  -1.665489    35.00  34.059954  10.539958  3.463543  
+472  -4.244005  -3.511562   2.466982    28.00  35.086620  16.928421  4.986187  
+505  -3.706061  -3.403857  -1.802767    24.93  28.219980   9.703213  4.952562  
+535  -3.139223  -3.560633   2.802690    30.00  35.859871  15.843334  4.518774  
+567  -4.161148  -4.148883  -1.328449    39.34  33.636129  11.346480  4.119113  
+
+[18 rows x 22 columns]
+-------------------------------------------
+Source Code of a Unmatched Cell 50
+-------------------------------------------
+piketty.index
+
+-----------------
+Original output:
+MultiIndex(levels=[['Australia', 'Canada', 'Finland', 'France', 'Germany', 'Ireland', 'Italy', 'Japan', 'Korea', 'Netherlands', 'New Zealand', 'Norway', 'Portugal', 'Singapore', 'Spain', 'Sweden', 'Switzerland', 'United Kingdom', 'United States'], [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012]],
+           labels=[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]],
+           names=['country', 'year'])
+Executed output:
+MultiIndex(levels=[['Australia', 'Canada', 'Finland', 'France', 'Germany', 'Ireland', 'Italy', 'Japan', 'Korea', 'Netherlands', 'New Zealand', 'Norway', 'Portugal', 'Singapore', 'Spain', 'Sweden', 'Switzerland', 'United Kingdom', 'United States'], [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012]],
+           codes=[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]],
+           names=['country', 'year'])
+-------------------------------------------
+Source Code of a Unmatched Cell 53
+-------------------------------------------
+piketty = piketty.reset_index(drop=False)
+piketty
+
+-----------------
+Original output:
+           country  year  top10   top5   top1      short     tshort  \
+0        Australia  1980  25.39  15.31   4.79  10.667500        NaN   
+1        Australia  1981  25.31  15.15   4.61  13.250833   7.155450   
+2        Australia  1982  25.82  15.44   4.67  14.642497   7.906948   
+3        Australia  1983  25.32  15.16   4.68  12.225000   6.601500   
+4        Australia  1984  25.50  15.25   4.75  10.985000   5.931900   
+5        Australia  1985  25.93  15.63   5.02  15.336663   8.281798   
+6        Australia  1986  26.61  16.17   5.39  15.386665   7.847199   
+7        Australia  1987  28.66  17.94   6.67  12.798332   6.527149   
+8        Australia  1988  30.28  19.84   8.41  15.400000   9.394000   
+9        Australia  1989  27.64  17.46   6.43  17.550000  10.705500   
+10       Australia  1990  27.66  17.37   6.34  12.100000   7.381000   
+11       Australia  1991  28.22  17.70   6.41   7.600000   4.636000   
+12       Australia  1992  28.52  17.95   6.55   5.940000   3.623400   
+13       Australia  1993  29.40  18.66   6.96   4.840000   3.242800   
+14       Australia  1994  29.42  18.87   7.13   8.270000   5.540900   
+15       Australia  1995  29.13  18.76   7.23   7.440000   4.761600   
+16       Australia  1996  29.16  18.77   7.24   5.980000   3.827200   
+17       Australia  1997  30.41  19.73   7.81   5.050000   3.232000   
+18       Australia  1998  30.11  19.63   7.84   4.810000   3.078400   
+19       Australia  1999  31.48  20.95   8.84   5.570000   3.564800   
+20       Australia  2000  31.28  20.98   9.03   6.130000   4.045800   
+21       Australia  2001  30.61  20.33   8.31   4.250000   2.975000   
+22       Australia  2002  31.34  20.90   8.79   4.790000   3.353000   
+23       Australia  2003  32.04  21.49   9.18   5.520000   3.864000   
+24       Australia  2004  30.08  20.32   8.89   5.430000   3.801000   
+25       Australia  2005  30.54  20.72   9.12   5.640000   3.948000   
+26       Australia  2006  31.81  21.91  10.06   6.440000   4.508000   
+27       Australia  2007  31.51  21.61   9.84   7.200000   5.040000   
+28       Australia  2008  29.34  19.85   8.59   4.080000   2.856000   
+29       Australia  2009  30.56  20.69   8.88   4.210000   2.947000   
+..             ...   ...    ...    ...    ...        ...        ...   
+550  United States  1983  33.69  21.79   8.59   8.944167   4.486931   
+551  United States  1984  33.95  22.10   8.89   9.897500   4.969990   
+552  United States  1985  34.25  22.38   9.09   7.730833   3.882007   
+553  United States  1986  34.57  22.59   9.13   6.155000   3.088382   
+554  United States  1987  36.48  24.49  10.75   5.962500   3.328506   
+555  United States  1988  38.63  26.95  13.17   6.884167   4.227319   
+556  United States  1989  38.47  26.66  12.61   8.393333   5.147950   
+557  United States  1990  38.84  27.05  12.98   7.742500   4.749791   
+558  United States  1991  38.38  26.43  12.17   5.538333   3.386635   
+559  United States  1992  39.82  27.88  13.48   3.515833   2.149433   
+560  United States  1993  39.48  27.41  12.82   3.065000   1.846617   
+561  United States  1994  39.60  27.50  12.85   4.365833   2.633187   
+562  United States  1995  40.54  28.46  13.53   5.660000   3.418159   
+563  United States  1996  41.16  29.16  14.11   5.145000   3.111156   
+564  United States  1997  41.73  29.85  14.77   5.200000   3.148470   
+565  United States  1998  42.12  30.36  15.29   4.906667   2.971502   
+566  United States  1999  42.67  30.97  15.87   4.777500   2.895452   
+567  United States  2000  43.11  31.51  16.49   5.995833   3.637072   
+568  United States  2001  42.23  30.40  15.37   3.469167   2.106825   
+569  United States  2002  42.36  30.36  14.99   1.633333   0.991433   
+570  United States  2003  42.76  30.66  15.21   1.030000   0.625004   
+571  United States  2004  43.64  31.71  16.34   1.395000   0.846486   
+572  United States  2005  44.94  33.12  17.68   3.213333   1.950815   
+573  United States  2006  45.50  33.59  18.06   4.848333   2.942938   
+574  United States  2007  45.67  33.84  18.33   4.471667   2.715643   
+575  United States  2008  45.96  33.78  17.89   1.391667   0.845437   
+576  United States  2009  45.47  32.81  16.68   0.150833   0.091767   
+577  United States  2010  46.35  33.73  17.45   0.136667   0.083080   
+578  United States  2011  46.63  33.98  17.47   0.052500   0.031925   
+579  United States  2012  48.16  35.76  19.34   0.085833   0.052247   
+
+          long     tlong   deflator    ...       growth       rg1       rg2  \
+0    11.651666       NaN   9.799431    ...     2.893709 -2.025640 -1.041474   
+1    13.987500  7.553250  10.112331    ...     4.127127 -0.988626 -0.251958   
+2    15.345829  8.286748  12.080141    ...     0.062726  2.499629  3.202961   
+3    14.112500  7.620750   8.696501    ...    -0.473595  4.002095  5.889595   
+4    13.833333  7.470000   5.962292    ...     6.346048 -1.323340  1.524993   
+5    14.104165  7.616249   5.280455    ...     5.456397  4.599811  3.367313   
+6    13.558331  6.914749   6.111641    ...     2.448094  6.826930  4.998596   
+7    13.466667  6.868000   7.158711    ...     4.892633  0.746989  1.415324   
+8    12.950000  7.899500   9.068585    ...     4.253262  2.078153 -0.371847   
+9    12.900000  7.869000   7.498348    ...     4.569199  5.482453  0.832453   
+10   12.070000  7.362700   5.033114    ...     1.502580  5.564305  5.534305   
+11    9.390000  5.727900   1.618239    ...    -1.112748  7.094509  8.884509   
+12    8.940000  5.453400   1.199299    ...     2.654565  2.086137  5.086137   
+13    6.680000  4.475600   1.227720    ...     3.899857 -0.287577  1.552423   
+14   10.040000  6.726800   1.073971    ...     4.901374  2.294655  4.064655   
+15    8.180000  5.235200   3.093712    ...     2.955487  1.390801  2.130801   
+16    7.370000  4.716800   1.718858    ...     4.298257 -0.037116  1.352884   
+17    6.050000  3.872000   1.331466    ...     4.164025 -0.445491  0.554509   
+18    5.010000  3.206400   0.625728    ...     4.866077 -0.681806 -0.481806   
+19    6.960000  4.454400   1.074690    ...     4.243811  0.251498  1.641498   
+20    5.460000  3.603600   4.322023    ...     3.085010 -1.277032 -1.947032   
+21    6.010000  4.207000   3.502399    ...     2.577170 -1.829568 -0.069568   
+22    5.160000  3.612000   3.064757    ...     3.995218 -2.269975 -1.899975   
+23    5.600000  3.920000   3.181852    ...     3.021015 -0.682867 -0.602867   
+24    5.330000  3.731000   3.414135    ...     4.035961 -2.020096 -2.120096   
+25    5.200000  3.640000   4.438343    ...     3.213558 -2.011902 -2.451902   
+26    5.890000  4.123000   5.155750    ...     2.654242 -1.369992 -1.919992   
+27    6.330000  4.431000   4.343298    ...     4.519407 -1.662705 -2.532705   
+28    3.990000  2.793000   6.314457    ...     2.677017 -4.911474 -5.001474   
+29    5.650000  3.955000   0.322558    ...     1.563143  2.324298  3.764298   
+..         ...       ...        ...    ...          ...       ...       ...   
+550  11.105000  5.570934   3.947447    ...     4.632757  0.363963  2.524796   
+551  12.438333  6.245859   3.548931    ...     7.258908 -0.910339  1.630494   
+552  10.623333  5.334464   3.200059    ...     4.238489  0.292285  3.184785   
+553   7.682500  3.854833   2.016127    ...     3.512076  0.626797  2.154297   
+554   8.384167  4.680377   2.552269    ...     3.461612 -0.051381  2.370286   
+555   8.845833  5.431908   3.500560    ...     4.204068 -0.820461  1.141206   
+556   8.499167  5.212862   3.888594    ...     3.680158  0.824581  0.930415   
+557   8.550000  5.245169   3.698705    ...     1.919449  2.124345  2.931845   
+558   7.858333  4.805292   3.328476    ...    -0.073702  2.283559  4.603559   
+559   7.010000  4.285620   2.279748    ...     3.555095 -2.319009  1.175157   
+560   5.873333  3.538595   2.378937    ...     2.745898 -2.059835  0.748499   
+561   7.080000  4.270196   2.128412    ...     4.037916 -1.800495  0.913672   
+562   6.580000  3.973761   2.085533    ...     2.718705  0.855762  1.775762   
+563   6.438333  3.893228   1.825084    ...     3.796162 -0.476246  0.817087   
+564   6.352500  3.846280   1.712177    ...     4.486791 -0.998969  0.153531   
+565   5.264167  3.188006   1.085079    ...     4.449766 -0.628178 -0.270678   
+566   5.636667  3.416158   1.530409    ...     4.685328 -1.438237 -0.579070   
+567   6.029167  3.657293   2.275285    ...     4.092111 -0.371563 -0.338229   
+568   5.017500  3.047128   2.279037    ...     0.976142  0.213988  1.762321   
+569   4.610833  2.798776   1.535187    ...     1.786158 -1.688011  1.289489   
+570   4.015000  2.436302   1.993963    ...     2.806812 -3.770775 -0.785775   
+571   4.274167  2.593564   2.749910    ...     3.785481 -5.140392 -2.261225   
+572   4.290000  2.604459   3.217295    ...     3.345379 -3.349341 -2.272675   
+573   4.791667  2.908542   3.072731    ...     2.666456 -0.890854 -0.947520   
+574   4.629167  2.811293   2.660947    ...     1.778798  0.031922  0.189422   
+575   3.666667  2.227500   1.961634    ...    -0.291621 -0.278346  1.996654   
+576   3.256667  1.981356   0.759410    ...    -2.775554  2.166977  5.272811   
+577   3.214167  1.953892   1.221783    ...     2.531773 -3.616889 -0.539389   
+578   2.785833  1.694065   2.064300    ...     1.601584 -3.613384 -0.880051   
+579   1.802500  1.097182   1.795448    ...     2.320817 -4.030431 -2.313764   
+
+           rg3        rg4       rg5  ctxrate     kshare       rimp     delta  
+0          NaN        NaN       NaN      NaN  22.781307   7.143823  4.372757  
+1   -10.375515 -10.160703 -4.548147  46.0000  22.992748   7.116895  4.264144  
+2    -7.873116  -7.668024 -0.387324  46.0000  24.848551   7.272948  4.251989  
+3    -4.658095  -4.107700  0.526811  46.0000  26.956326   7.994036  4.263564  
+4    -9.105114  -8.274540 -6.093940  46.0000  27.437305   8.234032  4.194270  
+5    -6.264681  -6.624078 -5.167578  46.0000  27.803844   8.398011  4.246107  
+6    -4.557664  -5.033214 -2.377699  49.0000  29.045123   8.697203  4.365178  
+7    -8.722497  -8.548663 -4.428184  49.0000  30.865788   9.409619  4.334457  
+8    -7.591507  -8.503152 -2.752238  39.0000  30.706412   9.332893  4.192040  
+9    -5.537192  -7.267457 -1.403170  39.0000  39.471942  11.967970  4.134433  
+10   -2.033285  -2.044448  1.267054  39.0000  38.648278  11.374377  4.168736  
+11    2.322469   2.988528  3.825925  39.0000  39.283425  11.363328  4.218454  
+12   -1.643589  -0.527289  0.257537  39.0000  40.069735  11.778655  4.272878  
+13   -2.954901  -2.128925 -0.064921  33.0000  40.691477  12.130551  4.292533  
+14   -2.262942  -1.468389 -0.953323  33.0000  40.406108  12.142597  4.187489  
+15   -3.001775  -2.698671  0.615518  36.0000  39.766490  12.060660  4.147816  
+16   -3.567708  -2.998364 -0.717828  36.0000  39.108557  11.939323  4.060737  
+17   -3.427011  -3.017411 -0.487195  36.0000  39.355123  12.127869  4.085006  
+18   -3.521630  -3.439710 -1.154545  36.0000  39.198452  12.244674  4.125059  
+19   -3.037030  -2.467686 -0.295058  36.0000  40.002674  12.500292  4.051433  
+20   -4.736804  -5.028656  1.058265  34.0000  40.051138  12.406828  4.045232  
+21   -3.997068  -3.134668  2.229875  30.0000  40.711647  12.692868  4.077963  
+22   -4.712875  -4.531575  0.857931  30.0000  40.762812  12.620984  3.981540  
+23   -3.498067  -3.458867  2.101612  30.0000  41.242969  12.767035  3.814298  
+24   -4.789396  -4.838396  1.088343  30.0000  41.310185  12.660201  3.737837  
+25   -4.888302  -5.103902  1.940464  30.0000  41.816020  12.635522  3.690843  
+26   -4.654392  -4.923892  2.480075  30.0000  41.841656  12.568084  3.663342  
+27   -5.334705  -5.761005  0.764272  30.0000  42.348117  12.603646  3.538873  
+28   -6.992274  -7.036374  2.346032  30.0000  42.782533  12.365476  3.632784  
+29    0.177198   0.882798  3.290767  30.0000  42.782533  12.126245  3.634461  
+..         ...        ...       ...      ...        ...        ...       ...  
+550  -6.329290  -5.785489 -3.129056  49.8340  36.220944  10.623248  3.825557  
+551  -8.312178  -7.671506 -5.497860  49.7854  36.373425  11.101173  3.813362  
+552  -5.489214  -4.759869 -2.447973  49.7854  36.429292  11.224792  3.845968  
+553  -3.978552  -3.593971 -1.776360  49.8232  36.236578  11.220634  3.894439  
+554  -4.155776  -3.401107 -1.214923  44.1760  35.539335  11.047359  3.920389  
+555  -5.108783  -4.369088 -1.337692  38.5936  35.103440  11.058576  3.924298  
+556  -4.411318  -4.371506 -0.564331  38.6662  36.180097  11.497419  3.935976  
+557  -2.704300  -2.400401  1.083427  38.6530  35.990918  11.377557  3.976914  
+558  -1.183881  -0.316386  2.843698  38.8510  35.947359  11.128864  4.035192  
+559  -4.520770  -3.214795 -0.730433  38.8642  35.785723  11.233581  4.043077  
+560  -4.012276  -2.992884  0.075158  39.7515  35.966307  11.357884  4.021899  
+561  -4.578161  -3.590823 -1.020486  39.6865  36.364216  11.662802  4.016814  
+562  -2.739961  -2.404425  0.268317  39.6085  36.184728  11.592238  4.013704  
+563  -3.739946  -3.267031 -0.684700  39.5305  36.533493  11.799203  4.023457  
+564  -4.292649  -3.870142 -1.264478  39.4525  36.529076  11.959037  4.018585  
+565  -3.735288  -3.604173 -1.435520  39.4395  35.053098  11.594438  4.007403  
+566  -4.460920  -4.145340 -1.656345  39.3940  34.816396  11.668833  4.043030  
+567  -4.161148  -4.148883 -1.328449  39.3400  33.636129  11.346480  4.119113  
+568  -1.975704  -1.404658  1.613573  39.2700  33.567560  11.122801  4.165163  
+569  -2.719545  -1.622488  0.946763  39.3000  34.472531  11.361515  4.163519  
+570  -4.421522  -3.322427  0.037684  39.3200  34.636515  11.436527  4.095189  
+571  -6.021744  -4.961617 -0.635526  39.3200  35.297692  11.758980  3.985394  
+572  -5.378335  -4.981508  0.096294  39.2900  36.017263  12.045333  3.871048  
+573  -3.952823  -3.973702  0.893310  39.3000  36.116236  12.091968  3.780059  
+574  -2.790535  -2.732447  1.845069  39.2700  36.571825  12.204612  3.787994  
+575  -1.156410  -0.316807  3.644916  39.2500  36.161852  11.823449  3.829451  
+576   2.071975   3.221601  5.999226  39.1600  37.445313  11.777189  3.941569  
+577  -3.703052  -2.565785  0.904324  39.2100  37.956351  12.141440  3.944685  
+578  -3.646470  -2.635723  1.917809  39.1900  37.801415  12.216007  3.909161  
+579  -4.084462  -3.448410       NaN  39.1300        NaN        NaN       NaN  
+
+[580 rows x 22 columns]
+Executed output:
+           country  year  top10   top5   top1      short     tshort  \
+0        Australia  1980  25.39  15.31   4.79  10.667500        NaN   
+1        Australia  1981  25.31  15.15   4.61  13.250833   7.155450   
+2        Australia  1982  25.82  15.44   4.67  14.642497   7.906948   
+3        Australia  1983  25.32  15.16   4.68  12.225000   6.601500   
+4        Australia  1984  25.50  15.25   4.75  10.985000   5.931900   
+5        Australia  1985  25.93  15.63   5.02  15.336663   8.281798   
+6        Australia  1986  26.61  16.17   5.39  15.386665   7.847199   
+7        Australia  1987  28.66  17.94   6.67  12.798332   6.527149   
+8        Australia  1988  30.28  19.84   8.41  15.400000   9.394000   
+9        Australia  1989  27.64  17.46   6.43  17.550000  10.705500   
+10       Australia  1990  27.66  17.37   6.34  12.100000   7.381000   
+11       Australia  1991  28.22  17.70   6.41   7.600000   4.636000   
+12       Australia  1992  28.52  17.95   6.55   5.940000   3.623400   
+13       Australia  1993  29.40  18.66   6.96   4.840000   3.242800   
+14       Australia  1994  29.42  18.87   7.13   8.270000   5.540900   
+15       Australia  1995  29.13  18.76   7.23   7.440000   4.761600   
+16       Australia  1996  29.16  18.77   7.24   5.980000   3.827200   
+17       Australia  1997  30.41  19.73   7.81   5.050000   3.232000   
+18       Australia  1998  30.11  19.63   7.84   4.810000   3.078400   
+19       Australia  1999  31.48  20.95   8.84   5.570000   3.564800   
+20       Australia  2000  31.28  20.98   9.03   6.130000   4.045800   
+21       Australia  2001  30.61  20.33   8.31   4.250000   2.975000   
+22       Australia  2002  31.34  20.90   8.79   4.790000   3.353000   
+23       Australia  2003  32.04  21.49   9.18   5.520000   3.864000   
+24       Australia  2004  30.08  20.32   8.89   5.430000   3.801000   
+25       Australia  2005  30.54  20.72   9.12   5.640000   3.948000   
+26       Australia  2006  31.81  21.91  10.06   6.440000   4.508000   
+27       Australia  2007  31.51  21.61   9.84   7.200000   5.040000   
+28       Australia  2008  29.34  19.85   8.59   4.080000   2.856000   
+29       Australia  2009  30.56  20.69   8.88   4.210000   2.947000   
+..             ...   ...    ...    ...    ...        ...        ...   
+550  United States  1983  33.69  21.79   8.59   8.944167   4.486931   
+551  United States  1984  33.95  22.10   8.89   9.897500   4.969990   
+552  United States  1985  34.25  22.38   9.09   7.730833   3.882007   
+553  United States  1986  34.57  22.59   9.13   6.155000   3.088382   
+554  United States  1987  36.48  24.49  10.75   5.962500   3.328506   
+555  United States  1988  38.63  26.95  13.17   6.884167   4.227319   
+556  United States  1989  38.47  26.66  12.61   8.393333   5.147950   
+557  United States  1990  38.84  27.05  12.98   7.742500   4.749791   
+558  United States  1991  38.38  26.43  12.17   5.538333   3.386635   
+559  United States  1992  39.82  27.88  13.48   3.515833   2.149433   
+560  United States  1993  39.48  27.41  12.82   3.065000   1.846617   
+561  United States  1994  39.60  27.50  12.85   4.365833   2.633187   
+562  United States  1995  40.54  28.46  13.53   5.660000   3.418159   
+563  United States  1996  41.16  29.16  14.11   5.145000   3.111156   
+564  United States  1997  41.73  29.85  14.77   5.200000   3.148470   
+565  United States  1998  42.12  30.36  15.29   4.906667   2.971502   
+566  United States  1999  42.67  30.97  15.87   4.777500   2.895452   
+567  United States  2000  43.11  31.51  16.49   5.995833   3.637072   
+568  United States  2001  42.23  30.40  15.37   3.469167   2.106825   
+569  United States  2002  42.36  30.36  14.99   1.633333   0.991433   
+570  United States  2003  42.76  30.66  15.21   1.030000   0.625004   
+571  United States  2004  43.64  31.71  16.34   1.395000   0.846486   
+572  United States  2005  44.94  33.12  17.68   3.213333   1.950815   
+573  United States  2006  45.50  33.59  18.06   4.848333   2.942938   
+574  United States  2007  45.67  33.84  18.33   4.471667   2.715643   
+575  United States  2008  45.96  33.78  17.89   1.391667   0.845437   
+576  United States  2009  45.47  32.81  16.68   0.150833   0.091767   
+577  United States  2010  46.35  33.73  17.45   0.136667   0.083080   
+578  United States  2011  46.63  33.98  17.47   0.052500   0.031925   
+579  United States  2012  48.16  35.76  19.34   0.085833   0.052247   
+
+          long     tlong   deflator  ...    growth       rg1       rg2  \
+0    11.651666       NaN   9.799431  ...  2.893709 -2.025640 -1.041474   
+1    13.987500  7.553250  10.112331  ...  4.127127 -0.988626 -0.251958   
+2    15.345829  8.286748  12.080141  ...  0.062726  2.499629  3.202961   
+3    14.112500  7.620750   8.696501  ... -0.473595  4.002095  5.889595   
+4    13.833333  7.470000   5.962292  ...  6.346048 -1.323340  1.524993   
+5    14.104165  7.616249   5.280455  ...  5.456397  4.599811  3.367313   
+6    13.558331  6.914749   6.111641  ...  2.448094  6.826930  4.998596   
+7    13.466667  6.868000   7.158711  ...  4.892633  0.746989  1.415324   
+8    12.950000  7.899500   9.068585  ...  4.253262  2.078153 -0.371847   
+9    12.900000  7.869000   7.498348  ...  4.569199  5.482453  0.832453   
+10   12.070000  7.362700   5.033114  ...  1.502580  5.564305  5.534305   
+11    9.390000  5.727900   1.618239  ... -1.112748  7.094509  8.884509   
+12    8.940000  5.453400   1.199299  ...  2.654565  2.086137  5.086137   
+13    6.680000  4.475600   1.227720  ...  3.899857 -0.287577  1.552423   
+14   10.040000  6.726800   1.073971  ...  4.901374  2.294655  4.064655   
+15    8.180000  5.235200   3.093712  ...  2.955487  1.390801  2.130801   
+16    7.370000  4.716800   1.718858  ...  4.298257 -0.037116  1.352884   
+17    6.050000  3.872000   1.331466  ...  4.164025 -0.445491  0.554509   
+18    5.010000  3.206400   0.625728  ...  4.866077 -0.681806 -0.481806   
+19    6.960000  4.454400   1.074690  ...  4.243811  0.251498  1.641498   
+20    5.460000  3.603600   4.322023  ...  3.085010 -1.277032 -1.947032   
+21    6.010000  4.207000   3.502399  ...  2.577170 -1.829568 -0.069568   
+22    5.160000  3.612000   3.064757  ...  3.995218 -2.269975 -1.899975   
+23    5.600000  3.920000   3.181852  ...  3.021015 -0.682867 -0.602867   
+24    5.330000  3.731000   3.414135  ...  4.035961 -2.020096 -2.120096   
+25    5.200000  3.640000   4.438343  ...  3.213558 -2.011902 -2.451902   
+26    5.890000  4.123000   5.155750  ...  2.654242 -1.369992 -1.919992   
+27    6.330000  4.431000   4.343298  ...  4.519407 -1.662705 -2.532705   
+28    3.990000  2.793000   6.314457  ...  2.677017 -4.911474 -5.001474   
+29    5.650000  3.955000   0.322558  ...  1.563143  2.324298  3.764298   
+..         ...       ...        ...  ...       ...       ...       ...   
+550  11.105000  5.570934   3.947447  ...  4.632757  0.363963  2.524796   
+551  12.438333  6.245859   3.548931  ...  7.258908 -0.910339  1.630494   
+552  10.623333  5.334464   3.200059  ...  4.238489  0.292285  3.184785   
+553   7.682500  3.854833   2.016127  ...  3.512076  0.626797  2.154297   
+554   8.384167  4.680377   2.552269  ...  3.461612 -0.051381  2.370286   
+555   8.845833  5.431908   3.500560  ...  4.204068 -0.820461  1.141206   
+556   8.499167  5.212862   3.888594  ...  3.680158  0.824581  0.930415   
+557   8.550000  5.245169   3.698705  ...  1.919449  2.124345  2.931845   
+558   7.858333  4.805292   3.328476  ... -0.073702  2.283559  4.603559   
+559   7.010000  4.285620   2.279748  ...  3.555095 -2.319009  1.175157   
+560   5.873333  3.538595   2.378937  ...  2.745898 -2.059835  0.748499   
+561   7.080000  4.270196   2.128412  ...  4.037916 -1.800495  0.913672   
+562   6.580000  3.973761   2.085533  ...  2.718705  0.855762  1.775762   
+563   6.438333  3.893228   1.825084  ...  3.796162 -0.476246  0.817087   
+564   6.352500  3.846280   1.712177  ...  4.486791 -0.998969  0.153531   
+565   5.264167  3.188006   1.085079  ...  4.449766 -0.628178 -0.270678   
+566   5.636667  3.416158   1.530409  ...  4.685328 -1.438237 -0.579070   
+567   6.029167  3.657293   2.275285  ...  4.092111 -0.371563 -0.338229   
+568   5.017500  3.047128   2.279037  ...  0.976142  0.213988  1.762321   
+569   4.610833  2.798776   1.535187  ...  1.786158 -1.688011  1.289489   
+570   4.015000  2.436302   1.993963  ...  2.806812 -3.770775 -0.785775   
+571   4.274167  2.593564   2.749910  ...  3.785481 -5.140392 -2.261225   
+572   4.290000  2.604459   3.217295  ...  3.345379 -3.349341 -2.272675   
+573   4.791667  2.908542   3.072731  ...  2.666456 -0.890854 -0.947520   
+574   4.629167  2.811293   2.660947  ...  1.778798  0.031922  0.189422   
+575   3.666667  2.227500   1.961634  ... -0.291621 -0.278346  1.996654   
+576   3.256667  1.981356   0.759410  ... -2.775554  2.166977  5.272811   
+577   3.214167  1.953892   1.221783  ...  2.531773 -3.616889 -0.539389   
+578   2.785833  1.694065   2.064300  ...  1.601584 -3.613384 -0.880051   
+579   1.802500  1.097182   1.795448  ...  2.320817 -4.030431 -2.313764   
+
+           rg3        rg4       rg5  ctxrate     kshare       rimp     delta  
+0          NaN        NaN       NaN      NaN  22.781307   7.143823  4.372757  
+1   -10.375515 -10.160703 -4.548147  46.0000  22.992748   7.116895  4.264144  
+2    -7.873116  -7.668024 -0.387324  46.0000  24.848551   7.272948  4.251989  
+3    -4.658095  -4.107700  0.526811  46.0000  26.956326   7.994036  4.263564  
+4    -9.105114  -8.274540 -6.093940  46.0000  27.437305   8.234032  4.194270  
+5    -6.264681  -6.624078 -5.167578  46.0000  27.803844   8.398011  4.246107  
+6    -4.557664  -5.033214 -2.377699  49.0000  29.045123   8.697203  4.365178  
+7    -8.722497  -8.548663 -4.428184  49.0000  30.865788   9.409619  4.334457  
+8    -7.591507  -8.503152 -2.752238  39.0000  30.706412   9.332893  4.192040  
+9    -5.537192  -7.267457 -1.403170  39.0000  39.471942  11.967970  4.134433  
+10   -2.033285  -2.044448  1.267054  39.0000  38.648278  11.374377  4.168736  
+11    2.322469   2.988528  3.825925  39.0000  39.283425  11.363328  4.218454  
+12   -1.643589  -0.527289  0.257537  39.0000  40.069735  11.778655  4.272878  
+13   -2.954901  -2.128925 -0.064921  33.0000  40.691477  12.130551  4.292533  
+14   -2.262942  -1.468389 -0.953323  33.0000  40.406108  12.142597  4.187489  
+15   -3.001775  -2.698671  0.615518  36.0000  39.766490  12.060660  4.147816  
+16   -3.567708  -2.998364 -0.717828  36.0000  39.108557  11.939323  4.060737  
+17   -3.427011  -3.017411 -0.487195  36.0000  39.355123  12.127869  4.085006  
+18   -3.521630  -3.439710 -1.154545  36.0000  39.198452  12.244674  4.125059  
+19   -3.037030  -2.467686 -0.295058  36.0000  40.002674  12.500292  4.051433  
+20   -4.736804  -5.028656  1.058265  34.0000  40.051138  12.406828  4.045232  
+21   -3.997068  -3.134668  2.229875  30.0000  40.711647  12.692868  4.077963  
+22   -4.712875  -4.531575  0.857931  30.0000  40.762812  12.620984  3.981540  
+23   -3.498067  -3.458867  2.101612  30.0000  41.242969  12.767035  3.814298  
+24   -4.789396  -4.838396  1.088343  30.0000  41.310185  12.660201  3.737837  
+25   -4.888302  -5.103902  1.940464  30.0000  41.816020  12.635522  3.690843  
+26   -4.654392  -4.923892  2.480075  30.0000  41.841656  12.568084  3.663342  
+27   -5.334705  -5.761005  0.764272  30.0000  42.348117  12.603646  3.538873  
+28   -6.992274  -7.036374  2.346032  30.0000  42.782533  12.365476  3.632784  
+29    0.177198   0.882798  3.290767  30.0000  42.782533  12.126245  3.634461  
+..         ...        ...       ...      ...        ...        ...       ...  
+550  -6.329290  -5.785489 -3.129056  49.8340  36.220944  10.623248  3.825557  
+551  -8.312178  -7.671506 -5.497860  49.7854  36.373425  11.101173  3.813362  
+552  -5.489214  -4.759869 -2.447973  49.7854  36.429292  11.224792  3.845968  
+553  -3.978552  -3.593971 -1.776360  49.8232  36.236578  11.220634  3.894439  
+554  -4.155776  -3.401107 -1.214923  44.1760  35.539335  11.047359  3.920389  
+555  -5.108783  -4.369088 -1.337692  38.5936  35.103440  11.058576  3.924298  
+556  -4.411318  -4.371506 -0.564331  38.6662  36.180097  11.497419  3.935976  
+557  -2.704300  -2.400401  1.083427  38.6530  35.990918  11.377557  3.976914  
+558  -1.183881  -0.316386  2.843698  38.8510  35.947359  11.128864  4.035192  
+559  -4.520770  -3.214795 -0.730433  38.8642  35.785723  11.233581  4.043077  
+560  -4.012276  -2.992884  0.075158  39.7515  35.966307  11.357884  4.021899  
+561  -4.578161  -3.590823 -1.020486  39.6865  36.364216  11.662802  4.016814  
+562  -2.739961  -2.404425  0.268317  39.6085  36.184728  11.592238  4.013704  
+563  -3.739946  -3.267031 -0.684700  39.5305  36.533493  11.799203  4.023457  
+564  -4.292649  -3.870142 -1.264478  39.4525  36.529076  11.959037  4.018585  
+565  -3.735288  -3.604173 -1.435520  39.4395  35.053098  11.594438  4.007403  
+566  -4.460920  -4.145340 -1.656345  39.3940  34.816396  11.668833  4.043030  
+567  -4.161148  -4.148883 -1.328449  39.3400  33.636129  11.346480  4.119113  
+568  -1.975704  -1.404658  1.613573  39.2700  33.567560  11.122801  4.165163  
+569  -2.719545  -1.622488  0.946763  39.3000  34.472531  11.361515  4.163519  
+570  -4.421522  -3.322427  0.037684  39.3200  34.636515  11.436527  4.095189  
+571  -6.021744  -4.961617 -0.635526  39.3200  35.297692  11.758980  3.985394  
+572  -5.378335  -4.981508  0.096294  39.2900  36.017263  12.045333  3.871048  
+573  -3.952823  -3.973702  0.893310  39.3000  36.116236  12.091968  3.780059  
+574  -2.790535  -2.732447  1.845069  39.2700  36.571825  12.204612  3.787994  
+575  -1.156410  -0.316807  3.644916  39.2500  36.161852  11.823449  3.829451  
+576   2.071975   3.221601  5.999226  39.1600  37.445313  11.777189  3.941569  
+577  -3.703052  -2.565785  0.904324  39.2100  37.956351  12.141440  3.944685  
+578  -3.646470  -2.635723  1.917809  39.1900  37.801415  12.216007  3.909161  
+579  -4.084462  -3.448410       NaN  39.1300        NaN        NaN       NaN  
+
+[580 rows x 22 columns]
+-------------------------------------------
+Source Code of a Unmatched Cell 56
+-------------------------------------------
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+fig = sns.regplot(x=media['rg1'], y=media['top1'])
+fig.set(xlabel='$r-g$: retorno real ao capital menos crescimento real',
+        ylabel='Fração da renda apropriada pelo 1% mais rico',
+        title='Países desenvolvidos: Parcela do 1% mais rico e $r-g$')
+plt.show()
+
+-----------------
+Original output:
+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
+MOX0oehfYoEsSehfYsGU04dm9SI0oJNz2sOGDcPSpUsxadIk5OXlwefzpTouaiey97leF9g61GzU
+QSdz/puIKJ4xVWVZn6Tb0/yN369fP9x777346quv8MMf/hC///3vMWDAgHTERgn4FQG704f6psDq
+c5fHz+FzIqI+QDNp//GPf8Sxxx6LZ599FlarFYMHD8bSpUvTERt1gsenoNnhxaEmF5odXnh9LB8j
+IspVCZP2mjVrAAAffPABAOA///kPXnvtNeTl5eH9999PT3TUaaJd7/NWl4+9z4mIckzCOe0vv/wS
+EydOjGpfGmny5MkpC4q6R1EFWl0+tLp8MOplmI16mE06yGydSkSU1RIm7dmzZwMA7r///pjb3O7s
+Lk7vS7x+FV6/F3YnYDLqYDHqYTTI7H1ORJSFNFePv/fee3j00UfhdDohhICqqnC73fj000/TER/1
+kFD5mNsb2PvbbNLDYtTDoOfqcyKibKGZtJcsWYJFixbhmWeewcyZM7F27VrYbLZ0xEYpwvIxIqLs
+pPlburCwEOPHj8fYsWNht9sxa9YsfPHFF5168NraWkyfPh0AsHXrVlx++eWYPn06ZsyYgcOHD3cv
+cuoRLB8jIsoemknbbDZj165dGDZsGDZu3Aiv1wu73a75wE8++SRuv/12eDweAMDixYtxxx13YPny
+5TjrrLPw5JNPdj966lEsHyMi6t00k/ZNN92EZcuWYeLEifj0009x2mmn4cwzz9R84CFDhuDhhx8O
+f7906VKMGjUKAKAoCkwmUzfCJgDYUdeEFz74Bv/76pd44YNvsKOuqUcel+VjRES9kyS6OBba3NyM
+oqKiTt23rq4ON998M15++eXwsc8//xwLFizAc889h9LS0g5/vqHJCbePySKeLd824PWP/htz/KLT
+j8YxQ1PTts+o18Fq1sNi0kOWufqciCjdNBeibdq0CX//+9/R3NwcdfzZZ5/t8pO98847eOyxx/CX
+v/xFM2EDQFOzC063v8vP0xuVluahsdHRY4/3r0174FdiP2/9a9MeVKZ46zkJ6SsfKy8vQH299nQM
+xeK5Sx7PXfJ47pITed7KywsS3k8zac+fPx833HBDt/uNv/7663jppZewfPlyFBcXd+uxCLDZPV06
+3pNYPkZElBmaSbt///7d7n6mKAoWL16MyspKzJo1CwBw0kknhRu4UNeVFJjQ0BKboEsK0rtWgOVj
+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
+h2DQAAAAAElFTkSuQmCC
+
+Executed output:
+<Figure size 640x480 with 1 Axes>

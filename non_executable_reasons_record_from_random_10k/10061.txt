@@ -1,0 +1,46 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#============================================================================
+# Load pickled data
+import pickle
+import numpy as np
+from tensorflow.contrib.layers import flatten
+import matplotlib.pyplot as plt
+from random import randint
+import copy
+
+# Visualizations will be shown in the notebook.
+%matplotlib inline
+
+# import tensorflow
+import tensorflow as tf
+
+# sklearn data prep functions 
+from sklearn.utils import shuffle
+from sklearn.model_selection import train_test_split
+
+# For visualizing loaded pictures 
+import matplotlib.image as mpimg
+import os
+
+# import read csvpandas
+from pandas import read_csv
+#===================================================================
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-c8941f37a516>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mimport[0m [0mpickle[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mcontrib[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mflatten[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0mrandom[0m [0;32mimport[0m [0mrandint[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

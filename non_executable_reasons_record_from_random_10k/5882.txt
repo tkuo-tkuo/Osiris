@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+s[1] = '_'
+------------------
+
+TypeError: 'str' object does not support item assignment
+
+Executability                            : False

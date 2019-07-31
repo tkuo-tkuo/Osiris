@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import IPython
+from widget_canvas import CanvasImage
+from widget_canvas import image
+
+data_image = image.read('images/Whippet.jpg')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-a38f29fb47a6>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mIPython[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mwidget_canvas[0m [0;32mimport[0m [0mCanvasImage[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mwidget_canvas[0m [0;32mimport[0m [0mimage[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'widget_canvas'
+ImportError: No module named 'widget_canvas'
+
+Executability                            : False

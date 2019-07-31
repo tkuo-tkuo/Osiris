@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+fp = sp.polyfit(x, y, 16)
+func = sp.poly1d(fp)
+plot_web_traffic(func)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-11-6d7c35cfde27>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mfp[0m [0;34m=[0m [0msp[0m[0;34m.[0m[0mpolyfit[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0;36m16[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mfunc[0m [0;34m=[0m [0msp[0m[0;34m.[0m[0mpoly1d[0m[0;34m([0m[0mfp[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mplot_web_traffic[0m[0;34m([0m[0mfunc[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'plot_web_traffic' is not defined
+NameError: name 'plot_web_traffic' is not defined
+
+Executability                            : False

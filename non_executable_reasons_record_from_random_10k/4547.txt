@@ -1,0 +1,16 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+df = pd.DataFrame(np.random.randn(5, 3), 
+                  index=['a', 'c', 'e', 'f', 'h'], 
+                  columns=['one', 'two', 'three'])
+df['four'] = 'bar'
+df['five'] = df['one'] > 0
+df
+------------------
+
+NameError: name 'pd' is not defined
+
+Executability                            : False

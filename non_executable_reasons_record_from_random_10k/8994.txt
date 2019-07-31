@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+with open('answer.txt', 'w') as answer:
+    answer.write(b)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-54c82a529b94>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'answer.txt'[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0manswer[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0manswer[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mb[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'answer.txt'
+PermissionError: [Errno 13] Permission denied: 'answer.txt'
+
+Executability                            : False

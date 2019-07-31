@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Run this cell to see the shape of the return value of the hypothesis function:
+# (BONUS: try to think of what the shape would be before printing it out)
+hypothesis(weights_init, bias_init).shape
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-10-e9655b5cb20a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Run this cell to see the shape of the return value of the hypothesis function:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m# (BONUS: try to think of what the shape would be before printing it out)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mhypothesis[0m[0;34m([0m[0mweights_init[0m[0;34m,[0m [0mbias_init[0m[0;34m)[0m[0;34m.[0m[0mshape[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'hypothesis' is not defined
+NameError: name 'hypothesis' is not defined
+
+Executability                            : False

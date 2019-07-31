@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+os.chdir('../')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-b3ba6066c5b4>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mos[0m[0;34m.[0m[0mchdir[0m[0;34m([0m[0;34m'../'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'os' is not defined
+NameError: name 'os' is not defined
+
+Executability                            : False

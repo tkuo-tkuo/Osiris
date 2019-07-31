@@ -1,0 +1,52 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from urllib.request import urlretrieve
+from os.path import isfile, isdir
+from tqdm import tqdm
+
+vgg_dir = 'tensorflow_vgg/'
+# Make sure vgg exists
+if not isdir(vgg_dir):
+    raise Exception("VGG directory doesn't exist!")
+
+class DLProgress(tqdm):
+    last_block = 0
+
+    def hook(self, block_num=1, block_size=1, total_size=None):
+        self.total = total_size
+        self.update((block_num - self.last_block) * block_size)
+        self.last_block = block_num
+
+if not isfile(vgg_dir + "vgg16.npy"):
+    with DLProgress(unit='B', unit_scale=True, miniters=1, desc='VGG16 Parameters') as pbar:
+        urlretrieve(
+            'https://s3.amazonaws.com/content.udacity-data.com/nd101/vgg16.npy',
+            vgg_dir + 'vgg16.npy',
+            pbar.hook)
+else:
+    print("Parameter file already exists!")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-de89afe1dfce>[0m in [0;36m<module>[0;34m[0m
+[1;32m     23[0m             [0;34m'https://s3.amazonaws.com/content.udacity-data.com/nd101/vgg16.npy'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     24[0m             [0mvgg_dir[0m [0;34m+[0m [0;34m'vgg16.npy'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 25[0;31m             pbar.hook)
+[0m[1;32m     26[0m [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     27[0m     [0mprint[0m[0;34m([0m[0;34m"Parameter file already exists!"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/urllib/request.py[0m in [0;36murlretrieve[0;34m(url, filename, reporthook, data)[0m
+[1;32m    256[0m         [0;31m# Handle temporary file setup.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    257[0m         [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 258[0;31m             [0mtfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    259[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    260[0m             [0mtfp[0m [0;34m=[0m [0mtempfile[0m[0;34m.[0m[0mNamedTemporaryFile[0m[0;34m([0m[0mdelete[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'tensorflow_vgg/vgg16.npy'
+PermissionError: [Errno 13] Permission denied: 'tensorflow_vgg/vgg16.npy'
+
+Executability                            : False

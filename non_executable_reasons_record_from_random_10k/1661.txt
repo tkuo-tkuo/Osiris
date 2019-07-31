@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import pymc3 as pm
+import theano.tensor as tt
+
+with pm.Model() as model:
+    alpha = 1.0/count_data.mean()  # Recall count_data is the
+                                   # variable that holds our txt counts
+    lambda_1 = pm.Exponential("lambda_1", alpha)
+    lambda_2 = pm.Exponential("lambda_2", alpha)
+    
+    tau = pm.DiscreteUniform("tau", lower=0, upper=n_count_data - 1)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-8-00c709d55d04>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mpymc3[0m [0;32mas[0m [0mpm[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mtheano[0m[0;34m.[0m[0mtensor[0m [0;32mas[0m [0mtt[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;32mwith[0m [0mpm[0m[0;34m.[0m[0mModel[0m[0;34m([0m[0;34m)[0m [0;32mas[0m [0mmodel[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      5[0m     [0malpha[0m [0;34m=[0m [0;36m1.0[0m[0;34m/[0m[0mcount_data[0m[0;34m.[0m[0mmean[0m[0;34m([0m[0;34m)[0m  [0;31m# Recall count_data is the[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pymc3'
+ImportError: No module named 'pymc3'
+
+Executability                            : False

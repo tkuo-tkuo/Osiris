@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+vetor1[0] = 'Novo elemento'
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-12-badaa25fa27c>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mvetor1[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m=[0m [0;34m'Novo elemento'[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: invalid literal for int() with base 10: 'Novo elemento'
+ValueError: invalid literal for int() with base 10: 'Novo elemento'
+
+Executability                            : False

@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Setup sqlite
+sqlite_file = '../hyper_live.db'
+connection = sqlite3.connect(sqlite_file)
+db = connection.cursor()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-2-7246c774ec95>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Setup sqlite[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0msqlite_file[0m [0;34m=[0m [0;34m'../hyper_live.db'[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mconnection[0m [0;34m=[0m [0msqlite3[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0msqlite_file[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mdb[0m [0;34m=[0m [0mconnection[0m[0;34m.[0m[0mcursor[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mOperationalError[0m: unable to open database file
+OperationalError: unable to open database file
+
+Executability                            : False

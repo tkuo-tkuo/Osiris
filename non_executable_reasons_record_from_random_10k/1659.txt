@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import pymc as pm
+
+p = pm.Uniform("p", 0, 1)
+
+assignment = pm.Categorical("assignment", [p, 1 - p], size=data.shape[0])
+print("prior assignment, with p = %.2f:" % p.value)
+print(assignment.value[:10], "...")
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-7-af04141246fa>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mpymc[0m [0;32mas[0m [0mpm[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mp[0m [0;34m=[0m [0mpm[0m[0;34m.[0m[0mUniform[0m[0;34m([0m[0;34m"p"[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0massignment[0m [0;34m=[0m [0mpm[0m[0;34m.[0m[0mCategorical[0m[0;34m([0m[0;34m"assignment"[0m[0;34m,[0m [0;34m[[0m[0mp[0m[0;34m,[0m [0;36m1[0m [0;34m-[0m [0mp[0m[0;34m][0m[0;34m,[0m [0msize[0m[0;34m=[0m[0mdata[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pymc'
+ImportError: No module named 'pymc'
+
+Executability                            : False

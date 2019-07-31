@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+data_len = 100
+data_dim = 3
+
+# generating 3 time series with linear trend and some noise
+ts = np.random.normal(size=(data_len, data_dim), scale=1) + np.transpose([0.1*np.arange(data_len),
+                                                                          0.1*np.arange(data_len) + 10,
+                                                                          0.1*np.arange(data_len) + 20])
+
+# order = (p, d, q); 'd' is for 'diff order' to remove some trends
+vmx = VARIMAX(ts, order=(2, 1, 0))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-a3fdb535fbb7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;31m# generating 3 time series with linear trend and some noise[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m ts = np.random.normal(size=(data_len, data_dim), scale=1) + np.transpose([0.1*np.arange(data_len),
+[0m[1;32m      8[0m                                                                           [0;36m0.1[0m[0;34m*[0m[0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0mdata_len[0m[0;34m)[0m [0;34m+[0m [0;36m10[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m                                                                           0.1*np.arange(data_len) + 20])
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

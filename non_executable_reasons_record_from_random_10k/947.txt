@@ -1,0 +1,63 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 1]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+
+def line_side(x0,y0,x1,y1,x,y):
+    #-1 = under, 1 = over when x0 < x1
+    v = (x-x0)*(y1-y0)-(y-y0)*(x1-x0)
+    return v/abs(v)
+def calc_poly(x,a):
+    y = 0
+    for i in range(0,a.size,1):
+        y+=a[i]*x**i
+            
+    return y
+
+
+def spline_cm(o,K,Cd,ax):
+    f = np.polyfit(K,Cd,o)
+    print(f[::-1])
+    p = np.poly1d(f)
+    K1 = np.linspace(K.min(),K.max(),100)
+    Cd1 = p(K1)
+    #Cd2 = np.c_[[poly1d(k,f[::-1]) for k in K]]
+    ax.plot(K,Cd,'k-')
+    ax.plot(K1[:],Cd1[:],'b.-')
+    #plt.plot(K,Cd2)
+    plt.title(o)
+    return K1,Cd1
+
+log = np.log10
+        
+if (1):
+    i = 10
+    
+    fig=plt.figure(figsize=(10,10))
+    ax = fig.add_subplot(1,1,1)
+
+    #spline_cm(6,x1,y1,ax)
+    #spline_cm(11,x2,y2,ax)
+    #spline_cm(11,x3,y3,ax)
+    #spline_cm(11,x4,y4,ax)
+    
+    x,y=spline_cm(i,x1,y1,ax)
+
+    #ax.set_xscale("log");ax.set_yscale("log")
+    plt.show()
+    
+
+-----------------
+Original output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>[   2.2176837     1.21096525    7.85620815 -168.69882255  547.38250749
+ -656.47855961  -24.75443785  850.58892757 -848.40828878  330.35458748
+  -40.94670778]
+
+Executed output:
+<IPython.core.display.Javascript object><IPython.core.display.HTML object>[   2.2176837     1.21096525    7.85620815 -168.69882253  547.38250732
+ -656.478559    -24.75443919  850.58892942 -848.40829033  330.3545882
+  -40.94670792]
+

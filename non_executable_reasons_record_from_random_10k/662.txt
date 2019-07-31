@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+### leitura do dataset
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+### Visualizar instâncias
+plt.imshow(x_train[5], cmap=plt.get_cmap('gray'))
+plt.title(y_train[5])
+### Normalizar
+x_train = x_train/255
+x_test =  x_test/255
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-62e819adb95e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m### leitura do dataset[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;34m([0m[0mx_train[0m[0;34m,[0m [0my_train[0m[0;34m)[0m[0;34m,[0m [0;34m([0m[0mx_test[0m[0;34m,[0m [0my_test[0m[0;34m)[0m [0;34m=[0m [0mmnist[0m[0;34m.[0m[0mload_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;31m### Visualizar instâncias[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mplt[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0mx_train[0m[0;34m[[0m[0;36m5[0m[0;34m][0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0mplt[0m[0;34m.[0m[0mget_cmap[0m[0;34m([0m[0;34m'gray'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'mnist' is not defined
+NameError: name 'mnist' is not defined
+
+Executability                            : False

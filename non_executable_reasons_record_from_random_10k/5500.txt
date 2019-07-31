@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from random import random
+from numpy import array
+from matplotlib import pyplot
+from matplotlib.patches import PathPatch
+from matplotlib.path import Path
+from keras.models import Sequential
+from keras.layers import LSTM
+from keras.layers import Dense
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-8b3f1fdca7fc>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;32mfrom[0m [0mmatplotlib[0m[0;34m.[0m[0mpatches[0m [0;32mimport[0m [0mPathPatch[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mmatplotlib[0m[0;34m.[0m[0mpath[0m [0;32mimport[0m [0mPath[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mSequential[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mLSTM[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mDense[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

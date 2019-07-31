@@ -1,0 +1,42 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+folder_name = 'C:/Users/luiz/Desktop/IniciacaoCientifica/teste3'
+json_data = read_json_files_from_directory(folder_name)
+for json in json_data:
+    walking_activities = extract_activitie(json_data[json], 'walking')
+    #print(walking_activities)
+    sensor_data = extract_sensor_data(json_data[json], 'smartphone')
+    acc = extract_sensor_reads(sensor_data, 'acc')
+    #print(acc)
+    gyr = extract_sensor_reads(sensor_data, 'gyr')
+    #print(gyr)
+    mag = extract_sensor_reads(sensor_data, 'mag')
+    #print(ola)
+    #print(mag)
+    #for activitie in walking_activities:
+    fig=plt.figure(figsize=(24, 22), dpi= 60, facecolor='w', edgecolor='k')
+    generate_graph(walking_activities[0], acc[0])
+        #time.sleep(3)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-4-ad07d8921ce0>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mfolder_name[0m [0;34m=[0m [0;34m'C:/Users/luiz/Desktop/IniciacaoCientifica/teste3'[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mjson_data[0m [0;34m=[0m [0mread_json_files_from_directory[0m[0;34m([0m[0mfolder_name[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfor[0m [0mjson[0m [0;32min[0m [0mjson_data[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mwalking_activities[0m [0;34m=[0m [0mextract_activitie[0m[0;34m([0m[0mjson_data[0m[0;34m[[0m[0mjson[0m[0;34m][0m[0;34m,[0m [0;34m'walking'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m     [0;31m#print(walking_activities)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-3-13b3e44bac9d>[0m in [0;36mread_json_files_from_directory[0;34m(folder_name)[0m
+[1;32m      1[0m [0;32mdef[0m [0mread_json_files_from_directory[0m[0;34m([0m[0mfolder_name[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      2[0m     [0mjson_data[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     [0mfiles[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0mfolder_name[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0;32mfor[0m [0mfile[0m [0;32min[0m [0mfiles[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      5[0m         [0mfile_path[0m [0;34m=[0m [0;34m'%s/%s'[0m[0;34m%[0m[0;34m([0m[0mfolder_name[0m[0;34m,[0m[0mfile[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'C:/Users/luiz/Desktop/IniciacaoCientifica/teste3'
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/luiz/Desktop/IniciacaoCientifica/teste3'
+
+Executability                            : False

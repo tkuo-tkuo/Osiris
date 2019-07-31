@@ -1,0 +1,42 @@
+3.7
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib notebook
+import numpy as np
+
+import matplotlib.pyplot as plt
+from SimPEG import Mesh
+from SimPEG import Utils
+from SimPEG import Maps
+from SimPEG import Regularization
+from SimPEG import DataMisfit
+from SimPEG import Optimization
+from SimPEG import InvProblem
+from SimPEG import Directives
+from SimPEG import Inversion
+from SimPEG import PF
+import multiprocessing
+from scipy.spatial import cKDTree
+import dask
+import dask.array as da
+from discretize.utils import closestPoints
+from SimPEG.Utils import mkvc
+import zarr
+from zarr import empty
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-6d54d5162c1d>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0mMesh[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0mUtils[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0mSimPEG[0m [0;32mimport[0m [0mMaps[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'SimPEG'
+ModuleNotFoundError: No module named 'SimPEG'
+
+Executability                            : False

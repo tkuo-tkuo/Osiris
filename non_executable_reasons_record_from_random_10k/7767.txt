@@ -1,0 +1,3 @@
+3.4
+No such kernel named python2
+Executability                            : False

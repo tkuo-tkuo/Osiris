@@ -1,0 +1,42 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+pd.set_option('display.height', 1000)
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOptionError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-a5ea86a8c0b3>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mpd[0m[0;34m.[0m[0mset_option[0m[0;34m([0m[0;34m'display.height'[0m[0;34m,[0m [0;36m1000[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mpd[0m[0;34m.[0m[0mset_option[0m[0;34m([0m[0;34m'display.max_rows'[0m[0;34m,[0m [0;36m500[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mpd[0m[0;34m.[0m[0mset_option[0m[0;34m([0m[0;34m'display.max_columns'[0m[0;34m,[0m [0;36m500[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mpd[0m[0;34m.[0m[0mset_option[0m[0;34m([0m[0;34m'display.width'[0m[0;34m,[0m [0;36m1000[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/config.py[0m in [0;36m__call__[0;34m(self, *args, **kwds)[0m
+[1;32m    225[0m [0;34m[0m[0m
+[1;32m    226[0m     [0;32mdef[0m [0m__call__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 227[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m__func__[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    228[0m [0;34m[0m[0m
+[1;32m    229[0m     [0;34m@[0m[0mproperty[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/config.py[0m in [0;36m_set_option[0;34m(*args, **kwargs)[0m
+[1;32m    117[0m [0;34m[0m[0m
+[1;32m    118[0m     [0;32mfor[0m [0mk[0m[0;34m,[0m [0mv[0m [0;32min[0m [0mzip[0m[0;34m([0m[0margs[0m[0;34m[[0m[0;34m:[0m[0;34m:[0m[0;36m2[0m[0;34m][0m[0;34m,[0m [0margs[0m[0;34m[[0m[0;36m1[0m[0;34m:[0m[0;34m:[0m[0;36m2[0m[0;34m][0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 119[0;31m         [0mkey[0m [0;34m=[0m [0m_get_single_key[0m[0;34m([0m[0mk[0m[0;34m,[0m [0msilent[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    120[0m [0;34m[0m[0m
+[1;32m    121[0m         [0mo[0m [0;34m=[0m [0m_get_registered_option[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/config.py[0m in [0;36m_get_single_key[0;34m(pat, silent)[0m
+[1;32m     81[0m         [0;32mif[0m [0;32mnot[0m [0msilent[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     82[0m             [0m_warn_if_deprecated[0m[0;34m([0m[0mpat[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 83[0;31m         [0;32mraise[0m [0mOptionError[0m[0;34m([0m[0;34m'No such keys(s): {pat!r}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mpat[0m[0;34m=[0m[0mpat[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     84[0m     [0;32mif[0m [0mlen[0m[0;34m([0m[0mkeys[0m[0;34m)[0m [0;34m>[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     85[0m         [0;32mraise[0m [0mOptionError[0m[0;34m([0m[0;34m'Pattern matched multiple keys'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mOptionError[0m: "No such keys(s): 'display.height'"
+OptionError: "No such keys(s): 'display.height'"
+
+Executability                            : False

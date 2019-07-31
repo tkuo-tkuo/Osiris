@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+conn_string = 'mysql://{user}:{password}@{host}:{port}/'.format(
+    user='root', password='dwdstudent2015', 
+    host = '34.225.180.235', port=3306)
+engine = create_engine(conn_string, encoding='utf8')
+
+engine.execute('USE ml_football')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-80e81583c46f>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m     [0muser[0m[0;34m=[0m[0;34m'root'[0m[0;34m,[0m [0mpassword[0m[0;34m=[0m[0;34m'dwdstudent2015'[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m      3[0m     host = '34.225.180.235', port=3306)
+[0;32m----> 4[0;31m [0mengine[0m [0;34m=[0m [0mcreate_engine[0m[0;34m([0m[0mconn_string[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'utf8'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0mengine[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0;34m'USE ml_football'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sqlalchemy/engine/__init__.py[0m in [0;36mcreate_engine[0;34m(*args, **kwargs)[0m
+[1;32m    422[0m     [0mstrategy[0m [0;34m=[0m [0mkwargs[0m[0;34m.[0m[0mpop[0m[0;34m([0m[0;34m'strategy'[0m[0;34m,[0m [0mdefault_strategy[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    423[0m     [0mstrategy[0m [0;34m=[0m [0mstrategies[0m[0;34m.[0m[0mstrategies[0m[0;34m[[0m[0mstrategy[0m[0;34m][0m[0;34m[0m[0m
+[0;32m--> 424[0;31m     [0;32mreturn[0m [0mstrategy[0m[0;34m.[0m[0mcreate[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    425[0m [0;34m[0m[0m
+[1;32m    426[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sqlalchemy/engine/strategies.py[0m in [0;36mcreate[0;34m(self, name_or_url, **kwargs)[0m
+[1;32m     79[0m                 [0;32mif[0m [0mk[0m [0;32min[0m [0mkwargs[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     80[0m                     [0mdbapi_args[0m[0;34m[[0m[0mk[0m[0;34m][0m [0;34m=[0m [0mpop_kwarg[0m[0;34m([0m[0mk[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 81[0;31m             [0mdbapi[0m [0;34m=[0m [0mdialect_cls[0m[0;34m.[0m[0mdbapi[0m[0;34m([0m[0;34m**[0m[0mdbapi_args[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     82[0m [0;34m[0m[0m
+[1;32m     83[0m         [0mdialect_args[0m[0;34m[[0m[0;34m'dbapi'[0m[0;34m][0m [0;34m=[0m [0mdbapi[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sqlalchemy/dialects/mysql/mysqldb.py[0m in [0;36mdbapi[0;34m(cls)[0m
+[1;32m    100[0m     [0;34m@[0m[0mclassmethod[0m[0;34m[0m[0m
+[1;32m    101[0m     [0;32mdef[0m [0mdbapi[0m[0;34m([0m[0mcls[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 102[0;31m         [0;32mreturn[0m [0m__import__[0m[0;34m([0m[0;34m'MySQLdb'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    103[0m [0;34m[0m[0m
+[1;32m    104[0m     [0;32mdef[0m [0mdo_executemany[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mcursor[0m[0;34m,[0m [0mstatement[0m[0;34m,[0m [0mparameters[0m[0;34m,[0m [0mcontext[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'MySQLdb'
+ImportError: No module named 'MySQLdb'
+
+Executability                            : False

@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+aa_pos_tidy = aa_pos_tidy.sort_values(["SeqID", "AA_pos"],ascending=True)
+aa_pos_tidy.reset_index()
+aa_pos_tidy.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-0d337d1876e4>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0maa_pos_tidy[0m [0;34m=[0m [0maa_pos_tidy[0m[0;34m.[0m[0msort_values[0m[0;34m([0m[0;34m[[0m[0;34m"SeqID"[0m[0;34m,[0m [0;34m"AA_pos"[0m[0;34m][0m[0;34m,[0m[0mascending[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0maa_pos_tidy[0m[0;34m.[0m[0mreset_index[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0maa_pos_tidy[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'aa_pos_tidy' is not defined
+NameError: name 'aa_pos_tidy' is not defined
+
+Executability                            : False

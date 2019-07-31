@@ -1,0 +1,38 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 6 ; number of cells: 9
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 2, 3, 5, 7, 8]
+-------------------------------------------
+Source Code of a Unmatched Cell 1
+-------------------------------------------
+map(double,[1,2,3,4,5,6,7]) # fonksiyon bir tane argüman alıyor ve listenin her bir elemanı üzerinde uygulanıyor.
+
+-----------------
+Original output:
+<map at 0x5522e9e208>
+Executed output:
+<map at 0x7f6324393b00>
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+map(lambda x : x ** 2, [1,2,3,4,5,6,7,8,9])
+
+-----------------
+Original output:
+<map at 0x5522e9e438>
+Executed output:
+<map at 0x7f63243be550>
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+liste1 = [1,2,3,4]
+liste2 = [5,6,7,8]
+liste3 = [9,10,11,12,13]
+
+map(lambda x,y : x * y , liste1,liste2)
+
+-----------------
+Original output:
+<map at 0x5522e9e2b0>
+Executed output:
+<map at 0x7f63243be8d0>

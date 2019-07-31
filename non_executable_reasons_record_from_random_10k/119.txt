@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+plt.scatter(x,y)
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-6d124915a433>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mplt[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mx[0m[0;34m,[0m[0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

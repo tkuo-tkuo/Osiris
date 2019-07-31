@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+scaler = MinMaxScaler()
+clf = GaussianNB()
+steps = [('scaler', scaler), ('clf', clf)]
+pipe = Pipeline(steps)
+pipe
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-edafea45675e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mscaler[0m [0;34m=[0m [0mMinMaxScaler[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mclf[0m [0;34m=[0m [0mGaussianNB[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0msteps[0m [0;34m=[0m [0;34m[[0m[0;34m([0m[0;34m'scaler'[0m[0;34m,[0m [0mscaler[0m[0;34m)[0m[0;34m,[0m [0;34m([0m[0;34m'clf'[0m[0;34m,[0m [0mclf[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'MinMaxScaler' is not defined
+NameError: name 'MinMaxScaler' is not defined
+
+Executability                            : False

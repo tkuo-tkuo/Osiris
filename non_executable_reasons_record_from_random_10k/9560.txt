@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+data_dir = 'NY-Appellate-Scraping/2017-09-24/Archive/parsing20032015/'
+data_filename = os.listdir(data_dir)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-fb69d0692040>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mdata_dir[0m [0;34m=[0m [0;34m'NY-Appellate-Scraping/2017-09-24/Archive/parsing20032015/'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdata_filename[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0mdata_dir[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'NY-Appellate-Scraping/2017-09-24/Archive/parsing20032015/'
+FileNotFoundError: [Errno 2] No such file or directory: 'NY-Appellate-Scraping/2017-09-24/Archive/parsing20032015/'
+
+Executability                            : False

@@ -1,0 +1,80 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# allstar = fits.getdata('/Users/adrian/data/APOGEE_DR15beta/allStar-t9-l31c-58104.fits')
+allstar = fits.getdata('/Users/adrian/data/APOGEE_DR14/allStar-l31c.2.fits')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-d12f0b49e5b8>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# allstar = fits.getdata('/Users/adrian/data/APOGEE_DR15beta/allStar-t9-l31c-58104.fits')[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mallstar[0m [0;34m=[0m [0mfits[0m[0;34m.[0m[0mgetdata[0m[0;34m([0m[0;34m'/Users/adrian/data/APOGEE_DR14/allStar-l31c.2.fits'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/fits/convenience.py[0m in [0;36mgetdata[0;34m(filename, header, lower, upper, view, *args, **kwargs)[0m
+[1;32m    187[0m     [0mmode[0m[0;34m,[0m [0mclosed[0m [0;34m=[0m [0m_get_file_mode[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    188[0m [0;34m[0m[0m
+[0;32m--> 189[0;31m     [0mhdulist[0m[0;34m,[0m [0mextidx[0m [0;34m=[0m [0m_getext[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    190[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    191[0m         [0mhdu[0m [0;34m=[0m [0mhdulist[0m[0;34m[[0m[0mextidx[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/fits/convenience.py[0m in [0;36m_getext[0;34m(filename, mode, ext, extname, extver, *args, **kwargs)[0m
+[1;32m   1027[0m         [0;32mraise[0m [0mTypeError[0m[0;34m([0m[0;34m'extver alone cannot specify an extension.'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1028[0m [0;34m[0m[0m
+[0;32m-> 1029[0;31m     [0mhdulist[0m [0;34m=[0m [0mfitsopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0mmode[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1030[0m [0;34m[0m[0m
+[1;32m   1031[0m     [0;32mreturn[0m [0mhdulist[0m[0;34m,[0m [0mext[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/fits/hdu/hdulist.py[0m in [0;36mfitsopen[0;34m(name, mode, memmap, save_backup, cache, lazy_load_hdus, **kwargs)[0m
+[1;32m    149[0m [0;34m[0m[0m
+[1;32m    150[0m     return HDUList.fromfile(name, mode, memmap, save_backup, cache,
+[0;32m--> 151[0;31m                             lazy_load_hdus, **kwargs)
+[0m[1;32m    152[0m [0;34m[0m[0m
+[1;32m    153[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/fits/hdu/hdulist.py[0m in [0;36mfromfile[0;34m(cls, fileobj, mode, memmap, save_backup, cache, lazy_load_hdus, **kwargs)[0m
+[1;32m    388[0m         return cls._readfrom(fileobj=fileobj, mode=mode, memmap=memmap,
+[1;32m    389[0m                              [0msave_backup[0m[0;34m=[0m[0msave_backup[0m[0;34m,[0m [0mcache[0m[0;34m=[0m[0mcache[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 390[0;31m                              lazy_load_hdus=lazy_load_hdus, **kwargs)
+[0m[1;32m    391[0m [0;34m[0m[0m
+[1;32m    392[0m     [0;34m@[0m[0mclassmethod[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/fits/hdu/hdulist.py[0m in [0;36m_readfrom[0;34m(cls, fileobj, data, mode, memmap, save_backup, cache, lazy_load_hdus, **kwargs)[0m
+[1;32m   1037[0m             [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mfileobj[0m[0;34m,[0m [0m_File[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1038[0m                 [0;31m# instantiate a FITS file object (ffo)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1039[0;31m                 [0mfileobj[0m [0;34m=[0m [0m_File[0m[0;34m([0m[0mfileobj[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0mmode[0m[0;34m,[0m [0mmemmap[0m[0;34m=[0m[0mmemmap[0m[0;34m,[0m [0mcache[0m[0;34m=[0m[0mcache[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1040[0m             [0;31m# The Astropy mode is determined by the _File initializer if the[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1041[0m             [0;31m# supplied mode was None[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/utils/decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    519[0m                             [0mkwargs[0m[0;34m[[0m[0mnew_name[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m][0m [0;34m=[0m [0mvalue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    520[0m [0;34m[0m[0m
+[0;32m--> 521[0;31m             [0;32mreturn[0m [0mfunction[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    522[0m [0;34m[0m[0m
+[1;32m    523[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/fits/file.py[0m in [0;36m__init__[0;34m(self, fileobj, mode, memmap, overwrite, cache)[0m
+[1;32m    176[0m             [0mself[0m[0;34m.[0m[0m_open_fileobj[0m[0;34m([0m[0mfileobj[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0moverwrite[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    177[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mfileobj[0m[0;34m,[0m [0mstr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 178[0;31m             [0mself[0m[0;34m.[0m[0m_open_filename[0m[0;34m([0m[0mfileobj[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0moverwrite[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    179[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    180[0m             [0mself[0m[0;34m.[0m[0m_open_filelike[0m[0;34m([0m[0mfileobj[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0moverwrite[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/fits/file.py[0m in [0;36m_open_filename[0;34m(self, filename, mode, overwrite)[0m
+[1;32m    553[0m [0;34m[0m[0m
+[1;32m    554[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_try_read_compressed[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mname[0m[0;34m,[0m [0mmagic[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0mext[0m[0;34m=[0m[0mext[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 555[0;31m             [0mself[0m[0;34m.[0m[0m_file[0m [0;34m=[0m [0mfileobj_open[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mname[0m[0;34m,[0m [0mIO_FITS_MODES[0m[0;34m[[0m[0mmode[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    556[0m             [0mself[0m[0;34m.[0m[0mclose_on_error[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    557[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/astropy/io/fits/util.py[0m in [0;36mfileobj_open[0;34m(filename, mode)[0m
+[1;32m    395[0m     """
+[1;32m    396[0m [0;34m[0m[0m
+[0;32m--> 397[0;31m     [0;32mreturn[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0mbuffering[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    398[0m [0;34m[0m[0m
+[1;32m    399[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/adrian/data/APOGEE_DR14/allStar-l31c.2.fits'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/adrian/data/APOGEE_DR14/allStar-l31c.2.fits'
+
+Executability                            : False

@@ -1,0 +1,44 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Loading the data (cat/non-cat)
+train_set_x_orig, train_set_y, test_set_x_orig, test_set_y, classes = load_dataset()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-2-edd22496ab38>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Loading the data (cat/non-cat)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mtrain_set_x_orig[0m[0;34m,[0m [0mtrain_set_y[0m[0;34m,[0m [0mtest_set_x_orig[0m[0;34m,[0m [0mtest_set_y[0m[0;34m,[0m [0mclasses[0m [0;34m=[0m [0mload_dataset[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/mangohero1985@coursera_dl/1_neural_network_and_deep_learning/week2/Logistic_Regression_as_a Neural_Network/lr_utils.py[0m in [0;36mload_dataset[0;34m()[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mdef[0m [0mload_dataset[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0mtrain_dataset[0m [0;34m=[0m [0mh5py[0m[0;34m.[0m[0mFile[0m[0;34m([0m[0;34m'datasets/train_catvnoncat.h5'[0m[0;34m,[0m [0;34m"r"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     [0mtrain_set_x_orig[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mtrain_dataset[0m[0;34m[[0m[0;34m"train_set_x"[0m[0;34m][0m[0;34m[[0m[0;34m:[0m[0;34m][0m[0;34m)[0m [0;31m# your train set features[0m[0;34m[0m[0m
+[1;32m      8[0m     [0mtrain_set_y_orig[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mtrain_dataset[0m[0;34m[[0m[0;34m"train_set_y"[0m[0;34m][0m[0;34m[[0m[0;34m:[0m[0;34m][0m[0;34m)[0m [0;31m# your train set labels[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/h5py/_hl/files.py[0m in [0;36m__init__[0;34m(self, name, mode, driver, libver, userblock_size, swmr, **kwds)[0m
+[1;32m    267[0m             [0;32mwith[0m [0mphil[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    268[0m                 [0mfapl[0m [0;34m=[0m [0mmake_fapl[0m[0;34m([0m[0mdriver[0m[0;34m,[0m [0mlibver[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 269[0;31m                 [0mfid[0m [0;34m=[0m [0mmake_fid[0m[0;34m([0m[0mname[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0muserblock_size[0m[0;34m,[0m [0mfapl[0m[0;34m,[0m [0mswmr[0m[0;34m=[0m[0mswmr[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    270[0m [0;34m[0m[0m
+[1;32m    271[0m                 [0;32mif[0m [0mswmr_support[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/h5py/_hl/files.py[0m in [0;36mmake_fid[0;34m(name, mode, userblock_size, fapl, fcpl, swmr)[0m
+[1;32m     97[0m         [0;32mif[0m [0mswmr[0m [0;32mand[0m [0mswmr_support[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     98[0m             [0mflags[0m [0;34m|=[0m [0mh5f[0m[0;34m.[0m[0mACC_SWMR_READ[0m[0;34m[0m[0m
+[0;32m---> 99[0;31m         [0mfid[0m [0;34m=[0m [0mh5f[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mname[0m[0;34m,[0m [0mflags[0m[0;34m,[0m [0mfapl[0m[0;34m=[0m[0mfapl[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    100[0m     [0;32melif[0m [0mmode[0m [0;34m==[0m [0;34m'r+'[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    101[0m         [0mfid[0m [0;34m=[0m [0mh5f[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mname[0m[0;34m,[0m [0mh5f[0m[0;34m.[0m[0mACC_RDWR[0m[0;34m,[0m [0mfapl[0m[0;34m=[0m[0mfapl[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32mh5py/_objects.pyx[0m in [0;36mh5py._objects.with_phil.wrapper[0;34m()[0m
+
+[0;32mh5py/_objects.pyx[0m in [0;36mh5py._objects.with_phil.wrapper[0;34m()[0m
+
+[0;32mh5py/h5f.pyx[0m in [0;36mh5py.h5f.open[0;34m()[0m
+
+[0;31mOSError[0m: Unable to open file (unable to open file: name = 'datasets/train_catvnoncat.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+OSError: Unable to open file (unable to open file: name = 'datasets/train_catvnoncat.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+
+Executability                            : False

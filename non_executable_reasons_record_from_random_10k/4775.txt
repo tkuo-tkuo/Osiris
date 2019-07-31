@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+def display_board():
+    ''' This function prints out the board so the numpad can be used as a reference '''
+    # Clear current cell output
+    clear_output()
+    # Print board
+    print "  "+board[7]+" |"+board[8]+" | "+board[9]+" "
+    print "------------"
+    print "  "+board[4]+" |"+board[5]+" | "+board[6]+" "
+    print "------------"
+    print "  "+board[1]+" |"+board[2]+" | "+board[3]+" "
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-3-213065b5e44c>"[0;36m, line [0;32m6[0m
+[0;31m    print "  "+board[7]+" |"+board[8]+" | "+board[9]+" "[0m
+[0m             ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m Missing parentheses in call to 'print'
+
+SyntaxError: Missing parentheses in call to 'print' (<ipython-input-3-213065b5e44c>, line 6)
+
+Executability                            : False

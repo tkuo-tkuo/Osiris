@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+answer_seven()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-16-651c71e8b72d>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0manswer_seven[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-15-c5817c363674>[0m in [0;36manswer_seven[0;34m()[0m
+[1;32m      1[0m [0;32mdef[0m [0manswer_seven[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m     [0mknn[0m [0;34m=[0m [0manswer_five[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     [0mpred[0m[0;34m=[0m[0mknn[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mX_test[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0;31m# Your code here[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'X_test' is not defined
+NameError: name 'X_test' is not defined
+
+Executability                            : False

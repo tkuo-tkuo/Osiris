@@ -1,0 +1,73 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import wave as we
+import numpy as np
+import matplotlib.pyplot as plt
+
+def wavread():
+    #get the wav data resources when you do that you can change the path to different data documents
+    wavfile =  we.open('C:/Users/PC-zhan/Desktop/kivi data resources',"rb")
+    params = wavfile.getparams()
+    framesra,frameswav= params[2],params[3]
+    datawav = wavfile.readframes(frameswav)
+    wavfile.close()   
+    datause = np.fromstring(datawav,dtype = np.short)
+    datause.shape = -1,2
+    datause = datause.T
+    time = np.arange(0, frameswav) * (1.0/framesra)
+    return datause,time
+
+def pltdraw():
+    wavdata,wavtime = wavread()
+    plt.subplot(211)
+    plt.plot(wavtime, wavdata[0])
+    plt.subplot(212)
+    plt.plot(wavtime, wavdata[1])
+    plt.show()
+    
+pltdraw()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-c8889206041b>[0m in [0;36m<module>[0;34m[0m
+[1;32m     26[0m     [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     27[0m [0;34m[0m[0m
+[0;32m---> 28[0;31m [0mpltdraw[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-1-c8889206041b>[0m in [0;36mpltdraw[0;34m()[0m
+[1;32m     19[0m [0;34m[0m[0m
+[1;32m     20[0m [0;32mdef[0m [0mpltdraw[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 21[0;31m     [0mwavdata[0m[0;34m,[0m[0mwavtime[0m [0;34m=[0m [0mwavread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     22[0m     [0mplt[0m[0;34m.[0m[0msubplot[0m[0;34m([0m[0;36m211[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     23[0m     [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mwavtime[0m[0;34m,[0m [0mwavdata[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-c8889206041b>[0m in [0;36mwavread[0;34m()[0m
+[1;32m      7[0m [0;32mdef[0m [0mwavread[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m     [0;31m#get the wav data resources when you do that you can change the path to different data documents[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     [0mwavfile[0m [0;34m=[0m  [0mwe[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0;34m'C:/Users/PC-zhan/Desktop/kivi data resources'[0m[0;34m,[0m[0;34m"rb"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m     [0mparams[0m [0;34m=[0m [0mwavfile[0m[0;34m.[0m[0mgetparams[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m     [0mframesra[0m[0;34m,[0m[0mframeswav[0m[0;34m=[0m [0mparams[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m,[0m[0mparams[0m[0;34m[[0m[0;36m3[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/wave.py[0m in [0;36mopen[0;34m(f, mode)[0m
+[1;32m    497[0m             [0mmode[0m [0;34m=[0m [0;34m'rb'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    498[0m     [0;32mif[0m [0mmode[0m [0;32min[0m [0;34m([0m[0;34m'r'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 499[0;31m         [0;32mreturn[0m [0mWave_read[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    500[0m     [0;32melif[0m [0mmode[0m [0;32min[0m [0;34m([0m[0;34m'w'[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    501[0m         [0;32mreturn[0m [0mWave_write[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/wave.py[0m in [0;36m__init__[0;34m(self, f)[0m
+[1;32m    157[0m         [0mself[0m[0;34m.[0m[0m_i_opened_the_file[0m [0;34m=[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    158[0m         [0;32mif[0m [0misinstance[0m[0;34m([0m[0mf[0m[0;34m,[0m [0mstr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 159[0;31m             [0mf[0m [0;34m=[0m [0mbuiltins[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mf[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    160[0m             [0mself[0m[0;34m.[0m[0m_i_opened_the_file[0m [0;34m=[0m [0mf[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    161[0m         [0;31m# else, assume it is an open file object already[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'C:/Users/PC-zhan/Desktop/kivi data resources'
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/PC-zhan/Desktop/kivi data resources'
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+len(kitap1) # __len__ metodu çağrılacak ancak tanımlı değil. Bunu özellikle bizim tanımlamamız gerekiyor.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-5d82e27d0217>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mlen[0m[0;34m([0m[0mkitap1[0m[0;34m)[0m [0;31m# __len__ metodu çağrılacak ancak tanımlı değil. Bunu özellikle bizim tanımlamamız gerekiyor.[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: object of type 'Kitap' has no len()
+TypeError: object of type 'Kitap' has no len()
+
+Executability                            : False

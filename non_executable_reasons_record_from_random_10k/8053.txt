@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+month = ['Jan', 'Feb', 'Mar', 'Apr']
+data['month'] = month
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-38-1fbc7bd65338>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mmonth[0m [0;34m=[0m [0;34m[[0m[0;34m'Jan'[0m[0;34m,[0m [0;34m'Feb'[0m[0;34m,[0m [0;34m'Mar'[0m[0;34m,[0m [0;34m'Apr'[0m[0;34m][0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdata[0m[0;34m[[0m[0;34m'month'[0m[0;34m][0m [0;34m=[0m [0mmonth[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m__setitem__[0;34m(self, key, value)[0m
+[1;32m   3114[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   3115[0m             [0;31m# set column[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3116[0;31m             [0mself[0m[0;34m.[0m[0m_set_item[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3117[0m [0;34m[0m[0m
+[1;32m   3118[0m     [0;32mdef[0m [0m_setitem_slice[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m_set_item[0;34m(self, key, value)[0m
+[1;32m   3189[0m [0;34m[0m[0m
+[1;32m   3190[0m         [0mself[0m[0;34m.[0m[0m_ensure_valid_index[0m[0;34m([0m[0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m-> 3191[0;31m         [0mvalue[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_sanitize_column[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3192[0m         [0mNDFrame[0m[0;34m.[0m[0m_set_item[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   3193[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m_sanitize_column[0;34m(self, key, value, broadcast)[0m
+[1;32m   3386[0m [0;34m[0m[0m
+[1;32m   3387[0m             [0;31m# turn me into an ndarray[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3388[0;31m             [0mvalue[0m [0;34m=[0m [0m_sanitize_index[0m[0;34m([0m[0mvalue[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mindex[0m[0;34m,[0m [0mcopy[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3389[0m             [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mvalue[0m[0;34m,[0m [0;34m([0m[0mnp[0m[0;34m.[0m[0mndarray[0m[0;34m,[0m [0mIndex[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   3390[0m                 [0;32mif[0m [0misinstance[0m[0;34m([0m[0mvalue[0m[0;34m,[0m [0mlist[0m[0;34m)[0m [0;32mand[0m [0mlen[0m[0;34m([0m[0mvalue[0m[0;34m)[0m [0;34m>[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/series.py[0m in [0;36m_sanitize_index[0;34m(data, index, copy)[0m
+[1;32m   3996[0m [0;34m[0m[0m
+[1;32m   3997[0m     [0;32mif[0m [0mlen[0m[0;34m([0m[0mdata[0m[0;34m)[0m [0;34m!=[0m [0mlen[0m[0;34m([0m[0mindex[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 3998[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m'Length of values does not match length of '[0m [0;34m'index'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3999[0m [0;34m[0m[0m
+[1;32m   4000[0m     [0;32mif[0m [0misinstance[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mABCIndexClass[0m[0;34m)[0m [0;32mand[0m [0;32mnot[0m [0mcopy[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: Length of values does not match length of index
+ValueError: Length of values does not match length of index
+
+Executability                            : False

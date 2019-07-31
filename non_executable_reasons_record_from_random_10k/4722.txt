@@ -1,0 +1,41 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+def player_input():
+    marker = ''
+    while not (marker == 'O' or marker == 'X'):
+        marker = input('Player 1: Do you want to be X or O?').upper()
+        
+    if marker == 'X':
+        return ('X','O')
+    else:
+        return ('O',)
+        
+player_input()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-3-24d69b4d0f5b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m         [0;32mreturn[0m [0;34m([0m[0;34m'O'[0m[0;34m,[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0mplayer_input[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-3-24d69b4d0f5b>[0m in [0;36mplayer_input[0;34m()[0m
+[1;32m      2[0m     [0mmarker[0m [0;34m=[0m [0;34m''[0m[0;34m[0m[0m
+[1;32m      3[0m     [0;32mwhile[0m [0;32mnot[0m [0;34m([0m[0mmarker[0m [0;34m==[0m [0;34m'O'[0m [0;32mor[0m [0mmarker[0m [0;34m==[0m [0;34m'X'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m         [0mmarker[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m'Player 1: Do you want to be X or O?'[0m[0;34m)[0m[0;34m.[0m[0mupper[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m     [0;32mif[0m [0mmarker[0m [0;34m==[0m [0;34m'X'[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

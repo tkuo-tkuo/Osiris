@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+file = open('test4.xml','wb')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-26a10f8239df>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mfile[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'test4.xml'[0m[0;34m,[0m[0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'test4.xml'
+PermissionError: [Errno 13] Permission denied: 'test4.xml'
+
+Executability                            : False

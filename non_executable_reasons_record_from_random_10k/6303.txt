@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import print_function
+import keras
+import operator
+import numpy as np
+from matplotlib import pyplot as plt
+from keras.datasets import mnist
+from keras.models import Sequential
+from keras.layers import Dense, Flatten
+from keras.layers import Conv2D, MaxPooling2D
+from keras.layers import Activation, Lambda
+from keras.activations import relu
+from keras import backend as K
+
+import tensorflow as tf
+
+%load_ext autoreload
+%autoreload 2
+%matplotlib notebook
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-bc4030769536>"[0;36m, line [0;32m6[0m
+[0;31m    import numpy as np[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-bc4030769536>, line 6)
+
+Executability                            : False

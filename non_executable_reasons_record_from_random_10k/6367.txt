@@ -1,0 +1,12 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import matplotlib.pyplot as plt
+% matplotlib inline
+plt.imshow(digits.images[1497]),digits.images[1497]
+------------------
+
+
+UsageError: Line magic function `%` not found.
+
+Executability                            : False

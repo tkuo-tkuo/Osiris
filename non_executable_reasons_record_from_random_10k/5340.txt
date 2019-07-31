@@ -1,0 +1,69 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+url = 'http://commondatastorage.googleapis.com/books1000/'
+last_percent_reported = None
+data_root = '.' # Change me to store data elsewhere
+
+def download_progress_hook(count, blockSize, totalSize):
+  """A hook to report the progress of a download. This is mostly intended for users with
+  slow internet connections. Reports every 5% change in download progress.
+  """
+  global last_percent_reported
+  percent = int(count * blockSize * 100 / totalSize)
+
+  if last_percent_reported != percent:
+    if percent % 5 == 0:
+      sys.stdout.write("%s%%" % percent)
+      sys.stdout.flush()
+    else:
+      sys.stdout.write(".")
+      sys.stdout.flush()
+      
+    last_percent_reported = percent
+        
+def maybe_download(filename, expected_bytes, force=False):
+  """Download a file if not present, and make sure it's the right size."""
+  dest_filename = os.path.join(data_root, filename)
+  if force or not os.path.exists(dest_filename):
+    print('Attempting to download:', filename) 
+    filename, _ = urlretrieve(url + filename, dest_filename, reporthook=download_progress_hook)
+    print('\nDownload Complete!')
+  statinfo = os.stat(dest_filename)
+  if statinfo.st_size == expected_bytes:
+    print('Found and verified', dest_filename)
+  else:
+    raise Exception(
+      'Failed to verify ' + dest_filename + '. Can you get to it with a browser?')
+  return dest_filename
+
+train_filename = maybe_download('notMNIST_large.tar.gz', 247336696)
+test_filename = maybe_download('notMNIST_small.tar.gz', 8458043)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-62c0bc3e3b13>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     35[0m   [0;32mreturn[0m [0mdest_filename[0m[0;34m[0m[0m
+[1;32m     36[0m [0;34m[0m[0m
+[0;32m---> 37[0;31m [0mtrain_filename[0m [0;34m=[0m [0mmaybe_download[0m[0;34m([0m[0;34m'notMNIST_large.tar.gz'[0m[0;34m,[0m [0;36m247336696[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     38[0m [0mtest_filename[0m [0;34m=[0m [0mmaybe_download[0m[0;34m([0m[0;34m'notMNIST_small.tar.gz'[0m[0;34m,[0m [0;36m8458043[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-62c0bc3e3b13>[0m in [0;36mmaybe_download[0;34m(filename, expected_bytes, force)[0m
+[1;32m     25[0m   [0;32mif[0m [0mforce[0m [0;32mor[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mdest_filename[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     26[0m     [0mprint[0m[0;34m([0m[0;34m'Attempting to download:'[0m[0;34m,[0m [0mfilename[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 27[0;31m     [0mfilename[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0murlretrieve[0m[0;34m([0m[0murl[0m [0;34m+[0m [0mfilename[0m[0;34m,[0m [0mdest_filename[0m[0;34m,[0m [0mreporthook[0m[0;34m=[0m[0mdownload_progress_hook[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     28[0m     [0mprint[0m[0;34m([0m[0;34m'\nDownload Complete!'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     29[0m   [0mstatinfo[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mstat[0m[0;34m([0m[0mdest_filename[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36murlretrieve[0;34m(url, filename, reporthook, data)[0m
+[1;32m    196[0m         [0;31m# Handle temporary file setup.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    197[0m         [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 198[0;31m             [0mtfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    199[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    200[0m             [0mtfp[0m [0;34m=[0m [0mtempfile[0m[0;34m.[0m[0mNamedTemporaryFile[0m[0;34m([0m[0mdelete[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: './notMNIST_large.tar.gz'
+PermissionError: [Errno 13] Permission denied: './notMNIST_large.tar.gz'
+
+Executability                            : False

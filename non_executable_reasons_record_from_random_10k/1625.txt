@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+results_series = pd.Series(results_dict)
+results_series.sort_values(inplace=True,ascending=False)
+print(results_series)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-5fd3d2d2b3b5>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mresults_series[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mSeries[0m[0;34m([0m[0mresults_dict[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mresults_series[0m[0;34m.[0m[0msort_values[0m[0;34m([0m[0minplace[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0mascending[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mprint[0m[0;34m([0m[0mresults_series[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'results_dict' is not defined
+NameError: name 'results_dict' is not defined
+
+Executability                            : False

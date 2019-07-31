@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+sklearn2pmml(iris_pipeline, "DecisionTreeIris.pmml", with_repr = True)
+pmmlBytes = bytearray(open('DecisionTreeIris.pmml', 'rb').read())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mRuntimeError[0m                              Traceback (most recent call last)
+[0;32m<ipython-input-3-623a9b1c4fcc>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0msklearn2pmml[0m[0;34m([0m[0miris_pipeline[0m[0;34m,[0m [0;34m"DecisionTreeIris.pmml"[0m[0;34m,[0m [0mwith_repr[0m [0;34m=[0m [0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mpmmlBytes[0m [0;34m=[0m [0mbytearray[0m[0;34m([0m[0mopen[0m[0;34m([0m[0;34m'DecisionTreeIris.pmml'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sklearn2pmml/__init__.py[0m in [0;36msklearn2pmml[0;34m(pipeline, pmml, user_classpath, with_repr, debug, java_encoding)[0m
+[1;32m    250[0m                                 [0mprint[0m[0;34m([0m[0;34m"Standard error is empty"[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    251[0m                 [0;32mif[0m [0mretcode[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 252[0;31m                         [0;32mraise[0m [0mRuntimeError[0m[0;34m([0m[0;34m"The JPMML-SkLearn conversion application has failed. The Java executable should have printed more information about the failure into its standard output and/or standard error streams"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    253[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    254[0m                 [0;32mif[0m [0mdebug[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mRuntimeError[0m: The JPMML-SkLearn conversion application has failed. The Java executable should have printed more information about the failure into its standard output and/or standard error streams
+RuntimeError: The JPMML-SkLearn conversion application has failed. The Java executable should have printed more information about the failure into its standard output and/or standard error streams
+
+Executability                            : False

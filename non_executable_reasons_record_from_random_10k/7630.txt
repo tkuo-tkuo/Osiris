@@ -1,0 +1,79 @@
+3.6
+Device mapping:
+/job:localhost/replica:0/task:0/device:XLA_CPU:0 -> device: XLA_CPU device
+MatMul: (MatMul): /job:localhost/replica:0/task:0/device:CPU:0
+An error occurred while executing the following cell:
+------------------
+# 新建一个graph.
+with tf.device('/gpu:0'):
+  a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+  b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+c = tf.matmul(a, b)
+# 新建session with log_device_placement并设置为True.
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+# 运行这个op.
+print(sess.run(c))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mInvalidArgumentError[0m                      Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_do_call[0;34m(self, fn, *args)[0m
+[1;32m   1355[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1356[0;31m       [0;32mreturn[0m [0mfn[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1357[0m     [0;32mexcept[0m [0merrors[0m[0;34m.[0m[0mOpError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_run_fn[0;34m(feed_dict, fetch_list, target_list, options, run_metadata)[0m
+[1;32m   1338[0m       [0;31m# Ensure any changes to the graph are reflected in the runtime.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1339[0;31m       [0mself[0m[0;34m.[0m[0m_extend_graph[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1340[0m       return self._call_tf_sessionrun(
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_extend_graph[0;34m(self)[0m
+[1;32m   1373[0m     [0;32mwith[0m [0mself[0m[0;34m.[0m[0m_graph[0m[0;34m.[0m[0m_session_run_lock[0m[0;34m([0m[0;34m)[0m[0;34m:[0m  [0;31m# pylint: disable=protected-access[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1374[0;31m       [0mtf_session[0m[0;34m.[0m[0mExtendSession[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_session[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1375[0m [0;34m[0m[0m
+
+[0;31mInvalidArgumentError[0m: Cannot assign a device for operation a: {{node a}}was explicitly assigned to /device:GPU:0 but available devices are [ /job:localhost/replica:0/task:0/device:CPU:0, /job:localhost/replica:0/task:0/device:XLA_CPU:0 ]. Make sure the device specification refers to a valid device. The requested device appears to be a GPU, but CUDA is not enabled.
+	 [[a]]
+
+During handling of the above exception, another exception occurred:
+
+[0;31mInvalidArgumentError[0m                      Traceback (most recent call last)
+[0;32m<ipython-input-2-6923b185f5c1>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0msess[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mSession[0m[0;34m([0m[0mconfig[0m[0;34m=[0m[0mtf[0m[0;34m.[0m[0mConfigProto[0m[0;34m([0m[0mlog_device_placement[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;31m# 运行这个op.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0mprint[0m[0;34m([0m[0msess[0m[0;34m.[0m[0mrun[0m[0;34m([0m[0mc[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36mrun[0;34m(self, fetches, feed_dict, options, run_metadata)[0m
+[1;32m    948[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    949[0m       result = self._run(None, fetches, feed_dict, options_ptr,
+[0;32m--> 950[0;31m                          run_metadata_ptr)
+[0m[1;32m    951[0m       [0;32mif[0m [0mrun_metadata[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    952[0m         [0mproto_data[0m [0;34m=[0m [0mtf_session[0m[0;34m.[0m[0mTF_GetBuffer[0m[0;34m([0m[0mrun_metadata_ptr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_run[0;34m(self, handle, fetches, feed_dict, options, run_metadata)[0m
+[1;32m   1171[0m     [0;32mif[0m [0mfinal_fetches[0m [0;32mor[0m [0mfinal_targets[0m [0;32mor[0m [0;34m([0m[0mhandle[0m [0;32mand[0m [0mfeed_dict_tensor[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1172[0m       results = self._do_run(handle, final_targets, final_fetches,
+[0;32m-> 1173[0;31m                              feed_dict_tensor, options, run_metadata)
+[0m[1;32m   1174[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1175[0m       [0mresults[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_do_run[0;34m(self, handle, target_list, fetch_list, feed_dict, options, run_metadata)[0m
+[1;32m   1348[0m     [0;32mif[0m [0mhandle[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1349[0m       return self._do_call(_run_fn, feeds, fetches, targets, options,
+[0;32m-> 1350[0;31m                            run_metadata)
+[0m[1;32m   1351[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1352[0m       [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_do_call[0m[0;34m([0m[0m_prun_fn[0m[0;34m,[0m [0mhandle[0m[0;34m,[0m [0mfeeds[0m[0;34m,[0m [0mfetches[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/client/session.py[0m in [0;36m_do_call[0;34m(self, fn, *args)[0m
+[1;32m   1368[0m           [0;32mpass[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1369[0m       [0mmessage[0m [0;34m=[0m [0merror_interpolation[0m[0;34m.[0m[0minterpolate[0m[0;34m([0m[0mmessage[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m_graph[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1370[0;31m       [0;32mraise[0m [0mtype[0m[0;34m([0m[0me[0m[0;34m)[0m[0;34m([0m[0mnode_def[0m[0;34m,[0m [0mop[0m[0;34m,[0m [0mmessage[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1371[0m [0;34m[0m[0m
+[1;32m   1372[0m   [0;32mdef[0m [0m_extend_graph[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mInvalidArgumentError[0m: Cannot assign a device for operation a: node a (defined at <ipython-input-2-6923b185f5c1>:3) was explicitly assigned to /device:GPU:0 but available devices are [ /job:localhost/replica:0/task:0/device:CPU:0, /job:localhost/replica:0/task:0/device:XLA_CPU:0 ]. Make sure the device specification refers to a valid device. The requested device appears to be a GPU, but CUDA is not enabled.
+	 [[a]]
+InvalidArgumentError: Cannot assign a device for operation a: node a (defined at <ipython-input-2-6923b185f5c1>:3) was explicitly assigned to /device:GPU:0 but available devices are [ /job:localhost/replica:0/task:0/device:CPU:0, /job:localhost/replica:0/task:0/device:XLA_CPU:0 ]. Make sure the device specification refers to a valid device. The requested device appears to be a GPU, but CUDA is not enabled.
+	 [[a]]
+
+Executability                            : False

@@ -1,0 +1,65 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Start
+pointToNearestCluster()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-8-48e441ec4071>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Start[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mpointToNearestCluster[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-3-1a45d9db74db>[0m in [0;36mpointToNearestCluster[0;34m()[0m
+[1;32m     17[0m                     [0mclosest_cluster[0m [0;34m=[0m [0mclusterIndex[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     18[0m             [0mpoints_to_clusters[0m[0;34m[[0m[0mpointIndex[0m[0;34m][0m [0;34m=[0m [0mclosest_cluster[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 19[0;31m         [0mplotPointsAndClusters[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     20[0m         [0mgetClustersCenter[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     21[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-5-35832cb76463>[0m in [0;36mplotPointsAndClusters[0;34m()[0m
+[1;32m     19[0m     [0;31m#plt.ylim(vor.min_bound[1] - 0.1, vor.max_bound[1] + 0.1)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     20[0m [0;34m[0m[0m
+[0;32m---> 21[0;31m     [0mplt[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0mstr[0m[0;34m([0m[0miterations[0m[0;34m)[0m [0;34m+[0m [0;34m'.jpg'[0m[0;34m,[0m [0mdpi[0m[0;34m=[0m[0;36m100[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     22[0m     [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/pyplot.py[0m in [0;36msavefig[0;34m(*args, **kwargs)[0m
+[1;32m    714[0m [0;32mdef[0m [0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    715[0m     [0mfig[0m [0;34m=[0m [0mgcf[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 716[0;31m     [0mres[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0msavefig[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    717[0m     [0mfig[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mdraw_idle[0m[0;34m([0m[0;34m)[0m   [0;31m# need this if 'transparent=True' to reset colors[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    718[0m     [0;32mreturn[0m [0mres[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/figure.py[0m in [0;36msavefig[0;34m(self, fname, transparent, **kwargs)[0m
+[1;32m   2178[0m             [0mself[0m[0;34m.[0m[0mpatch[0m[0;34m.[0m[0mset_visible[0m[0;34m([0m[0mframeon[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2179[0m [0;34m[0m[0m
+[0;32m-> 2180[0;31m         [0mself[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2181[0m [0;34m[0m[0m
+[1;32m   2182[0m         [0;32mif[0m [0mframeon[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, **kwargs)[0m
+[1;32m   2080[0m                     [0morientation[0m[0;34m=[0m[0morientation[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2081[0m                     [0mbbox_inches_restore[0m[0;34m=[0m[0m_bbox_inches_restore[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2082[0;31m                     **kwargs)
+[0m[1;32m   2083[0m             [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2084[0m                 [0;32mif[0m [0mbbox_inches[0m [0;32mand[0m [0mrestore_bbox[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py[0m in [0;36mprint_jpg[0;34m(self, filename_or_obj, dryrun, pil_kwargs, *args, **kwargs)[0m
+[1;32m    595[0m             [0mpil_kwargs[0m[0;34m.[0m[0msetdefault[0m[0;34m([0m[0;34m"dpi"[0m[0;34m,[0m [0;34m([0m[0mself[0m[0;34m.[0m[0mfigure[0m[0;34m.[0m[0mdpi[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mfigure[0m[0;34m.[0m[0mdpi[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    596[0m             return background.save(
+[0;32m--> 597[0;31m                 filename_or_obj, format='jpeg', **pil_kwargs)
+[0m[1;32m    598[0m [0;34m[0m[0m
+[1;32m    599[0m         [0mprint_jpeg[0m [0;34m=[0m [0mprint_jpg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/PIL/Image.py[0m in [0;36msave[0;34m(self, fp, format, **params)[0m
+[1;32m   2083[0m                 [0;31m# Open also for reading ("+"), because TIFF save_all[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2084[0m                 [0;31m# writer needs to go back and edit the written data.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2085[0;31m                 [0mfp[0m [0;34m=[0m [0mbuiltins[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"w+b"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2086[0m [0;34m[0m[0m
+[1;32m   2087[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '1.jpg'
+PermissionError: [Errno 13] Permission denied: '1.jpg'
+
+Executability                            : False

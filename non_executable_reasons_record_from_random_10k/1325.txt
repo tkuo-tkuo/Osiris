@@ -1,0 +1,35 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import analytic
+
+df = analytic.ReadBabyBoom()
+diffs = df.minutes.diff()
+cdf = thinkstats2.Cdf(diffs, label='actual')
+
+n = len(diffs)
+lam = 44.0 / 24 / 60
+sample = [random.expovariate(lam) for _ in range(n)]
+model = thinkstats2.Cdf(sample, label='model')
+    
+thinkplot.PrePlot(2)
+thinkplot.Cdfs([cdf, model], complement=True)
+thinkplot.Show(title='Time between births',
+                xlabel='minutes',
+                ylabel='CCDF',
+                yscale='log')
+
+lam, np.mean(sample)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-19-4319a717ea89>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     17[0m                 yscale='log')
+[1;32m     18[0m [0;34m[0m[0m
+[0;32m---> 19[0;31m [0mlam[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mmean[0m[0;34m([0m[0msample[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

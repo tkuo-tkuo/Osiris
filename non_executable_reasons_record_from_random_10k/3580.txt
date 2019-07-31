@@ -1,0 +1,14 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+class Yönetici(Çalışan): 
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-2127ba14f60e>"[0;36m, line [0;32m1[0m
+[0;31m    class Yönetici(Çalışan):[0m
+[0m                             ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m unexpected EOF while parsing
+
+SyntaxError: unexpected EOF while parsing (<ipython-input-2-2127ba14f60e>, line 1)
+
+Executability                            : False

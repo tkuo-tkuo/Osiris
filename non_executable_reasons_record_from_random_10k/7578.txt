@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# my usual imports and setups
+import pylab as pl
+import pandas as pd
+import numpy as np
+#imports downloader
+from getCitiBikeCSV import getCitiBikeCSV
+
+%pylab inline
+
+import os
+#this makes my plots pretty! but it is totally not mandatory to do it
+import json
+#s = json.load( open(os.getenv ('PUI2016')+"/fbb_matplotlibrc.json") )
+#pl.rcParams.update(s)
+
+
+------------------
+
+An exception has occurred, use %tb to see the full traceback.
+
+[0;31mSystemExit[0m
+
+SystemExit: 
+
+Executability                            : False

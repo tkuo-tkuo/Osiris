@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Revisamos la media y la desviación actual de los datos
+media = X.mean(axis=0)
+print('La media de las características es:\n',media)
+desviacion = X.std(axis=0)
+print('La desviación de las características es:\n',desviacion)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-b596a8edc141>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Revisamos la media y la desviación actual de los datos[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mmedia[0m [0;34m=[0m [0mX[0m[0;34m.[0m[0mmean[0m[0;34m([0m[0maxis[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0;34m'La media de las características es:\n'[0m[0;34m,[0m[0mmedia[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mdesviacion[0m [0;34m=[0m [0mX[0m[0;34m.[0m[0mstd[0m[0;34m([0m[0maxis[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mprint[0m[0;34m([0m[0;34m'La desviación de las características es:\n'[0m[0;34m,[0m[0mdesviacion[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'X' is not defined
+NameError: name 'X' is not defined
+
+Executability                            : False

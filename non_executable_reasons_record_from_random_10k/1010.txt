@@ -1,0 +1,77 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from preamble import *
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-3fc27f807d4c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mpreamble[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/mgh3326@introduce_machine_learning_study/introduction_to_ml_with_python/preamble.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mmglearn[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mcycler[0m [0;32mimport[0m [0mcycler[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/mgh3326@introduce_machine_learning_study/introduction_to_ml_with_python/mglearn/__init__.py[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0;34m.[0m [0;32mimport[0m [0mplots[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0;34m.[0m [0;32mimport[0m [0mtools[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0;34m.[0m[0mplots[0m [0;32mimport[0m [0mcm3[0m[0;34m,[0m [0mcm2[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0;34m.[0m[0mtools[0m [0;32mimport[0m [0mdiscrete_scatter[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0;34m.[0m[0mplot_helpers[0m [0;32mimport[0m [0mReBl[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/mgh3326@introduce_machine_learning_study/introduction_to_ml_with_python/mglearn/plots.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m     12[0m [0;32mfrom[0m [0;34m.[0m[0mplot_tree_nonmonotonous[0m [0;32mimport[0m [0mplot_tree_not_monotone[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mfrom[0m [0;34m.[0m[0mplot_scaling[0m [0;32mimport[0m [0mplot_scaling[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0;32mfrom[0m [0;34m.[0m[0mplot_pca[0m [0;32mimport[0m [0mplot_pca_illustration[0m[0;34m,[0m [0mplot_pca_whitening[0m[0;34m,[0m [0mplot_pca_faces[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;32mfrom[0m [0;34m.[0m[0mplot_decomposition[0m [0;32mimport[0m [0mplot_decomposition[0m[0;34m[0m[0m
+[1;32m     16[0m [0;32mfrom[0m [0;34m.[0m[0mplot_nmf[0m [0;32mimport[0m [0mplot_nmf_illustration[0m[0;34m,[0m [0mplot_nmf_faces[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/mgh3326@introduce_machine_learning_study/introduction_to_ml_with_python/mglearn/plot_pca.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mexternals[0m[0;34m.[0m[0mjoblib[0m [0;32mimport[0m [0mMemory[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0mmemory[0m [0;34m=[0m [0mMemory[0m[0;34m([0m[0mcachedir[0m[0;34m=[0m[0;34m"cache"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sklearn/externals/joblib/memory.py[0m in [0;36m__init__[0;34m(self, cachedir, mmap_mode, compress, verbose, bytes_limit)[0m
+[1;32m    896[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    897[0m             [0mself[0m[0;34m.[0m[0mcachedir[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mcachedir[0m[0;34m,[0m [0;34m'joblib'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 898[0;31m             [0mmkdirp[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mcachedir[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    899[0m [0;34m[0m[0m
+[1;32m    900[0m     def cache(self, func=None, ignore=None, verbose=None,
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/sklearn/externals/joblib/disk.py[0m in [0;36mmkdirp[0;34m(d)[0m
+[1;32m     51[0m     """
+[1;32m     52[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 53[0;31m         [0mos[0m[0;34m.[0m[0mmakedirs[0m[0;34m([0m[0md[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     54[0m     [0;32mexcept[0m [0mOSError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     55[0m         [0;32mif[0m [0me[0m[0;34m.[0m[0merrno[0m [0;34m!=[0m [0merrno[0m[0;34m.[0m[0mEEXIST[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/os.py[0m in [0;36mmakedirs[0;34m(name, mode, exist_ok)[0m
+[1;32m    229[0m     [0;32mif[0m [0mhead[0m [0;32mand[0m [0mtail[0m [0;32mand[0m [0;32mnot[0m [0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mhead[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    230[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 231[0;31m             [0mmakedirs[0m[0;34m([0m[0mhead[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0mexist_ok[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    232[0m         [0;32mexcept[0m [0mFileExistsError[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    233[0m             [0;31m# Defeats race condition when another thread created the path[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/os.py[0m in [0;36mmakedirs[0;34m(name, mode, exist_ok)[0m
+[1;32m    239[0m             [0;32mreturn[0m[0;34m[0m[0m
+[1;32m    240[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 241[0;31m         [0mmkdir[0m[0;34m([0m[0mname[0m[0;34m,[0m [0mmode[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    242[0m     [0;32mexcept[0m [0mOSError[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    243[0m         [0;31m# Cannot rely on checking for EEXIST, since the operating system[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'cache'
+PermissionError: [Errno 13] Permission denied: 'cache'
+
+Executability                            : False

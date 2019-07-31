@@ -1,0 +1,46 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import matplotlib.patches as patches
+
+fig, ax = plt.subplots(figsize=(20,20))
+
+im = ax.imshow(output)
+ax.set_xticks([])
+ax.set_yticks([])
+
+circles = cv2.HoughCircles(th3, cv2.HOUGH_GRADIENT, 0.5, 10)
+
+
+if circles is not None:
+    circles = np.round(circles[0, :]).astype("int")
+ 
+    for (x, y, r) in circles:
+        print (x,y,r)
+#         cv2.circle(output, (x, y), r, (0, 255, 0), 4)
+#         cv2.rectangle(output, (x - 5, y - 5), (x + 5, y + 5), (0, 128, 255), -1)
+        circ = patches.Circle((x,y), radius=10)
+        
+        ax.add_patch(circ)
+
+
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-4de83ec40efa>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpatches[0m [0;32mas[0m [0mpatches[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0mfig[0m[0;34m,[0m [0max[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m20[0m[0;34m,[0m[0;36m20[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0mim[0m [0;34m=[0m [0max[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0moutput[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

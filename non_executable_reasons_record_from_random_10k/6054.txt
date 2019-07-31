@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+echo hello > myfile1
+echo whats up > myfile2
+echo goodbye > myfile3
+echo hello again > anotherfile
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-0270e385a6ca>"[0;36m, line [0;32m4[0m
+[0;31m    echo hello > myfile1[0m
+[0m             ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-0270e385a6ca>, line 4)
+
+Executability                            : False

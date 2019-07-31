@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+for num in range(10):
+    print num
+------------------
+
+[0;36m  File [0;32m"<ipython-input-6-b5da781e0202>"[0;36m, line [0;32m2[0m
+[0;31m    print num[0m
+[0m            ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m Missing parentheses in call to 'print'. Did you mean print(num)?
+
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(num)? (<ipython-input-6-b5da781e0202>, line 2)
+
+Executability                            : False

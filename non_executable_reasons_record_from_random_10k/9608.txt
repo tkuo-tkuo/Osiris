@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+get_name_pure('ident', 'name')
+------------------
+
+NameError: name 'get_name_pure' is not defined
+
+Executability                            : False

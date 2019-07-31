@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+reviews_train = load_files("../data/text/classification_text/moview-review-aclImdb/train/")
+reviews_test = load_files("../data/text/classification_text/moview-review-aclImdb/test/")
+
+text_train, y_train = reviews_train.data, reviews_train.target
+text_test, y_test = reviews_test.data, reviews_test.target
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-1a0d33439b89>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mreviews_train[0m [0;34m=[0m [0mload_files[0m[0;34m([0m[0;34m"../data/text/classification_text/moview-review-aclImdb/train/"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mreviews_test[0m [0;34m=[0m [0mload_files[0m[0;34m([0m[0;34m"../data/text/classification_text/moview-review-aclImdb/test/"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mtext_train[0m[0;34m,[0m [0my_train[0m [0;34m=[0m [0mreviews_train[0m[0;34m.[0m[0mdata[0m[0;34m,[0m [0mreviews_train[0m[0;34m.[0m[0mtarget[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mtext_test[0m[0;34m,[0m [0my_test[0m [0;34m=[0m [0mreviews_test[0m[0;34m.[0m[0mdata[0m[0;34m,[0m [0mreviews_test[0m[0;34m.[0m[0mtarget[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/datasets/base.py[0m in [0;36mload_files[0;34m(container_path, description, categories, load_content, shuffle, encoding, decode_error, random_state)[0m
+[1;32m    161[0m     [0mfilenames[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m    162[0m [0;34m[0m[0m
+[0;32m--> 163[0;31m     folders = [f for f in sorted(listdir(container_path))
+[0m[1;32m    164[0m                if isdir(join(container_path, f))]
+[1;32m    165[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/text/classification_text/moview-review-aclImdb/train/'
+FileNotFoundError: [Errno 2] No such file or directory: '../data/text/classification_text/moview-review-aclImdb/train/'
+
+Executability                            : False

@@ -1,0 +1,43 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+df.drop('new')                         # default 는 axis = 0 이고 이럴땐 인덱스를 찾게됨 axis = 1 로 바꿔줘야 그 column 을 드랍하게됨
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-13-941040303420>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdf[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0;34m'new'[0m[0;34m)[0m                         [0;31m# default 는 axis = 0 이고 이럴땐 인덱스를 찾게됨 axis = 1 로 바꿔줘야 그 column 을 드랍하게됨[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/frame.py[0m in [0;36mdrop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
+[1;32m   3938[0m                                            [0mindex[0m[0;34m=[0m[0mindex[0m[0;34m,[0m [0mcolumns[0m[0;34m=[0m[0mcolumns[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3939[0m                                            [0mlevel[0m[0;34m=[0m[0mlevel[0m[0;34m,[0m [0minplace[0m[0;34m=[0m[0minplace[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3940[0;31m                                            errors=errors)
+[0m[1;32m   3941[0m [0;34m[0m[0m
+[1;32m   3942[0m     @rewrite_axis_style_signature('mapper', [('copy', True),
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36mdrop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
+[1;32m   3778[0m         [0;32mfor[0m [0maxis[0m[0;34m,[0m [0mlabels[0m [0;32min[0m [0maxes[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3779[0m             [0;32mif[0m [0mlabels[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3780[0;31m                 [0mobj[0m [0;34m=[0m [0mobj[0m[0;34m.[0m[0m_drop_axis[0m[0;34m([0m[0mlabels[0m[0;34m,[0m [0maxis[0m[0;34m,[0m [0mlevel[0m[0;34m=[0m[0mlevel[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3781[0m [0;34m[0m[0m
+[1;32m   3782[0m         [0;32mif[0m [0minplace[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36m_drop_axis[0;34m(self, labels, axis, level, errors)[0m
+[1;32m   3810[0m                 [0mnew_axis[0m [0;34m=[0m [0maxis[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0mlabels[0m[0;34m,[0m [0mlevel[0m[0;34m=[0m[0mlevel[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3811[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3812[0;31m                 [0mnew_axis[0m [0;34m=[0m [0maxis[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0mlabels[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3813[0m             [0mresult[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mreindex[0m[0;34m([0m[0;34m**[0m[0;34m{[0m[0maxis_name[0m[0;34m:[0m [0mnew_axis[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3814[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexes/base.py[0m in [0;36mdrop[0;34m(self, labels, errors)[0m
+[1;32m   4963[0m             [0;32mif[0m [0merrors[0m [0;34m!=[0m [0;34m'ignore'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   4964[0m                 raise KeyError(
+[0;32m-> 4965[0;31m                     '{} not found in axis'.format(labels[mask]))
+[0m[1;32m   4966[0m             [0mindexer[0m [0;34m=[0m [0mindexer[0m[0;34m[[0m[0;34m~[0m[0mmask[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m   4967[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdelete[0m[0;34m([0m[0mindexer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: "['new'] not found in axis"
+KeyError: "['new'] not found in axis"
+
+Executability                            : False

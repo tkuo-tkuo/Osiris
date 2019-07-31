@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# try out different values of phi >=1 as compared to < 1
+# sometimes you need to make a large n to see lack of stationarity
+a1 = ar1(phi = .5, n = 10)
+a1.plot()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-1b1fd9a36d0c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# try out different values of phi >=1 as compared to < 1[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m# sometimes you need to make a large n to see lack of stationarity[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0ma1[0m [0;34m=[0m [0mar1[0m[0;34m([0m[0mphi[0m [0;34m=[0m [0;36m.5[0m[0;34m,[0m [0mn[0m [0;34m=[0m [0;36m10[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0ma1[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'ar1' is not defined
+NameError: name 'ar1' is not defined
+
+Executability                            : False

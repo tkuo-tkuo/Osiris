@@ -1,0 +1,137 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# add 'measurement' table to the 'hawaii' db and replace if already run before
+measurement_df.to_sql(Measurement.__tablename__, conn, if_exists='append', index_label='measurement_id')
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_execute_context[0;34m(self, dialect, constructor, statement, parameters, *args)[0m
+[1;32m   1223[0m                     self.dialect.do_executemany(
+[0;32m-> 1224[0;31m                         [0mcursor[0m[0;34m,[0m [0mstatement[0m[0;34m,[0m [0mparameters[0m[0;34m,[0m [0mcontext[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1225[0m                     )
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/default.py[0m in [0;36mdo_executemany[0;34m(self, cursor, statement, parameters, context)[0m
+[1;32m    546[0m     [0;32mdef[0m [0mdo_executemany[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mcursor[0m[0;34m,[0m [0mstatement[0m[0;34m,[0m [0mparameters[0m[0;34m,[0m [0mcontext[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 547[0;31m         [0mcursor[0m[0;34m.[0m[0mexecutemany[0m[0;34m([0m[0mstatement[0m[0;34m,[0m [0mparameters[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    548[0m [0;34m[0m[0m
+
+[0;31mOperationalError[0m: attempt to write a readonly database
+
+The above exception was the direct cause of the following exception:
+
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-10-72fc506f0f3a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# add 'measurement' table to the 'hawaii' db and replace if already run before[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mmeasurement_df[0m[0;34m.[0m[0mto_sql[0m[0;34m([0m[0mMeasurement[0m[0;34m.[0m[0m__tablename__[0m[0;34m,[0m [0mconn[0m[0;34m,[0m [0mif_exists[0m[0;34m=[0m[0;34m'append'[0m[0;34m,[0m [0mindex_label[0m[0;34m=[0m[0;34m'measurement_id'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/generic.py[0m in [0;36mto_sql[0;34m(self, name, con, schema, if_exists, index, index_label, chunksize, dtype, method)[0m
+[1;32m   2529[0m         sql.to_sql(self, name, con, schema=schema, if_exists=if_exists,
+[1;32m   2530[0m                    [0mindex[0m[0;34m=[0m[0mindex[0m[0;34m,[0m [0mindex_label[0m[0;34m=[0m[0mindex_label[0m[0;34m,[0m [0mchunksize[0m[0;34m=[0m[0mchunksize[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2531[0;31m                    dtype=dtype, method=method)
+[0m[1;32m   2532[0m [0;34m[0m[0m
+[1;32m   2533[0m     def to_pickle(self, path, compression='infer',
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/sql.py[0m in [0;36mto_sql[0;34m(frame, name, con, schema, if_exists, index, index_label, chunksize, dtype, method)[0m
+[1;32m    458[0m     pandas_sql.to_sql(frame, name, if_exists=if_exists, index=index,
+[1;32m    459[0m                       [0mindex_label[0m[0;34m=[0m[0mindex_label[0m[0;34m,[0m [0mschema[0m[0;34m=[0m[0mschema[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 460[0;31m                       chunksize=chunksize, dtype=dtype, method=method)
+[0m[1;32m    461[0m [0;34m[0m[0m
+[1;32m    462[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/sql.py[0m in [0;36mto_sql[0;34m(self, frame, name, if_exists, index, index_label, schema, chunksize, dtype, method)[0m
+[1;32m   1172[0m                          schema=schema, dtype=dtype)
+[1;32m   1173[0m         [0mtable[0m[0;34m.[0m[0mcreate[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1174[0;31m         [0mtable[0m[0;34m.[0m[0minsert[0m[0;34m([0m[0mchunksize[0m[0;34m,[0m [0mmethod[0m[0;34m=[0m[0mmethod[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1175[0m         [0;32mif[0m [0;34m([0m[0;32mnot[0m [0mname[0m[0;34m.[0m[0misdigit[0m[0;34m([0m[0;34m)[0m [0;32mand[0m [0;32mnot[0m [0mname[0m[0;34m.[0m[0mislower[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1176[0m             [0;31m# check for potentially case sensitivity issues (GH7815)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/sql.py[0m in [0;36minsert[0;34m(self, chunksize, method)[0m
+[1;32m    684[0m [0;34m[0m[0m
+[1;32m    685[0m                 [0mchunk_iter[0m [0;34m=[0m [0mzip[0m[0;34m([0m[0;34m*[0m[0;34m[[0m[0marr[0m[0;34m[[0m[0mstart_i[0m[0;34m:[0m[0mend_i[0m[0;34m][0m [0;32mfor[0m [0marr[0m [0;32min[0m [0mdata_list[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 686[0;31m                 [0mexec_insert[0m[0;34m([0m[0mconn[0m[0;34m,[0m [0mkeys[0m[0;34m,[0m [0mchunk_iter[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    687[0m [0;34m[0m[0m
+[1;32m    688[0m     def _query_iterator(self, result, chunksize, columns, coerce_float=True,
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/sql.py[0m in [0;36m_execute_insert[0;34m(self, conn, keys, data_iter)[0m
+[1;32m    597[0m         """
+[1;32m    598[0m         [0mdata[0m [0;34m=[0m [0;34m[[0m[0mdict[0m[0;34m([0m[0mzip[0m[0;34m([0m[0mkeys[0m[0;34m,[0m [0mrow[0m[0;34m)[0m[0;34m)[0m [0;32mfor[0m [0mrow[0m [0;32min[0m [0mdata_iter[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 599[0;31m         [0mconn[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mtable[0m[0;34m.[0m[0minsert[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mdata[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    600[0m [0;34m[0m[0m
+[1;32m    601[0m     [0;32mdef[0m [0m_execute_insert_multi[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mconn[0m[0;34m,[0m [0mkeys[0m[0;34m,[0m [0mdata_iter[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36mexecute[0;34m(self, object_, *multiparams, **params)[0m
+[1;32m    986[0m             [0;32mraise[0m [0mexc[0m[0;34m.[0m[0mObjectNotExecutableError[0m[0;34m([0m[0mobject_[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    987[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 988[0;31m             [0;32mreturn[0m [0mmeth[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mmultiparams[0m[0;34m,[0m [0mparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    989[0m [0;34m[0m[0m
+[1;32m    990[0m     [0;32mdef[0m [0m_execute_function[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mfunc[0m[0;34m,[0m [0mmultiparams[0m[0;34m,[0m [0mparams[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/sql/elements.py[0m in [0;36m_execute_on_connection[0;34m(self, connection, multiparams, params)[0m
+[1;32m    285[0m     [0;32mdef[0m [0m_execute_on_connection[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mconnection[0m[0;34m,[0m [0mmultiparams[0m[0;34m,[0m [0mparams[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    286[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0msupports_execution[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 287[0;31m             [0;32mreturn[0m [0mconnection[0m[0;34m.[0m[0m_execute_clauseelement[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mmultiparams[0m[0;34m,[0m [0mparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    288[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    289[0m             [0;32mraise[0m [0mexc[0m[0;34m.[0m[0mObjectNotExecutableError[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_execute_clauseelement[0;34m(self, elem, multiparams, params)[0m
+[1;32m   1105[0m             [0mdistilled_params[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1106[0m             [0mcompiled_sql[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1107[0;31m             [0mdistilled_params[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1108[0m         )
+[1;32m   1109[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0m_has_events[0m [0;32mor[0m [0mself[0m[0;34m.[0m[0mengine[0m[0;34m.[0m[0m_has_events[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_execute_context[0;34m(self, dialect, constructor, statement, parameters, *args)[0m
+[1;32m   1246[0m         [0;32mexcept[0m [0mBaseException[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1247[0m             self._handle_dbapi_exception(
+[0;32m-> 1248[0;31m                 [0me[0m[0;34m,[0m [0mstatement[0m[0;34m,[0m [0mparameters[0m[0;34m,[0m [0mcursor[0m[0;34m,[0m [0mcontext[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1249[0m             )
+[1;32m   1250[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_handle_dbapi_exception[0;34m(self, e, statement, parameters, cursor, context)[0m
+[1;32m   1464[0m                 [0mutil[0m[0;34m.[0m[0mraise_from_cause[0m[0;34m([0m[0mnewraise[0m[0;34m,[0m [0mexc_info[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1465[0m             [0;32melif[0m [0mshould_wrap[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1466[0;31m                 [0mutil[0m[0;34m.[0m[0mraise_from_cause[0m[0;34m([0m[0msqlalchemy_exception[0m[0;34m,[0m [0mexc_info[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1467[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1468[0m                 [0mutil[0m[0;34m.[0m[0mreraise[0m[0;34m([0m[0;34m*[0m[0mexc_info[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/util/compat.py[0m in [0;36mraise_from_cause[0;34m(exception, exc_info)[0m
+[1;32m    397[0m     [0mexc_type[0m[0;34m,[0m [0mexc_value[0m[0;34m,[0m [0mexc_tb[0m [0;34m=[0m [0mexc_info[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    398[0m     [0mcause[0m [0;34m=[0m [0mexc_value[0m [0;32mif[0m [0mexc_value[0m [0;32mis[0m [0;32mnot[0m [0mexception[0m [0;32melse[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 399[0;31m     [0mreraise[0m[0;34m([0m[0mtype[0m[0;34m([0m[0mexception[0m[0;34m)[0m[0;34m,[0m [0mexception[0m[0;34m,[0m [0mtb[0m[0;34m=[0m[0mexc_tb[0m[0;34m,[0m [0mcause[0m[0;34m=[0m[0mcause[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    400[0m [0;34m[0m[0m
+[1;32m    401[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/util/compat.py[0m in [0;36mreraise[0;34m(tp, value, tb, cause)[0m
+[1;32m    151[0m             [0mvalue[0m[0;34m.[0m[0m__cause__[0m [0;34m=[0m [0mcause[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    152[0m         [0;32mif[0m [0mvalue[0m[0;34m.[0m[0m__traceback__[0m [0;32mis[0m [0;32mnot[0m [0mtb[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 153[0;31m             [0;32mraise[0m [0mvalue[0m[0;34m.[0m[0mwith_traceback[0m[0;34m([0m[0mtb[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    154[0m         [0;32mraise[0m [0mvalue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    155[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/base.py[0m in [0;36m_execute_context[0;34m(self, dialect, constructor, statement, parameters, *args)[0m
+[1;32m   1222[0m                 [0;32mif[0m [0;32mnot[0m [0mevt_handled[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1223[0m                     self.dialect.do_executemany(
+[0;32m-> 1224[0;31m                         [0mcursor[0m[0;34m,[0m [0mstatement[0m[0;34m,[0m [0mparameters[0m[0;34m,[0m [0mcontext[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1225[0m                     )
+[1;32m   1226[0m             [0;32melif[0m [0;32mnot[0m [0mparameters[0m [0;32mand[0m [0mcontext[0m[0;34m.[0m[0mno_parameters[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sqlalchemy/engine/default.py[0m in [0;36mdo_executemany[0;34m(self, cursor, statement, parameters, context)[0m
+[1;32m    545[0m [0;34m[0m[0m
+[1;32m    546[0m     [0;32mdef[0m [0mdo_executemany[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mcursor[0m[0;34m,[0m [0mstatement[0m[0;34m,[0m [0mparameters[0m[0;34m,[0m [0mcontext[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 547[0;31m         [0mcursor[0m[0;34m.[0m[0mexecutemany[0m[0;34m([0m[0mstatement[0m[0;34m,[0m [0mparameters[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    548[0m [0;34m[0m[0m
+[1;32m    549[0m     [0;32mdef[0m [0mdo_execute[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mcursor[0m[0;34m,[0m [0mstatement[0m[0;34m,[0m [0mparameters[0m[0;34m,[0m [0mcontext[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mOperationalError[0m: (sqlite3.OperationalError) attempt to write a readonly database
+[SQL: INSERT INTO measurement (measurement_id, station, date, prcp, tobs) VALUES (?, ?, ?, ?, ?)]
+[parameters: ((0, 'USC00519397', '2010-01-01', 0.08, 65.0), (1, 'USC00519397', '2010-01-02', 0.0, 63.0), (2, 'USC00519397', '2010-01-03', 0.0, 74.0), (3, 'USC00519397', '2010-01-04', 0.0, 76.0), (4, 'USC00519397', '2010-01-06', 0.0, 73.0), (5, 'USC00519397', '2010-01-07', 0.06, 70.0), (6, 'USC00519397', '2010-01-08', 0.0, 64.0), (7, 'USC00519397', '2010-01-09', 0.0, 68.0)  ... displaying 10 of 19550 total bound parameter sets ...  (19548, 'USC00516128', '2017-08-22', 0.5, 76.0), (19549, 'USC00516128', '2017-08-23', 0.45, 76.0))]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+OperationalError: (sqlite3.OperationalError) attempt to write a readonly database
+[SQL: INSERT INTO measurement (measurement_id, station, date, prcp, tobs) VALUES (?, ?, ?, ?, ?)]
+[parameters: ((0, 'USC00519397', '2010-01-01', 0.08, 65.0), (1, 'USC00519397', '2010-01-02', 0.0, 63.0), (2, 'USC00519397', '2010-01-03', 0.0, 74.0), (3, 'USC00519397', '2010-01-04', 0.0, 76.0), (4, 'USC00519397', '2010-01-06', 0.0, 73.0), (5, 'USC00519397', '2010-01-07', 0.06, 70.0), (6, 'USC00519397', '2010-01-08', 0.0, 64.0), (7, 'USC00519397', '2010-01-09', 0.0, 68.0)  ... displaying 10 of 19550 total bound parameter sets ...  (19548, 'USC00516128', '2017-08-22', 0.5, 76.0), (19549, 'USC00516128', '2017-08-23', 0.45, 76.0))]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+
+Executability                            : False

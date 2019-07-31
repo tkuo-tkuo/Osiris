@@ -1,0 +1,162 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# -*- coding: utf-8 -*-
+#Sam Bassett
+#Processing data from http://en.openei.org/datasets/dataset/commercial-and-residential-hourly-load-profiles-for-all-tmy3-locations-in-the-united-states
+#This code was modified in order to create a plotly table from code that originally output to a text file
+#Because of this there may be some leftover parts that are not 100% relevant and might be inefficient
+
+import pandas as pd
+import plotly as py
+import plotly.figure_factory as FF
+import numpy
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+py.tools.set_credentials_file(username='samanthabassett', api_key='tj7gs3ulOIVpbtswhNnp')
+
+#These hold dictionaries with each city's columns and means of all rows for each column 
+la = {}
+tampa = {}
+portland = {}
+albany = {}
+nyc = {}
+houston = {}
+seattle = {}
+milwaukee = {}
+
+#These lists allow for transfering the means from the original dictionaries, as well as filling in "N/A" in certain columns
+newla = []
+newtampa = []
+newportland = []
+newalbany = []
+newnyc = []
+newhouston = []
+newseattle = []
+newmilwaukee = []
+
+#Holding arrays, dictionaries, and city names in all the same orders for iterating through and referencing each other
+cities = [la, tampa, portland, albany, nyc, houston, seattle, milwaukee]
+newCities = [newla, newtampa, newportland, newalbany, newnyc, newhouston, newseattle, newmilwaukee]
+cityNames = ["Los Angeles, CA", "Tampa, FL", "Portland, ME", "Albany, NY", "New York City, NY", "Houston, TX", "Seattle, WA", "Milwaukee, WI"]
+
+#The beginnings of each file name to process
+fileNames = ["USA_CA_Los.Angeles.Intl.AP.722950_TMY3_", "USA_FL_Tampa.Intl.AP.722110_TMY3_",
+             "USA_ME_Portland.Intl.Jetport.726060_TMY3_", "USA_NY_Albany.County.AP.725180_TMY3_",
+             "USA_NY_New.York-J.F.Kennedy.Intl.AP.744860_TMY3_", "USA_TX_Houston-Bush.Intercontinental.AP.722430_TMY3_",
+             "USA_WA_Seattle-Boeing.Field.727935_TMY3_", "USA_WI_Milwaukee-Mitchell.Intl.AP.726400_TMY3_"]
+
+#The suffixes trailing the base file name
+suffixes = ["BASE", "LOW", "HIGH"]
+
+
+
+#Iterate through the file names given, each with all three suffixes
+for name in fileNames:
+    for suffix in suffixes:
+        filename = "./Residential" + "/" + name + suffix + ".csv"
+        df = pd.read_csv(filename, low_memory = False)
+                    
+        #Only really using the base values now, so only process those files
+        if suffix == "BASE":
+            for col in df:
+                curArray = cities[fileNames.index(name)] 
+                              
+                if col != "Date/Time":
+                    #Strips off the "[kW](Hourly)" part of the col names and any whitespace; limits values to 5 decimals
+                    curArray[str.strip(col[:-13])] = format(df[col].mean(), '.5f')
+                
+#Function that handles formatting table data and creation of the table
+def createTable():
+    table_data = []
+    #topList is the top row of table data
+    topList = ['City', 'Elec. - Facility', 'Gas - Facility', 'Heat - Elec.', 'Heat - Gas', 'Cool - Elec.', 'HVAC Fans - Elec.', 'Elec. - HVAC', 'Fans - Elec.', 'Indoor Light - Elec.', 'Outdoor Light - Elec.', 'Indoor Appl. - Elec.', 'Indoor Misc. - Elec.', 'H20 Heat - Gas', 'H20 Heat - Elec.']
+    #utilList holds the names of each utility. Here, add each unique utility into a list
+    utilList = []
+    for city in cities:
+        for util in city.keys():
+            if not util in utilList:
+                utilList.append(util)
+                
+    #For each new<city> array, fill it with the appropriate value for each utility or N/A if that utility doesn't exist for it
+    for city in newCities:
+        city.append(cityNames[newCities.index(city)])
+        for util in utilList:
+            if util in cities[newCities.index(city)].keys():
+                city.append(cities[newCities.index(city)].get(util))
+            else:
+                city.append(0)
+    
+    #Fill table with data
+    table_data.append(topList)
+    for city in newCities:
+        table_data.append(city)
+        
+    #Init a figure (mostly taken from Julien's code)
+    colorscale = [[0, '#3366ff'],[.5, '#99ccff'],[1, '#ffffff']]
+    figure = FF.create_table(table_data, colorscale=colorscale)    #, height_constant=60)
+    figure.layout.width=1680
+    print(table_data[0])
+    print("/n/n")
+    print(table_data[2])
+    print(len(table_data[1:-1]))
+    data = pd.DataFrame(data=numpy.array(table_data[1:-1]),columns=table_data[0])
+    #py.plotly.iplot(figure, filename= 'cities-power-usage')
+    
+    #'''
+    #tampa = data2.groupby(["town"]).get_group("tamba").drop('town', 1).drop('zip_code', 1).sum().sort_values()
+    #newYork = data2.groupby(["town"]).get_group("new york city").drop('town', 1).drop('zip_code', 1).sum().sort_values()
+    #albany = data2.groupby(["town"]).get_group("albany").drop('town', 1).drop('zip_code', 1).sum().sort_values()
+    #seattle = data2.groupby(["town"]).get_group("seattle").drop('town', 1).drop('zip_code', 1).sum().sort_values()
+    #'''
+
+    
+
+
+
+
+    
+    all = pd.DataFrame({"gass ": data[['City','Gas - Facility']],
+                        
+                      },index=data['City'])
+
+    data.index = 'City'
+    
+    data['City'].plot(kind="bar")
+    
+    '''
+    
+
+    
+    plot = all.plot(kind="bar",
+             figsize=(30,20),
+             fontsize=30,
+             title="number of house split up by potentent solar energy production"
+             )
+    plot.set_xlabel("possible killowat production")
+    plot.set_ylabel("number of houses")
+    #'''
+
+
+
+
+createTable()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-1-ef75c6273090>[0m in [0;36m<module>[0;34m[0m
+[1;32m     15[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m [0;34m[0m[0m
+[0;32m---> 17[0;31m [0mpy[0m[0;34m.[0m[0mtools[0m[0;34m.[0m[0mset_credentials_file[0m[0;34m([0m[0musername[0m[0;34m=[0m[0;34m'samanthabassett'[0m[0;34m,[0m [0mapi_key[0m[0;34m=[0m[0;34m'tj7gs3ulOIVpbtswhNnp'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     18[0m [0;34m[0m[0m
+[1;32m     19[0m [0;31m#These hold dictionaries with each city's columns and means of all rows for each column[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'plotly.tools' has no attribute 'set_credentials_file'
+AttributeError: module 'plotly.tools' has no attribute 'set_credentials_file'
+
+Executability                            : False

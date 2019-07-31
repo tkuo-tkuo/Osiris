@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+clf.decision_function(X)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-6-35bf391cfbd1>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mclf[0m[0;34m.[0m[0mdecision_function[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: 'LinearRegression' object has no attribute 'decision_function'
+AttributeError: 'LinearRegression' object has no attribute 'decision_function'
+
+Executability                            : False

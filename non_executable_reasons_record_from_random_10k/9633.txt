@@ -1,0 +1,143 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 8 ; number of cells: 19
+Reproducibility                          : matched ratio: 0.421 ; index of matched cells: [0, 1, 2, 4, 5, 10, 11, 12]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+
+
+-----------------
+Original output:
+4
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+def lcm_list(num_list):
+    a = iter(num_list)
+    b = next(a)
+    
+    for element in a:
+        b = lcm(element,b)
+    return b
+    
+
+-----------------
+Original output:
+
+Executed output:
+20
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+lcm_list([5,10,20])
+
+-----------------
+Original output:
+20
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+def lcm(a,b):
+    return a*b // gcd(a,b)
+
+def gcd(a,b):
+    if a == b:
+        return a
+    elif a%b==0:
+        return b
+    elif b%a == 0:
+        return a
+    else:
+        while b !=0:
+            gd = b
+            b = a%b
+            a = gd
+        return gd
+def lcmm(num_array):
+    a = iter(num_array)
+    b = next(a)
+    
+    for i in a:
+        b = lcm(i,b)
+    return b
+
+-----------------
+Original output:
+
+Executed output:
+539
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+lcmm([49,77])
+
+-----------------
+Original output:
+539
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+cp = Carpool([matthew,mark,luke,john])
+
+-----------------
+Original output:
+
+Executed output:
+0
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+luke.score
+
+-----------------
+Original output:
+5.551115123125783e-17
+Executed output:
+
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+cp.go_to_work(members=[matthew,mark,john])
+
+-----------------
+Original output:
+
+Executed output:
+-0.5
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+mark.score
+
+-----------------
+Original output:
+1.1102230246251565e-16
+Executed output:
+1
+-------------------------------------------
+Source Code of a Unmatched Cell 17
+-------------------------------------------
+john.score
+
+-----------------
+Original output:
+0.0
+Executed output:
+-0.5
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+matthew.score
+
+-----------------
+Original output:
+1.1102230246251565e-16
+Executed output:
+4

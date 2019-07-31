@@ -1,0 +1,31 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+
+divideset(my_data,4,'None')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-2d4c8f794e6c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdivideset[0m[0;34m([0m[0mmy_data[0m[0;34m,[0m[0;36m4[0m[0;34m,[0m[0;34m'None'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-2-cbadc175c9fa>[0m in [0;36mdivideset[0;34m(rows, column, value)[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m    [0;31m# Divide the rows into two sets and return them[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m    [0mset1[0m[0;34m=[0m[0;34m[[0m[0mrow[0m [0;32mfor[0m [0mrow[0m [0;32min[0m [0mrows[0m [0;32mif[0m [0msplit_condtion[0m[0;34m([0m[0mrow[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m     11[0m    [0mset2[0m[0;34m=[0m[0;34m[[0m[0mrow[0m [0;32mfor[0m [0mrow[0m [0;32min[0m [0mrows[0m [0;32mif[0m [0;32mnot[0m [0msplit_condtion[0m[0;34m([0m[0mrow[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[1;32m     12[0m    [0;32mreturn[0m [0;34m([0m[0mset1[0m[0;34m,[0m[0mset2[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-cbadc175c9fa>[0m in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m    [0;31m# Divide the rows into two sets and return them[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m    [0mset1[0m[0;34m=[0m[0;34m[[0m[0mrow[0m [0;32mfor[0m [0mrow[0m [0;32min[0m [0mrows[0m [0;32mif[0m [0msplit_condtion[0m[0;34m([0m[0mrow[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m     11[0m    [0mset2[0m[0;34m=[0m[0;34m[[0m[0mrow[0m [0;32mfor[0m [0mrow[0m [0;32min[0m [0mrows[0m [0;32mif[0m [0;32mnot[0m [0msplit_condtion[0m[0;34m([0m[0mrow[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[1;32m     12[0m    [0;32mreturn[0m [0;34m([0m[0mset1[0m[0;34m,[0m[0mset2[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'split_condtion' is not defined
+NameError: name 'split_condtion' is not defined
+
+Executability                            : False

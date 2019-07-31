@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import numpy as np
+DIM = 300 #dimension of the word2vec vectors
+
+word_vectors = {}
+
+with open('../data/crawl-300.vec') as f:
+    f.readline()
+    for line in f.readlines():
+        items = line.strip().split()
+        word_vectors[items[0]] = np.array(items[1:], dtype=np.float32)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-4-e9b81b4a3dfe>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0mword_vectors[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'../data/crawl-300.vec'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     [0mf[0m[0;34m.[0m[0mreadline[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      8[0m     [0;32mfor[0m [0mline[0m [0;32min[0m [0mf[0m[0;34m.[0m[0mreadlines[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/crawl-300.vec'
+FileNotFoundError: [Errno 2] No such file or directory: '../data/crawl-300.vec'
+
+Executability                            : False

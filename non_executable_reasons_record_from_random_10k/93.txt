@@ -1,0 +1,99 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 6 ; number of cells: 11
+Reproducibility                          : matched ratio: 0.545 ; index of matched cells: [0, 1, 2, 3, 5, 10]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+# mapを使ってグループ化します。
+animal_col = animals.groupby(behavior_map, axis=1)
+animal_col.sum()
+
+-----------------
+Original output:
+       bad  good
+Dog      2     4
+Cat    NaN    12
+Bird    18    20
+Mouse   26    28
+Executed output:
+       bad  good
+Dog      2     4
+Cat     10    12
+Bird    18    20
+Mouse   26    28
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+# このSeriesを使ってグループ化します。
+animals.groupby(behav_series, axis=1).count()
+
+-----------------
+Original output:
+       bad  good
+Dog      2     2
+Cat      0     2
+Bird     2     2
+Mouse    2     2
+Executed output:
+       bad  good
+Dog      2     2
+Cat      2     2
+Bird     2     2
+Mouse    2     2
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+animals
+
+-----------------
+Original output:
+        W   X   Y   Z
+Dog     0   1   2   3
+Cat   NaN   5 NaN   7
+Bird    8   9  10  11
+Mouse  12  13  14  15
+Executed output:
+        W   X   Y   Z
+Dog     0   1   2   3
+Cat     4   5   6   7
+Bird    8   9  10  11
+Mouse  12  13  14  15
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+# 関数を渡す事もできます。
+animals.groupby(len).sum()
+
+-----------------
+Original output:
+    W   X   Y   Z
+3   0   6   2  10
+4   8   9  10  11
+5  12  13  14  15
+Executed output:
+    W   X   Y   Z
+3   4   6   8  10
+4   8   9  10  11
+5  12  13  14  15
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+# 関数と、キーを混ぜることもできます。
+keys = ['A', 'B', 'A', 'B']
+# indexの長さと、別のキーを使ってグループ化
+animals.groupby([len, keys]).max()
+
+-----------------
+Original output:
+      W   X   Y   Z
+3 A   0   1   2   3
+  B NaN   5 NaN   7
+4 A   8   9  10  11
+5 B  12  13  14  15
+Executed output:
+      W   X   Y   Z
+3 A   0   1   2   3
+  B   4   5   6   7
+4 A   8   9  10  11
+5 B  12  13  14  15

@@ -1,0 +1,57 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Gerando um arquivo excel a partir de um Dataframe
+df.to_excel('teste-df-output.xlsx', sheet_name='Sheet1')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-90-3eff487167b6>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Gerando um arquivo excel a partir de um Dataframe[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdf[0m[0;34m.[0m[0mto_excel[0m[0;34m([0m[0;34m'teste-df-output.xlsx'[0m[0;34m,[0m [0msheet_name[0m[0;34m=[0m[0;34m'Sheet1'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36mto_excel[0;34m(self, excel_writer, sheet_name, na_rep, float_format, columns, header, index, index_label, startrow, startcol, engine, merge_cells, encoding, inf_rep, verbose, freeze_panes)[0m
+[1;32m   1764[0m         formatter.write(excel_writer, sheet_name=sheet_name, startrow=startrow,
+[1;32m   1765[0m                         [0mstartcol[0m[0;34m=[0m[0mstartcol[0m[0;34m,[0m [0mfreeze_panes[0m[0;34m=[0m[0mfreeze_panes[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m-> 1766[0;31m                         engine=engine)
+[0m[1;32m   1767[0m [0;34m[0m[0m
+[1;32m   1768[0m     def to_stata(self, fname, convert_dates=None, write_index=True,
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/formats/excel.py[0m in [0;36mwrite[0;34m(self, writer, sheet_name, startrow, startcol, freeze_panes, engine)[0m
+[1;32m    652[0m                            freeze_panes=freeze_panes)
+[1;32m    653[0m         [0;32mif[0m [0mneed_save[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 654[0;31m             [0mwriter[0m[0;34m.[0m[0msave[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/io/excel.py[0m in [0;36msave[0;34m(self)[0m
+[1;32m   1730[0m         """
+[1;32m   1731[0m [0;34m[0m[0m
+[0;32m-> 1732[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mbook[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1733[0m [0;34m[0m[0m
+[1;32m   1734[0m     def write_cells(self, cells, sheet_name=None, startrow=0, startcol=0,
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/xlsxwriter/workbook.py[0m in [0;36mclose[0;34m(self)[0m
+[1;32m    309[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0mfileclosed[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    310[0m             [0mself[0m[0;34m.[0m[0mfileclosed[0m [0;34m=[0m [0;36m1[0m[0;34m[0m[0m
+[0;32m--> 311[0;31m             [0mself[0m[0;34m.[0m[0m_store_workbook[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    312[0m [0;34m[0m[0m
+[1;32m    313[0m     [0;32mdef[0m [0mset_size[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mwidth[0m[0;34m,[0m [0mheight[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/xlsxwriter/workbook.py[0m in [0;36m_store_workbook[0;34m(self)[0m
+[1;32m    638[0m [0;34m[0m[0m
+[1;32m    639[0m         xlsx_file = ZipFile(self.filename, "w", compression=ZIP_DEFLATED,
+[0;32m--> 640[0;31m                             allowZip64=self.allow_zip64)
+[0m[1;32m    641[0m [0;34m[0m[0m
+[1;32m    642[0m         [0;31m# Add XML sub-files to the Zip file with their Excel filename.[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/zipfile.py[0m in [0;36m__init__[0;34m(self, file, mode, compression, allowZip64)[0m
+[1;32m   1007[0m             [0;32mwhile[0m [0;32mTrue[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1008[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 1009[0;31m                     [0mself[0m[0;34m.[0m[0mfp[0m [0;34m=[0m [0mio[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfile[0m[0;34m,[0m [0mfilemode[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1010[0m                 [0;32mexcept[0m [0mOSError[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1011[0m                     [0;32mif[0m [0mfilemode[0m [0;32min[0m [0mmodeDict[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'teste-df-output.xlsx'
+PermissionError: [Errno 13] Permission denied: 'teste-df-output.xlsx'
+
+Executability                            : False

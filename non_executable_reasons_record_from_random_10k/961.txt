@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+with open("C:\\Users\\Inance\\Documents\\Tester\\e.xlsx") as f:
+    data = pd.read_excel()
+
+data = data.split('\n')
+
+x = [row.split(' ')[0] for row in data]
+y = [row.split(' ')[1] for row in data]
+
+fig = plt.figure()
+
+ax1 = fig.add_subplot(111)
+
+ax1.set_title("Plot title...")    
+ax1.set_xlabel('your x label..')
+ax1.set_ylabel('your y label...')
+
+ax1.plot(x,y, c='r', label='the data')
+
+leg = ax1.legend()
+
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-1-d0d2aef0aeac>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"C:\\Users\\Inance\\Documents\\Tester\\e.xlsx"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      8[0m     [0mdata[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+
+[0;31mOSError[0m: [Errno 22] Invalid argument: 'C:\\Users\\Inance\\Documents\\Tester\\e.xlsx'
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\Inance\\Documents\\Tester\\e.xlsx'
+
+Executability                            : False

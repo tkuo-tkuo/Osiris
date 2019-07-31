@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from pandas.tools import plotting
+
+_ = plotting.scatter_matrix(subset_data, figsize=(10,9))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-9-0065bbd8839d>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mpandas[0m[0;34m.[0m[0mtools[0m [0;32mimport[0m [0mplotting[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0m_[0m [0;34m=[0m [0mplotting[0m[0;34m.[0m[0mscatter_matrix[0m[0;34m([0m[0msubset_data[0m[0;34m,[0m [0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m10[0m[0;34m,[0m[0;36m9[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pandas.tools'
+ModuleNotFoundError: No module named 'pandas.tools'
+
+Executability                            : False

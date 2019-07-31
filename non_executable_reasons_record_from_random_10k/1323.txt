@@ -1,0 +1,20 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import thinkstats2
+hist = thinkstats2.Hist(resp.totincr)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-6181f1a7ea6c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mthinkstats2[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mhist[0m [0;34m=[0m [0mthinkstats2[0m[0;34m.[0m[0mHist[0m[0;34m([0m[0mresp[0m[0;34m.[0m[0mtotincr[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'resp' is not defined
+NameError: name 'resp' is not defined
+
+Executability                            : False

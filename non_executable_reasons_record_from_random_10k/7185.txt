@@ -1,0 +1,14 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%time
+import random
+from math import exp, sqrt
+------------------
+
+
+UsageError: Line magic function `%%time` not found.
+
+Executability                            : False

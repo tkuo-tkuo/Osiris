@@ -1,0 +1,63 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Special module written for this class
+#This provides access to data and to helper functions from previous weeks
+#Make sure you update it before starting this notebook
+import lucem_illud #pip install -U git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git
+
+#All these packages need to be installed from pip
+import scipy #For frequency analysis
+import scipy.fftpack
+import nltk #the Natural Language Toolkit
+import requests #For downloading our datasets
+import numpy as np #for arrays
+import pandas #gives us DataFrames
+import matplotlib.pyplot as plt #For graphics
+import seaborn #Makes the graphics look nicer
+import IPython #To show stuff
+
+#Image handling install as Pillow
+import PIL
+import PIL.ImageOps
+
+#install as scikit-image, this does the image manupulation
+import skimage
+import skimage.feature
+import skimage.segmentation
+import skimage.filters
+import skimage.color
+import skimage.graph
+import skimage.future.graph
+
+#these three do audio handling
+import pydub #Requires ffmpeg to be installed https://www.ffmpeg.org/download.html; on a mac "brew install ffmpeg"
+import speech_recognition #install as speechrecognition
+import soundfile #Install as pysoundfile 
+
+#This 'magic' command makes the plots work better
+#in the notebook, don't use it outside of a notebook.
+#Also you can ignore the warning it may generate.
+%matplotlib inline
+
+import os
+import os.path
+import csv
+import re
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-fdaf089976ec>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;31m#This provides access to data and to helper functions from previous weeks[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#Make sure you update it before starting this notebook[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mlucem_illud[0m [0;31m#pip install -U git+git://github.com/Computational-Content-Analysis-2018/lucem_illud.git[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;31m#All these packages need to be installed from pip[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'lucem_illud'
+ModuleNotFoundError: No module named 'lucem_illud'
+
+Executability                            : False

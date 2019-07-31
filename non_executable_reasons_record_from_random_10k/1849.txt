@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+% matplotlib inline
+
+import datetime as dt
+import pandas as pd
+import pandas_datareader.data as web
+import matplotlib.pyplot as plt
+from matplotlib import style
+import numpy as np
+
+style.use('ggplot')
+------------------
+
+
+UsageError: Line magic function `%` not found.
+
+Executability                            : False

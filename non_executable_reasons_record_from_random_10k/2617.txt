@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+df.to_csv('example.csv',index=False)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-4-436c150cb538>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdf[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0;34m'example.csv'[0m[0;34m,[0m[0mindex[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: 'list' object has no attribute 'to_csv'
+AttributeError: 'list' object has no attribute 'to_csv'
+
+Executability                            : False

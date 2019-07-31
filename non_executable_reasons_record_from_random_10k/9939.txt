@@ -1,0 +1,69 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 10 ; number of cells: 15
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 1, 2, 3, 5, 6, 7, 8, 13, 14]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+for i,v in enumerate(person):
+    print(i,v)
+
+-----------------
+Original output:
+0 first_name
+1 last-name
+2 age
+
+Executed output:
+0 last-name
+1 age
+2 first_name
+
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+# get all the keys only (DICT_KEYS - set like object)
+person.keys()
+
+-----------------
+Original output:
+dict_keys(['first_name', 'last-name'])
+Executed output:
+dict_keys(['last-name', 'first_name'])
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+# get values only
+person.values()
+
+-----------------
+Original output:
+dict_values(['Apex', 'Dalglish'])
+Executed output:
+dict_values(['Dalglish', 'Apex'])
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+# get items 
+person.items()
+
+-----------------
+Original output:
+dict_items([('first_name', 'Apex'), ('last-name', 'Dalglish')])
+Executed output:
+dict_items([('last-name', 'Dalglish'), ('first_name', 'Apex')])
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+for key, value in person.items():
+    print(key, value)
+
+-----------------
+Original output:
+first_name Apex
+last-name Dalglish
+
+Executed output:
+last-name Dalglish
+first_name Apex
+

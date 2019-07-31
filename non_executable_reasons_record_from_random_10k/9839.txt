@@ -1,0 +1,68 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 7
+Reproducibility                          : matched ratio: 0.714 ; index of matched cells: [0, 1, 2, 3, 5]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+# meta parameters
+cova = np.ones(Ka) # factor covariance of known samples
+covc = np.ones(Kc) # factor covariance of new samples
+
+# Generate group level
+A = sparsematrix(P, Ka, Sa, 10.0/np.sqrt(P)) # core factors
+B = np.random.multivariate_normal(np.zeros(Ka), np.diag(cova), (N, T)) # temporal weights for knwon factors (N, T, Ka)
+C=0; D=0
+if Kc>0:
+    C = sparsematrix(P, Kc, Sc, 10.0/np.sqrt(P)) # new factors
+    D = np.random.multivariate_normal(np.zeros(Kc), np.diag(covc), (N, T)) # temporal weights for new factors (N, T, Kb)
+# noise info
+signal = np.linalg.norm(A*np.sqrt(cova))**2 + np.linalg.norm(C*np.sqrt(covc))**2 
+noisevar = signal/snr
+
+print("signal power is %.3f"%(signal,))
+print("noise power is %.3f"%(noisevar,))
+
+
+-----------------
+Original output:
+signal power is 147.751
+noise power is 1.478
+
+Executed output:
+signal power is 172.129
+noise power is 1.721
+
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+# Fit main components using regression
+X_flat = np.reshape(X, (N*T, P))
+print(X_flat.shape, A.shape)
+
+B_est_flat,sserror ,_ ,_ = np.linalg.lstsq(A, X_flat.T)
+print(B_est_flat.shape)
+B_est = np.reshape(B_est_flat.T, (N, T, Ka))
+
+R_est = X - np.dot(B_est, A.T)
+
+relative_b_error = ((B-B_est)**2).sum()/((B)**2).sum()
+relative_x_error = ((R_est)**2).sum()/((X)**2).sum()
+
+print("relative b error is %.3f percent"%(relative_b_error*100.,))
+print("relative residual error is %.3f percent"%(relative_x_error*100.,))
+
+
+-----------------
+Original output:
+(10, 150) (150, 3)
+(3, 10)
+relative b error is 2.003 percent
+relative residual error is 55.000 percent
+
+Executed output:
+(10, 150) (150, 3)
+(3, 10)
+relative b error is 3.408 percent
+relative residual error is 53.631 percent
+

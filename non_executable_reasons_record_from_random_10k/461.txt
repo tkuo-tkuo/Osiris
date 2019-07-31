@@ -1,0 +1,34 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+ 
+import edward as ed
+import matplotlib.pyplot as plt
+import numpy as np
+import tensorflow as tf
+import edward.models as edm
+from tensorflow.contrib.distributions.python.ops import bijectors as bijector
+plt.style.use('ggplot')
+ 
+ed.set_seed(42)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-a2371d84da33>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mprint_function[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mimport[0m [0medward[0m [0;32mas[0m [0med[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'edward'
+ImportError: No module named 'edward'
+
+Executability                            : False

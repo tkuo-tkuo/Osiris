@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+next(iterator) # Eleman kalmadığı için "StopIteration" hatası
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStopIteration[0m                             Traceback (most recent call last)
+[0;32m<ipython-input-9-9ba2fad64ee3>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mnext[0m[0;34m([0m[0miterator[0m[0;34m)[0m [0;31m# Eleman kalmadığı için "StopIteration" hatası[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mStopIteration[0m: 
+StopIteration: 
+
+Executability                            : False

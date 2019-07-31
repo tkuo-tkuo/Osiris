@@ -1,0 +1,39 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import time
+import os
+
+import numpy as np
+np.set_printoptions(precision=4, linewidth=100)
+from matplotlib import pyplot as plt
+from PIL import Image
+
+import torch
+from torch import nn
+from torch import optim
+from torch.optim import lr_scheduler
+import torchvision
+from torch.autograd import Variable
+import torch.nn.functional as F
+from torch.utils.data import Dataset, DataLoader
+import torchvision.models as models
+from torchvision import transforms, datasets
+torch.set_printoptions(precision=4, linewidth=100)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-5c085c51772c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m [0;32mfrom[0m [0mPIL[0m [0;32mimport[0m [0mImage[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0;32mimport[0m [0mtorch[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;32mfrom[0m [0mtorch[0m [0;32mimport[0m [0mnn[0m[0;34m[0m[0m
+[1;32m     13[0m [0;32mfrom[0m [0mtorch[0m [0;32mimport[0m [0moptim[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'torch'
+ImportError: No module named 'torch'
+
+Executability                            : False

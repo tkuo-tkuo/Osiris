@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#%% Scatter matrix example with toy data
+
+from pandas.tools.plotting import scatter_matrix
+
+df = pd.DataFrame(np.random.randn(1000, 3), columns=['a', 'b', 'c'])
+df['d'] = df['b'] + 0.3*np.random.randn(1000)
+#sm = scatter_matrix(df, alpha=0.1, figsize=(6, 6), diagonal='hist')
+sm = scatter_matrix(df, alpha=0.2, figsize=(6, 6), diagonal='kde')
+
+print(type(df))
+print(df.head(10))
+
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-14-8c3f838f2bfc>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#%% Scatter matrix example with toy data[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mpandas[0m[0;34m.[0m[0mtools[0m[0;34m.[0m[0mplotting[0m [0;32mimport[0m [0mscatter_matrix[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mrandn[0m[0;34m([0m[0;36m1000[0m[0;34m,[0m [0;36m3[0m[0;34m)[0m[0;34m,[0m [0mcolumns[0m[0;34m=[0m[0;34m[[0m[0;34m'a'[0m[0;34m,[0m [0;34m'b'[0m[0;34m,[0m [0;34m'c'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pandas.tools'
+ModuleNotFoundError: No module named 'pandas.tools'
+
+Executability                            : False

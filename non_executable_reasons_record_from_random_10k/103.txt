@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+arr = np.array([[1,2,np.nan],[np.nan,3,4]])
+dframe1 = DataFrame(arr,index=['A','B'],columns = ['One','Two','Three'])
+dframe1
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-8bfa0bb6709c>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0marr[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0mnp[0m[0;34m.[0m[0mnan[0m[0;34m][0m[0;34m,[0m[0;34m[[0m[0mnp[0m[0;34m.[0m[0mnan[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m[0;36m4[0m[0;34m][0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mdframe1[0m [0;34m=[0m [0mDataFrame[0m[0;34m([0m[0marr[0m[0;34m,[0m[0mindex[0m[0;34m=[0m[0;34m[[0m[0;34m'A'[0m[0;34m,[0m[0;34m'B'[0m[0;34m][0m[0;34m,[0m[0mcolumns[0m [0;34m=[0m [0;34m[[0m[0;34m'One'[0m[0;34m,[0m[0;34m'Two'[0m[0;34m,[0m[0;34m'Three'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mdframe1[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

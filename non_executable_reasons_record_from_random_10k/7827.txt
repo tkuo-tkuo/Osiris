@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# If you need more information on any of the libraries used, please consult their respective documentation33
+%matplotlib inline
+import cv2
+from matplotlib import pyplot as plt
+import os 
+from glob import glob 
+import numpy as np 
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-0616372a8d54>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;31m# If you need more information on any of the libraries used, please consult their respective documentation33[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

@@ -1,0 +1,41 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from os import listdir
+from os.path import isfile, join
+from astropy.io import ascii
+
+onlyfiles = [f for f in listdir("./exp_data/") if isfile(join("./exp_data/", f))]
+
+with open('exp_data.csv','w') as fle:#below 40,000
+    fle.write("delta_t,timestamp\n")
+    data = []
+    raw = []
+    for f in onlyfiles:
+        with open('./exp_data/'+f, 'r') as fl:
+            temp = fl.read()
+            raw = raw + temp.split('\n')
+    for r in raw:
+        temp = r.split('\t')
+        if temp[0]:
+            if int(temp[0]) < 40000:
+                data.append(",".join(temp))
+    final = '\n'.join(data)
+    fle.write(final)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-917df7d1c28d>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0monlyfiles[0m [0;34m=[0m [0;34m[[0m[0mf[0m [0;32mfor[0m [0mf[0m [0;32min[0m [0mlistdir[0m[0;34m([0m[0;34m"./exp_data/"[0m[0;34m)[0m [0;32mif[0m [0misfile[0m[0;34m([0m[0mjoin[0m[0;34m([0m[0;34m"./exp_data/"[0m[0;34m,[0m [0mf[0m[0;34m)[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'exp_data.csv'[0m[0;34m,[0m[0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mfle[0m[0;34m:[0m[0;31m#below 40,000[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m     [0mfle[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m"delta_t,timestamp\n"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m     [0mdata[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'exp_data.csv'
+PermissionError: [Errno 13] Permission denied: 'exp_data.csv'
+
+Executability                            : False

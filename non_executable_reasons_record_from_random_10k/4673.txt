@@ -1,0 +1,190 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# -*- coding: utf-8 -*-
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+# import tqdm # interactive progress bar
+
+import datetime
+
+plt.style.use('ggplot')
+%matplotlib inline
+
+# Loading data
+urls = ['data/Jan2017.xlsx', 'data/Feb2017.xlsx', 'data/Mar2017.xlsx','data/Apr2017.xlsx','data/May2017.xlsx',
+        'data/Jun2017.xlsx', 'data/Jul2017.xlsx', 'data/Aug2017Без31го.xlsx']
+result_of_analysis = []
+for url_to_data in  urls:
+#     url_to_data = 'data/Mar2017.xlsx'
+    data = pd.read_excel(url_to_data)
+    data.shape
+
+    d=data[['Сегмент', 'Дата время регистрации ТТ Remedy','Дата время Закрытия ТТ Remedy', 'Маркетинговая категория Remedy', 'Оператор Remedy']]
+
+    data.columns
+
+    d.head()
+
+    # d.columns
+
+    d=d[d['Дата время регистрации ТТ Remedy']>'2017-01-01 00:00:00']
+    d['Время решения ЕИ']=pd.to_datetime(d['Дата время Закрытия ТТ Remedy'])-pd.to_datetime(d['Дата время регистрации ТТ Remedy'])
+    d.head()
+    # d['Время решения ЕИ'].iloc[1]
+    # pd.Timestamp().value
+
+    d['Сегмент'].value_counts()
+
+    d['Маркетинговая категория Remedy'].unique()
+
+
+    # select MR
+    mr = d[d['Сегмент']=='МР']
+    fl = d[d['Маркетинговая категория Remedy']=='ФЛ']
+
+    # select b2b 
+    b2bRazvit = d[d['Маркетинговая категория Remedy']=='Развитие']
+    b2bCorp   = d[d['Маркетинговая категория Remedy']=='Corporate']
+    b2bNKA     = d[d['Маркетинговая категория Remedy']=='KA']
+    b2bKA     = d[d['Маркетинговая категория Remedy']=='KA']
+    b2bSME    = d[d['Маркетинговая категория Remedy']=='SME']
+    b2bImidzh = d[d['Маркетинговая категория Remedy']=='Имидж-абоненты (юридические лица)']
+    b2bSOHO   = d[d['Маркетинговая категория Remedy']=='SOHO']
+
+    b2b = pd.concat([b2bRazvit, b2bCorp, b2bKA, b2bNKA, b2bSME, b2bImidzh,b2bSOHO])
+
+
+    # str(mr.count().get_values()[0]), str(mr.mean().get_values()[0])
+    b2b['Маркетинговая категория Remedy'].unique()
+    b2bCorp.head()
+
+    mr2d       =mr[mr['Время решения ЕИ']>pd.Timedelta(48*3600*10**9)]
+    fl2d       =fl[fl['Время решения ЕИ']>pd.Timedelta(48*3600*10**9)]
+    mr4d       =mr[mr['Время решения ЕИ']>pd.Timedelta(2*48*3600*10**9)]
+    fl4d       =fl[fl['Время решения ЕИ']>pd.Timedelta(2*48*3600*10**9)]
+    mr4dcount       =mr[mr['Время решения ЕИ']>pd.Timedelta(2*48*3600*10**9)]
+    fl4dcount       =fl[fl['Время решения ЕИ']>pd.Timedelta(2*48*3600*10**9)]
+    b2bRazvitbad  =b2bRazvit[b2bRazvit['Время решения ЕИ']>pd.Timedelta(6*3600*10**9)]
+    b2bCorpbad    =b2bCorp[b2bCorp['Время решения ЕИ']>pd.Timedelta(6*3600*10**9)]
+    b2bKAbad      =b2bKA[b2bKA['Время решения ЕИ']>pd.Timedelta(6*3600*10**9)]
+    b2bNKAbad     =b2bNKA[b2bNKA['Время решения ЕИ']>pd.Timedelta(4*3600*10**9)]
+    b2bSMEbad     =b2bSME[b2bSME['Время решения ЕИ']>pd.Timedelta(12*3600*10**9)]
+    b2bImidzhbad  =b2bImidzh[b2bImidzh['Время решения ЕИ']>pd.Timedelta(6*3600*10**9)]
+    b2bSOHObad    =b2bSOHO[b2bSOHO['Время решения ЕИ']>pd.Timedelta(12*3600*10**9)]
+
+    b2bRazvitbad2  =b2bRazvitbad[b2bRazvitbad['Время решения ЕИ']>pd.Timedelta(2*6*3600*10**9)]
+    b2bCorpbad2    =b2bCorpbad[b2bCorpbad['Время решения ЕИ']>pd.Timedelta(2*6*3600*10**9)]
+    b2bKAbad2      =b2bKAbad[b2bKAbad['Время решения ЕИ']>pd.Timedelta(2*6*3600*10**9)]
+    b2bNKAbad2     =b2bNKAbad[b2bNKAbad['Время решения ЕИ']>pd.Timedelta(2*4*3600*10**9)]
+    b2bSMEbad2     =b2bSMEbad[b2bSMEbad['Время решения ЕИ']>pd.Timedelta(2*12*3600*10**9)]
+    b2bImidzhbad2  =b2bImidzhbad[b2bImidzhbad['Время решения ЕИ']>pd.Timedelta(2*6*3600*10**9)]
+    b2bSOHObad2    =b2bSOHObad[b2bSOHObad['Время решения ЕИ']>pd.Timedelta(2*12*3600*10**9)]
+
+
+    b2bSOHO.head()
+    b2bbad = pd.concat([b2bRazvitbad, b2bCorpbad, b2bKAbad, b2bNKAbad, b2bSMEbad, b2bImidzhbad, b2bSOHObad])
+    b2bbad2 = pd.concat([b2bRazvitbad2, b2bCorpbad2, b2bKAbad2, b2bNKAbad2, b2bSMEbad2, b2bImidzhbad2, b2bSOHObad2])
+
+#     print('ЕИ B2C')
+#     mr.describe()
+#     mr['Время решения ЕИ'].count(), mr['Время решения ЕИ'].mean()
+
+    analyse_date = url_to_data.split('/')[1].split('.')[0]
+#     print(analyse_date)
+#     print('ЕИ B2C')
+#     print('Процент ЕИ просроценных из всех ЕИ b2c:', mr2d['Время решения ЕИ'].count()/mr['Время решения ЕИ'].count()*100)
+#     print('Процент ЕИ просроценных из всех ЕИ b2c:', fl2d['Время решения ЕИ'].count()/fl['Время решения ЕИ'].count()*100)
+#     print('Процент ЕИ просроценных более чем в 2 раза:', mr4d['Время решения ЕИ'].count()/mr['Время решения ЕИ'].count()*100)
+#     print('Процент ЕИ просроценных более чем в 2 раза:', fl4d['Время решения ЕИ'].count()/fl['Время решения ЕИ'].count()*100)
+
+#     # mr2d.describe()
+#     mr['Время решения ЕИ'].count(), mr['Время решения ЕИ'].mean(), mr2d['Время решения ЕИ'].count(), mr2d['Время решения ЕИ'].mean()
+#     fl['Время решения ЕИ'].count(), fl['Время решения ЕИ'].mean(), fl2d['Время решения ЕИ'].count(), fl2d['Время решения ЕИ'].mean()
+
+#     print('ЕИ B2B')
+#     print('Процент ЕИ просроценных более чем в 2 раза:', mr2d['Время решения ЕИ'].count()/mr['Время решения ЕИ'].count()*100)
+#     print('Процент ЕИ просроценных более чем в 2 раза:', fl2d['Время решения ЕИ'].count()/fl['Время решения ЕИ'].count()*100)
+    calculations={analyse_date:{'B2C':{'Кол-во ЕИ':mr['Время решения ЕИ'].count(), 
+            'Среднее время решения':mr['Время решения ЕИ'].mean(), 
+            'Кол-во просроченных ЕИ':mr2d['Время решения ЕИ'].count(), 
+            'Среднее время решения просроченных ЕИ':mr2d['Время решения ЕИ'].mean(),
+            'Кол-во просроченных ЕИ в 2 раза':mr4dcount['Время решения ЕИ'].count(),
+            'Среднее время решения просроченных ЕИ в 2 раза':mr4d['Время решения ЕИ'].mean()},
+     'B2CФЛ':{'Кол-во ЕИ':fl['Время решения ЕИ'].count(), 
+            'Среднее время решения':fl['Время решения ЕИ'].mean(), 
+            'Кол-во просроченных ЕИ':fl2d['Время решения ЕИ'].count(), 
+            'Среднее время решения просроченных ЕИ':fl2d['Время решения ЕИ'].mean(),
+            'Кол-во просроченных ЕИ в 2 раза':fl4dcount['Время решения ЕИ'].count(),
+            'Среднее время решения просроченных ЕИ в 2 раза':fl4d['Время решения ЕИ'].mean()},
+    'B2B':{'Кол-во ЕИ':b2b['Время решения ЕИ'].count(), 
+            'Среднее время решения':b2b['Время решения ЕИ'].mean(), 
+
+            'Кол-во просроченных ЕИ':b2bbad['Время решения ЕИ'].count(), 
+            'Среднее время решения просроченных ЕИ':b2bbad['Время решения ЕИ'].mean(),
+            'Кол-во просроченных ЕИ в 2 раза':b2bbad2['Время решения ЕИ'].count(),
+            'Среднее время решения просроченных ЕИ в 2 раза':b2bbad2['Время решения ЕИ'].mean()}}}
+    result_of_analysis.append(calculations)
+    print(calculations)
+    # fl['Время решения ЕИ'].count(), fl['Время решения ЕИ'].mean(), fl2d['Время решения ЕИ'].count(), fl2d['Время решения ЕИ'].mean()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-6c89e5fad314>[0m in [0;36m<module>[0;34m[0m
+[1;32m     19[0m [0;32mfor[0m [0murl_to_data[0m [0;32min[0m  [0murls[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     20[0m [0;31m#     url_to_data = 'data/Mar2017.xlsx'[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 21[0;31m     [0mdata[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0murl_to_data[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     22[0m     [0mdata[0m[0;34m.[0m[0mshape[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     23[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    186[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 188[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    189[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    190[0m     [0;32mreturn[0m [0m_deprecate_kwarg[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, parse_cols, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, verbose, parse_dates, date_parser, thousands, comment, skip_footer, skipfooter, convert_float, mangle_dupe_cols, **kwds)[0m
+[1;32m    348[0m [0;34m[0m[0m
+[1;32m    349[0m     [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mExcelFile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 350[0;31m         [0mio[0m [0;34m=[0m [0mExcelFile[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    351[0m [0;34m[0m[0m
+[1;32m    352[0m     return io.parse(
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, io, engine)[0m
+[1;32m    651[0m         [0mself[0m[0;34m.[0m[0m_io[0m [0;34m=[0m [0m_stringify_path[0m[0;34m([0m[0mio[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    652[0m [0;34m[0m[0m
+[0;32m--> 653[0;31m         [0mself[0m[0;34m.[0m[0m_reader[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_engines[0m[0;34m[[0m[0mengine[0m[0;34m][0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_io[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    654[0m [0;34m[0m[0m
+[1;32m    655[0m     [0;32mdef[0m [0m__fspath__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/io/excel.py[0m in [0;36m__init__[0;34m(self, filepath_or_buffer)[0m
+[1;32m    422[0m             [0mself[0m[0;34m.[0m[0mbook[0m [0;34m=[0m [0mxlrd[0m[0;34m.[0m[0mopen_workbook[0m[0;34m([0m[0mfile_contents[0m[0;34m=[0m[0mdata[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    423[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m,[0m [0mcompat[0m[0;34m.[0m[0mstring_types[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 424[0;31m             [0mself[0m[0;34m.[0m[0mbook[0m [0;34m=[0m [0mxlrd[0m[0;34m.[0m[0mopen_workbook[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    425[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    426[0m             raise ValueError('Must explicitly set engine if not passing in'
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/xlrd/__init__.py[0m in [0;36mopen_workbook[0;34m(filename, logfile, verbosity, use_mmap, file_contents, encoding_override, formatting_info, on_demand, ragged_rows)[0m
+[1;32m    109[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    110[0m         [0mfilename[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexpanduser[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 111[0;31m         [0;32mwith[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m"rb"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    112[0m             [0mpeek[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0mpeeksz[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    113[0m     [0;32mif[0m [0mpeek[0m [0;34m==[0m [0;34mb"PK\x03\x04"[0m[0;34m:[0m [0;31m# a ZIP file[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data/Jan2017.xlsx'
+FileNotFoundError: [Errno 2] No such file or directory: 'data/Jan2017.xlsx'
+
+Executability                            : False

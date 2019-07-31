@@ -1,0 +1,57 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+mnist = input_data.read_data_sets("data/", one_hot=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionDeniedError[0m                     Traceback (most recent call last)
+[0;32m<ipython-input-16-96d682f8ab8a>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mmnist[0m [0;34m=[0m [0minput_data[0m[0;34m.[0m[0mread_data_sets[0m[0;34m([0m[0;34m"data/"[0m[0;34m,[0m [0mone_hot[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py[0m in [0;36mnew_func[0;34m(*args, **kwargs)[0m
+[1;32m    322[0m               [0;34m'in a future version'[0m [0;32mif[0m [0mdate[0m [0;32mis[0m [0;32mNone[0m [0;32melse[0m [0;34m([0m[0;34m'after %s'[0m [0;34m%[0m [0mdate[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    323[0m               instructions)
+[0;32m--> 324[0;31m       [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    325[0m     return tf_decorator.make_decorator(
+[1;32m    326[0m         [0mfunc[0m[0;34m,[0m [0mnew_func[0m[0;34m,[0m [0;34m'deprecated'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/contrib/learn/python/learn/datasets/mnist.py[0m in [0;36mread_data_sets[0;34m(train_dir, fake_data, one_hot, dtype, reshape, validation_size, seed, source_url)[0m
+[1;32m    258[0m [0;34m[0m[0m
+[1;32m    259[0m   local_file = base.maybe_download(TRAIN_IMAGES, train_dir,
+[0;32m--> 260[0;31m                                    source_url + TRAIN_IMAGES)
+[0m[1;32m    261[0m   [0;32mwith[0m [0mgfile[0m[0;34m.[0m[0mOpen[0m[0;34m([0m[0mlocal_file[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    262[0m     [0mtrain_images[0m [0;34m=[0m [0mextract_images[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py[0m in [0;36mnew_func[0;34m(*args, **kwargs)[0m
+[1;32m    322[0m               [0;34m'in a future version'[0m [0;32mif[0m [0mdate[0m [0;32mis[0m [0;32mNone[0m [0;32melse[0m [0;34m([0m[0;34m'after %s'[0m [0;34m%[0m [0mdate[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    323[0m               instructions)
+[0;32m--> 324[0;31m       [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    325[0m     return tf_decorator.make_decorator(
+[1;32m    326[0m         [0mfunc[0m[0;34m,[0m [0mnew_func[0m[0;34m,[0m [0;34m'deprecated'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/contrib/learn/python/learn/datasets/base.py[0m in [0;36mmaybe_download[0;34m(filename, work_directory, source_url)[0m
+[1;32m    247[0m   """
+[1;32m    248[0m   [0;32mif[0m [0;32mnot[0m [0mgfile[0m[0;34m.[0m[0mExists[0m[0;34m([0m[0mwork_directory[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 249[0;31m     [0mgfile[0m[0;34m.[0m[0mMakeDirs[0m[0;34m([0m[0mwork_directory[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    250[0m   [0mfilepath[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mwork_directory[0m[0;34m,[0m [0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    251[0m   [0;32mif[0m [0;32mnot[0m [0mgfile[0m[0;34m.[0m[0mExists[0m[0;34m([0m[0mfilepath[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/lib/io/file_io.py[0m in [0;36mrecursive_create_dir[0;34m(dirname)[0m
+[1;32m    436[0m     [0merrors[0m[0;34m.[0m[0mOpError[0m[0;34m:[0m [0mIf[0m [0mthe[0m [0moperation[0m [0mfails[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    437[0m   """
+[0;32m--> 438[0;31m   [0mrecursive_create_dir_v2[0m[0;34m([0m[0mdirname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    439[0m [0;34m[0m[0m
+[1;32m    440[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/tensorflow/python/lib/io/file_io.py[0m in [0;36mrecursive_create_dir_v2[0;34m(path)[0m
+[1;32m    451[0m     [0merrors[0m[0;34m.[0m[0mOpError[0m[0;34m:[0m [0mIf[0m [0mthe[0m [0moperation[0m [0mfails[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    452[0m   """
+[0;32m--> 453[0;31m   [0mpywrap_tensorflow[0m[0;34m.[0m[0mRecursivelyCreateDir[0m[0;34m([0m[0mcompat[0m[0;34m.[0m[0mas_bytes[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    454[0m [0;34m[0m[0m
+[1;32m    455[0m [0;34m[0m[0m
+
+[0;31mPermissionDeniedError[0m: data; Permission denied
+PermissionDeniedError: data; Permission denied
+
+Executability                            : False

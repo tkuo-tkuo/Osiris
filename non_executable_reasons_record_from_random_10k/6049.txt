@@ -1,0 +1,46 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# use binary search to get root within 4 sig figs
+# define starting points and starting values
+x1 = 1 
+x2 = 150
+y1 = displacement(x1)
+y2 = displacement(x2)
+
+# define root solution tolerance
+tol = 1e-4
+
+# binary search!
+while abs(x2-x1) > tol:
+    # get midpoint
+    xprime = (x1+x2)/2.0
+    yprime = displacement(xprime)
+    # change starting points depending on parity
+    if yprime * y1 < 0:
+        x2 = xprime
+        y2 = yprime
+
+    else:
+        x1 = xprime
+        y1 = yprime
+
+xroot = (x1+x2)/2
+yroot = displacement(xroot)
+
+print("Optimal initial velocity is {:.2f} m/s".format(xroot))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-10410d5c5612>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mx1[0m [0;34m=[0m [0;36m1[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mx2[0m [0;34m=[0m [0;36m150[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0my1[0m [0;34m=[0m [0mdisplacement[0m[0;34m([0m[0mx1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0my2[0m [0;34m=[0m [0mdisplacement[0m[0;34m([0m[0mx2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'displacement' is not defined
+NameError: name 'displacement' is not defined
+
+Executability                            : False

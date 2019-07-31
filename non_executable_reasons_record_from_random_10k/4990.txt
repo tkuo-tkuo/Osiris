@@ -1,0 +1,294 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 13 ; number of cells: 17
+Reproducibility                          : matched ratio: 0.765 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 15]
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+np.random.seed(1)
+xt = np.random.randn(3,10)
+a_prev = np.random.randn(5,10)
+Wax = np.random.randn(5,3)
+Waa = np.random.randn(5,5)
+Wya = np.random.randn(2,5)
+ba = np.random.randn(5,1)
+by = np.random.randn(2,1)
+parameters = {"Wax": Wax, "Waa": Waa, "Wya": Wya, "ba": ba, "by": by}
+
+a_next, yt, cache = rnn_cell_forward(xt, a_prev, parameters)
+
+da_next = np.random.randn(5,10)
+gradients = rnn_cell_backward(da_next, cache)
+print("gradients[\"dxt\"][1][2] =", gradients["dxt"][1][2])
+print("gradients[\"dxt\"].shape =", gradients["dxt"].shape)
+print("gradients[\"da_prev\"][2][3] =", gradients["da_prev"][2][3])
+print("gradients[\"da_prev\"].shape =", gradients["da_prev"].shape)
+print("gradients[\"dWax\"][3][1] =", gradients["dWax"][3][1])
+print("gradients[\"dWax\"].shape =", gradients["dWax"].shape)
+print("gradients[\"dWaa\"][1][2] =", gradients["dWaa"][1][2])
+print("gradients[\"dWaa\"].shape =", gradients["dWaa"].shape)
+print("gradients[\"dba\"][4] =", gradients["dba"][4])
+print("gradients[\"dba\"].shape =", gradients["dba"].shape)
+
+-----------------
+Original output:
+gradients["dxt"][1][2] = -1.3872130506020923
+gradients["dxt"].shape = (3, 10)
+gradients["da_prev"][2][3] = -0.1523994937739546
+gradients["da_prev"].shape = (5, 10)
+gradients["dWax"][3][1] = 0.4107728249354583
+gradients["dWax"].shape = (5, 3)
+gradients["dWaa"][1][2] = 1.1503450668497135
+gradients["dWaa"].shape = (5, 5)
+gradients["dba"][4] = [0.20023491]
+gradients["dba"].shape = (5, 1)
+
+Executed output:
+gradients["dxt"][1][2] = -1.3872130506020925
+gradients["dxt"].shape = (3, 10)
+gradients["da_prev"][2][3] = -0.15239949377395495
+gradients["da_prev"].shape = (5, 10)
+gradients["dWax"][3][1] = 0.4107728249354584
+gradients["dWax"].shape = (5, 3)
+gradients["dWaa"][1][2] = 1.1503450668497135
+gradients["dWaa"].shape = (5, 5)
+gradients["dba"][4] = [0.20023491]
+gradients["dba"].shape = (5, 1)
+
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+np.random.seed(1)
+xt = np.random.randn(3,10)
+a_prev = np.random.randn(5,10)
+c_prev = np.random.randn(5,10)
+Wf = np.random.randn(5, 5+3)
+bf = np.random.randn(5,1)
+Wi = np.random.randn(5, 5+3)
+bi = np.random.randn(5,1)
+Wo = np.random.randn(5, 5+3)
+bo = np.random.randn(5,1)
+Wc = np.random.randn(5, 5+3)
+bc = np.random.randn(5,1)
+Wy = np.random.randn(2,5)
+by = np.random.randn(2,1)
+
+parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
+
+a_next, c_next, yt, cache = lstm_cell_forward(xt, a_prev, c_prev, parameters)
+
+da_next = np.random.randn(5,10)
+dc_next = np.random.randn(5,10)
+gradients = lstm_cell_backward(da_next, dc_next, cache)
+print("gradients[\"dxt\"][1][2] =", gradients["dxt"][1][2])
+print("gradients[\"dxt\"].shape =", gradients["dxt"].shape)
+print("gradients[\"da_prev\"][2][3] =", gradients["da_prev"][2][3])
+print("gradients[\"da_prev\"].shape =", gradients["da_prev"].shape)
+print("gradients[\"dc_prev\"][2][3] =", gradients["dc_prev"][2][3])
+print("gradients[\"dc_prev\"].shape =", gradients["dc_prev"].shape)
+print("gradients[\"dWf\"][3][1] =", gradients["dWf"][3][1])
+print("gradients[\"dWf\"].shape =", gradients["dWf"].shape)
+print("gradients[\"dWi\"][1][2] =", gradients["dWi"][1][2])
+print("gradients[\"dWi\"].shape =", gradients["dWi"].shape)
+print("gradients[\"dWc\"][3][1] =", gradients["dWc"][3][1])
+print("gradients[\"dWc\"].shape =", gradients["dWc"].shape)
+print("gradients[\"dWo\"][1][2] =", gradients["dWo"][1][2])
+print("gradients[\"dWo\"].shape =", gradients["dWo"].shape)
+print("gradients[\"dbf\"][4] =", gradients["dbf"][4])
+print("gradients[\"dbf\"].shape =", gradients["dbf"].shape)
+print("gradients[\"dbi\"][4] =", gradients["dbi"][4])
+print("gradients[\"dbi\"].shape =", gradients["dbi"].shape)
+print("gradients[\"dbc\"][4] =", gradients["dbc"][4])
+print("gradients[\"dbc\"].shape =", gradients["dbc"].shape)
+print("gradients[\"dbo\"][4] =", gradients["dbo"][4])
+print("gradients[\"dbo\"].shape =", gradients["dbo"].shape)
+
+-----------------
+Original output:
+gradients["dxt"][1][2] = 3.23055911511
+gradients["dxt"].shape = (3, 10)
+gradients["da_prev"][2][3] = -0.0639621419711
+gradients["da_prev"].shape = (5, 10)
+gradients["dc_prev"][2][3] = 0.797522038797
+gradients["dc_prev"].shape = (5, 10)
+gradients["dWf"][3][1] = -0.147954838164
+gradients["dWf"].shape = (5, 8)
+gradients["dWi"][1][2] = 1.05749805523
+gradients["dWi"].shape = (5, 8)
+gradients["dWc"][3][1] = 2.30456216369
+gradients["dWc"].shape = (5, 8)
+gradients["dWo"][1][2] = 0.331311595289
+gradients["dWo"].shape = (5, 8)
+gradients["dbf"][4] = [ 0.18864637]
+gradients["dbf"].shape = (5, 1)
+gradients["dbi"][4] = [-0.40142491]
+gradients["dbi"].shape = (5, 1)
+gradients["dbc"][4] = [ 0.25587763]
+gradients["dbc"].shape = (5, 1)
+gradients["dbo"][4] = [ 0.13893342]
+gradients["dbo"].shape = (5, 1)
+
+Executed output:
+gradients["dxt"][1][2] = 3.2305591151091875
+gradients["dxt"].shape = (3, 10)
+gradients["da_prev"][2][3] = -0.06396214197109241
+gradients["da_prev"].shape = (5, 10)
+gradients["dc_prev"][2][3] = 0.7975220387970015
+gradients["dc_prev"].shape = (5, 10)
+gradients["dWf"][3][1] = -0.1479548381644968
+gradients["dWf"].shape = (5, 8)
+gradients["dWi"][1][2] = 1.0574980552259903
+gradients["dWi"].shape = (5, 8)
+gradients["dWc"][3][1] = 2.3045621636876668
+gradients["dWc"].shape = (5, 8)
+gradients["dWo"][1][2] = 0.3313115952892109
+gradients["dWo"].shape = (5, 8)
+gradients["dbf"][4] = [0.18864637]
+gradients["dbf"].shape = (5, 1)
+gradients["dbi"][4] = [-0.40142491]
+gradients["dbi"].shape = (5, 1)
+gradients["dbc"][4] = [0.25587763]
+gradients["dbc"].shape = (5, 1)
+gradients["dbo"][4] = [0.13893342]
+gradients["dbo"].shape = (5, 1)
+
+-------------------------------------------
+Source Code of a Unmatched Cell 14
+-------------------------------------------
+np.random.seed(1)
+x = np.random.randn(3,10,4)
+a0 = np.random.randn(5,10)
+Wax = np.random.randn(5,3)
+Waa = np.random.randn(5,5)
+Wya = np.random.randn(2,5)
+ba = np.random.randn(5,1)
+by = np.random.randn(2,1)
+parameters = {"Wax": Wax, "Waa": Waa, "Wya": Wya, "ba": ba, "by": by}
+a, y, caches = rnn_forward(x, a0, parameters)
+da = np.random.randn(5, 10, 4)
+gradients = rnn_backward(da, caches)
+
+print("gradients[\"dx\"][1][2] =", gradients["dx"][1][2])
+print("gradients[\"dx\"].shape =", gradients["dx"].shape)
+print("gradients[\"da0\"][2][3] =", gradients["da0"][2][3])
+print("gradients[\"da0\"].shape =", gradients["da0"].shape)
+print("gradients[\"dWax\"][3][1] =", gradients["dWax"][3][1])
+print("gradients[\"dWax\"].shape =", gradients["dWax"].shape)
+print("gradients[\"dWaa\"][1][2] =", gradients["dWaa"][1][2])
+print("gradients[\"dWaa\"].shape =", gradients["dWaa"].shape)
+print("gradients[\"dba\"][4] =", gradients["dba"][4])
+print("gradients[\"dba\"].shape =", gradients["dba"].shape)
+
+-----------------
+Original output:
+gradients["dx"][1][2] = [-2.07101689 -0.59255627  0.02466855  0.01483317]
+gradients["dx"].shape = (3, 10, 4)
+gradients["da0"][2][3] = -0.314942375127
+gradients["da0"].shape = (5, 10)
+gradients["dWax"][3][1] = 11.2641044965
+gradients["dWax"].shape = (5, 3)
+gradients["dWaa"][1][2] = 2.30333312658
+gradients["dWaa"].shape = (5, 5)
+gradients["dba"][4] = [-0.74747722]
+gradients["dba"].shape = (5, 1)
+
+Executed output:
+gradients["dx"][1][2] = [-2.07101689 -0.59255627  0.02466855  0.01483317]
+gradients["dx"].shape = (3, 10, 4)
+gradients["da0"][2][3] = -0.31494237512664996
+gradients["da0"].shape = (5, 10)
+gradients["dWax"][3][1] = 11.264104496527777
+gradients["dWax"].shape = (5, 3)
+gradients["dWaa"][1][2] = 2.303333126579893
+gradients["dWaa"].shape = (5, 5)
+gradients["dba"][4] = [-0.74747722]
+gradients["dba"].shape = (5, 1)
+
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+np.random.seed(1)
+x = np.random.randn(3,10,7)
+a0 = np.random.randn(5,10)
+Wf = np.random.randn(5, 5+3)
+bf = np.random.randn(5,1)
+Wi = np.random.randn(5, 5+3)
+bi = np.random.randn(5,1)
+Wo = np.random.randn(5, 5+3)
+bo = np.random.randn(5,1)
+Wc = np.random.randn(5, 5+3)
+bc = np.random.randn(5,1)
+
+parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
+
+a, y, c, caches = lstm_forward(x, a0, parameters)
+
+da = np.random.randn(5, 10, 4)
+gradients = lstm_backward(da, caches)
+
+print("gradients[\"dx\"][1][2] =", gradients["dx"][1][2])
+print("gradients[\"dx\"].shape =", gradients["dx"].shape)
+print("gradients[\"da0\"][2][3] =", gradients["da0"][2][3])
+print("gradients[\"da0\"].shape =", gradients["da0"].shape)
+print("gradients[\"dWf\"][3][1] =", gradients["dWf"][3][1])
+print("gradients[\"dWf\"].shape =", gradients["dWf"].shape)
+print("gradients[\"dWi\"][1][2] =", gradients["dWi"][1][2])
+print("gradients[\"dWi\"].shape =", gradients["dWi"].shape)
+print("gradients[\"dWc\"][3][1] =", gradients["dWc"][3][1])
+print("gradients[\"dWc\"].shape =", gradients["dWc"].shape)
+print("gradients[\"dWo\"][1][2] =", gradients["dWo"][1][2])
+print("gradients[\"dWo\"].shape =", gradients["dWo"].shape)
+print("gradients[\"dbf\"][4] =", gradients["dbf"][4])
+print("gradients[\"dbf\"].shape =", gradients["dbf"].shape)
+print("gradients[\"dbi\"][4] =", gradients["dbi"][4])
+print("gradients[\"dbi\"].shape =", gradients["dbi"].shape)
+print("gradients[\"dbc\"][4] =", gradients["dbc"][4])
+print("gradients[\"dbc\"].shape =", gradients["dbc"].shape)
+print("gradients[\"dbo\"][4] =", gradients["dbo"][4])
+print("gradients[\"dbo\"].shape =", gradients["dbo"].shape)
+
+-----------------
+Original output:
+gradients["dx"][1][2] = [-0.00173313  0.08287442 -0.30545663 -0.43281115]
+gradients["dx"].shape = (3, 10, 4)
+gradients["da0"][2][3] = -0.095911501954
+gradients["da0"].shape = (5, 10)
+gradients["dWf"][3][1] = -0.0698198561274
+gradients["dWf"].shape = (5, 8)
+gradients["dWi"][1][2] = 0.102371820249
+gradients["dWi"].shape = (5, 8)
+gradients["dWc"][3][1] = -0.0624983794927
+gradients["dWc"].shape = (5, 8)
+gradients["dWo"][1][2] = 0.0484389131444
+gradients["dWo"].shape = (5, 8)
+gradients["dbf"][4] = [-0.0565788]
+gradients["dbf"].shape = (5, 1)
+gradients["dbi"][4] = [-0.15399065]
+gradients["dbi"].shape = (5, 1)
+gradients["dbc"][4] = [-0.29691142]
+gradients["dbc"].shape = (5, 1)
+gradients["dbo"][4] = [-0.29798344]
+gradients["dbo"].shape = (5, 1)
+
+Executed output:
+gradients["dx"][1][2] = [-0.00173313  0.08287442 -0.30545663 -0.43281115]
+gradients["dx"].shape = (3, 10, 4)
+gradients["da0"][2][3] = -0.09591150195400465
+gradients["da0"].shape = (5, 10)
+gradients["dWf"][3][1] = -0.06981985612744011
+gradients["dWf"].shape = (5, 8)
+gradients["dWi"][1][2] = 0.1023718202485478
+gradients["dWi"].shape = (5, 8)
+gradients["dWc"][3][1] = -0.06249837949274524
+gradients["dWc"].shape = (5, 8)
+gradients["dWo"][1][2] = 0.048438913144430155
+gradients["dWo"].shape = (5, 8)
+gradients["dbf"][4] = [-0.0565788]
+gradients["dbf"].shape = (5, 1)
+gradients["dbi"][4] = [-0.15399065]
+gradients["dbi"].shape = (5, 1)
+gradients["dbc"][4] = [-0.29691142]
+gradients["dbc"].shape = (5, 1)
+gradients["dbo"][4] = [-0.29798344]
+gradients["dbo"].shape = (5, 1)
+

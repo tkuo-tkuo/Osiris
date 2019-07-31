@@ -1,0 +1,41 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import sys
+from random import random
+from operator import add
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("PythonPi").getOrCreate()
+
+#partitions = int(sys.argv[1]) if len(sys.argv) > 1 else 2
+partitions = 10
+n = 100000 * partitions
+
+def f(_):
+    x = random() * 2 - 1
+    y = random() * 2 - 1
+    return 1 if x ** 2 + y ** 2 <= 1 else 0
+
+count = spark.sparkContext.parallelize(range(1, n + 1), partitions).map(f).reduce(add)
+print("Pi is roughly %f" % (4.0 * count / n))
+
+spark.stop()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-cb0e801ae371>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mfrom[0m [0moperator[0m [0;32mimport[0m [0madd[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mpyspark[0m[0;34m.[0m[0msql[0m [0;32mimport[0m [0mSparkSession[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0mspark[0m [0;34m=[0m [0mSparkSession[0m[0;34m.[0m[0mbuilder[0m[0;34m.[0m[0mappName[0m[0;34m([0m[0;34m"PythonPi"[0m[0;34m)[0m[0;34m.[0m[0mgetOrCreate[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pyspark'
+ImportError: No module named 'pyspark'
+
+Executability                            : False

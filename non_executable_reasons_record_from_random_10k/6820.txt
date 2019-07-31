@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from keras.models import Sequential
+from keras.layers import Dense, Activation, LSTM
+from keras.optimizers import RMSprop
+
+model = Sequential()
+model.add(LSTM(128, input_shape=(MAXLEN, len(chars)), dropout=0.5))
+model.add(Dense(len(chars)))
+model.add(Activation('softmax'))
+
+optimizer = RMSprop(lr=0.001)
+model.compile(loss='categorical_crossentropy', optimizer=optimizer)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-6-782bd3215b07>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mSequential[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mDense[0m[0;34m,[0m [0mActivation[0m[0;34m,[0m [0mLSTM[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0moptimizers[0m [0;32mimport[0m [0mRMSprop[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mmodel[0m [0;34m=[0m [0mSequential[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

@@ -1,0 +1,76 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Requests library allows you to send organic, grass-fed HTTP/1.1 requests, no need to manually add query strings 
+    # to your URLs, or to form-encode your POST data. Docs: http://docs.python-requests.org/en/master/
+import requests
+
+# Json library parses JSON from strings or files. The library parses JSON into a Python dictionary or list. 
+    # It can also convert Python dictionaries or lists into JSON strings. 
+    # https://docs.python.org/2.7/library/json.html
+import json
+
+# This takes the URL and puts it into a variable (so we only need to ever reference this variable, 
+    # and so we don't have to repeat adding this URL when we want to work with the data)
+SHARE_PROVIDERS = 'https://staging-share.osf.io/api/providers/'
+
+# this requests the data from the SHARE_PROVIDERS and uses the json library to parse it into this list variable
+data = requests.get(SHARE_PROVIDERS).json()
+
+# literally prints out the sentence in the quotes on the screen
+print('Here are the first 10 Providers:')
+
+# this is a for loop (https://wiki.python.org/moin/ForLoop) to repeat the same tasks for each of the items in the 
+    # list of our SHARE providers (what we put into the variable "data").
+# for every item (called 'source' below) in the list, we print out the title, website, and provider name, 
+    # formatted so each is on a new line (\n)
+for source in data['results']:
+    print(
+        '{}\n{}\n{}\n'.format(
+            source['long_title'],
+            source['home_page'],
+            source['provider_name']
+        )
+    )
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mJSONDecodeError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-e3be949eca7d>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     13[0m [0;34m[0m[0m
+[1;32m     14[0m [0;31m# this requests the data from the SHARE_PROVIDERS and uses the json library to parse it into this list variable[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 15[0;31m [0mdata[0m [0;34m=[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mSHARE_PROVIDERS[0m[0;34m)[0m[0;34m.[0m[0mjson[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     16[0m [0;34m[0m[0m
+[1;32m     17[0m [0;31m# literally prints out the sentence in the quotes on the screen[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/requests/models.py[0m in [0;36mjson[0;34m(self, **kwargs)[0m
+[1;32m    890[0m                     [0;31m# used.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    891[0m                     [0;32mpass[0m[0;34m[0m[0m
+[0;32m--> 892[0;31m         [0;32mreturn[0m [0mcomplexjson[0m[0;34m.[0m[0mloads[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mtext[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    893[0m [0;34m[0m[0m
+[1;32m    894[0m     [0;34m@[0m[0mproperty[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/json/__init__.py[0m in [0;36mloads[0;34m(s, encoding, cls, object_hook, parse_float, parse_int, parse_constant, object_pairs_hook, **kw)[0m
+[1;32m    317[0m             [0mparse_int[0m [0;32mis[0m [0;32mNone[0m [0;32mand[0m [0mparse_float[0m [0;32mis[0m [0;32mNone[0m [0;32mand[0m[0;34m[0m[0m
+[1;32m    318[0m             parse_constant is None and object_pairs_hook is None and not kw):
+[0;32m--> 319[0;31m         [0;32mreturn[0m [0m_default_decoder[0m[0;34m.[0m[0mdecode[0m[0;34m([0m[0ms[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    320[0m     [0;32mif[0m [0mcls[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    321[0m         [0mcls[0m [0;34m=[0m [0mJSONDecoder[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/json/decoder.py[0m in [0;36mdecode[0;34m(self, s, _w)[0m
+[1;32m    337[0m [0;34m[0m[0m
+[1;32m    338[0m         """
+[0;32m--> 339[0;31m         [0mobj[0m[0;34m,[0m [0mend[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mraw_decode[0m[0;34m([0m[0ms[0m[0;34m,[0m [0midx[0m[0;34m=[0m[0m_w[0m[0;34m([0m[0ms[0m[0;34m,[0m [0;36m0[0m[0;34m)[0m[0;34m.[0m[0mend[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    340[0m         [0mend[0m [0;34m=[0m [0m_w[0m[0;34m([0m[0ms[0m[0;34m,[0m [0mend[0m[0;34m)[0m[0;34m.[0m[0mend[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    341[0m         [0;32mif[0m [0mend[0m [0;34m!=[0m [0mlen[0m[0;34m([0m[0ms[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/json/decoder.py[0m in [0;36mraw_decode[0;34m(self, s, idx)[0m
+[1;32m    355[0m             [0mobj[0m[0;34m,[0m [0mend[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mscan_once[0m[0;34m([0m[0ms[0m[0;34m,[0m [0midx[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    356[0m         [0;32mexcept[0m [0mStopIteration[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 357[0;31m             [0;32mraise[0m [0mJSONDecodeError[0m[0;34m([0m[0;34m"Expecting value"[0m[0;34m,[0m [0ms[0m[0;34m,[0m [0merr[0m[0;34m.[0m[0mvalue[0m[0;34m)[0m [0;32mfrom[0m [0;32mNone[0m[0;34m[0m[0m
+[0m[1;32m    358[0m         [0;32mreturn[0m [0mobj[0m[0;34m,[0m [0mend[0m[0;34m[0m[0m
+
+[0;31mJSONDecodeError[0m: Expecting value: line 1 column 1 (char 0)
+JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+Executability                            : False

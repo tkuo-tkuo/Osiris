@@ -1,0 +1,24 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 8 ; number of cells: 10
+Reproducibility                          : matched ratio: 0.8 ; index of matched cells: [0, 1, 2, 3, 4, 5, 7, 9]
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+filter(asal_mi,range(1,100))
+
+-----------------
+Original output:
+<filter at 0xa4bab50550>
+Executed output:
+<filter at 0x7fec956409b0>
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+filter(lambda x : x % 2 == 0, [1,2,3,4,5,6,7,8,9,10])
+
+-----------------
+Original output:
+<filter at 0xa4bab50438>
+Executed output:
+<filter at 0x7fec9565fa58>

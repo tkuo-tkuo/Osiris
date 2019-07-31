@@ -1,0 +1,24 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+
+
+for(i in (urls)) {
+  html <- read_html(i)
+
+    # This line grabs the html read in, and defines the funciton output variable
+    tbls2_ls$Description <- html %>%
+        # Takes the html and grabs only the "table" nodes 
+        html_nodes("table") %>% 
+        # Grabs only the first ([1])table
+        .[1] %>%
+        # Fills a new table 
+        html_table(fill = TRUE) %>%
+        .[[1]]
+------------------
+
+SyntaxError: invalid syntax (<ipython-input-1-180259183297>, line 5)
+
+Executability                            : False

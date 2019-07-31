@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+print("Pos-to-neg ratio for 'the' = {}".format(pos_neg_ratios["the"]))
+print("Pos-to-neg ratio for 'amazing' = {}".format(pos_neg_ratios["amazing"]))
+print("Pos-to-neg ratio for 'terrible' = {}".format(pos_neg_ratios["terrible"]))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-14-e35780a22f02>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mprint[0m[0;34m([0m[0;34m"Pos-to-neg ratio for 'the' = {}"[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mpos_neg_ratios[0m[0;34m[[0m[0;34m"the"[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0;34m"Pos-to-neg ratio for 'amazing' = {}"[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mpos_neg_ratios[0m[0;34m[[0m[0;34m"amazing"[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mprint[0m[0;34m([0m[0;34m"Pos-to-neg ratio for 'terrible' = {}"[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mpos_neg_ratios[0m[0;34m[[0m[0;34m"terrible"[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pos_neg_ratios' is not defined
+NameError: name 'pos_neg_ratios' is not defined
+
+Executability                            : False

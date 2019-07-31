@@ -1,0 +1,22 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 14 ; number of cells: 15
+Reproducibility                          : matched ratio: 0.933 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14]
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+animals_col.sum()
+
+-----------------
+Original output:
+        bad  good
+dog     2.0   4.0
+cat     NaN  12.0
+bird   18.0  20.0
+mouse  26.0  28.0
+Executed output:
+        bad  good
+dog     2.0   4.0
+cat     0.0  12.0
+bird   18.0  20.0
+mouse  26.0  28.0

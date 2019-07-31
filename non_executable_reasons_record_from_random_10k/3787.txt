@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+#import matplotlib
+#matplotlib.use('tkAgg')
+import matplotlib.pyplot as plt
+from opinions import OpinionModel
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-66846882a382>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;31m#matplotlib.use('tkAgg')[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mopinions[0m [0;32mimport[0m [0mOpinionModel[0m[0;34m[0m[0m
+[0m
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/mjsottile@MesaOpinionGame/opinions.py[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mmesa[0m [0;32mimport[0m [0mAgent[0m[0;34m,[0m [0mModel[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mmesa[0m[0;34m.[0m[0mtime[0m [0;32mimport[0m [0mStagedActivation[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mmesa[0m[0;34m.[0m[0mdatacollection[0m [0;32mimport[0m [0mDataCollector[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mrandom[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'mesa'
+ImportError: No module named 'mesa'
+
+Executability                            : False

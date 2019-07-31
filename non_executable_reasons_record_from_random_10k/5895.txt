@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import numpy as np
+np.set_printoptions(threshold=np.nan)
+from scipy.stats import *
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-1-6eaf19f98987>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mnp[0m[0;34m.[0m[0mset_printoptions[0m[0;34m([0m[0mthreshold[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0mnan[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mstats[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/numpy/core/arrayprint.py[0m in [0;36mset_printoptions[0;34m(precision, threshold, edgeitems, linewidth, suppress, nanstr, infstr, formatter, sign, floatmode, **kwarg)[0m
+[1;32m    244[0m     opt = _make_options_dict(precision, threshold, edgeitems, linewidth,
+[1;32m    245[0m                              [0msuppress[0m[0;34m,[0m [0mnanstr[0m[0;34m,[0m [0minfstr[0m[0;34m,[0m [0msign[0m[0;34m,[0m [0mformatter[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 246[0;31m                              floatmode, legacy)
+[0m[1;32m    247[0m     [0;31m# formatter is always reset[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    248[0m     [0mopt[0m[0;34m[[0m[0;34m'formatter'[0m[0;34m][0m [0;34m=[0m [0mformatter[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/numpy/core/arrayprint.py[0m in [0;36m_make_options_dict[0;34m(precision, threshold, edgeitems, linewidth, suppress, nanstr, infstr, sign, formatter, floatmode, legacy)[0m
+[1;32m     91[0m         [0;31m# forbid the bad threshold arg suggested by stack overflow, gh-12351[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     92[0m         [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mthreshold[0m[0;34m,[0m [0mnumbers[0m[0;34m.[0m[0mNumber[0m[0;34m)[0m [0;32mor[0m [0mnp[0m[0;34m.[0m[0misnan[0m[0;34m([0m[0mthreshold[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 93[0;31m             raise ValueError("threshold must be numeric and non-NAN, try "
+[0m[1;32m     94[0m                              "sys.maxsize for untruncated representation")
+[1;32m     95[0m     [0;32mreturn[0m [0moptions[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: threshold must be numeric and non-NAN, try sys.maxsize for untruncated representation
+ValueError: threshold must be numeric and non-NAN, try sys.maxsize for untruncated representation
+
+Executability                            : False

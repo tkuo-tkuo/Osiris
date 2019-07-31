@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.signal import argrelextrema
+
+import pandas as pd
+print(pd.__version__)
+print(pd.__path__)
+pd.set_option('display.max_colwidth', -1)
+
+import pyarrow
+print(pyarrow.__version__)
+print(pyarrow.__path__)
+
+import pyspark
+import pyspark.sql
+print(pyspark.__version__)
+print(pyspark.__path__)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-5-7e3d204bc749>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0mpd[0m[0;34m.[0m[0mset_option[0m[0;34m([0m[0;34m'display.max_colwidth'[0m[0;34m,[0m [0;34m-[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;34m[0m[0m
+[0;32m---> 10[0;31m [0;32mimport[0m [0mpyarrow[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0mprint[0m[0;34m([0m[0mpyarrow[0m[0;34m.[0m[0m__version__[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0mprint[0m[0;34m([0m[0mpyarrow[0m[0;34m.[0m[0m__path__[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pyarrow'
+ModuleNotFoundError: No module named 'pyarrow'
+
+Executability                            : False

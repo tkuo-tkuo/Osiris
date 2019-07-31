@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# indexの値を変えることができるでしょうか？
+my_index[0] = 'Z'
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-d701e8189896>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# indexの値を変えることができるでしょうか？[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mmy_index[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m=[0m [0;34m'Z'[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/indexes/base.py[0m in [0;36m__setitem__[0;34m(self, key, value)[0m
+[1;32m   2048[0m [0;34m[0m[0m
+[1;32m   2049[0m     [0;32mdef[0m [0m__setitem__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 2050[0;31m         [0;32mraise[0m [0mTypeError[0m[0;34m([0m[0;34m"Index does not support mutable operations"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2051[0m [0;34m[0m[0m
+[1;32m   2052[0m     [0;32mdef[0m [0m__getitem__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: Index does not support mutable operations
+TypeError: Index does not support mutable operations
+
+Executability                            : False

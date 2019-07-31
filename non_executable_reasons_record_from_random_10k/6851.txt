@@ -1,0 +1,124 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from nltk.corpus import floresta
+from nltk import DefaultTagger, AffixTagger, UnigramTagger, BigramTagger, TrigramTagger
+
+tagged_sents = floresta.tagged_sents()
+t0 = DefaultTagger('H+n') # if word not known, just guess "noun"
+affix_tagger = AffixTagger(tagged_sents, backoff=t0)
+unigram_tagger = UnigramTagger(tagged_sents, cutoff=0, backoff=affix_tagger)
+bigram_tagger = BigramTagger(tagged_sents, cutoff=0, backoff=unigram_tagger)
+trigram_tagger = TrigramTagger(tagged_sents, cutoff=0, backoff=bigram_tagger)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mLookupError[0m                               Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     79[0m             [0;32mexcept[0m [0mLookupError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 80[0;31m                 [0;32mtry[0m[0;34m:[0m [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'{}/{}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mself[0m[0;34m.[0m[0msubdir[0m[0;34m,[0m [0mzip_name[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     81[0m                 [0;32mexcept[0m [0mLookupError[0m[0;34m:[0m [0;32mraise[0m [0me[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/data.py[0m in [0;36mfind[0;34m(resource_name, paths)[0m
+[1;32m    674[0m     [0mresource_not_found[0m [0;34m=[0m [0;34m'\n%s\n%s\n%s\n'[0m [0;34m%[0m [0;34m([0m[0msep[0m[0;34m,[0m [0mmsg[0m[0;34m,[0m [0msep[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 675[0;31m     [0;32mraise[0m [0mLookupError[0m[0;34m([0m[0mresource_not_found[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    676[0m [0;34m[0m[0m
+
+[0;31mLookupError[0m: 
+**********************************************************************
+  Resource [93mfloresta[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('floresta')
+  [0m
+  Searched in:
+    - '/home/dabao/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py35/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py35/share/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py35/lib/nltk_data'
+**********************************************************************
+
+
+During handling of the above exception, another exception occurred:
+
+[0;31mLookupError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-4-4de99e5cec35>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;32mfrom[0m [0mnltk[0m [0;32mimport[0m [0mDefaultTagger[0m[0;34m,[0m [0mAffixTagger[0m[0;34m,[0m [0mUnigramTagger[0m[0;34m,[0m [0mBigramTagger[0m[0;34m,[0m [0mTrigramTagger[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0mtagged_sents[0m [0;34m=[0m [0mfloresta[0m[0;34m.[0m[0mtagged_sents[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mt0[0m [0;34m=[0m [0mDefaultTagger[0m[0;34m([0m[0;34m'H+n'[0m[0;34m)[0m [0;31m# if word not known, just guess "noun"[0m[0;34m[0m[0m
+[1;32m      6[0m [0maffix_tagger[0m [0;34m=[0m [0mAffixTagger[0m[0;34m([0m[0mtagged_sents[0m[0;34m,[0m [0mbackoff[0m[0;34m=[0m[0mt0[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/corpus/util.py[0m in [0;36m__getattr__[0;34m(self, attr)[0m
+[1;32m    114[0m             [0;32mraise[0m [0mAttributeError[0m[0;34m([0m[0;34m"LazyCorpusLoader object has no attribute '__bases__'"[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    115[0m [0;34m[0m[0m
+[0;32m--> 116[0;31m         [0mself[0m[0;34m.[0m[0m__load[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    117[0m         [0;31m# This looks circular, but its not, since __load() changes our[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    118[0m         [0;31m# __class__ to something new:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     79[0m             [0;32mexcept[0m [0mLookupError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     80[0m                 [0;32mtry[0m[0;34m:[0m [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'{}/{}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mself[0m[0;34m.[0m[0msubdir[0m[0;34m,[0m [0mzip_name[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 81[0;31m                 [0;32mexcept[0m [0mLookupError[0m[0;34m:[0m [0;32mraise[0m [0me[0m[0;34m[0m[0m
+[0m[1;32m     82[0m [0;34m[0m[0m
+[1;32m     83[0m         [0;31m# Load the corpus.[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     76[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     77[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 78[0;31m                 [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'{}/{}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mself[0m[0;34m.[0m[0msubdir[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m__name[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     79[0m             [0;32mexcept[0m [0mLookupError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     80[0m                 [0;32mtry[0m[0;34m:[0m [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'{}/{}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mself[0m[0;34m.[0m[0msubdir[0m[0;34m,[0m [0mzip_name[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/data.py[0m in [0;36mfind[0;34m(resource_name, paths)[0m
+[1;32m    673[0m     [0msep[0m [0;34m=[0m [0;34m'*'[0m [0;34m*[0m [0;36m70[0m[0;34m[0m[0m
+[1;32m    674[0m     [0mresource_not_found[0m [0;34m=[0m [0;34m'\n%s\n%s\n%s\n'[0m [0;34m%[0m [0;34m([0m[0msep[0m[0;34m,[0m [0mmsg[0m[0;34m,[0m [0msep[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 675[0;31m     [0;32mraise[0m [0mLookupError[0m[0;34m([0m[0mresource_not_found[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    676[0m [0;34m[0m[0m
+[1;32m    677[0m [0;34m[0m[0m
+
+[0;31mLookupError[0m: 
+**********************************************************************
+  Resource [93mfloresta[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('floresta')
+  [0m
+  Searched in:
+    - '/home/dabao/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py35/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py35/share/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py35/lib/nltk_data'
+**********************************************************************
+
+LookupError: 
+**********************************************************************
+  Resource [93mfloresta[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('floresta')
+  [0m
+  Searched in:
+    - '/home/dabao/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py35/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py35/share/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py35/lib/nltk_data'
+**********************************************************************
+
+
+Executability                            : False

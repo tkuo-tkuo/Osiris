@@ -1,0 +1,56 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import nltk
+from nltk.tokenize import TweetTokenizer
+import gensim
+from gensim import corpora, models, similarities
+import tweepy
+import requests
+import numpy as np
+import re
+from bs4 import BeautifulSoup
+from keras.models import load_model
+import matplotlib.pyplot as plt
+
+tknzr = TweetTokenizer()
+
+
+df = pd.read_csv('clean_tweet.csv');
+
+df.dropna(inplace=True)
+df.reset_index(drop=True,inplace=True)
+
+#x = df.text
+x = df['text'].values.tolist()
+
+
+
+token_corpus = [nltk.word_tokenize(sent) for sent in x ]
+
+
+
+model = gensim.models.Word2Vec(token_corpus, min_count=3, size=200, window=5, workers=4)
+
+model.save("tweets2")
+
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-f7cb2132f68f>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnltk[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtokenize[0m [0;32mimport[0m [0mTweetTokenizer[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mgensim[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0mgensim[0m [0;32mimport[0m [0mcorpora[0m[0;34m,[0m [0mmodels[0m[0;34m,[0m [0msimilarities[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mtweepy[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'gensim'
+ModuleNotFoundError: No module named 'gensim'
+
+Executability                            : False

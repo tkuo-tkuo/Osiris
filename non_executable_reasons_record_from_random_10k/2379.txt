@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+init_notebook_mode(True)
+
+
+
+blogwrds_trace = go.Histogram(x=[k for k in blog_set.all_keywords])
+newswrds_trace = go.Histogram(x=[k for k in news_set.all_keywords])
+allwrds_trace = go.Histogram(x=[k for k in data.all_keywords])
+
+fig = tools.make_subplots(rows=2, cols=2, specs=[[{}, {}], [{'colspan': 2}, None]], subplot_titles=('Blog Keywords', 'News Keywords', 'All Keywords'))
+
+fig.append_trace(allwrds_trace, 2, 1)
+fig.append_trace(blogwrds_trace, 1, 1)
+fig.append_trace(newswrds_trace, 1, 2)
+fig['layout'].update(showlegend=False, title='Keyword Frequencies')
+iplot(fig)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-e954c5c0077c>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0minit_notebook_mode[0m[0;34m([0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'init_notebook_mode' is not defined
+NameError: name 'init_notebook_mode' is not defined
+
+Executability                            : False

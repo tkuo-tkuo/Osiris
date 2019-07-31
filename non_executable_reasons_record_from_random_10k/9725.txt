@@ -1,0 +1,70 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#1b
+#Solving for theta means solving for z_1
+#changed t to x so t=0 and t=40s need to be changed
+#Initial condition is theta (z_1) = 0 and dtheta/dt=0 -> need to be changed as variable changed to x
+
+# Import the required modules
+import numpy as np
+import scipy
+from printSoln import *
+from run_kut4 import *
+import pylab as pl
+
+g=9.81 #ms^-2
+l=0.1 #m
+C=2 #s^-2
+OMEGA=5 #s^-1
+
+omega=np.sqrt(g/l)
+
+# First set up the right-hand side RHS) of the equation
+Gamma= C/omega**2
+beta=OMEGA/omega
+def Eqs(x,y):
+    f=np.zeros(2)            # sets up RHS as a vector 
+    f[0]=y[1]
+    f[1]=-np.sin(y[0])+Gamma*np.sin(x*beta)*np.cos(y[0])  # RHS; note that z is also a vector
+    return f
+
+# Using Runge-Kutta of 4th order
+
+y = np.array([0.0, 0.0]) # Initial values
+
+#start at t=0 -> x=0 (as omega*t when t=0 is 0)
+x = 0.0 # Start of integration (Always use floats)
+
+#Finish at t=40s -> xStop= omega*40
+xStop = omega*40.0 # End of integration
+
+h = 0.01 # Step size
+
+
+X,Y = integrate(Eqs,x,y,xStop,h) # call the RK4 solver
+
+ThetaSol1=Y[:,0]
+dThetaSol1=Y[:,1]
+tsol1=X/omega
+
+pl.plot(tsol1,ThetaSol1)              # Plot the solution
+pl.xlabel('t(s)')
+pl.ylabel('$\Theta \ (radians)$')
+pl.title('Plot of $ \Theta \ $ Aganst t')
+pl.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-8eef1edf168f>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mscipy[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mfrom[0m [0mprintSoln[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;32mfrom[0m [0mrun_kut4[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mimport[0m [0mpylab[0m [0;32mas[0m [0mpl[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'printSoln'
+ModuleNotFoundError: No module named 'printSoln'
+
+Executability                            : False

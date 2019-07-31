@@ -1,0 +1,38 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# RC Params
+%matplotlib inline
+%config InlineBackend.figure_format = 'retina'
+mpl.rcParams['figure.figsize'] = (14,1)
+
+# Create a black image
+img = np.full((1024,1024,3), 255, np.uint8)
+
+# Color Palette
+colors = {'yellow': [181,137,0], 'orange' : [186,84,0], 'red' : [176,47,48], \
+         'magenta': [209,65,135], 'violet': [144,89,212], 'blue': [15,134,217], \
+         'cyan': [0,163,151], 'green': [104,138,10], 'brown': [156,98,48]}
+
+fig = plt.figure()
+for i, (color, rgb) in enumerate(colors.items()):
+    axis = fig.add_subplot(1,9,i+1)
+    cv2.circle(img, (512, 512), 512, (rgb[0], rgb[1], rgb[2]), -1)
+    plt.title(color, y=-0.50)
+    plt.axis('off')
+    plt.imshow(img);
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-ad5577f272b3>[0m in [0;36m<module>[0;34m[0m
+[1;32m     15[0m [0;32mfor[0m [0mi[0m[0;34m,[0m [0;34m([0m[0mcolor[0m[0;34m,[0m [0mrgb[0m[0;34m)[0m [0;32min[0m [0menumerate[0m[0;34m([0m[0mcolors[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m     [0maxis[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0madd_subplot[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m9[0m[0;34m,[0m[0mi[0m[0;34m+[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 17[0;31m     [0mcv2[0m[0;34m.[0m[0mcircle[0m[0;34m([0m[0mimg[0m[0;34m,[0m [0;34m([0m[0;36m512[0m[0;34m,[0m [0;36m512[0m[0;34m)[0m[0;34m,[0m [0;36m512[0m[0;34m,[0m [0;34m([0m[0mrgb[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mrgb[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0mrgb[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m)[0m[0;34m,[0m [0;34m-[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     18[0m     [0mplt[0m[0;34m.[0m[0mtitle[0m[0;34m([0m[0mcolor[0m[0;34m,[0m [0my[0m[0;34m=[0m[0;34m-[0m[0;36m0.50[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m     [0mplt[0m[0;34m.[0m[0maxis[0m[0;34m([0m[0;34m'off'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'cv2' is not defined
+NameError: name 'cv2' is not defined
+
+Executability                            : False

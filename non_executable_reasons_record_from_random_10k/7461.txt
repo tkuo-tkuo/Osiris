@@ -1,0 +1,22 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import csv
+import sqlite3
+
+pd.set_option('max_columns', 180)
+pd.set_option('max_rows', 200000)
+pd.set_option('max_colwidth', 5000)
+
+log = pd.read_csv("game_log.csv", low_memory = False)
+
+print(log.shape)
+log.head(5)
+------------------
+
+FileNotFoundError: File b'game_log.csv' does not exist
+
+Executability                            : False

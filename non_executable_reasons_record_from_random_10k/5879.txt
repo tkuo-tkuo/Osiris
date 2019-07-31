@@ -1,0 +1,33 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+for team in teams:
+    name = get_api(team['_links']['self']['href'], 'name')
+    fixtures = get_api(team['_links']['fixtures']['href'], 'fixtures')
+    home_goals = 0
+    away_goals = 0
+    for i in fixtures:
+        if i['status'] != 'FINISHED':
+            continue
+        if team['name'] == i['awayTeamName']:
+            away_goals += i['result']['goalsAwayTeam']
+        else:
+            home_goals += i['result']['goalsHomeTeam']
+    print('team: {}, home_goals: {}, away_goals: {}'.format(name, home_goals, away_goals))
+    team['away_goals'] = away_goals
+    team['home_goals'] = home_goals
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-a3c868db403a>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfor[0m [0mteam[0m [0;32min[0m [0mteams[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0mname[0m [0;34m=[0m [0mget_api[0m[0;34m([0m[0mteam[0m[0;34m[[0m[0;34m'_links'[0m[0;34m][0m[0;34m[[0m[0;34m'self'[0m[0;34m][0m[0;34m[[0m[0;34m'href'[0m[0;34m][0m[0;34m,[0m [0;34m'name'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m     [0mfixtures[0m [0;34m=[0m [0mget_api[0m[0;34m([0m[0mteam[0m[0;34m[[0m[0;34m'_links'[0m[0;34m][0m[0;34m[[0m[0;34m'fixtures'[0m[0;34m][0m[0;34m[[0m[0;34m'href'[0m[0;34m][0m[0;34m,[0m [0;34m'fixtures'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mhome_goals[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0maway_goals[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: 'NoneType' object is not iterable
+TypeError: 'NoneType' object is not iterable
+
+Executability                            : False

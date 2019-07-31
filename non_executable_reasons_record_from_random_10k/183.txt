@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import jieba
+corpus = []
+for m in df.message.tolist():
+    corpus.extend([w for w in jieba.cut(m)])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-4d03c0015add>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mjieba[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mcorpus[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfor[0m [0mm[0m [0;32min[0m [0mdf[0m[0;34m.[0m[0mmessage[0m[0;34m.[0m[0mtolist[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mcorpus[0m[0;34m.[0m[0mextend[0m[0;34m([0m[0;34m[[0m[0mw[0m [0;32mfor[0m [0mw[0m [0;32min[0m [0mjieba[0m[0;34m.[0m[0mcut[0m[0;34m([0m[0mm[0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
+
+Executability                            : False

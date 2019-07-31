@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+a = [int(l) for l in input().split()]
+b = []
+if len(a) != 1 :
+    for i in range(0, len(a)) :
+        if i != len(a)-1 :
+            s = a[i-1] + a[i+1]
+            b.append(s)
+        else:
+            s = a[i-1] + a[0]
+            b.append(s)
+#    print(b)
+    if len(b) > 0 :
+        for k in b :
+            print(k, '', end='')
+
+else:
+    print(a[0])
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-1-96e03880820c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0ma[0m [0;34m=[0m [0;34m[[0m[0mint[0m[0;34m([0m[0ml[0m[0;34m)[0m [0;32mfor[0m [0ml[0m [0;32min[0m [0minput[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mb[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mif[0m [0mlen[0m[0;34m([0m[0ma[0m[0;34m)[0m [0;34m!=[0m [0;36m1[0m [0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

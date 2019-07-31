@@ -1,0 +1,17 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import csv
+
+fandango = pd.read_csv('fandango_score_comparison.csv')
+
+print(fandango.shape)
+print(fandango.columns)
+------------------
+
+FileNotFoundError: File b'fandango_score_comparison.csv' does not exist
+
+Executability                            : False

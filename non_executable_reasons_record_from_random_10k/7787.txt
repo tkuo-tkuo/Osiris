@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+data = front(df, '2016-09-03')
+
+ax = []
+ax.append(subplot2grid((3,1),(0,0), rowspan=2))
+ax.append(subplot2grid((3,1),(2,0)))
+
+ax[0].plot(data.t, data.px)
+ax[1].plot(data.t, data.sz.cumsum(), c=tableau[3])
+
+ax[0].xaxis.set_major_formatter(xfmt)
+ax[1].xaxis.set_major_formatter(xfmt)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-03dcdbcaae14>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdata[0m [0;34m=[0m [0mfront[0m[0;34m([0m[0mdf[0m[0;34m,[0m [0;34m'2016-09-03'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0max[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      4[0m [0max[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0msubplot2grid[0m[0;34m([0m[0;34m([0m[0;36m3[0m[0;34m,[0m[0;36m1[0m[0;34m)[0m[0;34m,[0m[0;34m([0m[0;36m0[0m[0;34m,[0m[0;36m0[0m[0;34m)[0m[0;34m,[0m [0mrowspan[0m[0;34m=[0m[0;36m2[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0max[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0msubplot2grid[0m[0;34m([0m[0;34m([0m[0;36m3[0m[0;34m,[0m[0;36m1[0m[0;34m)[0m[0;34m,[0m[0;34m([0m[0;36m2[0m[0;34m,[0m[0;36m0[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
+
+Executability                            : False

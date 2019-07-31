@@ -1,0 +1,35 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+corpus_feat = pd.read_csv('corpus_liwc_mtx.csv.gz', compression='gzip')
+
+# fix labels to binary
+def classFit(x):
+    if x['class'] == "diario":
+        return 1
+    else:
+        return -1
+    
+corpus_feat['class_'] = corpus_feat.apply(classFit,axis=1)
+target = corpus_feat['class_'].values
+
+print(corpus_feat['class'].values[:2])
+print(corpus_feat['class_'][:2])
+corpus_feat.shape
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-da35a54937b5>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mcorpus_feat[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'corpus_liwc_mtx.csv.gz'[0m[0;34m,[0m [0mcompression[0m[0;34m=[0m[0;34m'gzip'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;31m# fix labels to binary[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

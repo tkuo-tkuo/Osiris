@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+scaled_features = scaler.transform(df.drop('TARGET CLASS',axis=1))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-0bb3fb5d6c72>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mscaled_features[0m [0;34m=[0m [0mscaler[0m[0;34m.[0m[0mtransform[0m[0;34m([0m[0mdf[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0;34m'TARGET CLASS'[0m[0;34m,[0m[0maxis[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'scaler' is not defined
+NameError: name 'scaler' is not defined
+
+Executability                            : False

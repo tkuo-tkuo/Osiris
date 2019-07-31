@@ -1,0 +1,31 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+results = getresults(7,7)
+print(results)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-5-c61b674d80db>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mresults[0m [0;34m=[0m [0mgetresults[0m[0;34m([0m[0;36m7[0m[0;34m,[0m[0;36m7[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0mresults[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-3e942e2e1f2e>[0m in [0;36mwrap[0;34m(*args)[0m
+[1;32m     21[0m               (f.__name__, (time2 - time1) * 1000.0))
+[1;32m     22[0m         writetofile('%s function took %0.3f ms' %
+[0;32m---> 23[0;31m                     (f.__name__, (time2 - time1) * 1000.0))
+[0m[1;32m     24[0m         [0;32mreturn[0m[0;34m([0m[0mret[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     25[0m     [0;32mreturn[0m [0mwrap[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-3e942e2e1f2e>[0m in [0;36mwritetofile[0;34m(text)[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;32mdef[0m [0mwritetofile[0m[0;34m([0m[0mtext[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"out.txt"[0m[0;34m,[0m [0;34m"a"[0m[0;34m)[0m [0;32mas[0m [0mofile[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     11[0m         [0mofile[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mstr[0m[0;34m([0m[0mtext[0m[0;34m)[0m [0;34m+[0m [0;34m"\n"[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     12[0m [0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'out.txt'
+PermissionError: [Errno 13] Permission denied: 'out.txt'
+
+Executability                            : False

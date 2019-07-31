@@ -1,0 +1,105 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Excercise 1
+
+from __future__ import print_function, division
+import cmd
+
+
+class Calculator(cmd.Cmd):
+    prompt = 'calc >>> '
+    intro = 'Simple calculator that can do addition, subtraction, multiplication and division.'
+
+    def do_add(self, line):
+            args = line.split()
+            total = 0
+            for arg in args:
+                    total += float(arg.strip())
+            print(total)
+
+    def help_add(self):
+            print('\n'.join([
+                    'add [number,]',
+                    'Add the arguments together and display the total.'
+            ]))
+
+    def do_subtract(self, line):
+            args = line.split()
+            total = 0
+            if len(args) > 0:
+                    total = float(args[0])
+            for arg in args[1:]:
+                    total -= float(arg.strip())
+            print(total)
+
+    def help_subtract(self):
+            print('\n'.join([
+                    'subtract [number,]',
+                    'Subtract all following arguments from the first argument.'
+            ]))
+    def do_multiply(self, line):
+            args = line.split()
+            total = 0
+            if len(args) > 0:
+                    total = float(args[0])
+            for arg in args[1:]:
+                    total *= float(arg.strip())
+            print(total)
+
+    def help_multiply(self):
+            print('\n'.join([
+                    'Multiply [number,]',
+                    'Multiply all following arguments from the first argument.'
+            ]))
+    def do_divide(self, line):
+            args = line.split()
+            total = 0
+            if len(args) > 0:
+                    total = float(args[0])
+            for arg in args[1:]:
+                    total /= float(arg.strip())
+            print(total)
+
+    def help_divide(self):
+            print('\n'.join([
+                    'Divide [number,]',
+                    'Divide all following arguments from the first argument.'
+            ]))
+
+    def do_EOF(self, line):
+            print('bye, bye')
+            return True
+
+
+if __name__ == '__main__':
+      Calculator().cmdloop()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-1-52f58410c434>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     73[0m [0;34m[0m[0m
+[1;32m     74[0m [0;32mif[0m [0m__name__[0m [0;34m==[0m [0;34m'__main__'[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 75[0;31m       [0mCalculator[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mcmdloop[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/cmd.py[0m in [0;36mcmdloop[0;34m(self, intro)[0m
+[1;32m    124[0m                     [0;32mif[0m [0mself[0m[0;34m.[0m[0muse_rawinput[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    125[0m                         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 126[0;31m                             [0mline[0m [0;34m=[0m [0minput[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mprompt[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    127[0m                         [0;32mexcept[0m [0mEOFError[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    128[0m                             [0mline[0m [0;34m=[0m [0;34m'EOF'[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

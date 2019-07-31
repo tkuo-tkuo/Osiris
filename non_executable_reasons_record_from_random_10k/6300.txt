@@ -1,0 +1,51 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from newspaperaccess import *
+
+# Get the connection set up to get access to the newspaper text
+n = NewspaperArchive()
+
+# Load up the references to the pages that we know reference Abolitionists
+import csv
+
+# Month list to convert a name to a number:
+MONTHS = {"january": "01", "february": "02", "march": "03", "april": "04", "may": "05", "june": "06", 
+          "july": "07", "august": "08", "september": "09", "october": "10", "november": "11", "december": "12"}
+
+# a method to open the csv file, read it in and store the references in the list
+def get_references(filename):
+    
+    # Start a list to hold the references
+    references = []
+    
+    with open(filename, "r") as pcsv:
+    
+        # this "DictReader" opens the csv file up and then uses the column headers
+        # to work out what to call each bit of data
+        reflist = csv.DictReader(pcsv)
+    
+        # now go through each row, adding them to the list
+        for row in reflist:
+            # a row will be something like:
+            #   {"Newspaper": "Glasgow Herald", "Day": "24", "Month": "January", "Year": "1851", Page: "", etc}
+        
+            # change the month to be a number, not a name:
+            row["month"] = MONTHS[row['month'].lower()]
+            
+            references.append(row)
+    return references
+
+positivereferences = get_references("positives.csv")
+
+# There, we should have a big list draw from that spreadsheet
+# Let's see what the 100th item is: (computers count from 0!)
+
+positivereferences[100]
+------------------
+
+FileNotFoundError: [Errno 2] No such file or directory: 'positives.csv'
+
+Executability                            : False

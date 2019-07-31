@@ -1,0 +1,383 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 4 ; number of cells: 5
+Reproducibility                          : matched ratio: 0.8 ; index of matched cells: [0, 1, 2, 3]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+unittest.main(argv=['ignored', '-v'], exit=False)
+
+-----------------
+Original output:
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+<unittest.main.TestProgram at 0x7f540f7148d0>
+Executed output:
+test_Ei (__main__.TestNormalizace012) ... ok
+test_is012NormalizedNaive (__main__.TestNormalizace012) ... ok
+test_isEipal (__main__.TestNormalizace012) ... ok
+test_normalize012 (__main__.TestNormalizace012) ... Prefixes from (delta, theta): ['0', '00', '0011', '00112200']
+Obtained word: 00112200
+0
+00
+0011
+001122
+00112200
+Prefixes from (delta, theta): ['0', '02', '021', '021021']
+Obtained word: 021021
+0
+02
+021
+0210
+02102
+021021
+Prefixes from (delta, theta): ['0', '01', '0112', '0112200112']
+Obtained word: 0112200112
+0
+01
+0112
+011220
+01122001
+0112200112
+Prefixes from (delta, theta): ['0', '00', '00100', '00100100']
+Obtained word: 00100100
+0
+00
+00100
+00100100
+Prefixes from (delta, theta): ['0', '01', '010', '01020', '01020120212', '010201202121020212012101', '01020120212102021201210102121012010202101020120212']
+Obtained word: 01020120212102021201210102121012010202101020120212
+0
+01
+010
+01020
+01020120212
+010201202121020212012101
+0102012021210202120121010212101201020
+01020120212102021201210102121012010202101020120212
+Prefixes from (delta, theta): ['0', '00', '0022', '002211', '002211002211']
+Obtained word: 002211002211
+0
+00
+0022
+002211
+00221100
+0022110022
+002211002211
+Prefixes from (delta, theta): ['0', '01', '0101']
+Obtained word: 0101
+0
+01
+010
+0101
+Prefixes from (delta, theta): ['0', '012', '0121012']
+Obtained word: 0121012
+0
+01
+012
+01210
+0121012
+Prefixes from (delta, theta): ['0', '01', '0112', '0112200112']
+Obtained word: 0112200112
+0
+01
+0112
+011220
+01122001
+0112200112
+Prefixes from (delta, theta): ['0', '01', '012', '0120', '0120210120']
+Obtained word: 0120210120
+0
+01
+012
+0120
+0120210
+0120210120
+Prefixes from (delta, theta): ['0', '01', '012', '01210201']
+Obtained word: 01210201
+0
+01
+012
+01210
+01210201
+Prefixes from (delta, theta): ['0', '01', '012', '01210', '0121012', '0121012102010201']
+Obtained word: 0121012102010201
+0
+01
+012
+01210
+0121012
+012101210
+0121012102010201
+Prefixes from (delta, theta): ['0', '010']
+Obtained word: 010
+0
+01
+010
+Prefixes from (delta, theta): ['0', '01', '011220']
+Obtained word: 011220
+0
+01
+0112
+011220
+Prefixes from (delta, theta): ['0', '01', '011001']
+Obtained word: 011001
+0
+01
+0110
+011001
+Prefixes from (delta, theta): ['0', '012']
+Obtained word: 012
+0
+01
+012
+Prefixes from (delta, theta): ['0', '01', '010', '0101212']
+Obtained word: 0101212
+0
+01
+010
+0101
+0101212
+Prefixes from (delta, theta): ['0', '01', '010', '0101', '01010', '01010121212']
+Obtained word: 01010121212
+0
+01
+010
+0101
+01010
+010101
+01010121212
+Prefixes from (delta, theta): ['0', '01', '010', '01010']
+Obtained word: 01010
+0
+01
+010
+0101
+01010
+Prefixes from (delta, theta): ['0', '00', '00100', '00100100']
+Obtained word: 00100100
+0
+00
+00100
+00100100
+Prefixes from (delta, theta): ['0', '01', '010', '01020', '01020212', '01020212101020212']
+Obtained word: 01020212101020212
+0
+01
+010
+01020
+01020212
+01020212101
+01020212101020
+01020212101020212
+Prefixes from (delta, theta): ['0', '00', '0011', '0011122', '0011122200011122']
+Obtained word: 0011122200011122
+0
+00
+0011
+0011122
+0011122200
+0011122200011
+0011122200011122
+Prefixes from (delta, theta): ['0', '01', '010', '010212', '0102121020', '0102121020210102121020']
+Obtained word: 0102121020210102121020
+0
+01
+010
+010212
+0102121020
+01021210202101
+010212102021010212
+0102121020210102121020
+Prefixes from (delta, theta): ['0', '01', '012', '01210', '01210201', '0121020102120', '0121020102120210121020102120']
+Obtained word: 0121020102120210121020102120
+0
+01
+012
+01210
+01210201
+0121020102120
+012102010212021012
+01210201021202101210201
+0121020102120210121020102120
+Prefixes from (delta, theta): ['0', '01', '012', '01210', '0121012', '012101210', '0121012102010201', '0121012102010201021202120', '0121012102010201021202120210121012102010201021202120']
+Obtained word: 0121012102010201021202120210121012102010201021202120
+0
+01
+012
+01210
+0121012
+012101210
+0121012102010201
+0121012102010201021202120
+0121012102010201021202120210121012
+0121012102010201021202120210121012102010201
+0121012102010201021202120210121012102010201021202120
+at the beginning of isNormalized:['0012', '0020']
+rule3: ['012', '020'] in biseq ['0012', '0020']
+all non-prefix matches: [[6, '2100', 2]]
+Final change:[6, '2100', 2]
+at the beginning of isNormalized:['00120', '00210']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['00120', '00210']
+at the beginning of isNormalized:['0120', '0211']
+rule4: ['0120', '0211'] in biseq ['0120', '0211']
+all non-prefix matches: [[6, '001221', 2]]
+Final change:[6, '001221', 2]
+at the beginning of isNormalized:['012012', '021021']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['012012', '021021']
+at the beginning of isNormalized:['0112', '0211']
+prefix rule: ['(00)+121121', '200211', 31]
+at the beginning of isNormalized:['011201', '021021']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['011201', '021021']
+at the beginning of isNormalized:['0011', '00RR']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['0011', '00RR']
+at the beginning of isNormalized:['0102110', '02R0121']
+rule3: ['110', '121'] in biseq ['0102110', '02R0121']
+all non-prefix matches: [[12, '0021', 2]]
+Final change:[12, '0021', 2]
+at the beginning of isNormalized:['01021102', '02R01201']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['01021102', '02R01201']
+at the beginning of isNormalized:['00120', '00211']
+rule4: ['0120', '0211'] in biseq ['00120', '00211']
+all non-prefix matches: [[8, '001221', 2]]
+Final change:[8, '001221', 2]
+at the beginning of isNormalized:['0012012', '0021021']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['0012012', '0021021']
+at the beginning of isNormalized:['010', '022']
+prefix rule: ['(00)+1202', '0R12', 28]
+at the beginning of isNormalized:['0101', '02R2']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['0101', '02R2']
+at the beginning of isNormalized:['011', '011']
+prefix rule: ['00(120R)*11', '1221', 13]
+at the beginning of isNormalized:['0121', '0211']
+prefix rule: ['00(120R)*122111', '1R11', 20]
+at the beginning of isNormalized:['01211', '021R1']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['01211', '021R1']
+at the beginning of isNormalized:['0112', '0211']
+prefix rule: ['(00)+121121', '200211', 31]
+at the beginning of isNormalized:['011201', '021021']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['011201', '021021']
+at the beginning of isNormalized:['01202', '02100']
+prefix rule: ['001221(1R11)*0020', '2R10', 26]
+at the beginning of isNormalized:['012021', '0210R0']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['012021', '0210R0']
+at the beginning of isNormalized:['0121', '0212']
+prefix rule: ['001221(1R11)*12', '1R22', 7]
+at the beginning of isNormalized:['01212', '021R2']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['01212', '021R2']
+at the beginning of isNormalized:['012111', '021R12']
+prefix rule: ['001221(1R11)*12', '1R22', 7]
+at the beginning of isNormalized:['0121112', '021R1R2']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['0121112', '021R1R2']
+at the beginning of isNormalized:['01', '0R']
+prefix rule: ['(001221)*001R', '120R', 15]
+at the beginning of isNormalized:['010', '02R']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['010', '02R']
+at the beginning of isNormalized:['011', '020']
+prefix rule: ['(00)+1210', '1120', 24]
+at the beginning of isNormalized:['0112', '0210']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['0112', '0210']
+at the beginning of isNormalized:['011', '022']
+prefix rule: ['(00)+1212', '1R02', 22]
+at the beginning of isNormalized:['0110', '02R2']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['0110', '02R2']
+at the beginning of isNormalized:['01', '01']
+prefix rule: ['00(120R)*11', '1221', 13]
+at the beginning of isNormalized:['012', '021']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['012', '021']
+at the beginning of isNormalized:['0101', '02R1']
+prefix rule: ['00(120R)*11', '1221', 13]
+at the beginning of isNormalized:['01012', '02R21']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['01012', '02R21']
+at the beginning of isNormalized:['010101', '02R2R1']
+prefix rule: ['00(120R)*11', '1221', 13]
+at the beginning of isNormalized:['0101012', '02R2R21']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['0101012', '02R2R21']
+at the beginning of isNormalized:['0101', '02RR']
+rule2:  ['101', '2RR'] in biseq ['0101', '02RR']
+all non-prefix matches: [[6, '120R', 2]]
+Final change:[6, '120R', 2]
+at the beginning of isNormalized:['01010', '02R2R']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['01010', '02R2R']
+at the beginning of isNormalized:['0011', '00RR']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['0011', '00RR']
+at the beginning of isNormalized:['010221', '02R011']
+prefix rule: ['00(120R)+202111', '120021', 30]
+at the beginning of isNormalized:['01022102', '02R01201']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['01022102', '02R01201']
+at the beginning of isNormalized:['00112', '00211']
+prefix rule: ['(00)+121121', '200211', 31]
+at the beginning of isNormalized:['0011201', '0021021']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['0011201', '0021021']
+at the beginning of isNormalized:['010212', '02R100']
+prefix rule: ['00(120R)+211020', '220110', 32]
+at the beginning of isNormalized:['01021201', '02R10210']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['01021201', '02R10210']
+at the beginning of isNormalized:['0121202', '021R200']
+prefix rule: ['001221(1R11)*1R220020', '211200', 33]
+at the beginning of isNormalized:['012120210', '021R20120']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['012120210', '021R20120']
+at the beginning of isNormalized:['012111202', '021R1R200']
+prefix rule: ['001221(1R11)*1R220020', '211200', 33]
+at the beginning of isNormalized:['01211120210', '021R1R20120']
+all non-prefix matches: []
+Final change:[]
+at the end of isNormalized:['01211120210', '021R1R20120']
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.078s
+
+OK
+<unittest.main.TestProgram at 0x7f0f9372d630>

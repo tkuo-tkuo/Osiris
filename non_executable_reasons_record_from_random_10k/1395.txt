@@ -1,0 +1,52 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#Using random forest classifier to create feature importances,
+#That will be used for feature selection 
+
+clf = ske.RandomForestClassifier(n_estimators = 100)
+clf = clf.fit(x, y)
+
+features = pd.DataFrame()
+features['feature'] = x.columns
+features['importance'] = clf.feature_importances_
+
+features.sort_values(by=['importance'], ascending=True, inplace=True)
+features.set_index('feature', inplace=True)
+features.plot(kind='barh', figsize=(20, 20))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-13-b24e12bb0588>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mclf[0m [0;34m=[0m [0mske[0m[0;34m.[0m[0mRandomForestClassifier[0m[0;34m([0m[0mn_estimators[0m [0;34m=[0m [0;36m100[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mclf[0m [0;34m=[0m [0mclf[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0mfeatures[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/ensemble/forest.py[0m in [0;36mfit[0;34m(self, X, y, sample_weight)[0m
+[1;32m    247[0m [0;34m[0m[0m
+[1;32m    248[0m         [0;31m# Validate or convert input data[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 249[0;31m         [0mX[0m [0;34m=[0m [0mcheck_array[0m[0;34m([0m[0mX[0m[0;34m,[0m [0maccept_sparse[0m[0;34m=[0m[0;34m"csc"[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mDTYPE[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    250[0m         [0my[0m [0;34m=[0m [0mcheck_array[0m[0;34m([0m[0my[0m[0;34m,[0m [0maccept_sparse[0m[0;34m=[0m[0;34m'csc'[0m[0;34m,[0m [0mensure_2d[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    251[0m         [0;32mif[0m [0msample_weight[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/sklearn/utils/validation.py[0m in [0;36mcheck_array[0;34m(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, warn_on_dtype, estimator)[0m
+[1;32m    494[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    495[0m                 [0mwarnings[0m[0;34m.[0m[0msimplefilter[0m[0;34m([0m[0;34m'error'[0m[0;34m,[0m [0mComplexWarning[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 496[0;31m                 [0marray[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0masarray[0m[0;34m([0m[0marray[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mdtype[0m[0;34m,[0m [0morder[0m[0;34m=[0m[0morder[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    497[0m             [0;32mexcept[0m [0mComplexWarning[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    498[0m                 raise ValueError("Complex data not supported\n"
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/numpy/core/numeric.py[0m in [0;36masarray[0;34m(a, dtype, order)[0m
+[1;32m    536[0m [0;34m[0m[0m
+[1;32m    537[0m     """
+[0;32m--> 538[0;31m     [0;32mreturn[0m [0marray[0m[0;34m([0m[0ma[0m[0;34m,[0m [0mdtype[0m[0;34m,[0m [0mcopy[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m [0morder[0m[0;34m=[0m[0morder[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    539[0m [0;34m[0m[0m
+[1;32m    540[0m [0;34m[0m[0m
+
+[0;31mValueError[0m: could not convert string to float: 'Braund'
+ValueError: could not convert string to float: 'Braund'
+
+Executability                            : False

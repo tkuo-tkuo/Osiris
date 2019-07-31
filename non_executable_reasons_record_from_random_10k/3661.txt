@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Classify our data.
+pdf = np.array([multivariate_normal(a_classes[k], sigma_classes[k]).pdf for k in range(3)])
+classes = np.array([argmax(x, pdf) for x in load_iris().data])
+error = Counter(classes == load_iris().target)[False] / len(classes)
+print('CLASSES:\n', classes)
+print('ERROR: ', 100 * error, '%')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-9-4b6d6fe202f9>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mpdf[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0mmultivariate_normal[0m[0;34m([0m[0ma_classes[0m[0;34m[[0m[0mk[0m[0;34m][0m[0;34m,[0m [0msigma_classes[0m[0;34m[[0m[0mk[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mpdf[0m [0;32mfor[0m [0mk[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m3[0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mclasses[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0margmax[0m[0;34m([0m[0mx[0m[0;34m,[0m [0mpdf[0m[0;34m)[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0mload_iris[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mdata[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0merror[0m [0;34m=[0m [0mCounter[0m[0;34m([0m[0mclasses[0m [0;34m==[0m [0mload_iris[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mtarget[0m[0;34m)[0m[0;34m[[0m[0;32mFalse[0m[0;34m][0m [0;34m/[0m [0mlen[0m[0;34m([0m[0mclasses[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mprint[0m[0;34m([0m[0;34m'CLASSES:\n'[0m[0;34m,[0m [0mclasses[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0mprint[0m[0;34m([0m[0;34m'ERROR: '[0m[0;34m,[0m [0;36m100[0m [0;34m*[0m [0merror[0m[0;34m,[0m [0;34m'%'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'Counter' is not defined
+NameError: name 'Counter' is not defined
+
+Executability                            : False

@@ -1,0 +1,57 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+SQL_SOURCE = 'https://hx517.carto.com/api/v2/sql?q='
+
+try:
+    from urllib.request import urlopen
+except ImportError:
+    from urllib2 import urlopen
+try:
+    from urllib.error import HTTPError
+except ImportError:
+    from urllib2 import HTTPError
+try:
+    from urllib.parse import urlencode
+except ImportError:
+    from urllib import urlencode
+
+import urllib
+import urllib2
+import io
+import ast
+import pandas as pd
+import StringIO
+# try to make it python 2 and 3 compatible.
+
+def queryCartoDB(query, format='CSV', source=SQL_SOURCE):
+    '''queries carto datasets from a given carto account
+    Arguments: 
+    query - string: a valid sql query string
+    format - outlut format  OPTIONAL (default CSV)
+    source - a valid sql api endpoint OPTIONAL (default carto fb55 account)
+    Returns:
+    the return of the sql query AS A STRING
+    NOTES:
+    designed for the carto API, tested only with CSV return format'''
+    
+    data = urllib.urlencode({'format': format, 'q': query})
+    try:
+        response = urllib2.urlopen(source, data)
+    except urllib2.HTTPError, e:
+        raise ValueError('\n'.join(ast.literal_eval(e.readline())['error']))
+    except Exception:
+        raise
+    return response.read()
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-b7b388b01934>"[0;36m, line [0;32m40[0m
+[0;31m    except urllib2.HTTPError, e:[0m
+[0m                            ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-b7b388b01934>, line 40)
+
+Executability                            : False

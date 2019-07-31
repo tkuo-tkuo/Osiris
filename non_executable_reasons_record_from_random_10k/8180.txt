@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+A_recovered = centroids[idx,:]
+A_recovered = A_recovered.reshape(im.shape[0], im.shape[1], im.shape[2]).astype(dtype=np.uint8)
+print(A_recovered.shape)
+print(type(A_recovered))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-10-4d6c2690f97a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mA_recovered[0m [0;34m=[0m [0mcentroids[0m[0;34m[[0m[0midx[0m[0;34m,[0m[0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mA_recovered[0m [0;34m=[0m [0mA_recovered[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0mim[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mim[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0mim[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mastype[0m[0;34m([0m[0mdtype[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0muint8[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0mA_recovered[0m[0;34m.[0m[0mshape[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mprint[0m[0;34m([0m[0mtype[0m[0;34m([0m[0mA_recovered[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: cannot reshape array of size 600 into shape (128,128,3)
+ValueError: cannot reshape array of size 600 into shape (128,128,3)
+
+Executability                            : False

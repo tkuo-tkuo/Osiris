@@ -1,0 +1,92 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+df2_tidy = pd.melt(df2, id_vars=['year'])
+print(df2_tidy)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3062[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 3063[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3064[0m             [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;31mKeyError[0m: 'year'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-4-a5fc72db79fa>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdf2_tidy[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mmelt[0m[0;34m([0m[0mdf2[0m[0;34m,[0m [0mid_vars[0m[0;34m=[0m[0;34m[[0m[0;34m'year'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0mdf2_tidy[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/reshape/melt.py[0m in [0;36mmelt[0;34m(frame, id_vars, value_vars, var_name, value_name, col_level)[0m
+[1;32m     73[0m     [0mmdata[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+[1;32m     74[0m     [0;32mfor[0m [0mcol[0m [0;32min[0m [0mid_vars[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 75[0;31m         [0mid_data[0m [0;34m=[0m [0mframe[0m[0;34m.[0m[0mpop[0m[0;34m([0m[0mcol[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     76[0m         [0;32mif[0m [0mis_extension_type[0m[0;34m([0m[0mid_data[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     77[0m             [0mid_data[0m [0;34m=[0m [0mconcat[0m[0;34m([0m[0;34m[[0m[0mid_data[0m[0;34m][0m [0;34m*[0m [0mK[0m[0;34m,[0m [0mignore_index[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/generic.py[0m in [0;36mpop[0;34m(self, item)[0m
+[1;32m    757[0m         [0;36m3[0m  [0mmonkey[0m        [0mNaN[0m[0;34m[0m[0m
+[1;32m    758[0m         """
+[0;32m--> 759[0;31m         [0mresult[0m [0;34m=[0m [0mself[0m[0;34m[[0m[0mitem[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m    760[0m         [0;32mdel[0m [0mself[0m[0;34m[[0m[0mitem[0m[0;34m][0m[0;34m[0m[0m
+[1;32m    761[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   2683[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_multilevel[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2684[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 2685[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_column[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2686[0m [0;34m[0m[0m
+[1;32m   2687[0m     [0;32mdef[0m [0m_getitem_column[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/frame.py[0m in [0;36m_getitem_column[0;34m(self, key)[0m
+[1;32m   2690[0m         [0;31m# get column[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2691[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mcolumns[0m[0;34m.[0m[0mis_unique[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 2692[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_get_item_cache[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2693[0m [0;34m[0m[0m
+[1;32m   2694[0m         [0;31m# duplicate columns & possible reduce dimensionality[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/generic.py[0m in [0;36m_get_item_cache[0;34m(self, item)[0m
+[1;32m   2484[0m         [0mres[0m [0;34m=[0m [0mcache[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mitem[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2485[0m         [0;32mif[0m [0mres[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 2486[0;31m             [0mvalues[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_data[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mitem[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2487[0m             [0mres[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_box_item_values[0m[0;34m([0m[0mitem[0m[0;34m,[0m [0mvalues[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2488[0m             [0mcache[0m[0;34m[[0m[0mitem[0m[0;34m][0m [0;34m=[0m [0mres[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/internals.py[0m in [0;36mget[0;34m(self, item, fastpath)[0m
+[1;32m   4113[0m [0;34m[0m[0m
+[1;32m   4114[0m             [0;32mif[0m [0;32mnot[0m [0misna[0m[0;34m([0m[0mitem[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 4115[0;31m                 [0mloc[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mitems[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mitem[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   4116[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   4117[0m                 [0mindexer[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mitems[0m[0;34m)[0m[0;34m)[0m[0;34m[[0m[0misna[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mitems[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3063[0m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   3064[0m             [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 3065[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_maybe_cast_indexer[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   3066[0m [0;34m[0m[0m
+[1;32m   3067[0m         [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_indexer[0m[0;34m([0m[0;34m[[0m[0mkey[0m[0;34m][0m[0;34m,[0m [0mmethod[0m[0;34m=[0m[0mmethod[0m[0;34m,[0m [0mtolerance[0m[0;34m=[0m[0mtolerance[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;31mKeyError[0m: 'year'
+KeyError: 'year'
+
+Executability                            : False

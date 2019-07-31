@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# USING LIST COMPREHENSION
+square_list_comp = [item**item for item in list_1]
+print(square_list_comp)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-6dc89e596e93>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# USING LIST COMPREHENSION[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0msquare_list_comp[0m [0;34m=[0m [0;34m[[0m[0mitem[0m[0;34m**[0m[0mitem[0m [0;32mfor[0m [0mitem[0m [0;32min[0m [0mlist_1[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0msquare_list_comp[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'list_1' is not defined
+NameError: name 'list_1' is not defined
+
+Executability                            : False

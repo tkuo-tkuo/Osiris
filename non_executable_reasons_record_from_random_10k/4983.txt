@@ -1,0 +1,20 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 10 ; number of cells: 11
+Reproducibility                          : matched ratio: 0.909 ; index of matched cells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+X, Y, parameters = gradient_check_n_test_case()
+
+cost, cache = forward_propagation_n(X, Y, parameters)
+gradients = backward_propagation_n(X, Y, cache)
+difference = gradient_check_n(parameters, gradients, X, Y)
+
+-----------------
+Original output:
+[93mThere is a mistake in the backward propagation! difference = 1.189041787877932e-07[0m
+
+Executed output:
+[93mThere is a mistake in the backward propagation! difference = 0.2850931567761623[0m
+

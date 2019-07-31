@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+calculate_driving_requirement(g,grid)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-6-d4ef8cb84d64>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mcalculate_driving_requirement[0m[0;34m([0m[0mg[0m[0;34m,[0m[0mgrid[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-5-53fb973d4517>[0m in [0;36mcalculate_driving_requirement[0;34m(g, schedule_grid)[0m
+[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m     [0;32mfor[0m [0mday_ix[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mschedule_grid[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m         [0mprint[0m[0;34m([0m[0mg[0m[0;34m.[0m[0medge[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m         [0mg[0m[0;34m.[0m[0madd_node[0m[0;34m([0m[0;34m'Day'[0m[0;34m+[0m[0mstr[0m[0;34m([0m[0mday_ix[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m         [0mcolumn_total[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'Graph' object has no attribute 'edge'
+AttributeError: 'Graph' object has no attribute 'edge'
+
+Executability                            : False

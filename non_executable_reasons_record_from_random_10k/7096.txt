@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+print(f'sum of {a} is {np.sum(a)}')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-10-421062444c78>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mprint[0m[0;34m([0m[0;34mf'sum of {a} is {np.sum(a)}'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
+Executability                            : False

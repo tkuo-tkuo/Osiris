@@ -1,0 +1,33 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# EXAMPLE - 1
+try:
+    num = int(input("Please enter a number: "))
+    print("you entered %d." % num)
+except ValueError:
+    print("Hey, that wasn't a number!")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-1-b953d0af7387>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;31m# EXAMPLE - 1[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m     [0mnum[0m [0;34m=[0m [0mint[0m[0;34m([0m[0minput[0m[0;34m([0m[0;34m"Please enter a number: "[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      6[0m     [0mprint[0m[0;34m([0m[0;34m"you entered %d."[0m [0;34m%[0m [0mnum[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mexcept[0m [0mValueError[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m/home/dabao/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    697[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    698[0m             raise StdinNotImplementedError(
+[0;32m--> 699[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0m
+[0m[1;32m    700[0m             )
+[1;32m    701[0m         return self._input_request(str(prompt),
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
+Executability                            : False

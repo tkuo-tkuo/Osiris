@@ -1,0 +1,320 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 10 ; number of cells: 23
+Reproducibility                          : matched ratio: 0.435 ; index of matched cells: [0, 1, 3, 6, 7, 12, 14, 17, 19, 21]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+dframe
+
+-----------------
+Original output:
+   dataset1  dataset2 k1 k2
+0 -0.158972 -0.888624  x  a
+1 -1.191138 -0.924377  x  b
+2 -0.781172  1.409055  y  a
+3  0.699610  0.577400  y  b
+4 -0.670863 -1.566093  z  a
+Executed output:
+   dataset1  dataset2 k1 k2
+0  0.192970 -0.448700  x  a
+1 -0.257083  0.135146  x  b
+2  0.215844  0.305312  y  a
+3 -0.871915  0.218361  y  b
+4 -0.675116 -0.946416  z  a
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+group1
+
+-----------------
+Original output:
+<pandas.core.groupby.SeriesGroupBy object at 0x112a25940>
+Executed output:
+<pandas.core.groupby.groupby.SeriesGroupBy object at 0x7f64a1d0dcf8>
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+group1.mean()
+
+-----------------
+Original output:
+k1
+x   -0.675055
+y   -0.040781
+z   -0.670863
+Name: dataset1, dtype: float64
+Executed output:
+k1
+x   -0.032057
+y   -0.328035
+z   -0.675116
+Name: dataset1, dtype: float64
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+dframe
+
+-----------------
+Original output:
+   dataset1  dataset2 k1 k2
+0 -0.158972 -0.888624  x  a
+1 -1.191138 -0.924377  x  b
+2 -0.781172  1.409055  y  a
+3  0.699610  0.577400  y  b
+4 -0.670863 -1.566093  z  a
+Executed output:
+   dataset1  dataset2 k1 k2
+0  0.192970 -0.448700  x  a
+1 -0.257083  0.135146  x  b
+2  0.215844  0.305312  y  a
+3 -0.871915  0.218361  y  b
+4 -0.675116 -0.946416  z  a
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+dframe['dataset1'].groupby([cities,month]).mean()
+
+-----------------
+Original output:
+la  feb   -1.191138
+    jan   -0.781172
+ny  feb    0.699610
+    jan   -0.414917
+Name: dataset1, dtype: float64
+Executed output:
+la  feb   -0.257083
+    jan    0.215844
+ny  feb   -0.871915
+    jan   -0.241073
+Name: dataset1, dtype: float64
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+dframe.groupby('k1').mean()
+
+-----------------
+Original output:
+    dataset1  dataset2
+k1                    
+x  -0.675055 -0.906500
+y  -0.040781  0.993228
+z  -0.670863 -1.566093
+Executed output:
+    dataset1  dataset2
+k1                    
+x  -0.032057 -0.156777
+y  -0.328035  0.261836
+z  -0.675116 -0.946416
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+dframe.groupby(['k1','k2']).mean()
+
+-----------------
+Original output:
+       dataset1  dataset2
+k1 k2                    
+x  a  -0.158972 -0.888624
+   b  -1.191138 -0.924377
+y  a  -0.781172  1.409055
+   b   0.699610  0.577400
+z  a  -0.670863 -1.566093
+Executed output:
+       dataset1  dataset2
+k1 k2                    
+x  a   0.192970 -0.448700
+   b  -0.257083  0.135146
+y  a   0.215844  0.305312
+   b  -0.871915  0.218361
+z  a  -0.675116 -0.946416
+-------------------------------------------
+Source Code of a Unmatched Cell 13
+-------------------------------------------
+dataset2_group.mean()
+
+-----------------
+Original output:
+       dataset2
+k1 k2          
+x  a  -0.888624
+   b  -0.924377
+y  a   1.409055
+   b   0.577400
+z  a  -1.566093
+Executed output:
+       dataset2
+k1 k2          
+x  a  -0.448700
+   b   0.135146
+y  a   0.305312
+   b   0.218361
+z  a  -0.946416
+-------------------------------------------
+Source Code of a Unmatched Cell 15
+-------------------------------------------
+for name, group in dframe.groupby('k1'):
+    print('This is the {} group'.format(name))
+    print(group)
+    print('\n')
+
+-----------------
+Original output:
+This is the x group
+   dataset1  dataset2 k1 k2
+0 -0.158972 -0.888624  x  a
+1 -1.191138 -0.924377  x  b
+
+
+This is the y group
+   dataset1  dataset2 k1 k2
+2 -0.781172  1.409055  y  a
+3  0.699610  0.577400  y  b
+
+
+This is the z group
+   dataset1  dataset2 k1 k2
+4 -0.670863 -1.566093  z  a
+
+
+
+Executed output:
+This is the x group
+   dataset1  dataset2 k1 k2
+0  0.192970 -0.448700  x  a
+1 -0.257083  0.135146  x  b
+
+
+This is the y group
+   dataset1  dataset2 k1 k2
+2  0.215844  0.305312  y  a
+3 -0.871915  0.218361  y  b
+
+
+This is the z group
+   dataset1  dataset2 k1 k2
+4 -0.675116 -0.946416  z  a
+
+
+
+-------------------------------------------
+Source Code of a Unmatched Cell 16
+-------------------------------------------
+for (k1,k2), group in dframe.groupby(['k1','k2']):
+    print('Key1 = {} key2 = {}'.format(k1,k2))
+    print(group)
+    print('\n')
+
+-----------------
+Original output:
+Key1 = x key2 = a
+   dataset1  dataset2 k1 k2
+0 -0.158972 -0.888624  x  a
+
+
+Key1 = x key2 = b
+   dataset1  dataset2 k1 k2
+1 -1.191138 -0.924377  x  b
+
+
+Key1 = y key2 = a
+   dataset1  dataset2 k1 k2
+2 -0.781172  1.409055  y  a
+
+
+Key1 = y key2 = b
+   dataset1  dataset2 k1 k2
+3   0.69961    0.5774  y  b
+
+
+Key1 = z key2 = a
+   dataset1  dataset2 k1 k2
+4 -0.670863 -1.566093  z  a
+
+
+
+Executed output:
+Key1 = x key2 = a
+   dataset1  dataset2 k1 k2
+0   0.19297   -0.4487  x  a
+
+
+Key1 = x key2 = b
+   dataset1  dataset2 k1 k2
+1 -0.257083  0.135146  x  b
+
+
+Key1 = y key2 = a
+   dataset1  dataset2 k1 k2
+2  0.215844  0.305312  y  a
+
+
+Key1 = y key2 = b
+   dataset1  dataset2 k1 k2
+3 -0.871915  0.218361  y  b
+
+
+Key1 = z key2 = a
+   dataset1  dataset2 k1 k2
+4 -0.675116 -0.946416  z  a
+
+
+
+-------------------------------------------
+Source Code of a Unmatched Cell 18
+-------------------------------------------
+gr.get_group('x')
+
+-----------------
+Original output:
+   dataset1  dataset2 k1 k2
+0 -0.158972 -0.888624  x  a
+1 -1.191138 -0.924377  x  b
+Executed output:
+   dataset1  dataset2 k1 k2
+0  0.192970 -0.448700  x  a
+1 -0.257083  0.135146  x  b
+-------------------------------------------
+Source Code of a Unmatched Cell 20
+-------------------------------------------
+group_dict['x']
+
+-----------------
+Original output:
+   dataset1  dataset2 k1 k2
+0 -0.158972 -0.888624  x  a
+1 -1.191138 -0.924377  x  b
+Executed output:
+   dataset1  dataset2 k1 k2
+0  0.192970 -0.448700  x  a
+1 -0.257083  0.135146  x  b
+-------------------------------------------
+Source Code of a Unmatched Cell 22
+-------------------------------------------
+group_dict_axis1
+
+-----------------
+Original output:
+{dtype('float64'):    dataset1  dataset2
+ 0 -0.158972 -0.888624
+ 1 -1.191138 -0.924377
+ 2 -0.781172  1.409055
+ 3  0.699610  0.577400
+ 4 -0.670863 -1.566093, dtype('O'):   k1 k2
+ 0  x  a
+ 1  x  b
+ 2  y  a
+ 3  y  b
+ 4  z  a}
+Executed output:
+{dtype('float64'):    dataset1  dataset2
+ 0  0.192970 -0.448700
+ 1 -0.257083  0.135146
+ 2  0.215844  0.305312
+ 3 -0.871915  0.218361
+ 4 -0.675116 -0.946416, dtype('O'):   k1 k2
+ 0  x  a
+ 1  x  b
+ 2  y  a
+ 3  y  b
+ 4  z  a}

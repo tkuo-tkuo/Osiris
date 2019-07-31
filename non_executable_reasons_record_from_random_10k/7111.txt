@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+loss = tf.losses.mean_squared_error(y_, tf.matmul(x_, w) + b)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-dfcdff9a59ef>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mloss[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mlosses[0m[0;34m.[0m[0mmean_squared_error[0m[0;34m([0m[0my_[0m[0;34m,[0m [0mtf[0m[0;34m.[0m[0mmatmul[0m[0;34m([0m[0mx_[0m[0;34m,[0m [0mw[0m[0;34m)[0m [0;34m+[0m [0mb[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'tf' is not defined
+NameError: name 'tf' is not defined
+
+Executability                            : False

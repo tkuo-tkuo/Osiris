@@ -1,0 +1,36 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+"""
+DON'T MODIFY ANYTHING IN THIS CELL
+"""
+import helper
+
+data_dir = './data/simpsons/moes_tavern_lines.txt'
+text = helper.load_data(data_dir)
+# Ignore notice, since we don't use it for analysing the data
+text = text[81:]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-2460afaeedda>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0mdata_dir[0m [0;34m=[0m [0;34m'./data/simpsons/moes_tavern_lines.txt'[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0mtext[0m [0;34m=[0m [0mhelper[0m[0;34m.[0m[0mload_data[0m[0;34m([0m[0mdata_dir[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;31m# Ignore notice, since we don't use it for analysing the data[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0mtext[0m [0;34m=[0m [0mtext[0m[0;34m[[0m[0;36m81[0m[0;34m:[0m[0;34m][0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/glebashnik@dlnd-tv-script-generation/helper.py[0m in [0;36mload_data[0;34m(path)[0m
+[1;32m      8[0m     """
+[1;32m      9[0m     [0minput_file[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0minput_file[0m[0;34m,[0m [0;34m"r"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     11[0m         [0mdata[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     12[0m [0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: './data/simpsons/moes_tavern_lines.txt'
+FileNotFoundError: [Errno 2] No such file or directory: './data/simpsons/moes_tavern_lines.txt'
+
+Executability                            : False

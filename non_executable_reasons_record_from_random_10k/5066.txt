@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Import dependencies
+import requests
+import json
+import random
+from config import api_key
+import numpy as np
+import pandas as pd
+from citipy import citipy
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-4fb8e49e2f47>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0;32mfrom[0m [0mcitipy[0m [0;32mimport[0m [0mcitipy[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mModuleNotFoundError[0m: No module named 'citipy'
+ModuleNotFoundError: No module named 'citipy'
+
+Executability                            : False

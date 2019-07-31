@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#从解压后的MNIST数据集所在的目录mnist读取60000个训练实例和1000个测试样本
+X_train, y_train = load_minist('mnist', kind='train')
+print('Rows: %d, columns: %d' % (X_train.shape[0], X_train.shape[1]))
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-1dfe4ba71665>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#从解压后的MNIST数据集所在的目录mnist读取60000个训练实例和1000个测试样本[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mX_train[0m[0;34m,[0m [0my_train[0m [0;34m=[0m [0mload_minist[0m[0;34m([0m[0;34m'mnist'[0m[0;34m,[0m [0mkind[0m[0;34m=[0m[0;34m'train'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0;34m'Rows: %d, columns: %d'[0m [0;34m%[0m [0;34m([0m[0mX_train[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mX_train[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-0e0c112bd004>[0m in [0;36mload_minist[0;34m(path, kind)[0m
+[1;32m     15[0m                              [0;34m'%s-images-idx3-ubyte'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m                              % kind)
+[0;32m---> 17[0;31m     [0;32mwith[0m [0mopen[0m[0;34m([0m[0mlabels_path[0m[0;34m,[0m[0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mlbpath[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     18[0m         magic, n = struct.unpack('>II',
+[1;32m     19[0m                                 lbpath.read(8))
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'mnist/train-labels-idx1-ubyte'
+FileNotFoundError: [Errno 2] No such file or directory: 'mnist/train-labels-idx1-ubyte'
+
+Executability                            : False

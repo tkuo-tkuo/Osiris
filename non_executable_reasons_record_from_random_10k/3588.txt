@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# Demet oluşturalım.
+
+demet = ("Elma","Armut","Muz")
+demet[0] = "Kiraz"
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-15-874177db22c7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mdemet[0m [0;34m=[0m [0;34m([0m[0;34m"Elma"[0m[0;34m,[0m[0;34m"Armut"[0m[0;34m,[0m[0;34m"Muz"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mdemet[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m=[0m [0;34m"Kiraz"[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mTypeError[0m: 'tuple' object does not support item assignment
+TypeError: 'tuple' object does not support item assignment
+
+Executability                            : False

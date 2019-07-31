@@ -1,0 +1,15 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 7 ; number of cells: 8
+Reproducibility                          : matched ratio: 0.875 ; index of matched cells: [0, 1, 2, 3, 4, 6, 7]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+# PythonのオブジェクトをJSON形式の文字列にすることもできます。
+json.dumps(data)
+
+-----------------
+Original output:
+'{"food": ["Meat", "Veggies", "Honey"], "fur": "Golden", "diet": [{"food": "grass", "fur": "Brown", "zoo_animal": "Gazelle"}], "zoo_animal": "Lion", "clothes": null}'
+Executed output:
+'{"fur": "Golden", "zoo_animal": "Lion", "diet": [{"fur": "Brown", "zoo_animal": "Gazelle", "food": "grass"}], "food": ["Meat", "Veggies", "Honey"], "clothes": null}'

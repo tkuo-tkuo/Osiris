@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+
+eta=(1.8*10**-5)
+r=(5.5*10**-7)
+d=(5*10**-3)
+V=(300)
+v=(av)
+pi=np.pi
+
+e=(3*pi*eta*r*d*v)/V
+
+print(e)
+
+#Calculated Percent error.
+a=1.602*10**-19
+pe=(abs(e-a)/a)*100
+print(pe)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-8700c46f0769>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0md[0m[0;34m=[0m[0;34m([0m[0;36m5[0m[0;34m*[0m[0;36m10[0m[0;34m**[0m[0;34m-[0m[0;36m3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0mV[0m[0;34m=[0m[0;34m([0m[0;36m300[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0mv[0m[0;34m=[0m[0;34m([0m[0mav[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0mpi[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0mpi[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'av' is not defined
+NameError: name 'av' is not defined
+
+Executability                            : False

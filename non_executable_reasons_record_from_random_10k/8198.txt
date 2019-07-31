@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+W_val, b_val
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-95440914d166>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mW_val[0m[0;34m,[0m [0mb_val[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'W_val' is not defined
+NameError: name 'W_val' is not defined
+
+Executability                            : False

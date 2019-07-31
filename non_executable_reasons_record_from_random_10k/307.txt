@@ -1,0 +1,35 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+
+import numpy as np 
+import pandas as pd
+
+from rdkit import Chem, DataStructs
+from rdkit.Chem import AllChem, PandasTools, Draw
+
+from bokeh.plotting import figure, output_notebook, show
+from bokeh.models import ColumnDataSource, HoverTool, CrosshairTool, WheelZoomTool
+from bokeh.models import ColorBar, ResetTool, PanTool, LinearColorMapper
+
+import bokeh.palettes as palettes
+output_notebook()
+import matplotlib as mpl
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-be4b2cfd60a6>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mfrom[0m [0mrdkit[0m [0;32mimport[0m [0mChem[0m[0;34m,[0m [0mDataStructs[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mfrom[0m [0mrdkit[0m[0;34m.[0m[0mChem[0m [0;32mimport[0m [0mAllChem[0m[0;34m,[0m [0mPandasTools[0m[0;34m,[0m [0mDraw[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'rdkit'
+ModuleNotFoundError: No module named 'rdkit'
+
+Executability                            : False

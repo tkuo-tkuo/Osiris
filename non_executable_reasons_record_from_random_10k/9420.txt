@@ -1,0 +1,67 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 8
+Reproducibility                          : matched ratio: 0.375 ; index of matched cells: [0, 1, 5]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+calculate_password(10)
+
+-----------------
+Original output:
+'ppcdOhADeC'
+Executed output:
+'NKXAtdIwIg'
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+helpful_title = widgets.HTML('Generated password is:')
+password_text = widgets.HTML('No password yet')
+password_text.layout.margin = '0 0 0 20px'
+password_length = widgets.IntSlider(description='Length of password',
+                                   min=8, max=20,
+                                   style={'description_width': 'initial'})
+
+password_widget = widgets.VBox(children=[helpful_title, password_text, password_length])
+password_widget
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+VBox(children=(HTML(value='Generated password is:'), HTML(value='No password yet', layout=Layout(margin='0 0 0…
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+password_widget
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+VBox(children=(HTML(value='Generated password is:'), HTML(value='No password yet', layout=Layout(margin='0 0 0…
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+from ipywidgets import interact
+from IPython.display import display
+interact(calculate_password, length=(8, 20));
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+'eJcuKaOtGJquJK'
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+@interact(length=(8, 20))
+def print_password(length):
+    print(calculate_password(length))
+
+-----------------
+Original output:
+A Jupyter Widget
+Executed output:
+piMedzwzbUghbG
+

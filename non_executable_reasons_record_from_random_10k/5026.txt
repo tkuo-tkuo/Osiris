@@ -1,0 +1,20 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#--------------------------------------主成分分析--------------------------------------------
+###数据标准化
+import pandas as pd
+df_wine = pd.read_csv('http://archive.ics.uci.edu/ml/machine-learning-databases/wine//wine.data', header=None)、
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-bb559bb3d068>"[0;36m, line [0;32m6[0m
+[0;31m    df_wine = pd.read_csv('http://archive.ics.uci.edu/ml/machine-learning-databases/wine//wine.data', header=None)、[0m
+[0m                                                                                                                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid character in identifier
+
+SyntaxError: invalid character in identifier (<ipython-input-1-bb559bb3d068>, line 6)
+
+Executability                            : False

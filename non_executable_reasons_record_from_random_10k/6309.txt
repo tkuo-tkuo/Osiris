@@ -1,0 +1,66 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib notebook
+import pystan
+import matplotlib.pyplot as plt
+import seaborn
+import numpy as np
+
+code = '''
+data {
+    int nobs;
+    vector[2] y[nobs];
+}
+parameters {
+    vector[2] mu;
+    vector[2] sigma;
+    real p;
+}
+transformed parameters {
+    matrix[2, 2] cov;
+    cov[1, 1] <- sigma[1]*sigma[1];
+    cov[2, 2] <- sigma[2]*sigma[2];
+    cov[1, 2] <- p*sigma[1]*sigma[2];
+    cov[2, 1] <- p*sigma[1]*sigma[2];
+}
+model {
+    mu[1] ~ uniform(-1000, 1000);
+    mu[2] ~ uniform(-1000, 1000);
+    sigma[1] ~ uniform(0, 1000);
+    sigma[2] ~ uniform(0, 1000);
+    p ~ uniform(-1, 1);
+    y ~ multi_normal(mu, cov);
+}
+'''
+nobs = 100
+mu1 = 0.5
+s1 = 1.0
+mu2 = 1.0
+s2 = 0.5
+p = 0.8
+
+y = np.random.multivariate_normal([mu1, mu2], cov=[[s1**2, p*s1*s2], 
+                                                  [p*s1*s2, s2**2]], size=[nobs])
+data = {
+    'nobs': nobs,
+    'y': y
+}
+fit = pystan.stan(model_code=code, data=data, iter=1000, chains=4)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-f89c59e04b2b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'notebook'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mpystan[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mseaborn[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pystan'
+ImportError: No module named 'pystan'
+
+Executability                            : False

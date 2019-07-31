@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+messages=[line.rstrip() for line in open('smsspamcollection/SMSSpamCollection')]
+print(len(messages))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-9b185b599532>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mmessages[0m[0;34m=[0m[0;34m[[0m[0mline[0m[0;34m.[0m[0mrstrip[0m[0;34m([0m[0;34m)[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mopen[0m[0;34m([0m[0;34m'smsspamcollection/SMSSpamCollection'[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mmessages[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'smsspamcollection/SMSSpamCollection'
+FileNotFoundError: [Errno 2] No such file or directory: 'smsspamcollection/SMSSpamCollection'
+
+Executability                            : False

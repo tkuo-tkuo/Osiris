@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+for zc in eip.zip_code.unique():
+    eip_sub = eip[eip['zip_code'] == zc]
+    corrMat(eip_sub.corr(),zc)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-47733a22da00>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfor[0m [0mzc[0m [0;32min[0m [0meip[0m[0;34m.[0m[0mzip_code[0m[0;34m.[0m[0munique[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0meip_sub[0m [0;34m=[0m [0meip[0m[0;34m[[0m[0meip[0m[0;34m[[0m[0;34m'zip_code'[0m[0;34m][0m [0;34m==[0m [0mzc[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m     [0mcorrMat[0m[0;34m([0m[0meip_sub[0m[0;34m.[0m[0mcorr[0m[0;34m([0m[0;34m)[0m[0;34m,[0m[0mzc[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'eip' is not defined
+NameError: name 'eip' is not defined
+
+Executability                            : False

@@ -1,0 +1,47 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+points = np.genfromtxt('data.csv', delimiter=',')
+X = points[:, 0]
+Y = points[:, 1]
+
+plt.xlim(0, 80)
+plt.ylim(0, 150)
+plt.scatter(X, Y)
+
+params = np.linspace(0, 150, 10)
+
+predictions = linear_regression()
+print('Root mean squared error is {:.2f}'.format(rmse_metric(Y, predictions)))
+plt.plot(X, predictions, 'r')
+
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-e9afb5bce200>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m [0mparams[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlinspace[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;36m150[0m[0;34m,[0m [0;36m10[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0mpredictions[0m [0;34m=[0m [0mlinear_regression[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0mprint[0m[0;34m([0m[0;34m'Root mean squared error is {:.2f}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mrmse_metric[0m[0;34m([0m[0mY[0m[0;34m,[0m [0mpredictions[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mX[0m[0;34m,[0m [0mpredictions[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-95b53150c78b>[0m in [0;36mlinear_regression[0;34m()[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m     [0mpredictions[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0mb0[0m[0;34m,[0m [0mb1[0m [0;34m=[0m [0mcoefficients[0m[0;34m([0m[0mpoints[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     [0;32mfor[0m [0mrow[0m [0;32min[0m [0mpoints[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m         [0my_hat[0m [0;34m=[0m [0mb0[0m [0;34m+[0m [0mb1[0m [0;34m*[0m [0mrow[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-95b53150c78b>[0m in [0;36mcoefficients[0;34m(dataset)[0m
+[1;32m     26[0m     [0mvar_y[0m [0;34m=[0m [0;34m[[0m[0mrow[0m[0;34m[[0m[0;36m1[0m[0;34m][0m [0;32mfor[0m [0mrow[0m [0;32min[0m [0mdataset[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     27[0m     [0mmean_x[0m[0;34m,[0m [0my_mean[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mmean[0m[0;34m([0m[0mvar_x[0m[0;34m)[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mmean[0m[0;34m([0m[0mvar_y[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 28[0;31m     [0mb1[0m [0;34m=[0m [0mcovariance[0m[0;34m([0m[0mvar_x[0m[0;34m,[0m [0mmean_x[0m[0;34m,[0m [0mvar_y[0m[0;34m,[0m [0mmean_y[0m[0;34m)[0m [0;34m/[0m [0mvariance[0m[0;34m([0m[0mmean_x[0m[0;34m,[0m [0mvar_x[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     29[0m     [0mb0[0m [0;34m=[0m [0mmean_y[0m [0;34m-[0m [0mb1[0m [0;34m*[0m [0mmean_x[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     30[0m     [0;32mreturn[0m [0;34m[[0m[0mb0[0m[0;34m,[0m [0mb1[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'mean_y' is not defined
+NameError: name 'mean_y' is not defined
+
+Executability                            : False

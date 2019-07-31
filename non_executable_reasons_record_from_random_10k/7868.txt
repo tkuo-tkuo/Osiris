@@ -1,0 +1,52 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import matplotlib.pyplot as plt
+
+#Constants
+hbar = 1.03e-34
+eV = 1.602e-19
+nm = 1e-19
+m = 9.11e-31
+
+#Parameters
+N = 346
+dx = 0.1*nm
+V0 = 10*eV
+V = np.array([V0]*N)
+x = [dx*n for n in range(N)]
+
+
+
+# SETUP tridiagonal matrix
+sde = [-hbar**2/(2*m*dx**2)]*(N-1)#Side diagonal entries
+mde = np.array([hbar**2/(m*dx**2)]*N) + V #Main diagonal entries
+H = np.diag(sde,-1) + np.diag(mde,0) + np.diag(sde,1)
+w, v = np.linalg.eigh(H)
+
+def c_n(eigenvektor, x_list):
+    
+
+def PSI(w,v):
+    M = np.zeroes(N,N)
+    
+
+plt.figure(figsize = (12,8))
+plt.plot(x, v[:,0])
+plt.plot(x, v[:,1])
+plt.plot(x, v[:,2])
+#plt.plot(x, v[:,3])
+plt.show()
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-8d19c124656a>"[0;36m, line [0;32m30[0m
+[0;31m    def PSI(w,v):[0m
+[0m      ^[0m
+[0;31mIndentationError[0m[0;31m:[0m expected an indented block
+
+IndentationError: expected an indented block (<ipython-input-1-8d19c124656a>, line 30)
+
+Executability                            : False

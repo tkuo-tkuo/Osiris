@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+australian_data_url = 'https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/australian_scale'
+data = requests.get(australian_data_url)
+australian_svmlight_file_name = 'australian_scale.svm'
+with open(australian_svmlight_file_name, 'w') as f:
+    f.write(data.text)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-b70bcdff84e9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mdata[0m [0;34m=[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0maustralian_data_url[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0maustralian_svmlight_file_name[0m [0;34m=[0m [0;34m'australian_scale.svm'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0maustralian_svmlight_file_name[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m     [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mdata[0m[0;34m.[0m[0mtext[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'australian_scale.svm'
+PermissionError: [Errno 13] Permission denied: 'australian_scale.svm'
+
+Executability                            : False

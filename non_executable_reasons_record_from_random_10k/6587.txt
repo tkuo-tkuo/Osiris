@@ -1,0 +1,34 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+
+db = connect("/tmp/test2.dbdb")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-6-2eeaffd6f314>[0m in [0;36mconnect[0;34m(dbname)[0m
+[1;32m      2[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m         [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mdbname[0m[0;34m,[0m [0;34m'r+b'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0;32mexcept[0m [0mIOError[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/tmp/test2.dbdb'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-a84625825f2a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdb[0m [0;34m=[0m [0mconnect[0m[0;34m([0m[0;34m"/tmp/test2.dbdb"[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-6-2eeaffd6f314>[0m in [0;36mconnect[0;34m(dbname)[0m
+[1;32m      3[0m         [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mdbname[0m[0;34m,[0m [0;34m'r+b'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m     [0;32mexcept[0m [0mIOError[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m         [0mfd[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mdbname[0m[0;34m,[0m [0mos[0m[0;34m.[0m[0mO_RDWR[0m [0;34m|[0m [0mos[0m[0;34m.[0m[0mO_CREAT[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      6[0m         [0mf[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mfdopen[0m[0;34m([0m[0mfd[0m[0;34m,[0m [0;34m'r+b'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      7[0m     [0;32mreturn[0m [0mDBDB[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'os' is not defined
+NameError: name 'os' is not defined
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+np.dot(b,a)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-14-e6bd3a7b39a0>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mnp[0m[0;34m.[0m[0mdot[0m[0;34m([0m[0mb[0m[0;34m,[0m[0ma[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: shapes (2,3) and (4,2) not aligned: 3 (dim 1) != 4 (dim 0)
+ValueError: shapes (2,3) and (4,2) not aligned: 3 (dim 1) != 4 (dim 0)
+
+Executability                            : False

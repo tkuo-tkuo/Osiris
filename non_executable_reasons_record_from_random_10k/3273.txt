@@ -1,0 +1,21 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import cv2
+gaussian_kernel = cv2.getGaussianKernel(ksize=5, sigma=2)
+gaussian_kernel_2d = gaussian_kernel*gaussian_kernel.T
+plt.imshow(gaussian_kernel_2d, cmap='gray')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-3-cbac08a8c143>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mgaussian_kernel[0m [0;34m=[0m [0mcv2[0m[0;34m.[0m[0mgetGaussianKernel[0m[0;34m([0m[0mksize[0m[0;34m=[0m[0;36m5[0m[0;34m,[0m [0msigma[0m[0;34m=[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mgaussian_kernel_2d[0m [0;34m=[0m [0mgaussian_kernel[0m[0;34m*[0m[0mgaussian_kernel[0m[0;34m.[0m[0mT[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0mgaussian_kernel_2d[0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0;34m'gray'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'cv2'
+ModuleNotFoundError: No module named 'cv2'
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+file_names = [fn for fn in os.listdir(pdf_docs_path) if fn.endswith(".pdf")]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-291f23073a01>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mfile_names[0m [0;34m=[0m [0;34m[[0m[0mfn[0m [0;32mfor[0m [0mfn[0m [0;32min[0m [0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0mpdf_docs_path[0m[0;34m)[0m [0;32mif[0m [0mfn[0m[0;34m.[0m[0mendswith[0m[0;34m([0m[0;34m".pdf"[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'pdf_docs_path' is not defined
+NameError: name 'pdf_docs_path' is not defined
+
+Executability                            : False

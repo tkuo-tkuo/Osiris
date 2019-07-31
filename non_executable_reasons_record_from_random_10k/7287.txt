@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+derivative_estimate = partial(difference_quotient, square, h=0.00001)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-7-311a1cdc7fb0>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mderivative_estimate[0m [0;34m=[0m [0mpartial[0m[0;34m([0m[0mdifference_quotient[0m[0;34m,[0m [0msquare[0m[0;34m,[0m [0mh[0m[0;34m=[0m[0;36m0.00001[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'partial' is not defined
+NameError: name 'partial' is not defined
+
+Executability                            : False

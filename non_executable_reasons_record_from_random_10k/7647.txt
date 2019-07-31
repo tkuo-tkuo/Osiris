@@ -1,0 +1,16 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+y_pred = KMeans(n_clusters=3, random_state=random_state).fit_predict(X)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-be403793d894>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0my_pred[0m [0;34m=[0m [0mKMeans[0m[0;34m([0m[0mn_clusters[0m[0;34m=[0m[0;36m3[0m[0;34m,[0m [0mrandom_state[0m[0;34m=[0m[0mrandom_state[0m[0;34m)[0m[0;34m.[0m[0mfit_predict[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'random_state' is not defined
+NameError: name 'random_state' is not defined
+
+Executability                            : False

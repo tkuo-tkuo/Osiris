@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+string.ascii_lowercase
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-ac9229703b09>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mstring[0m[0;34m.[0m[0mascii_lowercase[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'string' is not defined
+NameError: name 'string' is not defined
+
+Executability                            : False

@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+plt.hist(cent,bins=np.linspace(0,1,20))
+plt.xlabel('Closeness Centrality')
+_=plt.ylabel('Number of Nodes')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-db3f39cced0b>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mplt[0m[0;34m.[0m[0mhist[0m[0;34m([0m[0mcent[0m[0;34m,[0m[0mbins[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0mlinspace[0m[0;34m([0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m,[0m[0;36m20[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m'Closeness Centrality'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0m_[0m[0;34m=[0m[0mplt[0m[0;34m.[0m[0mylabel[0m[0;34m([0m[0;34m'Number of Nodes'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'cent' is not defined
+NameError: name 'cent' is not defined
+
+Executability                            : False

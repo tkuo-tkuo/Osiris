@@ -1,0 +1,67 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 9
+Reproducibility                          : matched ratio: 0.556 ; index of matched cells: [0, 1, 2, 4, 7]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+print (np.random.randint(3, size=10))
+
+-----------------
+Original output:
+[1 0 0 0 2 2 1 0 2 0]
+
+Executed output:
+[0 2 2 0 1 1 0 2 0 2]
+
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+# Now test your function
+print (simulate_prizedoor(3))
+
+-----------------
+Original output:
+[1 0 2]
+
+Executed output:
+[2 0 2]
+
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+# Now test your function
+guesses = simulate_guess(10)
+print (guesses)
+print (type(guesses))
+
+-----------------
+Original output:
+[0 1 1 1 0 0 1 1 1 1]
+<class 'numpy.ndarray'>
+
+Executed output:
+[1 2 1 0 2 2 2 2 2 2]
+<class 'numpy.ndarray'>
+
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+prizes = simulate_prizedoor(10)
+guesses = simulate_guess(10)
+goats = goat_door(prizes,guesses)
+print (prizes)
+print (guesses)
+print (goats)
+
+-----------------
+Original output:
+[1 2 1 1 0 0 0 2 2 2]
+[1 2 1 1 1 1 0 1 2 1]
+[0 1 0 2 2 2 1 1 1 1]
+
+Executed output:
+[0 0 2 0 1 2 1 1 2 2]
+[0 2 0 2 1 1 0 2 0 2]
+[2 1 0 1 2 1 2 0 0 0]
+

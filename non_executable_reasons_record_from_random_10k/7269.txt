@@ -1,0 +1,55 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Chunking
+# chunking is the basic technique we will use for entity detection
+# we will see regex and ngram approaches to chunking and develop and evaluate chunkers
+# Noun phrase chunking
+sentence = [("the", "DT"), ("little", "JJ"), ("yellow", "JJ"),
+            ("dog", "NN"), ("barked", "VBD"), ("at", "IN"),  ("the", "DT"), ("cat", "NN")]
+grammar = "NP: {<DT>?<JJ>*<NN>}"
+cp = nltk.RegexpParser(grammar)
+result = cp.parse(sentence)
+print(result)
+result.draw() # the result can also be a tree
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTclError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-3-4a322211fad5>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m [0mresult[0m [0;34m=[0m [0mcp[0m[0;34m.[0m[0mparse[0m[0;34m([0m[0msentence[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     10[0m [0mprint[0m[0;34m([0m[0mresult[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0mresult[0m[0;34m.[0m[0mdraw[0m[0;34m([0m[0;34m)[0m [0;31m# the result can also be a tree[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/tree.py[0m in [0;36mdraw[0;34m(self)[0m
+[1;32m    688[0m         """
+[1;32m    689[0m         [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mdraw[0m[0;34m.[0m[0mtree[0m [0;32mimport[0m [0mdraw_trees[0m[0;34m[0m[0m
+[0;32m--> 690[0;31m         [0mdraw_trees[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    691[0m [0;34m[0m[0m
+[1;32m    692[0m     [0;32mdef[0m [0mpretty_print[0m[0;34m([0m[0mself[0m[0;34m,[0m [0msentence[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mhighlight[0m[0;34m=[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mstream[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/draw/tree.py[0m in [0;36mdraw_trees[0;34m(*trees)[0m
+[1;32m    861[0m     [0;34m:[0m[0mrtype[0m[0;34m:[0m [0;32mNone[0m[0;34m[0m[0m
+[1;32m    862[0m     """
+[0;32m--> 863[0;31m     [0mTreeView[0m[0;34m([0m[0;34m*[0m[0mtrees[0m[0;34m)[0m[0;34m.[0m[0mmainloop[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    864[0m     [0;32mreturn[0m[0;34m[0m[0m
+[1;32m    865[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/nltk/draw/tree.py[0m in [0;36m__init__[0;34m(self, *trees)[0m
+[1;32m    754[0m         [0mself[0m[0;34m.[0m[0m_trees[0m [0;34m=[0m [0mtrees[0m[0;34m[0m[0m
+[1;32m    755[0m [0;34m[0m[0m
+[0;32m--> 756[0;31m         [0mself[0m[0;34m.[0m[0m_top[0m [0;34m=[0m [0mTk[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    757[0m         [0mself[0m[0;34m.[0m[0m_top[0m[0;34m.[0m[0mtitle[0m[0;34m([0m[0;34m'NLTK'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m    758[0m         [0mself[0m[0;34m.[0m[0m_top[0m[0;34m.[0m[0mbind[0m[0;34m([0m[0;34m'<Control-x>'[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mdestroy[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/tkinter/__init__.py[0m in [0;36m__init__[0;34m(self, screenName, baseName, className, useTk, sync, use)[0m
+[1;32m   1874[0m                 [0mbaseName[0m [0;34m=[0m [0mbaseName[0m [0;34m+[0m [0mext[0m[0;34m[0m[0m
+[1;32m   1875[0m         [0minteractive[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0m
+[0;32m-> 1876[0;31m         [0mself[0m[0;34m.[0m[0mtk[0m [0;34m=[0m [0m_tkinter[0m[0;34m.[0m[0mcreate[0m[0;34m([0m[0mscreenName[0m[0;34m,[0m [0mbaseName[0m[0;34m,[0m [0mclassName[0m[0;34m,[0m [0minteractive[0m[0;34m,[0m [0mwantobjects[0m[0;34m,[0m [0museTk[0m[0;34m,[0m [0msync[0m[0;34m,[0m [0muse[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   1877[0m         [0;32mif[0m [0museTk[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m   1878[0m             [0mself[0m[0;34m.[0m[0m_loadtk[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mTclError[0m: no display name and no $DISPLAY environment variable
+TclError: no display name and no $DISPLAY environment variable
+
+Executability                            : False

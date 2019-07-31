@@ -1,0 +1,16 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+import cv2
+from matplotlib import pyplot as plt
+import numpy as np
+import time as t
+print "OpenCV Version : %s " % cv2.__version__
+------------------
+
+SyntaxError: Missing parentheses in call to 'print' (<ipython-input-1-68d6a1010e2e>, line 8)
+
+Executability                            : False

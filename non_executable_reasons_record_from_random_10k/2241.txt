@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from SimPEG import (Mesh, Directives, Maps, 
+                    InvProblem, Optimization, DataMisfit, 
+                    Inversion, Utils, Regularization)
+
+import SimPEG.PF as PF
+import scipy as sp
+import numpy as np
+import matplotlib.pyplot as plt
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-abe449522e1c>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m from SimPEG import (Mesh, Directives, Maps, 
+[0m[1;32m      2[0m                     [0mInvProblem[0m[0;34m,[0m [0mOptimization[0m[0;34m,[0m [0mDataMisfit[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m                     Inversion, Utils, Regularization)
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mSimPEG[0m[0;34m.[0m[0mPF[0m [0;32mas[0m [0mPF[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'SimPEG'
+ModuleNotFoundError: No module named 'SimPEG'
+
+Executability                            : False

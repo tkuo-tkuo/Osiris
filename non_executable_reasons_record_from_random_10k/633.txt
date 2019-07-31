@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from fig_auto_assembler import SVGFIG, return_sizes, cm2inch, add_label
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-48e0d1ce901c>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mfig_auto_assembler[0m [0;32mimport[0m [0mSVGFIG[0m[0;34m,[0m [0mreturn_sizes[0m[0;34m,[0m [0mcm2inch[0m[0;34m,[0m [0madd_label[0m[0;34m[0m[0m
+[0m
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/KeWata@fig_auto_assembler/fig_auto_assembler.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;32mfrom[0m [0msvgutils[0m[0;34m.[0m[0mtransform[0m [0;32mimport[0m [0mfromfile[0m[0;34m,[0m [0mfrom_mpl[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0msvgutils[0m[0;34m.[0m[0mcompose[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0msvgutils[0m[0;34m.[0m[0mtemplates[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mstring[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0msys[0m[0;34m,[0m [0mos[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/svgutils/templates.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;31m#coding=utf-8[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mtransform[0m [0;32mimport[0m [0mSVGFigure[0m[0;34m,[0m [0mGroupElement[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;32mclass[0m [0mBaseTemplate[0m[0;34m([0m[0mSVGFigure[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'transform'
+ImportError: No module named 'transform'
+
+Executability                            : False

@@ -1,0 +1,23 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+star_wars = pd.read_csv("star_wars.csv", encoding="ISO-8859-1")
+
+star_wars = star_wars[star_wars["RespondentID"].notnull()]
+
+yes_no = {
+    "Yes": True,
+    "No": False
+}
+
+star_wars["Have you seen any of the 6 films in the Star Wars franchise?"] = star_wars["Have you seen any of the 6 films in the Star Wars franchise?"].map(yes_no)
+
+star_wars["Do you consider yourself to be a fan of the Star Wars film franchise?"] = star_wars["Do you consider yourself to be a fan of the Star Wars film franchise?"].map(yes_no)
+------------------
+
+FileNotFoundError: File b'star_wars.csv' does not exist
+
+Executability                            : False

@@ -1,0 +1,36 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+inception.maybe_download()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-5-a941731aed67>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0minception[0m[0;34m.[0m[0mmaybe_download[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/donwany@PipeLine.AI/65_More_Advanced_TensorFlow/inception.py[0m in [0;36mmaybe_download[0;34m()[0m
+[1;32m     91[0m [0;34m[0m[0m
+[1;32m     92[0m     [0mprint[0m[0;34m([0m[0;34m"Downloading Inception v3 Model ..."[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 93[0;31m     [0mdownload[0m[0;34m.[0m[0mmaybe_download_and_extract[0m[0;34m([0m[0murl[0m[0;34m=[0m[0mdata_url[0m[0;34m,[0m [0mdownload_dir[0m[0;34m=[0m[0mdata_dir[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     94[0m [0;34m[0m[0m
+[1;32m     95[0m [0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/donwany@PipeLine.AI/65_More_Advanced_TensorFlow/download.py[0m in [0;36mmaybe_download_and_extract[0;34m(url, download_dir)[0m
+[1;32m     74[0m         [0;31m# Check if the download directory exists, otherwise create it.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     75[0m         [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mdownload_dir[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 76[0;31m             [0mos[0m[0;34m.[0m[0mmakedirs[0m[0;34m([0m[0mdownload_dir[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     77[0m [0;34m[0m[0m
+[1;32m     78[0m         [0;31m# Download the file from the internet.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/os.py[0m in [0;36mmakedirs[0;34m(name, mode, exist_ok)[0m
+[1;32m    218[0m             [0;32mreturn[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    219[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 220[0;31m         [0mmkdir[0m[0;34m([0m[0mname[0m[0;34m,[0m [0mmode[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    221[0m     [0;32mexcept[0m [0mOSError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    222[0m         [0;31m# Cannot rely on checking for EEXIST, since the operating system[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'inception/'
+PermissionError: [Errno 13] Permission denied: 'inception/'
+
+Executability                            : False

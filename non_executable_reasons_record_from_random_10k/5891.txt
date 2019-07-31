@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+if True abc
+------------------
+
+SyntaxError: invalid syntax (<ipython-input-1-5c3a84316793>, line 3)
+
+Executability                            : False

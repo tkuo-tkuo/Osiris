@@ -1,0 +1,15 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+counts.mean()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-4bc4454b44ac>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mcounts[0m[0;34m.[0m[0mmean[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'counts' is not defined
+NameError: name 'counts' is not defined
+
+Executability                            : False

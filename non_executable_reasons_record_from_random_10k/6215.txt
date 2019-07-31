@@ -1,0 +1,37 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+
+import pickle as pkl
+import time
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.io import loadmat
+import tensorflow as tf
+
+# There are two ways of solving this problem.
+# One is to have the matmul at the last layer output all 11 classes.
+# The other is to output just 10 classes, and use a constant value of 0 for
+# the logit for the last class. This still works because the softmax only needs
+# n independent logits to specify a probability distribution over n + 1 categories.
+# We implemented both solutions here.
+extra_class = 0
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-dd3cf6299f26>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mio[0m [0;32mimport[0m [0mloadmat[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;34m[0m[0m
+[1;32m     13[0m [0;31m# There are two ways of solving this problem.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

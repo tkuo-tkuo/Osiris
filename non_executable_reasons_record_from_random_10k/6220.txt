@@ -1,0 +1,46 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+data_dir = './data'
+
+# FloydHub - Use with data ID "R5KrjnANiKVhLWAkpXhNBe"
+#data_dir = '/input'
+
+
+"""
+DON'T MODIFY ANYTHING IN THIS CELL
+"""
+import helper
+
+helper.download_extract('mnist', data_dir)
+helper.download_extract('celeba', data_dir)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-0b8eb318f83b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     12[0m [0;32mimport[0m [0mhelper[0m[0;34m[0m[0m
+[1;32m     13[0m [0;34m[0m[0m
+[0;32m---> 14[0;31m [0mhelper[0m[0;34m.[0m[0mdownload_extract[0m[0;34m([0m[0;34m'mnist'[0m[0;34m,[0m [0mdata_dir[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0mhelper[0m[0;34m.[0m[0mdownload_extract[0m[0;34m([0m[0;34m'celeba'[0m[0;34m,[0m [0mdata_dir[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/hvillanua@deep-learning/face_generation/helper.py[0m in [0;36mdownload_extract[0;34m(database_name, data_path)[0m
+[1;32m    151[0m [0;34m[0m[0m
+[1;32m    152[0m     [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mdata_path[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 153[0;31m         [0mos[0m[0;34m.[0m[0mmakedirs[0m[0;34m([0m[0mdata_path[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    154[0m [0;34m[0m[0m
+[1;32m    155[0m     [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0msave_path[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/os.py[0m in [0;36mmakedirs[0;34m(name, mode, exist_ok)[0m
+[1;32m    239[0m             [0;32mreturn[0m[0;34m[0m[0m
+[1;32m    240[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 241[0;31m         [0mmkdir[0m[0;34m([0m[0mname[0m[0;34m,[0m [0mmode[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    242[0m     [0;32mexcept[0m [0mOSError[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    243[0m         [0;31m# Cannot rely on checking for EEXIST, since the operating system[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: './data'
+PermissionError: [Errno 13] Permission denied: './data'
+
+Executability                            : False

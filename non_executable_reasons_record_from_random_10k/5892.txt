@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+add(x=1, 2)
+------------------
+
+SyntaxError: non-keyword arg after keyword arg (<ipython-input-23-ad039a2c8a00>, line 1)
+
+Executability                            : False

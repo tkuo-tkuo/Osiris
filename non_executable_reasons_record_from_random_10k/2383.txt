@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Setting the plotting theme
+sns.set()
+# and setting the size of all plots.
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = [11, 7]
+
+# Plotting USA born winners 
+ax = sns.lineplot(x='decade', y='usa_born_winner', data=nobel)
+
+# Adding %-formatting to the y-axis
+from matplotlib.ticker import PercentFormatter
+ax.yaxis.set_major_formatter(PercentFormatter())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-4-85e882b723d5>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0;31m# Plotting USA born winners[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0max[0m [0;34m=[0m [0msns[0m[0;34m.[0m[0mlineplot[0m[0;34m([0m[0mx[0m[0;34m=[0m[0;34m'decade'[0m[0;34m,[0m [0my[0m[0;34m=[0m[0;34m'usa_born_winner'[0m[0;34m,[0m [0mdata[0m[0;34m=[0m[0mnobel[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;34m[0m[0m
+[1;32m     10[0m [0;31m# Adding %-formatting to the y-axis[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'seaborn' has no attribute 'lineplot'
+AttributeError: module 'seaborn' has no attribute 'lineplot'
+
+Executability                            : False

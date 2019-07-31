@@ -1,0 +1,37 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Import modules
+import pandas as pd
+from patsy import dmatrices
+from sklearn import preprocessing
+from sklearn import model_selection
+from sklearn import neighbors
+import numpy as np
+from sklearn import metrics
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn import tree
+from sklearn import neural_network
+import tensorflow as tf
+from six.moves import range
+
+# Enable inline plotting in notebook
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-d6c2f5a6d876>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     13[0m [0;32mfrom[0m [0msklearn[0m [0;32mimport[0m [0mtree[0m[0;34m[0m[0m
+[1;32m     14[0m [0;32mfrom[0m [0msklearn[0m [0;32mimport[0m [0mneural_network[0m[0;34m[0m[0m
+[0;32m---> 15[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m     16[0m [0;32mfrom[0m [0msix[0m[0;34m.[0m[0mmoves[0m [0;32mimport[0m [0mrange[0m[0;34m[0m[0m
+[1;32m     17[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

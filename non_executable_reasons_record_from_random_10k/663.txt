@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+Wf = np.random.randn(hidden_size, hidden_size+vocab_size)
+Wi = np.random.randn(hidden_size, hidden_size+vocab_size)
+Wo = np.random.randn(hidden_size, hidden_size+vocab_size)
+Wc = np.random.randn(hidden_size, hidden_size+vocab_size)
+Wy = np.random.randn(vocab_size,hidden_size)
+bf = np.random.randn(hidden_size,1)
+bi = np.random.randn(hidden_size,1)
+bo = np.random.randn(hidden_size,1)
+bc = np.random.randn(hidden_size,1)
+by = np.random.randn(vocab_size,1)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-ea32d4b11e54>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mWf[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mrandn[0m[0;34m([0m[0mhidden_size[0m[0;34m,[0m [0mhidden_size[0m[0;34m+[0m[0mvocab_size[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mWi[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mrandn[0m[0;34m([0m[0mhidden_size[0m[0;34m,[0m [0mhidden_size[0m[0;34m+[0m[0mvocab_size[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mWo[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mrandn[0m[0;34m([0m[0mhidden_size[0m[0;34m,[0m [0mhidden_size[0m[0;34m+[0m[0mvocab_size[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mWc[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mrandn[0m[0;34m([0m[0mhidden_size[0m[0;34m,[0m [0mhidden_size[0m[0;34m+[0m[0mvocab_size[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mWy[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mrandn[0m[0;34m([0m[0mvocab_size[0m[0;34m,[0m[0mhidden_size[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'hidden_size' is not defined
+NameError: name 'hidden_size' is not defined
+
+Executability                            : False

@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import division
+import string
+import math
+import pandas as pd
+import numpy as np
+tokenize = lambda doc: doc.lower().split(" ")
+from sklearn.metrics import jaccard_similarity_score
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-69340803db3f>"[0;36m, line [0;32m6[0m
+[0;31m    import pandas as pd[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-69340803db3f>, line 6)
+
+Executability                            : False

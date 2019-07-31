@@ -1,0 +1,44 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import pandas as pd
+from sklearn import model_selection, svm, metrics
+from sklearn.grid_search import GridSearchCV
+
+train_csv = pd.read_csv('../data/mnist/train.csv')
+test_csv = pd.read_csv('../data/mnist/t10k.csv')
+
+train_label = train_csv.iloc[:,0]
+train_data = train_csv.iloc[:,1:577]
+test_label = test_csv.iloc[:,0]
+test_data = test_csv.iloc[:,1:577]
+print('학습 데이터의 수 =', len(train_label))
+
+params = [
+    {"C":[1,10,100,1000], "kernel":["linear"]},
+    {"C":[1,10,100,1000], "kernel":["rbf"], "gamma":[0.001, 0.0001]}
+]
+
+# 그리드 서치 수행
+clf = GridSearchCV( svm.SVC(), params, n_jobs=-1)
+clf.fit(train_data, train_label)
+print('학습기 =', clf.best_estimator_)
+
+predict = clf.predict(test_data)
+ac_score = metrics.accuracy_score(predict, test_label)
+print('정답률=', ac_score)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-4-9cfd00de26cd>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mfrom[0m [0msklearn[0m [0;32mimport[0m [0mmodel_selection[0m[0;34m,[0m [0msvm[0m[0;34m,[0m [0mmetrics[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mgrid_search[0m [0;32mimport[0m [0mGridSearchCV[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mtrain_csv[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'../data/mnist/train.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'sklearn.grid_search'
+ModuleNotFoundError: No module named 'sklearn.grid_search'
+
+Executability                            : False

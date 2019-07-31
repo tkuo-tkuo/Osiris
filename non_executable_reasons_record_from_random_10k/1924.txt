@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+## Simple Quandl call:
+import quandl
+quandl.ApiConfig.api_key= "L8zt1AhNiQi4gufsXy4g"
+mydata = quandl.get("FRED/GDP")
+print(mydata)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-9dce11911b31>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m## Simple Quandl call:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mquandl[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mquandl[0m[0;34m.[0m[0mApiConfig[0m[0;34m.[0m[0mapi_key[0m[0;34m=[0m [0;34m"L8zt1AhNiQi4gufsXy4g"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mmydata[0m [0;34m=[0m [0mquandl[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m"FRED/GDP"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'quandl'
+ModuleNotFoundError: No module named 'quandl'
+
+Executability                            : False

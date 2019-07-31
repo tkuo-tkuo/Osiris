@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+a1.x
+------------------
+
+NameError: name 'a1' is not defined
+
+Executability                            : False

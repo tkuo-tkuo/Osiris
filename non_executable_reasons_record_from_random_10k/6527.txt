@@ -1,0 +1,102 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+"""
+Download the data from the web and cache it on the local device.
+"""
+
+from urllib.request import urlretrieve
+from os.path import isfile, isdir
+from tqdm import tqdm
+import zipfile
+
+# Define the base path to save the dataset.
+base_dir = config["local_cache_path"]
+data_dir = base_dir + config["data_dir"]
+
+# Define the dataset file names,
+raw_data_file = "traffic-signs-data.zip"
+
+
+class DLProgress(tqdm):
+    last_block = 0
+
+    def hook(self, block_num=1, block_size=1, total_size=None):
+        self.total = total_size
+        self.update((block_num - self.last_block) * block_size)
+        self.last_block = block_num
+
+# Utility to download the data if not already present.
+def cache(target_file, cache_dir, download_uri, description=''):
+    '''
+        If cache hit - return
+        If cache misss - Download the data and cache locally.
+        @param target_file: The file to cache.
+        @param cache_dir: The target directory to keep the cached files.
+        @param download_uri: URI to download the file if not present.
+        @param description: To display the progress message.
+    '''
+    path = cache_dir + target_file
+
+    if not isfile(path):
+        description = description or target_file
+        try:
+            with DLProgress(unit='B', unit_scale=True, miniters=1, desc=description) as pbar:
+                urlretrieve(download_uri, path, pbar.hook)
+        except Exception as e:
+            print("Issue downloading the file: {}".format(e.message))
+
+def unzip(file_to_unzip, target_dir, cache_dir):
+    '''
+        If the target directory is not present, unzip the file into a target directory.
+    '''
+    path = cache_dir + target_dir
+    file_path = cache_dir + file_to_unzip
+
+    if not isdir(path):
+        with zipfile.ZipFile(file_path) as zipf:
+            zipf.extractall(path)
+            zipf.close()
+
+# Get the raw dataset.
+cache(raw_data_file, base_dir, config["dataset"])
+
+# Unzip the dataset to extract the training, validation and test set.
+unzip(raw_data_file, data_dir, base_dir)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-473dc3e59349>[0m in [0;36mcache[0;34m(target_file, cache_dir, download_uri, description)[0m
+[1;32m     41[0m             [0;32mwith[0m [0mDLProgress[0m[0;34m([0m[0munit[0m[0;34m=[0m[0;34m'B'[0m[0;34m,[0m [0munit_scale[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0mminiters[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m [0mdesc[0m[0;34m=[0m[0mdescription[0m[0;34m)[0m [0;32mas[0m [0mpbar[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 42[0;31m                 [0murlretrieve[0m[0;34m([0m[0mdownload_uri[0m[0;34m,[0m [0mpath[0m[0;34m,[0m [0mpbar[0m[0;34m.[0m[0mhook[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     43[0m         [0;32mexcept[0m [0mException[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/urllib/request.py[0m in [0;36murlretrieve[0;34m(url, filename, reporthook, data)[0m
+[1;32m    197[0m         [0;32mif[0m [0mfilename[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 198[0;31m             [0mtfp[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    199[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: './traffic-signs-data.zip'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-2-473dc3e59349>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     57[0m [0;34m[0m[0m
+[1;32m     58[0m [0;31m# Get the raw dataset.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 59[0;31m [0mcache[0m[0;34m([0m[0mraw_data_file[0m[0;34m,[0m [0mbase_dir[0m[0;34m,[0m [0mconfig[0m[0;34m[[0m[0;34m"dataset"[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     60[0m [0;34m[0m[0m
+[1;32m     61[0m [0;31m# Unzip the dataset to extract the training, validation and test set.[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-473dc3e59349>[0m in [0;36mcache[0;34m(target_file, cache_dir, download_uri, description)[0m
+[1;32m     42[0m                 [0murlretrieve[0m[0;34m([0m[0mdownload_uri[0m[0;34m,[0m [0mpath[0m[0;34m,[0m [0mpbar[0m[0;34m.[0m[0mhook[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     43[0m         [0;32mexcept[0m [0mException[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m---> 44[0;31m             [0mprint[0m[0;34m([0m[0;34m"Issue downloading the file: {}"[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0me[0m[0;34m.[0m[0mmessage[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     45[0m [0;34m[0m[0m
+[1;32m     46[0m [0;32mdef[0m [0munzip[0m[0;34m([0m[0mfile_to_unzip[0m[0;34m,[0m [0mtarget_dir[0m[0;34m,[0m [0mcache_dir[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'PermissionError' object has no attribute 'message'
+AttributeError: 'PermissionError' object has no attribute 'message'
+
+Executability                            : False

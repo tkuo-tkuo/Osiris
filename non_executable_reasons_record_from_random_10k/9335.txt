@@ -1,0 +1,40 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# These are all the modules we'll be using later. Make sure you can import them
+# before proceeding further.
+%matplotlib inline
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import collections
+import math
+import os
+import random
+import time
+import zipfile
+
+import numpy as np
+from six.moves import urllib
+from six.moves import xrange  # pylint: disable=redefined-builtin
+import tensorflow as tf
+
+from sklearn.manifold import TSNE
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-e3dfdd031030>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     18[0m [0;32mfrom[0m [0msix[0m[0;34m.[0m[0mmoves[0m [0;32mimport[0m [0murllib[0m[0;34m[0m[0m
+[1;32m     19[0m [0;32mfrom[0m [0msix[0m[0;34m.[0m[0mmoves[0m [0;32mimport[0m [0mxrange[0m  [0;31m# pylint: disable=redefined-builtin[0m[0;34m[0m[0m
+[0;32m---> 20[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m     21[0m [0;34m[0m[0m
+[1;32m     22[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmanifold[0m [0;32mimport[0m [0mTSNE[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

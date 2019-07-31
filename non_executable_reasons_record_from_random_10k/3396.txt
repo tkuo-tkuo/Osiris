@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Criando um arquivo (no mesmo diretório onde está o Jupyter Notebook)
+arquivo = open(os.path.join('cientista.txt'),'w')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-4-9ff04f8fe074>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;31m# Criando um arquivo (no mesmo diretório onde está o Jupyter Notebook)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0marquivo[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0;34m'cientista.txt'[0m[0;34m)[0m[0;34m,[0m[0;34m'w'[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'cientista.txt'
+PermissionError: [Errno 13] Permission denied: 'cientista.txt'
+
+Executability                            : False

@@ -1,0 +1,27 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+n_words = len(vocab_to_int)
+
+# Create the graph object
+graph = tf.Graph()
+# Add nodes to the graph
+with graph.as_default():
+    inputs_ = tf.placeholder(tf.int32, [None, None], name='inputs')
+    labels_ = tf.placeholder(tf.int32, [None, None], name='labels')
+    keep_prob = tf.placeholder(tf.float32, name='keep_prob')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-89acaf67eb91>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mn_words[0m [0;34m=[0m [0mlen[0m[0;34m([0m[0mvocab_to_int[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# Create the graph object[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mgraph[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mGraph[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m# Add nodes to the graph[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'vocab_to_int' is not defined
+NameError: name 'vocab_to_int' is not defined
+
+Executability                            : False

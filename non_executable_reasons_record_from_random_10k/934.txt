@@ -1,0 +1,175 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import nltk
+from nltk.corpus import names
+import random
+
+def gender_features(word):
+    #changed to return first AND last letter
+    return {'last_letter': word[-1]}
+# gender_features('Shrek') = {'last_letter': 'k'}
+scores = []
+for i in range (0,10):
+    male_names = [(name, 'male') for name in names.words('male.txt')]
+    female_names = [(name, 'female') for name in names.words('female.txt')]
+    labeled_names = male_names + female_names
+    random.shuffle(labeled_names)
+    featuresets = [(gender_features(n), gender) for (n, gender) in labeled_names]
+    #entries are    ({'last_letter': 'g'}, 'male')
+    train_set, test_set = featuresets[500:], featuresets[:500]
+
+    classifier = nltk.NaiveBayesClassifier.train(train_set)
+
+    ans1 = classifier.classify(gender_features('John'))
+    ans2 = classifier.classify(gender_features('Helen'))
+    ans3 = classifier.classify(gender_features('Evan'))
+    ans4 = classifier.classify(gender_features('Michael'))
+    ans5 = classifier.classify(gender_features('Lucy'))
+    ans6 = classifier.classify(gender_features('Lilly'))
+    ans7 = classifier.classify(gender_features('Vlad'))
+    ans8 = classifier.classify(gender_features('Derek'))
+    ans9 = classifier.classify(gender_features('Camilla'))
+    ans10 = classifier.classify(gender_features('Jessica'))
+
+
+    print("John is:", ans1)
+    print("Helen is:", ans2)
+    print("Evan is:", ans3)
+    print("Michael is:", ans4)
+    print("Lucy is:", ans5)
+    print("Lilly is:", ans6)
+    print("Vlad is:", ans7)
+    print("Derek is:", ans8)
+    print("Camilla is:", ans9)
+    print("Jessica is:", ans10)
+
+    classifier.show_most_informative_features(5)
+    x = nltk.classify.accuracy(classifier, test_set)
+    print(nltk.classify.accuracy(classifier, test_set))
+    scores.append(x)
+print(scores)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mLookupError[0m                               Traceback (most recent call last)
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     85[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 86[0;31m                     [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'{}/{}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mself[0m[0;34m.[0m[0msubdir[0m[0;34m,[0m [0mzip_name[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     87[0m                 [0;32mexcept[0m [0mLookupError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/data.py[0m in [0;36mfind[0;34m(resource_name, paths)[0m
+[1;32m    700[0m     [0mresource_not_found[0m [0;34m=[0m [0;34m'\n%s\n%s\n%s\n'[0m [0;34m%[0m [0;34m([0m[0msep[0m[0;34m,[0m [0mmsg[0m[0;34m,[0m [0msep[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 701[0;31m     [0;32mraise[0m [0mLookupError[0m[0;34m([0m[0mresource_not_found[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    702[0m [0;34m[0m[0m
+
+[0;31mLookupError[0m: 
+**********************************************************************
+  Resource [93mnames[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('names')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/names.zip/names/[0m
+
+  Searched in:
+    - '/home/dabao/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/share/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+
+During handling of the above exception, another exception occurred:
+
+[0;31mLookupError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-faa82be02e87>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m [0mscores[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m [0;34m([0m[0;36m0[0m[0;34m,[0m[0;36m10[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m     [0mmale_names[0m [0;34m=[0m [0;34m[[0m[0;34m([0m[0mname[0m[0;34m,[0m [0;34m'male'[0m[0;34m)[0m [0;32mfor[0m [0mname[0m [0;32min[0m [0mnames[0m[0;34m.[0m[0mwords[0m[0;34m([0m[0;34m'male.txt'[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m     [0mfemale_names[0m [0;34m=[0m [0;34m[[0m[0;34m([0m[0mname[0m[0;34m,[0m [0;34m'female'[0m[0;34m)[0m [0;32mfor[0m [0mname[0m [0;32min[0m [0mnames[0m[0;34m.[0m[0mwords[0m[0;34m([0m[0;34m'female.txt'[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m     [0mlabeled_names[0m [0;34m=[0m [0mmale_names[0m [0;34m+[0m [0mfemale_names[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/corpus/util.py[0m in [0;36m__getattr__[0;34m(self, attr)[0m
+[1;32m    121[0m             [0;32mraise[0m [0mAttributeError[0m[0;34m([0m[0;34m"LazyCorpusLoader object has no attribute '__bases__'"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    122[0m [0;34m[0m[0m
+[0;32m--> 123[0;31m         [0mself[0m[0;34m.[0m[0m__load[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    124[0m         [0;31m# This looks circular, but its not, since __load() changes our[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    125[0m         [0;31m# __class__ to something new:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     86[0m                     [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'{}/{}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mself[0m[0;34m.[0m[0msubdir[0m[0;34m,[0m [0mzip_name[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     87[0m                 [0;32mexcept[0m [0mLookupError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 88[0;31m                     [0;32mraise[0m [0me[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     89[0m [0;34m[0m[0m
+[1;32m     90[0m         [0;31m# Load the corpus.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     81[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     82[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 83[0;31m                 [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'{}/{}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mself[0m[0;34m.[0m[0msubdir[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m__name[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     84[0m             [0;32mexcept[0m [0mLookupError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     85[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/nltk/data.py[0m in [0;36mfind[0;34m(resource_name, paths)[0m
+[1;32m    699[0m     [0msep[0m [0;34m=[0m [0;34m'*'[0m [0;34m*[0m [0;36m70[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    700[0m     [0mresource_not_found[0m [0;34m=[0m [0;34m'\n%s\n%s\n%s\n'[0m [0;34m%[0m [0;34m([0m[0msep[0m[0;34m,[0m [0mmsg[0m[0;34m,[0m [0msep[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 701[0;31m     [0;32mraise[0m [0mLookupError[0m[0;34m([0m[0mresource_not_found[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    702[0m [0;34m[0m[0m
+[1;32m    703[0m [0;34m[0m[0m
+
+[0;31mLookupError[0m: 
+**********************************************************************
+  Resource [93mnames[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('names')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/names[0m
+
+  Searched in:
+    - '/home/dabao/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/share/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+LookupError: 
+**********************************************************************
+  Resource [93mnames[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('names')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/names[0m
+
+  Searched in:
+    - '/home/dabao/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/share/nltk_data'
+    - '/home/dabao/anaconda3/envs/Osiris_py36/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+
+Executability                            : False

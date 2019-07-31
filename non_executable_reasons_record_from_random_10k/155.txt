@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+kmeans.cluster_centers_[4]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-9-f1980296aa07>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mkmeans[0m[0;34m.[0m[0mcluster_centers_[0m[0;34m[[0m[0;36m4[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mIndexError[0m: index 4 is out of bounds for axis 0 with size 4
+IndexError: index 4 is out of bounds for axis 0 with size 4
+
+Executability                            : False

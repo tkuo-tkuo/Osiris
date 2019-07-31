@@ -1,0 +1,14 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 17 ; number of cells: 18
+Reproducibility                          : matched ratio: 0.944 ; index of matched cells: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+lambda num: num**2
+
+-----------------
+Original output:
+<function __main__.<lambda>>
+Executed output:
+<function __main__.<lambda>(num)>

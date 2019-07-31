@@ -1,0 +1,64 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 1 ; number of cells: 2
+Reproducibility                          : matched ratio: 0.5 ; index of matched cells: [1]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+# Write a program that 
+# takes two arguments n and k and 
+# prints all binary strings of length n that contain k zero bits, one per line. 
+
+import itertools as its
+
+
+def zbits(n, k):
+    # generate a str with k zero bits
+    zero_bits = ''.join(its.repeat('0',k))
+    n_bits = zero_bits + ''.join(its.repeat('1',n-k))
+    # use itertools.permutations() to get all permutations of the string
+    lines = its.permutations(n_bits, n)
+    # add the binary strings to set and filter duplicates at the same time
+    binary_str = [''.join(item) for item in lines]
+    bits_set = set(binary_str)
+    for bits in bits_set:
+        print(bits)
+    return bits_set
+        
+assert zbits(4, 3) == {'0100', '0001', '0010', '1000'}
+assert zbits(4, 1) == {'0111', '1011', '1101', '1110'}
+assert zbits(5, 4) == {'00001', '00100', '01000', '10000', '00010'}
+    
+
+
+-----------------
+Original output:
+1000
+0100
+0001
+0010
+1011
+1101
+1110
+0111
+00010
+00001
+00100
+10000
+01000
+
+Executed output:
+0001
+0100
+0010
+1000
+1011
+1101
+1110
+0111
+00100
+01000
+00001
+00010
+10000
+

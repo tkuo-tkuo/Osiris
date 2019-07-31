@@ -1,0 +1,60 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# CREATE DATABASE
+db = sqlite3.connect("finalproject.db")
+db.execute('pragma foreign_keys=ON')
+cursor = db.cursor()
+
+# CREATE TABLE STRUCTURES
+planet_info = """CREATE TABLE planet_info (
+                planet_id       INTEGER PRIMARY KEY not null,
+                planet_name     TEXT not null)"""
+
+patient_info = """CREATE TABLE patient_info (
+                ID              INTEGER PRIMARY KEY not null,
+                patient_id      INTEGER not null,
+                age             REAL,
+                FOREIGN KEY(patient_id) REFERENCES patients_readings(patient_id)
+                ON UPDATE CASCADE
+                ON DELETE RESTRICT,
+                check (age >= 0))"""
+
+patient_readings = """CREATE TABLE patient_readings (
+                patient_id      INTEGER PRIMARY KEY not null,
+                blood_pressure  REAL,
+                exercise        REAL,
+                weight          REAL,
+                glucose         REAL,
+                bmi             REAL,
+                planet_id       INTEGER not null,
+                FOREIGN KEY(planet_id) REFERENCES planet_info(planet_id)
+                ON UPDATE CASCADE
+                ON DELETE RESTRICT,
+                check (blood_pressure >= 0),
+                check (exercise >= 0),
+                check (weight >= 0),
+                check (glucose >= 0),
+                check (bmi >= 0))"""
+
+cursor.execute(planet_info)
+cursor.execute(patient_info)
+cursor.execute(patient_readings)
+
+db.commit()
+db.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+[0;32m<ipython-input-2-963662e10995>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     35[0m                 check (bmi >= 0))"""
+[1;32m     36[0m [0;34m[0m[0m
+[0;32m---> 37[0;31m [0mcursor[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0mplanet_info[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     38[0m [0mcursor[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0mpatient_info[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     39[0m [0mcursor[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0mpatient_readings[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mOperationalError[0m: table planet_info already exists
+OperationalError: table planet_info already exists
+
+Executability                            : False

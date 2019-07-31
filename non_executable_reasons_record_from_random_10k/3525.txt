@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+dir(math) # Math modülünün içindekileri görmek için dir fonksiyonunu kullanabiliriz.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-9aeeda03ea88>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdir[0m[0;34m([0m[0mmath[0m[0;34m)[0m [0;31m# Math modülünün içindekileri görmek için dir fonksiyonunu kullanabiliriz.[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'math' is not defined
+NameError: name 'math' is not defined
+
+Executability                            : False

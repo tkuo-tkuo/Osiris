@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+print (BestCentroids)
+print (BestCentError)
+print ("Best K : ",BestK)
+print ("Error Rate : " ,BestError)
+print ("Best Tau : ", BestTau)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-974da0b64306>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mprint[0m [0;34m([0m[0mBestCentroids[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mprint[0m [0;34m([0m[0mBestCentError[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0mprint[0m [0;34m([0m[0;34m"Best K : "[0m[0;34m,[0m[0mBestK[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mprint[0m [0;34m([0m[0;34m"Error Rate : "[0m [0;34m,[0m[0mBestError[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mprint[0m [0;34m([0m[0;34m"Best Tau : "[0m[0;34m,[0m [0mBestTau[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'BestCentroids' is not defined
+NameError: name 'BestCentroids' is not defined
+
+Executability                            : False

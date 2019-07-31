@@ -1,0 +1,58 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+import subprocess
+import uuid
+import sklearn.datasets as datasets
+
+from feather.compat import guid, tobytes
+
+R_READ_WRITE_TEMPLATE = """
+library(feather)
+df <- read_feather("{0}")
+write_feather(df, "{1}")
+"""
+
+def random_path():
+    return 'feather_{}'.format(guid())
+
+def remove_paths(paths):
+    for x in paths:
+        try:
+            os.remove(x)
+        except os.error:
+            pass
+
+def run_rcode(code):
+    tmp_r_path = 'test_{0}.R'.format(uuid.uuid4().hex)
+
+    with open(tmp_r_path, 'wb') as f:
+        f.write(tobytes(code))
+
+    cmd = ['Rscript', tmp_r_path]
+    try:
+        subprocess.check_output(cmd)
+    finally:
+        remove_paths([tmp_r_path])
+
+def roundtrip_r(input_path, output_path):
+    code = R_READ_WRITE_TEMPLATE.format(input_path, output_path)
+    run_rcode(code)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-87e021774f84>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;32mimport[0m [0msklearn[0m[0;34m.[0m[0mdatasets[0m [0;32mas[0m [0mdatasets[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mfrom[0m [0mfeather[0m[0;34m.[0m[0mcompat[0m [0;32mimport[0m [0mguid[0m[0;34m,[0m [0mtobytes[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;34m[0m[0m
+[1;32m     10[0m R_READ_WRITE_TEMPLATE = """
+
+[0;31mImportError[0m: No module named 'feather'
+ImportError: No module named 'feather'
+
+Executability                            : False

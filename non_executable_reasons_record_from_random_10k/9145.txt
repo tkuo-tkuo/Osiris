@@ -1,0 +1,18 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%bash
+
+pipeline predict --model-type=java --model-name=airbnb --model-tag=a --predict-server-url=http://predict-java-airbnb-a.community.pipeline.ai --test-request-path=./data/test_request.json
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-a7c6f38f74bd>"[0;36m, line [0;32m3[0m
+[0;31m    %%bash[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-a7c6f38f74bd>, line 3)
+
+Executability                            : False

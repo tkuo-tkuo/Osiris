@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import os
+filepath ='D:\\Springboard\\NBA Capstone Project\\Machine Learning'
+os.chdir(filepath)
+%run ml.py
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-1-716f4da3672e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0m
+[1;32m      4[0m [0mfilepath[0m [0;34m=[0m[0;34m'D:\\Springboard\\NBA Capstone Project\\Machine Learning'[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mos[0m[0;34m.[0m[0mchdir[0m[0;34m([0m[0mfilepath[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'run'[0m[0;34m,[0m [0;34m'ml.py'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mOSError[0m: [Errno 22] Invalid argument: 'D:\\Springboard\\NBA Capstone Project\\Machine Learning'
+OSError: [Errno 22] Invalid argument: 'D:\\Springboard\\NBA Capstone Project\\Machine Learning'
+
+Executability                            : False

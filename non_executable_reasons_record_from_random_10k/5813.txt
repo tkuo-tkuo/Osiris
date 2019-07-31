@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import pickle
+# Dump the trained model with Pickle
+model_path = 'ridge_reg_20180523.pkl'
+# Open the file to save as pkl file
+model_pkl = open(model_path, 'wb')
+pickle.dump(ridge_cv, model_pkl)
+# Close the pickle instances
+model_pkl.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-26-5d1394bbe5a9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mmodel_path[0m [0;34m=[0m [0;34m'ridge_reg_20180523.pkl'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;31m# Open the file to save as pkl file[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mmodel_pkl[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mmodel_path[0m[0;34m,[0m [0;34m'wb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mpickle[0m[0;34m.[0m[0mdump[0m[0;34m([0m[0mridge_cv[0m[0;34m,[0m [0mmodel_pkl[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;31m# Close the pickle instances[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'ridge_reg_20180523.pkl'
+PermissionError: [Errno 13] Permission denied: 'ridge_reg_20180523.pkl'
+
+Executability                            : False

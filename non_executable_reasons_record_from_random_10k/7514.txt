@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+X,Y = load_data("data_1.csv")
+
+X_train, X_test, Y_train, Y_test = my_train_test_split(X, Y, .8)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-590b13230a86>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mX[0m[0;34m,[0m[0mY[0m [0;34m=[0m [0mload_data[0m[0;34m([0m[0;34m"data_1.csv"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mX_train[0m[0;34m,[0m [0mX_test[0m[0;34m,[0m [0mY_train[0m[0;34m,[0m [0mY_test[0m [0;34m=[0m [0mmy_train_test_split[0m[0;34m([0m[0mX[0m[0;34m,[0m [0mY[0m[0;34m,[0m [0;36m.8[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-1-c67c1f79d828>[0m in [0;36mload_data[0;34m(path_to_csv, has_header)[0m
+[1;32m     11[0m     """
+[1;32m     12[0m     [0;32mif[0m [0mhas_header[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 13[0;31m         [0mdata[0m [0;34m=[0m [0mread_csv[0m[0;34m([0m[0mpath_to_csv[0m[0;34m,[0m [0mheader[0m[0;34m=[0m[0;34m'infer'[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mstr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     14[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m         [0mdata[0m [0;34m=[0m [0mread_csv[0m[0;34m([0m[0mpath_to_csv[0m[0;34m,[0m [0mheader[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mstr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'read_csv' is not defined
+NameError: name 'read_csv' is not defined
+
+Executability                            : False

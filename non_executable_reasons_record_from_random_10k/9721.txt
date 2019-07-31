@@ -1,0 +1,41 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+from scipy import linalg
+import gaussPivot as GP
+
+#Question 2b
+
+A=np.array([[80,-50,-30,0],[-50,100,-10,-25],[-30,-10,65,-20],[0,-25,-20,100]]).astype(np.float)
+b=np.array([240,0,0,0]).astype(np.float)
+
+#Solving using liner algebra from scipy
+#This sets up the lower and upper triangular matrices used my linalg to solve the problem.
+P,L,U=linalg.lu(A)
+print ('The lower triangular matrix; L=\n',L,'\n\nThe upper triangular matrix; U=\n',U)
+Isol1=linalg.solve(A,b)
+
+#Question 2c
+#Now, solving using gaussian elimination with pivoting. Pivoting
+Isol2=GP.gaussPivot(A,b)
+print ('\nThe solution using linalg.solve (rounded to whole numbers): %s\n\nand the solution using gaussPivot: %s'% (Isol1, Isol2))
+
+#NOTE: Interestingly if you use integers in your array gaussPivot returns integer values. to show they return the same value I have used floating points.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-8643736debf5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0mlinalg[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mgaussPivot[0m [0;32mas[0m [0mGP[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0;31m#Question 2b[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'gaussPivot'
+ModuleNotFoundError: No module named 'gaussPivot'
+
+Executability                            : False

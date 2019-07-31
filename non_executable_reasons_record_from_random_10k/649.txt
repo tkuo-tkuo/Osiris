@@ -1,0 +1,15 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import tensorflow as tf
+import numpy as np
+import pickle
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+------------------
+
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

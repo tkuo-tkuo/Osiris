@@ -1,0 +1,10 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+# CSV形式のデータを読み込んで、DataFrameを作ります。
+donor_df = pd.read_csv('Election_Donor_Data.csv')
+------------------
+
+FileNotFoundError: File b'Election_Donor_Data.csv' does not exist
+
+Executability                            : False

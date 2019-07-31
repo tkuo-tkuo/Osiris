@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+X_assess, Y_assess = nn_model_test_case()
+
+parameters = nn_model(X_assess, Y_assess, 4, num_iterations=10000, print_cost=False)
+print("W1 = " + str(parameters["W1"]))
+print("b1 = " + str(parameters["b1"]))
+print("W2 = " + str(parameters["W2"]))
+print("b2 = " + str(parameters["b2"]))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-18-5920f237c5c5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mX_assess[0m[0;34m,[0m [0mY_assess[0m [0;34m=[0m [0mnn_model_test_case[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0mparameters[0m [0;34m=[0m [0mnn_model[0m[0;34m([0m[0mX_assess[0m[0;34m,[0m [0mY_assess[0m[0;34m,[0m [0;36m4[0m[0;34m,[0m [0mnum_iterations[0m[0;34m=[0m[0;36m10000[0m[0;34m,[0m [0mprint_cost[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mprint[0m[0;34m([0m[0;34m"W1 = "[0m [0;34m+[0m [0mstr[0m[0;34m([0m[0mparameters[0m[0;34m[[0m[0;34m"W1"[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mprint[0m[0;34m([0m[0;34m"b1 = "[0m [0;34m+[0m [0mstr[0m[0;34m([0m[0mparameters[0m[0;34m[[0m[0;34m"b1"[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-17-688c743f4e1b>[0m in [0;36mnn_model[0;34m(X, Y, n_h, num_iterations, print_cost)[0m
+[1;32m     36[0m [0;34m[0m[0m
+[1;32m     37[0m         [0;31m# Cost function. Inputs: "A2, Y, parameters". Outputs: "cost".[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 38[0;31m         [0mcost[0m [0;34m=[0m [0mcompute_cost[0m[0;34m([0m[0mA2[0m[0;34m,[0m [0mY[0m[0;34m,[0m [0mparameters[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     39[0m [0;34m[0m[0m
+[1;32m     40[0m         [0;31m# Backpropagation. Inputs: "parameters, cache, X, Y". Outputs: "grads".[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'compute_cost' is not defined
+NameError: name 'compute_cost' is not defined
+
+Executability                            : False

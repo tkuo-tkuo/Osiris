@@ -1,0 +1,19 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+from proj1_helpers import *
+DATA_TRAIN_PATH = 'data/train.csv' # TODO: download train data and supply path here 
+y, tx, ids = load_csv_data(DATA_TRAIN_PATH, sub_sample=False)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-e4c03b9e05d5>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mproj1_helpers[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mDATA_TRAIN_PATH[0m [0;34m=[0m [0;34m'data/train.csv'[0m [0;31m# TODO: download train data and supply path here[0m[0;34m[0m[0m
+[1;32m      3[0m [0my[0m[0;34m,[0m [0mtx[0m[0;34m,[0m [0mids[0m [0;34m=[0m [0mload_csv_data[0m[0;34m([0m[0mDATA_TRAIN_PATH[0m[0;34m,[0m [0msub_sample[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'proj1_helpers'
+ImportError: No module named 'proj1_helpers'
+
+Executability                            : False

@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+ax.plot(x,z)
+ax.set_xlabel('X')
+ax.set_ylabel('Z')
+
+
+ax2.plot(x,y)
+ax2.set_xlabel('X')
+ax2.set_ylabel('Y')
+ax2.set_title('zoom')
+ax2.set_xlim(20,22)
+ax2.set_ylim(30,50)
+
+fig
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-31dbf03a0f82>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0max2[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx[0m[0;34m,[0m[0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0max2[0m[0;34m.[0m[0mset_xlabel[0m[0;34m([0m[0;34m'X'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0max2[0m[0;34m.[0m[0mset_ylabel[0m[0;34m([0m[0;34m'Y'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'ax2' is not defined
+NameError: name 'ax2' is not defined
+
+Executability                            : False

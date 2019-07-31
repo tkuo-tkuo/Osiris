@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+file=open('C:/Users/Inance/Documents/Thesis/BURST/Burst_Testing_Data_Analysis/Day_1_Testing/Burst/Changed_TXT/Sample_15_burst_TXT.txt')
+lst = [] 
+for line in file:
+    lst.append([ float(x) for x in line.split()])
+t = np.array([ x[0] for x in lst]) #first row in file and make array
+v = np.array([ x[1] for x in lst]) #second row in file and make array
+pressure =(np.array([ x[2] for x in lst]))*-1 #etc. & change the sign of the imported pressure data
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-72f10f2d42c0>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mfile[0m[0;34m=[0m[0mopen[0m[0;34m([0m[0;34m'C:/Users/Inance/Documents/Thesis/BURST/Burst_Testing_Data_Analysis/Day_1_Testing/Burst/Changed_TXT/Sample_15_burst_TXT.txt'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mlst[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mfile[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mlst[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m[[0m [0mfloat[0m[0;34m([0m[0mx[0m[0;34m)[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0mline[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mt[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m [0mx[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;32mfor[0m [0mx[0m [0;32min[0m [0mlst[0m[0;34m][0m[0;34m)[0m [0;31m#first row in file and make array[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'C:/Users/Inance/Documents/Thesis/BURST/Burst_Testing_Data_Analysis/Day_1_Testing/Burst/Changed_TXT/Sample_15_burst_TXT.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Inance/Documents/Thesis/BURST/Burst_Testing_Data_Analysis/Day_1_Testing/Burst/Changed_TXT/Sample_15_burst_TXT.txt'
+
+Executability                            : False

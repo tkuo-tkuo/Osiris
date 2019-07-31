@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+from matplotlib import pyplot as plt
+from sklearn import datasets
+from jupyterthemes import jtplot
+jtplot.style()
+%matplotlib inline
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+#教師データ
+X = np.array([[3.0,30],
+              [3.7,35],
+              [4.3,33],
+              [4.6, 44]
+             ]);
+plt.scatter(X[:,0],X[:,1])
+
+#初期θ
+th0 = 1
+th1 = 2
+
+x2 = np.arange(0, 10)
+y2 = th0 + th1*x2;
+
+plt.plot(x2, y2, c="red");
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-8cb7ee578429>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0msklearn[0m [0;32mimport[0m [0mdatasets[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mjupyterthemes[0m [0;32mimport[0m [0mjtplot[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0mjtplot[0m[0;34m.[0m[0mstyle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      8[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'jupyterthemes'
+ImportError: No module named 'jupyterthemes'
+
+Executability                            : False

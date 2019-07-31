@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+# I have not written a python packaging script, load the NN class within the repository
+import sys
+from __future__ import print_function
+sys.path.append('../')
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-c4c3eee5a832>"[0;36m, line [0;32m6[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-2-c4c3eee5a832>, line 6)
+
+Executability                            : False

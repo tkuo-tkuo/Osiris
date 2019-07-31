@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+zips = []
+with open('Data/2015_Gaz_zcta_national.txt', 'r') as file:
+    next(file)
+    reader=csv.reader(file,delimiter='\t')
+    for row in reader:
+        zips.append({'code': row[0], 'lat': row[5], 'lon': row[6]})
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-bc25dce1ac91>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0mzips[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'Data/2015_Gaz_zcta_national.txt'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m [0;32mas[0m [0mfile[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0mnext[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m     [0mreader[0m[0;34m=[0m[0mcsv[0m[0;34m.[0m[0mreader[0m[0;34m([0m[0mfile[0m[0;34m,[0m[0mdelimiter[0m[0;34m=[0m[0;34m'\t'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m     [0;32mfor[0m [0mrow[0m [0;32min[0m [0mreader[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'Data/2015_Gaz_zcta_national.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'Data/2015_Gaz_zcta_national.txt'
+
+Executability                            : False

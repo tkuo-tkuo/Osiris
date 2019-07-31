@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import http.client, urllib.request, urllib.parse, urllib.error, base64
+import json, io, cv2
+import matplotlib.pyplot as plt, numpy as np
+
+%matplotlib inline
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-9fe65a84df39>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mhttp[0m[0;34m.[0m[0mclient[0m[0;34m,[0m [0murllib[0m[0;34m.[0m[0mrequest[0m[0;34m,[0m [0murllib[0m[0;34m.[0m[0mparse[0m[0;34m,[0m [0murllib[0m[0;34m.[0m[0merror[0m[0;34m,[0m [0mbase64[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mjson[0m[0;34m,[0m [0mio[0m[0;34m,[0m [0mcv2[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m,[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

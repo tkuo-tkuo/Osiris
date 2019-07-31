@@ -1,0 +1,20 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 0 ; number of cells: 1
+Reproducibility                          : matched ratio: 0.0 ; index of matched cells: []
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+#Randomizer
+import random
+cohort = ["hunter","jon","michael","olina", "nat", "runjini", "sheuli","tori"]
+random.shuffle(cohort)
+print(cohort)
+
+-----------------
+Original output:
+['jon', 'hunter', 'nat', 'olina', 'tori', 'michael', 'sheuli', 'runjini']
+
+Executed output:
+['michael', 'nat', 'tori', 'runjini', 'sheuli', 'olina', 'jon', 'hunter']
+

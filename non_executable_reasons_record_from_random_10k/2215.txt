@@ -1,0 +1,68 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 4 ; number of cells: 5
+Reproducibility                          : matched ratio: 0.8 ; index of matched cells: [0, 1, 2, 3]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+learning_rate = 1e-6
+
+for t in range(1):
+    # Forward Pass: compute predicted y
+    h = x.dot(w1)
+    h_relu = np.maximum(h, 0)
+    y_pred = h_relu.dot(w2)
+    print("h.shape", h.shape)
+    print("h_relu.shape", h_relu.shape)
+    print("y_pred.shape", y_pred.shape)
+
+
+    
+
+    
+    # compute and print loss
+    loss = np.square(y_pred-y).sum()
+    print(t, loss)
+    
+    # Backpropogation to compute gradient of w1 and w2 with respect to loss
+    grad_y_pred = 2.0*(y_pred -y)
+    print("grad_y_pred.shape", grad_y_pred.shape)
+
+    grad_w2 = h_relu.T.dot(grad_y_pred)
+    print("grad_w2", grad_w2.shape)
+    
+    grad_h_relu = grad_y_pred.dot(w2.T)
+    print("grad_h_relu", grad_h_relu.shape)
+    
+    grad_h= grad_h_relu.copy()
+    grad_h[h <0] = 0
+    
+    grad_w1 = x.T.dot(grad_h)
+    print("grad_w1", grad_w1.shape)
+    
+    # update weights 
+    w1 -= learning_rate* grad_w1
+    w2 -= learning_rate * grad_w2
+    
+
+-----------------
+Original output:
+h.shape (64, 100)
+h_relu.shape (64, 100)
+y_pred.shape (64, 10)
+0 23289381.961685423
+grad_y_pred.shape (64, 10)
+grad_w2 (100, 10)
+grad_h_relu (64, 100)
+grad_w1 (1000, 100)
+
+Executed output:
+h.shape (64, 100)
+h_relu.shape (64, 100)
+y_pred.shape (64, 10)
+0 26236556.727100372
+grad_y_pred.shape (64, 10)
+grad_w2 (100, 10)
+grad_h_relu (64, 100)
+grad_w1 (1000, 100)
+

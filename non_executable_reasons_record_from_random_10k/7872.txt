@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1, projection='3d')
+plot_3d(ax, x, y, U, "Noko")
+plt.show()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-7-4231b0adc041>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mfig[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0max[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0madd_subplot[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m1[0m[0;34m,[0m [0;36m1[0m[0;34m,[0m [0mprojection[0m[0;34m=[0m[0;34m'3d'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mplot_3d[0m[0;34m([0m[0max[0m[0;34m,[0m [0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0mU[0m[0;34m,[0m [0;34m"Noko"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'U' is not defined
+NameError: name 'U' is not defined
+
+Executability                            : False

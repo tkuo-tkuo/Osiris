@@ -1,0 +1,302 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 24 ; number of cells: 33
+Reproducibility                          : matched ratio: 0.727 ; index of matched cells: [0, 1, 2, 3, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+reviews = reviews.iloc[:,1:]
+reviews.head()
+
+-----------------
+Original output:
+                                               title  \
+0                            LittleBigPlanet PS Vita   
+1  LittleBigPlanet PS Vita -- Marvel Super Hero E...   
+2                               Splice: Tree of Life   
+3                                             NHL 13   
+4                                             NHL 13   
+
+                                                 url          platform  score  \
+0             /games/littlebigplanet-vita/vita-98907  PlayStation Vita    9.0   
+1  /games/littlebigplanet-ps-vita-marvel-super-he...  PlayStation Vita    9.0   
+2                          /games/splice/ipad-141070              iPad    8.5   
+3                      /games/nhl-13/xbox-360-128182          Xbox 360    8.5   
+4                           /games/nhl-13/ps3-128181     PlayStation 3    8.5   
+
+        genre editors_choice  release_year  release_month  release_day  
+0  Platformer              Y          2012              9           12  
+1  Platformer              Y          2012              9           12  
+2      Puzzle              N          2012              9           12  
+3      Sports              N          2012              9           11  
+4      Sports              N          2012              9           11  
+Executed output:
+  score_phrase                                              title  \
+0      Amazing                            LittleBigPlanet PS Vita   
+1      Amazing  LittleBigPlanet PS Vita -- Marvel Super Hero E...   
+2        Great                               Splice: Tree of Life   
+3        Great                                             NHL 13   
+4        Great                                             NHL 13   
+
+                                                 url          platform  score  \
+0             /games/littlebigplanet-vita/vita-98907  PlayStation Vita    9.0   
+1  /games/littlebigplanet-ps-vita-marvel-super-he...  PlayStation Vita    9.0   
+2                          /games/splice/ipad-141070              iPad    8.5   
+3                      /games/nhl-13/xbox-360-128182          Xbox 360    8.5   
+4                           /games/nhl-13/ps3-128181     PlayStation 3    8.5   
+
+        genre editors_choice  release_year  release_month  release_day  
+0  Platformer              Y          2012              9           12  
+1  Platformer              Y          2012              9           12  
+2      Puzzle              N          2012              9           12  
+3      Sports              N          2012              9           11  
+4      Sports              N          2012              9           11  
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+reviews.loc[0:5,:]
+
+-----------------
+Original output:
+                                               title  \
+0                            LittleBigPlanet PS Vita   
+1  LittleBigPlanet PS Vita -- Marvel Super Hero E...   
+2                               Splice: Tree of Life   
+3                                             NHL 13   
+4                                             NHL 13   
+5                          Total War Battles: Shogun   
+
+                                                 url          platform  score  \
+0             /games/littlebigplanet-vita/vita-98907  PlayStation Vita    9.0   
+1  /games/littlebigplanet-ps-vita-marvel-super-he...  PlayStation Vita    9.0   
+2                          /games/splice/ipad-141070              iPad    8.5   
+3                      /games/nhl-13/xbox-360-128182          Xbox 360    8.5   
+4                           /games/nhl-13/ps3-128181     PlayStation 3    8.5   
+5         /games/total-war-battles-shogun/mac-142565         Macintosh    7.0   
+
+        genre editors_choice  release_year  release_month  release_day  
+0  Platformer              Y          2012              9           12  
+1  Platformer              Y          2012              9           12  
+2      Puzzle              N          2012              9           12  
+3      Sports              N          2012              9           11  
+4      Sports              N          2012              9           11  
+5    Strategy              N          2012              9           11  
+Executed output:
+  score_phrase                                              title  \
+0      Amazing                            LittleBigPlanet PS Vita   
+1      Amazing  LittleBigPlanet PS Vita -- Marvel Super Hero E...   
+2        Great                               Splice: Tree of Life   
+3        Great                                             NHL 13   
+4        Great                                             NHL 13   
+5         Good                          Total War Battles: Shogun   
+
+                                                 url          platform  score  \
+0             /games/littlebigplanet-vita/vita-98907  PlayStation Vita    9.0   
+1  /games/littlebigplanet-ps-vita-marvel-super-he...  PlayStation Vita    9.0   
+2                          /games/splice/ipad-141070              iPad    8.5   
+3                      /games/nhl-13/xbox-360-128182          Xbox 360    8.5   
+4                           /games/nhl-13/ps3-128181     PlayStation 3    8.5   
+5         /games/total-war-battles-shogun/mac-142565         Macintosh    7.0   
+
+        genre editors_choice  release_year  release_month  release_day  
+0  Platformer              Y          2012              9           12  
+1  Platformer              Y          2012              9           12  
+2      Puzzle              N          2012              9           12  
+3      Sports              N          2012              9           11  
+4      Sports              N          2012              9           11  
+5    Strategy              N          2012              9           11  
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+some_reviews = reviews.iloc[10:20,]
+some_reviews.head()
+
+-----------------
+Original output:
+                      title                                              url  \
+10  Tekken Tag Tournament 2        /games/tekken-tag-tournament-2/ps3-124584   
+11  Tekken Tag Tournament 2   /games/tekken-tag-tournament-2/xbox-360-124581   
+12               Wild Blood                  /games/wild-blood/iphone-139363   
+13        Mark of the Ninja  /games/mark-of-the-ninja-135615/xbox-360-129276   
+14        Mark of the Ninja        /games/mark-of-the-ninja-135615/pc-143761   
+
+         platform  score              genre editors_choice  release_year  \
+10  PlayStation 3    7.5           Fighting              N          2012   
+11       Xbox 360    7.5           Fighting              N          2012   
+12         iPhone    7.0                NaN              N          2012   
+13       Xbox 360    9.0  Action, Adventure              Y          2012   
+14             PC    9.0  Action, Adventure              Y          2012   
+
+    release_month  release_day  
+10              9           11  
+11              9           11  
+12              9           10  
+13              9            7  
+14              9            7  
+Executed output:
+   score_phrase                    title  \
+10         Good  Tekken Tag Tournament 2   
+11         Good  Tekken Tag Tournament 2   
+12         Good               Wild Blood   
+13      Amazing        Mark of the Ninja   
+14      Amazing        Mark of the Ninja   
+
+                                                url       platform  score  \
+10        /games/tekken-tag-tournament-2/ps3-124584  PlayStation 3    7.5   
+11   /games/tekken-tag-tournament-2/xbox-360-124581       Xbox 360    7.5   
+12                  /games/wild-blood/iphone-139363         iPhone    7.0   
+13  /games/mark-of-the-ninja-135615/xbox-360-129276       Xbox 360    9.0   
+14        /games/mark-of-the-ninja-135615/pc-143761             PC    9.0   
+
+                genre editors_choice  release_year  release_month  release_day  
+10           Fighting              N          2012              9           11  
+11           Fighting              N          2012              9           11  
+12                NaN              N          2012              9           10  
+13  Action, Adventure              Y          2012              9            7  
+14  Action, Adventure              Y          2012              9            7  
+-------------------------------------------
+Source Code of a Unmatched Cell 21
+-------------------------------------------
+reviews["score"].mean()
+
+-----------------
+Original output:
+6.950459060402685
+Executed output:
+6.950459060402666
+-------------------------------------------
+Source Code of a Unmatched Cell 28
+-------------------------------------------
+filtered_reviews = reviews[score_filter]
+filtered_reviews.head()
+
+-----------------
+Original output:
+                                               title  \
+0                            LittleBigPlanet PS Vita   
+1  LittleBigPlanet PS Vita -- Marvel Super Hero E...   
+2                               Splice: Tree of Life   
+3                                             NHL 13   
+4                                             NHL 13   
+
+                                                 url          platform  score  \
+0             /games/littlebigplanet-vita/vita-98907  PlayStation Vita    9.0   
+1  /games/littlebigplanet-ps-vita-marvel-super-he...  PlayStation Vita    9.0   
+2                          /games/splice/ipad-141070              iPad    8.5   
+3                      /games/nhl-13/xbox-360-128182          Xbox 360    8.5   
+4                           /games/nhl-13/ps3-128181     PlayStation 3    8.5   
+
+        genre editors_choice  release_year  release_month  release_day  
+0  Platformer              Y          2012              9           12  
+1  Platformer              Y          2012              9           12  
+2      Puzzle              N          2012              9           12  
+3      Sports              N          2012              9           11  
+4      Sports              N          2012              9           11  
+Executed output:
+  score_phrase                                              title  \
+0      Amazing                            LittleBigPlanet PS Vita   
+1      Amazing  LittleBigPlanet PS Vita -- Marvel Super Hero E...   
+2        Great                               Splice: Tree of Life   
+3        Great                                             NHL 13   
+4        Great                                             NHL 13   
+
+                                                 url          platform  score  \
+0             /games/littlebigplanet-vita/vita-98907  PlayStation Vita    9.0   
+1  /games/littlebigplanet-ps-vita-marvel-super-he...  PlayStation Vita    9.0   
+2                          /games/splice/ipad-141070              iPad    8.5   
+3                      /games/nhl-13/xbox-360-128182          Xbox 360    8.5   
+4                           /games/nhl-13/ps3-128181     PlayStation 3    8.5   
+
+        genre editors_choice  release_year  release_month  release_day  
+0  Platformer              Y          2012              9           12  
+1  Platformer              Y          2012              9           12  
+2      Puzzle              N          2012              9           12  
+3      Sports              N          2012              9           11  
+4      Sports              N          2012              9           11  
+-------------------------------------------
+Source Code of a Unmatched Cell 29
+-------------------------------------------
+xbox_one_filter = (reviews["score"] > 7) & (reviews["platform"]=="Xbox One")
+filtered_reviews = reviews[xbox_one_filter]
+filtered_reviews.head()
+
+-----------------
+Original output:
+                          title  \
+17137                 Gone Home   
+17197            Rayman Legends   
+17295  LEGO Marvel Super Heroes   
+17313             Dead Rising 3   
+17317           Killer Instinct   
+
+                                                     url  platform  score  \
+17137                 /games/gone-home/xbox-one-20014361  Xbox One    9.5   
+17197            /games/rayman-legends/xbox-one-20008449  Xbox One    9.5   
+17295  /games/lego-marvel-super-heroes/xbox-one-20000826  Xbox One    9.0   
+17313               /games/dead-rising-3/xbox-one-124306  Xbox One    8.3   
+17317      /games/killer-instinct-2013/xbox-one-20000538  Xbox One    8.4   
+
+            genre editors_choice  release_year  release_month  release_day  
+17137  Simulation              Y          2013              8           15  
+17197  Platformer              Y          2013              8           26  
+17295      Action              Y          2013             10           22  
+17313      Action              N          2013             11           18  
+17317    Fighting              N          2013             11           18  
+Executed output:
+      score_phrase                     title  \
+17137      Amazing                 Gone Home   
+17197      Amazing            Rayman Legends   
+17295      Amazing  LEGO Marvel Super Heroes   
+17313        Great             Dead Rising 3   
+17317        Great           Killer Instinct   
+
+                                                     url  platform  score  \
+17137                 /games/gone-home/xbox-one-20014361  Xbox One    9.5   
+17197            /games/rayman-legends/xbox-one-20008449  Xbox One    9.5   
+17295  /games/lego-marvel-super-heroes/xbox-one-20000826  Xbox One    9.0   
+17313               /games/dead-rising-3/xbox-one-124306  Xbox One    8.3   
+17317      /games/killer-instinct-2013/xbox-one-20000538  Xbox One    8.4   
+
+            genre editors_choice  release_year  release_month  release_day  
+17137  Simulation              Y          2013              8           15  
+17197  Platformer              Y          2013              8           26  
+17295      Action              Y          2013             10           22  
+17313      Action              N          2013             11           18  
+17317    Fighting              N          2013             11           18  
+-------------------------------------------
+Source Code of a Unmatched Cell 30
+-------------------------------------------
+%matplotlib inline
+reviews[reviews["platform"] == "Xbox One"]["score"].plot(kind ="hist")
+
+-----------------
+Original output:
+<matplotlib.axes._subplots.AxesSubplot at 0x25f5b37bf28>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
+
+Executed output:
+<matplotlib.axes._subplots.AxesSubplot at 0x7f1862ec2ba8>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
+
+-------------------------------------------
+Source Code of a Unmatched Cell 31
+-------------------------------------------
+reviews[reviews["platform"] == "PlayStation 4"]["score"].plot(kind="hist")
+
+-----------------
+Original output:
+<matplotlib.axes._subplots.AxesSubplot at 0x25f5989a5c0>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
+
+Executed output:
+<matplotlib.axes._subplots.AxesSubplot at 0x7f1862dac0b8>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
+
+-------------------------------------------
+Source Code of a Unmatched Cell 32
+-------------------------------------------
+filtered_reviews["score"].hist()
+
+-----------------
+Original output:
+<matplotlib.axes._subplots.AxesSubplot at 0x25f5d478c88>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
+
+Executed output:
+<matplotlib.axes._subplots.AxesSubplot at 0x7f1862d37dd8>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
+

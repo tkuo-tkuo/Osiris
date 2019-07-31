@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+pd.tools.plotting.autocorrelation_plot(input_and_output_f2_timechange['leaf1'].dropna())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-18-e3f9c834d8a3>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mpd[0m[0;34m.[0m[0mtools[0m[0;34m.[0m[0mplotting[0m[0;34m.[0m[0mautocorrelation_plot[0m[0;34m([0m[0minput_and_output_f2_timechange[0m[0;34m[[0m[0;34m'leaf1'[0m[0;34m][0m[0;34m.[0m[0mdropna[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: module 'pandas' has no attribute 'tools'
+AttributeError: module 'pandas' has no attribute 'tools'
+
+Executability                            : False

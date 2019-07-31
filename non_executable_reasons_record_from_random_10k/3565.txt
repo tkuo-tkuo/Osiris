@@ -1,0 +1,24 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 9 ; number of cells: 11
+Reproducibility                          : matched ratio: 0.818 ; index of matched cells: [0, 1, 3, 4, 6, 7, 8, 9, 10]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+deneme # toplama fonksiyonuna eşit oldu.
+
+-----------------
+Original output:
+<function __main__.fonksiyon.<locals>.toplama>
+Executed output:
+<function __main__.fonksiyon.<locals>.toplama(*args)>
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+deneme2 # çarpma fonksiyonuna eşit oldu.
+
+-----------------
+Original output:
+<function __main__.fonksiyon.<locals>.çarpma>
+Executed output:
+<function __main__.fonksiyon.<locals>.çarpma(*args)>

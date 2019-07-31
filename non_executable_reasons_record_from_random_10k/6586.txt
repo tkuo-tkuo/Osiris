@@ -1,0 +1,91 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+%%file parjulia.pyx
+# distutils: extra_compile_args = -fopenmp
+# distutils: extra_link_args = -fopenmp
+#your code here
+cimport cython
+import numpy as np
+cimport numpy as np
+from cython.parallel cimport prange
+
+cdef inline double norm2(double complex z) nogil:
+    return z.real*z.real + z.imag*z.imag
+
+cdef int escape(int maxiter, double complex z, double complex c) nogil:
+    cdef int n=0
+    while n < maxiter and norm2(z) < 4:
+        z=z*z+c
+        n+=1
+    return n
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cpdef run_cython_amalgamated2(int gridsize, box, double complex c, int maxiter):
+    #your code here
+    cdef double xstep = (box.x2 - box.x1)/(gridsize - 1.0)
+    cdef double ystep = (box.y2 - box.y1)/(gridsize - 1.0)
+    
+    cdef double xstart = box.x1
+    cdef double ystart = box.y1
+    #zs = []
+    #out = []
+    
+    cdef double complex[:] zs = np.empty(gridsize*gridsize, dtype=complex)
+    cdef double complex[:] output = np.empty(gridsize*gridsize, dtype=complex)
+    
+    cdef unsigned int i, j
+    cdef double x,y
+    cdef double complex z
+    
+    for i in prange(gridsize, nogil=True,
+                    schedule='static', chunksize=1):
+        x = xstart + i*xstep
+        for j in range(gridsize):
+            y = ystart + i*ystep
+
+            z.real = x
+            z.imag = y
+            zs[i*gridsize+j] = z
+            output[i*gridsize+j] = escape(maxiter, z, c)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-16-5c168f3bf194>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_cell_magic[0m[0;34m([0m[0;34m'file'[0m[0;34m,[0m [0;34m'parjulia.pyx'[0m[0;34m,[0m [0;34m"# distutils: extra_compile_args = -fopenmp\n# distutils: extra_link_args = -fopenmp\n#your code here\ncimport cython\nimport numpy as np\ncimport numpy as np\nfrom cython.parallel cimport prange\n\ncdef inline double norm2(double complex z) nogil:\n    return z.real*z.real + z.imag*z.imag\n\ncdef int escape(int maxiter, double complex z, double complex c) nogil:\n    cdef int n=0\n    while n < maxiter and norm2(z) < 4:\n        z=z*z+c\n        n+=1\n    return n\n\n@cython.boundscheck(False)\n@cython.wraparound(False)\ncpdef run_cython_amalgamated2(int gridsize, box, double complex c, int maxiter):\n    #your code here\n    cdef double xstep = (box.x2 - box.x1)/(gridsize - 1.0)\n    cdef double ystep = (box.y2 - box.y1)/(gridsize - 1.0)\n    \n    cdef double xstart = box.x1\n    cdef double ystart = box.y1\n    #zs = []\n    #out = []\n    \n    cdef double complex[:] zs = np.empty(gridsize*gridsize, dtype=complex)\n    cdef double complex[:] output = np.empty(gridsize*gridsize, dtype=complex)\n    \n    cdef unsigned int i, j\n    cdef double x,y\n    cdef double complex z\n    \n    for i in prange(gridsize, nogil=True,\n                    schedule='static', chunksize=1):\n        x = xstart + i*xstep\n        for j in range(gridsize):\n            y = ystart + i*ystep\n\n            z.real = x\n            z.imag = y\n            zs[i*gridsize+j] = z\n            output[i*gridsize+j] = escape(maxiter, z, c)"[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/core/interactiveshell.py[0m in [0;36mrun_cell_magic[0;34m(self, magic_name, line, cell)[0m
+[1;32m   2165[0m             [0mmagic_arg_s[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mvar_expand[0m[0;34m([0m[0mline[0m[0;34m,[0m [0mstack_depth[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m   2166[0m             [0;32mwith[0m [0mself[0m[0;34m.[0m[0mbuiltin_trap[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m-> 2167[0;31m                 [0mresult[0m [0;34m=[0m [0mfn[0m[0;34m([0m[0mmagic_arg_s[0m[0;34m,[0m [0mcell[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m   2168[0m             [0;32mreturn[0m [0mresult[0m[0;34m[0m[0m
+[1;32m   2169[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/core/magic.py[0m in [0;36m__call__[0;34m(self, *args, **kwargs)[0m
+[1;32m    680[0m                 [0margs_list[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mmagic_params[0m [0;34m+[0m [0;34m" "[0m [0;34m+[0m [0margs[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0m
+[1;32m    681[0m                 [0margs[0m [0;34m=[0m [0mtuple[0m[0;34m([0m[0margs_list[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m--> 682[0;31m             [0;32mreturn[0m [0mfn[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    683[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    684[0m             [0mself[0m[0;34m.[0m[0m_in_call[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0m
+
+[0;32m<decorator-gen-106>[0m in [0;36mwritefile[0;34m(self, line, cell)[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/core/magic.py[0m in [0;36m<lambda>[0;34m(f, *a, **k)[0m
+[1;32m    185[0m     [0;31m# but it's overkill for just that one bit of state.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    186[0m     [0;32mdef[0m [0mmagic_deco[0m[0;34m([0m[0marg[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 187[0;31m         [0mcall[0m [0;34m=[0m [0;32mlambda[0m [0mf[0m[0;34m,[0m [0;34m*[0m[0ma[0m[0;34m,[0m [0;34m**[0m[0mk[0m[0;34m:[0m [0mf[0m[0;34m([0m[0;34m*[0m[0ma[0m[0;34m,[0m [0;34m**[0m[0mk[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    188[0m [0;34m[0m[0m
+[1;32m    189[0m         [0;32mif[0m [0mcallable[0m[0;34m([0m[0marg[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/IPython/core/magics/osm.py[0m in [0;36mwritefile[0;34m(self, line, cell)[0m
+[1;32m    789[0m [0;34m[0m[0m
+[1;32m    790[0m         [0mmode[0m [0;34m=[0m [0;34m'a'[0m [0;32mif[0m [0margs[0m[0;34m.[0m[0mappend[0m [0;32melse[0m [0;34m'w'[0m[0;34m[0m[0m
+[0;32m--> 791[0;31m         [0;32mwith[0m [0mio[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mmode[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'utf-8'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m    792[0m             [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mcell[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'parjulia.pyx'
+PermissionError: [Errno 13] Permission denied: 'parjulia.pyx'
+
+Executability                            : False

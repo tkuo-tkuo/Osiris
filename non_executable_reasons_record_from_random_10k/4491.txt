@@ -1,0 +1,44 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import random
+import csv
+
+lis = []
+index,master=1,1
+
+quanlist = ['1']*5 + ['2','3']
+foodlist=['BG001','BG002','BG003','BG004','BG005','BG006','BG007','BG008','BG009','BG010','BG011','PZ001','PZ002','PZ003','PZ004','PZ005','PZ006','PZ007','PZ008','PZ009','PZ010','SD001','SD002','SD003','SD004','SD005','SD006','SD007','SD008','SD009','SD010','SD011','CK001','CK002','CK003','CK004','CK005','CK006','CK007','CK008','CK009','DR001','DR002','DR003','DR004','DR005','DR006','DR007','DR008','DR009','DR010','DR011','DS001','DS002','DS003','DS004','DS005','DS006','DS007','DS008','DS009','DS010']
+pricelist=[30,20,24,22,12,12,12,12,18,15,30,90,90,100,100,80,60,70,90,90,90,10,12,10,15,10,18,16,20,18,14,12,30,30,40,25,25,22,30,60,50,10,10,10,10,12,13,13,13,15,15,10,18,18,18,24,15,15,15,10,10,15]
+
+for day in range(5):
+    count = random.randint(50,300)
+    for _ in range(count): #each day
+        times = random.randint(1,5)
+        for _ in range(times): # each master order
+            food_pos = randome.randint(0,len(foodlist)-1)
+            name = [str(index),foodlist[food_pos],str(master),str(random.choice(foodlist)),str(pricelist[food_pos])]
+            lis.append(name)
+            index+=1
+        master+=1
+
+with open('order.csv','w') as f:
+    w = csv.writer(f)
+    w.writerows(lis)
+
+    
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-90f7da4ce47c>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     14[0m         [0mtimes[0m [0;34m=[0m [0mrandom[0m[0;34m.[0m[0mrandint[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m5[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     15[0m         [0;32mfor[0m [0m_[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mtimes[0m[0;34m)[0m[0;34m:[0m [0;31m# each master order[0m[0;34m[0m[0m
+[0;32m---> 16[0;31m             [0mfood_pos[0m [0;34m=[0m [0mrandome[0m[0;34m.[0m[0mrandint[0m[0;34m([0m[0;36m0[0m[0;34m,[0m[0mlen[0m[0;34m([0m[0mfoodlist[0m[0;34m)[0m[0;34m-[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     17[0m             [0mname[0m [0;34m=[0m [0;34m[[0m[0mstr[0m[0;34m([0m[0mindex[0m[0;34m)[0m[0;34m,[0m[0mfoodlist[0m[0;34m[[0m[0mfood_pos[0m[0;34m][0m[0;34m,[0m[0mstr[0m[0;34m([0m[0mmaster[0m[0;34m)[0m[0;34m,[0m[0mstr[0m[0;34m([0m[0mrandom[0m[0;34m.[0m[0mchoice[0m[0;34m([0m[0mfoodlist[0m[0;34m)[0m[0;34m)[0m[0;34m,[0m[0mstr[0m[0;34m([0m[0mpricelist[0m[0;34m[[0m[0mfood_pos[0m[0;34m][0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[1;32m     18[0m             [0mlis[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'randome' is not defined
+NameError: name 'randome' is not defined
+
+Executability                            : False

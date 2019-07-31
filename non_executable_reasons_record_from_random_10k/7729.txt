@@ -1,0 +1,37 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import torch
+from torch.autograd import Variable
+import torchvision
+import torchvision.transforms as T
+import random
+
+import numpy as np
+from scipy.ndimage.filters import gaussian_filter1d
+import matplotlib.pyplot as plt
+#from helper.image_utils import SQUEEZENET_MEAN, SQUEEZENET_STD
+import helper.image_utils
+from PIL import Image
+
+%matplotlib inline
+plt.rcParams['figure.figsize'] = (10.0, 8.0) # set default size of plots
+plt.rcParams['image.interpolation'] = 'nearest'
+plt.rcParams['image.cmap'] = 'gray'
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-a62857b04912>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mtorch[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mfrom[0m [0mtorch[0m[0;34m.[0m[0mautograd[0m [0;32mimport[0m [0mVariable[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mtorchvision[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'torch'
+ImportError: No module named 'torch'
+
+Executability                            : False

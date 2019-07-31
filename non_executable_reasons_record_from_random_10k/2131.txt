@@ -1,0 +1,41 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+from urllib.request import urlopen
+
+for i in range(86090,86096):
+    ppomppu = 'http://www.ppomppu.co.kr/zboard/view.php?id=ppomppu4&page=1&divpage=16&no='+str(i)
+    html=urlopen(ppomppu)
+    output = getContents(ppomppu)
+    soup = BeautifulSoup(html, 'html.parser')
+    #print(soup)
+    title = soup.find_all("font", {"class" : "view_title2"}) ###<font class="view_title2"> 를 앞에서 처럼 표현한것
+    aisle = soup.find_all("font", {"class" : "view_cate"})
+    contents = soup.find_all(class_='pic_bg')
+    for t in title:
+        print(t.get_text())
+        for a in aisle:
+            print(a.get_text())
+    
+    for c in contents:
+        print(c.get_text().strip())
+    
+    #for tag in soup.select(".container > .han > p"):
+    #    print(tag)
+        #print(m[0])
+    print("="*25)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-a7921bd6fd84>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m     [0mppomppu[0m [0;34m=[0m [0;34m'http://www.ppomppu.co.kr/zboard/view.php?id=ppomppu4&page=1&divpage=16&no='[0m[0;34m+[0m[0mstr[0m[0;34m([0m[0mi[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mhtml[0m[0;34m=[0m[0murlopen[0m[0;34m([0m[0mppomppu[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0moutput[0m [0;34m=[0m [0mgetContents[0m[0;34m([0m[0mppomppu[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     [0msoup[0m [0;34m=[0m [0mBeautifulSoup[0m[0;34m([0m[0mhtml[0m[0;34m,[0m [0;34m'html.parser'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m     [0;31m#print(soup)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'getContents' is not defined
+NameError: name 'getContents' is not defined
+
+Executability                            : False

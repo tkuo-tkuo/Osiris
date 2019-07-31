@@ -1,0 +1,26 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#split data to train and test sets
+from sklearn.cross_validation import train_test_split
+train, test = train_test_split(df1, test_size = 0.5)
+
+y = train["Target"]
+X = train[features]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-908a1877fe82>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;31m#split data to train and test sets[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mcross_validation[0m [0;32mimport[0m [0mtrain_test_split[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mtrain[0m[0;34m,[0m [0mtest[0m [0;34m=[0m [0mtrain_test_split[0m[0;34m([0m[0mdf1[0m[0;34m,[0m [0mtest_size[0m [0;34m=[0m [0;36m0.5[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0my[0m [0;34m=[0m [0mtrain[0m[0;34m[[0m[0;34m"Target"[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'df1' is not defined
+NameError: name 'df1' is not defined
+
+Executability                            : False

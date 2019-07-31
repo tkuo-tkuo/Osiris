@@ -1,0 +1,85 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from testing_initial_analysis import means_for_file2
+from split_file1_into_1000rows_data import *
+from split_file2_into_1000rows_data import *
+from split_file3_into_1000rows_data import *
+%matplotlib inline
+import math
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-1-022633b70ba5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mtesting_initial_analysis[0m [0;32mimport[0m [0mmeans_for_file2[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0msplit_file1_into_1000rows_data[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfrom[0m [0msplit_file2_into_1000rows_data[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/nanduriprabhakar@Data_Science_Team_Project/testing_initial_analysis.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     65[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0minput_and_output_f1[0m[0;34m.[0m[0mcolumns[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     66[0m     [0mtemp_df[0m[0;34m=[0m[0minput_and_output_f1[0m[0;34m[[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m][0m[0;34m.[0m[0mdropna[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 67[0;31m     [0mtemp_df[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mtemp_df[0m[0;34m.[0m[0mindex[0m[0;34m,[0m[0mi[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     68[0m     [0mmeans_for_file1[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0minput_and_output_f1[0m[0;34m[[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m][0m[0;34m.[0m[0mdropna[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mmean[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     69[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/plotting/_core.py[0m in [0;36m__call__[0;34m(self, x, y, kind, ax, subplots, sharex, sharey, layout, figsize, use_index, title, grid, legend, style, logx, logy, loglog, xticks, yticks, xlim, ylim, rot, fontsize, colormap, table, yerr, xerr, secondary_y, sort_columns, **kwds)[0m
+[1;32m   2940[0m                           [0mfontsize[0m[0;34m=[0m[0mfontsize[0m[0;34m,[0m [0mcolormap[0m[0;34m=[0m[0mcolormap[0m[0;34m,[0m [0mtable[0m[0;34m=[0m[0mtable[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2941[0m                           [0myerr[0m[0;34m=[0m[0myerr[0m[0;34m,[0m [0mxerr[0m[0;34m=[0m[0mxerr[0m[0;34m,[0m [0msecondary_y[0m[0;34m=[0m[0msecondary_y[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2942[0;31m                           sort_columns=sort_columns, **kwds)
+[0m[1;32m   2943[0m     [0m__call__[0m[0;34m.[0m[0m__doc__[0m [0;34m=[0m [0mplot_frame[0m[0;34m.[0m[0m__doc__[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2944[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/plotting/_core.py[0m in [0;36mplot_frame[0;34m(data, x, y, kind, ax, subplots, sharex, sharey, layout, figsize, use_index, title, grid, legend, style, logx, logy, loglog, xticks, yticks, xlim, ylim, rot, fontsize, colormap, table, yerr, xerr, secondary_y, sort_columns, **kwds)[0m
+[1;32m   1971[0m                  [0myerr[0m[0;34m=[0m[0myerr[0m[0;34m,[0m [0mxerr[0m[0;34m=[0m[0mxerr[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1972[0m                  [0msecondary_y[0m[0;34m=[0m[0msecondary_y[0m[0;34m,[0m [0msort_columns[0m[0;34m=[0m[0msort_columns[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1973[0;31m                  **kwds)
+[0m[1;32m   1974[0m [0;34m[0m[0m
+[1;32m   1975[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/plotting/_core.py[0m in [0;36m_plot[0;34m(data, x, y, subplots, ax, kind, **kwds)[0m
+[1;32m   1761[0m                 [0;32mif[0m [0mis_integer[0m[0;34m([0m[0mx[0m[0;34m)[0m [0;32mand[0m [0;32mnot[0m [0mdata[0m[0;34m.[0m[0mcolumns[0m[0;34m.[0m[0mholds_integer[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1762[0m                     [0mx[0m [0;34m=[0m [0mdata_cols[0m[0;34m[[0m[0mx[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1763[0;31m                 [0;32melif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mdata[0m[0;34m[[0m[0mx[0m[0;34m][0m[0;34m,[0m [0mABCSeries[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1764[0m                     [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"x must be a label or position"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1765[0m                 [0mdata[0m [0;34m=[0m [0mdata[0m[0;34m.[0m[0mset_index[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/frame.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   2932[0m                 [0mkey[0m [0;34m=[0m [0mlist[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2933[0m             indexer = self.loc._convert_to_indexer(key, axis=1,
+[0;32m-> 2934[0;31m                                                    raise_missing=True)
+[0m[1;32m   2935[0m [0;34m[0m[0m
+[1;32m   2936[0m         [0;31m# take() does not accept boolean indexers[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexing.py[0m in [0;36m_convert_to_indexer[0;34m(self, obj, axis, is_setter, raise_missing)[0m
+[1;32m   1352[0m                 kwargs = {'raise_missing': True if is_setter else
+[1;32m   1353[0m                           raise_missing}
+[0;32m-> 1354[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_get_listlike_indexer[0m[0;34m([0m[0mobj[0m[0;34m,[0m [0maxis[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1355[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1356[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexing.py[0m in [0;36m_get_listlike_indexer[0;34m(self, key, axis, raise_missing)[0m
+[1;32m   1159[0m         self._validate_read_indexer(keyarr, indexer,
+[1;32m   1160[0m                                     [0mo[0m[0;34m.[0m[0m_get_axis_number[0m[0;34m([0m[0maxis[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1161[0;31m                                     raise_missing=raise_missing)
+[0m[1;32m   1162[0m         [0;32mreturn[0m [0mkeyarr[0m[0;34m,[0m [0mindexer[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1163[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/pandas/core/indexing.py[0m in [0;36m_validate_read_indexer[0;34m(self, key, indexer, axis, raise_missing)[0m
+[1;32m   1244[0m                 raise KeyError(
+[1;32m   1245[0m                     u"None of [{key}] are in the [{axis}]".format(
+[0;32m-> 1246[0;31m                         key=key, axis=self.obj._get_axis_name(axis)))
+[0m[1;32m   1247[0m [0;34m[0m[0m
+[1;32m   1248[0m             [0;31m# We (temporarily) allow for some missing keys with .loc, except in[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: "None of [Int64Index([1501867420479000000, 1501867420481000000, 1501867420484000000,\n            1501867420487000000, 1501867420489000000, 1501867420491000000,\n            1501867420494000000, 1501867420496000000, 1501867420499000000,\n            1501867420501000000,\n            ...\n            1501867652571000000, 1501867652579000000, 1501867652581000000,\n            1501867652584000000, 1501867652586000000, 1501867652589000000,\n            1501867652591000000, 1501867652594000000, 1501867652596000000,\n            1501867652598000000],\n           dtype='int64', name='time', length=1802)] are in the [columns]"
+KeyError: "None of [Int64Index([1501867420479000000, 1501867420481000000, 1501867420484000000,\n            1501867420487000000, 1501867420489000000, 1501867420491000000,\n            1501867420494000000, 1501867420496000000, 1501867420499000000,\n            1501867420501000000,\n            ...\n            1501867652571000000, 1501867652579000000, 1501867652581000000,\n            1501867652584000000, 1501867652586000000, 1501867652589000000,\n            1501867652591000000, 1501867652594000000, 1501867652596000000,\n            1501867652598000000],\n           dtype='int64', name='time', length=1802)] are in the [columns]"
+
+Executability                            : False

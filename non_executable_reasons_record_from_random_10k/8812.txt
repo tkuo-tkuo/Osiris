@@ -1,0 +1,17 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Cargar librerias
+library(jpeg)
+library(rgl)
+library(grid)
+library(stats)
+library(kernlab)
+set.seed(3)
+------------------
+
+NameError: name 'library' is not defined
+
+Executability                            : False

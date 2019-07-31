@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Log 模块资料
+- https://www.cnblogs.com/yyds/p/6901864.html
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-8a1358909bfc>"[0;36m, line [0;32m4[0m
+[0;31m    - https://www.cnblogs.com/yyds/p/6901864.html[0m
+[0m             ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-8a1358909bfc>, line 4)
+
+Executability                            : False

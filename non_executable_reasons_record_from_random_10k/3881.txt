@@ -1,0 +1,29 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+for dirname in os.listdir(data_path):
+    data_path2 = data_path +  dirname + "/"
+    for filename in os.listdir(data_path2):
+        print(filename)
+        if "GT" in data_path2:
+            shutil.copyfile(data_path2 + filename, dst_path + "masks/" + filename)
+            shutil.copyfile(data_path2 + filename, dst_path + "edges/" + filename)
+        elif "Slide" in data_path2:
+            shutil.copyfile(data_path2 + filename, dst_path + "images/" + filename)
+        else:
+            print("Else")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-66fe5feab6b8>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfor[0m [0mdirname[0m [0;32min[0m [0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0mdata_path[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m     [0mdata_path2[0m [0;34m=[0m [0mdata_path[0m [0;34m+[0m  [0mdirname[0m [0;34m+[0m [0;34m"/"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m     [0;32mfor[0m [0mfilename[0m [0;32min[0m [0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0mdata_path2[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m         [0mprint[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m         [0;32mif[0m [0;34m"GT"[0m [0;32min[0m [0mdata_path2[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'os' is not defined
+NameError: name 'os' is not defined
+
+Executability                            : False

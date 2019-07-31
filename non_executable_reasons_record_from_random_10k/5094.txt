@@ -1,0 +1,12 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Downloading the file in the Data Scientist Workbench
+download.file("https://ibm.box.com/shared/static/th5dsj5txtw052dt2k9i5hekkjhydda2.csv","/resources/WeatherStations.csv")
+------------------
+
+NameError: name 'download' is not defined
+
+Executability                            : False

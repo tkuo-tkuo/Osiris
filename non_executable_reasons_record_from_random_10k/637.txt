@@ -1,0 +1,14 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import csv
+f = open("census.csv", "r")
+a = csv.reader(f)
+cansus = list(a)
+------------------
+
+FileNotFoundError: [Errno 2] No such file or directory: 'census.csv'
+
+Executability                            : False

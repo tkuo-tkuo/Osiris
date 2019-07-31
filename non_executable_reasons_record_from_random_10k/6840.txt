@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+lda = LatentDirichletAllocation(n_topics=n_topics, max_iter=5,
+                                learning_method='online',
+                                learning_offset=50.,
+                                random_state=0)
+lda.fit(tf)
+tf_feature_names = tf_vectorizer.get_feature_names()
+print_top_words(lda, tf_feature_names, n_top_words)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-cf8592f74579>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m                                 [0mlearning_method[0m[0;34m=[0m[0;34m'online'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m                                 [0mlearning_offset[0m[0;34m=[0m[0;36m50.[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m                                 random_state=0)
+[0m[1;32m      5[0m [0mlda[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mtf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mtf_feature_names[0m [0;34m=[0m [0mtf_vectorizer[0m[0;34m.[0m[0mget_feature_names[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: __init__() got an unexpected keyword argument 'n_topics'
+TypeError: __init__() got an unexpected keyword argument 'n_topics'
+
+Executability                            : False

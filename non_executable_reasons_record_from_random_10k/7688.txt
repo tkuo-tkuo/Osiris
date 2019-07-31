@@ -1,0 +1,34 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# License: BSD
+# Author: Sasank Chilamkurthy
+
+from __future__ import print_function, division
+
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.optim import lr_scheduler
+from torch.autograd import Variable
+import numpy as np
+import torchvision
+from torchvision import datasets, models, transforms
+import matplotlib.pyplot as plt
+import time
+import os
+import copy
+
+plt.ion()   # interactive mode
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-6b4d8fd354c8>"[0;36m, line [0;32m9[0m
+[0;31m    import torch.nn as nn[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
+
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-6b4d8fd354c8>, line 9)
+
+Executability                            : False

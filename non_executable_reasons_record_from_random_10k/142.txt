@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+dataset2 = randn(100)
+plt.hist(dataset2,color='indianred')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-b51197d6b0b5>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mdataset2[0m [0;34m=[0m [0mrandn[0m[0;34m([0m[0;36m100[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mplt[0m[0;34m.[0m[0mhist[0m[0;34m([0m[0mdataset2[0m[0;34m,[0m[0mcolor[0m[0;34m=[0m[0;34m'indianred'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
+Executability                            : False

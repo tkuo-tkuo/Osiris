@@ -1,0 +1,11 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+ggplot(runjini300, aes(x=INCOME_Code)) + geom_bar() + theme(axis.text.x=element_text(angle=90))
+------------------
+
+SyntaxError: keyword can't be an expression (<ipython-input-1-dd68d834e0bc>, line 3)
+
+Executability                            : False

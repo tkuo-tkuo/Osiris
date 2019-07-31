@@ -1,0 +1,43 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import pandas.io.data as web
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt
+import datetime as dt
+import math
+import statsmodels as sm
+import seaborn as sns
+import pylab
+import pprint
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import statsmodels.graphics.api as smgraph
+import scipy.stats as stats
+
+from pandas.tools.plotting import scatter_matrix
+from pandas.tseries.holiday import USFederalHolidayCalendar as calendar
+from sklearn.cross_validation import train_test_split, cross_val_score
+
+from sklearn import metrics
+
+%matplotlib inline
+sns.set_palette("Set2", 10) #Set color scheme
+sns.set_style("darkgrid") #Set style for axis
+pd.set_option('display.max_rows', 500)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-4ec59c1f18bb>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mpandas[0m[0;34m.[0m[0mio[0m[0;34m.[0m[0mdata[0m [0;32mas[0m [0mweb[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mdatetime[0m [0;32mas[0m [0mdt[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'pandas.io.data'
+ImportError: No module named 'pandas.io.data'
+
+Executability                            : False

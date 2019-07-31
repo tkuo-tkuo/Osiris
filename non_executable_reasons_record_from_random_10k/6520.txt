@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from __future__ import division, print_function, absolute_import
+
+import tflearn
+from tflearn.data_utils import to_categorical, pad_sequences
+from tflearn.datasets import imdb
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-d34cea6d992e>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      3[0m [0;32mfrom[0m [0m__future__[0m [0;32mimport[0m [0mdivision[0m[0;34m,[0m [0mprint_function[0m[0;34m,[0m [0mabsolute_import[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mimport[0m [0mtflearn[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mtflearn[0m[0;34m.[0m[0mdata_utils[0m [0;32mimport[0m [0mto_categorical[0m[0;34m,[0m [0mpad_sequences[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mtflearn[0m[0;34m.[0m[0mdatasets[0m [0;32mimport[0m [0mimdb[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tflearn'
+ImportError: No module named 'tflearn'
+
+Executability                            : False

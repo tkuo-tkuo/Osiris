@@ -1,0 +1,24 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+with open('/root/Cipher3.txt') as f:
+    words = [word.strip() for word in f]
+cipher_text = ''.join(words)
+cipher_text
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-1-219314761044>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'/root/Cipher3.txt'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mwords[0m [0;34m=[0m [0;34m[[0m[0mword[0m[0;34m.[0m[0mstrip[0m[0;34m([0m[0;34m)[0m [0;32mfor[0m [0mword[0m [0;32min[0m [0mf[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mcipher_text[0m [0;34m=[0m [0;34m''[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mwords[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '/root/Cipher3.txt'
+PermissionError: [Errno 13] Permission denied: '/root/Cipher3.txt'
+
+Executability                            : False

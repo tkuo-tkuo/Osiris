@@ -1,0 +1,28 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+steam_df = load_without_cold_start(min_games=5)
+preprocessor = PandasALSPreprocessor(steam_df)
+preprocessor.process_general()
+preprocessor.process_buckets()
+preprocessor.process_min_max()
+preprocessor.keep_standard_columns()
+steam_df = preprocessor.get_df()
+steam_df.head(2)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-93ad19afbcaf>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0msteam_df[0m [0;34m=[0m [0mload_without_cold_start[0m[0;34m([0m[0mmin_games[0m[0;34m=[0m[0;36m5[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mpreprocessor[0m [0;34m=[0m [0mPandasALSPreprocessor[0m[0;34m([0m[0msteam_df[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mpreprocessor[0m[0;34m.[0m[0mprocess_general[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'load_without_cold_start' is not defined
+NameError: name 'load_without_cold_start' is not defined
+
+Executability                            : False

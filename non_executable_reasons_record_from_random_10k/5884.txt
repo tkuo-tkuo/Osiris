@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+li.append(5, 6, 7)
+------------------
+
+TypeError: append() takes exactly one argument (3 given)
+
+Executability                            : False

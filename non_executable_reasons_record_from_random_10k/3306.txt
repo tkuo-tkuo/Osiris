@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+len(df.columns)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-a3581ceb4a37>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mlen[0m[0;34m([0m[0mdf[0m[0;34m.[0m[0mcolumns[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
+
+Executability                            : False

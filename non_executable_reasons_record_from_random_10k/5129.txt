@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+data = pandas.read_csv('../data/20151119---SAMPLE2-PHREE-100XMEOH-MOBILITY_dt_temp_Apex3DIons.csv')
+m_z = data.m_z.tolist()
+rt = data.rt.tolist()
+inten = data.inten.tolist()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-42c1adfc0464>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mdata[0m [0;34m=[0m [0mpandas[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'../data/20151119---SAMPLE2-PHREE-100XMEOH-MOBILITY_dt_temp_Apex3DIons.csv'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mm_z[0m [0;34m=[0m [0mdata[0m[0;34m.[0m[0mm_z[0m[0;34m.[0m[0mtolist[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0mrt[0m [0;34m=[0m [0mdata[0m[0;34m.[0m[0mrt[0m[0;34m.[0m[0mtolist[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pandas' is not defined
+NameError: name 'pandas' is not defined
+
+Executability                            : False

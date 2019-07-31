@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+housing_data_url = 'https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/housing_scale'
+data = requests.get(housing_data_url)
+housing_svmlight_file_name = 'housing_scale.svm'
+with open(housing_svmlight_file_name, 'w') as f:
+    f.write(data.text)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-a2422971660e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mdata[0m [0;34m=[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mhousing_data_url[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mhousing_svmlight_file_name[0m [0;34m=[0m [0;34m'housing_scale.svm'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mhousing_svmlight_file_name[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m     [0mf[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mdata[0m[0;34m.[0m[0mtext[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: 'housing_scale.svm'
+PermissionError: [Errno 13] Permission denied: 'housing_scale.svm'
+
+Executability                            : False

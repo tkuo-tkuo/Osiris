@@ -1,0 +1,23 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#rm(list = ls())
+#dev.off()
+
+data0 = read.csv('./mailorder.csv')
+attach(data0)
+#str(data0)
+data0$gender <- as.numeric(gender) # 차후 logit regression을 위한 가공
+data0 <- data0[,2:7] #id 변수 제외
+str(data0)
+trset = data0[1 : 2000,]
+tset = data0[2001 : 4000,]
+
+
+------------------
+
+SyntaxError: invalid syntax (<ipython-input-1-f993c071fa0d>, line 9)
+
+Executability                            : False

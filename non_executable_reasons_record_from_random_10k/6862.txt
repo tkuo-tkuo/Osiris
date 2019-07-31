@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import KFold
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.feature_extraction.text import TfidfVectorizer
+from nltk.corpus import stopwords
+import oll
+
+corpus = pd.read_csv('corpus.csv.gz', compression='gzip')
+stopwords = stopwords.words("portuguese")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-f62017d526ba>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mfeature_extraction[0m[0;34m.[0m[0mtext[0m [0;32mimport[0m [0mTfidfVectorizer[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mcorpus[0m [0;32mimport[0m [0mstopwords[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mimport[0m [0moll[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m [0mcorpus[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'corpus.csv.gz'[0m[0;34m,[0m [0mcompression[0m[0;34m=[0m[0;34m'gzip'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'oll'
+ImportError: No module named 'oll'
+
+Executability                            : False

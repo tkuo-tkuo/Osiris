@@ -1,0 +1,15 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+library("gdata")
+require(kohonen)
+library(maptools)
+data(wrld_simpl)
+data = read.xls('WHR2018Chapter2OnlineData.xls', sheet=1)
+------------------
+
+NameError: name 'library' is not defined
+
+Executability                            : False

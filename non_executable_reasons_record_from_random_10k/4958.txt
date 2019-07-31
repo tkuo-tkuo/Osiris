@@ -1,0 +1,35 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import gym
+from IPython import display
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+%matplotlib inline
+
+env = gym.make('Breakout-v0')
+
+cumulatesRewards = []
+
+for episode in range(10):
+    env.reset()
+    observation, reward, done, info = env.step(1)
+    img = plt.imshow(env.render(mode='rgb_array')) # only call this once
+    for _ in range(10000):
+        img.set_data(env.render(mode='rgb_array')) # just update the data
+        display.display(plt.gcf())
+        display.clear_output(wait=True)
+#         action = env.action_space.sample()
+        action = take_action(observation)
+        observation, reward, done, info = env.step(action)
+        if done:
+            break
+        
+------------------
+
+ImportError: No module named 'gym'
+
+Executability                            : False

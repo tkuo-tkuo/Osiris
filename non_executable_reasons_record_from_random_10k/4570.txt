@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from twython import Twython
+
+APP_KEY = 'EBn457n1D8NxR9Jm58dBmajlC'
+APP_SECRET = 'YqNuIXPnuP7pwcs1CTiDF4IY7fqc6U9bxDAjSL3z4fsANiNffv'
+
+OAUTH_TOKEN = '538446650-aOp7wBtflyqeI70D56YoVsThKwr9f3SWR3hJtlVO'
+OAUTH_TOKEN_SECRET = '0BX4A2F59XDMtbEGcQusfDbdthPoRiNMZtHi31hW9Eos6'
+
+twitter = Twython(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-2111aea2c577>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mtwython[0m [0;32mimport[0m [0mTwython[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mAPP_KEY[0m [0;34m=[0m [0;34m'EBn457n1D8NxR9Jm58dBmajlC'[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'twython'
+ImportError: No module named 'twython'
+
+Executability                            : False

@@ -1,0 +1,15 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+base = pd.read_csv("D:/Projects1/train.csv") # kaggle mercedes training data
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-b376b0ec59da>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mbase[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m"D:/Projects1/train.csv"[0m[0;34m)[0m [0;31m# kaggle mercedes training data[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

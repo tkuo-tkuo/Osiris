@@ -1,0 +1,40 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 2]
+-------------------------------------------
+Source Code of a Unmatched Cell 3
+-------------------------------------------
+a = np.random.rand(1000000)
+b = np.random.rand(1000000)
+
+tic = time.time()
+c = np.dot(a,b)
+toc = time.time()
+
+print(c)
+print('Vectorized version: '+str(1000*(toc-tic))+'ms')
+
+c = 0
+tic = time.time()
+for i in range(1000000):
+    c+=a[i]*b[i]
+    
+toc = time.time()
+
+print(c)
+print('For loop: '+str(1000*(toc-tic))+'ms')
+
+-----------------
+Original output:
+250179.320798
+Vectorized version: 5.0029754638671875ms
+250179.320798
+For loop: 726.0308265686035ms
+
+Executed output:
+249774.33613452432
+Vectorized version: 30.792236328125ms
+249774.33613452266
+For loop: 361.0985279083252ms
+

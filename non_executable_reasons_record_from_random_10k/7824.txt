@@ -1,0 +1,38 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Define Inputs
+X = None
+Y = None
+
+# Load Recipes
+filename="recipes.json"
+with open(filename) as json_data:
+    recipes = json.load(json_data)
+    Y = list(recipes.keys())
+    X = np.zeros([len(Y), dimensions_ingredients+dimensions_nutrition_facts])
+    index = 0
+    for label, recipe in recipes.items():
+        for ingredient in recipe["ingredients"]:
+            X[index, ingredient[0]] = ingredient[1]
+        for fact in recipe["nutrition"]:
+            X[ index, dimensions_ingredients + fact[0] ] = fact[1]
+        index+=1
+print("File "+filename+" was successfully read")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-fc5170b802de>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0;31m# Load Recipes[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0mfilename[0m[0;34m=[0m[0;34m"recipes.json"[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mfilename[0m[0;34m)[0m [0;32mas[0m [0mjson_data[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m     10[0m     [0mrecipes[0m [0;34m=[0m [0mjson[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mjson_data[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     11[0m     [0mY[0m [0;34m=[0m [0mlist[0m[0;34m([0m[0mrecipes[0m[0;34m.[0m[0mkeys[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'recipes.json'
+FileNotFoundError: [Errno 2] No such file or directory: 'recipes.json'
+
+Executability                            : False

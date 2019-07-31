@@ -1,0 +1,130 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from turtle import *
+import datetime
+from time import sleep
+import random
+
+
+
+#Draw the fan shape according to the sec value and fill the color
+def draw_second(i,num=30):
+  
+    rt((num+30*i)%360)
+    pendown()
+    begin_fill()
+    circle(num+70,num*2)
+    end_fill()
+
+#Draw a circle according to the min value and fill the color
+def draw_minute(i,num=30):
+
+    begin_fill()
+    circle(num+10)
+    end_fill()
+    penup()
+
+#Draw a square according to hour
+
+def draw_hour(i,num=6):
+
+    len=num*1+100
+    home()
+    rt((30*i)%360)
+    pendown()
+
+    fd(len)
+    rt(90)
+    fd(len)
+    rt(90)
+    fd(len)
+    rt(90)
+    fd(len)
+    rt(90)
+    penup()
+
+# create the turtles for displaying the time
+secondTurtle = Turtle()
+minuteTurtle = Turtle()
+hourTurtle = Turtle()
+
+# raise pens for all turtles
+secondTurtle.penup()
+minuteTurtle.penup()
+hourTurtle.penup()
+
+#set colors range and draw speed
+colors = ['blue','gray','red','green','brown','purple','orange','skyblue','pink','gold','yellow','wheat','lime','teal']
+speed('fast')
+
+for i in range(1000):
+    c = random.choice(colors)
+    color(c,c)
+    t = datetime.datetime.now().time()
+    s = t.second
+    m = t.minute
+    h = t.hour
+    print(t)
+    penup()
+    draw_second(i,s)
+    draw_minute(i,m)
+    draw_hour(i,h)
+    home()
+
+
+win=turtle.Screen(); win.exitonclick()
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTclError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-1-be4041643f67>[0m in [0;36m<module>[0;34m[0m
+[1;32m     45[0m [0;34m[0m[0m
+[1;32m     46[0m [0;31m# create the turtles for displaying the time[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 47[0;31m [0msecondTurtle[0m [0;34m=[0m [0mTurtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     48[0m [0mminuteTurtle[0m [0;34m=[0m [0mTurtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     49[0m [0mhourTurtle[0m [0;34m=[0m [0mTurtle[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self, shape, undobuffersize, visible)[0m
+[1;32m   3810[0m                  visible=_CFG["visible"]):
+[1;32m   3811[0m         [0;32mif[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3812[0;31m             [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;34m=[0m [0mScreen[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3813[0m         RawTurtle.__init__(self, Turtle._screen,
+[1;32m   3814[0m                            [0mshape[0m[0;34m=[0m[0mshape[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36mScreen[0;34m()[0m
+[1;32m   3660[0m     else return the existing one."""
+[1;32m   3661[0m     [0;32mif[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3662[0;31m         [0mTurtle[0m[0;34m.[0m[0m_screen[0m [0;34m=[0m [0m_Screen[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3663[0m     [0;32mreturn[0m [0mTurtle[0m[0;34m.[0m[0m_screen[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3664[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m   3676[0m         [0;31m# preserved (perhaps by passing it as an optional parameter)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3677[0m         [0;32mif[0m [0m_Screen[0m[0;34m.[0m[0m_root[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3678[0;31m             [0m_Screen[0m[0;34m.[0m[0m_root[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_root[0m [0;34m=[0m [0m_Root[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3679[0m             [0mself[0m[0;34m.[0m[0m_root[0m[0;34m.[0m[0mtitle[0m[0;34m([0m[0m_Screen[0m[0;34m.[0m[0m_title[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3680[0m             [0mself[0m[0;34m.[0m[0m_root[0m[0;34m.[0m[0mondestroy[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_destroy[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/turtle.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m    432[0m     [0;34m"""Root class for Screen based on Tkinter."""[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    433[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 434[0;31m         [0mTK[0m[0;34m.[0m[0mTk[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    435[0m [0;34m[0m[0m
+[1;32m    436[0m     [0;32mdef[0m [0msetupcanvas[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mwidth[0m[0;34m,[0m [0mheight[0m[0;34m,[0m [0mcwidth[0m[0;34m,[0m [0mcheight[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/tkinter/__init__.py[0m in [0;36m__init__[0;34m(self, screenName, baseName, className, useTk, sync, use)[0m
+[1;32m   2021[0m                 [0mbaseName[0m [0;34m=[0m [0mbaseName[0m [0;34m+[0m [0mext[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2022[0m         [0minteractive[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2023[0;31m         [0mself[0m[0;34m.[0m[0mtk[0m [0;34m=[0m [0m_tkinter[0m[0;34m.[0m[0mcreate[0m[0;34m([0m[0mscreenName[0m[0;34m,[0m [0mbaseName[0m[0;34m,[0m [0mclassName[0m[0;34m,[0m [0minteractive[0m[0;34m,[0m [0mwantobjects[0m[0;34m,[0m [0museTk[0m[0;34m,[0m [0msync[0m[0;34m,[0m [0muse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2024[0m         [0;32mif[0m [0museTk[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2025[0m             [0mself[0m[0;34m.[0m[0m_loadtk[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTclError[0m: no display name and no $DISPLAY environment variable
+TclError: no display name and no $DISPLAY environment variable
+
+Executability                            : False

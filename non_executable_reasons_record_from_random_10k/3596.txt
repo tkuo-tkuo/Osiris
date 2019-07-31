@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+a = "45345assadasd"
+int(a)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-10-0e6ec5635fbc>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0ma[0m [0;34m=[0m [0;34m"45345assadasd"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mint[0m[0;34m([0m[0ma[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: invalid literal for int() with base 10: '45345assadasd'
+ValueError: invalid literal for int() with base 10: '45345assadasd'
+
+Executability                            : False

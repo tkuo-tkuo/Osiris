@@ -1,0 +1,58 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import matplotlib.pyplot as plt
+
+X = np.zeros([1,4])
+y = np.zeros(1)
+for i in range(1,18):
+    data = np.load(r'D:\gradddddddddddddddddd\newdata\data_%i.npy' % i)
+    for j in range(len(data)):
+        if data[j,4] < 2500:
+            X = np.append(X,np.array([np.hstack((data[j,2:5],data[j,6]))]),axis=0)
+#            X = np.append(X,np.array([data[j,3:5]]),axis=0)
+            y = np.append(y,data[j,5])
+#X3 = X[:,0] - X[:,1]
+#X = np.concatenate((X, np.array([X3]).T), axis=1)
+X = np.delete(X, 0, 0)
+y = np.delete(y, 0)
+X[:,0] = X[:,0]**(1./3.)
+
+y[y<10] = 0
+y[y>=10] = 1
+
+
+# Splitting the dataset into the Training set and Test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+
+# Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-1-da3827a4806b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      7[0m [0my[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mzeros[0m[0;34m([0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m1[0m[0;34m,[0m[0;36m18[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     [0mdata[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34mr'D:\gradddddddddddddddddd\newdata\data_%i.npy'[0m [0;34m%[0m [0mi[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     10[0m     [0;32mfor[0m [0mj[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mlen[0m[0;34m([0m[0mdata[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     11[0m         [0;32mif[0m [0mdata[0m[0;34m[[0m[0mj[0m[0;34m,[0m[0;36m4[0m[0;34m][0m [0;34m<[0m [0;36m2500[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py35/lib/python3.5/site-packages/numpy/lib/npyio.py[0m in [0;36mload[0;34m(file, mmap_mode, allow_pickle, fix_imports, encoding)[0m
+[1;32m    370[0m     [0mown_fid[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0m
+[1;32m    371[0m     [0;32mif[0m [0misinstance[0m[0;34m([0m[0mfile[0m[0;34m,[0m [0mbasestring[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 372[0;31m         [0mfid[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mfile[0m[0;34m,[0m [0;34m"rb"[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    373[0m         [0mown_fid[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0m
+[1;32m    374[0m     [0;32melif[0m [0mis_pathlib_path[0m[0;34m([0m[0mfile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mOSError[0m: [Errno 22] Invalid argument: 'D:\\gradddddddddddddddddd\\newdata\\data_1.npy'
+OSError: [Errno 22] Invalid argument: 'D:\\gradddddddddddddddddd\\newdata\\data_1.npy'
+
+Executability                            : False

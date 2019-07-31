@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from nltk.tokenize import *
+str1 = ''.join([i for i in nltk.data.load('andy.txt') if not i.isdigit()])
+str2 = ''.join([i for i in nltk.data.load('andy2.txt') if not i.isdigit()])
+str3 = ''.join([i for i in nltk.data.load('andy3.txt') if not i.isdigit()])
+str4 = ''.join([i for i in nltk.data.load('movie.txt') if not i.isdigit()])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-bd782b397c91>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtokenize[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mstr1[0m [0;34m=[0m [0;34m''[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0;34m[[0m[0mi[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34m'andy.txt'[0m[0;34m)[0m [0;32mif[0m [0;32mnot[0m [0mi[0m[0;34m.[0m[0misdigit[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mstr2[0m [0;34m=[0m [0;34m''[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0;34m[[0m[0mi[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34m'andy2.txt'[0m[0;34m)[0m [0;32mif[0m [0;32mnot[0m [0mi[0m[0;34m.[0m[0misdigit[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      6[0m [0mstr3[0m [0;34m=[0m [0;34m''[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0;34m[[0m[0mi[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mload[0m[0;34m([0m[0;34m'andy3.txt'[0m[0;34m)[0m [0;32mif[0m [0;32mnot[0m [0mi[0m[0;34m.[0m[0misdigit[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'nltk' is not defined
+NameError: name 'nltk' is not defined
+
+Executability                            : False

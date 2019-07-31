@@ -1,0 +1,274 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 6 ; number of cells: 13
+Reproducibility                          : matched ratio: 0.462 ; index of matched cells: [0, 1, 2, 3, 5, 6]
+-------------------------------------------
+Source Code of a Unmatched Cell 4
+-------------------------------------------
+import re
+
+def wc(x): 
+    try:
+        return len(re.findall(r'\w+', x['content']))
+    except:
+        return 0
+    
+corpus['wc'] = corpus.apply(wc,axis=1)
+corpus_liwc['wc'] = corpus['wc']
+corpus_liwc = corpus_liwc[corpus_liwc['confidence'] == 1]
+corpus_liwc[['class','wc']].groupby(['class']).agg(['mean','count'])
+
+-----------------
+Original output:
+                wc      
+              mean count
+class                   
+diario  371.153179   346
+outro   477.047872   188
+Executed output:
+                wc      
+              mean count
+class                   
+diario  415.820513    39
+outro   490.172414    29
+-------------------------------------------
+Source Code of a Unmatched Cell 7
+-------------------------------------------
+liguistic_columns = ['funct','pronoun','ppron','i','we','you','shehe','they','ipron','article','verb','auxverb','past','present','future','adverb','preps','conj','negate','quant','number']
+liguistic_stats = stats.ix[liguistic_columns]
+liguistic_stats[['significance','diff']][liguistic_stats.significance > 0.05].sort_values('significance',ascending=False)
+
+-----------------
+Original output:
+        significance      diff
+negate      0.918024  0.037234
+adverb      0.843622 -0.175532
+past        0.414383  1.361702
+future      0.128246 -0.500000
+quant       0.104887 -2.569149
+Executed output:
+         significance       diff
+negate       0.278092   0.425121
+number       0.206409   0.835749
+future       0.191248   0.323671
+past         0.138417   1.932367
+auxverb      0.115578   2.685990
+they         0.104122   1.154589
+preps        0.085760   7.004831
+i            0.082179   1.000000
+conj         0.068541   5.164251
+adverb       0.065548   2.135266
+article      0.061172   3.961353
+verb         0.058161   6.908213
+funct        0.055028  24.932367
+-------------------------------------------
+Source Code of a Unmatched Cell 8
+-------------------------------------------
+psychological_columns = ['swear','social','family','friend','humans','affect','posemo','negemo','anx','anger','sad','cogmech','insight','cause','discrep','tentat','certain','inhib','incl','excl','percept','see','hear','feel','bio','body','health','sexual','ingest','relativ','motion','space','time','work','achieve','leisure','home','money','relig','death','assent','nonfl','filler']
+psychological_stats = stats.ix[psychological_columns]
+psychological_stats[['significance','diff']][psychological_stats.significance > 0.05].sort_values('significance',ascending=False)
+
+-----------------
+Original output:
+         significance      diff
+anx          0.920032  0.239362
+sexual       0.853533 -0.255319
+friend       0.806944  0.063830
+home         0.790528 -0.085106
+feel         0.660014 -0.239362
+see          0.294309 -0.569149
+assent       0.276611 -0.207447
+certain      0.271694 -1.473404
+sad          0.238550 -0.446809
+family       0.223343 -0.590426
+humans       0.163131 -3.026596
+leisure      0.113809 -1.319149
+percept      0.072740 -2.361702
+discrep      0.059690 -3.281915
+ingest       0.056383 -2.771277
+Executed output:
+         significance       diff
+money        0.819398  -0.502415
+work         0.806160   0.714976
+death        0.674235   0.115942
+body         0.610561   0.478261
+filler       0.598907   0.086957
+achieve      0.442552   0.879227
+anger        0.388194   0.352657
+assent       0.363841   0.091787
+cause        0.343366   1.521739
+negemo       0.335095   1.082126
+bio          0.320518   2.309179
+feel         0.290159   0.753623
+home         0.286899   0.231884
+health       0.212839   0.318841
+insight      0.187907   2.855072
+see          0.182150   0.850242
+inhib        0.152181   2.028986
+sad          0.135696   0.565217
+incl         0.135625   6.850242
+leisure      0.127038   1.338164
+percept      0.122236   2.454106
+family       0.116207   0.560386
+space        0.094040   5.130435
+motion       0.091145   2.526570
+relig        0.090925   0.642512
+cogmech      0.089968  19.164251
+friend       0.075162   0.589372
+relativ      0.064858  10.608696
+affect       0.061476   5.323671
+hear         0.061445   0.826087
+anx          0.055294   0.376812
+excl         0.053396   3.864734
+certain      0.051559   1.811594
+-------------------------------------------
+Source Code of a Unmatched Cell 9
+-------------------------------------------
+liguistic_columns = ['funct','pronoun','ppron','i','we','you','shehe','they','ipron','article','verb','auxverb','past','present','future','adverb','preps','conj','negate','quant','number']
+liguistic_stats = stats.ix[liguistic_columns]
+liguistic_stats[['significance','diff']][liguistic_stats.significance <= 0.05].sort_values('significance',ascending=False)
+
+-----------------
+Original output:
+         significance       diff
+auxverb  3.437545e-02  -4.000000
+verb     3.075465e-02  -7.601064
+number   1.374029e-02  -1.047872
+pronoun  2.403478e-03 -13.590426
+conj     1.211852e-03  -7.925532
+funct    7.842559e-04 -38.867021
+ipron    2.667456e-04 -11.643617
+we       1.235138e-04  -1.579787
+ppron    3.375651e-05 -12.111702
+present  2.071924e-05  -9.994681
+article  5.446126e-07 -10.893617
+preps    2.041736e-07 -20.808511
+they     4.573661e-08  -4.021277
+i        1.473191e-08   4.590426
+shehe    4.115445e-10 -11.920213
+you      3.427160e-10 -13.377660
+Executed output:
+         significance       diff
+present      0.036425   4.492754
+quant        0.028695   3.724638
+ipron        0.018287   7.381643
+shehe        0.012943   4.304348
+you          0.010688   5.024155
+pronoun      0.008884  11.574879
+we           0.006380   0.676329
+ppron        0.005578   7.613527
+-------------------------------------------
+Source Code of a Unmatched Cell 10
+-------------------------------------------
+psychological_columns = ['swear','social','family','friend','humans','affect','posemo','negemo','anx','anger','sad','cogmech','insight','cause','discrep','tentat','certain','inhib','incl','excl','percept','see','hear','feel','bio','body','health','sexual','ingest','relativ','motion','space','time','work','achieve','leisure','home','money','relig','death','assent','nonfl','filler']
+psychological_stats = stats.ix[psychological_columns]
+print(len(psychological_stats[psychological_stats.significance <= 0.05]))
+psychological_stats[['significance','diff']][psychological_stats.significance <= 0.05].sort_values('significance',ascending=True)
+
+-----------------
+Original output:
+28
+         significance       diff
+nonfl    2.648187e-08  -4.489362
+space    4.476228e-06 -12.361702
+relig    7.700756e-06  -2.409574
+incl     1.430851e-05 -15.505319
+social   5.259275e-05 -20.803191
+work     1.695272e-04  -4.510638
+swear    3.120360e-04  -6.281915
+achieve  4.190609e-04  -3.877660
+cogmech  6.824609e-04 -33.340426
+anger    1.280878e-03  -1.643617
+bio      2.171747e-03  -4.239362
+affect   2.872561e-03  -7.244681
+body     3.560716e-03  -2.069149
+filler   5.353296e-03   0.207447
+relativ  5.721526e-03 -14.382979
+hear     9.077359e-03  -1.531915
+money    1.021516e-02  -2.117021
+posemo   1.253129e-02  -4.239362
+inhib    1.431834e-02  -2.968085
+insight  1.556139e-02  -4.180851
+negemo   1.636996e-02  -2.260638
+death    1.655279e-02  -0.531915
+time     1.719307e-02  -5.319149
+excl     2.745114e-02  -4.441489
+health   2.756701e-02  -1.117021
+tentat   2.761175e-02  -6.393617
+cause    3.001133e-02  -3.420213
+motion   3.695266e-02  -2.537234
+Executed output:
+10
+         significance       diff
+sexual       0.000356   1.729469
+humans       0.001662   5.608696
+nonfl        0.007305   2.000000
+social       0.008450  12.932367
+posemo       0.013663   4.256039
+swear        0.023497   3.574879
+ingest       0.029140   3.608696
+time         0.037003   4.599034
+discrep      0.043329   3.758454
+tentat       0.048490   5.579710
+-------------------------------------------
+Source Code of a Unmatched Cell 11
+-------------------------------------------
+## story categories
+psychological_stats[psychological_stats.significance <= 0.05].sort_values('diff',ascending=False).head(10)
+
+-----------------
+Original output:
+        diario_mean  outro_mean      diff  significance
+filler     0.500000    0.292553  0.207447      0.005353
+death      0.941489    1.473404 -0.531915      0.016553
+health     3.930851    5.047872 -1.117021      0.027567
+hear       4.845745    6.377660 -1.531915      0.009077
+anger      3.000000    4.643617 -1.643617      0.001281
+body       9.255319   11.324468 -2.069149      0.003561
+money      7.276596    9.393617 -2.117021      0.010215
+negemo     9.601064   11.861702 -2.260638      0.016370
+relig      2.239362    4.648936 -2.409574      0.000008
+motion    23.851064   26.388298 -2.537234      0.036953
+Executed output:
+         diario_mean  outro_mean       diff  significance
+social     83.739130   70.806763  12.932367      0.008450
+humans     29.164251   23.555556   5.608696      0.001662
+tentat     41.028986   35.449275   5.579710      0.048490
+time       34.265700   29.666667   4.599034      0.037003
+posemo     24.251208   19.995169   4.256039      0.013663
+discrep    26.483092   22.724638   3.758454      0.043329
+ingest     28.082126   24.473430   3.608696      0.029140
+swear      23.613527   20.038647   3.574879      0.023497
+nonfl      11.183575    9.183575   2.000000      0.007305
+sexual      6.178744    4.449275   1.729469      0.000356
+-------------------------------------------
+Source Code of a Unmatched Cell 12
+-------------------------------------------
+## non-story categories
+psychological_stats[psychological_stats.significance <= 0.05].sort_values('diff',ascending=True).head(10)
+
+-----------------
+Original output:
+         diario_mean  outro_mean       diff  significance
+cogmech   141.526596  174.867021 -33.340426      0.000682
+social     68.010638   88.813830 -20.803191      0.000053
+incl       52.010638   67.515957 -15.505319      0.000014
+relativ    79.946809   94.329787 -14.382979      0.005722
+space      35.723404   48.085106 -12.361702      0.000004
+affect     30.707447   37.952128  -7.244681      0.002873
+tentat     34.930851   41.324468  -6.393617      0.027612
+swear      19.196809   25.478723  -6.281915      0.000312
+time       29.579787   34.898936  -5.319149      0.017193
+work        9.053191   13.563830  -4.510638      0.000170
+Executed output:
+         diario_mean  outro_mean       diff  significance
+sexual      6.178744    4.449275   1.729469      0.000356
+nonfl      11.183575    9.183575   2.000000      0.007305
+swear      23.613527   20.038647   3.574879      0.023497
+ingest     28.082126   24.473430   3.608696      0.029140
+discrep    26.483092   22.724638   3.758454      0.043329
+posemo     24.251208   19.995169   4.256039      0.013663
+time       34.265700   29.666667   4.599034      0.037003
+tentat     41.028986   35.449275   5.579710      0.048490
+humans     29.164251   23.555556   5.608696      0.001662
+social     83.739130   70.806763  12.932367      0.008450

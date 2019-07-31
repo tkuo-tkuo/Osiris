@@ -1,0 +1,34 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# define functions
+stemmer = PorterStemmer()
+def stem_tokens(tokens, stemmer):
+    stemmed = []
+    for item in tokens:
+        stemmed.append(stemmer.stem(item))
+    return stemmed
+
+def tokenize(text):
+    text = "".join([ch for ch in text if ch not in string.punctuation])
+    tokens = word_tokenize(text)
+    stems = stem_tokens(tokens, stemmer)
+    return stems
+
+# remove url's, hashtags, and @
+def cleaner(corpus):
+    for i in range(len(corpus)):
+        # corpus[i] = re.sub('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', corpus[i])
+        corpus[i] = re.sub(r'http\S+', '', corpus[i])
+        corpus[i] = corpus[i].replace('@', '')
+        corpus[i] = corpus[i].replace('#', '')
+        corpus[i] = corpus[i].replace('RT', '')
+        corpus[i] = corpus[i].replace('amp', '')
+    return corpus
+------------------
+
+NameError: name 'PorterStemmer' is not defined
+
+Executability                            : False

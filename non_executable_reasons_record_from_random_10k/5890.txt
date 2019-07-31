@@ -1,0 +1,9 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+b.__intance_private_method()
+------------------
+
+AttributeError: 'B' object has no attribute '__intance_private_method'
+
+Executability                            : False

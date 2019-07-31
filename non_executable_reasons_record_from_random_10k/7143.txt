@@ -1,0 +1,29 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+bb2d = BinaryBoundary2D(640,480)
+
+file = open("sample1.txt", mode='r')
+txt = file.read()
+
+file.close()
+
+bb2d.setDataset(txt.strip())
+bb2d.train(MLP(2),0.005, 200)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-4d07ef38eb8b>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mbb2d[0m [0;34m=[0m [0mBinaryBoundary2D[0m[0;34m([0m[0;36m640[0m[0;34m,[0m[0;36m480[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mfile[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m"sample1.txt"[0m[0;34m,[0m [0mmode[0m[0;34m=[0m[0;34m'r'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'BinaryBoundary2D' is not defined
+NameError: name 'BinaryBoundary2D' is not defined
+
+Executability                            : False

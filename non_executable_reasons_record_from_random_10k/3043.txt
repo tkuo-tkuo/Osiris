@@ -1,0 +1,107 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+'''
+Convolutional Autoencoder
+Adapted from tutorial: https://github.com/pkmital/tensorflow_tutorials/
+'''
+
+import sys
+sys.path.append('./utils/')
+
+import tensorflow as tf
+import numpy as np
+import scipy
+import matplotlib.pyplot as plt
+from dist import cos_sim
+
+LEARNING_RATE = 0.005
+STRIDE_SIZE = 2
+POOL_SIZE = 2
+POOL_STRIDE_SIZE = 2
+BATCH_SIZE = 256
+EPOCHS = 600
+
+filters = [3, 32, 16]
+filter_maps = [2, 2]
+
+x = tf.placeholder(tf.float32, [None, 16, 16, filters[0]])
+x_mean = tf.placeholder(tf.float32, [16, 16, filters[0]])
+
+# Encode images
+layer_in = x
+encode_params = []
+encode_shapes = []
+
+for i, output_len in enumerate(filters[1:]):
+	encode_shapes.append(layer_in.get_shape().as_list())
+	input_len = layer_in.get_shape().as_list()[3]
+
+	weights = tf.Variable(tf.random_normal([
+		filter_maps[i], filter_maps[i], input_len, output_len]))
+	bias = tf.Variable(tf.random_normal([output_len]))
+	encode_params.append(weights)
+
+	layer_in = tf.nn.sigmoid(tf.add(tf.nn.conv2d(
+		layer_in, weights, strides=[1, STRIDE_SIZE, STRIDE_SIZE, 1], padding='SAME'), bias))
+
+	# layer_in = tf.nn.max_pool(layer_in, ksize=[1, POOL_SIZE, POOL_SIZE, 1],
+	#                        strides=[1, POOL_STRIDE_SIZE, POOL_STRIDE_SIZE, 1], padding='SAME')
+
+print(layer_in)
+layer_in = tf.contrib.layers.flatten(layer_in)
+layer_in = tf.layers.dense(inputs=layer_in, units=256, activation=tf.nn.sigmoid)
+layer_in = tf.layers.dense(inputs=layer_in, units=128)
+
+# Latent representation of input images
+latent_rep_shape = layer_in.get_shape().as_list()
+#latent_rep = tf.reshape(layer_in, [-1, latent_rep_shape[1], latent_rep_shape[2], latent_rep_shape[3]])
+latent_rep = layer_in
+
+layer_in = tf.layers.dense(inputs=layer_in, units=256, activation=tf.nn.sigmoid)
+layer_in = tf.reshape(layer_in, (-1, 4, 4, 16))
+
+# Decode latent representation
+encode_params.reverse()
+encode_shapes.reverse()
+
+for i, shape in enumerate(encode_shapes):
+	weights = encode_params[i]
+	bias = tf.Variable(tf.zeros([weights.get_shape().as_list()[2]]))
+
+	#layer_in = tf.image.resize_images(layer_in, size=(shape[1], shape[2]), method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
+
+	if i + 1 == len(encode_shapes):
+		layer_in = tf.add(tf.nn.conv2d_transpose(
+			layer_in, weights, tf.stack([tf.shape(x)[0], shape[1], shape[2], shape[3]]), strides=[1, STRIDE_SIZE, STRIDE_SIZE, 1], padding='SAME'), bias)
+	else:
+		layer_in = tf.nn.sigmoid(tf.add(tf.nn.conv2d_transpose(
+			layer_in, weights, tf.stack([tf.shape(x)[0], shape[1], shape[2], shape[3]]), strides=[1, STRIDE_SIZE, STRIDE_SIZE, 1], padding='SAME'), bias))
+
+# Reconstruction of input images
+y = tf.nn.sigmoid(layer_in)
+
+#cost = tf.reduce_mean(tf.square(y - x))
+cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=x, logits=layer_in))
+cost_2 = tf.reduce_sum(tf.pow(x - y, 2)) / tf.reduce_sum(tf.pow(x - x_mean, 2))
+optimizer = tf.train.AdamOptimizer(LEARNING_RATE).minimize(cost)
+
+# Initializing variables
+init = tf.global_variables_initializer()
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-43a28bf1e7e3>[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0msys[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m'./utils/'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[0;32m----> 9[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mimport[0m [0mscipy[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

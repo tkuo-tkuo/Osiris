@@ -1,0 +1,13 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+#Memanggil data csv dengan file.choose pada fungsi read.csv
+
+abalone <- read.csv(file.choose(), T, ";")
+------------------
+
+NameError: name 'abalone' is not defined
+
+Executability                            : False

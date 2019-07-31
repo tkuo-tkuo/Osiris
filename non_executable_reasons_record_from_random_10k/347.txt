@@ -1,0 +1,76 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+from HelmholtzSolverRAD import *
+from ExampleBoundaries import SphereRAD
+
+def displayGraph(example, aF, aRatioBEM, aRatioTheo):
+    plt.title('Radiation Ratio of ' + example + ' Sphere')
+    lineBEM, = plt.plot(aF, aRatioBEM, 'D', label='BEM')
+    lineTheo, = plt.plot(aF, aRatioTheo, '--', label='theoretical')
+    plt.xlabel('frequence [Hz]')
+    plt.ylabel('radiation ratio')
+    plt.legend(handles=[lineBEM, lineTheo], loc='lower right')
+    plt.show()
+
+numberOfSamples = 30
+
+solver = ExteriorHelmholtzSolverRAD(SphereRAD())
+
+# Test Problem 1 - Pulsating Sphere
+# Neumann condition with v perpendicular to the surface, and
+# homogeneous over the full shpere. The the graph plotted also 
+# contains the theoretical/closed-form solution.
+boundaryCondition = solver.neumannBoundaryCondition()
+boundaryCondition.f.fill(1.0)
+
+boundaryIncidence = BoundaryIncidence(solver.numberOfElements())
+boundaryIncidence.phi.fill(0.0)
+boundaryIncidence.v.fill(0.0)
+
+aF = np.linspace(10, 1000, numberOfSamples, dtype=np.float32)
+aNumericalRadiationRatio = np.empty(aF.size, dtype=np.float32)
+aTheoreticalRadiationRatio = np.empty(aF.size, dtype=np.float32)
+
+for i in range(aF.size):
+    k = frequencyToWavenumber(aF[i])
+    boundarySolution = solver.solveBoundary(k,boundaryCondition, boundaryIncidence)
+    aNumericalRadiationRatio[i] = boundarySolution.radiationRatio()
+    aTheoreticalRadiationRatio[i] = k**2 / (k**2+1)
+
+displayGraph('Pulsating', aF, aNumericalRadiationRatio, aTheoreticalRadiationRatio)
+
+# Test Problem 2 - Osillating Sphere
+# Neumann condition with sphere oscillating along the z-axix. This
+# results in a v(x) = z, where z is the z component of a given 
+# point x on the sphere.
+for i in range(boundaryCondition.f.size):
+    boundaryCondition.f[i] = solver.aCenters[i, 1]
+for i in range(aF.size):
+    k = frequencyToWavenumber(aF[i])
+    boundarySolution = solver.solveBoundary(k,boundaryCondition, boundaryIncidence)
+    aNumericalRadiationRatio[i] = boundarySolution.radiationRatio()
+    aTheoreticalRadiationRatio[i] = k**4 / (k**4+4)
+
+displayGraph('Oscillating', aF, aNumericalRadiationRatio, aTheoreticalRadiationRatio)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-e3fe36c94efd>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mHelmholtzSolverRAD[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0mExampleBoundaries[0m [0;32mimport[0m [0mSphereRAD[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'HelmholtzSolverRAD'
+ModuleNotFoundError: No module named 'HelmholtzSolverRAD'
+
+Executability                            : False

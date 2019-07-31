@@ -1,0 +1,26 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 7
+Reproducibility                          : matched ratio: 0.714 ; index of matched cells: [0, 1, 2, 3, 4]
+-------------------------------------------
+Source Code of a Unmatched Cell 5
+-------------------------------------------
+# Answer before running cell
+3 <= 2
+
+-----------------
+Original output:
+
+Executed output:
+False
+-------------------------------------------
+Source Code of a Unmatched Cell 6
+-------------------------------------------
+# Answer before running cell
+3 == 2.0
+
+-----------------
+Original output:
+
+Executed output:
+False

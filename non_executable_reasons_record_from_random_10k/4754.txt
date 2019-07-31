@@ -1,0 +1,14 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 3 ; number of cells: 4
+Reproducibility                          : matched ratio: 0.75 ; index of matched cells: [0, 1, 3]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+deck.get_card()
+
+-----------------
+Original output:
+('clubs_5', 5)
+Executed output:
+('spades_9', 9)

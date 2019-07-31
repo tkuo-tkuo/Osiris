@@ -1,0 +1,41 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+url = 'http://mattmahoney.net/dc/'
+
+def maybe_download(filename, expected_bytes):
+    """Download a file if not present, and make sure it's the right size."""
+    if not os.path.exists(filename):
+        filename, _ = urllib.request.urlretrieve(url + filename, filename)
+    
+    statinfo = os.stat(filename)
+    if statinfo.st_size == expected_bytes:
+        print('Found and verified', filename)
+    else:
+        print(statinfo.st_size)
+        raise Exception(
+            'Failed to verify ' + filename + '. Can you get to it with a browser?')
+    
+    return filename
+
+filename = maybe_download('text8.zip', 31344016)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-4e2e4b1b3aea>[0m in [0;36m<module>[0;34m()[0m
+[1;32m     16[0m     [0;32mreturn[0m [0mfilename[0m[0;34m[0m[0m
+[1;32m     17[0m [0;34m[0m[0m
+[0;32m---> 18[0;31m [0mfilename[0m [0;34m=[0m [0mmaybe_download[0m[0;34m([0m[0;34m'text8.zip'[0m[0;34m,[0m [0;36m31344016[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-2-4e2e4b1b3aea>[0m in [0;36mmaybe_download[0;34m(filename, expected_bytes)[0m
+[1;32m      3[0m [0;32mdef[0m [0mmaybe_download[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0mexpected_bytes[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m      4[0m     [0;34m"""Download a file if not present, and make sure it's the right size."""[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m     [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mfilename[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      6[0m         [0mfilename[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0murllib[0m[0;34m.[0m[0mrequest[0m[0;34m.[0m[0murlretrieve[0m[0;34m([0m[0murl[0m [0;34m+[0m [0mfilename[0m[0;34m,[0m [0mfilename[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'os' is not defined
+NameError: name 'os' is not defined
+
+Executability                            : False

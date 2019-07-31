@@ -1,0 +1,14 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+# Begin dataframe by importing the total data, which will have all IPs
+#protocol_names = ['total' + "_" + name for name in names]
+#print(protocol_names)
+#protocol_to_drop = ['total' + "_" + name for name in to_drop]
+passive_df = pd.read_csv('resources/smallpassive_tcpPORTS.tshark.csv')
+------------------
+
+CParserError: Error tokenizing data. C error: Expected 2 fields in line 4, saw 14
+
+
+Executability                            : False

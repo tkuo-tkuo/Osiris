@@ -1,0 +1,38 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pickle
+import pandas as pd
+cancerInputFile = '../data/VCF_Data_Cancer'
+with open(cancerInputFile, "rb") as f: 
+    cancerData = pickle.load(f)
+cancerData = pd.read_csv('../data/VCF_300.csv')
+cancerMaf = vcf_to_maf(cancerData, filter_multiple=True)
+cancerMaf.to_csv('../data/cancer_G97552_maflite.txt', sep='\t', index=False)
+delete('cancerMaf')
+
+normalInputFile = '../data/VCF_Data_Normal'
+
+with open(normalInputFile, "rb") as g: 
+    normalData = pickle.load(g)
+    
+normalMaf = vcf_to_maf(normalData, filter_multiple=True)
+normalMaf.to_csv('../data/normal_G91716_maflite.txt', sep='\t', index=False)
+delete('normalMaf')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-c72285a9b9ae>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      5[0m [0mcancerInputFile[0m [0;34m=[0m [0;34m'../data/VCF_Data_Cancer'[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mcancerInputFile[0m[0;34m,[0m [0;34m"rb"[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     [0mcancerData[0m [0;34m=[0m [0mpickle[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      8[0m [0mcancerData[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'../data/VCF_300.csv'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/VCF_Data_Cancer'
+FileNotFoundError: [Errno 2] No such file or directory: '../data/VCF_Data_Cancer'
+
+Executability                            : False

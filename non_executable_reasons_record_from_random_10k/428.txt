@@ -1,0 +1,19 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+df3.plot.scatter(x='a',y='b',c='red',s=50,figsize=(12,3))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-fa9de0ec3b10>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mdf3[0m[0;34m.[0m[0mplot[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mx[0m[0;34m=[0m[0;34m'a'[0m[0;34m,[0m[0my[0m[0;34m=[0m[0;34m'b'[0m[0;34m,[0m[0mc[0m[0;34m=[0m[0;34m'red'[0m[0;34m,[0m[0ms[0m[0;34m=[0m[0;36m50[0m[0;34m,[0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m12[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'df3' is not defined
+NameError: name 'df3' is not defined
+
+Executability                            : False

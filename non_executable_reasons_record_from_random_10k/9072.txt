@@ -1,0 +1,17 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+x_features = ['humid', 'temp' , 'h10pix', 'trees' , 'Xmin', 'Ymin']
+dengue = dengue.dropna()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-e10209726908>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mx_features[0m [0;34m=[0m [0;34m[[0m[0;34m'humid'[0m[0;34m,[0m [0;34m'temp'[0m [0;34m,[0m [0;34m'h10pix'[0m[0;34m,[0m [0;34m'trees'[0m [0;34m,[0m [0;34m'Xmin'[0m[0;34m,[0m [0;34m'Ymin'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdengue[0m [0;34m=[0m [0mdengue[0m[0;34m.[0m[0mdropna[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'dengue' is not defined
+NameError: name 'dengue' is not defined
+
+Executability                            : False

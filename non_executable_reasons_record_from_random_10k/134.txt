@@ -1,0 +1,24 @@
+3.6
+Executability                            : True
+Reproducibility                          : number of matched cells: 2 ; number of cells: 3
+Reproducibility                          : matched ratio: 0.667 ; index of matched cells: [0, 1]
+-------------------------------------------
+Source Code of a Unmatched Cell 2
+-------------------------------------------
+data.head()
+
+-----------------
+Original output:
+      x1    x2     label
+0  -1.52 -0.22  Positive
+1   1.14 -0.44  Negative
+2   0.15  1.72  Positive
+3   0.02 -0.13  Positive
+4   0.97 -1.24  Negative
+Executed output:
+      x1    x2  label
+0  -1.52 -0.22      1
+1   1.14 -0.44      0
+2   0.15  1.72      1
+3   0.02 -0.13      1
+4   0.97 -1.24      0

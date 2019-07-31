@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+y_hat = tf.constant(36, name='y_hat')            # Define y_hat constant. Set to 36.
+y = tf.constant(39, name='y')                    # Define y. Set to 39
+
+loss = tf.Variable((y - y_hat)**2, name='loss')  # Create a variable for the loss
+
+init = tf.global_variables_initializer()         # When init is run later (session.run(init)),
+                                                 # the loss variable will be initialized and ready to be computed
+with tf.Session() as session:                    # Create a session and print the output
+    session.run(init)                            # Initializes the variables
+    print(session.run(loss))                     # Prints the loss
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-0cea6f5052b4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0my_hat[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mconstant[0m[0;34m([0m[0;36m36[0m[0;34m,[0m [0mname[0m[0;34m=[0m[0;34m'y_hat'[0m[0;34m)[0m            [0;31m# Define y_hat constant. Set to 36.[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0my[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mconstant[0m[0;34m([0m[0;36m39[0m[0;34m,[0m [0mname[0m[0;34m=[0m[0;34m'y'[0m[0;34m)[0m                    [0;31m# Define y. Set to 39[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'tf' is not defined
+NameError: name 'tf' is not defined
+
+Executability                            : False

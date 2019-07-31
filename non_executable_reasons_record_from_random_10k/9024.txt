@@ -1,0 +1,28 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+allReposThatContainsSklearn = """\
+SELECT
+    UNIQUE(repo_name)
+FROM
+    [scikit-learn-research.pyfiles.content_py_full]
+WHERE
+    (path CONTAINS "sklearn") OR
+    (repo_name CONTAINS "scikit-learn") OR
+    (repo_name CONTAINS "sklearn") OR
+    (path CONTAINS "scikit-learn")
+"""
+excludedRepos = [repo_name[0] for repo_name in run(allReposThatContainsSklearn)]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-a315d16a7d92>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m     [0;34m([0m[0mpath[0m [0mCONTAINS[0m [0;34m"scikit-learn"[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     10[0m """
+[0;32m---> 11[0;31m [0mexcludedRepos[0m [0;34m=[0m [0;34m[[0m[0mrepo_name[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;32mfor[0m [0mrepo_name[0m [0;32min[0m [0mrun[0m[0;34m([0m[0mallReposThatContainsSklearn[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'run' is not defined
+NameError: name 'run' is not defined
+
+Executability                            : False

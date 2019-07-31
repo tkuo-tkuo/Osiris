@@ -1,0 +1,22 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%%time
+b0, b1 = 14, 15
+a = 60
+freq = 2*(-120*14*sin(a*14.5*14.5))
+print(freq)
+y = [cos(60*x*x) for x in arange(b0, b1, 1.0/freq)]
+
+t = arange(b0, b1, 1.0/freq)
+plt.figure(figsize=(20,4))
+plt.plot(t, y)
+plt.show()
+------------------
+
+
+UsageError: Line magic function `%%time` not found.
+
+Executability                            : False

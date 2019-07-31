@@ -1,0 +1,40 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import pickle
+import pandas as pd
+import re
+from xgboost import XGBClassifier as XGB
+from sklearn.ensemble import RandomForestClassifier as RF
+from sklearn.ensemble import GradientBoostingClassifier as GB
+from sklearn.ensemble import ExtraTreesClassifier as ETC
+from sklearn.preprocessing import PolynomialFeatures as PF
+from sklearn.model_selection import GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier as KNN
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score
+from sklearn.neural_network import MLPClassifier as MLP
+from sklearn.preprocessing import MinMaxScaler,PolynomialFeatures
+from sklearn.decomposition import PCA
+from sklearn.ensemble import VotingClassifier as VC
+from sklearn.ensemble import AdaBoostClassifier as ADA
+from sklearn.ensemble import IsolationForest as ISO
+from sklearn.feature_selection import SelectKBest as SK
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-400c99952a81>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      5[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mre[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mxgboost[0m [0;32mimport[0m [0mXGBClassifier[0m [0;32mas[0m [0mXGB[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mensemble[0m [0;32mimport[0m [0mRandomForestClassifier[0m [0;32mas[0m [0mRF[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mensemble[0m [0;32mimport[0m [0mGradientBoostingClassifier[0m [0;32mas[0m [0mGB[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'xgboost'
+ImportError: No module named 'xgboost'
+
+Executability                            : False

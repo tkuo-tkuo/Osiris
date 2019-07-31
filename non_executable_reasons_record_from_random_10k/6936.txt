@@ -1,0 +1,10 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+#バイナリデータとして保存 (拡張子は .npy)
+np.save('my_array',arr)
+------------------
+
+PermissionError: [Errno 13] Permission denied: 'my_array.npy'
+
+Executability                            : False

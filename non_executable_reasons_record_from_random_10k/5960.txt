@@ -1,0 +1,21 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import mglearn
+
+iris_dataframe = pd.DataFrame(X_train, columns=iris_dataset.feature_names)
+pd.plotting.scatter_matrix(iris_dataframe, c=y_train, figsize=(15, 15), marker='o', hist_kwds={'bins':20}, s=60, alpha=.8, cmap=mglearn.cm3)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-16-5780b79b01b2>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mmglearn[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0miris_dataframe[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mX_train[0m[0;34m,[0m [0mcolumns[0m[0;34m=[0m[0miris_dataset[0m[0;34m.[0m[0mfeature_names[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0mpd[0m[0;34m.[0m[0mplotting[0m[0;34m.[0m[0mscatter_matrix[0m[0;34m([0m[0miris_dataframe[0m[0;34m,[0m [0mc[0m[0;34m=[0m[0my_train[0m[0;34m,[0m [0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m15[0m[0;34m,[0m [0;36m15[0m[0;34m)[0m[0;34m,[0m [0mmarker[0m[0;34m=[0m[0;34m'o'[0m[0;34m,[0m [0mhist_kwds[0m[0;34m=[0m[0;34m{[0m[0;34m'bins'[0m[0;34m:[0m[0;36m20[0m[0;34m}[0m[0;34m,[0m [0ms[0m[0;34m=[0m[0;36m60[0m[0;34m,[0m [0malpha[0m[0;34m=[0m[0;36m.8[0m[0;34m,[0m [0mcmap[0m[0;34m=[0m[0mmglearn[0m[0;34m.[0m[0mcm3[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'mglearn'
+ImportError: No module named 'mglearn'
+
+Executability                            : False

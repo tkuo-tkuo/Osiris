@@ -1,0 +1,45 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# 必要なモジュールをインポート
+from keras.applications.resnet50 import ResNet50
+from keras.preprocessing import image
+from keras.applications.resnet50 import preprocess_input, decode_predictions
+import numpy as np
+import h5py
+ 
+# ResNet50のモデルをImageNet用の重みで取得
+model = ResNet50(weights='imagenet')
+ 
+# 画像をロード
+img_path = 'data/ResNet50/ballpoint.jpg'
+img = image.load_img(img_path, target_size=(224, 224))
+ 
+# モデルに読み込める用に前処理
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+ 
+# 推論
+preds = model.predict(x)
+ 
+# 結果を表示
+for name, description, score in decode_predictions(preds, top=3)[0]:
+    print(description + ": " + str(int(score * 100)) + "%")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-bafbac308159>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# 必要なモジュールをインポート[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mapplications[0m[0;34m.[0m[0mresnet50[0m [0;32mimport[0m [0mResNet50[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mpreprocessing[0m [0;32mimport[0m [0mimage[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mapplications[0m[0;34m.[0m[0mresnet50[0m [0;32mimport[0m [0mpreprocess_input[0m[0;34m,[0m [0mdecode_predictions[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

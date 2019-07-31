@@ -1,0 +1,31 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+fig, ax = plt.subplots(figsize=(8,4))
+
+mean, std = scaled_features['cnt']
+predictions = network.run(test_features)*std + mean
+ax.plot(predictions[0], label='Prediction')
+ax.plot((test_targets['cnt']*std + mean).values, label='Data')
+ax.set_xlim(right=len(predictions))
+ax.legend()
+
+dates = pd.to_datetime(rides.ix[test_data.index]['dteday'])
+dates = dates.apply(lambda d: d.strftime('%b %d'))
+ax.set_xticks(np.arange(len(dates))[12::24])
+_ = ax.set_xticklabels(dates[12::24], rotation=45)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-12-3568f880ec1d>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mmean[0m[0;34m,[0m [0mstd[0m [0;34m=[0m [0mscaled_features[0m[0;34m[[0m[0;34m'cnt'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mpredictions[0m [0;34m=[0m [0mnetwork[0m[0;34m.[0m[0mrun[0m[0;34m([0m[0mtest_features[0m[0;34m)[0m[0;34m*[0m[0mstd[0m [0;34m+[0m [0mmean[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0max[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mpredictions[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'Prediction'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0max[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m([0m[0mtest_targets[0m[0;34m[[0m[0;34m'cnt'[0m[0;34m][0m[0;34m*[0m[0mstd[0m [0;34m+[0m [0mmean[0m[0;34m)[0m[0;34m.[0m[0mvalues[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'Data'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'network' is not defined
+NameError: name 'network' is not defined
+
+Executability                            : False

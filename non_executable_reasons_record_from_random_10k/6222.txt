@@ -1,0 +1,42 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+%matplotlib inline
+
+# Load the modules
+import pickle
+import math
+
+import numpy as np
+import tensorflow as tf
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+
+# Reload the data
+pickle_file = 'notMNIST.pickle'
+with open(pickle_file, 'rb') as f:
+  pickle_data = pickle.load(f)
+  train_features = pickle_data['train_dataset']
+  train_labels = pickle_data['train_labels']
+  valid_features = pickle_data['valid_dataset']
+  valid_labels = pickle_data['valid_labels']
+  test_features = pickle_data['test_dataset']
+  test_labels = pickle_data['test_labels']
+  del pickle_data  # Free up memory
+
+print('Data and modules loaded.')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-2-9e1b8b13dd3d>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;32mfrom[0m [0mtqdm[0m [0;32mimport[0m [0mtqdm[0m[0;34m[0m[0m
+[1;32m     10[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'tensorflow'
+ImportError: No module named 'tensorflow'
+
+Executability                            : False

@@ -1,0 +1,23 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+assert_equals(get_kmer_locations(sequence1,kmer='CCTG'), (435, 793, 1105, 1804, 2206, 3087, 3410, 3855, 4368, 4942, 5618, 6429, 6959, 
+                                                          7037, 7120, 7297, 7401, 8095, 9950, 10023, 10092, 10260, 10286, 10513, 10583, 
+                                                          10730, 10812))
+assert_equals(get_kmer_locations(sequence1,kmer='CCTGGGT'), ())
+assert_raises(TypeError, get_kmer_locations, k_mer="CC")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-622e25f5f364>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m assert_equals(get_kmer_locations(sequence1,kmer='CCTG'), (435, 793, 1105, 1804, 2206, 3087, 3410, 3855, 4368, 4942, 5618, 6429, 6959, 
+[0m[1;32m      2[0m                                                           [0;36m7037[0m[0;34m,[0m [0;36m7120[0m[0;34m,[0m [0;36m7297[0m[0;34m,[0m [0;36m7401[0m[0;34m,[0m [0;36m8095[0m[0;34m,[0m [0;36m9950[0m[0;34m,[0m [0;36m10023[0m[0;34m,[0m [0;36m10092[0m[0;34m,[0m [0;36m10260[0m[0;34m,[0m [0;36m10286[0m[0;34m,[0m [0;36m10513[0m[0;34m,[0m [0;36m10583[0m[0;34m,[0m[0;34m[0m[0m
+[1;32m      3[0m                                                           10730, 10812))
+[1;32m      4[0m [0massert_equals[0m[0;34m([0m[0mget_kmer_locations[0m[0;34m([0m[0msequence1[0m[0;34m,[0m[0mkmer[0m[0;34m=[0m[0;34m'CCTGGGT'[0m[0;34m)[0m[0;34m,[0m [0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      5[0m [0massert_raises[0m[0;34m([0m[0mTypeError[0m[0;34m,[0m [0mget_kmer_locations[0m[0;34m,[0m [0mk_mer[0m[0;34m=[0m[0;34m"CC"[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'get_kmer_locations' is not defined
+NameError: name 'get_kmer_locations' is not defined
+
+Executability                            : False

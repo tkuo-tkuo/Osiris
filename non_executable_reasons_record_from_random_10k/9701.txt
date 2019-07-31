@@ -1,0 +1,62 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import scipy as sci
+from scipy import integrate
+import numpy as np
+
+a,b=100,15
+def f(t,y):
+    f=np.zeros(2)
+    f[0]=y[1]
+    f[1]=(a*(b-y[0])-y[0]*(y[1]**2))/(1-y[0])
+    return f
+
+y=[2*np.pi, 0] # This is theta and dtheta initial conditions
+
+#wnat to integrate over a period of time that includes at 0 where theta is defined and the time we want 0.5s
+#use linspace to creat a vector of all the times
+t=np.linspace(0,10,100) 
+#This is saying create a vector with element starting at 0 to 10
+# then divide the space evenly into 100ths
+
+#now to solve for Theta (y is the programming) Using SciPy integrate
+y_Sol=integrate.odeint(f,t,y,rtol=1e-3, atol=1e-3)
+
+#this creates two vectors, size 1 by 100 for each y, y[0] (theta) and y[1] (dtheta)
+#I will set these vector to variables
+Theta=y_Sol[:,0]
+dTheta=y_Sol[:,1]
+
+print (Theta,"\n")
+print (dTheta)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-7be813530373>[0m in [0;36m<module>[0;34m[0m
+[1;32m     19[0m [0;34m[0m[0m
+[1;32m     20[0m [0;31m#now to solve for Theta (y is the programming) Using SciPy integrate[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 21[0;31m [0my_Sol[0m[0;34m=[0m[0mintegrate[0m[0;34m.[0m[0modeint[0m[0;34m([0m[0mf[0m[0;34m,[0m[0mt[0m[0;34m,[0m[0my[0m[0;34m,[0m[0mrtol[0m[0;34m=[0m[0;36m1e-3[0m[0;34m,[0m [0matol[0m[0;34m=[0m[0;36m1e-3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     22[0m [0;34m[0m[0m
+[1;32m     23[0m [0;31m#this creates two vectors, size 1 by 100 for each y, y[0] (theta) and y[1] (dtheta)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/Osiris_py36/lib/python3.6/site-packages/scipy/integrate/odepack.py[0m in [0;36modeint[0;34m(func, y0, t, args, Dfun, col_deriv, full_output, ml, mu, rtol, atol, tcrit, h0, hmax, hmin, ixpr, mxstep, mxhnil, mxordn, mxords, printmessg, tfirst)[0m
+[1;32m    242[0m                              [0mfull_output[0m[0;34m,[0m [0mrtol[0m[0;34m,[0m [0matol[0m[0;34m,[0m [0mtcrit[0m[0;34m,[0m [0mh0[0m[0;34m,[0m [0mhmax[0m[0;34m,[0m [0mhmin[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    243[0m                              [0mixpr[0m[0;34m,[0m [0mmxstep[0m[0;34m,[0m [0mmxhnil[0m[0;34m,[0m [0mmxordn[0m[0;34m,[0m [0mmxords[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 244[0;31m                              int(bool(tfirst)))
+[0m[1;32m    245[0m     [0;32mif[0m [0moutput[0m[0;34m[[0m[0;34m-[0m[0;36m1[0m[0;34m][0m [0;34m<[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    246[0m         [0mwarning_msg[0m [0;34m=[0m [0m_msgs[0m[0;34m[[0m[0moutput[0m[0;34m[[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m][0m [0;34m+[0m [0;34m" Run with full_output = 1 to get quantitative information."[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-7be813530373>[0m in [0;36mf[0;34m(t, y)[0m
+[1;32m      6[0m [0;32mdef[0m [0mf[0m[0;34m([0m[0mt[0m[0;34m,[0m[0my[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m     [0mf[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0mzeros[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m     [0mf[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m=[0m[0my[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m     [0mf[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m=[0m[0;34m([0m[0ma[0m[0;34m*[0m[0;34m([0m[0mb[0m[0;34m-[0m[0my[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m-[0m[0my[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m*[0m[0;34m([0m[0my[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m**[0m[0;36m2[0m[0;34m)[0m[0;34m)[0m[0;34m/[0m[0;34m([0m[0;36m1[0m[0;34m-[0m[0my[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m     [0;32mreturn[0m [0mf[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: 'float' object is not subscriptable
+TypeError: 'float' object is not subscriptable
+
+Executability                            : False

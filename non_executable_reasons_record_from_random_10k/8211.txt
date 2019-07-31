@@ -1,0 +1,24 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import sklearn
+import keras
+import random
+random.seed(123)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-5a155cbefbf7>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0msklearn[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mkeras[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mimport[0m [0mrandom[0m[0;34m[0m[0m
+[1;32m      6[0m [0mrandom[0m[0;34m.[0m[0mseed[0m[0;34m([0m[0;36m123[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'keras'
+ImportError: No module named 'keras'
+
+Executability                            : False

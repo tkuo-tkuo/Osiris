@@ -1,0 +1,52 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# LOAD DATA
+# Import Modules
+import argparse
+import cv2
+import os
+import csv
+import base64
+import numpy as np
+import tensorflow as tf
+import pickle
+import pandas as pd
+from sklearn.cross_validation import train_test_split
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+from scipy.signal import find_peaks_cwt
+import random
+from sklearn.utils import shuffle
+from collections import deque
+from scipy.stats import norm
+from tqdm import tqdm
+%matplotlib inline
+import json
+from keras.models import Sequential, model_from_json
+from keras.layers import Dense, Dropout, Activation, Flatten
+from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Dense, Dropout, Flatten, Lambda, ELU
+from keras.optimizers import SGD, Adam, RMSprop
+from keras.utils import np_utils
+from keras import backend as K
+import h5py
+
+print('Import Modules')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-57570f10cef4>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;31m# Import Modules[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0margparse[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mcv2[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mcsv[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'cv2'
+ImportError: No module named 'cv2'
+
+Executability                            : False

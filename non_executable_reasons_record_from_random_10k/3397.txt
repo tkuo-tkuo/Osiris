@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Erro
+print('Olá)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-f8a360910d2a>"[0;36m, line [0;32m4[0m
+[0;31m    print('Olá)[0m
+[0m               ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m EOL while scanning string literal
+
+SyntaxError: EOL while scanning string literal (<ipython-input-1-f8a360910d2a>, line 4)
+
+Executability                            : False

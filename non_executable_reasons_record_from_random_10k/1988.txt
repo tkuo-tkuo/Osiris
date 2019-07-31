@@ -1,0 +1,25 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+#import standard python libraries:
+import winsound
+import pandas as pd
+import numpy as np
+import math
+import datetime
+import calendar
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-836c0f59ba11>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#import standard python libraries:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mwinsound[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mmath[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'winsound'
+ModuleNotFoundError: No module named 'winsound'
+
+Executability                            : False

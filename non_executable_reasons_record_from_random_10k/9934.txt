@@ -1,0 +1,31 @@
+3.5
+Executability                            : True
+Reproducibility                          : number of matched cells: 5 ; number of cells: 6
+Reproducibility                          : matched ratio: 0.833 ; index of matched cells: [1, 2, 3, 4, 5]
+-------------------------------------------
+Source Code of a Unmatched Cell 0
+-------------------------------------------
+import datetime
+
+# current date and time object
+now = datetime.datetime.now()
+
+print(now.year)
+print(now.hour)
+print(now.minute)
+# Return the day of the week as an integer, where Monday is 0 and Sunday is 6.
+print(now.weekday())
+
+-----------------
+Original output:
+2017
+11
+1
+0
+
+Executed output:
+2019
+17
+51
+2
+

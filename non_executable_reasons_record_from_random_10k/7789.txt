@@ -1,0 +1,17 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+keys = open('keys.txt', 'r').read().split('\n')[:-1]
+client = api.RestClient(keys[0], keys[1])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-3-bd7c33915097>[0m in [0;36m<module>[0;34m()[0m
+[0;32m----> 1[0;31m [0mkeys[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'keys.txt'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m'\n'[0m[0;34m)[0m[0;34m[[0m[0;34m:[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mclient[0m [0;34m=[0m [0mapi[0m[0;34m.[0m[0mRestClient[0m[0;34m([0m[0mkeys[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mkeys[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'keys.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'keys.txt'
+
+Executability                            : False

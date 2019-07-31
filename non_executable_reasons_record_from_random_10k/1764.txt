@@ -1,0 +1,81 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+
+from keras.models import Sequential
+from keras.datasets import imdb
+from keras.layers import Dense, Activation, Embedding, LSTM, GRU, SimpleRNN
+from keras.optimizers import Adadelta
+from keras.utils import np_utils
+#from keras.utils.visualize_util import model_to_dot, plot
+from keras.preprocessing import sequence
+import numpy as np
+from IPython.display import SVG
+
+from matplotlib import pyplot as plt
+%matplotlib inline
+plt.style.use("ggplot")
+np.random.seed(13)
+nb_epoch = 10
+
+max_features = 20000
+
+(X_train, y_train), (X_test, y_test) = imdb.load_data(nb_words=max_features)
+maxlen=180
+X_train = sequence.pad_sequences(X_train, maxlen=maxlen)
+X_test = sequence.pad_sequences(X_test, maxlen=maxlen)
+
+model = Sequential()
+model.add(Embedding(input_dim=max_features, output_dim=100, init='glorot_uniform', input_length=maxlen))
+model.add(SimpleRNN(20, return_sequences=False))
+model.add(Dense(1))
+model.add(Activation('sigmoid'))
+
+model.compile(loss='binary_crossentropy',
+              optimizer='adadelta',
+              metrics=['accuracy'])
+
+simple = model.fit(X_train, y_train, batch_size=256, nb_epoch=nb_epoch,
+                   validation_data=(X_test, y_test))
+
+#SVG(model_to_dot(model, show_shapes=True).create(prog='dot', format='svg'))
+
+
+x = range(nb_epoch)
+plt.plot(x, simple.history['acc'], label="simple train")
+plt.title("binary train accuracy")
+plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+plt.show()
+
+plt.plot(x, simple.history['val_acc'], label="simple val")
+plt.title("binary test accuracy")
+plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+plt.show()
+
+plt.plot(x, simple.history['loss'], label="simple train")
+plt.title("binary train loss")
+plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+plt.show()
+                        
+plt.plot(x, simple.history['val_loss'], label="simple val")
+plt.title("binary test loss")
+plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-9a44cac8f697>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mmodels[0m [0;32mimport[0m [0mSequential[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mdatasets[0m [0;32mimport[0m [0mimdb[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mkeras[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mDense[0m[0;34m,[0m [0mActivation[0m[0;34m,[0m [0mEmbedding[0m[0;34m,[0m [0mLSTM[0m[0;34m,[0m [0mGRU[0m[0;34m,[0m [0mSimpleRNN[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'keras'
+ModuleNotFoundError: No module named 'keras'
+
+Executability                            : False

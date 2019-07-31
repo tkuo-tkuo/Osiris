@@ -1,0 +1,27 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+# Carregando os arquivos csv nas variáveis de treino e de teste
+# Executa em alguns segundos
+data_dir = "/opt/DSA/PythonFundamentos/JupyterNotebooks/Capítulo09/"
+X_train, y_train, X_test = load_data(data_dir)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-4-057d729d2b02>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0;31m# Executa em alguns segundos[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mdata_dir[0m [0;34m=[0m [0;34m"/opt/DSA/PythonFundamentos/JupyterNotebooks/Capítulo09/"[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mX_train[0m[0;34m,[0m [0my_train[0m[0;34m,[0m [0mX_test[0m [0;34m=[0m [0mload_data[0m[0;34m([0m[0mdata_dir[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-2-9edc7304c124>[0m in [0;36mload_data[0;34m(data_dir)[0m
+[1;32m      1[0m [0;31m# Criando a função para carregar o arquivo csv para um array numpy[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mdef[0m [0mload_data[0m[0;34m([0m[0mdata_dir[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     [0mtrain_data[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mdata_dir[0m [0;34m+[0m [0;34m"train.csv"[0m[0;34m)[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mtrain_data[0m [0;34m=[0m [0mtrain_data[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m"\n"[0m[0;34m)[0m[0;34m[[0m[0;36m1[0m[0;34m:[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      5[0m     [0mtrain_data[0m [0;34m=[0m [0;34m[[0m[0mi[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m","[0m[0;34m)[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mtrain_data[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/opt/DSA/PythonFundamentos/JupyterNotebooks/Capítulo09/train.csv'
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/DSA/PythonFundamentos/JupyterNotebooks/Capítulo09/train.csv'
+
+Executability                            : False

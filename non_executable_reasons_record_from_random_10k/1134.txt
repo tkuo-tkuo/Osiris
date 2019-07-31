@@ -1,0 +1,30 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+df = pd.read_csv("ts_centroids_corn.csv", index_col=0)
+df.fips_code = df.fips_code.astype(str).apply(lambda x: x.zfill(5))
+df.set_index('fips_code', inplace=True)
+
+a = pd.read_csv("year_counts_corn.csv")
+a.fips_code = a.fips_code.astype(str).apply(lambda x: x.zfill(5))
+a.set_index('fips_code', inplace=True)
+
+full_data = df[df.index.isin(a[a.year_count==47].index.values)]
+full_data.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-181635013f75>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m"ts_centroids_corn.csv"[0m[0;34m,[0m [0mindex_col[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mdf[0m[0;34m.[0m[0mfips_code[0m [0;34m=[0m [0mdf[0m[0;34m.[0m[0mfips_code[0m[0;34m.[0m[0mastype[0m[0;34m([0m[0mstr[0m[0;34m)[0m[0;34m.[0m[0mapply[0m[0;34m([0m[0;32mlambda[0m [0mx[0m[0;34m:[0m [0mx[0m[0;34m.[0m[0mzfill[0m[0;34m([0m[0;36m5[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mdf[0m[0;34m.[0m[0mset_index[0m[0;34m([0m[0;34m'fips_code'[0m[0;34m,[0m [0minplace[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
+
+Executability                            : False

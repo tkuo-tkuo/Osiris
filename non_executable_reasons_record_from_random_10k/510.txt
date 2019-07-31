@@ -1,0 +1,32 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Mixture of Gaussian model from Bishop 10.2
+K = k
+D = d
+lamda = WishartFull(df = tf.ones([K])*nu0, scale = tf.stack([tf.cast(W0, tf.float32)]*K))
+invlamda = tf.map_fn(tf.matrix_inverse, lamda)
+mu = MultivariateNormalFull(mu=tf.ones([K, D]) * m0, sigma=tf.map_fn(lambda x: (1/beta0)*x, invlamda))
+pi = Dirichlet(tf.ones(K)*alpha0)
+z = Categorical(p=tf.stack([pi]*N))
+components = [
+    MultivariateNormalFull(mu=tf.ones([N, 1]) * tf.gather(mu, k), \
+                           sigma=tf.stack([tf.gather(lamda, k)]*N)) for k in range(K)]
+x = Mixture(cat=z, components=components)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-2992a07e2c0a>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# Mixture of Gaussian model from Bishop 10.2[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mK[0m [0;34m=[0m [0mk[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mD[0m [0;34m=[0m [0md[0m[0;34m[0m[0m
+[1;32m      6[0m [0mlamda[0m [0;34m=[0m [0mWishartFull[0m[0;34m([0m[0mdf[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mones[0m[0;34m([0m[0;34m[[0m[0mK[0m[0;34m][0m[0;34m)[0m[0;34m*[0m[0mnu0[0m[0;34m,[0m [0mscale[0m [0;34m=[0m [0mtf[0m[0;34m.[0m[0mstack[0m[0;34m([0m[0;34m[[0m[0mtf[0m[0;34m.[0m[0mcast[0m[0;34m([0m[0mW0[0m[0;34m,[0m [0mtf[0m[0;34m.[0m[0mfloat32[0m[0;34m)[0m[0;34m][0m[0;34m*[0m[0mK[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'k' is not defined
+NameError: name 'k' is not defined
+
+Executability                            : False

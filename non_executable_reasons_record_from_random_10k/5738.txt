@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import re
+from statistics import median, mean
+from split_sentence import split_into_sentences
+data = []
+with open('data.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        if line == "\n": continue
+        data.append(line)
+df = pd.DataFrame(data, columns=['article'])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-63a60ac36866>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mre[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mstatistics[0m [0;32mimport[0m [0mmedian[0m[0;34m,[0m [0mmean[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0msplit_sentence[0m [0;32mimport[0m [0msplit_into_sentences[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0mdata[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m'data.txt'[0m[0;34m,[0m [0;34m'r'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'utf-8'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'split_sentence'
+ImportError: No module named 'split_sentence'
+
+Executability                            : False

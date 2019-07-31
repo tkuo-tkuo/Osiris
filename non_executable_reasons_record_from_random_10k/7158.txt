@@ -1,0 +1,32 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import sys
+from bb2d import BinaryBoundary2D
+from bb2dScript import GetBoundary
+
+sys.version
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-b1f0e6968283>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0msys[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mbb2d[0m [0;32mimport[0m [0mBinaryBoundary2D[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mbb2dScript[0m [0;32mimport[0m [0mGetBoundary[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+
+[0;32m/mnt/fit-Knowledgezoo/Github_repos_download/data/saji-spoon@Jupyter-Notebooks/AjaxAndsocket/MLServer/bb2d.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mchainer[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfrom[0m [0mchainer[0m [0;32mimport[0m [0mcuda[0m[0;34m,[0m [0mFunction[0m[0;34m,[0m [0mgradient_check[0m[0;34m,[0m [0mreport[0m[0;34m,[0m [0mtraining[0m[0;34m,[0m [0mutils[0m[0;34m,[0m [0mVariable[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mchainer[0m [0;32mimport[0m [0mdatasets[0m[0;34m,[0m [0miterators[0m[0;34m,[0m [0moptimizers[0m[0;34m,[0m [0mserializers[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mchainer[0m [0;32mimport[0m [0mLink[0m[0;34m,[0m [0mChain[0m[0;34m,[0m [0mChainList[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'chainer'
+ModuleNotFoundError: No module named 'chainer'
+
+Executability                            : False

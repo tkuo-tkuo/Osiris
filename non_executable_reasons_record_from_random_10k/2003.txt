@@ -1,0 +1,50 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Contagious disease data
+data("us_contagious_diseases")
+# Adding to a variable
+Diseases <- (us_contagious_diseases)
+# Naming (I did this the hardest way possible might I add.)
+HepA <- (Diseases[1:2346,1:6])
+# Naming
+Measles <- (Diseases[2347:6222,1:6])
+# Naming
+Mumps <- (Diseases[6223:8058,1:6])
+# Naming
+Pertussis <- (Diseases[8059:11832,1:6])
+# Naming
+Polio <- (Diseases[11833:15606,1:6])
+# Naming
+Rubella <- (Diseases[15607:17544,1:6])
+# Naming
+Smallpox <- (Diseases[17545:18870,1:6])
+# 1928 year
+Ex1928 <- (Diseases[c(17545,17571,17597,17623,17649,17675,17701,17727,17753,17779,17805,17831,17857,17883,17909,17935,17961,17987,18013,18039,18065,18091,18117,18143,18169,18195,18221,18247,18273,18299,18325,18351,18377,18403,18429,18455,18481,18507),1:6])
+# Easier way
+subset(Diseases,year==1959)
+Year_1928 <- subset(Diseases,year==1928)
+Year_1928 <- subset(Year_1928,disease=="Smallpox")
+# Selecting Columns
+Year_1928 %>% select(disease, state, year, count)
+# OR 
+select(Year_1928, disease, state, year, count)
+#Smallpox in 1928
+Smallpox1928 <- Year1_1928 %>% select(disease, state, year, count)
+
+p <-ggplot(Smallpox1928, aes(state, count))
+
+p +geom_bar(stat = "identity")
+
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-9f54dcf418a4>"[0;36m, line [0;32m28[0m
+[0;31m    Year_1928 %>% select(disease, state, year, count)[0m
+[0m               ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-9f54dcf418a4>, line 28)
+
+Executability                            : False

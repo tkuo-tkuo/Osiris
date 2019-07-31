@@ -1,0 +1,122 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+def vectorizer(num=1, stop=ENGLISH_STOP_WORDS):
+    cv = CountVectorizer(stop_words=stop, ngram_range=(num, num))
+    X  = folk_songs_df['lyrics']
+    cv.fit(X)
+    return cv
+
+def plotter(cv, albums=['In the Aeroplane Over the Sea'], num_features=25):
+    
+    features = cv.get_feature_names()
+    
+    fig, ax = plt.subplots((len(albums) + 4), 1, figsize=(12, 9*(len(albums) + 2)))
+    
+    # Folk labeled songs
+    X       = folk_songs_df['lyrics']
+    Xv      = cv.transform(X)
+    Xv_sum  = np.sum(Xv.toarray(), axis=0)
+    Xv_freq = pd.DataFrame(Xv_sum,
+                           index=features,
+                           columns=['freq']).sort_values(by='freq', ascending=False)
+    
+    colors = ['xkcd:indigo', 'xkcd:light violet']
+    
+    c = [colors[1] if word in Xv_freq.index[:num_features] else colors[0] for word in Xv_freq.index[:num_features]]
+    
+    ax[0].barh(range(0, 25), Xv_freq['freq'][:num_features], color=c)
+    ax[0].set_title('Folk Song word freq')
+    ax[0].set_yticks(range(0, 25))
+    ax[0].set_yticklabels(Xv_freq.index[:num_features])
+    ax[0].invert_yaxis()
+    
+    # folk_rock labeled songs
+    Y       = folk_songs_df.loc[folk_songs_df['is_folk_rock'] == 1]['lyrics']
+    Yv      = cv.transform(Y)
+    Yv_sum  = np.sum(Yv.toarray(), axis=0)
+    Yv_freq = pd.DataFrame(Yv_sum,
+                           index=features,
+                           columns=['freq']).sort_values(by='freq', ascending=False)
+    
+    c = [colors[1] if word in Xv_freq.index[:num_features] else colors[0] for word in Yv_freq.index[:num_features]]
+    
+    ax[1].barh(range(0, 25), Yv_freq['freq'][:num_features], color=c)
+    ax[1].set_title('Folk Rock Song word freq')
+    ax[1].set_yticks(range(0, 25))
+    ax[1].set_yticklabels(Yv_freq.index[:num_features])
+    ax[1].invert_yaxis()
+    
+    # indie folk labeled
+    Z       = folk_songs_df.loc[folk_songs_df['is_indie_folk'] == 1]['lyrics']
+    Zv      = cv.transform(Z)
+    Zv_sum  = np.sum(Zv.toarray(), axis=0)
+    Zv_freq = pd.DataFrame(Zv_sum,
+                           index=features,
+                           columns=['freq']).sort_values(by='freq', ascending=False)
+    
+    c = [colors[1] if word in Xv_freq.index[:num_features] else colors[0] for word in Zv_freq.index[:num_features]]
+    
+    ax[2].barh(range(0, 25), Zv_freq['freq'][:num_features], color=c)
+    ax[2].set_title('Indie Folk Song word freq')
+    ax[2].set_yticks(range(0, 25))
+    ax[2].set_yticklabels(Zv_freq.index[:num_features])
+    ax[2].invert_yaxis()
+    
+    # alt country
+    W       = folk_songs_df.loc[folk_songs_df['is_alt_country'] == 1]['lyrics']
+    Wv      = cv.transform(W)
+    Wv_sum  = np.sum(Wv.toarray(), axis=0)
+    Wv_freq = pd.DataFrame(Wv_sum,
+                           index=features,
+                           columns=['freq']).sort_values(by='freq', ascending=False)
+    
+    c = [colors[1] if word in Xv_freq.index[:num_features] else colors[0] for word in Wv_freq.index[:num_features]]
+    
+    ax[3].barh(range(0, 25), Wv_freq['freq'][:num_features], color=c)
+    ax[3].set_title('Alt country Song word freq')
+    ax[3].set_yticks(range(0, 25))
+    ax[3].set_yticklabels(Wv_freq.index[:num_features])
+    ax[3].invert_yaxis()
+    
+    ax_counter = 4
+    
+    # Any Extra Albums Wanted
+    for album in albums:
+        A       = folk_songs_df.loc[folk_songs_df['album'] == album]['lyrics']
+        Av      = cv.transform(A)
+        Av_sum  = np.sum(Av.toarray(), axis=0)
+        Av_freq = pd.DataFrame(Av_sum,
+                               index=features, 
+                               columns=['freq']).sort_values(by='freq', ascending=False)
+        
+        c = [colors[1] if word in Xv_freq.index[:num_features] else colors[0] for word in Av_freq.index[:num_features]]
+        
+        ax[ax_counter].barh(range(0, 25), Av_freq['freq'][:num_features], color=c)
+        ax[ax_counter].set_title(f'{album} Word Freq')
+        ax[ax_counter].set_yticks(range(0, 25))
+        ax[ax_counter].set_yticklabels(Av_freq.index[:num_features])
+        ax[ax_counter].invert_yaxis()
+        
+        ax_counter = ax_counter + 1
+        
+def vectorizer_and_plotter(num=1, albums=['In the Aeroplane Over the Sea'], num_features=25, stop=ENGLISH_STOP_WORDS):
+    cv = vectorizer(num=num, stop=stop)
+    plotter(cv=cv, albums=albums)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-042539934b27>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mdef[0m [0mvectorizer[0m[0;34m([0m[0mnum[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m [0mstop[0m[0;34m=[0m[0mENGLISH_STOP_WORDS[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0mcv[0m [0;34m=[0m [0mCountVectorizer[0m[0;34m([0m[0mstop_words[0m[0;34m=[0m[0mstop[0m[0;34m,[0m [0mngram_range[0m[0;34m=[0m[0;34m([0m[0mnum[0m[0;34m,[0m [0mnum[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mX[0m  [0;34m=[0m [0mfolk_songs_df[0m[0;34m[[0m[0;34m'lyrics'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'ENGLISH_STOP_WORDS' is not defined
+NameError: name 'ENGLISH_STOP_WORDS' is not defined
+
+Executability                            : False

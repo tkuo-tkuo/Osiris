@@ -1,0 +1,25 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+# Random numbers generated using package random. seed can also be set
+# Regex
+import re
+print all([                                     # all of these are true because
+        not re.match("a", "cat"),               # 'cat' doesn't start with 'a'
+        re.search("a", "cat"),                  # cat has an a in it 
+        not re.search("c", "dog"),              # dog doesn't have a c in it
+        3 == len(re.split("[ab]", "carbs")),    # split on a or b to c, r, s
+        "R-D-" == re.sub("[0-9]", '-', 'R2D2')  # replace digits with dashes
+    ])
+------------------
+
+[0;36m  File [0;32m"<ipython-input-1-d160a3fde2e4>"[0;36m, line [0;32m6[0m
+[0;31m    print all([                                     # all of these are true because[0m
+[0m            ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-1-d160a3fde2e4>, line 6)
+
+Executability                            : False

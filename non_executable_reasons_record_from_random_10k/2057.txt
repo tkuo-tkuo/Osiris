@@ -1,0 +1,36 @@
+3.4
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+EDA_Concepts <- c(
+    'sample',
+    'statistic',
+    'population',
+    'parameter',
+    'central tendency',
+    'variation',
+     'univariate',
+     'multivariate',
+     'distribution',
+     'categorical variable',
+     'continuous / quantitative variable',
+     'variance',
+     'standard deviation',
+     'interquartile range',
+     'skewness',
+     'kurtosis',
+     'histogram',
+     'stem and leaf',
+     'box plot',
+     'outlier',
+     'cross tabulation',
+     'anova',
+     'correlation',
+     'covariance'
+)
+------------------
+
+NameError: name 'EDA_Concepts' is not defined
+
+Executability                            : False

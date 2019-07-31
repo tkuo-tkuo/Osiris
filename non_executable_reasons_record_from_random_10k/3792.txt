@@ -1,0 +1,30 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+from phe import paillier
+import numpy as np
+
+public_key, private_key = paillier.generate_paillier_keypair()
+secret_number_list = [312.9, 300, -4.6e-12]
+encrypted_number_list = [public_key.encrypt(x) for x in secret_number_list]
+encrypted_number_list[1]
+s = 3*sum(encrypted_number_list) + 1000
+print (private_key.decrypt(s))
+print ([private_key.decrypt(x) for x in encrypted_number_list])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-9413e2be64b5>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mwarnings[0m[0;34m[0m[0m
+[1;32m      2[0m [0mwarnings[0m[0;34m.[0m[0mfilterwarnings[0m[0;34m([0m[0;34m'ignore'[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mphe[0m [0;32mimport[0m [0mpaillier[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'phe'
+ImportError: No module named 'phe'
+
+Executability                            : False

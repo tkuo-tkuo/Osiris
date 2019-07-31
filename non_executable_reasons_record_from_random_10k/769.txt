@@ -1,0 +1,26 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+pd.set_option('max_rows', 5)
+import numpy as np
+from learntools.advanced_pandas.summary_functions_maps import *
+
+reviews = pd.read_csv("../input/wine-reviews/winemag-data-130k-v2.csv", index_col=0)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-c0d9c3dfe53e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0mpd[0m[0;34m.[0m[0mset_option[0m[0;34m([0m[0;34m'max_rows'[0m[0;34m,[0m [0;36m5[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mlearntools[0m[0;34m.[0m[0madvanced_pandas[0m[0;34m.[0m[0msummary_functions_maps[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0mreviews[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m"../input/wine-reviews/winemag-data-130k-v2.csv"[0m[0;34m,[0m [0mindex_col[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'learntools'
+ModuleNotFoundError: No module named 'learntools'
+
+Executability                            : False

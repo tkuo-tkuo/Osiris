@@ -1,0 +1,62 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+import tensorflow as tf
+from tensorflow.contrib.layers import fully_connected
+
+epochs = 10000
+lr = 0.1
+
+#X_vals = np.c_[np.ones((3*N,1)),X]
+X_vals = X
+y_vals = y
+
+print(X_vals)
+print(y_vals)
+
+X = tf.placeholder(tf.float32, shape=(None,2))
+Y = tf.placeholder(tf.int32, shape=(None))
+
+n_hidden1 =100
+
+with tf.name_scope("nn"):
+    hidden_1 = fully_connected(X,n_hidden1,scope="hidden1")
+    logits = fully_connected(hidden_1,K,scope="outputs",activation_fn=None)
+
+with tf.name_scope("loss"):
+    xentropy = tf.nn.sparse_softmax_cross_entropy_with_logits(labels=Y,logits=logits)
+    loss = tf.reduce_mean(xentropy,name="loss")
+
+
+with tf.name_scope("eval"):
+    correct  = tf.nn.in_top_k(logits, Y, 1)
+    accuracy = tf.reduce_mean(tf.cast(correct,tf.float32))
+
+
+optimizer = tf.train.GradientDescentOptimizer(learning_rate=lr).minimize(loss)
+
+sess = tf.Session()
+sess.run(tf.initialize_all_variables())
+
+for i in range(epochs+1):
+    sess.run(optimizer,feed_dict={X: X_vals, Y: y_vals })
+    acc_train = sess.run(accuracy,feed_dict={X: X_vals, Y: y_vals })
+    if i % 1000 == 0:
+        print(i)
+        print(acc_train)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-399a51bd6612>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mtensorflow[0m [0;32mas[0m [0mtf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mtensorflow[0m[0;34m.[0m[0mcontrib[0m[0;34m.[0m[0mlayers[0m [0;32mimport[0m [0mfully_connected[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mepochs[0m [0;34m=[0m [0;36m10000[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mlr[0m [0;34m=[0m [0;36m0.1[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tensorflow'
+ModuleNotFoundError: No module named 'tensorflow'
+
+Executability                            : False

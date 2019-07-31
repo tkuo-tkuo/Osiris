@@ -1,0 +1,47 @@
+3.5
+An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import numpy as np
+
+from catboost import CatBoostClassifier as CBC
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier, ExtraTreesClassifier
+from xgboost import XGBClassifier as XGB
+from sklearn.ensemble import VotingClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score as ruc
+from sklearn.preprocessing import LabelEncoder
+from sklearn.svm import SVC
+from sklearn.cross_validation import KFold
+
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+
+import warnings
+warnings.filterwarnings('ignore')
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+plt.rcParams['figure.figsize'] = (12, 12)
+import seaborn as sns
+from scipy import stats
+from scipy.stats import norm
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m<ipython-input-1-f9b612173ac8>[0m in [0;36m<module>[0;34m()[0m
+[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mcatboost[0m [0;32mimport[0m [0mCatBoostClassifier[0m [0;32mas[0m [0mCBC[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mensemble[0m [0;32mimport[0m [0mRandomForestClassifier[0m[0;34m,[0m [0mAdaBoostClassifier[0m[0;34m,[0m [0mGradientBoostingClassifier[0m[0;34m,[0m [0mExtraTreesClassifier[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfrom[0m [0mxgboost[0m [0;32mimport[0m [0mXGBClassifier[0m [0;32mas[0m [0mXGB[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: No module named 'catboost'
+ImportError: No module named 'catboost'
+
+Executability                            : False

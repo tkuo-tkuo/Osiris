@@ -1,0 +1,74 @@
+3.6
+An error occurred while executing the following cell:
+------------------
+class RandomClickModel:
+    def __init__(self):
+        self.click_prob = 0
+    
+    def train(self, log_file):
+        """
+        Trains the model by calculating the MLE estimate
+        for the probability of a click using a file in
+        the Yandex log format.
+        Args:
+            - log_file (str): the name of the log file.
+        """
+        clicks = 0
+        documents = 0
+        
+        # Read file and count
+        with open(log_file) as log:
+            for i, line in enumerate(log):
+                values = line.split()            
+                action = values[2]
+                # If action is query, accumulate documents
+                if action == "Q":
+                    documents += len(values[5:])
+                # otherwise, the action is click
+                else:
+                    clicks += 1
+        
+        # Calculate the MLE estimate
+        self.click_prob = clicks/documents
+    
+    def get_ranking_clicks(self, ranking):
+        """
+        Given a ranked list of relevance labels, returns a
+        binary list of clicks on documents in the list.
+        Args:
+            - ranking (tuple): contains relevance labels (str)
+        Returns: list, contains the same number of elements than
+            ranking. True if document was clicked, False otherwise.
+        """
+        clicks = []
+        for rank in ranking:
+            # Click with probability click_prob
+            clicks.append(random.random() < self.click_prob)
+        return clicks        
+
+# Create and train a new RCM
+rcm = RandomClickModel()
+rcm.train("YandexRelPredChallenge.txt")
+print(rcm.click_prob)
+# Get some clicks on a test ranked list
+rcm.get_ranking_clicks(("N", "N", "R", "N", "N", "N", "N", "R", "N", "N"))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-40742a1559a3>[0m in [0;36m<module>[0;34m[0m
+[1;32m     49[0m [0mprint[0m[0;34m([0m[0mrcm[0m[0;34m.[0m[0mclick_prob[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     50[0m [0;31m# Get some clicks on a test ranked list[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 51[0;31m [0mrcm[0m[0;34m.[0m[0mget_ranking_clicks[0m[0;34m([0m[0;34m([0m[0;34m"N"[0m[0;34m,[0m [0;34m"N"[0m[0;34m,[0m [0;34m"R"[0m[0;34m,[0m [0;34m"N"[0m[0;34m,[0m [0;34m"N"[0m[0;34m,[0m [0;34m"N"[0m[0;34m,[0m [0;34m"N"[0m[0;34m,[0m [0;34m"R"[0m[0;34m,[0m [0;34m"N"[0m[0;34m,[0m [0;34m"N"[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-4-40742a1559a3>[0m in [0;36mget_ranking_clicks[0;34m(self, ranking)[0m
+[1;32m     41[0m         [0;32mfor[0m [0mrank[0m [0;32min[0m [0mranking[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     42[0m             [0;31m# Click with probability click_prob[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 43[0;31m             [0mclicks[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mrandom[0m[0;34m.[0m[0mrandom[0m[0;34m([0m[0;34m)[0m [0;34m<[0m [0mself[0m[0;34m.[0m[0mclick_prob[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     44[0m         [0;32mreturn[0m [0mclicks[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     45[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'random' is not defined
+NameError: name 'random' is not defined
+
+Executability                            : False
