@@ -152,5 +152,5 @@ Cases:
 1. Input: ‘a = random.randint(0,3)', ['import random']
 2. Input: 'nump.random.randint(5)', ['import numpy']
 3. Input: 'np.random.randint(5)', ['import numpy as np']
-4. pending
+4. Input: 'd = np.random.normal(0, 0.2, 5000)', ['import numpy as np'] # New case
 '''
