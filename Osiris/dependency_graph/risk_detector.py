@@ -119,7 +119,7 @@ def get_antidote(smt, import_smts):
         if len(cell_func_calls_names) == 0:
             return None
         sol = match_whitelist(cell_func_calls_names[0])
-        return sol
+        return ["import {}".format(sol.split('.')[0]), sol]
 
     except (SyntaxError,):  # to avoid non-python code
         print('SyntaxError')
