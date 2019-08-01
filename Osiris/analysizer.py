@@ -99,22 +99,15 @@ class Analysizer():
     def _execute_nb(self):
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
 
-    def _return_fix_statement(self, statement):
-        # Pretend let the given statement using random module 
-        # (logic here)
-
-
-        # Remove this hard-coded return when the logic is complete 
-        return 'random.seed(10)'.rjust(len(statement) - len(statement.lstrip()))
-
     def _best_effort_repair(self):
         whitelist = ['from', 'import']
         import_statements = []
         cells = copy.deepcopy(self._nb.cells)
+
+        # Obtain all import statements
         for cell in cells:
             cell_statements = cell.source.split('\n')
             for statement in cell_statements:
-                # Detect whether this statement is our target (random/time)
                 if any(substr in statement for substr in whitelist):
                     import_statements.append(statement)
         
@@ -124,9 +117,9 @@ class Analysizer():
             for idx, statement in enumerate(cell_statements):
                 # Detect whether this statement is our target (random/time)
                 try:
-                    if is_statement_contain_randomness(statement, import_statements):
-                        fix_statement = self._return_fix_statement(statement)
-                        return_cell_statements.insert(idx, fix_statement)
+                    fix_statement = return_fix_statement_for_random_statement(statement, import_statements)
+                    fix_statement = fix_statement.rjust(len(statement) - len(statement.lstrip())) # Adjust indentation
+                    return_cell_statements.insert(idx, fix_statement)
                 except:
                     pass
             

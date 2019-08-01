@@ -93,7 +93,6 @@ class TestOsiris(unittest.TestCase):
     def test_OEC_best_effort_reproducibility(self):
         interface = Osiris.UserInterface(test_best_effort_notebook_path, 'OEC', verbose)
         num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('best_effort')
-        print(num_of_matched_cells, num_of_cells)
         self.assertEqual(num_of_matched_cells, 5)
         self.assertEqual(num_of_cells, 5)
         
