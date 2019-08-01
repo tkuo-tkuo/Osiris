@@ -18,7 +18,7 @@ pip install conda
 
 ### Setup 
 
-Before the usage of Osiris, to cope with various python version and package requirements for Jupyter Notebook files. A setup.sh needs to be executed to deploy several Conda environments with several combinations between different versions python and ten selected packages. 
+Before the usage of Osiris, to cope with various python version and package requirements for Jupyter Notebook files. A setup.sh needs to be executed to deploy several Conda environments with several combinations between different versions python and ten selected packages. (Currently, Osiris has more than 200 packages pre-installed)
 
 ```
 cd envs 
@@ -190,7 +190,7 @@ Pending
 
 * Why it's called Osiris? <br/>
 Osiris is the god of the afterlife, the underworld, and rebirth in ancient Egyptian religion. Our tool aims to enable Jupyter Notebook files to be executable, more reproducible, giving these files rebirth on different machines. That is the inspiration why I would like to name our tool as Jupyter Osiris. 
-* Inspiration
+* More 
 * etc
 
 ## Reference 
