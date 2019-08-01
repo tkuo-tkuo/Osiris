@@ -157,6 +157,7 @@ class Analysizer():
         return results 
 
     # This functionality is for experiment purpose
+    # Should not be called from users when Osiris is publicly released 
     def check_reproducibility_on_all_potential_execution_paths(self, verbose, match_pattern):
         execution_orders = get_all_potential_execution_orders(self._nb_path)
 
@@ -258,8 +259,8 @@ class Analysizer():
                 self._set_ep_as_OEC_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
-            else: # best-effort 
-                self._best_effort_repair() #PENDING
+            else: # best-effort
+                self._best_effort_repair() 
                 self._set_ep_as_OEC_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
@@ -283,8 +284,8 @@ class Analysizer():
                 self._set_ep_as_normal_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
-            else: # best-effort (PENDING)
-                self._best_effort_repair() #PENDING
+            else: # best-effort 
+                self._best_effort_repair() 
                 self._set_ep_as_normal_mode()
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
@@ -307,8 +308,8 @@ class Analysizer():
                 self._set_ep_as_dependency_mode(execution_order)
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
-            else:  # best-effort (PENDING)
-                self._best_effort_repair() #PENDING
+            else:  # best-effort 
+                self._best_effort_repair() 
                 self._set_ep_as_dependency_mode(execution_order)
                 self._execute_nb()
                 original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
