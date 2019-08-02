@@ -118,8 +118,9 @@ class Analysizer():
                 # Detect whether this statement is our target (random/time)
                 try:
                     fix_statement = return_fix_statement_for_random_statement(statement, import_statements)
-                    fix_statement = fix_statement.rjust(len(statement) - len(statement.lstrip())) # Adjust indentation
-                    return_cell_statements.insert(idx, fix_statement)
+                    if not (fix_statement is None):
+                        fix_statement = fix_statement.rjust(len(statement) - len(statement.lstrip())) # Adjust indentation
+                        return_cell_statements.insert(idx, fix_statement)
                 except:
                     pass
             
