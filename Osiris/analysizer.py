@@ -112,15 +112,18 @@ class Analysizer():
                     import_statements.append(statement)
         
         for cell_idx, cell in enumerate(cells):
+            insert_offset = 0
             cell_statements = cell.source.split('\n')
             return_cell_statements = copy.deepcopy(cell_statements)
             for idx, statement in enumerate(cell_statements):
                 # Detect whether this statement is our target (random/time)
                 try:
-                    fix_statement = return_fix_statement_for_random_statement(statement, import_statements)
-                    if not (fix_statement is None):
-                        fix_statement = fix_statement.rjust(len(statement) - len(statement.lstrip())) # Adjust indentation
-                        return_cell_statements.insert(idx, fix_statement)
+                    fix_statement_lst = return_fix_statement_for_random_statement(statement, import_statements)
+                    if not (fix_statement_lst[1] is None):
+                        for fix_statement in fix_statement_lst:
+                            fix_statement = fix_statement.rjust(len(statement) - len(statement.lstrip())) # Adjust indentation
+                            return_cell_statements.insert(idx+insert_offset, fix_statement)
+                            insert_offset += 1
                 except:
                     pass
             
