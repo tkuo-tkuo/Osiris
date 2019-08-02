@@ -4,6 +4,8 @@ other_error_count = 0
 
 num_of_notebooks = 10000
 
+py27_count, empty_return_count = 0, 0
+
 filter_out_count = 0
 executable_count = 0
 non_executable_count = 0
@@ -22,11 +24,17 @@ for i in range(1, num_of_notebooks+1):
     # print("Processing {i} th notebooks".format(i=i))
     # print("Processing {i} th notebooks".format(i=i), end="\r")
     
-    # First of all, filter out python2.7 for further calculation
     py_version = result_in_lines[0].strip()
-    if py_version == '2.7' or (result_in_lines == ['', '', '']) or (result_in_lines[1] == 'No such kernel named python2'):
+    # Totally 3657 notebooks satisfy using python2.7 or kernel py27
+    if py_version == '2.7' or (result_in_lines[1] == 'No such kernel named python2'):
+        py27_count += 1
         filter_out_count += 1
         continue 
+    # Totally 1265 notebooks we can not extract its python version (e.g., 3.4 or 3.5) 
+    elif result_in_lines == ['', '', '']: 
+        empty_return_count += 1
+        filter_out_count += 1
+        continue
 
     # Extract executability of the given experimental result 
     try:
@@ -72,5 +80,6 @@ decreasing_order = sorted(range(len(error_count_list)),key=error_count_list.__ge
 for i in decreasing_order:
     print(error_whitelist[i].rjust(29)+':', error_count_list[i])
 
+print(filter_out_count, py27_count, empty_return_count)
 
 
