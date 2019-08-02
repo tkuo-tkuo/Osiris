@@ -111,7 +111,7 @@ def get_antidote(smt, import_smts):
         import_smts_tree = ast.parse(code)
         id2fullname = get_api_ref_id(import_smts_tree)
 
-        tree = ast.parse(smt)
+        tree = ast.parse(smt.lstrip())
         cell_func_calls_names = get_func_calls(tree, extended=True)
         cell_func_calls_names = [tmp[0] for tmp in cell_func_calls_names]
         cell_func_calls_names = func_call_format(cell_func_calls_names, id2fullname)
@@ -124,7 +124,9 @@ def get_antidote(smt, import_smts):
     except (SyntaxError,):  # to avoid non-python code
         print('SyntaxError')
         return None
-    
+
+if __name__ == '__main__':
+    print(0)
 
 """
 example code 
