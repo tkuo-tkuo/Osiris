@@ -153,4 +153,19 @@ Cases:
 2. Input: 'nump.random.randint(5)', ['import numpy']
 3. Input: 'np.random.randint(5)', ['import numpy as np']
 4. Input: 'd = np.random.normal(0, 0.2, 5000)', ['import numpy as np'] # New case
+5. Input: 'datos = {
+    'valores': np.random.randn(100),
+    'frecuencia': dt.timedelta(minutes = 10),
+    'fecha_inicial': dt.datetime(2016, 1, 1, 0, 0),
+    'parametro': 'wind_speed',
+    'unidades': 'm/s'
+}', ['import numpy as np'] # New case
+6. Input: '    y_var2 = np.random.randint(5, 8, 10)', ['import numpy as np'] # New case (with identation), return statement should not worry about identation 
+7. Input: '    x_ = random.random()', ['import random'] # New case (with identation)
+8. Input: '    s_ = scale*random.random()', ['import random'] # New case (with identation)
+9. Input: 'X = np.random.uniform(0.,1.,N)', ['import numpy as np'] # New case
+10. Input: 'X = np.random.random(N)', ['import numpy as np'] # New case 
+11. Input: 'y1 = 0.2*x + np.random.rand(1000)', ['import numpy as np'] # New case 
 '''
+
+
