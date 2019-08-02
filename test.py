@@ -5,6 +5,8 @@ import warnings
 import unittest
 import Osiris
 
+from Osiris.utils import return_fix_statement_for_random_statement 
+
 test_executability_notebook_path = 'tests/test_executability.ipynb'
 test_reproducibility_notebook_path = 'tests/test_reproducibility.ipynb'
 test_best_effort_notebook_path = 'tests/test_best_effort.ipynb' # It's for sub testset among reproducibility test set 
@@ -157,6 +159,58 @@ class TestOsiris(unittest.TestCase):
         num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('weak')
         self.assertEqual(num_of_matched_cells, 2)
         self.assertEqual(num_of_cells, 2)
+
+    '''
+    Below unit test focus on the util func: return_fix_statement
+    Note that this unit test should be removed in the future
+    '''
+    def test_return_fix_statement(self):
+        print()
+        # 1
+        statement, import_statement_lst = 'a = random.randint(0, 3)', ['import random']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 2
+        statement, import_statement_lst = 'numpy.random.randint(5)', ['import numpy']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 3
+        statement, import_statement_lst = 'np.random.randint(5)', ['import numpy as np']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 4
+        statement, import_statement_lst = 'd = np.random.normal(0, 0.2, 5000)', ['import numpy as np']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 5
+        statement, import_statement_lst = "datos = {\n    'valores': np.random.randn(100),\n    'frecuencia': dt.timedelta(minutes = 10),\n    'fecha_inicial': dt.datetime(2016, 1, 1, 0, 0),\n    'parametro': 'wind_speed',\n    'unidades': 'm/s'\n}", ['import numpy as np'] 
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 6
+        statement, import_statement_lst = '    y_var2 = np.random.randint(5, 8, 10)', ['import numpy as np']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 7
+        statement, import_statement_lst = '    x_ = random.random()', ['import random']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 8
+        statement, import_statement_lst = '    s_ = scale*random.random()', ['import random']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 9
+        statement, import_statement_lst =  'X = np.random.uniform(0.,1.,N)', ['import numpy as np']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 10
+        statement, import_statement_lst = 'X = np.random.random(N)', ['import numpy as np']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        # 11
+        statement, import_statement_lst = 'y1 = 0.2*x + np.random.rand(1000)', ['import numpy as np']
+        fix_statement = return_fix_statement_for_random_statement(statement, import_statement_lst)
+        print(statement, import_statement_lst, fix_statement)
+        pass
 
 if __name__ == '__main__':
     unittest.main()
