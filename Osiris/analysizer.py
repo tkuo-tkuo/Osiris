@@ -121,7 +121,8 @@ class Analysizer():
                     fix_statement_lst = return_fix_statement_for_random_statement(statement, import_statements)
                     if not (fix_statement_lst[1] is None):
                         for fix_statement in fix_statement_lst:
-                            fix_statement = fix_statement.rjust(len(statement) - len(statement.lstrip())) # Adjust indentation
+                            num_identation = len(statement) - len(statement.lstrip()) + len(fix_statement)
+                            fix_statement = fix_statement.rjust(num_identation) # Adjust indentation
                             return_cell_statements.insert(idx+insert_offset, fix_statement)
                             insert_offset += 1
                 except:

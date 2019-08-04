@@ -89,20 +89,20 @@ class TestOsiris(unittest.TestCase):
     def test_top_down_best_effort_reproducibility(self):
         interface = Osiris.UserInterface(test_best_effort_notebook_path, 'normal', verbose)
         num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('best_effort')
-        self.assertEqual(num_of_matched_cells, 7)
-        self.assertEqual(num_of_cells, 7)
+        self.assertEqual(num_of_matched_cells, 8)
+        self.assertEqual(num_of_cells, 8)
 
     def test_OEC_best_effort_reproducibility(self):
         interface = Osiris.UserInterface(test_best_effort_notebook_path, 'OEC', verbose)
         num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('best_effort')
-        self.assertEqual(num_of_matched_cells, 7)
-        self.assertEqual(num_of_cells, 7)
+        self.assertEqual(num_of_matched_cells, 8)
+        self.assertEqual(num_of_cells, 8)
         
     def test_dependency_best_effort_reproducibility(self):
         interface = Osiris.UserInterface(test_best_effort_notebook_path, 'dependency', verbose)
         num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('best_effort')
-        self.assertEqual(num_of_matched_cells, 7)
-        self.assertEqual(num_of_cells, 7)
+        self.assertEqual(num_of_matched_cells, 8)
+        self.assertEqual(num_of_cells, 8)
 
     '''
     The following 3 unit tests focus self-reproducibility
