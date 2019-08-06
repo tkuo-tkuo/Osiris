@@ -71,8 +71,8 @@ class OECPreprocessor(ExecutePreprocessor):
         OEO = sorted(range(len(execution_count_lst)),
                      key=lambda k: execution_count_lst[k])
         parsed_nb_cells = [copy_nb_cells[idx] for idx in OEO]
-
-        parsed_nb_cells[0].source = "import warnings\nwarnings.filterwarnings('ignore')\n" + parsed_nb_cells[0].source
+        if len(parsed_nb_cells) > 0:
+            parsed_nb_cells[0].source = "import warnings\nwarnings.filterwarnings('ignore')\n" + parsed_nb_cells[0].source
 
         nb.cells = parsed_nb_cells
         return super(OECPreprocessor, self).preprocess(nb, resources)
