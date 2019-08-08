@@ -121,7 +121,7 @@ class Analysizer():
         cells = copy.deepcopy(self._nb.cells)
         if len(cells) > 0:
             first_cell_source_code_lst = cells[0].source.split('\n')
-            if not is_pandas_used: 
+            if not self._is_pandas_used(cells): 
                 fix_statement_lst = ['from freezegun import freeze_time', 'freezer = freeze_time("2012-01-14 12:00:01")', 'freezer.start()', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
             else:
                 fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
