@@ -99,16 +99,33 @@ class Analysizer():
     def _execute_nb(self):
         self._ep.preprocess(self._nb, {'metadata': {'path': './'}})
 
+    def _is_pandas_used(self, cells):
+        whitelist = ['pandas', 'seaborn']
+        is_pandas_used = False 
+
+        for cell in cells:
+            if not is_pandas_used:
+                cell_statements = cell.source.split('\n')
+                for statement in cell_statements:
+                    if any(substr in statement for substr in whitelist):
+                        is_pandas_used = True
+                        break
+
+        return is_pandas_used
+
     def _best_effort_repair(self):
+
         '''
         Fix statements, which contain randomness/time
         '''
         cells = copy.deepcopy(self._nb.cells)
         if len(cells) > 0:
             first_cell_source_code_lst = cells[0].source.split('\n')
-            # fix_statement_lst = ['from freezegun import freeze_time', 'freezer = freeze_time("2012-01-14 12:00:01")', 'freezer.start()', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
-        
-            fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
+            if not is_pandas_used: 
+                fix_statement_lst = ['from freezegun import freeze_time', 'freezer = freeze_time("2012-01-14 12:00:01")', 'freezer.start()', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
+            else:
+                fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
+            
             for fix_statement in (fix_statement_lst)[::-1]:
                 first_cell_source_code_lst.insert(0, fix_statement)
             return_source_code = '\n'.join(first_cell_source_code_lst)
@@ -117,41 +134,7 @@ class Analysizer():
         
             self._nb.cells = cells 
 
-        '''
-        whitelist = ['from', 'import']
-        import_statements = []
-        cells = copy.deepcopy(self._nb.cells)
-
-        # Obtain all import statements
-        for cell in cells:
-            cell_statements = cell.source.split('\n')
-            for statement in cell_statements:
-                if any(substr in statement for substr in whitelist):
-                    import_statements.append(statement)
-        
-        for cell_idx, cell in enumerate(cells):
-            insert_offset = 0
-            cell_statements = cell.source.split('\n')
-            return_cell_statements = copy.deepcopy(cell_statements)
-            for idx, statement in enumerate(cell_statements):
-                # Detect whether this statement is our target (random/time)
-                try:
-                    fix_statement_lst = return_fix_statement_for_random_statement(statement, import_statements)
-                    if not (fix_statement_lst[1] is None):
-                        for fix_statement in fix_statement_lst:
-                            num_identation = len(statement) - len(statement.lstrip()) + len(fix_statement)
-                            fix_statement = fix_statement.rjust(num_identation) # Adjust indentation
-                            return_cell_statements.insert(idx+insert_offset, fix_statement)
-                            insert_offset += 1
-                except:
-                    pass
-            
-            return_source_code = '\n'.join(return_cell_statements)
-            cells[cell_idx].source = return_source_code
-
-        self._nb.cells = cells
-        '''
-
+       
     def return_py_version(self):
         return self._py_version
 
