@@ -39,7 +39,7 @@ class DependencyGraph():
         self.vars_table_list = []
         self.func_table_list = []
         self.adj_mat = None
-    
+ 
     def update_symbol_table(self, node):
         transfomer = FilterTransformer()  # remove classes 
         node = transfomer.visit(node)
@@ -84,9 +84,9 @@ class DependencyGraph():
                             break
 
     def build(self, code_list):
-        n = len(code_list)
-        mat = np.zeros((n, n))
-        self.adj_mat = np.zeros((n, n))
+        self.N = len(code_list)
+        mat = np.zeros((self.N, self.N))
+        self.adj_mat = np.zeros((self.N, self.N), dtype=int)
         for idx, code in enumerate(code_list):
             try:
                 tree = ast.parse(code, mode='exec')
@@ -95,16 +95,15 @@ class DependencyGraph():
                 tree = ast.parse("", mode='exec')
                 self.update_symbol_table(tree)
                 print('warning!! Synatx Error')
-        for i in range(n):
+        for i in range(self.N):
             for j in range(i):
                 self.is_dependent(i, j)
         return self.adj_mat
 
     def get_topological_order(self):
-        from copy import deepcopy
         adj_mat = deepcopy(self.adj_mat)
         exec_order = []
-        n = adj_mat.shape[0] 
+        n = adj_mat.shape[0]
         in_degrees = np.sum(self.adj_mat, axis=0)
         todo_node_idx = (in_degrees==0).nonzero()[0].tolist()# in-degree=0 
         while len(exec_order)<n:
@@ -114,50 +113,37 @@ class DependencyGraph():
                     adj_mat[i] = np.zeros(n)
             in_degrees = np.sum(adj_mat, axis=0)
             todo_node_idx = (in_degrees==0).nonzero()[0].tolist()# in-degree=0
-        
+ 
         return exec_order
 
-    def bfs(self, adj_mat):
+    def all_topo_util(self,all_paths, res, visited, in_degrees):
+        flag = False
+        for i in range(self.N):
+            if in_degrees[i] ==0 and visited[i]==False:
+                adj_nodes = self.adj_mat[i].nonzero()[0].tolist()
+                in_degrees[adj_nodes] = in_degrees[adj_nodes]-1
+                res.append(i)
+                visited[i] = True
+                self.all_topo_util(all_paths, res, visited, in_degrees)
+                # backtracking 
+                visited[i] = False
+                res.pop()
+                in_degrees[adj_nodes] += 1
+                flag = True
+        if not flag:
+            all_paths.append(deepcopy(res))
+
+    def alltopologicalSort(self, all_paths):
+        visited = [False]*self.N
         in_degrees = np.sum(self.adj_mat, axis=0)
-        N = adj_mat.shape[0]
-        q = queue.Queue()
-        visited = [False]*N
-        visit_order = []
-        todo_nodes = (in_degrees==0).nonzero()[0].tolist()# nodes where in-degree=0
-        for n in todo_nodes:
-            q.put(n)
-
-        while not q.empty():
-            n = q.get()
-            visited[n] = True
-            visit_order += [n]
-            todo_nodes = adj_mat[n].nonzero()[0].tolist()
-            for tmp in todo_nodes:
-                if not visited[tmp] and tmp not in q.queue:
-                    q.put(tmp)
-        return visit_order
-
-    def get_all_order(self):
-        N = self.adj_mat.shape[0]
-        adj_mat1 = deepcopy(self.adj_mat)
-        adj_mat2 = deepcopy(self.adj_mat)
-        key_nodes = []
-        visited = [False]*N
-        N = self.adj_mat.shape[0]
-        for i in range(N):
-            for j in range(N):
-                for g in range(N):
-                    if self.adj_mat[i][j]==1 and self.adj_mat[i][g]==1 and self.adj_mat[g][j]==1:
-                        adj_mat1[g][j]=0
-                        adj_mat1[i][g] = 0
-                        adj_mat1[j][g] = 1
-        order1 = self.bfs(adj_mat1)
-        order2 =  self.bfs(adj_mat2)
-        return [order1, order2]
+        res = []
+        self.all_topo_util(all_paths, res, visited, in_degrees);
 
     def gen_exec_path(self, mode='single'):
         if mode == 'single':
             return self.get_topological_order()
-        elif mode == 'multiple':
-            return self.get_all_order()
+        if mode == 'all':
+            all_paths = []
+            self.alltopologicalSort(all_paths)
+            return all_paths
 
