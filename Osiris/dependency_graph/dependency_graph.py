@@ -131,19 +131,54 @@ class DependencyGraph():
                 in_degrees[adj_nodes] += 1
                 flag = True
         if not flag:
+            print(res)
             all_paths.append(deepcopy(res))
 
     def alltopologicalSort(self, all_paths):
         visited = [False]*self.N
         in_degrees = np.sum(self.adj_mat, axis=0)
         res = []
-        self.all_topo_util(all_paths, res, visited, in_degrees);
+        self.all_topo_util(all_paths, res, visited, in_degrees)
 
-    def gen_exec_path(self, mode='single'):
+    def all_topo_with_oec_util(self, all_paths, res, in_degrees):
+        if len(res) >= self.max_oec:
+            oec_tmp = [0]*self.N
+            counter = 0
+            for i in res:
+                counter += 1
+                oec_tmp[i] = counter
+            if oec_tmp == self.oec:
+               all_paths.append(deepcopy(res))
+            return
+
+        for i in range(self.N):
+            if in_degrees[i] <=0:
+                adj_nodes = self.adj_mat[i].nonzero()[0].tolist()
+                in_degrees[adj_nodes] = in_degrees[adj_nodes]-1
+                res.append(i)
+                self.all_topo_with_oec_util(all_paths, res, in_degrees)
+                res.pop()
+                in_degrees[adj_nodes] += 1
+
+
+    def all_topo_with_oec(self, all_paths, oec):
+        in_degrees = np.sum(self.adj_mat, axis=0)
+        res = []
+        self.oec = oec
+        self.max_oec = max(self.oec)
+        oec_tmp = [0]*self.N
+        counter = 0
+        self.all_topo_with_oec_util(all_paths, res, in_degrees)
+
+
+    def gen_exec_path(self, mode='single', oec=[]):
         if mode == 'single':
             return self.get_topological_order()
         if mode == 'all':
             all_paths = []
             self.alltopologicalSort(all_paths)
             return all_paths
-
+        if mode == 'oec':
+            all_paths = []
+            self.all_topo_with_oec(all_paths, oec)
+            return all_paths
