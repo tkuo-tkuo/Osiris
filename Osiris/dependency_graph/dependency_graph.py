@@ -30,6 +30,13 @@ class FilterTransformer(ast.NodeTransformer):
     def visit_ClassDef(self, node):
         self.class_names += [node.name]
         return None
+    def visit_AugAssign(self, node):
+        target_tmp = deepcopy(node.target)
+        target_tmp.ctx = ast.Load()
+        tmp_node = ast.Assign(targets=[node.target],
+                value=BinOp(left=target_tmp,
+            op=node.op, right=node.value))
+        return tmp_node
 
 def get_fun_ref_id(tree):
     func_ref_ids = []
@@ -210,7 +217,7 @@ class CDG():
         self.producer_list = []  # a list of producer list 
         self.consumer_set = []   # a list of consumer list
         self.adj_mat = None
- 
+
     def update_symbol_table(self, node):
         transfomer = FilterTransformer()  # remove classes 
         node = transfomer.visit(node)
@@ -223,51 +230,24 @@ class CDG():
         vars_records = [(tmp, 'store') for tmp in class_ref_ids+func_ref_ids] + vars_records
         producer_set = set()
         consumer_set = set()
+
         for e in vars_records:
-            if e[1]=='def' or e[1]=='store':
-                producer_set.add(e[0])
+            if e[1]=='def' or e[1]=='store' and (e[0],'var') not in consumer_set:
+                producer_set.add((e[0], 'var'))
             elif e[1]=='load':
-                consumer_set.add(e[0])
+                consumer_set.add((e[0], 'var'))
 
         for e in func_records:
             if e[0] in built_in_names:
                 continue
             if e[1]=='def' or e[1]=='store':
-                producer_set.add(e[0])
+                producer_set.add((e[0], 'fun'))
             elif e[1]=='load':
-                consumer_set.add(e[0])
+                consumer_set.add((e[0], 'fun'))
+ 
+        self.producer_list += [producer_set]
+        self.consumer_set  += [consumer_set]
 
-        print(producer_set)
-        print(consumer_set)
-        return 0
-        for item in func_records:
-            if item[0] in func_table:
-                func_table[item[0]] += [item[1]]
-            else:
-                func_table[item[0]] = [item[1]]
-
-        for item in vars_records:
-            if item[0] in vars_table:
-                vars_table[item[0]] += [item[1]]
-            else:
-                vars_table[item[0]] = [item[1]]
-        self.vars_table_list += [vars_table]
-        self.func_table_list += [func_table]
-
-    def is_dependent(self, i, j):
-        for name, val in self.func_table_list[i].items():
-            if val[0] == 'load':
-                if name in self.func_table_list[j] and self.func_table_list[j][name][0] == 'def':
-                        self.adj_mat[j][i] = 1
-        # otherwise this fun is defined then skip
-        for name, val in self.vars_table_list[i].items():
-            if val[0] == 'load':
-                if name in self.vars_table_list[j]:
-                    all_actions = self.vars_table_list[j][name]
-                    for tmp in all_actions:
-                        if tmp == 'store':
-                            self.adj_mat[j][i] = 1
-                            break
 
     def build(self, code_list):
         self.N = len(code_list)
