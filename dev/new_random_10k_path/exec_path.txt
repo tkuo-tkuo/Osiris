@@ -3,6 +3,7 @@
 /mnt/fit-Knowledgezoo/Github_repos_download/data/mat-esp-2015@python-intro-2-joao_leticia_dyellen/jupyter-notebook-tour.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/TokyoIndex@dlnd_your_first_network/dlnd-your-first-neural-network.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/asifadamsha@UserActivityRecognition/Notebook_python/Dataset Pré-traitement uniquement t.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/browntommy@downtown/demo.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/CalebeCavalcante@MyBinder/Python/TensorFlow/1 Introducao/Get_Data_Iris_Function.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/kumoshu@algorithom/svd/svd算法.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/garveworm@dataroot-test/somchenko-dataroot-test-2.ipynb
@@ -242,6 +243,7 @@
 /mnt/fit-Knowledgezoo/Github_repos_download/data/coskunfurkan@kickStarter/kickstart.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/hasslercastro@IA/K-Means.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/PqMichael@BioInfo-third-project/projet 3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/are-dynamic-2018@Dynamic-profs-etudiants/FIN Liquide: Porosité et Perméabilité.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/megadoro@clifford/clifford.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/are-dynamic-2018@Lion-gazelle/Lion_Gazelle 27-03.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/kaileymonn@tensorflow-projects/week3-classification/Classification and Logistic Regression.ipynb
