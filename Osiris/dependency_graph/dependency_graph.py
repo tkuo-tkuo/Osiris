@@ -137,7 +137,7 @@ class DependencyGraph():
                     adj_mat[i] = np.zeros(n)
             in_degrees = np.sum(adj_mat, axis=0)
             todo_node_idx = (in_degrees==0).nonzero()[0].tolist()# in-degree=0
- 
+
         return exec_order
 
     def all_topo_util(self,all_paths, res, visited, in_degrees):
@@ -211,11 +211,11 @@ class DependencyGraph():
             return self.get_topological_order()
             #return all_paths
 
-class CDG():
+class CDG:
 
     def __init__(self):
         self.producer_list = []  # a list of producer list 
-        self.consumer_set = []   # a list of consumer list
+        self.consumer_list = []   # a list of consumer list
         self.adj_mat = None
 
     def update_symbol_table(self, node):
@@ -244,18 +244,15 @@ class CDG():
                 producer_set.add((e[0], 'fun'))
             elif e[1]=='load':
                 consumer_set.add((e[0], 'fun'))
- 
-        self.producer_list += [producer_set]
-        self.consumer_set  += [consumer_set]
 
+        self.producer_list += [producer_set]
+        self.consumer_list  += [consumer_set]
 
     def build(self, code_list):
         self.N = len(code_list)
         mat = np.zeros((self.N, self.N))
         self.adj_mat = np.zeros((self.N, self.N), dtype=int)
         for idx, code in enumerate(code_list):
-            #print(idx)
-            #print(code)
             try:
                 tree = ast.parse(code, mode='exec')
                 self.update_symbol_table(tree)
@@ -263,9 +260,6 @@ class CDG():
                 tree = ast.parse("", mode='exec')
                 self.update_symbol_table(tree)
                 print('warning!! Synatx Error')
-        #for i in range(self.N):
-        #    for j in range(i):
-        #        self.is_dependent(i, j)
         return self.adj_mat
 
     def get_topological_order(self):
@@ -281,7 +275,7 @@ class CDG():
                     adj_mat[i] = np.zeros(n)
             in_degrees = np.sum(adj_mat, axis=0)
             todo_node_idx = (in_degrees==0).nonzero()[0].tolist()# in-degree=0
- 
+
         return exec_order
 
     def all_topo_util(self,all_paths, res, visited, in_degrees):
@@ -308,29 +302,29 @@ class CDG():
         res = []
         self.all_topo_util(all_paths, res, visited, in_degrees)
 
-    def all_topo_with_oec_util(self, all_paths, res, in_degrees):
+    def all_topo_with_oec_util(self, all_paths, res, accum_producer_set):
+        oec_tmp = [0]*self.N
+        counter = 0
+        for i in res:
+            counter += 1
+            oec_tmp[i] = counter
+            if counter > self.oec[i]:
+                return
         if len(res) >= self.max_oec:
-            oec_tmp = [0]*self.N
-            counter = 0
-            for i in res:
-                counter += 1
-                oec_tmp[i] = counter
-            #if res[0:3]==[0,1,3]:
-            #    print (res, oec_tmp)
-            #if oec_tmp == self.oec:
-            #all_paths.append(deepcopy(res))
+            if oec_tmp == self.oec:
+                all_paths.append(res)
+                print(res)
             return
 
         for i in range(self.N):
-            print(in_degrees)
-            if in_degrees[i] <=0:
-                adj_nodes = self.adj_mat[i].nonzero()[0].tolist()
-                in_degrees[adj_nodes] = in_degrees[adj_nodes]-1
-                res.append(i)
-                self.all_topo_with_oec_util(all_paths, res, in_degrees)
-                res.pop()
-                in_degrees[adj_nodes] += 1
-
+                accum_producer_set_tmp = accum_producer_set.union(self.producer_list[i])
+                if self.consumer_list[i].issubset(accum_producer_set_tmp):
+                    accum_producer_set = accum_producer_set_tmp
+                    res.append(i)
+                    accum_producer_set_bk = deepcopy(accum_producer_set)
+                    self.all_topo_with_oec_util(all_paths, res, accum_producer_set)
+                    accum_producer_set = accum_producer_set_bk
+                    res.pop()
 
     def all_topo_with_oec(self, all_paths, oec):
         in_degrees = np.sum(self.adj_mat, axis=0)
@@ -339,8 +333,8 @@ class CDG():
         self.max_oec = max(self.oec)
         oec_tmp = [0]*self.N
         counter = 0
-        self.all_topo_with_oec_util(all_paths, res, in_degrees)
-
+        accum_producer_set = set()
+        self.all_topo_with_oec_util(all_paths, res, accum_producer_set)
 
     def gen_exec_path(self, mode='single', oec=[]):
         if mode == 'single':
@@ -351,6 +345,5 @@ class CDG():
             return all_paths
         if mode == 'oec':
             all_paths = []
-            #self.all_topo_with_oec(all_paths, oec)
-            return self.get_topological_order()
-            #return all_paths
+            self.all_topo_with_oec(all_paths, oec)
+            return all_paths
