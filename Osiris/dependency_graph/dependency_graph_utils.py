@@ -48,6 +48,23 @@ def get_code_list(path):
             sources.append(s)
     return sources
 
+def get_oec(path):
+    content = open(path).read()
+    content = json.loads(content)
+    if 'worksheets' in content:
+        cells = content['worksheets'][0]['cells']
+        source_flag = 'input'
+    else:
+        cells = content['cells']
+        source_flag = 'source'
+    cells = list(filter(lambda x:x['cell_type']=='code', cells))
+    oec = []
+    for cell in cells:
+        # filter out cells without execution count
+        if cell['execution_count'] is not None:
+            oec += [cell['execution_count']]
+    return oec
+
 def find_local_modules(import_smts):
     smts = "\n".join(import_smts)
     tree = ast.parse(smts, mode='exec')
