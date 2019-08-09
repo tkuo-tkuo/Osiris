@@ -138,18 +138,11 @@ class VarsVisitor(ast.NodeVisitor):
     def visit_FunctionDef(self_r, node):
         return node
 
-    def visit_Assign(self, node): 
+    def visit_Assign(self, node):
         if not isinstance(node.value, ast.Lambda):
             self.visit(node.value)
             for target in node.targets:
                 self.visit(target)
-    def visit_AugAssign(self, node):
-        if isinstance(node.value, ast.Num):
-            tmp_node = ast.Name(node.target.id, ast.Load())
-            self.visit(tmp_node)
-        else:
-            self.visit(node.value)
-        self.visit(node.target)
 
 def get_obj_name(node):
     if isinstance(node, ast.Name):
@@ -165,6 +158,27 @@ def get_Ops(tree):
         if isinstance(node, ast.BoolOp) or isinstance(node, ast.BinOp) or  isinstance(node, ast.UnaryOp):
             return node
     return None
+
+def visit_Assert(self, node):
+        """Replace assertions with augmented assignments."""
+        self.max_score += 1
+        return ast.AugAssign(
+            op=node.op,
+            target=ast.Name(
+                id=self.score_var_name,
+                ctx=ast.Store()
+            ),
+            value=ast.Call(
+                args=[node.test],
+                func=ast.Name(
+                    id='bool',
+                    ctx=ast.Load()
+                ),
+                keywords=[],
+                kwargs=None,
+                starargs=None
+            )
+        )
 
 def get_vars(node):
     visitor = VarsVisitor()
