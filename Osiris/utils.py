@@ -4,8 +4,8 @@ import nbformat
 import collections
 import numpy as np
 
-from .dependency_graph import DependencyGraph
-from .dependency_graph import get_code_list, detect, get_antidote, get_path_by_extension, find_local_modules
+from .dependency_graph import DependencyGraph, CDG
+from .dependency_graph import get_code_list, detect, get_antidote, get_path_by_extension, find_local_modules, get_oec
 
 '''
 The following utils functions are high-level usage of Jarix's implementation
@@ -84,12 +84,24 @@ def get_execution_order(path):
     execution_order = dep_graph.gen_exec_path()
     return execution_order 
 
-def get_all_potential_execution_orders(path):
+# deprived
+def get_all_potential_execution_orders_deprived(path):
     code_list = get_code_list(path)
     dep_graph = DependencyGraph()
     _ = dep_graph.build(code_list)
     execution_orders = dep_graph.gen_exec_path(mode='multiple')
     return execution_orders
+
+def get_all_potential_execution_orders(path):
+    code_list = get_code_list(path)
+    oec = get_oec(path)
+    graph = CDG()
+    graph.build(code_list)
+    paths = graph.gen_exec_path(mode='single', oec=oec)
+    print('# of paths:', len(paths))
+    print(type(paths))
+    print(paths)
+    return paths
 
 '''
 This utils function, move_to_appropriate_location, aims to cope with relative path issue
