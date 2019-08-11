@@ -121,11 +121,15 @@ class Analysizer():
         cells = copy.deepcopy(self._nb.cells)
         if len(cells) > 0:
             first_cell_source_code_lst = cells[0].source.split('\n')
+
+            fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
+            '''
             if not self._is_pandas_used(cells): 
                 fix_statement_lst = ['from freezegun import freeze_time', 'freezer = freeze_time("2012-01-14 12:00:01")', 'freezer.start()', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
             else:
                 fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
-            
+            '''
+
             for fix_statement in (fix_statement_lst)[::-1]:
                 first_cell_source_code_lst.insert(0, fix_statement)
             return_source_code = '\n'.join(first_cell_source_code_lst)
@@ -232,7 +236,9 @@ class Analysizer():
     def check_executability(self, verbose, analyse_strategy):
         self._nb = copy.deepcopy(self._deep_copy_nb)
         is_executable = False
-        if True:
+        error = None
+
+        try:
             if analyse_strategy == 'normal':
                 self._set_ep_as_normal_mode()
             elif analyse_strategy == 'dependency':
@@ -243,14 +249,15 @@ class Analysizer():
 
             self._execute_nb()
             is_executable = True
-        '''
         except Exception as e:
-            if verbose:
-                print(e)
-        '''
+            error = e
+        
         print('Executability'.ljust(40), ':', is_executable)
-
         self._is_executable = is_executable
+
+        if verbose and (not is_executable):
+            print(error)
+
         return is_executable
 
     def check_reproducibility(self, verbose, analyse_strategy, match_pattern):
