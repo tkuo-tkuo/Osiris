@@ -155,7 +155,6 @@ class DependencyGraph():
                 in_degrees[adj_nodes] += 1
                 flag = True
         if not flag:
-            print(res)
             all_paths.append(deepcopy(res))
 
     def alltopologicalSort(self, all_paths):
@@ -187,6 +186,11 @@ class DependencyGraph():
                 res.pop()
                 in_degrees[adj_nodes] += 1
 
+    def build_adj_mat(self):
+ 
+        for i in range(self.N):
+            for j in range(i):
+                self.is_dependent(i, j)
 
     def all_topo_with_oec(self, all_paths, oec):
         in_degrees = np.sum(self.adj_mat, axis=0)
@@ -263,6 +267,8 @@ class CDG:
         return self.adj_mat
 
     def get_topological_order(self):
+        self.build_adj_mat()
+        print(self.adj_mat)
         adj_mat = deepcopy(self.adj_mat)
         exec_order = []
         n = adj_mat.shape[0]
@@ -324,6 +330,18 @@ class CDG:
                     accum_producer_set = accum_producer_set_bk
                     res.pop()
 
+    def build_adj_mat(self):
+        self.adj_mat = np.zeros((self.N, self.N), dtype=int)
+        for i in range(self.N):
+            if self.consumer_list[i].issubset(self.producer_list[i]):
+                continue
+            for j in range(i):
+                accum_producer_set_tmp = self.producer_list[j].union(self.producer_list[i])
+                for item in self.consumer_list[i]:
+                    if item not in self.producer_list[i] and item in accum_producer_set_tmp:
+                        self.adj_mat[j][i]=1
+                        print(j, i)
+
     def all_topo_with_oec(self, all_paths, oec):
         in_degrees = np.sum(self.adj_mat, axis=0)
         res = []
@@ -336,7 +354,10 @@ class CDG:
 
     def gen_exec_path(self, mode='single', oec=[]):
         if mode == 'single':
-            return self.get_topological_order()
+            all_paths = []
+            self.alltopologicalSort(all_paths)
+            exec_order =list((all_paths[0]))
+            return exec_order
         if mode == 'all':
             all_paths = []
             self.alltopologicalSort(all_paths)
