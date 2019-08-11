@@ -4,7 +4,7 @@ import os
 import warnings
 import unittest
 import Osiris
-from Osiris.utils import get_dependency_matrix, risk_detect, distinguish_local_modules
+from Osiris.utils import risk_detect, distinguish_local_modules
 
 test_execute_in_normal_strategy_nb_path = 'benchbook/test_execute_in_normal_strategy.ipynb'
 test_execute_in_OEC_strategy_nb_path = 'benchbook/test_execute_in_OEC_strategy.ipynb'
@@ -171,42 +171,6 @@ class Benchbook(unittest.TestCase):
         interface = Osiris.UserInterface(test_relative_path_3_nb_path, 'normal', verbose)
         is_executable = interface.analyse_executability()
         self.assertEqual(is_executable, True)
-
-
-    '''
-    The following 4 unit tests aim to test on potential challenges related to dependency 
-    '''
-    def test_compound_assignment_operators(self):
-        dep_matrix = get_dependency_matrix(test_compound_assignment_operators_nb_path)
-        self.assertEqual(dep_matrix[0][1], 1.0)
-
-    def test_package_dependency(self):
-        dep_matrix = get_dependency_matrix(test_package_dependency_nb_path)
-        self.assertEqual(dep_matrix[0][1], 1.0)
-
-    def test_irrational_path(self):
-        dep_matrix = get_dependency_matrix(test_irrational_path_nb_path)
-        self.assertEqual(dep_matrix[1][4], 1.0)
-        self.assertEqual(dep_matrix[3][4], 1.0)
-        self.assertEqual(dep_matrix[3][2], 0.0)
-
-    def test_implicit_var_definition(self):
-        dep_matrix = get_dependency_matrix(test_implicit_var_definition_nb_path)
-        self.assertEqual(dep_matrix[2][3], 0.0)
-
-    '''
-    The following 2 unit tests aim to test generation of multiple execution paths 
-    '''
-    def test_execuability_on_multiple_execution_paths(self):
-        interface = Osiris.UserInterface(test_multiple_execution_paths_nb_path, 'dependency', verbose, True)
-        results = interface.analyse_executability()
-        self.assertEqual(results, [False, True])
-
-    def test_reproducibility_on_multiple_execution_paths(self):
-        interface = Osiris.UserInterface(test_multiple_execution_paths_nb_path, 'dependency', verbose, True)
-        results = interface.analyse_reproducibility('strong')
-        self.assertEqual(results, [None, 1.0])
-
 
 if __name__ == '__main__':
     unittest.main()
