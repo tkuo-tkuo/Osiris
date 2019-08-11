@@ -23,60 +23,6 @@ def risk_detect(path):
 def return_fix_statement_for_random_statement(statement, list_of_import_statements):
     return get_antidote(statement, list_of_import_statements)
 
-def bfs(graph, root):
-    visited, queue = set(), collections.deque([root])
-    visited.add(root)
-    path = []
-    path.append(root)
-    while queue:
-        vertex = queue.popleft()
-        for neighbour in graph[vertex]:
-            if neighbour not in visited:
-                visited.add(neighbour)
-                path.append(neighbour)
-                queue.append(neighbour)
-
-    return path
-
-def dep_matrix_to_dep_lst(matrix):
-    graph = {}
-    for i, node in enumerate(matrix):
-        adj = []
-        for j, connected in enumerate(node):
-            if connected:
-                adj.append(j)
-        graph[i] = adj
-
-    return graph
-
-def get_dependency_matrix(path):
-    code_list = get_code_list(path)
-    dep_graph = DependencyGraph()
-    dep_matrix = dep_graph.build(code_list)
-    return dep_matrix
-
-# deprived 
-def get_execution_order_deprived(path):
-    name_of_virtual_node_for_forest = 'forest_root'
-    dep_matrix = get_dependency_matrix(path)
-    adjacent_lst = dep_matrix_to_dep_lst(dep_matrix)
-    dependency_lst = dep_matrix_to_dep_lst(np.transpose(dep_matrix))
-
-    # Connect trees in forest with a virtual node called 'forest_root'
-    key_for_root_of_tree = []
-    for key in dependency_lst.keys():
-        if dependency_lst[key] == []:
-            key_for_root_of_tree.append(key)
-    adjacent_lst[name_of_virtual_node_for_forest] = key_for_root_of_tree
-
-    # Note that it's just one of the potential execution order generated according dependency between cells
-    execution_order = bfs(adjacent_lst, name_of_virtual_node_for_forest)
-
-    # Remove our virtual node, 'forest_root'
-    execution_order.remove(name_of_virtual_node_for_forest)
-    print('According to dependency of cells, the execution order is', execution_order)
-    return execution_order
-
 def get_execution_order(path):
     code_list = get_code_list(path)
     dep_graph = DependencyGraph()
@@ -84,20 +30,12 @@ def get_execution_order(path):
     execution_order = dep_graph.gen_exec_path()
     return execution_order 
 
-# deprived
-def get_all_potential_execution_orders_deprived(path):
-    code_list = get_code_list(path)
-    dep_graph = DependencyGraph()
-    _ = dep_graph.build(code_list)
-    execution_orders = dep_graph.gen_exec_path(mode='multiple')
-    return execution_orders
-
 def get_all_potential_execution_orders(path):
     code_list = get_code_list(path)
     oec = get_oec(path)
     graph = CDG()
     graph.build(code_list)
-    paths = graph.gen_exec_path(mode='single', oec=oec)
+    paths = graph.gen_exec_path(mode='oec', oec=oec)
     print('# of paths:', len(paths))
     print(type(paths))
     print(paths)
