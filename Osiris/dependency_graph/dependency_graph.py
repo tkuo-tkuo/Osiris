@@ -293,7 +293,6 @@ class CDG:
                 in_degrees[adj_nodes] += 1
                 flag = True
         if not flag:
-            print(res)
             all_paths.append(deepcopy(res))
 
     def alltopologicalSort(self, all_paths):
@@ -312,8 +311,7 @@ class CDG:
                 return
         if len(res) >= self.max_oec:
             if oec_tmp == self.oec:
-                all_paths.append(res)
-                print(res)
+                all_paths.append(deepcopy(res))
             return
 
         for i in range(self.N):
