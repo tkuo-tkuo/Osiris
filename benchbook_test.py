@@ -152,11 +152,13 @@ class Benchbook(unittest.TestCase):
     '''
     The following 4 unit tests aim to test on relative path issues 
     '''
+    @unittest.skip
     def test_relative_path_1(self):
         interface = Osiris.UserInterface(test_relative_path_1_nb_path, 'normal', verbose)
         is_executable = interface.analyse_executability()
         self.assertEqual(is_executable, True)
 
+    @unittest.skip
     def test_relative_path_2(self):
         interface = Osiris.UserInterface(test_relative_path_2_nb_path, 'normal', verbose)
         is_executable = interface.analyse_executability()

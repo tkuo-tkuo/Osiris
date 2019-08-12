@@ -76,7 +76,7 @@ class TestOsiris(unittest.TestCase):
     def test_dependency_strong_reproducibility(self):
         interface = Osiris.UserInterface(test_reproducibility_notebook_path, 'dependency', verbose)
         num_of_matched_cells, num_of_cells, _, _, _ = interface.analyse_reproducibility('strong')
-        self.assertEqual(num_of_matched_cells, 7) # BUGGY STATEMENT 
+        self.assertEqual(num_of_matched_cells, 6) # BUGGY STATEMENT 
         self.assertEqual(num_of_cells, 8)
 
     def test_dependency_weak_reproducibility(self):

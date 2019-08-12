@@ -164,7 +164,7 @@ def extract_source_code_from_unmatched_cells(cells, index_lst):
 '''
 All remaining utils functions below are for printing purpose (PENDING)
 '''
-def print_source_code_of_unmatched_cells(cells, analyse_strategy, index_lst, unmatched_original_outputs, unmtached_executed_outputs, execution_order):
+def print_source_code_of_unmatched_cells(cells, analyse_strategy, index_lst, unmatched_original_outputs, unmtached_executed_outputs, execution_order=None):
     cells = cells.copy()
 
     if analyse_strategy == 'normal':

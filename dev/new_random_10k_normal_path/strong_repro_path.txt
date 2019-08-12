@@ -1,0 +1,285 @@
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JaniceHsu@Yelp_project/read_textfile.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/keijak@udemy-pydata/Lec36.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/easy00000000@usecomm/jupyter/hide_code.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/MLZC@Data_mining_lab/week2/week2.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/euntack@MgtDatabase2018/20180321 설치.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nhabib114@udacity/solutions.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/colby-j-wise@Multi-Arm_Contextual_Bandit_Problem/LinUCB.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/robgrzel@temp/OpenGL/OpenGL_tutorial/FLTK_OpenGl_events/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/adacollege@cs-python-project-treasureWorld/TreasureWorldAssignment.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mat-esp-2016@matrizes-vetores-pratica8-tj/matrizes-e-vetores.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/rraadd88@courses/00_Intro.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Veronica-Kook@Codility-Python/6.TapeEquilibrium.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/junkal@Abalone-Age-Prediction/Abalone.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/pnpdiablo@pnp/pnp.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ChampeBarton@first-python-notebook/Numbers.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/structDataset@career_decisions_data/explorations.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/NahidO@Other/Trappist.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/chuanfanyoudong@python_learn/string.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/buddharajuramaraju@Assignment1.6/Assignment1.6.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fbessho@jupyter-book/Widget.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jazzmajevadia@data-train/Titanic/Titanic_Kaggle_JM.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nkern@Astro_9/hmk_sols/homework1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jeewon-hwang@cs207labs/cs207-Lab7.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/cvalenzuela@learning_machines/neuralNetwork/Neural Network.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/junaid1460@machine_learning/Neural net/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/bbrandom91@PyAcademy/main.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/maipau96@Chapter4Python/Chapter4 Python.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Rhomi@Stanford-CS231n-Exercises/SVM Loss Function in Numpy.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/agupta98@Capstone/Titanic_Survival/DataAnalysis.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/siddalingeshkori@Python2_Assign2.4/Python2_Assign2.4.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/physics91si@aamnahkhalid-lab9/Lab 9.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vpolyakov@Stepic_course_Python_1/Двухмерные списки.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tkim9@datascience_mynote/29. Pandas - Missing Data.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/AnneleneD@thanksgiving/Basics.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sumkk@PythonTextbook/S1_Introduction_to_version_control.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/AndreaCrotti@lambda/functions_primer.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nxtien@network.security/kdd_rnn.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/andrehuang@TensorFlow-Learning/Brief intro to keras models.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yoni-is-learning@first_network/Playing with Numpy arrays.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nishant-raunak@Data-Science/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/alvinstars@Py3MOTW_Practice/File_System/io - Text, Binary, and Raw Stream IO Tools.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fa473@jupytertest/test1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/PGE383-HPC-Spring2018@project1/project1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fc9410@MgtDatabase2018/20180328_점프투파이썬2장.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/upsilonrho@jupyternotebook_examples/Notebook/Running Code.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vishalmns@Algorithms/HanoiTower.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/cephasax@DataScience/Lesson 4/Pandas II - Working with Missing Data.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/FreddieMercy@Cpts355/ssps.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/syncrodazt@Project_Euler_Solutions/euler 009.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/rventas@algebra/Practica_Raquel.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/wazeed@Machine-learning1/NN.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/getkaizer@Test/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/CaueSampaio@LingProg/Exercicio08.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/donwany@DataScienceDude/archive/regex/match_any_of_a_list_of_symbols.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/shivnath-tripathy@Session4_Assignments/Session4_Assignments.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/CongChen2017@Numpy-Pandas/Pandas_PyCitySchools.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/RainingNight0329@Jerry_Python/2016/Chapter1/Chapter1_Homework.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/powermundsen@ml2048/src/game_workbook.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/HyeokjuJang@ggl_image_crawl/구글 이미지 크롤링.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/amydang-ds@HEIWIA/notebooks/sampling_electron_positions.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yanfengliu@Dynamic-Programming/Warrior_winrate.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/lamt3@DataAnalysis/Python/PandasLearning/PythonPandaTutorail1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/AdityaGogoi@Birth-Dates-in-the-United-States/ExploreUSBirths.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Transcendency@StanfordML/CS231n-assignment2/PyTorch.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/safoex@qubitlab/python/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kpswps@py/prace_domowe/s01_pd02.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/gjuoun@python_practice/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/richcorrado@Keras_Intro/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/masterfulEJ@AppSocialNetworksAnalysis/Assignment 2.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/LinKuanKuan@PythonLearning/Exercise01.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vinitra@computational-text-analysis/day-1/installation-check.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/juleguy@TERQuChemPedIA/notebooks/14.5 Analyse des performances des modèles DIST_REL_XY_04.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/anotherlazygeek@Technology-mapping/New .ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Jivebread@Goldman-Sachs-Trading-DataBase/error.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/shivaq@NetworkPractice/Python/udemyPython/試しに流す用.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jejschwartz@my_ds_course/17.01.18 Exercise.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/lamarrg@udemy_python_a_to_z/Section_2/The "For" Loop.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ChenyangLEI@test/PyTorch.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mekpavit@sudoku/Sudoku.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/aasensio@EST/corrsh/Correlating Shack-Hartmann.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/james-jjj@KG-ML-Study/cain-k/HelloWorld.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yuweilin-private@nlo_propagator/ipython/draft code.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Yanbingwang@Github_workshop/evenNumbers.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/iarlenaquiles@aprendizado-normalization/normalization.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mherget@02456_Deep_Learning/Data_preprocessing.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/n4development@Traffic-Sign-Classifier/Traffic_Sign_Classifier.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/galperins4@First-TicTacToe-Game/TicTacToe Final (1).ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nrivet84@test/Untitled-Copy1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nazb@farmburg/microtransactions.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/OhSeung@Management-and-Database/20180321.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mgelsm@accent_classification/bin.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jesadrperez@Applied-Data-Science-with-Python/01 Introduction to Data Science with Python/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JordiTorresUdacity@AIND-Sudoku/solution.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Prithvi45@Data-Science/Understanding-Concat-Merge-Join-with-Example.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/hyzhak@deep-learning-cnn-course-notes/main.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/AnirudhaS@notebooks/Untitled3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/physics91si@lab03-larkw/lab3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/haroldgc@notebooks/sandbox.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/johnesher@notebooks/Untitled2.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/brianspiering@advent_2017/day_02.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/millerafy@FutureLearn-TB-Deaths/Project 1 - TB Deaths .ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/xMyrst@BigData/python/examenes/Examen_001.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Shinseeker@IS362_Week7/IS362_Week7.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Smithadakappa@Assignment2.2/Assignemt2.2.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/matias-rivera@simulacion/practicos/caso3_fixed.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/li-chengze@Python-TicTacToe/TicTacToe.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/FrancoisMalan@loritamasjien/Lorita se som.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fairfield-university-is505-fall2017@health-stats-part-2-yiqi0904/HealthStatsPart1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/wangxiaoleiAI@Algorithms/Searching/Python/BinarySearch.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Finistere@NeuralNetworksProject/notebooks/data_analysis.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/gazabAnurag@WebScraping/WebScraping.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/physics91si@jessfry-lab3/lab3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/veyselkoparal@python_dersnotlari/009-Pythondaki Gömülü Fonksiyonlar/6-All ve Any Fonksiyonları .ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/cnrudd@jupyter-notebooks/Dataframes.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Liaro@python_challenge/PyParagraph/boring_main.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sivamuthucse@Session1_Assignment4/Session1_Assignment4.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nandan-pc@LinearRegression/Linear_Regression/Linear_regression_gradient_descent.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/iJEEBUS@tdee-python-notebook/TDEE Calculator.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/brookingcharlie@ml-dis/notebook.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yazquez@movie-recommendation.python/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/WindChimeRan@learn-machine-learning/hmm_viterbi.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mfdawg99@CheckIO/Brackets.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/gabrielnsdin@Linguagens-e-Paradigmas-de-Programa-o/Untitled3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/trivenigandhi@dataScience/Wage Gaps - City of Boston/Clean.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ShotaDoguchi@prog2017/06-note.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ienpro@start/homework/ByeoungMin-Kang/thinkpython_hw1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/chadwhiting@algorithms-python/python/Data Structures/BST/Basic BST.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/the-vampiire@deep-learning-notes/NumPy Notes.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sgupta7194@python_class/Square.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/bharris62@MIT_6.00.1x/week_two/lecture.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/willengel88@Pandas-homework/PyCitySchools/PyCitySchoolsAnalysis.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Japoneris@bokeh_tricks/ColorMapper.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/citlaligm@traffic-signs/Traffic_Signs_Recognition.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/heidymadia@MachineLearningTesting/MachineLearningRecipe#1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/n8epi@GMRAtools/examples.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/saitejdandge@21-Machine-Learning-Weeks/chatbot/Code/Chatbot_v2.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/shu18vic@new_git_test/Fib_DP.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jkallioniemi@finnish-number2word/word2num_exploration.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/dxjcn13@MgtDatabase2018/20180328_점프투파이썬2장.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ajg379@NetworkAnalysis/calculations.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/SEEDGAME@prog2017-/06-noteb.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Hp89@Learning-Python/Sample File.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/LeoYuanjieLi@PythonExercise/Recursion.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/akuzni2@ie300_hw8/HW8.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yinshtony@learngit/PythonTry/HelloPython.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sp4ghet@kaggle/titanic/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mat-esp-2015@matrizes-vetores-mmm/matrizes-e-vetores.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ppleskov@project-euler/86.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/veleialei@Knn_MachineLearning/hw4_new.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vontasa@DataLab/aws_ml_training/training note.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fairfield-university-is505-fall2017@health-stats-part-2-danielle-ezzo/HealthStatsPart1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/AnandVishnu@PythonForFinance/Newton method.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JackHeaslip@mp7/StudentLockerProblem.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Oliver-Waldron@Big/todo.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/johntwk@Applied-Social-Network-Analysis-in-Python/Assignment 1/Assignment+1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vikassri@Python/data structure/Data Structure in Python.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ksundae1@MgtDatabase2018/MGT2018/20180328_점프투파이썬2장.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Kimkyounghye@HYDataAnalysis/hello world.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ct14872@Master-s-Files-Digital-Entertainment-/Machine Learning CM50264/kalman.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/zhouzhiqi@Deep-Learning/HomeWork/w8_周志齐_993735197.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jk-jang@TIL/Languages/Python/tip.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ayush1999@Image-Recognition/mnist.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/junaid1460@ctc-is/day 1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/words-sdsc@edX/Working with Databases.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/RicardoFrank@Accolade/HAC Calls Chord Diagram.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Wei1234c@Python_Machine_Learning/notebooks/1. 賦予電腦從數據中學習的能力.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/marcelomiky@PythonCodes/codes/elefante1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/raaplopes@Data-Science/intro.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/AbhayRaoAcadGild@AcadGild_Assignment2/2_1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/abylikhsanov@Analyzing-thanksgiving-dinner/Basics.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ELC@utn-web-assembly/Notebooks/Introducción.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/YinTaiChen@Python-Machine-Learning/Adaline with Stochastic Gradient Descent.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/IBKate@Springboard_Files/Test.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/prasastoadi@sinaupy/01/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/veotani@classification-apmath/Excercises_3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/silvershine157@introduction-to-ML/assignment3_cs492/PyTorch.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/hphilamore@PyTexth/S1_Introduction_to_version_control.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tprakash2211@Assignment6.2/Assignment6.2.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/monlie@toy_cas/cas.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JimDickson@cipher-challenge/151201VignereProcessing.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/chibuta@document_search/search_engine.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yishingene@pandas-dateform/pandas 轉換日期.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jptsung@TsungJ_Python/Real Numbers Analysis.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mingju0625@2017FM617/HW4.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jetbead@jupyter_notebook/test/print_hello.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/dhnightingale@spotify-fp/Gathering and Cleaning Data.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ychen499@chenyan_newgame/New Work.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/hailykil@Lab-Work/exercise-4/exercise-4-work.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/flaskcro@deep-learning-for-everyone/src/boston_housing_eda.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/SoloSynth1@data-visualization/Week 3/Assignment3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yhan18@Toy_projects/Word Machine-Codility.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yw2155@my_first_repository/HW01.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Cachorrera@MachineLearn/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/rabsjp@econ133/risk.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/zhuzhen216@Leetcode/229. Majority Element II.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ShidduPatil@hw/ hw1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/patonelli@map2110-modelagem/permutations1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mikestebbins@SetCardGameGenerator/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/MadcowD@cs189/hw4/Homework 4.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Pradam@Python-Programming/decorators-demystify.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/miintto@Crawling/Crawling_kin.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yitang@python_notebooks/Validate_Binary_Search_Tree.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/demidovakatya@questions/parsing.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mlestep@biochem/thermshift/thermshift.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/eileenforwhat@traffic-sign-classifier/Traffic_Sign_Classifier.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kentbo@repo20170426/PythonUpload.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mmtsfasman@Infopoisk/Вики_краулер.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/junaid1460@deep_learning_tf_keras/Untitled3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/hoaphamutsa@py-ml-bootcamp/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sahitikunchay@DataAndKE/Lab1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Ivanbuezor@Computo-Distribuido/Tarea+2+Cómputo+distribuido+Iván+Buezo+Rojas+iD+168710.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/StefanHanisch@DifferentialPrivacy/Implementation of a private random decision tree.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Gaylaxumb@tumo-tf/tensorflow3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Utkagr@SimilarityIndexQP/practice_tf.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/henrypalacios@apuntesPython/Fase 3 - Programacion Orientada a Objetos/Tema 08 - Programacion Orientada a Objetos/7-Ejercicios Enunciados.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/OlaoluwaS@TestRepo/Test Code .ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/CPP-CProgramming@algorithmPython/overview.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/slavo7@Python-/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ennnas@Social-Media-Management/Matrix.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jplee1969@PythonBooks/Python教材第三章.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/EmilioJeldes@Curso-Python/Fase 1 - Fundamentos de programacion/Tema 03 - Controlando el flujo/Ejercicios/Enunciados.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/hwmarcos@datascience-knn-regressao/knn-regressao02-erro-quadratico-medio.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vamsisakh@proj_euler/P1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/rubennj@percentiles/index.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/CSquare-analytics@pandas_tutorials/pandas_transform.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fernandovela@coursera-datascience-python/week2/Assignment_2.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Tonifvm@myfirstproject/myfirstNotebook .ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mohammadroghani@bio/practical.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/maipau96@Chapter3Python/Chapter3 Techmentor.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ccastleberry@Web_Scraping_with_Python/Chapter_1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sivamuthucse@Session1_Assignment2/Session1_Assignment2.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Silvidheer@DataScience_Session1Assignment1.2/Assignment1.2_ Numbers_in_2000_and_3200.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/shubhamvadhera@knn-n-fold-classification/knn-mean-accuracy.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sreeras@PythonAlgorithms/Trees/ValidateBinarySearchTreeInterviewProblemSolved.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Codutie@tensorflow-tutorials/hello_tensorflow.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/bthalenberg@neuralnet/neuralnet.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/bangbangjim@Genetic-Algorithm-to-play-Snake/Code.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tomveh@nlp-studygroup/homeworks/ch17.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nhatnguyen12@test-pandas/learn_axis.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/pradeephk@IPL_ML_Hackathon/MatchWinner.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/AlexSwicz@Python_NLP/КЛэкзамен.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/DeannaDS@ds710Practice/cumulative sum first principles.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Haloviva@hello-world/201611580289.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/erikagafe@VR/VR/VR_HW1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/brendanjryan@talks/talks/floats/notebooks/Deconstructing a Floating Point Number.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/isaaczhou@DataCamp/python-bokeh/Layout, Interaction and Annotations.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Chouhchen@intro_to_python/S1_Introduction_to_version_control.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/georgemakris72@python-fall-george/hello-world.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/y2k6302@eland/python_test/panda_dataframe.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Caimapo@ISW/jupiter/ISW.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/professorxavier@courses/datastructures/Lista Ligada.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/SSaishruthi@Python_practice/LinkedList_Sum.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/aintoha@Pyton/data/03-list.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/gmohre@BelcherLearner/Belcher.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/16b01a04g4@python-basics/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ultimatepritam@undergraduate-pi/FindingPi.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fairfield-university-is505-fall2017@health-stats-part-2-VermouthLiang/HealthStatsPart1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/saurabhvyas@feeny_voice/datasetv2.py.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/pavelBLR@Moex-lectures/FirstLesson/Sample-Robot.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jagrutipatel13@PythonAssignment11.1/Assignment11.1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mohitesh07@explore-us-birth-rates/project-us-births/Basics.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tonmoycsedu@pubmed_yearly_citations/pubmed.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/GolamSaroarGitHub@IPython_Notebook/scikit_1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jgratsch2@RandomCode/Display DataFrame Function.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Data4Democracy@github-playground/Hello.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sharonsu94@numpy-pandas/Heroes of Pymoli.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/polizzz@Pythonn-3/Repository/0312.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/danon1205@Facebook_data/Statistics.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ksjpswaroop@datascience-using-Python-and-Spark/Python-for-Data-Analysis/Pandas/Operations.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Luobwen@Introduction-to-Algorithm/归并排序.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/koregor@homatasks/Python_Basics.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mcps5601@Algorithms-and-Computer-Programming/python_hw_20180325.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/savvaser@Data-Analysis-Project-Analyzing-Thanksgiving-Dinner/Basics.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yasincidem@PandasSeriesTutorial/PandasSeries.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Derekwwx@leetcode_python/022. Generate Parentheses.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/krazygaurav@Machine-Learning/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jjaggung@MgtDatabase2018/20180328_점프투파이썬2장.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/slimkaki@APS_4_dadosdp2018/Aula12 Atividade Modelos probabilísticos discretos(1) (1) (1).ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/cavaunpeu@single-neuron-gradient-descent/single-neuron-gradient-descent.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jmmauricio@e-ipython/re.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/farzadz@algorihms/sorts/Sorts.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/saichakravarthy1@Interviewprep/Python/BST.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/BarnetteME1@Python-Challenge/Challenge_0.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/casteer@Cockcroft-Walton-Calculator/Cockcroft-Walton.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vkaynig@Data-Science/02 - Getting and Visualizing Data.ipynb
