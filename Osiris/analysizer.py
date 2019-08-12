@@ -242,10 +242,13 @@ class Analysizer():
                         match_ratio = num_of_matched_cells/num_of_cells
                     source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
 
-                    print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
-                        num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
-                    print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
-                        match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
+                    # print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
+                    #   num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
+                    # print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
+                    #   match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
+                    print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; length of execution path: {num_of_cells}".format(
+                        match_ratio=round(match_ratio, 3), num_of_cells=num_of_cells))
+
 
                     # Debug & Experiment purpose
                     # Print cells which are unmatched

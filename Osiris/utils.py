@@ -42,7 +42,7 @@ def get_all_potential_execution_orders(path):
     oec = get_oec(path)
     graph = CDG()
     graph.build(code_list)
-    paths = graph.gen_exec_path(mode='oec', oec=oec)
+    paths = graph.gen_exec_path(mode='all', oec=oec)
     return paths
 
 '''
