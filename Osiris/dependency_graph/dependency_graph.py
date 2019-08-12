@@ -76,7 +76,6 @@ class CDG:
         vars_records = [(tmp, 'store') for tmp in class_ref_ids+func_ref_ids] + vars_records
         producer_set = set()
         consumer_set = set()
-
         for e in vars_records:
             if e[1]=='def' or e[1]=='store' and (e[0],'var') not in consumer_set:
                 producer_set.add((e[0], 'var'))
@@ -110,7 +109,6 @@ class CDG:
 
     def get_topological_order(self):
         self.build_adj_mat()
-        print(self.adj_mat)
         adj_mat = deepcopy(self.adj_mat)
         exec_order = []
         n = adj_mat.shape[0]
@@ -127,6 +125,8 @@ class CDG:
         return exec_order
 
     def all_topo_util(self,all_paths, res, visited, in_degrees):
+        if len(all_paths)>=self.max_size:
+            return 
         flag = False
         for i in range(self.N):
             if in_degrees[i] ==0 and visited[i]==False:
@@ -184,6 +184,8 @@ class CDG:
 
     def all_topo_util(self, all_paths, res, accum_producer_set, visited):
         flag = False
+        if len(all_paths)>=self.max_size:
+            return 
         for i in range(self.N):
             accum_producer_set_tmp = accum_producer_set.union(self.producer_list[i])
             if self.consumer_list[i].issubset(accum_producer_set_tmp) and visited[i]==False:
@@ -201,16 +203,17 @@ class CDG:
             all_paths.append(deepcopy(res))
 
 
-    def all_topo(self, all_paths):
+    def all_topo(self, all_paths, max_size=200):
         res = []
         visited = [False]*self.N
         accum_producer_set = set()
+        self.max_size=max_size
         self.all_topo_util(all_paths, res, accum_producer_set, visited)
 
     def gen_exec_path(self, mode='single', oec=[]):
         if mode == 'single':
             all_paths = []
-            self.all_topo(all_paths)
+            self.all_topo(all_paths, max_size=1)
             exec_order = all_paths[0]
             return exec_order
         if mode == 'all':

@@ -101,7 +101,10 @@ class VarsVisitor(ast.NodeVisitor):
         if not isinstance(node.value, ast.Name):
             self.visit(node.value)
         else:
-            self.result.append(node.value.id)
+            if isinstance(node.value.ctx, ast.Load):
+                self.result.append((node.value.id, 'load'))
+            else:
+                self.result.append((node.value.id, 'store'))
 
     def slicev(self, node):
         if isinstance(node, ast.Slice):
@@ -159,26 +162,6 @@ def get_Ops(tree):
             return node
     return None
 
-def visit_Assert(self, node):
-        """Replace assertions with augmented assignments."""
-        self.max_score += 1
-        return ast.AugAssign(
-            op=node.op,
-            target=ast.Name(
-                id=self.score_var_name,
-                ctx=ast.Store()
-            ),
-            value=ast.Call(
-                args=[node.test],
-                func=ast.Name(
-                    id='bool',
-                    ctx=ast.Load()
-                ),
-                keywords=[],
-                kwargs=None,
-                starargs=None
-            )
-        )
 
 def get_vars(node):
     visitor = VarsVisitor()

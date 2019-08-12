@@ -46,7 +46,6 @@ def get_api_ref_id(tree):
                     id2fullname[d['name']] = node.module+'.'+d['name']
                 else:
                     id2fullname[d['asname']] = node.module+'.'+d['name']
-    #id2fullname = {k:v for k,v in id2fullname.items() if  v.find('sklearn')>=0 }
     return id2fullname
 
 def func_call_format(func_call_names, id2fullname):
@@ -94,7 +93,7 @@ def is_impeded(smt, import_smts):
         cell_func_calls_names = get_func_calls(tree, extended=True)
         cell_func_calls_names = [tmp[0] for tmp in cell_func_calls_names]
         cell_func_calls_names = func_call_format(cell_func_calls_names, id2fullname)
- 
+
         if len(cell_func_calls_names) == 0:
             return False
         sol = match_whitelist(cell_func_calls_names[0])
@@ -115,59 +114,16 @@ def get_antidote(smt, import_smts):
         cell_func_calls_names = get_func_calls(tree, extended=True)
         cell_func_calls_names = [tmp[0] for tmp in cell_func_calls_names]
         cell_func_calls_names = func_call_format(cell_func_calls_names, id2fullname)
-        
+ 
         if len(cell_func_calls_names) == 0:
             return None
         sol = match_whitelist(cell_func_calls_names[0])
         return ["import {}".format(sol.split('.')[0]), sol]
 
     except (SyntaxError,):  # to avoid non-python code
-        print('SyntaxError')
+        print('SyntaxError!!!!!!!!!!!!')
         return None
 
 if __name__ == '__main__':
     print(0)
-
-"""
-example code 
-
-smts = [
-        'import numpy as np',
-        'import random',
-        'from random import shuffle'
-        ]
-print(is_impeded('np.random.randint()', smts))
-"""
-
-''' 
-Issue case 
-
-smt = 'import random'
-import_smts = ['import random ', 'from IPython.display import Image ']
-print(is_impeded(smt, import_smts)) # should return False
-
-Error: list index out of range
-'''
-
-'''
-Cases: 
-1. Input: ‘a = random.randint(0,3)', ['import random']
-2. Input: 'nump.random.randint(5)', ['import numpy']
-3. Input: 'np.random.randint(5)', ['import numpy as np']
-4. Input: 'd = np.random.normal(0, 0.2, 5000)', ['import numpy as np'] # New case
-5. Input: 'datos = {
-    'valores': np.random.randn(100),
-    'frecuencia': dt.timedelta(minutes = 10),
-    'fecha_inicial': dt.datetime(2016, 1, 1, 0, 0),
-    'parametro': 'wind_speed',
-    'unidades': 'm/s'
-}', ['import numpy as np'] # New case
-6. Input: '    y_var2 = np.random.randint(5, 8, 10)', ['import numpy as np'] # New case (with identation), return statement should not worry about identation 
-7. Input: '    x_ = random.random()', ['import random'] # New case (with identation)
-8. Input: '    s_ = scale*random.random()', ['import random'] # New case (with identation)
-9. Input: 'X = np.random.uniform(0.,1.,N)', ['import numpy as np'] # New case
-10. Input: 'X = np.random.random(N)', ['import numpy as np'] # New case 
-11. Input: 'y1 = 0.2*x + np.random.rand(1000)', ['import numpy as np'] # New case 
-'''
-
 
