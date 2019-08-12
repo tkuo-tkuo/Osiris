@@ -210,8 +210,8 @@ class CDG:
     def gen_exec_path(self, mode='single', oec=[]):
         if mode == 'single':
             all_paths = []
-            self.alltopologicalSort(all_paths)
-            exec_order =list((all_paths[0]))
+            self.all_topo(all_paths)
+            exec_order = all_paths[0]
             return exec_order
         if mode == 'all':
             all_paths = []
