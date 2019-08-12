@@ -162,14 +162,19 @@ def extract_source_code_from_unmatched_cells(cells, index_lst):
 
 
 '''
-All remaining utils functions below are for printing purpose 
+All remaining utils functions below are for printing purpose (PENDING)
 '''
-def print_source_code_of_unmatched_cells(cells, index_lst, unmatched_original_outputs, unmtached_executed_outputs):
+def print_source_code_of_unmatched_cells(cells, analyse_strategy, index_lst, unmatched_original_outputs, unmtached_executed_outputs, execution_order):
     cells = cells.copy()
 
-    execution_count_lst = [cell.execution_count for cell in cells]
-    OEC = sorted(range(len(execution_count_lst)), key=lambda k: execution_count_lst[k])
-    parsed_nb_cells = [cells[idx] for idx in OEC]
+    if analyse_strategy == 'normal':
+        parsed_nb_cells = cells
+    elif analyse_strategy == 'OEC':
+        execution_count_lst = [cell.execution_count for cell in cells]
+        OEC = sorted(range(len(execution_count_lst)), key=lambda k: execution_count_lst[k])
+        parsed_nb_cells = [cells[idx] for idx in OEC]
+    elif analyse_strategy == 'dependency':
+        parsed_nb_cells = [cells[idx] for idx in execution_order]
     
     unmatched_cells = [cell for (idx, cell) in enumerate(parsed_nb_cells) if idx in index_lst]
     unmatched_cells = unmatched_cells.copy() # in case we would modify any content

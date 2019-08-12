@@ -242,20 +242,17 @@ class Analysizer():
                         match_ratio = num_of_matched_cells/num_of_cells
                     source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
 
-                    # print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
-                    #   num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
-                    # print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
-                    #   match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
-                    print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; length of execution path: {num_of_cells}".format(
-                        match_ratio=round(match_ratio, 3), num_of_cells=num_of_cells))
+                    print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
+                      num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
+                    print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
+                      match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
 
 
                     # Debug & Experiment purpose
                     # Print cells which are unmatched
                     if verbose:
                         self._nb = copy.deepcopy(self._deep_copy_nb)
-                        print_source_code_of_unmatched_cells(
-                            self._nb.cells, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs)
+                        print_source_code_of_unmatched_cells(self._nb.cells, 'dependency', unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs, execution_order)   
                 except Exception as e:
                     print(e)
                     match_ratio = None
@@ -407,7 +404,10 @@ class Analysizer():
         # Print cells which are unmatched 
         if verbose:
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            print_source_code_of_unmatched_cells(self._nb.cells, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs)   
+            if analyse_strategy == 'dependency':
+                print_source_code_of_unmatched_cells(self._nb.cells, analyse_strategy, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs, execution_order)   
+            else:
+                print_source_code_of_unmatched_cells(self._nb.cells, analyse_strategy, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs)   
 
         return num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_of_unmatched_cells          
 
@@ -538,7 +538,7 @@ class Analysizer():
                 second_var_status = check_cell_outputs[-1].data['text/plain']
             except:
                 second_var_status = None
-
+            print(first_var_status, second_var_status)
             if not (first_var_status == second_var_status):
                 return i
 
