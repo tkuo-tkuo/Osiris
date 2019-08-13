@@ -14,6 +14,14 @@ The potential statement for causing status difference is line 0
 cell index: 0
 The potential statement for causing status difference is line 57
 
+/mnt/fit-Knowledgezoo/Github_repos_download/data/NickyThreeNames@DataquestGuidedProjects/Guided Project- Police killings/Basics.ipynb
+cell index: 1
+The potential statement for causing status difference is line 0
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/gulgis@UDF/estrutura_de_dados/Árvore Binária.ipynb
+cell index: 1
+The potential statement for causing status difference is line 5
+
 /mnt/fit-Knowledgezoo/Github_repos_download/data/Amuzdalifa@MoneyCo/TubesAI-DTL.ipynb
 cell index: 1
 The potential statement for causing status difference is line 28
@@ -34,6 +42,10 @@ The potential statement for causing status difference is line 11
 cell index: 1
 The potential statement for causing status difference is line 3
 
+/mnt/fit-Knowledgezoo/Github_repos_download/data/BbsonLin@DeepLearning-Note/Course-Note/Neural Networks and Deep Learning/Week2.ipynb
+cell index: 1
+The potential statement for causing status difference is line 6
+
 /mnt/fit-Knowledgezoo/Github_repos_download/data/achronist@skin-slab/skin-slab.ipynb
 cell index: 28
 The potential statement for causing status difference is line 37
@@ -50,6 +62,14 @@ The potential statement for causing status difference is line 0
 cell index: 21
 The potential statement for causing status difference is line 1
 
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yangydavid@Data-Science/Guided Project_ Predicting Car Prices/Basics.ipynb
+cell index: 11
+The potential statement for causing status difference is line 6
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/uday553@GreatLakes/Group3_PGPBDA.B.AUG16_SLE_MiniPro.ipynb
+cell index: 6
+The potential statement for causing status difference is line 0
+
 /mnt/fit-Knowledgezoo/Github_repos_download/data/abhisingh92@data-science/Intro-to-data-analysis-udacity/data-analysis-basics/L1_Starter_Code.ipynb
 cell index: 12
 The potential statement for causing status difference is line 2
@@ -60,15 +80,15 @@ The potential statement for causing status difference is line 0
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/arneec@TF-IDF_calculation_NLP/tf_idf.ipynb
 cell index: 1
-The potential statement for causing status difference is line 16
+The potential statement for causing status difference is line 15
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ShirinRowhani@Predicting-Car-Price/Car's Market Price (knn).ipynb
+cell index: 13
+The potential statement for causing status difference is line 7
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/rfsantacruz@ml-nb/NonparametricDensityEstimation.ipynb
 cell index: 1
 The potential statement for causing status difference is line 12
-
-/mnt/fit-Knowledgezoo/Github_repos_download/data/rnavares@8-Queens-Problem/8-Quens.ipynb
-cell index: 5
-The potential statement for causing status difference is line 1
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/chihhuiho@Rnn_practice/04_rnn-long-char.ipynb
 cell index: 2
@@ -94,6 +114,10 @@ The potential statement for causing status difference is line 29
 cell index: 1
 The potential statement for causing status difference is line 10
 
+/mnt/fit-Knowledgezoo/Github_repos_download/data/DylanSpicker@project-euler/Project Euler.ipynb
+cell index: 1
+The potential statement for causing status difference is line 0
+
 /mnt/fit-Knowledgezoo/Github_repos_download/data/candyyunwen@mrihw2015/HW2/HE2_hsinyu/HW2_Hsinyu.ipynb
 cell index: 2
 The potential statement for causing status difference is line 15
@@ -118,11 +142,11 @@ The potential statement for causing status difference is line 8
 cell index: 1
 The potential statement for causing status difference is line 3
 
-/mnt/fit-Knowledgezoo/Github_repos_download/data/jizhenz@notes/ipython/Peter_Norvig_Probability_Paradox_and_the_Reasonable_Person_Principle.ipynb
-cell index: 54
-The potential statement for causing status difference is line 0
-
-/mnt/fit-Knowledgezoo/Github_repos_download/data/utsekaj42@binder_test/Tensor_calculations.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/cmg-dev@dice_statistsics/3d6 Calandra Feat VS. 4d6.ipynb
 cell index: 5
-The potential statement for causing status difference is line 5
+The potential statement for causing status difference is line 9
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yingtaiGithub@Simple-Models/Decision tree &  Naïve Bayes/simple_classification.ipynb
+cell index: 2
+The potential statement for causing status difference is line 32
 
