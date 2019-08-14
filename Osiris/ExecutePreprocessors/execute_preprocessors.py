@@ -223,6 +223,7 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
         if target_line_index == -1: 
             new_source_code_for_the_cell = []
             new_source_code_for_the_cell.append("extractVars()")
+
         # CASE 2: Check for status difference until certain statement 
         else:
             new_source_code_for_the_cell = [] 
@@ -230,13 +231,14 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
                 new_source_code_for_the_cell.append(statement)
                 if line_index == target_line_index:
                     num_of_leading_spaces = len(statement) - len(statement.lstrip())
-                    num_of_extract_vars_func = len("extractVars()")
+                    num_of_extract_vars_func = len("pass")
                     num_of_identation = num_of_leading_spaces+num_of_extract_vars_func
 
                     if any(substr in statement for substr in self.whitelist):
                         num_of_identation += 4
 
-                    new_source_code_for_the_cell.append("extractVars()".rjust(num_of_identation))
+                    new_source_code_for_the_cell.append("pass".rjust(num_of_identation))
+                    new_source_code_for_the_cell.append("extractVars()")
                     break
 
         new_source_code = '\n'.join(new_source_code_for_the_cell)

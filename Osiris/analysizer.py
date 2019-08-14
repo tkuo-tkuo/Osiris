@@ -519,11 +519,12 @@ class Analysizer():
             self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
             if execution_order is not None:
                 self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+
             try:
                 self._execute_nb_for_inspecting_status_of_certain_line(i)
                 check_cell_outputs = self._nb.cells[check_cell_idx].outputs
                 first_var_status = check_cell_outputs[-1].data['text/plain']
-            except:
+            except Exception as e:
                 first_var_status = None
 
             self._nb = copy.deepcopy(self._deep_copy_nb)
@@ -534,11 +535,23 @@ class Analysizer():
                 self._execute_nb_for_inspecting_status_of_certain_line(i)
                 check_cell_outputs = self._nb.cells[check_cell_idx].outputs
                 second_var_status = check_cell_outputs[-1].data['text/plain']
-            except:
+            except Exception as e:
                 second_var_status = None
-            print(first_var_status, second_var_status)
+            
             if not (first_var_status == second_var_status):
-                return i
+                self._nb = copy.deepcopy(self._deep_copy_nb)
+                self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+                if execution_order is not None:
+                    self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+
+                supicious_statement = None
+                try:
+                    self._execute_nb_for_inspecting_status_of_certain_line(i)
+                    supicious_statement = self._nb.cells[check_cell_idx].source.split('\n')[i]
+                except:
+                    pass
+
+                return (i, supicious_statement)
 
         # What if the status of self-defined variables remains the same through execution of this cell
         # return None to indicate unfound 
