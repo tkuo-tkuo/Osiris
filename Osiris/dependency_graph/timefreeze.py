@@ -10,7 +10,6 @@ print(time.time())
 
 import datetime
 import pandas as pd
-import freezegun
 
 print(pd.Timestamp.now())
 print(datetime.datetime.now())

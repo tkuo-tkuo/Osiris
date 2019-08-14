@@ -122,13 +122,11 @@ class Analysizer():
         if len(cells) > 0:
             first_cell_source_code_lst = cells[0].source.split('\n')
 
-            fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
-            '''
+            # fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
             if not self._is_pandas_used(cells): 
-                fix_statement_lst = ['from freezegun import freeze_time', 'freezer = freeze_time("2012-01-14 12:00:01")', 'freezer.start()', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
+                fix_statement_lst = ['from freezegun import freeze_time', 'freezer = freeze_time("2012-01-14 12:00:01")', 'freezer.start()', '%matplotlib inline', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
             else:
-                fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
-            '''
+                fix_statement_lst = ['%matplotlib inline', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
 
             for fix_statement in (fix_statement_lst)[::-1]:
                 first_cell_source_code_lst.insert(0, fix_statement)
@@ -147,6 +145,8 @@ class Analysizer():
 
     # This functionality is for experiment purpose
     def check_executability_on_all_potential_execution_paths(self, verbose):
+        return True 
+        '''
         execution_orders = get_all_potential_execution_orders(self._nb_path)
 
         results = []
@@ -166,6 +166,7 @@ class Analysizer():
             results.append(is_executable)
         
         return results 
+        '''
 
     # This functionality is for experiment purpose
     # Should not be called from users when Osiris is publicly released 
@@ -174,62 +175,87 @@ class Analysizer():
 
         results = []
         for execution_order in execution_orders:
-            try:
-                self._nb = copy.deepcopy(self._deep_copy_nb)
-                if match_pattern == 'strong':
-                    original_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
-                elif match_pattern == 'weak':
-                    self._set_ep_as_dependency_mode(execution_order)
-                    self._execute_nb()
-                    original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
-                else:  # best-effort (PENDING)
-                    pass
+            print(execution_order)
+            self._nb = copy.deepcopy(self._deep_copy_nb)
+            is_executable = False
+            error = None
 
-                # Extract the executed outputs
-                self._nb = copy.deepcopy(self._deep_copy_nb)
+            try:
                 self._set_ep_as_dependency_mode(execution_order)
                 self._execute_nb()
-                executed_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
-
-                # Compare two outputs
-                matched_cell_idx = []
-                unmatched_cell_idx = []
-                unmatched_original_outputs = []
-                unmatched_executed_outputs = []
-                num_of_matched_cells, num_of_cells = 0, len(original_outputs)
-                for i in range(num_of_cells):
-                    if original_outputs[i] == executed_outputs[i]:
-                        num_of_matched_cells += 1
-                        matched_cell_idx.append(i)
-                    else:
-                        unmatched_cell_idx.append(i)
-                        unmatched_original_outputs.append(original_outputs[i])
-                        unmatched_executed_outputs.append(executed_outputs[i])
-
-                # Return (print) the results
-                match_ratio = 0
-                if num_of_cells == 0:
-                    match_ratio = 1
-                else:
-                    match_ratio = num_of_matched_cells/num_of_cells
-                source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
-
-                print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
-                    num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
-                print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
-                    match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
-
-                # Debug & Experiment purpose
-                # Print cells which are unmatched
-                if verbose:
-                    self._nb = copy.deepcopy(self._deep_copy_nb)
-                    print_source_code_of_unmatched_cells(
-                        self._nb.cells, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs)
+                is_executable = True
             except Exception as e:
-                print(e)
-                match_ratio = None
-                
-            results.append(match_ratio)
+                error = e
+
+            print('Executability'.ljust(40), ':', is_executable)
+            self._is_executable = is_executable
+
+            if verbose and (not is_executable):
+                print(error)
+
+            if is_executable:
+                try:
+                    self._nb = copy.deepcopy(self._deep_copy_nb)
+                    if match_pattern == 'strong':
+                        original_outputs = extract_outputs_based_on_dependency_order(self._nb.cells, execution_order)
+                    elif match_pattern == 'weak':
+                        self._set_ep_as_dependency_mode(execution_order)
+                        self._execute_nb()
+                        original_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
+                    else:  # best-effort (PENDING)
+                        self._best_effort_repair()
+                        self._set_ep_as_OEC_mode()
+                        self._execute_nb()
+                        original_outputs = extract_outputs_based_on_OEC_order(self._nb.cells)
+
+
+                    # Extract the executed outputs
+                    self._nb = copy.deepcopy(self._deep_copy_nb)
+                    if match_pattern == 'best_effort':
+                        self._best_effort_repair()
+                    self._set_ep_as_dependency_mode(execution_order)
+                    self._execute_nb()
+                    executed_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
+
+                    # Compare two outputs
+                    matched_cell_idx = []
+                    unmatched_cell_idx = []
+                    unmatched_original_outputs = []
+                    unmatched_executed_outputs = []
+                    num_of_matched_cells, num_of_cells = 0, len(original_outputs)
+                    for i in range(num_of_cells):
+                        if original_outputs[i] == executed_outputs[i]:
+                            num_of_matched_cells += 1
+                            matched_cell_idx.append(i)
+                        else:
+                            unmatched_cell_idx.append(i)
+                            unmatched_original_outputs.append(original_outputs[i])
+                            unmatched_executed_outputs.append(executed_outputs[i])
+
+                    # Return (print) the results
+                    match_ratio = 0
+                    if num_of_cells == 0:
+                        match_ratio = 1
+                    else:
+                        match_ratio = num_of_matched_cells/num_of_cells
+                    source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
+
+                    print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
+                      num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
+                    print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
+                      match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
+
+
+                    # Debug & Experiment purpose
+                    # Print cells which are unmatched
+                    if verbose:
+                        self._nb = copy.deepcopy(self._deep_copy_nb)
+                        print_source_code_of_unmatched_cells(self._nb.cells, 'dependency', unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs, execution_order)   
+                except Exception as e:
+                    print(e)
+                    match_ratio = None
+                    
+                results.append(match_ratio)
 
         return results
 
@@ -313,8 +339,9 @@ class Analysizer():
             self._execute_nb()
             executed_outputs = extract_outputs_based_on_normal_order(self._nb.cells)
         elif analyse_strategy == 'dependency':
-
             execution_order = get_execution_order(self._nb_path)
+            print('Execution order:', execution_order)
+
             # Extract the original outputs
             self._nb = copy.deepcopy(self._deep_copy_nb)
             if match_pattern == 'strong':
@@ -375,7 +402,10 @@ class Analysizer():
         # Print cells which are unmatched 
         if verbose:
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            print_source_code_of_unmatched_cells(self._nb.cells, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs)   
+            if analyse_strategy == 'dependency':
+                print_source_code_of_unmatched_cells(self._nb.cells, analyse_strategy, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs, execution_order)   
+            else:
+                print_source_code_of_unmatched_cells(self._nb.cells, analyse_strategy, unmatched_cell_idx, unmatched_original_outputs, unmatched_executed_outputs)   
 
         return num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_of_unmatched_cells          
 
@@ -506,7 +536,7 @@ class Analysizer():
                 second_var_status = check_cell_outputs[-1].data['text/plain']
             except:
                 second_var_status = None
-
+            print(first_var_status, second_var_status)
             if not (first_var_status == second_var_status):
                 return i
 
