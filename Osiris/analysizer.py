@@ -550,7 +550,7 @@ class Analysizer():
                     supicious_statement = self._nb.cells[check_cell_idx].source.split('\n')[i]
                 except:
                     pass
-
+                
                 return (i, supicious_statement)
 
         # What if the status of self-defined variables remains the same through execution of this cell

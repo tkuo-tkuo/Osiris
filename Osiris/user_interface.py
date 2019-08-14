@@ -71,17 +71,20 @@ class UserInterface():
             raise ValueError('cell_index argument should not be empty (None), please indicate the cell_index.')
     
         move_to_appropriate_location(self._nb_path)
-        (problematic_statement_index, supicious_statement) = self.analysizer.check_status_difference_for_a_cell(self._execute_strategy, cell_index)
+        result = self.analysizer.check_status_difference_for_a_cell(self._execute_strategy, cell_index)
         
-        if problematic_statement_index is None:
+        if result is None:
             print('Statements in this cell did not cause any status difference of self-defined variables')
-        elif problematic_statement_index is -1:
+            return result
+        elif result is -1:
             print('Status difference of self-defined variables may occur before any execution of statements in this cell')
+            return result
         else: 
+            problematic_statement_index, supicious_statement = result
             print('The potential statement for causing status difference is line', problematic_statement_index)
             print('--------------> ', supicious_statement)
             print('(Note that 0 indicates for the first line and empty lines are also included)')
-        
-        return problematic_statement_index
+      
+            return problematic_statement_index
 
         
