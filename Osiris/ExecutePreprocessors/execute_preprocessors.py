@@ -1,64 +1,6 @@
 from __future__ import absolute_import
 from nbconvert.preprocessors import ExecutePreprocessor
 
-
-'''
-Customized ExecutePreprocessor 1, Truncate mode
-- A user needs to specify the start_index and end_index
-- Truncate mode acts like substring in string class 
-'''
-class TruncateExecutePreprocessor(ExecutePreprocessor):
-
-    def __init__(self, start_index, end_index):
-        super(ExecutePreprocessor, self).__init__()
-        self.start_index = start_index
-        self.end_index = end_index
-
-    def preprocess(self, nb, resources):
-        nb.cells = nb.cells[self.start_index:self.end_index]
-        return super(TruncateExecutePreprocessor, self).preprocess(nb, resources)
-
-
-'''
-Customized ExecutePreprocessor 2, Skip mode
-- A user needs to specify the cell indexes should be omitted
-'''
-class SkipExecutePreprocessor(ExecutePreprocessor):
-
-    def __init__(self, skip_idx_list):
-        super(ExecutePreprocessor, self).__init__()
-        self.skip_idx_list = skip_idx_list
-
-    def preprocess(self, nb, resources):
-        copy_nb_cells = nb.cells
-        parsed_nb_cells = [item for (idx, item) in enumerate(
-            copy_nb_cells) if idx not in self.skip_idx_list]
-        nb.cells = parsed_nb_cells
-        return super(SkipExecutePreprocessor, self).preprocess(nb, resources)
-
-
-'''
-Customized ExecutePreprocessor 3, Link mode
-- A user needs to specify the order (index) of cells should be executed
-'''
-class LinkExecutePreprocessor(ExecutePreprocessor):
-
-    def __init__(self, link_idx_list):
-        super(ExecutePreprocessor, self).__init__()
-        self.link_idx_list = link_idx_list
-
-    def preprocess(self, nb, resources):
-        copy_nb_cells = nb.cells
-        parsed_nb_cells = [copy_nb_cells[idx] for idx in self.link_idx_list]
-        nb.cells = parsed_nb_cells
-        return super(LinkExecutePreprocessor, self).preprocess(nb, resources)
-
-
-'''
-Customized ExecutePreprocessor 4, OEC (Original Execution Count) mode
-- This mode is used under the assumption that the target Jupyter Notebook has been executed
-- The Jupyter Notebook file will be executed according to ascending execution_count order
-'''
 class OECPreprocessor(ExecutePreprocessor):
 
     def __init__(self):
