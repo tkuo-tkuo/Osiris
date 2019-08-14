@@ -122,13 +122,11 @@ class Analysizer():
         if len(cells) > 0:
             first_cell_source_code_lst = cells[0].source.split('\n')
 
-            fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
-            '''
+            # fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
             if not self._is_pandas_used(cells): 
-                fix_statement_lst = ['from freezegun import freeze_time', 'freezer = freeze_time("2012-01-14 12:00:01")', 'freezer.start()', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
+                fix_statement_lst = ['from freezegun import freeze_time', 'freezer = freeze_time("2012-01-14 12:00:01")', 'freezer.start()', '%matplotlib inline', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
             else:
-                fix_statement_lst = ['import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
-            '''
+                fix_statement_lst = ['%matplotlib inline', 'import random', 'random.seed(100)', 'import numpy', 'numpy.random.seed(100)']
 
             for fix_statement in (fix_statement_lst)[::-1]:
                 first_cell_source_code_lst.insert(0, fix_statement)
