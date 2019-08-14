@@ -133,17 +133,17 @@ class TestOsiris(unittest.TestCase):
     def test_top_down_debug_for_a_cell(self):
         interface = Osiris.UserInterface(test_debug_for_a_cell_notebook_path, 'normal', verbose)
         problematic_statement_index = interface.analyse_status_difference_for_a_cell(1)
-        self.assertEqual(problematic_statement_index, 9)
+        self.assertEqual(problematic_statement_index, 10)
 
     def test_OEC_debug_for_a_cell(self):
         interface = Osiris.UserInterface(test_debug_for_a_cell_notebook_path, 'OEC', verbose)
         problematic_statement_index = interface.analyse_status_difference_for_a_cell(2)
-        self.assertEqual(problematic_statement_index, 9)
+        self.assertEqual(problematic_statement_index, 10)
 
     def test_dependency_debug_for_a_cell(self):
         interface = Osiris.UserInterface(test_debug_for_a_cell_notebook_path, 'dependency', verbose)
         problematic_statement_index = interface.analyse_status_difference_for_a_cell(1)
-        self.assertEqual(problematic_statement_index, 9)
+        self.assertEqual(problematic_statement_index, 10)
 
     '''
     The following 2 unit tests focus on the correctness of Osiris for images 
