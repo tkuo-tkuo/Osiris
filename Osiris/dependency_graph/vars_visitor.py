@@ -1,5 +1,4 @@
 import ast
-
 class VarsVisitor(ast.NodeVisitor):
     def __init__(self):
         self.result = list()
@@ -80,15 +79,8 @@ class VarsVisitor(ast.NodeVisitor):
             self.visit(c)
 
     def visit_Call(self, node):
-        name = get_obj_name(node.func)
-        if name is not None:
-            self.result += [(name, 'load')]
-        else:
-            Ops_node = get_Ops(node)
-            if Ops_node is not None:
-                self.visit(Ops_node)
-
-
+        if not isinstance(node.func, ast.Name):
+            self.visit(node.func.value)
         for arg in node.args:
             self.visit(arg)
         for keyword in node.keywords:
@@ -145,23 +137,9 @@ class VarsVisitor(ast.NodeVisitor):
         if not isinstance(node.value, ast.Lambda):
             self.visit(node.value)
             for target in node.targets:
+                if isinstance(target, ast.Subscript):
+                    target.value.ctx = ast.Store()
                 self.visit(target)
-
-def get_obj_name(node):
-    if isinstance(node, ast.Name):
-        return None
-    elif isinstance(node, ast.Attribute):
-        if isinstance(node.value, ast.Name):
-            return node.value.id
-        else:
-            return get_obj_name(node.value)
-
-def get_Ops(tree):
-    for node in ast.walk(tree):
-        if isinstance(node, ast.BoolOp) or isinstance(node, ast.BinOp) or  isinstance(node, ast.UnaryOp):
-            return node
-    return None
-
 
 def get_vars(node):
     visitor = VarsVisitor()
