@@ -1,0 +1,10 @@
+num_of_cells_among_non_repro_nb_200.csv
+num_of_cells_among_repro_nb_200.csv
+num_of_repeatable_cells_among_non_repro_nb_200.csv
+num_of_repeatable_cells_among_repro_nb_200.csv
+
+Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+1.00    7.00   13.00   15.26   20.00   89.00
+1.000   1.000   3.000   5.706   7.000  49.000
+0.000   0.000   0.000   2.745   2.000  56.000
+0.00000 0.00000 0.00000 0.03404 0.00000 5.0000
