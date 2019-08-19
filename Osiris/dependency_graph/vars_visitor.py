@@ -46,9 +46,9 @@ class VarsVisitor(ast.NodeVisitor):
             self.visit(c)
 
     def visit_ListComp(self, node):
-        self.visit(node.elt)
         for gen in node.generators:
             self.comprehension(gen)
+        self.visit(node.elt)
 
     def visit_SetComp(self, node):
         self.visit(node.elt)
@@ -56,10 +56,11 @@ class VarsVisitor(ast.NodeVisitor):
             self.comprehension(gen)
 
     def visit_DictComp(self, node):
-        self.visit(node.key)
-        self.visit(node.value)
         for gen in node.generators:
             self.comprehension(gen)
+        self.visit(node.key)
+        self.visit(node.value)
+
 
     def visit_GeneratorComp(self, node):
         self.visit(node.elt)
@@ -79,7 +80,7 @@ class VarsVisitor(ast.NodeVisitor):
             self.visit(c)
 
     def visit_Call(self, node):
-        if not isinstance(node.func, ast.Name):
+        if not isinstance(node.func, ast.Name) and not isinstance(node.func, ast.Call) and not isinstance(node.func, ast.Lambda):
             self.visit(node.func.value)
         for arg in node.args:
             self.visit(arg)

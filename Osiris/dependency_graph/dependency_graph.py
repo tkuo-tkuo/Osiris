@@ -16,12 +16,13 @@ built_in_names = [
         "staticmethod", "bool", "eval", "int", "open",
         "str","breakpoint", "exec", "isinstance", "ord",
         "sum", "bytearray", "filter", "issubclass", "pow",
-        "super", "bytes", "float", "iter", "print", 
+        "super", "bytes", "float", "iter", "print",
         "tuple", "callable", "format", "len", "property",
         "type", "chr", "frozenset", "list", "range",
         "vars", "classmethod", "getattr","locals", "repr",
         "zip", "compile", "globals", "map", "reversed",
-        "__import__", "complex", "hasattr", "max","round"
+        "__import__", "complex", "hasattr", "max","round",
+        "__name__", 'ImportError', 'IPython','ValueError'
         ]
 
 class FilterTransformer(ast.NodeTransformer):
@@ -77,6 +78,8 @@ class CDG:
         producer_set = set()
         consumer_set = set()
         for e in vars_records:
+            if e[0] in built_in_names:
+                continue
             if e[1]=='def' or e[1]=='store' and (e[0],'var') not in consumer_set:
                 producer_set.add((e[0], 'var'))
             elif e[1]=='load':
@@ -87,17 +90,29 @@ class CDG:
                 continue
             if e[1]=='def' or e[1]=='store':
                 producer_set.add((e[0], 'fun'))
+                producer_set.add((e[0], 'var'))
             elif e[1]=='load':
                 consumer_set.add((e[0], 'fun'))
 
         self.producer_list += [producer_set]
         self.consumer_list  += [consumer_set]
+        #print('------v---------')
+        #for tmp in consumer_set:
+        #    if tmp not in producer_set:
+        #        print(tmp)
+        #print('----------------')
+        #print(producer_set)
+        #print('----------------')
+        #print(consumer_set)
+        #print('----------------')
 
     def build(self, code_list):
         self.N = len(code_list)
         mat = np.zeros((self.N, self.N))
         self.adj_mat = np.zeros((self.N, self.N), dtype=int)
         for idx, code in enumerate(code_list):
+            #print(idx)
+            #print(code)
             try:
                 tree = ast.parse(code, mode='exec')
                 self.update_symbol_table(tree)
