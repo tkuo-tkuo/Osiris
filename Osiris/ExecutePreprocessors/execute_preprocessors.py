@@ -1,6 +1,8 @@
 from __future__ import absolute_import
 from nbconvert.preprocessors import ExecutePreprocessor
 
+EXTRACT_FUNC_STR = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        #con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        con_4 = not ('<' in str(v) and '>' in str(v))\n        if con_1 and con_2 and con_4:\n            variables_set[k] = v\n    \n    return variables_set"
+
 class OECPreprocessor(ExecutePreprocessor):
 
     def __init__(self):
@@ -35,11 +37,6 @@ class DependencyPreprocessor(ExecutePreprocessor):
         return super(DependencyPreprocessor, self).preprocess(nb, resources)
 
 
-'''
-ReproducibilityCheckPreprocessor is used to check whether cells of a given notebook possess reproducible characteristic
-'''
-
-
 class SelfReproducibilityCheckPreprocessor(ExecutePreprocessor):
 
     def __init__(self, check_cell_idx, analyse_strategy, is_duplicate):
@@ -67,10 +64,8 @@ class SelfReproducibilityCheckPreprocessor(ExecutePreprocessor):
             parsed_nb_cells = [copy_nb_cells[idx] for idx in self.execution_order]
 
         # Insert an function at the beginning of the notebook to inspect the status 
-        extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
         var_extract_fun_cell = parsed_nb_cells[0].copy()
-
-        var_extract_fun_cell.source = extractVar_fun_str
+        var_extract_fun_cell.source = EXTRACT_FUNC_STR
         parsed_nb_cells.insert(0, var_extract_fun_cell)
 
         # Modify source code of cells to monitor status of self-defined variables 
@@ -89,9 +84,6 @@ class SelfReproducibilityCheckPreprocessor(ExecutePreprocessor):
         return super(SelfReproducibilityCheckPreprocessor, self).preprocess(nb, resources)
 
 
-'''
-StatusInspectionPreprocessor is used for evalutate status difference line by line for a cell of given notebook 
-'''
 class StatusInspectionPreprocessor(ExecutePreprocessor):
     
     def __init__(self, analyse_strategy, check_cell_idx):
@@ -120,10 +112,8 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
             parsed_nb_cells = [copy_nb_cells[idx] for idx in self.execution_order]
 
         # Insert an function at the beginning of the notebook to inspect the status
-        extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
         var_extract_fun_cell = parsed_nb_cells[0].copy()
-
-        var_extract_fun_cell.source = extractVar_fun_str
+        var_extract_fun_cell.source = EXTRACT_FUNC_STR
         parsed_nb_cells.insert(0, var_extract_fun_cell)
 
         # Modify source code of cells to monitor status of self-defined variables line by line
@@ -150,10 +140,8 @@ class StatusInspectionPreprocessor(ExecutePreprocessor):
 
 
         # Insert an function at the beginning of the notebook to inspect the status 
-        extractVar_fun_str = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        if con_1 and con_2 and con_3:\n            variables_set[k] = v\n    \n    return variables_set"
         var_extract_fun_cell = parsed_nb_cells[0].copy()
-
-        var_extract_fun_cell.source = extractVar_fun_str
+        var_extract_fun_cell.source = EXTRACT_FUNC_STR
         parsed_nb_cells.insert(0, var_extract_fun_cell)
 
         # Modify source code of cells to monitor status of self-defined variables line by line 
