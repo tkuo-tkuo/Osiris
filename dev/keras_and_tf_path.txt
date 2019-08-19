@@ -1,0 +1,41 @@
+/mnt/fit-Knowledgezoo/Github_repos_download/data/CalebeCavalcante@MyBinder/Python/TensorFlow/1 Introducao/Get_Data_Iris_Function.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/keoghdata@python_examples/tensorflow_first_look(ch9_Geron).ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/HochschuleAalen@DeepLearning/Chapter_Neural_Networks/softmax_classification_tensorflow.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/weburnit@datasciencecoursera/linear-model.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/plenari@ML/tensorflow/tf-reuse_variables.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Airconaaron@Pacman-Reinforcement_Learning/test.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/andrehuang@TensorFlow-Learning/Brief intro to keras models.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/rodgzilla@machine_learning_mandelbrot_neural_network/nbs/fractal_understanding.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/drujensen@zero-to-deep-learning/work/Chapter 4.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Project-Ellie@academia/src/Discuss_Batch_Normalization.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/andynik@knu_labs/ml/solar_flare_clsf/solar_flare.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kaileymonn@tensorflow-projects/week3-classification/Classification and Logistic Regression.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Dheeraj1998@Learning-Forest-Fires/Insights into Forest Fires.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yoonyoungkim@DeepLearningZeroToAllBySungKim/Section06.lab 06-2_TensorFlow로 Fancy Softmax Classification의 구현하기 (new).ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/MengZn@py_learn/keras/demo.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/wangfei-cn@deep-learning/mnist_softmax.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Haydnspass@ml/tensorflow/BasicRegression.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/j-min@conv_s2s/overview.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/SoyGema@OpenAI/QLearning/Keras-rl NeuralNetwork models .ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vontasa@DataLab/aws_ml_training/training note.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/chihhuiho@Rnn_practice/04_rnn-long-char.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/SophiaGoldberg@Neural-Network-MNIST/NN_MNIST.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ayush1999@Image-Recognition/mnist.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/lrojas12@lstm-sentence-generator/src/notebooks/predict.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yoheikikuta@ml-study-phys/Chapter3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/appnori@mystudy/kmeans.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/antonstenaxel@Udemy_Courses/Tensorflow/Code_Along/Conv_Net.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ShidduPatil@hw/ hw1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/LeeDaKyeong@MLP/MLP.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/NickYuu@TensorFlow/Mnist/00-資料預處裡.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/lihaohan@cv_practice/mnist/Softmax.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Gaylaxumb@tumo-tf/tensorflow3.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Utkagr@SimilarityIndexQP/practice_tf.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JeongsooHa@DeepLearning/selfstudy/lab12-2_RNN.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vyaslkv@Tensorflow-LinearRegression-1/tensorlow Linear regression.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Codutie@tensorflow-tutorials/hello_tensorflow.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/zerosum99@python_tensorflow/tensorflow 700_tensorboard를 위한 로그에 대한 inspect 검사하기.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/4ToolMaker@Predicting-political-parties/predicting-political-party.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Souvic108@startpadML/NNwithTensorflow.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/GrigorDanielyan@tumo/led 2.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/luqmanhakim@aindd-cnn/transfer-learning/bottleneck_features.ipynb
