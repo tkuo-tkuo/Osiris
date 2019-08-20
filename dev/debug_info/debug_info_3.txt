@@ -1,0 +1,89 @@
+/mnt/fit-Knowledgezoo/Github_repos_download/data/eaconway@college-majors-analysis/Basics.ipynb
+cell index: 2
+The potential statement for causing status difference is line 0
+-------------->  recent_grads.plot.scatter('Sample_size', 'Median')
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/aymar73@Student-Intervention-Udacity-Project/student_intervention.ipynb
+cell index: 7
+The potential statement for causing status difference is line 12
+-------------->  train_f1_score = predict_labels(dt_clf, X_train, y_train)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/NickyThreeNames@DataquestGuidedProjects/Guided Project- Police killings/Basics.ipynb
+cell index: 1
+The potential statement for causing status difference is line 0
+-------------->  police_killings['raceethnicity'].value_counts().plot(kind = 'bar')
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tbs1980@research-covariance-matrix-estimation/notes/univariate_gaussian/jupyter/2017_09_10_univariate_gaussian.ipynb
+cell index: 2
+The potential statement for causing status difference is line 6
+-------------->      ys_list.append(ys)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JonComo@puck/puck.ipynb
+cell index: 0
+The potential statement for causing status difference is line 11
+-------------->  plt.plot(range(TIMESTEPS), rtrace)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/steven-wolfman@Spelling-Game/Spelling Game.ipynb
+cell index: 2
+The potential statement for causing status difference is line 2
+-------------->  for c in (select_letter() for i in range(10000)):
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ShirinRowhani@Predicting-Car-Price/Car's Market Price (knn).ipynb
+cell index: 13
+The potential statement for causing status difference is line 3
+-------------->  for k,v in k_rmse_results.items():
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/MxMstrmn@Programmier-Projekte/Jupyter/Perzeptron.ipynb
+cell index: 0
+The potential statement for causing status difference is line 25
+-------------->      result       = dot(weights,x)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/abhisingh92@data-science/Intro-to-data-analysis-udacity/data-analysis-basics/L1_Starter_Code.ipynb
+cell index: 12
+The potential statement for causing status difference is line 2
+-------------->  unique_enrollments = get_unique_students(enrollments)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jl3392@Capstone-Design/Springboard_Final_Project_code.ipynb
+cell index: 15
+The potential statement for causing status difference is line 6
+-------------->      start = time.time()
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/cimat@thinkstats/Chap04/Chap04_practice.ipynb
+cell index: 21
+The potential statement for causing status difference is line 1
+-------------->  thinkplot.Cdf(cdf)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yingtaiGithub@Simple-Models/Decision tree &  Naïve Bayes/simple_classification.ipynb
+cell index: 2
+The potential statement for causing status difference is line 19
+-------------->      for model_name, model in models.items():
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mat-esp-2015@integracao-mmm/tarefa-integracao.ipynb
+cell index: 2
+The potential statement for causing status difference is line 0
+-------------->  plt.figure()
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mat-esp-2015@capstone-adelia-daniela-daniel/capstone.ipynb
+cell index: 3
+The potential statement for causing status difference is line 0
+-------------->  plt.figure(figsize = [10, 4]) #para criar uma figura em branco
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/cmg-dev@dice_statistsics/3d6 Calandra Feat VS. 4d6.ipynb
+cell index: 5
+The potential statement for causing status difference is line 9
+-------------->  fig, ax = plt.subplots()
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yangydavid@Data-Science/Guided Project_ Predicting Car Prices/Basics.ipynb
+cell index: 11
+The potential statement for causing status difference is line 3
+-------------->      x = list(v.keys())
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ArnoldQIU@B10409022/chapter4_83-92.ipynb
+cell index: 2
+The potential statement for causing status difference is line 1
+-------------->  for animals in animal:
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/lsprowl@dataquest-projects/04-Visualizing_College_Major_Earnings/Basics.ipynb
+cell index: 4
+The potential statement for causing status difference is line 0
+-------------->  recent_grads.plot(x='Women',y='Men',kind='scatter',ylim=(0,200000),xlim=(0,350000))
