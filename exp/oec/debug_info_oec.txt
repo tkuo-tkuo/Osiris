@@ -1,0 +1,60 @@
+/mnt/fit-Knowledgezoo/Github_repos_download/data/7aiki@Machine-Learning/Principal Component Analysis Entry.ipynb
+cell index: 1
+The potential statement for causing status difference is line 3
+-------------->  data = np.random.multivariate_normal(mu,_sig2,1000)@np.array([[a,a],[-a,a]])
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yangpanyang@JulyMLCamp/[2]python-class-file.ipynb
+cell index: 9
+The potential statement for causing status difference is line 8
+-------------->      shuffle(strtmp2)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/lsprowl@dataquest-projects/04-Visualizing_College_Major_Earnings/Basics.ipynb
+cell index: 4
+The potential statement for causing status difference is line 0
+-------------->  recent_grads.plot(x='Women',y='Men',kind='scatter',ylim=(0,200000),xlim=(0,350000))
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/dataninja-python@central-limit/Central_Limit.ipynb
+cell index: 1
+The potential statement for causing status difference is line 21
+-------------->  pop1 = np.random.binomial(n, p1, size)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/migueltorrescosta@oxnx/IV.Basic Structural Properties of Networks.ipynb
+cell index: 6
+The potential statement for causing status difference is line 0
+-------------->  G = load_graph_from_tsv("datasets/propo.tsv")
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/devender@us-shootings/fatalities.ipynb
+cell index: 0
+The potential statement for causing status difference is line 13
+-------------->  ax = df_groupby.plot(legend=False,figsize=(15,4),title="Fatalities due to Shootings (By Year)")
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/step123456789@clustering/clustering.ipynb
+cell index: 4
+The potential statement for causing status difference is line 2
+-------------->  data = np.random.rand(trainnum, 2)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/WeStCoastSlavs@quebec/assignment1/Quebec_assignment1_4.ipynb
+cell index: 0
+The potential statement for causing status difference is line 1
+-------------->  randoms = random.sample(range(0,90), 10)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/eaconway@college-majors-analysis/Basics.ipynb
+cell index: 2
+The potential statement for causing status difference is line 0
+-------------->  recent_grads.plot.scatter('Sample_size', 'Median')
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/arneec@TF-IDF_calculation_NLP/tf_idf.ipynb
+cell index: 1
+The potential statement for causing status difference is line 12
+-------------->  for i in sent:
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/dmytronasyrov@Mini-flow/Miniflow.ipynb
+cell index: 2
+The potential statement for causing status difference is line 10
+-------------->  W1_ = np.random.randn(n_features, n_hidden)
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/crahal@Useful-and-Miscellaneous/cointosses.ipynb
+cell index: 0
+The potential statement for causing status difference is line 14
+-------------->      tosslist = [random.choice('HT'), random.choice('HT'), random.choice('HT')]
+
