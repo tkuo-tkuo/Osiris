@@ -908,6 +908,7 @@
 /mnt/fit-Knowledgezoo/Github_repos_download/data/persimmones@dlnd_first_neural_network/dlnd-your-first-network/dlnd-your-first-neural-network.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/carlosbkm@Line-detection/Road lines color selection.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/Silvidheer@DataScience_Numpy2Assignment7.1/Assignment 7.1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mlu68@PythonMonitor/ts_monitor.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/luigiricard@HW1/LuigiRicardHW1.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/JannesKlaas@sometimes_deep_sometimes_learning/Empirical Bayes.ipynb
 /mnt/fit-Knowledgezoo/Github_repos_download/data/Derekwwx@leetcode_python/022. Generate Parentheses.ipynb
