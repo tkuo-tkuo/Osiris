@@ -68,3 +68,55 @@ The potential statement for causing status difference is line 14
 -------------->      tosslist = [random.choice('HT'), random.choice('HT'), random.choice('HT')]
 --good--
 
+/mnt/fit-Knowledgezoo/Github_repos_download/data/DLade@event-graph/Event_Graph.ipynb
+cell index: 2
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/aymar73@Student-Intervention-Udacity-Project/student_intervention.ipynb
+cell index: 7
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/rads560@cais-plusplus/CAIS++ Linear Regression Workshop.ipynb
+cell index: 12
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jarfo@speech-technologies/gradient.ipynb
+cell index: 2
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fgnt@oaf/notebooks/Exercises/Sample Solutions/exercise_1/E1 - Bayesian Parameter Estimation.ipynb
+cell index: 2
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/klbr@Workshops-ML/day2/code/Linear Regression - Close Equation Form and SGD.ipynb
+cell index: 3
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Darshan201@mnist_working/Small_Mnist_2.ipynb
+cell index: 6
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Las-Wonho@KerasStudty/Random for RSP.ipynb
+cell index: 5
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/y-takashina@antbook/2-3.ipynb
+cell index: 2
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sushilshah@employee-turnover/employee-turnover.ipynb
+cell index: 23
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/doktorweb@python/İleri Seviye Modüller/DateTime Modülü.ipynb
+cell index: 3
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/andymai92@Data_Science/Cross-Validation/Cross-Validation.ipynb
+cell index: 8
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/foofa-uys@Other/Graph.ipynb
+cell index: 2
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
