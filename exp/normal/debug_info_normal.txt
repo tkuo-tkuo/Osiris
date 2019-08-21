@@ -2,64 +2,75 @@
 cell index: 2
 The potential statement for causing status difference is line 18
 -------------->  for data_name, data in datas.items():
+--wrong--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/blackicetee@MachineLearning/multy_armed_bandits.ipynb
 cell index: 1
 The potential statement for causing status difference is line 7
 -------------->          count += 1
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/datascience-meetup-muenster@talks/meetup-01/what_are_data_scientists_and_tools.ipynb
 cell index: 1
 The potential statement for causing status difference is line 23
 -------------->  plt.show()
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/jingsupo@pydata/numpy.ipynb
 cell index: 1
 The potential statement for causing status difference is line 0
 -------------->  data = np.random.randn(2, 3)
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/keijikk@rl-sample/src/1.1_bandit_problem.ipynb
 cell index: 1
 The potential statement for causing status difference is line 4
 -------------->      actions.append(machines.draw(0))
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/FHainzl@SD-TSIA211/TP2/TP2.ipynb
 cell index: 11
 The potential statement for causing status difference is line 8
 -------------->  time1 = time.time()
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/eaconway@college-majors-analysis/Basics.ipynb
 cell index: 2
 The potential statement for causing status difference is line 0
 -------------->  recent_grads.plot.scatter('Sample_size', 'Median')
+--wrong--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/pyastropd@2018-03-20/2. Plotting in Pandas.ipynb
 cell index: 1
 The potential statement for causing status difference is line 0
 -------------->  normals = pd.Series(np.random.normal(size=10))
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/ImagingLectures@image-processing-with-python-anderskaestner/Assignment_01_Images.ipynb
 cell index: 4
 The potential statement for causing status difference is line 0
 -------------->  g=np.random.normal(0,1,[2,3]) # Normal distribution m=0.0, s=1.0
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/Aschwins@udemy-frank/StdDevVariance.ipynb
 cell index: 0
 The potential statement for causing status difference is line 4
 -------------->  incomes = np.random.normal(100.0, 50.0, 10000)
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/nakanodaiki@probrobo2017/probrob.ipynb
 cell index: 7
 The potential statement for causing status difference is line 7
 -------------->  measurements = [observations(actual_x, actual_landmarks)]
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/riccardo1980@DataAnalysisExamples/KNN_digits.ipynb
 cell index: 4
 The potential statement for causing status difference is line 2
 -------------->  times = gs.cv_results_['mean_fit_time']
-
+--good--
 /mnt/fit-Knowledgezoo/Github_repos_download/data/noclueyet@Udacity_Deep_Learning_Fundamentals/Week_2_Neural_Networks/Lesson 6 - MiniFlow/MiniFlow.ipynb
 cell index: 7
 The potential statement for causing status difference is line 25
 -------------->  W1_ = np.random.randn(n_features, n_hidden)
-
+--good--

@@ -3,76 +3,88 @@ cell index: 0
 Execution order: [0]
 The potential statement for causing status difference is line 11
 -------------->  randomIndex = random.sample(range(L,R),1)
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/CastleCC@Meachine-Learning-Practice/Linear_Regression.ipynb
 cell index: 6
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7]
 The potential statement for causing status difference is line 0
 -------------->  a0 = np.random.randn();
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/MxMstrmn@Programmier-Projekte/Jupyter/Perzeptron.ipynb
 cell index: 0
 Execution order: [0, 1, 2, 3, 4, 5]
 The potential statement for causing status difference is line 18
 -------------->  weights = random.rand(3)
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/LuckyWanderboy@aftershock/Untitled.ipynb
 cell index: 1
 Execution order: [0, 1, 2, 3]
 The potential statement for causing status difference is line 1
 -------------->      x = random.random()
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/AndreaOrtizM@ProyectoModulo2_OrtizA_AcostaE_ChiquitoE/ProyectoModulo2_OrtizA_AcostaE_ChiquitoE.ipynb
 cell index: 5
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 The potential statement for causing status difference is line 5
 -------------->  points = get_trayects_elastic (part, col, E)
+--wrong--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/jinudaniel@machine-learning-examples/linear_regression _with_gradient_descent.ipynb
 cell index: 1
 Execution order: [0, 1, 2, 3]
 The potential statement for causing status difference is line 2
 -------------->  Y = X + np.random.standard_normal(500)+2.5
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/bwdGitHub@Black-Scholes/Black-Scholes.ipynb
 cell index: 1
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 The potential statement for causing status difference is line 14
 -------------->  W = brownian_motion(1, plot=True)
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/mat-esp-2015@python-intro-2-joao_leticia_dyellen/jupyter-notebook-tour.ipynb
 cell index: 4
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 The potential statement for causing status difference is line 1
 -------------->  random.shuffle(lista)
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/twentySweets@ML_Project/HW3.ipynb
 cell index: 0
 Execution order: [0]
 The potential statement for causing status difference is line 16
 -------------->  print(xdat)
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/nakanodaiki@probrobo2017/probrob.ipynb
 cell index: 7
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7]
 The potential statement for causing status difference is line 7
 -------------->  measurements = [observations(actual_x, actual_landmarks)]
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/mukhilazhagan@XOR_Classifier/2_Class_Classifier.ipynb
 cell index: 2
 Execution order: [0, 1, 2]
 The potential statement for causing status difference is line 5
 -------------->      np.random.shuffle(data)
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/gulgis@UDF/estrutura_de_dados/Árvore Binária.ipynb
 cell index: 1
 Execution order: [0, 1]
 The potential statement for causing status difference is line 5
 -------------->  lista = random.sample(range(total), k=qtde)
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/abhisingh92@data-science/Intro-to-data-analysis-udacity/data-analysis-basics/L1_Starter_Code.ipynb
 cell index: 12
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37]
 The potential statement for causing status difference is line 2
 -------------->  unique_enrollments = get_unique_students(enrollments)
-
+--wrong--
