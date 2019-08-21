@@ -93,44 +93,47 @@ The potential statement for causing status difference is line 2
 cell index: 3
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
 Status difference of self-defined variables may occur before any execution of statements in this cell
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/geoff567@Biodiversity/Exploration Notebook.ipynb
 cell index: 6
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 Status difference of self-defined variables may occur before any execution of statements in this cell
-
+--wrong--
 /mnt/fit-Knowledgezoo/Github_repos_download/data/KRoeling@assignments/final assignment Python.ipynb
 cell index: 6
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Status difference of self-defined variables may occur before any execution of statements in this cell
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/y-takashina@antbook/2-3.ipynb
 cell index: 2
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
 Status difference of self-defined variables may occur before any execution of statements in this cell
-
+--good--
 /mnt/fit-Knowledgezoo/Github_repos_download/data/JonQian@rls/rls.ipynb
 cell index: 1
 Execution order: [0, 1, 2, 3]
 Status difference of self-defined variables may occur before any execution of statements in this cell
-
+--good--
 /mnt/fit-Knowledgezoo/Github_repos_download/data/avlam@Demos/Plot shorthands.ipynb
 cell index: 2
 Execution order: [0, 1, 2, 3]
 Status difference of self-defined variables may occur before any execution of statements in this cell
-
+--good--
 /mnt/fit-Knowledgezoo/Github_repos_download/data/jayanthbagare@learn/titanic/titanic_classification.ipynb
 cell index: 12
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41]
 Status difference of self-defined variables may occur before any execution of statements in this cell
-
+--good--
 /mnt/fit-Knowledgezoo/Github_repos_download/data/lucko515@regression-python/Air Quality - Machine Learning/air_quality_regression.ipynb
 cell index: 15
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
 Status difference of self-defined variables may occur before any execution of statements in this cell
+--good--
 
 /mnt/fit-Knowledgezoo/Github_repos_download/data/SubhojeetBose@Digit-Processing/digit_processing.ipynb
 cell index: 4
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 Status difference of self-defined variables may occur before any execution of statements in this cell
-
+--good--
