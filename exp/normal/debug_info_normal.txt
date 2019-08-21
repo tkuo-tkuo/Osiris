@@ -74,3 +74,44 @@ cell index: 7
 The potential statement for causing status difference is line 25
 -------------->  W1_ = np.random.randn(n_features, n_hidden)
 --good--
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/foofa-uys@Other/Graph.ipynb
+cell index: 2
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/DLade@event-graph/Event_Graph.ipynb
+cell index: 2
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/KimyoonJIn@data_science/Chap.7/LR_with_sklearn.ipynb
+cell index: 11
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/are-dynamic-2018@Lion-gazelle/Lion_Gazelle 27-03.ipynb
+cell index: 9
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/szgxzdk@ML2017-lab-01/ClassificationExperiment.ipynb
+cell index: 4
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Zolza09@Example-of-Bayesian-classification-with-weather-data-set/Weather data set for linear regression and SVM and bayesian classification..ipynb
+cell index: 5
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/truzmeto@EM_GaussianMixture/LogReg_demo.ipynb
+cell index: 4
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/y-takashina@antbook/2-3.ipynb
+cell index: 2
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Sharp-Data@Predicting-Bike-Rentals/PBR.ipynb
+cell index: 10
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jagarth@School/HW 9-3.ipynb
+cell index: 2
+Status difference of self-defined variables may occur before any execution of statements in this cell
+
