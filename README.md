@@ -1,6 +1,6 @@
-# Jupyter_Osiris
+# Osiris
 
-Jupyter_Osiris (Osiris) is a tool for programmers to analyze Jupyter Notebook files before releasement. We discovered that plentiful Jupyter Notebook files pushed on GitHub cannot reproduce anticipated outputs. Alternatively, even worse, some Jupyter Notebook files can even not be executed on different end devices.
+Osiris is a tool for programmers to analyze Jupyter Notebook files before releasement. We discovered that plentiful Jupyter Notebook files pushed on GitHub cannot reproduce anticipated outputs. Alternatively, even worse, some Jupyter Notebook files can even not be executed on different end devices.
 
 Osiris aims to eliminate this problem. One can leverage Osiris to analyze their Jupyter Notebook files before releasement to the public, which can conclude potential reasons for causing non-reproducibility. By the assistance of Osiris, programmers can properly refine their Jupyter Notebook files and enhance reproducibility of Jupyter Notebook files. 
 
@@ -176,15 +176,11 @@ The cell dependency graph depicts relations between different cells. Cell c1 is 
 
 - Before any re-execution and analyze, Osiris will preprocess the given Jupyter Notebook file, removing all markdown cells/raw cells/cells without Execution Count. 
 
-## Authors
+## Collaborators
 
-* **Tzu-yang, KUO**
-* **Li, Li**
-* **Jaiwei, Wang**
-
-## License
-
-Pending 
+* **Tzu-Yang, Kuo**
+* **Li Li**
+* **Jaiwei Wang**
 
 ## Acknowledgments
 
@@ -195,4 +191,4 @@ Osiris is the god of the afterlife, the underworld, and rebirth in ancient Egypt
 
 ## Reference 
 
-Pending 
+João Felipe Pimentel, Leonardo Murta, Vanessa Braganholo, and Juliana Freire. 1219 2019. A large-scale study about quality and reproducibility of jupyter notebooks. 1220 In Proceedings of the 16th International Conference on Mining Software Repositories. IEEE Press, 507–517.
