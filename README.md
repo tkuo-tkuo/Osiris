@@ -181,6 +181,7 @@ The cell dependency graph depicts relations between different cells. Cell c1 is 
 * **Tzu-Yang, Kuo**
 * **Li Li**
 * **Jaiwei Wang**
+* **Andreas Zeller**
 
 ## Acknowledgments
 
@@ -191,4 +192,4 @@ Osiris is the god of the afterlife, the underworld, and rebirth in ancient Egypt
 
 ## Reference 
 
-João Felipe Pimentel, Leonardo Murta, Vanessa Braganholo, and Juliana Freire. 1219 2019. A large-scale study about quality and reproducibility of jupyter notebooks. 1220 In Proceedings of the 16th International Conference on Mining Software Repositories. IEEE Press, 507–517.
+João Felipe Pimentel, Leonardo Murta, Vanessa Braganholo, and Juliana Freire. 1219 2019. A large-scale study about quality and reproducibility of jupyter notebooks. 1220 In Proceedings of the 16th International Conference on Mining Software Repositories. IEEE Press, 507–517.
