@@ -1,0 +1,50 @@
+/mnt/fit-Knowledgezoo/Github_repos_download/data/charparr@snow-webmap/Snow Valuation.ipynb
+cell index: 0
+/mnt/fit-Knowledgezoo/Github_repos_download/data/MarkLerro@oscarpants/module9lab.ipynb
+cell index: 8
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sagilm@quicksort/randomquicksortcompdist-Copy1.ipynb
+cell index: 5
+/mnt/fit-Knowledgezoo/Github_repos_download/data/xiangnanyue@optimisation/13_11_lecture8/lab3_yue_xiangnan_and_chen_junfeng_2.ipynb
+cell index: 6
+/mnt/fit-Knowledgezoo/Github_repos_download/data/satcar77@StockPricePredictor/demo.ipynb
+cell index: 1
+/mnt/fit-Knowledgezoo/Github_repos_download/data/aagnone3@data-exploration/explore_student_alcohol_grades.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/choldgraf@live_sync/mydemo.ipynb
+cell index: 1
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jesus-a-martinez-v@boston-housing/boston_housing.ipynb
+cell index: 8
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mainczjs@EuroSciPy2017-Notes/EuroSciPy2017 - Main Conference.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Isaac1989@tutorials/DATA VISUALIZATION.ipynb
+cell index: 4
+/mnt/fit-Knowledgezoo/Github_repos_download/data/FedericoV@Journal_Club_Adaboost/JC_Notebook.ipynb
+cell index: 5
+/mnt/fit-Knowledgezoo/Github_repos_download/data/staticaland@modern-python-notes/looping.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kunbao7@dlnd-your-first-network/dlnd-your-first-neural-network.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/aleozlx@3cv-dlt/DLT.ipynb
+cell index: 9
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kkumer@test01/test.ipynb
+cell index: 2
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sz2472@foundations-homework/07 - Homework (completed).ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/bmtrueman@montyhall/Monty-pcda-skeleton.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ftenoz@analyzing-movie-reviews/Basics.ipynb
+cell index: 1
+/mnt/fit-Knowledgezoo/Github_repos_download/data/TokyoIndex@dlnd_your_first_network/dlnd-your-first-neural-network.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/emilyhorsman@machine-learning/Neural Network.ipynb
+cell index: 1
+/mnt/fit-Knowledgezoo/Github_repos_download/data/samkennerly@fridge/minifridge.ipynb
+cell index: 1
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JonoEPD@baseball-preds/brian_hitter_analsis.ipynb
+cell index: 41
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ManuelLevi@eai_fire_challenge/metadata.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/machine-learning-experiments@bicycle-sharing-forecast/bicycle_sharing_neural_network.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/stephsamson@loanwords/loanwords.ipynb
+cell index: 1

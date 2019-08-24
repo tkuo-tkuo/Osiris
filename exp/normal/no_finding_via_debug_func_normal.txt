@@ -1,0 +1,54 @@
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Raymond-Luong@Pyber/Pyber.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/BellevilleCSP@demo-repository-2018/Notebook#1.ipynb
+cell index: 0
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sacmax@project_boston_housing_price/BostonHousingPrice.ipynb
+cell index: 6
+/mnt/fit-Knowledgezoo/Github_repos_download/data/andrewm4894@post_html_featurizer/post_html_featurizer.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/SergiolmSwap@personal_page/python/primero pasos/Untitled.ipynb
+cell index: 4
+/mnt/fit-Knowledgezoo/Github_repos_download/data/machine-learning-experiments@bicycle-sharing-forecast/bicycle_sharing_neural_network.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/raghukrishnamoorthy@MLNotebooks/pfda/08_plotting_and_viz.ipynb
+cell index: 1
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ogokal@tensorflow_learn/tensorflow_book_ch2.ipynb
+cell index: 19
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jmf-mas@fimproso-data-science-workshop2017/1.01-Data types.ipynb
+cell index: 0
+/mnt/fit-Knowledgezoo/Github_repos_download/data/MLtaotao@AIND-Simulated_Annealing/AIND-Simulated_Annealing.ipynb
+cell index: 9
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tbelaire@shadowrun_jupyter_notebooks/Damage worksheet.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/adasiek96@RPIS/Lab01student.ipynb
+cell index: 0
+/mnt/fit-Knowledgezoo/Github_repos_download/data/evseniordesign@facility-generation/Location Generation.ipynb
+cell index: 2
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mittrayash@Titanic-Survival-Prediction/Untitled.ipynb
+cell index: 8
+/mnt/fit-Knowledgezoo/Github_repos_download/data/KPMallaney@911-Calls/911+Call+Project.ipynb
+cell index: 11
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Jarvis105@DataScience/5.1 Descriptive Statistics.ipynb
+cell index: 0
+/mnt/fit-Knowledgezoo/Github_repos_download/data/VeerpalBrar@ML-Algorithms-from-Scratch/Neural Network/Neural Network from Scratch.ipynb
+cell index: 1
+/mnt/fit-Knowledgezoo/Github_repos_download/data/wardstolk@assignments/Final_Assignment_Python_1_students.ipynb
+cell index: 8
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ktsitsi@kenken/rl.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nejckarlo@numericnenosilec/Projektna_naloga_numerične_Nejc_Karlo_23160175.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/dylancsumner@nbviewer-bokeh-test/nbviewer_test.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/angshu-min-js@python_technical_interview/problems/Basic_Algorithm_Analysis.ipynb
+cell index: 5
+/mnt/fit-Knowledgezoo/Github_repos_download/data/charparr@snow-webmap/Snow Valuation.ipynb
+cell index: 0
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sumantasoren@Visualization-using-matplotlib/Assignment3.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/luigiricard@HW1/LuigiRicardHW1.ipynb
+cell index: 4
+/mnt/fit-Knowledgezoo/Github_repos_download/data/choldgraf@live_sync/mydemo.ipynb
+cell index: 1
+/mnt/fit-Knowledgezoo/Github_repos_download/data/maneeshdisodia@ml-teachings/seaborn matrix.ipynb
+cell index: 8

@@ -1,0 +1,56 @@
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tbelaire@shadowrun_jupyter_notebooks/Damage worksheet.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/rafaelmarzolla@Ciencia-dos-Dados/Miniprojeto3.ipynb
+cell index: 0
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fishpm-anu@SWC_ANU_2016/ecology.ipynb
+cell index: 14
+/mnt/fit-Knowledgezoo/Github_repos_download/data/davidseoul82@GIT/Ames_Again/EDA_AMES.ipynb
+cell index: 17
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sndao@learningML/courseraML/p1-simple_linear_regression.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/luigiricard@HW1/LuigiRicardHW1.ipynb
+cell index: 4
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JonoEPD@baseball-preds/brian_hitter_analsis.ipynb
+cell index: 42
+/mnt/fit-Knowledgezoo/Github_repos_download/data/vyaslkv@Tensorflow-LinearClassification-DNN-2/Tensorflow-Classification.ipynb
+cell index: 13
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ogokal@tensorflow_learn/tensorflow_book_ch2.ipynb
+cell index: 19
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kevin0068@regress_all_tech_theories/regress.ipynb
+cell index: 6
+/mnt/fit-Knowledgezoo/Github_repos_download/data/yaozhou86@Machine-Learning/Linear Regression.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/DillonWard@Jupyter-Worksheet/Fishers-Iris-Worksheet.ipynb
+cell index: 2
+/mnt/fit-Knowledgezoo/Github_repos_download/data/wollip@kalmanFilter/linearChange.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/moulindavid@Iris-Classification/iris_classification.ipynb
+cell index: 3
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Scstechr@D-WiSE_LT/180301/Numpy_and_Python_Crash_Course.ipynb
+cell index: 13
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kobikun@numpy-study/2.4.3.numpy-tile.ipynb
+cell index: 15
+/mnt/fit-Knowledgezoo/Github_repos_download/data/eflittle@learningpython/ch9/example.ipynb
+cell index: 2
+/mnt/fit-Knowledgezoo/Github_repos_download/data/uva-slpl@nlmi/labs/week2/Lab2.ipynb
+cell index: 8
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mat-esp-2015@capstone-silas-gabriel-sidharta/capstone.ipynb
+cell index: 10
+/mnt/fit-Knowledgezoo/Github_repos_download/data/maneeshdisodia@ml-teachings/seaborn matrix.ipynb
+cell index: 8
+/mnt/fit-Knowledgezoo/Github_repos_download/data/AMRiehle@matplotlib-challenge/Pymaceuticals Inc/Pymaceuticals Inc.ipynb
+cell index: 2
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JahChaisang@scg_training/gd_example/neural_network_gd_example.ipynb
+cell index: 4
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tarjin@Toronto_Open_Data/Toronto Casino Survey Feedback 2013 - Strongly Favour WordCloud.ipynb
+cell index: 21
+/mnt/fit-Knowledgezoo/Github_repos_download/data/dddragons@DS1/lectures/INFO212-Week1-Lecture1+2.ipynb
+cell index: 2
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Krishnadhruv@Principal-Component-Analysis-Implementation/Principal Component Analysis_implementation.ipynb
+cell index: 19
+/mnt/fit-Knowledgezoo/Github_repos_download/data/fhca@Sistemas-Complejos-1/Introducción.ipynb
+cell index: 7
+/mnt/fit-Knowledgezoo/Github_repos_download/data/surabhi1407@Statistics_python/Multivariate regration.ipynb
+cell index: 2
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tgenewein@StopUsingRainbowColormaps/WhyRainbowColormapsAreABadIdea.ipynb
+cell index: 7
