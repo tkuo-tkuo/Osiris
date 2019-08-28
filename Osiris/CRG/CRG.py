@@ -58,7 +58,7 @@ def get_fun_ref_id(tree):
                     func_ref_ids += [d['asname']]
     return func_ref_ids
 
-class CDG:
+class CRG:
 
     def __init__(self):
         self.producer_list = []  # a list of producer list 
