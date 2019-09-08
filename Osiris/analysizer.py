@@ -12,21 +12,16 @@ class Analysizer():
         self._nb_path = notebook_path.split('/')[-1]
         self._nb = nbformat.read(notebook_file, as_version=4)
 
-        # ep is abbr for execute_preprocessor, which will be set later corresponding to different analyses
-        self._ep = None
+        self._ep = None # ep is abbr for instance of ExecutePreprocessors
         self._py_version = None
         self._is_executable = None
         self._import_statemnets = None
 
         self._preceding_preapre()
-
-        # copy.deepcopy() must be executed at the end of __init__
-        # since we would like to store the deep_copy version of the given notebook after parsing and clearning
-        self._deep_copy_nb = copy.deepcopy(self._nb)
+        self._deep_copy_nb = copy.deepcopy(self._nb) # store deepcopy of the given notebook to avoid unexpected manipulation
 
     def _preceding_preapre(self):
-        # extract python version & whether the version is python 2 or not 
-        self._py_version = self._extract_py_version()
+        self._py_version = self._extract_py_version() # extract python version 
 
         # evaluate the name of kernel -> avoid the usage of inappropriate kernels like 'Python [Root]' or 'conda-root-py'
         try:
@@ -84,16 +79,16 @@ class Analysizer():
     def _set_ep_as_dependency_mode(self, execution_order):
         self._ep = DependencyPreprocessor(execution_order)
 
-    def _set_ep_check_self_reproducibility_mode(self, check_cell_idx, analyse_strategy, is_duplicate):
+    def _set_ep_check_repeatablility_mode(self, check_cell_idx, analyse_strategy, is_duplicate):
         self._ep = SelfReproducibilityCheckPreprocessor(check_cell_idx, analyse_strategy, is_duplicate)
 
-    def _set_execution_order_for_ep_check_self_reproducibility_mode(self, execution_order):
+    def _set_execution_order_for_ep_check_repeatablility_mode(self, execution_order):
         self._ep.set_execution_order(execution_order)
 
-    def _set_ep_status_inspection_mode(self, analyse_strategy, check_cell_idx):
+    def _set_ep_debug_mode(self, analyse_strategy, check_cell_idx):
         self._ep = StatusInspectionPreprocessor(analyse_strategy, check_cell_idx)
 
-    def _set_execution_order_for_ep_status_inspection_mode(self, execution_order):
+    def _set_execution_order_for_ep_debug_mode(self, execution_order):
         self._ep.set_execution_order(execution_order)
 
     def _execute_nb(self):
@@ -423,7 +418,7 @@ class Analysizer():
 
         return num_of_matched_cells, num_of_cells, match_ratio, matched_cell_idx, source_code_of_unmatched_cells          
 
-    def check_self_reproducibility(self, verbose, analyse_strategy):
+    def check_repeatablility(self, verbose, analyse_strategy):
 
         execution_order = None
         if analyse_strategy == 'dependency':
@@ -440,9 +435,9 @@ class Analysizer():
             # Get status variables if execute once
             is_duplicate = False
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            self._set_ep_check_self_reproducibility_mode(check_cell_idx, analyse_strategy, is_duplicate)
+            self._set_ep_check_repeatablility_mode(check_cell_idx, analyse_strategy, is_duplicate)
             if execution_order is not None:
-                self._set_execution_order_for_ep_check_self_reproducibility_mode(execution_order)
+                self._set_execution_order_for_ep_check_repeatablility_mode(execution_order)
             self._execute_nb()
             check_cell_outputs = self._nb.cells[check_cell_idx].outputs
             var_status_exe_once = check_cell_outputs[-1].data['text/plain']
@@ -450,9 +445,9 @@ class Analysizer():
             # Get status variables if execute twice
             self._nb = copy.deepcopy(self._deep_copy_nb)
             is_duplicate = True
-            self._set_ep_check_self_reproducibility_mode(check_cell_idx, analyse_strategy, is_duplicate)
+            self._set_ep_check_repeatablility_mode(check_cell_idx, analyse_strategy, is_duplicate)
             if execution_order is not None:
-                self._set_execution_order_for_ep_check_self_reproducibility_mode(execution_order)
+                self._set_execution_order_for_ep_check_repeatablility_mode(execution_order)
             self._execute_nb()
             check_cell_outputs = self._nb.cells[check_cell_idx+1].outputs
             var_status_exe_twice = check_cell_outputs[-1].data['text/plain']
@@ -469,14 +464,14 @@ class Analysizer():
 
         # Return
         num_of_self_reproducible_cells = len(self_reproducible_cell_idx)
-        self_reproducibility_ratio = len(self_reproducible_cell_idx) / num_of_cells
+        repeatablility_ratio = len(self_reproducible_cell_idx) / num_of_cells
 
-        print('Self reproducibility'.ljust(40), ':', "number of self-reproducible cells: {num_of_self_reproducible_cells} ; number of cells: {num_of_cells}".format(
+        print('Self reproducibility'.ljust(40), ':', "number of repeatable cells: {num_of_self_reproducible_cells} ; number of cells: {num_of_cells}".format(
             num_of_self_reproducible_cells=num_of_self_reproducible_cells, num_of_cells=num_of_cells))
-        print('Self reproducibility'.ljust(40), ':', "self-reproduciblity ratio: {self_reproducibility_ratio} ; index of self-reproducible cells: {self_reproducible_cell_idx}".format(
-            self_reproducibility_ratio=round(self_reproducibility_ratio, 3), self_reproducible_cell_idx=self_reproducible_cell_idx))
+        print('Self reproducibility'.ljust(40), ':', "self-reproduciblity ratio: {repeatablility_ratio} ; index of repeatable cells: {self_reproducible_cell_idx}".format(
+            repeatablility_ratio=round(repeatablility_ratio, 3), self_reproducible_cell_idx=self_reproducible_cell_idx))
 
-        return num_of_self_reproducible_cells, num_of_cells, self_reproducibility_ratio, self_reproducible_cell_idx
+        return num_of_self_reproducible_cells, num_of_cells, repeatablility_ratio, self_reproducible_cell_idx
 
     def _ep_get_number_of_statements(self):
         return self._ep.get_number_of_statements(self._nb)
@@ -497,16 +492,16 @@ class Analysizer():
             print('Execution order:', execution_order)
 
         self._nb = copy.deepcopy(self._deep_copy_nb)
-        self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+        self._set_ep_debug_mode(analyse_strategy, check_cell_idx)
         if execution_order is not None:
-            self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+            self._set_execution_order_for_ep_debug_mode(execution_order)
         num_of_statements = self._ep_get_number_of_statements()
 
         # Check if the status of self-defined variables has been different before this cell
         self._nb = copy.deepcopy(self._deep_copy_nb)
-        self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+        self._set_ep_debug_mode(analyse_strategy, check_cell_idx)
         if execution_order is not None:
-            self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+            self._set_execution_order_for_ep_debug_mode(execution_order)
 
         try:
             self._execute_nb_for_inspecting_status_of_certain_line(-1)
@@ -516,9 +511,9 @@ class Analysizer():
             first_var_status = None
             
         self._nb = copy.deepcopy(self._deep_copy_nb)
-        self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+        self._set_ep_debug_mode(analyse_strategy, check_cell_idx)
         if execution_order is not None:
-            self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+            self._set_execution_order_for_ep_debug_mode(execution_order)
 
         try:
             self._execute_nb_for_inspecting_status_of_certain_line(-1)
@@ -533,9 +528,9 @@ class Analysizer():
         # Check if the status of self-defined variables has been different upon certain statement
         for i in range(num_of_statements):
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+            self._set_ep_debug_mode(analyse_strategy, check_cell_idx)
             if execution_order is not None:
-                self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+                self._set_execution_order_for_ep_debug_mode(execution_order)
 
             try:
                 self._execute_nb_for_inspecting_status_of_certain_line(i)
@@ -546,9 +541,9 @@ class Analysizer():
 
 
             self._nb = copy.deepcopy(self._deep_copy_nb)
-            self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+            self._set_ep_debug_mode(analyse_strategy, check_cell_idx)
             if execution_order is not None:
-                self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+                self._set_execution_order_for_ep_debug_mode(execution_order)
             try:
                 self._execute_nb_for_inspecting_status_of_certain_line(i)
                 check_cell_outputs = self._nb.cells[check_cell_idx].outputs
@@ -564,9 +559,9 @@ class Analysizer():
             print(i,self._nb.cells[check_cell_idx].source.split('\n')[i], first_var_status, second_var_status)
             if not (first_var_status == second_var_status):
                 self._nb = copy.deepcopy(self._deep_copy_nb)
-                self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
+                self._set_ep_debug_mode(analyse_strategy, check_cell_idx)
                 if execution_order is not None:
-                    self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+                    self._set_execution_order_for_ep_debug_mode(execution_order)
 
                 supicious_statement = None
                 try:

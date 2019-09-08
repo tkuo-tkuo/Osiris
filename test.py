@@ -10,7 +10,7 @@ from Osiris.utils import return_fix_statement_for_random_statement
 test_executability_notebook_path = 'tests/test_executability.ipynb'
 test_reproducibility_notebook_path = 'tests/test_reproducibility.ipynb'
 test_best_effort_notebook_path = 'tests/test_best_effort.ipynb' # It's for sub testset among reproducibility test set 
-test_self_reproducibility_notebook_path = 'tests/test_self_reproducibility.ipynb'
+test_repeatablility_notebook_path = 'tests/test_self_reproducibility.ipynb'
 test_debug_for_a_cell_notebook_path = 'tests/test_debug_for_a_cell.ipynb'
 
 test_IPythonDisplay_notebook_path = 'tests/test_IPythonDisplay.ipynb'
@@ -105,25 +105,25 @@ class TestOsiris(unittest.TestCase):
         self.assertEqual(num_of_cells, 8)
 
     '''
-    The following 3 unit tests focus self-reproducibility
+    The following 3 unit tests focus repeatablility
     '''
-    def test_top_down_self_reproducibility(self):
-        interface = Osiris.UserInterface(test_self_reproducibility_notebook_path, 'normal', verbose)
-        num_of_reproducible_cells, num_of_cells, _, reproducible_cell_idx = interface.analyse_self_reproducibility()
+    def test_top_down_repeatablility(self):
+        interface = Osiris.UserInterface(test_repeatablility_notebook_path, 'normal', verbose)
+        num_of_reproducible_cells, num_of_cells, _, reproducible_cell_idx = interface.analyse_repeatablility()
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
         self.assertEqual(reproducible_cell_idx, [0, 3])
 
-    def test_OEC_self_reproducibility(self):
-        interface = Osiris.UserInterface(test_self_reproducibility_notebook_path, 'OEC', verbose)
-        num_of_reproducible_cells, num_of_cells, _, reproducible_cell_idx = interface.analyse_self_reproducibility()
+    def test_OEC_repeatablility(self):
+        interface = Osiris.UserInterface(test_repeatablility_notebook_path, 'OEC', verbose)
+        num_of_reproducible_cells, num_of_cells, _, reproducible_cell_idx = interface.analyse_repeatablility()
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
         self.assertEqual(reproducible_cell_idx, [0, 1])
 
-    def test_dependency_self_reproducibility(self):
-        interface = Osiris.UserInterface(test_self_reproducibility_notebook_path, 'dependency', verbose)
-        num_of_reproducible_cells, num_of_cells, _, _ = interface.analyse_self_reproducibility()
+    def test_dependency_repeatablility(self):
+        interface = Osiris.UserInterface(test_repeatablility_notebook_path, 'dependency', verbose)
+        num_of_reproducible_cells, num_of_cells, _, _ = interface.analyse_repeatablility()
         self.assertEqual(num_of_reproducible_cells, 2)
         self.assertEqual(num_of_cells, 4)
 

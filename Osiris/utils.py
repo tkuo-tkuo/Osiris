@@ -24,13 +24,6 @@ def return_fix_statement_for_random_statement(statement, list_of_import_statemen
     return get_antidote(statement, list_of_import_statements)
 
 def get_execution_order(path):
-    '''
-    code_list = get_code_list(path)
-    dep_graph = DependencyGraph()
-    _ = dep_graph.build(code_list)
-    execution_order = dep_graph.gen_exec_path()
-    return execution_order 
-    '''
     code_list = get_code_list(path)
     graph = CDG()
     graph.build(code_list)

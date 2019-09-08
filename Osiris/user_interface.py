@@ -1,7 +1,3 @@
-import subprocess
-import os
-import sys
-import csv
 from .analysizer import Analysizer
 from .constants import *
 from .utils import move_to_appropriate_location, distinguish_local_modules
@@ -9,9 +5,8 @@ from .utils import move_to_appropriate_location, distinguish_local_modules
 class UserInterface():
 
     def __init__(self, path, execute_strategy, verbose, analyse_all_dependency=False):
-        # Store the path of the given notebook
-        # Note the path is relative path
-        self._nb_path = path
+        # Specify analyse settings
+        self._nb_path = path 
         self._execute_strategy = execute_strategy
         self._verbose = verbose
         self.analyse_all_dependency = analyse_all_dependency
@@ -59,10 +54,10 @@ class UserInterface():
                 self._verbose, self._execute_strategy, match_pattern)
             return num_of_matched_cells, num_of_cells, match_ratio, match_cell_idx, source_code_from_unmatched_cells
 
-    def analyse_self_reproducibility(self):
+    def analyse_repeatablility(self):
         move_to_appropriate_location(self._nb_path)
 
-        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = self.analysizer.check_self_reproducibility(
+        num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx = self.analysizer.check_repeatablility(
             self._verbose, self._execute_strategy)
         return num_of_reproducible_cells, num_of_cells, reproducible_ratio, reproducible_cell_idx
 
