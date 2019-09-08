@@ -4,8 +4,8 @@ import nbformat
 import collections
 import numpy as np
 
-from .dependency_graph import CDG
-from .dependency_graph import get_code_list, detect, get_antidote, get_path_by_extension, find_local_modules, get_oec
+from .CRG import CRG
+from .CRG import get_code_list, detect, get_antidote, get_path_by_extension, find_local_modules, get_oec
 
 '''
 The following utils functions are high-level usage of Jarix's implementation
