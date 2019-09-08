@@ -109,7 +109,6 @@ class Analysizer():
         return is_pandas_used
 
     def _best_effort_repair(self):
-
         '''
         Fix statements, which contain randomness/time
         '''
@@ -128,9 +127,7 @@ class Analysizer():
             return_source_code = '\n'.join(first_cell_source_code_lst)
             cells[0].source = return_source_code
         
-        
             self._nb.cells = cells 
-
        
     def return_py_version(self):
         return self._py_version
@@ -141,27 +138,6 @@ class Analysizer():
     # This functionality is for experiment purpose
     def check_executability_on_all_potential_execution_paths(self, verbose):
         return True 
-        '''
-        execution_orders = get_all_potential_execution_orders(self._nb_path)
-
-        results = []
-        for execution_order in execution_orders:
-            self._nb = copy.deepcopy(self._deep_copy_nb)
-            is_executable = False
-            try:
-                self._set_ep_as_dependency_mode(execution_order)
-                self._execute_nb()
-                is_executable = True
-            except Exception as e:
-                if verbose:
-                    print(e)
-
-            print(execution_order)
-            print('Executability'.ljust(40), ':', is_executable)
-            results.append(is_executable)
-        
-        return results 
-        '''
 
     # This functionality is for experiment purpose
     # Should not be called from users when Osiris is publicly released 
@@ -233,12 +209,12 @@ class Analysizer():
                         match_ratio = 1
                     else:
                         match_ratio = num_of_matched_cells/num_of_cells
-                    source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
+
+                    _ = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
                     print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
                       num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
                     print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
                       match_ratio=round(match_ratio, 3), matched_cell_idx=matched_cell_idx))
-
 
                     # Debug & Experiment purpose
                     # Print cells which are unmatched
@@ -253,22 +229,9 @@ class Analysizer():
 
         return results
 
-    def detect(self, cells):
-        whitelist = ['random', 'time', 'matplotlib', 'items()', 'keys()']
-
-        for cell in cells:
-            cell_statements = cell.source.split('\n')
-            for statement in cell_statements:
-                if any(substr in statement for substr in whitelist):
-                    print('find suspicious statements:', statement)
-
     def check_executability(self, verbose, analyse_strategy):
         self._nb = copy.deepcopy(self._deep_copy_nb)
-        is_executable = False
-        error = None
-
-        # this is simply for experimental purpose 
-        # self.detect(copy.deepcopy(self._deep_copy_nb.cells))
+        is_executable, error = False, None
         
         try:
             if analyse_strategy == 'normal':
@@ -481,7 +444,6 @@ class Analysizer():
             self._nb, {'metadata': {'path': './'}}, target_line_index)
 
     def check_status_difference_for_a_cell(self, analyse_strategy, check_cell_idx):
-
         # +1 cuz we will insert a status inspection function as the first cell (with index 0)
         check_cell_idx += 1
         first_var_status, second_var_status = None, None
