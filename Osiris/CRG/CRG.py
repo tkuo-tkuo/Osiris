@@ -96,16 +96,6 @@ class CRG:
 
         self.producer_list += [producer_set]
         self.consumer_list  += [consumer_set]
-        #print('------v---------')
-        #for tmp in consumer_set:
-        #    if tmp not in producer_set:
-        #        print(tmp)
-        #print('----------------')
-        #print(producer_set)
-        #print('----------------')
-        #print(consumer_set)
-        #print('----------------')
-
     def build(self, code_list):
         self.N = len(code_list)
         mat = np.zeros((self.N, self.N))
