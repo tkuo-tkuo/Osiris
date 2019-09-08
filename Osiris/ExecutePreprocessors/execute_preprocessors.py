@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 from nbconvert.preprocessors import ExecutePreprocessor
 
-EXTRACT_FUNC_STR = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        #con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        con_4 = not ('<' in str(v) and '>' in str(v))\n        if con_1 and con_2 and con_4:\n            variables_set[k] = v\n    \n    return variables_set"
+EXTRACT_FUNC_STR = "def extractVars():\n    variables_set = {}\n    tmp = globals().copy()\n    for k, v in tmp.items():\n        con_1 = not k.startswith('_')\n        con_2 = not k in ['In', 'Out', 'get_ipython', 'exit', 'quit']\n        con_3 = type(v) in [int, complex, bool, float, str, list, set, dict, tuple]\n        con_4 = not('<' in str(v) and '>' in str(v) and 'at' in str(v))\n        if con_1 and con_2 and con_4:\n            variables_set[k] = v\n    \n    return variables_set"
 
 class OECPreprocessor(ExecutePreprocessor):
 

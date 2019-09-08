@@ -239,7 +239,6 @@ class Analysizer():
                     else:
                         match_ratio = num_of_matched_cells/num_of_cells
                     source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
-
                     print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
                       num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
                     print('Reproducibility'.ljust(40), ':', "matched ratio: {match_ratio} ; index of matched cells: {matched_cell_idx}".format(
@@ -259,11 +258,23 @@ class Analysizer():
 
         return results
 
+    def detect(self, cells):
+        whitelist = ['random', 'time', 'matplotlib', 'items()', 'keys()']
+
+        for cell in cells:
+            cell_statements = cell.source.split('\n')
+            for statement in cell_statements:
+                if any(substr in statement for substr in whitelist):
+                    print('find suspicious statements:', statement)
+
     def check_executability(self, verbose, analyse_strategy):
         self._nb = copy.deepcopy(self._deep_copy_nb)
         is_executable = False
         error = None
 
+        # this is simply for experimental purpose 
+        # self.detect(copy.deepcopy(self._deep_copy_nb.cells))
+        
         try:
             if analyse_strategy == 'normal':
                 self._set_ep_as_normal_mode()
@@ -277,7 +288,7 @@ class Analysizer():
             is_executable = True
         except Exception as e:
             error = e
-        
+
         print('Executability'.ljust(40), ':', is_executable)
         self._is_executable = is_executable
 
@@ -392,6 +403,9 @@ class Analysizer():
         else:
             match_ratio = num_of_matched_cells/num_of_cells
         source_code_of_unmatched_cells = extract_source_code_from_unmatched_cells(self._nb.cells, unmatched_cell_idx)
+        
+        if len(unmatched_cell_idx) > 0:
+            print('The first unmatched cell index:', unmatched_cell_idx[0])
 
         print('Reproducibility'.ljust(40), ':', "number of matched cells: {num_of_matched_cells} ; number of cells: {num_of_cells}".format(
             num_of_matched_cells=num_of_matched_cells, num_of_cells=num_of_cells))
@@ -480,6 +494,7 @@ class Analysizer():
         execution_order = None
         if analyse_strategy == 'dependency':
             execution_order = get_execution_order(self._nb_path)
+            print('Execution order:', execution_order)
 
         self._nb = copy.deepcopy(self._deep_copy_nb)
         self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
@@ -492,6 +507,7 @@ class Analysizer():
         self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
         if execution_order is not None:
             self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+
         try:
             self._execute_nb_for_inspecting_status_of_certain_line(-1)
             check_cell_outputs = self._nb.cells[check_cell_idx].outputs
@@ -503,6 +519,7 @@ class Analysizer():
         self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
         if execution_order is not None:
             self._set_execution_order_for_ep_status_inspection_mode(execution_order)
+
         try:
             self._execute_nb_for_inspecting_status_of_certain_line(-1)
             check_cell_outputs = self._nb.cells[check_cell_idx].outputs
@@ -527,6 +544,7 @@ class Analysizer():
             except Exception as e:
                 first_var_status = None
 
+
             self._nb = copy.deepcopy(self._deep_copy_nb)
             self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
             if execution_order is not None:
@@ -538,6 +556,12 @@ class Analysizer():
             except Exception as e:
                 second_var_status = None
             
+            if first_var_status is None:
+                first_var_status = {}
+            if second_var_status is None:
+                second_var_status = {}
+
+            print(i,self._nb.cells[check_cell_idx].source.split('\n')[i], first_var_status, second_var_status)
             if not (first_var_status == second_var_status):
                 self._nb = copy.deepcopy(self._deep_copy_nb)
                 self._set_ep_status_inspection_mode(analyse_strategy, check_cell_idx)
