@@ -133,38 +133,6 @@ example 6: analyze both reproducibility of a given notebook, using strong match 
 ```
 source ./runOsiris.sh target_notebook.ipynb OEC "-m strong -s -v"
 ```
-
-## Terminology
-
-- <b>Executable ratio</b><br/>
-  The executable ratio refers to the ratio that the number of executable notebooks divided by the number of notebooks. Notice an executable notebook indicates Osiris can execute every cell in ascending Execution Count order, in which we do not consider partially executable notebooks as executable. 
-
-- <b>OEC (Original Execution Count) Execution Strategy</b><br/>
-  Original Execution Count indicates the Execution Count number associated with each cell. If a user specifies the Execution Strategy to be 'OEC', Osiris will execute and analyze notebooks in ascending Execution Count order. Notice that Osiris will exclude cells without Execution Count into consideration. 
-  
-- <b>Dependency Execution Strategy</b><br/>
-  If a user specifies the Execution Strategy to be 'dependency', Osiris will execute the notebook according to the execution path given by Cell Dependency Graph. 
-  
-- <b>Reproducibility ratio</b><br/>
-  Reproducibility ratio indicates that for a given notebook, the number of cells among all cells which can generate identical results (outputs) via re-execution of Osiris. Reproducibility ratio refers to the capability that a given notebook can reproduce identical results in various machines. 
-  
-- <b>Strong Match Pattern</b><br/>
-  For measuring reproducibility ratio, if a user specifies Strong Match Pattern, Osiris will compare original output and output via re-execution for each cell. 
-  
-- <b>Weak Match Pattern</b><br/>
-  For measuring reproducibility ratio, if a user specifies Weak Match Pattern, Osiris will execute two times individually and compare their outputs for each cell. 
-  
-- <b>Best Effort Match Pattern</b><br/>
-  [term description, KUO] 
-  
-- <b>Self-reproducibilty ratio</b><br/>
-  For analyses, it would be beneficial for us to distinguish cells, which will have an identical effect on re-execution no matters how many times a particular cell is re-executed. It implies that all status (values) of self-defined variables will remain identical if we re-execute a particular cell more than once. 
-  
-- <b>What is debug in Osiris actually doing?</b><br/>
-  For analyses, it would be beneficial for us to highlight suspicious statement which may cause the status difference of self-defined variables in a particular cell. If a user activates debug functionality, Osiris will inspect status line by line and locate suspicious statement for users. 
-  
-- <b>Cell Dependency Graph (CRG)</b><br/>
-The cell dependency graph depicts relations between different cells. Cell c1 is dependent on cell c2 if there exists at least one variable/object/function call, imported module usages appears in cell1 however defined, declared, reassigned, imported in cell 2. 
   
 ## Implementation Details 
 
