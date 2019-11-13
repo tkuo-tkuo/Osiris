@@ -6,10 +6,10 @@ Below examples demonstrate the usage of our debugging module, where source code 
 
 ### Example 1
 
-Notebook Information
-GitHub Account: FHainzl
-GitHub repository: SD-TSIA211
-Notebook: TP2/TP2.ipynb
+Notebook Information <br/>
+GitHub Account: FHainzl <br/>
+GitHub repository: SD-TSIA211 <br/>
+Notebook: TP2/TP2.ipynb <br/>
 
 ```
 cell index: 11
@@ -23,10 +23,10 @@ Part of source code (cell of which suspicious statement is detected):
 
 ### Example 2
 
-Notebook Information
-GitHub Account: nakanodaiki
-GitHub repository: probrobo2017
-Notebook: probrob.ipynb
+Notebook Information <br/>
+GitHub Account: nakanodaiki <br/>
+GitHub repository: probrobo2017 <br/>
+Notebook: probrob.ipynb <br/>
 
 ```
 cell index: 7
@@ -40,10 +40,10 @@ Part of source code (cell of which suspicious statement is detected):
 
  ### Example 3
 
-Notebook Information
-GitHub Account: bwdGitHub
-GitHub repository: Black-Scholes
-Notebook: Black-Scholes.ipynb
+Notebook Information <br/>
+GitHub Account: bwdGitHub <br/>
+GitHub repository: Black-Scholes <br/>
+Notebook: Black-Scholes.ipynb <br/>
 
 ```
 cell index: 1
