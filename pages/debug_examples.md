@@ -7,8 +7,7 @@ Below examples demonstrate the usage of our debugging module, where source code 
 ### Example 1
 
 Notebook Information <br/>
-GitHub Account: FHainzl <br/>
-GitHub repository: SD-TSIA211 <br/>
+GitHub source: FHainzl/SD-TSIA211 <br/>
 Notebook: TP2/TP2.ipynb <br/>
 
 ```
@@ -24,8 +23,7 @@ Part of source code (cell of which suspicious statement is detected):
 ### Example 2
 
 Notebook Information <br/>
-GitHub Account: nakanodaiki <br/>
-GitHub repository: probrobo2017 <br/>
+GitHub source: nakanodaiki/probrobo2017 <br/>
 Notebook: probrob.ipynb <br/>
 
 ```
@@ -41,8 +39,7 @@ Part of source code (cell of which suspicious statement is detected):
  ### Example 3
 
 Notebook Information <br/>
-GitHub Account: bwdGitHub <br/>
-GitHub repository: Black-Scholes <br/>
+GitHub source: bwdGitHub/Black-Scholes <br/>
 Notebook: Black-Scholes.ipynb <br/>
 
 ```
