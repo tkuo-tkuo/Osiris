@@ -1,14 +1,13 @@
 # Debugging module
 
-As stated in the Section 5.4, OSIRIS the targeted failure debugging module of Osiris aims to locate the suspicious statements (which is likely to induce non-reproducibility). Currently, it will return the line index of the first found suspicious statement.  
+The targeted failure debugging module of Osiris aims to locate the suspicious statements. Currently, it will return the line number of the firstly found suspicious statement.  
 
 Below examples demonstrate the usage of our debugging module, where source code of notebooks are also provided.   
 
 ### Example 1
 
 Notebook Information <br/>
-GitHub Account: FHainzl <br/>
-GitHub repository: SD-TSIA211 <br/>
+GitHub source: FHainzl/SD-TSIA211 <br/>
 Notebook: TP2/TP2.ipynb <br/>
 
 ```
@@ -24,8 +23,7 @@ Part of source code (cell of which suspicious statement is detected):
 ### Example 2
 
 Notebook Information <br/>
-GitHub Account: nakanodaiki <br/>
-GitHub repository: probrobo2017 <br/>
+GitHub source: nakanodaiki/probrobo2017 <br/>
 Notebook: probrob.ipynb <br/>
 
 ```
@@ -41,8 +39,7 @@ Part of source code (cell of which suspicious statement is detected):
  ### Example 3
 
 Notebook Information <br/>
-GitHub Account: bwdGitHub <br/>
-GitHub repository: Black-Scholes <br/>
+GitHub source: bwdGitHub/Black-Scholes <br/>
 Notebook: Black-Scholes.ipynb <br/>
 
 ```
