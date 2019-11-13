@@ -6,7 +6,10 @@ Below examples demonstrate the usage of our debugging module, where source code 
 
 ### Example 1
 
-Notebook link: https://github.com/FHainzl/SD-TSIA211/blob/master/TP2/TP2.ipynb
+Notebook Information
+GitHub Account: FHainzl
+GitHub repository: SD-TSIA211
+Notebook: TP2/TP2.ipynb
 
 ```
 cell index: 11
@@ -20,7 +23,11 @@ Part of source code (cell of which suspicious statement is detected):
 
 ### Example 2
 
-Notebook link: https://github.com/nakanodaiki/probrobo2017/blob/master/probrob.ipynb
+Notebook Information
+GitHub Account: nakanodaiki
+GitHub repository: probrobo2017
+Notebook: probrob.ipynb
+
 ```
 cell index: 7
 Execution order: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -33,16 +40,19 @@ Part of source code (cell of which suspicious statement is detected):
 
  ### Example 3
 
-Notebook link: https://github.com/mat-esp-2015/python-intro-2-joao_leticia_dyellen/blob/master/jupyter-notebook-tour.ipynb
+Notebook Information
+GitHub Account: bwdGitHub
+GitHub repository: Black-Scholes
+Notebook: Black-Scholes.ipynb
 
 ```
-cell index: 4
-Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-The potential statement for causing status difference is line 1
--------------->  random.shuffle(lista)
+cell index: 1
+Execution order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+The potential statement for causing status difference is line 14
+-------------->  W = brownian_motion(1, plot=True)
 ```
 
 Part of source code (cell of which suspicious statement is detected):
- <img src="p1.png" align="center" border="0" width="800" height="80"/>  
+ <img src="p4.png" align="center" border="0" width="800" height="260"/>  
 
 
