@@ -1,0 +1,35 @@
+/mnt/fit-Knowledgezoo/Github_repos_download/data/JonComo@puck/puck.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/MarlabsKochi@ml-blog/nbayes.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kimitoboku@learn_note/Bayesian_Methdos_for_Hackers/chap01.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/devender@us-shootings/fatalities.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/TarunSunkaraneni@Clustering/notebooks/Single-Link.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mjrenfro@tensorflow-exercises/TFRecords Guide.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/cmg-dev@dice_statistsics/3d6 Calandra Feat VS. 4d6.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ryuhonllc@mls2/visualization/matplotlib.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/truzmeto@EM_GaussianMixture/LogReg_demo.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/emilyhorsman@machine-learning/Neural Network.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/VeerpalBrar@ML-Algorithms-from-Scratch/Neural Network/Neural Network from Scratch.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/PramodShenoy@Python-For-Data-Science-Bootcamp/Data Visualisation/Matplotlib Exercises - Solutions.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/dylancsumner@nbviewer-bokeh-test/nbviewer_test.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Morikko@developer-cheat-sheets/Python/Python_Seaborn_ShowRoom.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/mat-esp-2015@capstone-adelia-daniela-daniel/capstone.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/wollip@kalmanFilter/linearChange.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ariovistus@tank2drive/driveprofile1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/etallen127@Navie-Bayes-Spam-Filter/Naive Bayes.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/ibusko@experiments_specviz/absorption_line.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tbelaire@shadowrun_jupyter_notebooks/Damage worksheet.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/MxMstrmn@Programmier-Projekte/Jupyter/Perzeptron.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/qingkaikong@20171206_ML_basics_THW/notebooks/03_regression.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tbs1980@research-covariance-matrix-estimation/notes/univariate_gaussian/jupyter/2017_09_10_univariate_gaussian.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/choldgraf@live_sync/mydemo.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/jarfo@speech-technologies/gradient.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Raymond-Luong@Pyber/Pyber.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/avikulin@LearnPython/Calculus.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/coryang@Mis-tests/simulation1.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/hasslercastro@IA/K-Means.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/pyastropd@2018-03-20/2. Plotting in Pandas.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/charparr@snow-webmap/Snow Valuation.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/FFF-Fox@ai/SupervisedLearning/MLP Experiments.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/bachsh@hydrodynamic/hydrodynamic-examples.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kitchenknif@1d-fdfd/Task1_PEC-PMC_Eigenmodes.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/rfsantacruz@ml-nb/NonparametricDensityEstimation.ipynb

@@ -1,0 +1,18 @@
+/mnt/fit-Knowledgezoo/Github_repos_download/data/lookout0709@eney-movie/jupyter/eyny_try01.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/andrewm4894@post_html_featurizer/post_html_featurizer.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/dsar@ADA16_HW/00 - Optional homework/Intro to IPython Notebooks.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/oreillymedia@essential-sqlalchemy-2e/ch03.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/kishoresmeda@datascience/Pandas operations.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/slavo7@python_100_exercises/70_test.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/FedericoV@Journal_Club_Adaboost/JC_Notebook.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/antoinexp@pyregexpgen/test.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/nfmcclure@DataScience350/PythonStuff/WebScraping/Webscrape_Obama_Speeches.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/cwaldbieser@notebooks/timeseries/experimental_timeseries.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/surabhi1407@Statistics_python/Multivariate regration.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/PyLadiesTokyo@data_analysis/01_Introduction_to_Jupyter_Notebook.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/MarkLerro@oscarpants/module9lab.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/atooke@nfl_arrests_analysis/Untitled.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Isaac1989@tutorials/DATA VISUALIZATION.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/Novobura@2016-Election-Analysis/2017 French Presidential Elections.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/sophiewarnes@NICAR18/2. Scraping a real site.ipynb
+/mnt/fit-Knowledgezoo/Github_repos_download/data/tplusd@taste-of-wine/taste+of+wine+++++fwd+step+wise+linear+regression.ipynb
