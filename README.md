@@ -1,5 +1,7 @@
 # Osiris
 
+**Devlopment repository of Jiawei Wang, Tzu-yang Kuo, Li Li, Andreas Zeller, Assessing and Restoring Reproducibility of Jupyter Notebooks, The 35th IEEE/ACM International Conference on Automated Software Engineering (ASE 2020), 2020**
+
 Osiris is a tool for programmers to analyze Jupyter Notebook files before releasement. We discovered that plentiful Jupyter Notebook files pushed on GitHub cannot reproduce anticipated outputs. Alternatively, even worse, some Jupyter Notebook files can even not be executed on different end devices.
 
 Osiris aims to eliminate this problem. One can leverage Osiris to analyze their Jupyter Notebook files before releasement to the public, which can conclude potential reasons for causing non-reproducibility. By the assistance of Osiris, programmers can properly refine their Jupyter Notebook files and enhance reproducibility of Jupyter Notebook files. 
@@ -24,16 +26,6 @@ Before the usage of Osiris, to cope with various python version and package requ
 cd envs 
 source ./setup.sh
 ```
-
-Press yes during Conda environments installation if any. 
-After executing setup.sh, Conda environments with 'Osiris_' prefix should be installed.
-Execute the following command for verification. 
-
-```
-conda env list
-```
-
-display an image as a little demonstration 
 
 ### Running unit tests for Osiris 
 
@@ -138,18 +130,12 @@ source ./runOsiris.sh target_notebook.ipynb OEC "-m strong -s -v"
 
 - Before any re-execution and analyze, Osiris will preprocess the given Jupyter Notebook file, removing all markdown cells/raw cells/cells without Execution Count. 
 
-## Collaborators
+## Side Questions 
 
-* **Tzu-Yang, Kuo**
-* **Li Li**
-* **Jaiwei Wang**
-* **Andreas Zeller**
-
-## Acknowledgments
-
-* Why it's called Osiris? <br/>
+**Why it's called Osiris? <br/>**
 Osiris is the god of the afterlife, the underworld, and rebirth in ancient Egyptian religion. Our tool aims to enable Jupyter Notebook files to be executable, more reproducible, giving these files rebirth on different machines. That is the inspiration why I would like to name our tool as Jupyter Osiris. 
 
-## Reference 
+## (Unofficial) Reference 
 
-João Felipe Pimentel, Leonardo Murta, Vanessa Braganholo, and Juliana Freire. 1219 2019. A large-scale study about quality and reproducibility of jupyter notebooks. 1220 In Proceedings of the 16th International Conference on Mining Software Repositories. IEEE Press, 507–517.
+João Felipe Pimentel, Leonardo Murta, Vanessa Braganholo, and Juliana Freire <br/> 
+A large-scale study about quality and reproducibility of jupyter notebooks in Proceedings of the 16th International Conference on Mining Software Repositories
